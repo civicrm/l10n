@@ -21,7 +21,7 @@ components=`ls -1 $root/CRM $root/templates/CRM | grep -v :$ | grep -v ^$ | grep
 # build the three XML-originating files
 echo ' * building civcrm-menu.pot'
 cp $header $potdir/civicrm-menu.pot
-grep -h '<title>' $root/CRM/*/xml/Menu/*.xml | cut -b13- | cut -d'<' -f1 | sort | uniq | tail --lines=+2 | while read entry; do echo -e "msgctxt \"menu\"\nmsgid \"$entry\"\nmsgstr \"\"\n"; done >> $potdir/civicrm-menu.pot
+grep -h '<title>' $root/CRM/*/xml/Menu/*.xml | sed 's/^.*<title>\([^<]*\)<\/title>.*$/\1/' | sort | uniq | tail --lines=+2 | while read entry; do echo -e "msgctxt \"menu\"\nmsgid \"$entry\"\nmsgstr \"\"\n"; done >> $potdir/civicrm-menu.pot
 echo ' * building countries.pot'
 cp $header $potdir/countries.pot
 grep ^INSERT $root/xml/templates/civicrm_country.tpl     | cut -d\" -f4                                  | while read entry; do echo -e "msgctxt \"country\"\nmsgid \"$entry\"\nmsgstr \"\"\n"; done >> $potdir/countries.pot
