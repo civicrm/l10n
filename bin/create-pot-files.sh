@@ -37,6 +37,7 @@ msguniq $potdir/provinces.pot | sponge $potdir/provinces.pot
 echo ' * building civicrm-base.pot'
 cp $header $potdir/civicrm-base.pot
 `dirname $0`/extractor.php base $root >> $potdir/civicrm-base.pot
+msgattrib --no-wrap $potdir/civicrm-base.pot | sponge $potdir/civicrm-base.pot
 
 # create component POT files
 for comp in $components; do
@@ -56,13 +57,13 @@ for comp in $components; do
   paths="$paths $potdir/civicrm-$comp.pot"
 done
 echo ' * building civicrm-components.pot'
-msgcomm $paths > $potdir/civicrm-components.pot
+msgcomm --no-wrap $paths > $potdir/civicrm-components.pot
 
 # drop strings in civicrm-components.pot from component POT files
 for comp in $components; do
   common=`tempfile`
   msgcomm $potdir/civicrm-$comp.pot $potdir/civicrm-components.pot > $common
-  msgcomm -u $potdir/civicrm-$comp.pot $common | sponge $potdir/civicrm-$comp.pot
+  msgcomm -u --no-wrap $potdir/civicrm-$comp.pot $common | sponge $potdir/civicrm-$comp.pot
   rm $common
 done
 
