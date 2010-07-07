@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM 3.2\n"
-"POT-Creation-Date: 2010-06-29 18:01+0200\n"
+"POT-Creation-Date: 2010-07-07 07:27+0200\n"
 "PO-Revision-Date: 2010-03-04 07:06-0700\n"
 "Last-Translator: Göran Stolt <goran.stolt@redcloud.se>\n"
 "Language-Team: CiviCRM Translators <civicrm-translators@lists.civicrm.org>\n"
@@ -1736,6 +1736,7 @@ msgstr "Kontaktreferens"
 #: CRM/Core/BAO/CustomQuery.php CRM/Core/Form.php CRM/Custom/Form/Field.php
 #: templates/CRM/ACL/Page/ACL.tpl templates/CRM/ACL/Page/EntityRole.tpl
 #: templates/CRM/common/enableDisable.tpl
+#: templates/CRM/Contact/Form/Relationship.tpl
 #: templates/CRM/Custom/Page/CustomDataView.tpl
 #: templates/CRM/Custom/Page/Field.tpl templates/CRM/Custom/Page/Group.tpl
 #: templates/CRM/Custom/Page/Option.tpl templates/CRM/Price/Page/Field.tpl
@@ -2836,6 +2837,11 @@ msgstr ""
 #: CRM/Contact/BAO/Contact.php
 msgid "Add Case"
 msgstr ""
+
+#: CRM/Contact/BAO/Contact.php
+#, fuzzy
+msgid "Add Grant"
+msgstr "Lägg till föräldrer"
 
 #: CRM/Contact/BAO/Contact.php
 #: templates/CRM/Contact/Page/View/Relationship.tpl
@@ -4859,7 +4865,12 @@ msgid "We can't load the requested web page. This page requires cookies to be en
 msgstr ""
 
 #: CRM/Core/Controller.php
-msgid "Error type: Could not find a valid key."
+msgid "Site Administrators: This error may indicate that users are accessing this page using a domain or URL other than the configured Base URL. EXAMPLE: Base URL is http://example.org, but some users are accessing the page via http://www.example.org or a domain alias like http://myotherexample.org."
+msgstr ""
+
+#: CRM/Core/Controller.php
+#, fuzzy
+msgid "Error type: Could not find a valid session key."
 msgstr "Feltyp: Kunde inte hitta en giltig nyckel."
 
 #: CRM/Core/DAO/Address.php
@@ -7193,17 +7204,22 @@ msgstr ""
 
 #: CRM/Export/Form/Select.php
 #, fuzzy
-msgid "Merge Same Address"
-msgstr "Gatuadress"
+msgid "Merge Contacts with the Same Address"
+msgstr "Sammanfoga etiketter för kontakter med samma adress"
 
 #: CRM/Export/Form/Select.php
 #, fuzzy
-msgid "Merge Same Household Address"
-msgstr "Hushållets namn"
+msgid "Merge Household Members into their Households"
+msgstr "Lägg till medlemmar i hushåll"
 
 #: CRM/Export/Form/Select.php
 msgid "Export Type"
 msgstr ""
+
+#: CRM/Export/Form/Select.php
+#, fuzzy
+msgid "Merge Same Address"
+msgstr "Gatuadress"
 
 #: CRM/Export/Form/Select.php
 #, fuzzy
@@ -8448,6 +8464,10 @@ msgstr "Uppgraderingen av CiviCRM lyckades."
 
 #: CRM/Upgrade/Page/Upgrade.php
 msgid "We have reset the COUNTED flag to false for the event participant status 'Pending from incomplete transaction'. This change ensures that people who have a problem during registration can try again."
+msgstr ""
+
+#: CRM/Upgrade/Page/Upgrade.php
+msgid "You need to move these subtype templates to the SubType directory in CRM/Contact/Form/Edit/ and CRM/Contact/Page/View respectively."
 msgstr ""
 
 #: CRM/Upgrade/Page/Upgrade.php
@@ -10049,6 +10069,11 @@ msgid "Enter optional 'add-on' code after the dash ('plus 4' code for U.S. addre
 msgstr ""
 
 #: templates/CRM/Contact/Form/Relationship.tpl
+#, fuzzy
+msgid "Current Employee?"
+msgstr "Nuvarande arbetsgivare"
+
+#: templates/CRM/Contact/Form/Relationship.tpl
 msgid "Start Date:"
 msgstr ""
 
@@ -10067,11 +10092,6 @@ msgstr ""
 #: templates/CRM/Contact/Form/Relationship.tpl
 msgid "Select the relationship type. Then locate target contact(s) for this relationship by entering a complete or partial name and clicking 'Search'."
 msgstr ""
-
-#: templates/CRM/Contact/Form/Relationship.tpl
-#, fuzzy
-msgid "Current Employee?"
-msgstr "Nuvarande arbetsgivare"
 
 #: templates/CRM/Contact/Form/Relationship.tpl
 #, fuzzy
@@ -10129,17 +10149,18 @@ msgstr ""
 
 #: templates/CRM/Contact/Form/Relationship.tpl
 #, fuzzy
-msgid "Selected contact(s)"
-msgstr "Radera kontakter"
-
-#: templates/CRM/Contact/Form/Relationship.tpl
-msgid "can view and update information for"
-msgstr ""
+msgid "can view and update information for selected contact(s)"
+msgstr "Tillåtelse för kontakt A att se och uppdatera information för kontakt B"
 
 #: templates/CRM/Contact/Form/Relationship.tpl
 #, fuzzy
-msgid "selected contact(s)"
-msgstr "Radera kontakter"
+msgid "can view and update information for "
+msgstr "Tillåtelse för kontakt A att se och uppdatera information för kontakt B"
+
+#: templates/CRM/Contact/Form/Relationship.tpl
+#, fuzzy
+msgid "Selected contact(s)</strong> can view and update information for "
+msgstr "Tillåtelse för kontakt A att se och uppdatera information för kontakt B"
 
 #: templates/CRM/Contact/Form/Relationship.tpl
 #, fuzzy
@@ -11529,6 +11550,24 @@ msgstr ""
 msgid "If you want to use the same export setup in the future, check 'Save this field mapping' at the bottom of the page before continuing. You will then be able to reload this setup with a single click."
 msgstr ""
 
+#: templates/CRM/Export/Form/Select.hlp
+msgid ""
+"Use one of the merge contact options when exporting records to reduce your mailing size by sending a single piece of mail to each\n"
+"address."
+msgstr ""
+
+#: templates/CRM/Export/Form/Select.hlp
+msgid ""
+"Merge Contacts with the Same Address will combine any records having the same address (street address, city, postal code, country) into\n"
+"a single record. If a household record already exists in which multiple individuals share an address, the household will be exported as\n"
+"the combined record. If no household record exists, the records will be combined and the Addressee field will list the contact names,\n"
+"comma-separated."
+msgstr ""
+
+#: templates/CRM/Export/Form/Select.hlp
+msgid "Merge Household Members into their Households will export the household record for any contacts sharing a household address."
+msgstr ""
+
 #: templates/CRM/Export/Form/Select.tpl
 msgid "<strong>Export PRIMARY fields</strong> provides the most commonly used data values. This includes primary address information, preferred phone and email."
 msgstr ""
@@ -11542,6 +11581,11 @@ msgid "One record selected for export."
 msgid_plural "%count records selected for export."
 msgstr[0] ""
 msgstr[1] ""
+
+#: templates/CRM/Export/Form/Select.tpl
+#, fuzzy
+msgid "Merge Options"
+msgstr "Välj kön"
 
 #: templates/CRM/Export/Form/table.tpl
 msgid "Using Field Mapping: %1"
