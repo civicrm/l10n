@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM 3.2\n"
-"POT-Creation-Date: 2010-07-07 07:27+0200\n"
+"POT-Creation-Date: 2010-07-26 13:34+0200\n"
 "PO-Revision-Date: 2009-11-05 12:46-0700\n"
 "Last-Translator: Markus Mälkönen <mrl586@gmail.com>\n"
 "Language-Team: CiviCRM Translators <civicrm-translators@lists.civicrm.org>\n"
@@ -835,11 +835,13 @@ msgid "Merge"
 msgstr "Viesti"
 
 #: CRM/Contact/BAO/ProximityQuery.php
+#: CRM/Contact/Form/Search/Custom/Proximity.php
 #: CRM/Contact/Form/Task/ProximityCommon.php
 msgid "miles"
 msgstr ""
 
 #: CRM/Contact/BAO/ProximityQuery.php
+#: CRM/Contact/Form/Search/Custom/Proximity.php
 #: CRM/Contact/Form/Task/ProximityCommon.php
 msgid "km"
 msgstr "km"
@@ -1532,6 +1534,11 @@ msgstr "Postinumero"
 #, fuzzy
 msgid "Distance"
 msgstr "Poista käytöstä"
+
+#: CRM/Contact/Form/Search/Custom/Proximity.php
+#: CRM/Contact/Form/Task/ProximityCommon.php
+msgid "Units"
+msgstr ""
 
 #: CRM/Contact/Form/Search/Custom/TagContributions.php
 #: CRM/Core/DAO/Currency.php
@@ -3252,6 +3259,10 @@ msgstr "Yksi sopiva yhteystieto löytyi."
 msgid "Complete street address(es) have been saved. However we were unable to split the address in the %1 address block(s) into address elements (street number, street name, street unit) due to an unrecognized address format. You can set the address elements manually by clicking 'Edit Address Elements' next to the Street Address field while in edit mode."
 msgstr ""
 
+#: CRM/Contact/Form/Contact.php
+msgid "%1 Current membership(s) for this contact have been set to 'Deceased' status."
+msgstr ""
+
 #: CRM/Contact/Form/Domain.php
 msgid "Domain Information"
 msgstr "Domain tieto"
@@ -3986,10 +3997,6 @@ msgstr ""
 msgid "Could not geocode input"
 msgstr ""
 
-#: CRM/Contact/Form/Search/Custom/Proximity.php
-msgid "Radius for Proximity Search (in km)"
-msgstr ""
-
 #: CRM/Contact/Form/Search/Custom/RandomSegment.php
 #, fuzzy
 msgid "Segment Size"
@@ -4301,10 +4308,6 @@ msgstr "CiviCRM Lahjoitukset"
 #: CRM/Contact/Form/Task/Print.php
 msgid "Print Contact List"
 msgstr "Tulosta yhteyslista"
-
-#: CRM/Contact/Form/Task/ProximityCommon.php
-msgid "Units"
-msgstr ""
 
 #: CRM/Contact/Form/Task/ProximityCommon.php
 msgid "Country AND State/Province are required to search by distance."
@@ -8830,6 +8833,10 @@ msgid "You need to move these subtype templates to the SubType directory in CRM/
 msgstr ""
 
 #: CRM/Upgrade/Page/Upgrade.php
+msgid "One or more Membership Status Rules was disabled during the upgrade because it did not match a recognized status name. if custom membership status rules were added to this site - review the disabled statuses and re-enable any that are still needed (Administer > CiviMember > Membership Status Rules)."
+msgstr ""
+
+#: CRM/Upgrade/Page/Upgrade.php
 msgid "Upgrade CiviCRM from v %1 To v %2"
 msgstr "Päivitä CiviCRM versiosta %1 versioon %2"
 
@@ -9498,11 +9505,13 @@ msgstr "varmista että sinulla on tarvittavat käyttöoikeudet"
 
 #: templates/CRM/Activity/Form/Search.tpl
 #: templates/CRM/Contact/Form/Search/Advanced.tpl
+#: templates/CRM/Contact/Form/Search/BasicCriteria.tpl
 #: templates/CRM/Contact/Form/Search/Builder.tpl
 #: templates/CRM/Contact/Form/Search/Custom/ActivitySearch.tpl
 #: templates/CRM/Contact/Form/Search/Custom/ContribSYBNT.tpl
 #: templates/CRM/Contact/Form/Search/Custom/EventDetails.tpl
 #: templates/CRM/Contact/Form/Search/Custom/MultipleValues.tpl
+#: templates/CRM/Contact/Form/Search/Custom/Proximity.tpl
 #: templates/CRM/Contact/Form/Search/Custom.tpl
 #: templates/CRM/Profile/Form/Search.tpl
 msgid "Edit Search Criteria"
@@ -10640,6 +10649,14 @@ msgstr "Valitse <a href=\"%1\">Muokkaa älykkään ryhmän hakukriteereitä...</
 msgid "Use this Search form to find contacts. Mark the contacts you want to add to this group. Then click 'Add Contacts to %1'."
 msgstr ""
 
+#: templates/CRM/Contact/Form/Search/Basic.hlp
+msgid "Click this button if you want to view and or modify the search criteria used to define the members of this smart group."
+msgstr ""
+
+#: templates/CRM/Contact/Form/Search/Basic.hlp
+msgid "You can also add contacts to a smart group directly - regardless of whether they meet the smart group search criteria. For example, you might have a smart group for constituents who live in a certain locality, AND might have a few constituents who want to stay informed about events in that locality even though they no longer live there. Click this button to add contacts directly to this smart group."
+msgstr ""
+
 #: templates/CRM/Contact/Form/Search/Builder.hlp
 msgid "IMPORTANT: Search Builder requires you to use specific formats for your search values. Review the %1 before building your first search..."
 msgstr ""
@@ -10689,11 +10706,22 @@ msgstr "Täydelleinen tai osoittainen yhteyden nimi tai sähköpostiosoite."
 #: templates/CRM/Contact/Form/Search/Custom/ContribSYBNT.tpl
 #: templates/CRM/Contact/Form/Search/Custom/EventDetails.tpl
 #: templates/CRM/Contact/Form/Search/Custom/MultipleValues.tpl
+#: templates/CRM/Contact/Form/Search/Custom/Proximity.tpl
 #: templates/CRM/Contact/Form/Search/Custom.tpl
 #: templates/CRM/Contact/Form/Selector.tpl
 #, fuzzy
 msgid "Search results listings."
 msgstr "Hakutulokset"
+
+#: templates/CRM/Contact/Form/Search/Custom/ActivitySearch.tpl
+#, fuzzy
+msgid "View activity details"
+msgstr "Näytä yhteyden yksityiskohdat"
+
+#: templates/CRM/Contact/Form/Search/Custom/ActivitySearch.tpl
+#, fuzzy
+msgid "(no subject)"
+msgstr "Aihe"
 
 #: templates/CRM/Contact/Form/Search/Custom/ContribSYBNT.tpl
 #: templates/CRM/Contact/Form/Search/Custom/EventDetails.tpl
@@ -11491,6 +11519,10 @@ msgid "Edit Tags"
 msgstr ""
 
 #: templates/CRM/Contact/Page/View/Summary.tpl
+msgid "User ID"
+msgstr "Käyttäjän ID"
+
+#: templates/CRM/Contact/Page/View/Summary.tpl
 #, fuzzy
 msgid "Privacy flag: Do Not Email"
 msgstr "Älä soita"
@@ -11755,7 +11787,6 @@ msgstr ""
 
 #: templates/CRM/Custom/Form/Optionfields.tpl
 #: templates/CRM/Price/Form/Field.tpl
-#: templates/CRM/Price/Form/OptionFields.tpl
 msgid "Multiple Choice Options"
 msgstr ""
 
@@ -12543,12 +12574,13 @@ msgid "Select the html type used to offer options for this field"
 msgstr ""
 
 #: templates/CRM/Price/Form/Field.tpl
-msgid "Enter a value here if you want to increment the number of registered participants per unit against the maximum number of participants allowed for this event. For example, if this price field is for a table at a fundraiser which seats eight people, you would set Participant Count to 8."
+msgid "Enter a value here if you want to increment the number of registered participants per unit against the maximum number of participants allowed for this event."
 msgstr ""
 
 #: templates/CRM/Price/Form/Field.tpl
-msgid "Unit price"
-msgstr ""
+#, fuzzy
+msgid "Unit price."
+msgstr "Profiili"
 
 #: templates/CRM/Price/Form/Field.tpl
 msgid "Display amount next to each option? If no, then the amount should be in the option description."
@@ -12564,7 +12596,11 @@ msgid "Date this field expires (optional)"
 msgstr "Päivitä kentän määrittely"
 
 #: templates/CRM/Price/Form/OptionFields.tpl
-msgid "Enter up to ten (10) multiple choice options in this table (click 'another choice' for each additional choice). If you need more than ten options, you can create an unlimited number of additional choices using the Edit Multiple Choice Options link after saving this new field. The option 'label' is displayed on the form, while the option 'value' is stored in the contact record. The label and value may be the same or different. Inactive options are hidden when the field is presented."
+msgid "Price Field Options"
+msgstr "Hintakentän vaihtoehdot"
+
+#: templates/CRM/Price/Form/OptionFields.tpl
+msgid "Enter up to ten (10) multiple choice options in this table (click 'another choice' for each additional choice). If you need more than ten options, you can create an unlimited number of additional choices using the Edit Price Options link after saving this new field. Enter a description of the option in the 'Label' column, and the associated price in the 'Amount' column. Click the 'Default' radio button to the left of an option if you want that to be selected by default."
 msgstr ""
 
 #: templates/CRM/Price/Form/Option.tpl
@@ -12606,6 +12642,14 @@ msgstr ""
 
 #: templates/CRM/Price/Page/Field.hlp
 msgid "You may enter a negative amount value if the field or option is being used to discount the total event price."
+msgstr ""
+
+#: templates/CRM/Price/Page/Field.hlp
+msgid "Enter a value here if you want to increment the number of registered participants per unit against the maximum number of participants allowed for this event. For example, if this price field is for a table at a fundraiser which seats eight people, you would set Participant Count to 8."
+msgstr ""
+
+#: templates/CRM/Price/Page/Field.hlp
+msgid "Fields with 'Public' visibility will be displayed on your Event Information page AND will be available in the online registration (self-service) form. For some events you may want to allow staff to select special options with special pricing and / or discounts (using negative price set field values). Select 'Admin' visibility for these Price Fields. They will only be included when staff or volunteers are registering participants from the back-office 'Register Event Participants' screen."
 msgstr ""
 
 #: templates/CRM/Price/Page/Field.tpl
@@ -12958,7 +13002,11 @@ msgid "If you are using this profile as a search form, you can choose to include
 msgstr ""
 
 #: templates/CRM/UF/Form/Group.hlp
-msgid "Set proximity search required is you want all searches using this profile to require the user to enter a start address and a radius."
+msgid "Set Proximity Search as required if you want all searches using this profile to require the user to enter a start address and a radius."
+msgstr ""
+
+#: templates/CRM/UF/Form/Group.hlp
+msgid "IMPORTANT: You must enable a Mapping Provider in order to use the Proximity Search feature (Administer > Configure > Global Settings > Mapping and Geocoding)."
 msgstr ""
 
 #: templates/CRM/UF/Form/Group.tpl
