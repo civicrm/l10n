@@ -37,6 +37,7 @@ msguniq $potdir/provinces.pot | sponge $potdir/provinces.pot
 echo ' * building civicrm-base.pot'
 cp $header $potdir/civicrm-base.pot
 `dirname $0`/extractor.php base $root >> $potdir/civicrm-base.pot
+msguniq $potdir/civicrm-base.pot | sponge $potdir/civicrm-base.pot
 msgattrib --no-wrap $potdir/civicrm-base.pot | sponge $potdir/civicrm-base.pot
 
 # create component POT files
