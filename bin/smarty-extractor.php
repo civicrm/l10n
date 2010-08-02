@@ -1,5 +1,8 @@
 #!/usr/bin/php
 <?php
+
+error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+
 /**
  * smarty-extractor.php - rips gettext strings from Smarty {ts} calls
  *

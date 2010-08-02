@@ -1,6 +1,8 @@
 #!/usr/bin/php
 <?php
 
+error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+
 /*
  +--------------------------------------------------------------------+
  | CiviCRM version 2.2                                                |
