@@ -37,3 +37,5 @@ for lang in $langs; do
 done
 
 rm -r $dir
+
+find po -name *~ -exec rm {} \;
