@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM 3.2\n"
-"POT-Creation-Date: 2010-08-16 11:54+0200\n"
+"POT-Creation-Date: 2010-08-23 12:24+0200\n"
 "PO-Revision-Date: 2010-04-07 06:36-0700\n"
 "Last-Translator: Witold Rybotycki <w.rybotycki@fundacjakairos.org>\n"
 "Language-Team: CiviCRM Translators <civicrm-translators@lists.civicrm.org>\n"
@@ -142,6 +142,8 @@ msgstr "CiviPledge"
 #: templates/CRM/Event/Form/Registration/Confirm.tpl
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
 #: templates/CRM/Event/Form/Search/Common.tpl
+#: CRM/Report/Form/Event/IncomeCountSummary.php
+#: CRM/Report/Form/Event/ParticipantListCount.php
 #: CRM/Report/Form/Event/ParticipantListing.php
 msgid "Participant Role"
 msgstr "Rola uczestnika"
@@ -179,6 +181,14 @@ msgstr "Wypisania"
 #: CRM/Event/Form/Task/ParticipantStatus.php
 msgid "Pending from approval"
 msgstr ""
+
+#: CRM/Campaign/DAO/CampaignGroup.php CRM/Mailing/DAO/Group.php
+msgid "Include"
+msgstr "Dołącz"
+
+#: CRM/Campaign/DAO/CampaignGroup.php CRM/Mailing/DAO/Group.php
+msgid "Exclude"
+msgstr "Wyklucz"
 
 #: CRM/Case/BAO/Query.php CRM/Case/DAO/Case.php
 #: CRM/Case/Form/Activity/ChangeCaseStatus.php
@@ -726,28 +736,41 @@ msgid "Created"
 msgstr "Stwórz"
 
 #: CRM/Event/DAO/Event.php CRM/Event/Form/ManageEvent/EventInfo.php
+#: CRM/Report/Form/Event/IncomeCountSummary.php
 #: CRM/Report/Form/Event/Income.php CRM/Report/Form/Event/Summary.php
 msgid "Event Title"
 msgstr "Tytuł zdarzenia"
 
 #: CRM/Event/DAO/Event.php CRM/Event/Form/ManageEvent/Fee.php
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
+#: CRM/Report/Form/Event/IncomeCountSummary.php
 #: CRM/Report/Form/Event/Summary.php
 msgid "Fee Label"
 msgstr "Tytuł wpłaty"
 
+#: CRM/Event/DAO/ParticipantPayment.php CRM/Event/DAO/Participant.php
+#: CRM/Report/Form/Event/ParticipantListCount.php
+msgid "Participant ID"
+msgstr "ID uczestnika"
+
 #: CRM/Event/DAO/Participant.php CRM/Event/Form/Participant.php
 #: templates/CRM/Event/Form/Search/Common.tpl
+#: CRM/Report/Form/Event/IncomeCountSummary.php
+#: CRM/Report/Form/Event/ParticipantListCount.php
 #: CRM/Report/Form/Event/ParticipantListing.php
 msgid "Participant Status"
 msgstr "Status uczestnika"
 
-#: CRM/Event/DAO/Event.php CRM/Report/Form/Event/Summary.php
+#: CRM/Event/DAO/Event.php CRM/Report/Form/Event/IncomeCountSummary.php
+#: CRM/Report/Form/Event/ParticipantListCount.php
+#: CRM/Report/Form/Event/Summary.php
 #, fuzzy
 msgid "Event Start Date"
 msgstr "Data wysłania"
 
-#: CRM/Event/DAO/Event.php CRM/Report/Form/Event/Summary.php
+#: CRM/Event/DAO/Event.php CRM/Report/Form/Event/IncomeCountSummary.php
+#: CRM/Report/Form/Event/ParticipantListCount.php
+#: CRM/Report/Form/Event/Summary.php
 #, fuzzy
 msgid "Event End Date"
 msgstr "Data wysłania"
@@ -779,7 +802,9 @@ msgstr "Tytuł Termometru"
 msgid "Could not find valid payment processor for this page"
 msgstr "Nie udało się ustalić contact_id i/lub contact_type"
 
-#: CRM/Event/Form/Participant.php CRM/Report/Form/Event/ParticipantListing.php
+#: CRM/Event/Form/Participant.php CRM/Report/Form/Event/IncomeCountSummary.php
+#: CRM/Report/Form/Event/ParticipantListCount.php
+#: CRM/Report/Form/Event/ParticipantListing.php
 #, fuzzy
 msgid "Registration Date"
 msgstr "Data wygaśnięcia"
@@ -811,6 +836,44 @@ msgstr "Nie znaleziono rezultatów."
 #: templates/CRM/Member/Import/Form/UploadFile.hlp
 msgid "You can include a column with each contact's <strong>Internal Contact ID</strong>. This is the unique ID assigned by CiviCRM which is displayed at the bottom of the Contact Summary screen - and can be exported."
 msgstr ""
+
+#: CRM/Grant/BAO/Query.php CRM/Grant/DAO/Grant.php CRM/Grant/Form/Grant.php
+#: templates/CRM/Grant/Form/GrantView.tpl CRM/Report/Form/Grant.php
+msgid "Grant Type"
+msgstr "Typ grantu"
+
+#: CRM/Grant/BAO/Query.php CRM/Grant/Form/Grant.php
+#: templates/CRM/Grant/Form/GrantView.tpl CRM/Report/Form/Grant.php
+msgid "Grant Status"
+msgstr "Stan grantu"
+
+#: CRM/Grant/DAO/Grant.php CRM/Grant/Form/Grant.php
+#: templates/CRM/Grant/Form/GrantView.tpl
+#: templates/CRM/Grant/Form/Task/Print.tpl
+#: templates/CRM/Grant/Form/Task/SearchTaskHookSample.tpl
+#: CRM/Report/Form/Grant.php
+#, fuzzy
+msgid "Amount Requested"
+msgstr "%count wynik"
+
+#: CRM/Grant/DAO/Grant.php CRM/Grant/Form/Grant.php
+#: templates/CRM/Grant/Form/GrantView.tpl CRM/Report/Form/Grant.php
+#, fuzzy
+msgid "Rationale"
+msgstr "Wartość opcji"
+
+#: CRM/Grant/DAO/Grant.php CRM/Report/Form/Grant.php
+#, fuzzy
+msgid "Grant Due Date"
+msgstr "Data wyjścia"
+
+#: CRM/Grant/Form/Grant.php templates/CRM/Grant/Form/GrantView.tpl
+#: templates/CRM/Grant/Form/Task/Print.tpl
+#: templates/CRM/Grant/Form/Task/SearchTaskHookSample.tpl
+#: CRM/Report/Form/Grant.php
+#, fuzzy
+msgid "Amount Granted"
+msgstr "Kwota"
 
 #: CRM/HRDCase/BAO/Query.php CRM/Member/BAO/Query.php
 msgid "Start Date - From"

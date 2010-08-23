@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM 3.2\n"
-"POT-Creation-Date: 2010-08-16 11:54+0200\n"
+"POT-Creation-Date: 2010-08-23 12:24+0200\n"
 "PO-Revision-Date: 2010-02-03 22:35+0800\n"
 "Last-Translator: Charles Chuang <charles>\n"
 "Language-Team: CiviCRM Translators <civicrm-translators@lists.civicrm.org>\n"
@@ -132,6 +132,8 @@ msgstr "Civi認捐"
 #: templates/CRM/Event/Form/Registration/Confirm.tpl
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
 #: templates/CRM/Event/Form/Search/Common.tpl
+#: CRM/Report/Form/Event/IncomeCountSummary.php
+#: CRM/Report/Form/Event/ParticipantListCount.php
 #: CRM/Report/Form/Event/ParticipantListing.php
 msgid "Participant Role"
 msgstr "參與者角色"
@@ -166,6 +168,14 @@ msgstr "待處理候補"
 #: CRM/Event/Form/Task/ParticipantStatus.php
 msgid "Pending from approval"
 msgstr "等待批准"
+
+#: CRM/Campaign/DAO/CampaignGroup.php CRM/Mailing/DAO/Group.php
+msgid "Include"
+msgstr "包括"
+
+#: CRM/Campaign/DAO/CampaignGroup.php CRM/Mailing/DAO/Group.php
+msgid "Exclude"
+msgstr "不包括"
 
 #: CRM/Case/BAO/Query.php CRM/Case/DAO/Case.php
 #: CRM/Case/Form/Activity/ChangeCaseStatus.php
@@ -687,27 +697,40 @@ msgid "Created"
 msgstr "已建立"
 
 #: CRM/Event/DAO/Event.php CRM/Event/Form/ManageEvent/EventInfo.php
+#: CRM/Report/Form/Event/IncomeCountSummary.php
 #: CRM/Report/Form/Event/Income.php CRM/Report/Form/Event/Summary.php
 msgid "Event Title"
 msgstr "活動標題"
 
 #: CRM/Event/DAO/Event.php CRM/Event/Form/ManageEvent/Fee.php
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
+#: CRM/Report/Form/Event/IncomeCountSummary.php
 #: CRM/Report/Form/Event/Summary.php
 msgid "Fee Label"
 msgstr "費用標纖"
 
+#: CRM/Event/DAO/ParticipantPayment.php CRM/Event/DAO/Participant.php
+#: CRM/Report/Form/Event/ParticipantListCount.php
+msgid "Participant ID"
+msgstr "參與者編號"
+
 #: CRM/Event/DAO/Participant.php CRM/Event/Form/Participant.php
 #: templates/CRM/Event/Form/Search/Common.tpl
+#: CRM/Report/Form/Event/IncomeCountSummary.php
+#: CRM/Report/Form/Event/ParticipantListCount.php
 #: CRM/Report/Form/Event/ParticipantListing.php
 msgid "Participant Status"
 msgstr "參與者狀態"
 
-#: CRM/Event/DAO/Event.php CRM/Report/Form/Event/Summary.php
+#: CRM/Event/DAO/Event.php CRM/Report/Form/Event/IncomeCountSummary.php
+#: CRM/Report/Form/Event/ParticipantListCount.php
+#: CRM/Report/Form/Event/Summary.php
 msgid "Event Start Date"
 msgstr "活動開始日期"
 
-#: CRM/Event/DAO/Event.php CRM/Report/Form/Event/Summary.php
+#: CRM/Event/DAO/Event.php CRM/Report/Form/Event/IncomeCountSummary.php
+#: CRM/Report/Form/Event/ParticipantListCount.php
+#: CRM/Report/Form/Event/Summary.php
 msgid "Event End Date"
 msgstr "活動結束日期"
 
@@ -734,7 +757,9 @@ msgstr "範本標題"
 msgid "Could not find valid payment processor for this page"
 msgstr "找不到正確的付款處理模組。"
 
-#: CRM/Event/Form/Participant.php CRM/Report/Form/Event/ParticipantListing.php
+#: CRM/Event/Form/Participant.php CRM/Report/Form/Event/IncomeCountSummary.php
+#: CRM/Report/Form/Event/ParticipantListCount.php
+#: CRM/Report/Form/Event/ParticipantListing.php
 msgid "Registration Date"
 msgstr "登記日期"
 
@@ -763,6 +788,40 @@ msgstr "未能找到相關會員"
 #: templates/CRM/Member/Import/Form/UploadFile.hlp
 msgid "You can include a column with each contact's <strong>Internal Contact ID</strong>. This is the unique ID assigned by CiviCRM which is displayed at the bottom of the Contact Summary screen - and can be exported."
 msgstr "您可以包括一個有每一聯絡人的<strong>內用聯絡人編號</strong>的欄。這是一個被CiviCRM分派的特別編號，會被展示在聯絡人概要螢幕的底部 - 及可以被匯出。"
+
+#: CRM/Grant/BAO/Query.php CRM/Grant/DAO/Grant.php CRM/Grant/Form/Grant.php
+#: templates/CRM/Grant/Form/GrantView.tpl CRM/Report/Form/Grant.php
+msgid "Grant Type"
+msgstr "撥款類別"
+
+#: CRM/Grant/BAO/Query.php CRM/Grant/Form/Grant.php
+#: templates/CRM/Grant/Form/GrantView.tpl CRM/Report/Form/Grant.php
+msgid "Grant Status"
+msgstr "撥款狀態"
+
+#: CRM/Grant/DAO/Grant.php CRM/Grant/Form/Grant.php
+#: templates/CRM/Grant/Form/GrantView.tpl
+#: templates/CRM/Grant/Form/Task/Print.tpl
+#: templates/CRM/Grant/Form/Task/SearchTaskHookSample.tpl
+#: CRM/Report/Form/Grant.php
+msgid "Amount Requested"
+msgstr "需求的金額"
+
+#: CRM/Grant/DAO/Grant.php CRM/Grant/Form/Grant.php
+#: templates/CRM/Grant/Form/GrantView.tpl CRM/Report/Form/Grant.php
+msgid "Rationale"
+msgstr "原由"
+
+#: CRM/Grant/DAO/Grant.php CRM/Report/Form/Grant.php
+msgid "Grant Due Date"
+msgstr "贊助有限日期"
+
+#: CRM/Grant/Form/Grant.php templates/CRM/Grant/Form/GrantView.tpl
+#: templates/CRM/Grant/Form/Task/Print.tpl
+#: templates/CRM/Grant/Form/Task/SearchTaskHookSample.tpl
+#: CRM/Report/Form/Grant.php
+msgid "Amount Granted"
+msgstr "已贊助金額"
 
 #: CRM/HRDCase/BAO/Query.php CRM/Member/BAO/Query.php
 msgid "Start Date - From"

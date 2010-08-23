@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM 3.2\n"
-"POT-Creation-Date: 2010-08-16 11:54+0200\n"
+"POT-Creation-Date: 2010-08-23 12:24+0200\n"
 "PO-Revision-Date: 2010-02-03 22:35+0800\n"
 "Last-Translator: Charles Chuang <charles>\n"
 "Language-Team: CiviCRM Translators <civicrm-translators@lists.civicrm.org>\n"
@@ -460,11 +460,12 @@ msgstr "標籤"
 #: CRM/Activity/Form/Task/Print.php
 #: CRM/Activity/Form/Task/SearchTaskHookSample.php
 #: CRM/Activity/Import/Form/Summary.php CRM/Contact/Form/Task/Map.php
-#: CRM/Contact/Form/Task/Print.php CRM/Contact/Form/Task/Result.php
-#: CRM/Custom/Form/Field.php CRM/Custom/Form/Group.php
-#: CRM/Custom/Form/Option.php CRM/Export/Form/Map.php
-#: CRM/Import/Form/Summary.php CRM/Price/Form/Field.php CRM/UF/Form/Field.php
-#: CRM/UF/Form/Group.php templates/CRM/Contact/Form/Relationship.tpl
+#: CRM/Contact/Form/Task/PDFLetterCommon.php CRM/Contact/Form/Task/Print.php
+#: CRM/Contact/Form/Task/Result.php CRM/Custom/Form/Field.php
+#: CRM/Custom/Form/Group.php CRM/Custom/Form/Option.php
+#: CRM/Export/Form/Map.php CRM/Import/Form/Summary.php
+#: CRM/Price/Form/Field.php CRM/UF/Form/Field.php CRM/UF/Form/Group.php
+#: templates/CRM/Contact/Form/Relationship.tpl
 #: templates/CRM/Contact/Page/DashBoardDashlet.tpl
 #: templates/CRM/Contact/Page/DedupeFind.tpl
 #: templates/CRM/Contact/Page/View/Note.tpl
@@ -1560,8 +1561,8 @@ msgid "Add Contacts to %1"
 msgstr "新增聯絡人到 %1"
 
 #: CRM/Contact/Form/Task/AddToGroup.php CRM/Contact/Form/Task/SaveSearch.php
-#: CRM/Custom/Form/Field.php CRM/Custom/Form/Group.php CRM/Group/Form/Edit.php
-#: CRM/Import/Form/Preview.php CRM/Price/Form/Field.php CRM/Price/Form/Set.php
+#: CRM/Custom/Form/Field.php CRM/Custom/Form/Group.php
+#: CRM/Price/Form/Field.php CRM/Price/Form/Set.php
 msgid "Name already exists in Database."
 msgstr "名稱已存在於資料庫。"
 
@@ -2179,6 +2180,10 @@ msgstr "感謝協助宣傳"
 #: CRM/Group/Form/Edit.php CRM/Group/Page/Group.php
 msgid "Delete Group"
 msgstr "刪除群組"
+
+#: CRM/Group/Form/Edit.php CRM/Import/Form/Preview.php
+msgid "Group '%1' already exists."
+msgstr "群組'%1'已經存在。"
 
 #: CRM/Import/Page/AJAX.php CRM/Import/Parser.php
 msgid "No processing status reported yet."
@@ -4123,6 +4128,11 @@ msgstr "要執行合併，需至少兩個聯絡人紀錄。"
 #: CRM/Contact/Form/Task/Merge.php
 msgid "Please select same contact type records."
 msgstr "請選擇同一聯絡人類型的記錄。"
+
+#: CRM/Contact/Form/Task/PDFLetterCommon.php
+#, fuzzy
+msgid "Make PDF Letter"
+msgstr "製作PDF信件"
 
 #: CRM/Contact/Form/Task/PDFLetterCommon.php
 msgid "Make PDF Letters"
@@ -7380,10 +7390,6 @@ msgid "Add imported records to existing group(s)"
 msgstr "新增已匯入的記錄到現有的群組"
 
 #: CRM/Import/Form/Preview.php
-msgid "Group '%1' already exists."
-msgstr "群組'%1'已經存在。"
-
-#: CRM/Import/Form/Preview.php
 msgid "Tag '%1' already exists."
 msgstr "標籤'%1'已經存在"
 
@@ -8659,7 +8665,6 @@ msgid "Move to bottom"
 msgstr "移動至按鍵"
 
 #: templates/CRM/ACL/Form/ACLBasic.tpl templates/CRM/ACL/Form/ACL.tpl
-#: templates/CRM/ACL/Page/ACL.tpl
 msgid "New ACL"
 msgstr "新權限"
 
@@ -8709,8 +8714,8 @@ msgid "Select a specific profile, OR apply this permission to ALL profiles."
 msgstr "選擇指定個人檔案或申請此允許到所有個人檔案"
 
 #: templates/CRM/ACL/Form/ACL.tpl
-msgid "NOTE: For Profile ACLs, the 'View' and 'Edit' operations currently do the same thing. Either option grants users access to profile-based create, edit, view and listings screens. Neither option grants access to administration of profiles."
-msgstr "附註：為個人檔案權限，'檢視'及'編輯'操作做相同的事情。選項撥款使用者取出到個人檔案的基礎建立、編輯、檢視及列表螢幕。或選項撥款取出到個人檔案的管理者。"
+msgid "NOTE: Profile ACL operations affect which modes a profile can be used in (i.e. Create a new contact, Edit your own contact record, View a contact record, etc.). The Create operation is required for profiles embedded in online contribution or event registration forms. None of the operations for Profile ACLs grant access to administration of profiles."
+msgstr ""
 
 #: templates/CRM/ACL/Form/ACL.tpl
 msgid "Select a specific group of custom fields, OR apply this permission to ALL custom fields."
@@ -8772,7 +8777,7 @@ msgstr "您可版新增或修改您以下的權限。您可以建立另外權限
 msgid "ACL Type(s)"
 msgstr "權限類別"
 
-#: templates/CRM/ACL/Page/ACLBasic.tpl
+#: templates/CRM/ACL/Page/ACLBasic.tpl templates/CRM/ACL/Page/ACL.tpl
 msgid "Add ACL"
 msgstr ""
 
@@ -10406,7 +10411,8 @@ msgid "By default, CiviCRM uses the primary email address of the logged in user 
 msgstr "CiviCRM使用登入者的初級的電子郵件地址作為預設的寄件人地址。然而，有CiviCRM管理權限的使用者可以配置一個或多個一般電子郵件地址來做替換使用。例如  \"客戶服務\" &lt;clientservices@example.org&gt;"
 
 #: templates/CRM/Contact/Form/Task/Email.hlp
-msgid "Go to <a href=\"%1\">Administer CiviCRM &raquo; Option Lists &raquo; FROM Email Addresses</a> to add or edit general email addresses. Make sure these email addresses are valid email accounts with your email service provider."
+#, fuzzy
+msgid "Go to <a href='%1'>Administer CiviCRM &raquo; Configure &raquo; FROM Email Addresses</a> to add or edit general email addresses. Make sure these email addresses are valid email accounts with your email service provider."
 msgstr "前往<a href=\"%1\">Administer CiviCRM &raquo; 選擇列表 &raquo; 寄件人電子郵件</a>來新增或編輯普通電子郵件地址。請確定這些電子郵件地址是有效的。"
 
 #: templates/CRM/Contact/Form/Task/Email.hlp
@@ -10510,7 +10516,8 @@ msgid "Select Token"
 msgstr "選擇操作代碼"
 
 #: templates/CRM/Contact/Form/Task/PDF.tpl
-msgid "Create Printable PDF Letters"
+#, fuzzy
+msgid "Create Printable Letters (PDF)"
 msgstr "建立可供列印的PDF信件。"
 
 #: templates/CRM/Contact/Form/Task/ProximityCommon.tpl
