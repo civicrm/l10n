@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM 3.2\n"
-"POT-Creation-Date: 2010-08-31 14:20+0300\n"
+"POT-Creation-Date: 2010-09-07 13:20+0200\n"
 "PO-Revision-Date: 2010-01-15 11:43+0100\n"
 "Last-Translator: \n"
 "Language-Team: CiviCRM Translators <civicrm-translators@lists.civicrm.org>\n"
@@ -29,6 +29,11 @@ msgstr "Ialt betalt"
 msgid "%1(s)"
 msgstr "%1(s)"
 
+#: CRM/Pledge/DAO/Payment.php CRM/Pledge/Form/Payment.php
+#: templates/CRM/Pledge/Page/Payment.tpl
+msgid "Scheduled Amount"
+msgstr "Planlagt beløb"
+
 #: CRM/Pledge/DAO/PledgeBlock.php CRM/Pledge/DAO/Pledge.php
 msgid "Maximum Number of Reminders"
 msgstr "Maksimalt antal påmindelser"
@@ -42,11 +47,9 @@ msgstr "Første påmindelsesdag"
 msgid "Additional Reminder Days"
 msgstr "Yderligere påmindelsesdage"
 
-#: CRM/Pledge/DAO/Pledge.php CRM/Pledge/Form/Pledge.php
-#: CRM/Pledge/Selector/Search.php templates/CRM/Pledge/Form/Pledge.tpl
-#: templates/CRM/Pledge/Form/PledgeView.tpl
-msgid "Pledge Made"
-msgstr "Afgivede løfter"
+#: CRM/Pledge/Form/Payment.php CRM/Pledge/Form/Pledge.php
+msgid "Please enter a valid monetary amount."
+msgstr "Angiv et gyldigt pengebeløb."
 
 #: CRM/Pledge/Form/Task/Delete.php CRM/Pledge/Task.php
 msgid "Delete Pledges"
@@ -142,10 +145,6 @@ msgid "Pledge Frequency"
 msgstr "Gentaget løfte enhed"
 
 #: CRM/Pledge/DAO/Payment.php templates/CRM/Pledge/Page/Payment.tpl
-msgid "Scheduled Amount"
-msgstr "Planlagt beløb"
-
-#: CRM/Pledge/DAO/Payment.php templates/CRM/Pledge/Page/Payment.tpl
 msgid "Last Reminder"
 msgstr "Sidste påmindelse"
 
@@ -173,22 +172,13 @@ msgstr "Gentaget dag"
 msgid "Acknowledge Date"
 msgstr "Dato for kvittering"
 
-#: CRM/Pledge/DAO/Pledge.php
-#, fuzzy
-msgid "Pledge Status Id"
-msgstr "Løfte status"
-
 #: CRM/Pledge/Form/Payment.php
 msgid "Pledge Payment Schedule has been updated.<br />"
 msgstr "De planlagte donationer er blevet opdateret.<br />"
 
-#: CRM/Pledge/Form/Pledge.php
+#: CRM/Pledge/Form/Pledge.php templates/CRM/Pledge/Form/PledgeView.tpl
 msgid "Total Pledge Amount"
 msgstr "Samlet lovet beløb"
-
-#: CRM/Pledge/Form/Pledge.php
-msgid "Please enter a valid monetary amount."
-msgstr "Angiv et gyldigt pengebeløb."
 
 #: CRM/Pledge/Form/Pledge.php templates/CRM/Pledge/Form/PledgeView.tpl
 msgid "To be paid in"
@@ -306,7 +296,7 @@ msgstr "Annullering af dette løfte vil også annullere alle planlagte (og ikke 
 msgid "View Pledge"
 msgstr "Vis løfte"
 
-#: CRM/Pledge/Selector/Search.php
+#: CRM/Pledge/Selector/Search.php templates/CRM/Pledge/Form/Pledge.tpl
 msgid "Edit Pledge"
 msgstr "Rediger løfte"
 
@@ -314,7 +304,7 @@ msgstr "Rediger løfte"
 msgid "Cancel Pledge"
 msgstr "Fortyd løfte"
 
-#: CRM/Pledge/Selector/Search.php
+#: CRM/Pledge/Selector/Search.php templates/CRM/Pledge/Form/Pledge.tpl
 msgid "Delete Pledge"
 msgstr "Slet løfte"
 
@@ -343,7 +333,8 @@ msgid "Export Pledges"
 msgstr "Eksporter løfter"
 
 #: templates/CRM/Pledge/Form/Payment.tpl
-msgid "Edit Pledge Payment"
+#, fuzzy
+msgid "Edit Scheduled Pledge Payment"
 msgstr "Rediger løfte betalinger"
 
 #: templates/CRM/Pledge/Form/Payment.tpl
@@ -355,12 +346,21 @@ msgid "You will not be able to send an acknowledgment for this pledge because th
 msgstr "Du vil ikke være i stand til at sende en kvittering for dette løfte, fordi der ikke er nogen mail-adresse for denne kontakt. Hvis du ønsker at sende en kvittering, når dette løfte er registreret, skal du klikke på Annuller og derefter klikke på Rediger i fanen for at tilføje en mail-adresse, før du gemmer løftet."
 
 #: templates/CRM/Pledge/Form/Pledge.tpl
+msgid "New Pledge"
+msgstr "Nyt tilsagn"
+
+#: templates/CRM/Pledge/Form/Pledge.tpl
 msgid "WARNING: Deleting this pledge will result in the loss of the associated financial transactions (if any)."
 msgstr "ADVARSEL: Sletning dette løfte vil resultere i tab af de tilhørende finansielle transaktioner (hvis nogen)."
 
 #: templates/CRM/Pledge/Form/Pledge.tpl
 msgid "Pledge by"
 msgstr "Løfte med"
+
+#: templates/CRM/Pledge/Form/Pledge.tpl
+#: templates/CRM/Pledge/Form/PledgeView.tpl
+msgid " Pledge total has changed due to payment adjustments. Original pledge amount was %1."
+msgstr ""
 
 #: templates/CRM/Pledge/Form/Pledge.tpl
 #: templates/CRM/Pledge/Form/PledgeView.tpl
@@ -499,6 +499,10 @@ msgstr "Restance"
 msgid "Recent Pledges"
 msgstr "Nylige løfter"
 
+#: templates/CRM/Pledge/Page/Payment.hlp
+msgid "If you enter an amount which is different than the current scheduled amount, choose one of these options:"
+msgstr ""
+
 #: templates/CRM/Pledge/Page/Payment.tpl
 msgid "<a href='%1'>View Payment</a>"
 msgstr "<a href='%1'>Vis Betaling</a>"
@@ -512,7 +516,8 @@ msgid "<a href='%1'>Submit Credit Card Payment</a>"
 msgstr "<a href='%1'>Indsend kreditkort betaling</a>"
 
 #: templates/CRM/Pledge/Page/Payment.tpl
-msgid "<a href='%1'>Edit Schedule</a>"
+#, fuzzy
+msgid "<a href='%1'>Edit Scheduled Payment</a>"
 msgstr "<a href='%1'>Rediger planlægning</a>"
 
 #: templates/CRM/Pledge/Page/Tab.hlp

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM 3.2\n"
-"POT-Creation-Date: 2010-08-31 14:20+0300\n"
+"POT-Creation-Date: 2010-09-07 13:20+0200\n"
 "PO-Revision-Date: 2010-08-26 10:39+0100\n"
 "Last-Translator: Maurice Snellen <maurice@snellen.xs4all.nl>\n"
 "Language-Team: CiviCRM Translators <civicrm-translators@lists.civicrm.org>\n"
@@ -28,6 +28,11 @@ msgstr "Totaal betaald"
 msgid "%1(s)"
 msgstr "%1"
 
+#: CRM/Pledge/DAO/Payment.php CRM/Pledge/Form/Payment.php
+#: templates/CRM/Pledge/Page/Payment.tpl
+msgid "Scheduled Amount"
+msgstr "Gepland bedrag"
+
 #: CRM/Pledge/DAO/PledgeBlock.php CRM/Pledge/DAO/Pledge.php
 msgid "Maximum Number of Reminders"
 msgstr "Maximum aantal herinneringen"
@@ -41,11 +46,9 @@ msgstr "Eerste herinneringsdatum"
 msgid "Additional Reminder Days"
 msgstr "Extra herinneringstermijn in dagen"
 
-#: CRM/Pledge/DAO/Pledge.php CRM/Pledge/Form/Pledge.php
-#: CRM/Pledge/Selector/Search.php templates/CRM/Pledge/Form/Pledge.tpl
-#: templates/CRM/Pledge/Form/PledgeView.tpl
-msgid "Pledge Made"
-msgstr "Toegezegd op"
+#: CRM/Pledge/Form/Payment.php CRM/Pledge/Form/Pledge.php
+msgid "Please enter a valid monetary amount."
+msgstr "Voer een geldig bedrag in."
 
 #: CRM/Pledge/Form/Task/Delete.php CRM/Pledge/Task.php
 msgid "Delete Pledges"
@@ -141,10 +144,6 @@ msgid "Pledge Frequency"
 msgstr "Frequentieenheid toezegging"
 
 #: CRM/Pledge/DAO/Payment.php templates/CRM/Pledge/Page/Payment.tpl
-msgid "Scheduled Amount"
-msgstr "Gepland bedrag"
-
-#: CRM/Pledge/DAO/Payment.php templates/CRM/Pledge/Page/Payment.tpl
 msgid "Last Reminder"
 msgstr "Laatste herinnering"
 
@@ -172,22 +171,13 @@ msgstr "Frequentie dag"
 msgid "Acknowledge Date"
 msgstr "Datum ontvangstbevestiging"
 
-#: CRM/Pledge/DAO/Pledge.php
-#, fuzzy
-msgid "Pledge Status Id"
-msgstr "Status toezegging"
-
 #: CRM/Pledge/Form/Payment.php
 msgid "Pledge Payment Schedule has been updated.<br />"
 msgstr "Het betaalschema van de toezegging is bijgewerkt.<br />"
 
-#: CRM/Pledge/Form/Pledge.php
+#: CRM/Pledge/Form/Pledge.php templates/CRM/Pledge/Form/PledgeView.tpl
 msgid "Total Pledge Amount"
 msgstr "Totaalbedrag toezegging"
-
-#: CRM/Pledge/Form/Pledge.php
-msgid "Please enter a valid monetary amount."
-msgstr "Voer een geldig bedrag in."
 
 #: CRM/Pledge/Form/Pledge.php templates/CRM/Pledge/Form/PledgeView.tpl
 msgid "To be paid in"
@@ -305,7 +295,7 @@ msgstr "Als u deze toezegging annuleert, worden ook alle (onvoltooide) geplande 
 msgid "View Pledge"
 msgstr "Toezegging weergeven"
 
-#: CRM/Pledge/Selector/Search.php
+#: CRM/Pledge/Selector/Search.php templates/CRM/Pledge/Form/Pledge.tpl
 msgid "Edit Pledge"
 msgstr "Toezegging bewerken"
 
@@ -313,7 +303,7 @@ msgstr "Toezegging bewerken"
 msgid "Cancel Pledge"
 msgstr "Toezegging annuleren"
 
-#: CRM/Pledge/Selector/Search.php
+#: CRM/Pledge/Selector/Search.php templates/CRM/Pledge/Form/Pledge.tpl
 msgid "Delete Pledge"
 msgstr "Toezegging verwijderen"
 
@@ -342,7 +332,8 @@ msgid "Export Pledges"
 msgstr "Toezeggingen exporteren"
 
 #: templates/CRM/Pledge/Form/Payment.tpl
-msgid "Edit Pledge Payment"
+#, fuzzy
+msgid "Edit Scheduled Pledge Payment"
 msgstr "Toezeggingsbetaling bewerken"
 
 #: templates/CRM/Pledge/Form/Payment.tpl
@@ -354,12 +345,21 @@ msgid "You will not be able to send an acknowledgment for this pledge because th
 msgstr "U zult geen ontvangstbevestiging voor deze toezegging kunnen verzenden omdat er geen e-mailadres voor dit contact geregistreerd is. Als u wilt dat er een ontvangstbevestiging verzonden wordt wanneer deze toezegging wordt vastgelegd, klik dan op Annuleren en klik in het overzicht op Bewerken om een e-mailadres toe te voegen voordat u de toezegging vastlegt."
 
 #: templates/CRM/Pledge/Form/Pledge.tpl
+msgid "New Pledge"
+msgstr "Nieuwe Toezegging"
+
+#: templates/CRM/Pledge/Form/Pledge.tpl
 msgid "WARNING: Deleting this pledge will result in the loss of the associated financial transactions (if any)."
 msgstr "WAARSCHUWING: Het verwijderen van deze toezegging leidt tevens tot het verlies van eventuele gerelateerde financiële transacties."
 
 #: templates/CRM/Pledge/Form/Pledge.tpl
 msgid "Pledge by"
 msgstr "Toezegging van"
+
+#: templates/CRM/Pledge/Form/Pledge.tpl
+#: templates/CRM/Pledge/Form/PledgeView.tpl
+msgid " Pledge total has changed due to payment adjustments. Original pledge amount was %1."
+msgstr ""
 
 #: templates/CRM/Pledge/Form/Pledge.tpl
 #: templates/CRM/Pledge/Form/PledgeView.tpl
@@ -498,6 +498,10 @@ msgstr "Achterstallig"
 msgid "Recent Pledges"
 msgstr "Recente toezeggingen"
 
+#: templates/CRM/Pledge/Page/Payment.hlp
+msgid "If you enter an amount which is different than the current scheduled amount, choose one of these options:"
+msgstr ""
+
 #: templates/CRM/Pledge/Page/Payment.tpl
 msgid "<a href='%1'>View Payment</a>"
 msgstr "<a href='%1'>Betaling weergeven</a>."
@@ -511,7 +515,8 @@ msgid "<a href='%1'>Submit Credit Card Payment</a>"
 msgstr "<a href='%1'>Credit Card-betaling doen</a>"
 
 #: templates/CRM/Pledge/Page/Payment.tpl
-msgid "<a href='%1'>Edit Schedule</a>"
+#, fuzzy
+msgid "<a href='%1'>Edit Scheduled Payment</a>"
 msgstr "<a href='%1'>Schema bewerken</a>"
 
 #: templates/CRM/Pledge/Page/Tab.hlp
