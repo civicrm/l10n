@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM 2.1\n"
-"POT-Creation-Date: 2010-07-07 07:23+0200\n"
+"POT-Creation-Date: 2010-09-20 15:16+0200\n"
 "PO-Revision-Date: 2010-02-07 16:19-0700\n"
 "Last-Translator: Arne Dag Bjerkaas <arnedag@bjerkaas.org>\n"
 "Language-Team: CiviCRM Translators <civicrm-translators@lists.civicrm.org>\n"
@@ -115,7 +115,8 @@ msgstr "Slett"
 msgid "All"
 msgstr "Alle"
 
-#: CRM/ACL/DAO/ACL.php CRM/ACL/DAO/EntityRole.php CRM/Core/DAO/Discount.php
+#: CRM/ACL/DAO/ACL.php CRM/ACL/DAO/EntityRole.php
+#: CRM/Campaign/DAO/CampaignGroup.php CRM/Core/DAO/Discount.php
 #: CRM/Core/DAO/EntityFile.php CRM/Core/DAO/EntityFinancialTrxn.php
 #: CRM/Core/DAO/Log.php CRM/Core/DAO/Note.php CRM/Core/DAO/UFJoin.php
 #: CRM/Friend/DAO/Friend.php CRM/Price/DAO/LineItem.php
@@ -426,6 +427,11 @@ msgstr "Aktivitets ID"
 msgid "Source Contact"
 msgstr "Kontakt"
 
+#: CRM/Activity/DAO/Activity.php CRM/Campaign/DAO/Survey.php
+#, fuzzy
+msgid "Activity Type ID"
+msgstr "Aktivitetstype"
+
 #: CRM/Activity/DAO/Activity.php CRM/Activity/Import/Form/MapField.php
 #: CRM/Activity/Selector/Activity.php CRM/Contact/BAO/Query.php
 #: CRM/Report/Form/Activity.php CRM/Report/Form/ActivitySummary.php
@@ -593,8 +599,8 @@ msgstr "Lagre felt kobling"
 #: CRM/Core/DAO/Domain.php CRM/Core/DAO/FinancialAccount.php
 #: CRM/Core/DAO/MailSettings.php CRM/Core/DAO/MappingField.php
 #: CRM/Core/DAO/Mapping.php CRM/Core/DAO/Navigation.php
-#: CRM/Core/DAO/PreferencesDate.php CRM/Core/DAO/Tag.php
-#: CRM/Core/DAO/Timezone.php CRM/Core/DAO/UFGroup.php
+#: CRM/Core/DAO/Persistent.php CRM/Core/DAO/PreferencesDate.php
+#: CRM/Core/DAO/Tag.php CRM/Core/DAO/Timezone.php CRM/Core/DAO/UFGroup.php
 #: CRM/Dedupe/DAO/RuleGroup.php CRM/Group/Form/Edit.php
 #: CRM/Import/Form/MapField.php CRM/Price/DAO/Field.php CRM/Price/DAO/Set.php
 #: CRM/Price/Form/Field.php CRM/Profile/Selector/Listings.php
@@ -897,9 +903,8 @@ msgstr "Kilde"
 
 #: CRM/Admin/Form/MailSettings.php CRM/Admin/Form/Options.php
 #: CRM/Admin/Form/OptionValue.php
-#, fuzzy
 msgid "Default Option?"
-msgstr "Standard?"
+msgstr "Standardvalg?"
 
 #: CRM/Admin/Form/Navigation.php CRM/Admin/Form/OptionValue.php
 #: CRM/Admin/Form/PaymentProcessorType.php CRM/Contact/DAO/Group.php
@@ -945,9 +950,8 @@ msgid "Operator"
 msgstr "Operasjon"
 
 #: CRM/Admin/Form/Navigation.php CRM/Report/Form/Instance.php
-#, fuzzy
 msgid "-- select --"
-msgstr "- velg -"
+msgstr "-- velg --"
 
 #: CRM/Admin/Form/Options.php CRM/Admin/Form/ParticipantStatus.php
 #: CRM/Contact/DAO/ContactType.php CRM/Core/DAO/CustomField.php
@@ -982,9 +986,8 @@ msgstr ""
 
 #: CRM/Admin/Form/Options.php CRM/Report/Form/Register.php
 #: templates/CRM/Admin/Page/Options.tpl templates/CRM/Report/Page/Options.tpl
-#, fuzzy
 msgid "Component"
-msgstr "Ferdig"
+msgstr "Komponent"
 
 #: CRM/Admin/Form/Options.php CRM/Admin/Form/OptionValue.php
 #: CRM/Contact/DAO/RelationshipType.php CRM/Core/DAO/CustomGroup.php
@@ -1046,7 +1049,7 @@ msgstr "Synlighet"
 
 #: CRM/Admin/Form/Options.php CRM/Report/Form/Register.php
 msgid "Selected %1 type has not been deleted."
-msgstr ""
+msgstr "Type %1 ble ikke slettet."
 
 #: CRM/Admin/Form/Options.php CRM/Report/Form/Register.php
 #, fuzzy
@@ -1059,9 +1062,8 @@ msgstr ""
 
 #: CRM/Admin/Form/ParticipantStatus.php CRM/Report/Form/Register.php
 #: templates/CRM/Admin/Page/ParticipantStatus.tpl
-#, fuzzy
 msgid "Class"
-msgstr "Kontanter"
+msgstr "Klasse"
 
 #: CRM/Admin/Form/ParticipantStatus.php CRM/Custom/Form/Field.php
 #: CRM/Custom/Form/Option.php CRM/Price/Form/Field.php
@@ -1075,7 +1077,7 @@ msgstr ""
 
 #: CRM/Admin/Form/PaymentProcessor.php CRM/Admin/Page/PaymentProcessor.php
 msgid "Settings - Payment Processor"
-msgstr ""
+msgstr "Innstillinger for betalingstjeneste"
 
 #: CRM/Admin/Form/PaymentProcessor.php CRM/Core/DAO/PaymentProcessor.php
 msgid "Site URL"
@@ -1180,14 +1182,12 @@ msgid "Edit %1"
 msgstr ""
 
 #: CRM/Admin/Page/Options.php CRM/Report/Page/Options.php
-#, fuzzy
 msgid "Disable %1"
-msgstr "Deaktiver"
+msgstr "Deaktiver %1"
 
 #: CRM/Admin/Page/Options.php CRM/Report/Page/Options.php
-#, fuzzy
 msgid "Enable %1"
-msgstr "Aktiver"
+msgstr "Bruk %1"
 
 #: CRM/Admin/Page/Options.php CRM/Report/Page/Options.php
 #, fuzzy
@@ -1256,6 +1256,28 @@ msgstr "Søk igjen"
 #: CRM/Auction/Page/Manage.php
 msgid "Item %%StatusMessage%%"
 msgstr ""
+
+#: CRM/Campaign/DAO/CampaignGroup.php CRM/Contact/DAO/Group.php
+#: CRM/Contact/Form/Task/AddToGroup.php CRM/Contact/Form/Task/SaveSearch.php
+#: CRM/Core/DAO/UFGroup.php CRM/Group/Form/Edit.php
+#: templates/CRM/Group/Page/Group.tpl xml/templates/civicrm_data.tpl
+#, fuzzy
+msgid "Group Type"
+msgstr "Kontakttype"
+
+#: CRM/Campaign/DAO/Campaign.php CRM/Contact/DAO/Contact.php
+msgid "External Identifier"
+msgstr ""
+
+#: CRM/Campaign/DAO/Campaign.php CRM/Campaign/DAO/Survey.php
+#, fuzzy
+msgid "Campaign Created Date"
+msgstr "Ferdig"
+
+#: CRM/Campaign/DAO/Campaign.php CRM/Campaign/DAO/Survey.php
+#, fuzzy
+msgid "Last Modified Date"
+msgstr "Sist endret"
 
 #: CRM/Contact/BAO/Contact.php CRM/Core/BAO/UFGroup.php CRM/UF/Form/Field.php
 #: CRM/UF/Page/Field.php templates/CRM/Contact/Form/Search/Criteria/Basic.tpl
@@ -1578,14 +1600,6 @@ msgstr "Velg en gyldig dato"
 #: CRM/Contact/DAO/Group.php CRM/Contact/DAO/SavedSearch.php
 msgid "Where Tables"
 msgstr ""
-
-#: CRM/Contact/DAO/Group.php CRM/Contact/Form/Task/AddToGroup.php
-#: CRM/Contact/Form/Task/SaveSearch.php CRM/Core/DAO/UFGroup.php
-#: CRM/Group/Form/Edit.php templates/CRM/Group/Page/Group.tpl
-#: xml/templates/civicrm_data.tpl
-#, fuzzy
-msgid "Group Type"
-msgstr "Kontakttype"
 
 #: CRM/Contact/DAO/Group.php CRM/Core/DAO/UFField.php
 #: CRM/Core/SelectValues.php
@@ -2249,7 +2263,7 @@ msgstr ""
 msgid "Path"
 msgstr ""
 
-#: CRM/Core/DAO/Cache.php CRM/Core/DAO/Log.php
+#: CRM/Core/DAO/Cache.php CRM/Core/DAO/Log.php CRM/Core/DAO/Persistent.php
 #, fuzzy
 msgid "Data"
 msgstr "Dato"
@@ -2626,17 +2640,16 @@ msgstr ""
 #: CRM/HRDCase/BAO/Query.php CRM/HRDCase/Form/Case.php
 #: xml/templates/civicrm_data.tpl
 msgid "Case Type"
-msgstr ""
+msgstr "Sakstype"
 
 #: CRM/HRDCase/BAO/Query.php CRM/HRDCase/Form/Case.php
 #: xml/templates/civicrm_data.tpl
 msgid "Case Status"
-msgstr ""
+msgstr "Saksstatus"
 
 #: CRM/HRDCase/BAO/Query.php CRM/HRDCase/Form/Case.php
-#, fuzzy
 msgid "Case Sub Type"
-msgstr "Kontakttype"
+msgstr "Undertype av sak"
 
 #: CRM/HRDCase/BAO/Query.php CRM/HRDCase/Form/Case.php
 #, fuzzy
@@ -2675,7 +2688,7 @@ msgstr ""
 #: CRM/Report/Form/Activity.php CRM/Report/Form/ActivitySummary.php
 #: CRM/Report/Form/Contact/Detail.php
 msgid "View Contact Summary for this Contact"
-msgstr ""
+msgstr "Vis oppsummering for denne kontakten"
 
 #: CRM/Report/Form/Case/Demographics.php CRM/Report/Form/Case/Summary.php
 #: CRM/Report/Form/Case/TimeSpent.php
@@ -2685,31 +2698,26 @@ msgid "Case ID"
 msgstr "Status"
 
 #: CRM/Report/Form/Case/Demographics.php CRM/Report/Form/Case/TimeSpent.php
-#, fuzzy
 msgid "Cases?"
-msgstr "Kontanter"
+msgstr "Saker?"
 
 #: CRM/Report/Form/Case/Demographics.php CRM/Report/Form/Case/TimeSpent.php
-#, fuzzy
 msgid "Exclude non-case"
-msgstr "Vennligst velg en relasjon"
+msgstr "Utelat ikke-saker"
 
 #: CRM/Report/Form/Case/Demographics.php CRM/Report/Form/Case/TimeSpent.php
-#, fuzzy
 msgid "Exclude cases"
-msgstr "Inkluder Kallenavn"
+msgstr "Utelat saker"
 
 #: CRM/Report/Form/Case/Demographics.php CRM/Report/Form/Case/TimeSpent.php
-#, fuzzy
 msgid "Include Both"
-msgstr "Inkluder profil"
+msgstr "Inkluder begge"
 
 #: CRM/Report/Form/Case/Demographics.php CRM/Report/Form/Contact/Log.php
 #: CRM/Report/Form/Contact/Relationship.php
 #: CRM/Report/Form/Contact/Summary.php
-#, fuzzy
 msgid "View Contact details for this contact."
-msgstr "Kontakt"
+msgstr "Vis detaljer for denne kontakten."
 
 #: CRM/Report/Form/Contact/Detail.php CRM/Report/Form/Contribute/Detail.php
 #: CRM/Report/Form/Contribute/SoftCredit.php
@@ -2731,66 +2739,56 @@ msgstr ""
 #: CRM/Report/Form/Membership/Summary.php
 #: xml/templates/message_templates/membership_online_receipt_html.tpl
 #: xml/templates/message_templates/membership_online_receipt_text.tpl
-#, fuzzy
 msgid "Contribution Amount"
-msgstr "Vennligst velg en relasjon"
+msgstr "Bidragsbeløp"
 
 #: CRM/Report/Form/Contribute/Detail.php CRM/Report/Form/Member/Detail.php
 #: CRM/Report/Form/Pledge/Summary.php
-#, fuzzy
 msgid "View Contact Summary for this Contact."
-msgstr "Kontakt"
+msgstr "Vis oppsummering for denne kontakten."
 
 #: CRM/Report/Form/Contribute/HouseholdSummary.php
 #: CRM/Report/Form/Contribute/OrganizationSummary.php
-#, fuzzy
 msgid "Amount Between"
-msgstr "Land"
+msgstr "Beløp mellom"
 
 #: CRM/Report/Form/Contribute/Lybunt.php CRM/Report/Form/Contribute/Sybunt.php
-#, fuzzy
 msgid "Donor Name"
-msgstr "Stedsnavn"
+msgstr "Givernavn"
 
 #: CRM/Report/Form/Contribute/Lybunt.php CRM/Report/Form/Contribute/Sybunt.php
-#, fuzzy
 msgid "Phone No"
-msgstr "Telefon"
+msgstr "Telefonnummer"
 
 #: CRM/Report/Form/Contribute/Lybunt.php CRM/Report/Form/Contribute/Sybunt.php
-#, fuzzy
 msgid "contactId"
-msgstr "Kontakt"
+msgstr "Kontakt-ID"
 
 #: CRM/Report/Form/Contribute/Lybunt.php CRM/Report/Form/Contribute/Sybunt.php
 msgid "Year"
-msgstr ""
+msgstr "År"
 
 #: CRM/Report/Form/Contribute/Lybunt.php CRM/Report/Form/Contribute/Sybunt.php
-#, fuzzy
 msgid "View Contribution Details for this Contact."
-msgstr "Sluttdato"
+msgstr "Vis bidragsdetaljer for denne kontakten."
 
 #: CRM/Report/Form/Contribute/SoftCredit.php
 #: CRM/Report/Form/Contribute/Summary.php
 #: CRM/Report/Form/Contribute/TopDonor.php CRM/Report/Form/Member/Summary.php
-#, fuzzy
 msgid "Amount Statistics"
-msgstr "Tittel"
+msgstr "Beløpsstatistikk"
 
 #: CRM/Report/Form/Contribute/SoftCredit.php
 #: CRM/Report/Form/Contribute/Summary.php
 #: CRM/Report/Form/Contribute/TopDonor.php
-#, fuzzy
 msgid "Aggregate Amount"
-msgstr "Avgiftssum"
+msgstr "Samlet beløp"
 
 #: CRM/Report/Form/Contribute/SoftCredit.php
 #: CRM/Report/Form/Contribute/Summary.php
 #: CRM/Report/Form/Contribute/TopDonor.php
-#, fuzzy
 msgid "Donations"
-msgstr "Sted"
+msgstr "Donasjoner"
 
 #: CRM/Report/Form/Contribute/SoftCredit.php
 #: CRM/Report/Form/Contribute/Summary.php
@@ -2801,14 +2799,12 @@ msgstr ""
 #: CRM/Report/Form/Contribute/SoftCredit.php
 #: CRM/Report/Form/Contribute/Summary.php
 #: CRM/Report/Form/Contribute/TopDonor.php
-#, fuzzy
 msgid "Donation Status"
-msgstr "Sted"
+msgstr "Donasjonsstatus"
 
 #: CRM/Report/Form/Event/Income.php CRM/Report/Form/Event/Summary.php
-#, fuzzy
 msgid "Event Title"
-msgstr "Tittel"
+msgstr "Arrangementstittel"
 
 #: CRM/Report/Form/Event/Income.php CRM/Report/Form.php
 msgid "Records %%StatusMessage%%"
@@ -2824,14 +2820,12 @@ msgid "Event Type"
 msgstr "Kontakttype"
 
 #: CRM/Report/Form/Member/Lapse.php CRM/Report/Form/Membership/Summary.php
-#, fuzzy
 msgid "Member Name"
-msgstr "Navn og e-post"
+msgstr "Medlemmets navn"
 
 #: CRM/Report/Form/Member/Lapse.php CRM/Report/Form/Membership/Summary.php
-#, fuzzy
 msgid "Current Cycle Start Date"
-msgstr "Sluttdato"
+msgstr "Startdato for nåværende syklus"
 
 #: CRM/Report/Form/Membership/Summary.php CRM/Report/Form/Member/Summary.php
 #: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
@@ -2845,7 +2839,7 @@ msgstr "Type relasjon"
 
 #: CRM/Report/Form/Membership/Summary.php CRM/Report/Form.php
 msgid "Row(s) Listed"
-msgstr ""
+msgstr "Listede rader"
 
 #: CRM/Standalone/OpenID/DAO/Associations.php
 #: CRM/Standalone/OpenID/DAO/Nonce.php
@@ -3106,11 +3100,6 @@ msgid "Violation Type"
 msgstr ""
 
 #: CRM/Activity/DAO/Activity.php
-#, fuzzy
-msgid "Activity Type ID"
-msgstr "Aktivitetstype"
-
-#: CRM/Activity/DAO/Activity.php
 msgid "Phone Number"
 msgstr "Telefonnummer"
 
@@ -3363,31 +3352,28 @@ msgid "OK"
 msgstr "OK"
 
 #: CRM/Admin/Form/ContactType.php
-#, fuzzy
 msgid "Basic Contact Type"
 msgstr "Kontakttype"
 
 #: CRM/Admin/Form/ContactType.php
 msgid "Image URL"
-msgstr ""
+msgstr "Bildeadresse (URL)"
 
 #: CRM/Admin/Form/ContactType.php
 msgid "This contact type name already exists in database. Contact type names must be unique."
-msgstr ""
+msgstr "Databasen inneholder allerede en kontakttype med dette navnet. Navn på kontakttype må være unikt."
 
 #: CRM/Admin/Form/ContactType.php
-#, fuzzy
 msgid "Selected contact type has been deleted."
-msgstr "Valgt møte er slettet"
+msgstr "Valgte kontakttype ble slettet"
 
 #: CRM/Admin/Form/ContactType.php
 msgid "Selected contact type can not be deleted. Make sure contact type doesn't have any associated custom data or group."
-msgstr ""
+msgstr "Kontakttypen kan ikke slettes. Kontroller at kontakttypen ikke har tilhørende tilpassede data eller grupper."
 
 #: CRM/Admin/Form/ContactType.php
-#, fuzzy
 msgid "The Contact Type '%1' has been saved."
-msgstr "Valgt møte er slettet"
+msgstr "Kontakttypen &laquo;%1&raquo; ble lagret."
 
 #: CRM/Admin/Form/DedupeFind.php
 #, fuzzy
@@ -3413,11 +3399,11 @@ msgstr ""
 
 #: CRM/Admin/Form/LocationType.php
 msgid "Name can only consist of alpha-numeric characters"
-msgstr ""
+msgstr "Navn kan kun inneholde alfanumeriske tegn."
 
 #: CRM/Admin/Form/LocationType.php
 msgid "vCard Name"
-msgstr ""
+msgstr "vCard"
 
 #: CRM/Admin/Form/LocationType.php templates/CRM/Admin/Page/DedupeRules.tpl
 #: templates/CRM/Admin/Page/LocationType.tpl
@@ -3438,11 +3424,11 @@ msgstr "Valgt møte er slettet"
 
 #: CRM/Admin/Form/MailSettings.php
 msgid "Email Domain"
-msgstr ""
+msgstr "E-postdomene"
 
 #: CRM/Admin/Form/MailSettings.php
 msgid "Email domain must use a valid internet domain format (e.g. 'example.org')."
-msgstr ""
+msgstr "E-postdomene må benytte et gyldig format for internettdomener (f.eks. &laquo;eksempel.no&raquo;)"
 
 #: CRM/Admin/Form/MailSettings.php templates/CRM/Admin/Page/MailSettings.tpl
 msgid "Return-Path"
@@ -3492,9 +3478,8 @@ msgid "Message Subject"
 msgstr "Tittel"
 
 #: CRM/Admin/Form/MessageTemplates.php
-#, fuzzy
 msgid "Insert Tokens"
-msgstr "Velg en gyldig dato"
+msgstr "Sett inn symboler"
 
 #: CRM/Admin/Form/MessageTemplates.php
 #: templates/CRM/Activity/Form/ActivityView.tpl
@@ -4263,20 +4248,18 @@ msgstr "Nettosum"
 
 #: CRM/Admin/Page/Admin.php templates/CRM/Admin/Page/ConfigTaskList.tpl
 #: xml/templates/civicrm_navigation.tpl
-#, fuzzy
 msgid "CiviMember"
-msgstr "CiviCRM Kontaktsøk"
+msgstr "CiviMember"
 
 #: CRM/Admin/Page/Admin.php templates/CRM/Admin/Page/ConfigTaskList.tpl
 #: xml/templates/civicrm_navigation.tpl
-#, fuzzy
 msgid "CiviEvent"
-msgstr "CiviCRM Kontaktsøk"
+msgstr "CiviEvent"
 
 #: CRM/Admin/Page/Admin.php templates/CRM/Admin/Page/ConfigTaskList.tpl
 #: xml/templates/civicrm_navigation.tpl
 msgid "CiviCase"
-msgstr ""
+msgstr "CiviCase"
 
 #: CRM/Admin/Page/AJAX.php
 #, fuzzy
@@ -4483,14 +4466,12 @@ msgid "Delete DedupeRule"
 msgstr ""
 
 #: CRM/Admin/Page/EventTemplate.php
-#, fuzzy
 msgid "Edit Event Template"
-msgstr "Velg en gyldig dato"
+msgstr "Rediger arrangementsmal"
 
 #: CRM/Admin/Page/EventTemplate.php
-#, fuzzy
 msgid "Delete Event Template"
-msgstr "Velg en gyldig dato"
+msgstr "Slett arrangementsmal"
 
 #: CRM/Admin/Page/LocationType.php templates/CRM/Admin/Form/LocationType.tpl
 msgid "Edit Location Type"
@@ -4946,6 +4927,82 @@ msgstr "Sted"
 msgid "Search Items"
 msgstr "Avbryt"
 
+#: CRM/Campaign/DAO/CampaignGroup.php
+msgid "Include"
+msgstr "Inkluder"
+
+#: CRM/Campaign/DAO/CampaignGroup.php
+msgid "Exclude"
+msgstr "Utelukk"
+
+#: CRM/Campaign/DAO/Campaign.php
+msgid "Campaign ID"
+msgstr ""
+
+#: CRM/Campaign/DAO/Campaign.php
+#, fuzzy
+msgid "Campaign Name"
+msgstr "Stedsnavn"
+
+#: CRM/Campaign/DAO/Campaign.php
+#, fuzzy
+msgid "Campaign Title"
+msgstr "Personlig kampanjeside"
+
+#: CRM/Campaign/DAO/Campaign.php
+#, fuzzy
+msgid "Campaign Description"
+msgstr "Beskrivelse"
+
+#: CRM/Campaign/DAO/Campaign.php
+#, fuzzy
+msgid "Campaign Start Date"
+msgstr "Startdato"
+
+#: CRM/Campaign/DAO/Campaign.php
+#, fuzzy
+msgid "Campaign End Date"
+msgstr "Sluttdato"
+
+#: CRM/Campaign/DAO/Campaign.php
+msgid "Campaign Type ID"
+msgstr ""
+
+#: CRM/Campaign/DAO/Campaign.php
+#, fuzzy
+msgid "Campaign Status ID"
+msgstr "Betalingsstatus"
+
+#: CRM/Campaign/DAO/Survey.php
+#, fuzzy
+msgid "Survey Title"
+msgstr "Tittel"
+
+#: CRM/Campaign/DAO/Survey.php
+#, fuzzy
+msgid "Recontact Interval"
+msgstr "Frekvensintervall"
+
+#: CRM/Campaign/DAO/Survey.php
+#, fuzzy
+msgid "Instructions"
+msgstr "Bidrag"
+
+#: CRM/Campaign/DAO/Survey.php
+#, fuzzy
+msgid "Release Frequency"
+msgstr "Frekvens"
+
+#: CRM/Campaign/DAO/Survey.php
+#, fuzzy
+msgid "Maximum number of contacts"
+msgstr "Maksimal sum"
+
+#: CRM/Campaign/DAO/Survey.php
+#, fuzzy
+msgid "Default number of contacts"
+msgstr "Kontakt"
+
 #: CRM/Contact/BAO/Contact/Permission.php
 msgid "You do not have permission to edit this contact record. Contact the site administrator if you need assistance."
 msgstr ""
@@ -5154,10 +5211,6 @@ msgstr ""
 
 #: CRM/Contact/DAO/Contact.php
 msgid "Legal Identifier"
-msgstr ""
-
-#: CRM/Contact/DAO/Contact.php
-msgid "External Identifier"
 msgstr ""
 
 #: CRM/Contact/DAO/Contact.php
@@ -7531,6 +7584,11 @@ msgstr ""
 msgid "Default Test Button URL"
 msgstr ""
 
+#: CRM/Core/DAO/Persistent.php
+#, fuzzy
+msgid "Context"
+msgstr "Innhold"
+
 #: CRM/Core/DAO/PreferencesDate.php
 #: templates/CRM/Contact/Page/View/Relationship.tpl
 #, fuzzy
@@ -9360,7 +9418,7 @@ msgstr ""
 
 #: CRM/HRDCase/BAO/Query.php
 msgid "Case Subject %2 %1"
-msgstr ""
+msgstr "Saksemne %2 %1"
 
 #: CRM/HRDCase/BAO/Query.php
 msgid "Case Status %2 %1"
@@ -9382,20 +9440,19 @@ msgstr "Sted"
 
 #: CRM/HRDCase/Form/Case.php
 msgid "A case with this subject already exists."
-msgstr ""
+msgstr "En sak med dette emnet finnes allerede."
 
 #: CRM/HRDCase/Form/Case.php
 msgid "End date should be later than Start date"
-msgstr ""
+msgstr "Sluttdato bør være etter startdato"
 
 #: CRM/HRDCase/Form/Case.php
 msgid "Selected Case has been deleted."
-msgstr ""
+msgstr "Saken har blitt slettet."
 
 #: CRM/HRDCase/Form/Case.php
-#, fuzzy
 msgid "Case '%1' has been saved."
-msgstr "Valgt møte er slettet"
+msgstr "Sak &laquo;%1&raquo; ble lagret."
 
 #: CRM/Import/DataSource/CSV.php
 msgid "Comma-Separated Values (CSV)"
@@ -9998,19 +10055,16 @@ msgid "Report Instance Title"
 msgstr "Mottatt"
 
 #: CRM/Report/DAO/Instance.php
-#, fuzzy
 msgid "Email Subject"
-msgstr "Tittel"
+msgstr "E-postemne"
 
 #: CRM/Report/DAO/Instance.php
-#, fuzzy
 msgid "Email To"
-msgstr "Epost"
+msgstr "Til"
 
 #: CRM/Report/DAO/Instance.php
-#, fuzzy
 msgid "Email Cc"
-msgstr "Epost"
+msgstr "Kopi"
 
 #: CRM/Report/DAO/Instance.php
 #, fuzzy
@@ -10048,9 +10102,8 @@ msgid "Target Contact Email"
 msgstr "Kontakt"
 
 #: CRM/Report/Form/Activity.php
-#, fuzzy
 msgid "View Activity Record"
-msgstr "Aktivitetstype"
+msgstr "Vis aktivitetslogg"
 
 #: CRM/Report/Form/ActivitySummary.php
 #, fuzzy
@@ -10075,9 +10128,8 @@ msgid "Please do not select any Contact Fields with GroupBy 'Activity Date'"
 msgstr ""
 
 #: CRM/Report/Form/Case/Demographics.php
-#, fuzzy
 msgid "Birthdate"
-msgstr "Startdato"
+msgstr "Fødselsdato"
 
 #: CRM/Report/Form/Case/Demographics.php
 msgid "-select-"
@@ -10094,24 +10146,20 @@ msgid "Case End"
 msgstr "Sluttdato"
 
 #: CRM/Report/Form/Case/Summary.php
-#, fuzzy
 msgid "Client"
-msgstr "Tekst"
+msgstr "Klient"
 
 #: CRM/Report/Form/Case/Summary.php
-#, fuzzy
 msgid "Duration (Days)"
-msgstr "Varighet"
+msgstr "Varighet (dager)"
 
 #: CRM/Report/Form/Case/Summary.php
-#, fuzzy
 msgid "Deleted?"
-msgstr "Slett"
+msgstr "Slettet?"
 
 #: CRM/Report/Form/Case/Summary.php
-#, fuzzy
 msgid "Staff Member"
-msgstr "Sluttdato"
+msgstr "Stabsmedlem"
 
 #: CRM/Report/Form/Case/Summary.php
 #, fuzzy
@@ -10127,13 +10175,12 @@ msgid "To filter on Staff Member or Relationship, please also select Staff Membe
 msgstr ""
 
 #: CRM/Report/Form/Case/TimeSpent.php
-#, fuzzy
 msgid "Totals Only"
-msgstr "Tittel"
+msgstr "Kun totaler"
 
 #: CRM/Report/Form/Case/TimeSpent.php
 msgid "Month/Year"
-msgstr ""
+msgstr "Måned/År"
 
 #: CRM/Report/Form/Case/TimeSpent.php
 #, fuzzy
@@ -10145,18 +10192,16 @@ msgid "To view totals please select all of activity id, date and duration."
 msgstr ""
 
 #: CRM/Report/Form/Contact/CurrentEmployer.php
-#, fuzzy
 msgid "Employer Name"
-msgstr "Stedsnavn"
+msgstr "Arbeidsgivers navn"
 
 #: CRM/Report/Form/Contact/CurrentEmployer.php
-#, fuzzy
 msgid "Employee Name"
-msgstr "Stedsnavn"
+msgstr "Ansattes navn"
 
 #: CRM/Report/Form/Contact/CurrentEmployer.php
 msgid "Employee Since"
-msgstr ""
+msgstr "Ansatt siden"
 
 #: CRM/Report/Form/Contact/Detail.php
 #: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
@@ -10181,7 +10226,7 @@ msgstr ""
 
 #: CRM/Report/Form/Contact/Detail.php
 msgid "View Event Income details for this Event."
-msgstr ""
+msgstr "Vis inntektsdetaljer for dette arrangementet."
 
 #: CRM/Report/Form/Contact/Log.php
 #, fuzzy
@@ -10194,24 +10239,20 @@ msgid "Touched Activity"
 msgstr "Velg en gyldig dato"
 
 #: CRM/Report/Form/Contact/Relationship.php
-#, fuzzy
 msgid "Contact A"
-msgstr "Kontakt"
+msgstr "Kontakt A"
 
 #: CRM/Report/Form/Contact/Relationship.php
-#, fuzzy
 msgid "Contact B"
-msgstr "Kontakt"
+msgstr "Kontakt B"
 
 #: CRM/Report/Form/Contact/Relationship.php
-#, fuzzy
 msgid "Email of Contact A"
-msgstr "CiviCRM Kontaktsøk"
+msgstr "E-postadresse til kontakt A"
 
 #: CRM/Report/Form/Contact/Relationship.php
-#, fuzzy
 msgid "Email of Contact B"
-msgstr "CiviCRM Kontaktsøk"
+msgstr "E-postadresse til kontakt B"
 
 #: CRM/Report/Form/Contact/Relationship.php
 #, fuzzy
@@ -10224,14 +10265,12 @@ msgid "Relationship B-A "
 msgstr "Type relasjon"
 
 #: CRM/Report/Form/Contact/Relationship.php
-#, fuzzy
 msgid "Contact Type  A"
-msgstr "Kontakt type A"
+msgstr "Kontakttype A"
 
 #: CRM/Report/Form/Contact/Relationship.php
-#, fuzzy
 msgid "Contact Type  B"
-msgstr "Kontakt type B"
+msgstr "Kontakttype B"
 
 #: CRM/Report/Form/Contact/Relationship.php
 #, fuzzy
@@ -10249,14 +10288,12 @@ msgid "Contribution Ordinality"
 msgstr "Vennligst velg en relasjon"
 
 #: CRM/Report/Form/Contribute/Detail.php
-#, fuzzy
 msgid "List all contribution(s) for this State."
-msgstr "Vennligst velg en relasjon"
+msgstr "List alle bidrag for denne staten/fylket."
 
 #: CRM/Report/Form/Contribute/Detail.php
-#, fuzzy
 msgid "List all contribution(s) for this Country."
-msgstr "Vennligst velg en relasjon"
+msgstr "List alle bidrag for dette landet."
 
 #: CRM/Report/Form/Contribute/Lybunt.php
 #, fuzzy
@@ -10264,14 +10301,12 @@ msgid "Lybunt Report"
 msgstr "Aktivitetstype"
 
 #: CRM/Report/Form/Contribute/Lybunt.php
-#, fuzzy
 msgid "Amount (%1)"
-msgstr "Land"
+msgstr "Beløp (%1)"
 
 #: CRM/Report/Form/Contribute/OrganizationSummary.php
-#, fuzzy
 msgid "View Contact Summary for this Organization."
-msgstr "Kontakt"
+msgstr "Vis kontaktoversikt for denne organisasjonen."
 
 #: CRM/Report/Form/Contribute/Repeat.php
 #, fuzzy
@@ -10325,32 +10360,28 @@ msgid "Filter with Group only allow with group by Contact"
 msgstr ""
 
 #: CRM/Report/Form/Contribute/Repeat.php
-#, fuzzy
 msgid "Select valid date range"
-msgstr "Velg en gyldig dato"
+msgstr "Velg gyldig tidsrom"
 
 #: CRM/Report/Form/Contribute/Repeat.php
-#, fuzzy
 msgid "Skipped Donation"
-msgstr "Konfigurer"
+msgstr "Utelatt donasjon"
 
 #: CRM/Report/Form/Contribute/Repeat.php
 msgid "New Donor"
-msgstr ""
+msgstr "Ny giver"
 
 #: CRM/Report/Form/Contribute/Repeat.php
-#, fuzzy
 msgid "View contributions for this Country."
-msgstr "Vennligst velg en relasjon"
+msgstr "Vis bidrag for dette landet."
 
 #: CRM/Report/Form/Contribute/Repeat.php
 msgid "View repeatDetails for this state."
-msgstr ""
+msgstr "Vis detaljer over gjentagelser for denne staten/fylket."
 
 #: CRM/Report/Form/Contribute/Repeat.php
-#, fuzzy
 msgid "View Contribution details for this contact"
-msgstr "Sluttdato"
+msgstr "Vis bidragsdetaljer for denne kontakten"
 
 #: CRM/Report/Form/Contribute/SoftCredit.php
 #, fuzzy
@@ -10363,9 +10394,8 @@ msgid "Soft Credit Id"
 msgstr "Kredittkort"
 
 #: CRM/Report/Form/Contribute/SoftCredit.php
-#, fuzzy
 msgid "Contributor Name"
-msgstr "Vennligst velg en relasjon"
+msgstr "Bidragsyter"
 
 #: CRM/Report/Form/Contribute/SoftCredit.php
 #, fuzzy
@@ -10378,9 +10408,8 @@ msgid "Soft Credit Email"
 msgstr "Kredittkort"
 
 #: CRM/Report/Form/Contribute/SoftCredit.php
-#, fuzzy
 msgid "Contributor's Email"
-msgstr "Vennligst velg en relasjon"
+msgstr "Bidragsyterens e-post"
 
 #: CRM/Report/Form/Contribute/SoftCredit.php
 #, fuzzy
@@ -10388,9 +10417,8 @@ msgid "Soft Credit Phone"
 msgstr "Kredittkort"
 
 #: CRM/Report/Form/Contribute/SoftCredit.php
-#, fuzzy
 msgid "Contributor's Phone"
-msgstr "Vennligst velg en relasjon"
+msgstr "Bidragsyterens telefonnummer"
 
 #: CRM/Report/Form/Contribute/SoftCredit.php
 #, fuzzy
@@ -10403,14 +10431,12 @@ msgid "Soft Credit Group"
 msgstr "Kredittkort"
 
 #: CRM/Report/Form/Contribute/SoftCredit.php
-#, fuzzy
 msgid "List all direct contribution(s) from this contact."
-msgstr "Vennligst velg en relasjon"
+msgstr "List alle direkte bidrag fra denne kontakten."
 
 #: CRM/Report/Form/Contribute/SoftCredit.php
-#, fuzzy
 msgid "List direct contribution(s) from this contact."
-msgstr "Vennligst velg en relasjon"
+msgstr "List direkte bidrag fra denne kontakten."
 
 #: CRM/Report/Form/Contribute/Summary.php
 msgid "Please Do not use combination of received date %1"
@@ -10427,17 +10453,15 @@ msgstr "Vennligst velg en relasjon"
 
 #: CRM/Report/Form/Contribute/Summary.php
 msgid "List all contribution(s) for this date unit."
-msgstr ""
+msgstr "List alle bidragsytere for denne datoenheten."
 
 #: CRM/Report/Form/Contribute/Summary.php
-#, fuzzy
 msgid "List all contribution(s) for this state."
-msgstr "Vennligst velg en relasjon"
+msgstr "List alle bidragsytere for denne staten/fylket."
 
 #: CRM/Report/Form/Contribute/Summary.php
-#, fuzzy
 msgid "List all contribution(s) for this country."
-msgstr "Vennligst velg en relasjon"
+msgstr "List alle bidrag for dette landet."
 
 #: CRM/Report/Form/Contribute/Summary.php
 #, fuzzy
@@ -10454,17 +10478,15 @@ msgstr ""
 
 #: CRM/Report/Form/Contribute/TopDonor.php
 msgid "Please select 'Is equal to' OR 'Is Less than or equal to' operator"
-msgstr ""
+msgstr "Vennligst velg enten &laquo;er lik&laquo; eller &laquo;mindre enn eller lik&raquo; operator"
 
 #: CRM/Report/Form/Contribute/TopDonor.php
-#, fuzzy
 msgid "Please enter positive number"
-msgstr "Vennligst skriv inn et gyldig navn"
+msgstr "Skriv inn et positivt tall"
 
 #: CRM/Report/Form/Event/ParticipantListing.php
-#, fuzzy
 msgid "Participant Name"
-msgstr "Kontakttype"
+msgstr "Deltakernavn"
 
 #: CRM/Report/Form/Event/ParticipantListing.php
 #, fuzzy
@@ -10482,14 +10504,12 @@ msgstr "Kontakttype"
 #: xml/templates/message_templates/participant_confirm_text.tpl
 #: xml/templates/message_templates/participant_expired_html.tpl
 #: xml/templates/message_templates/participant_expired_text.tpl
-#, fuzzy
 msgid "Registration Date"
-msgstr "Sluttdato"
+msgstr "Registreringsdato"
 
 #: CRM/Report/Form/Event/ParticipantListing.php
-#, fuzzy
 msgid "Event Type "
-msgstr "Kontakttype"
+msgstr "Arrangementstype"
 
 #: CRM/Report/Form/Event/ParticipantListing.php
 msgid "Blank column at the Begining"
@@ -10501,22 +10521,19 @@ msgstr ""
 
 #: CRM/Report/Form/Event/ParticipantListing.php
 msgid "View Event Income Details for this Event"
-msgstr ""
+msgstr "Vis inntektsdetaljer for dette arrangementet"
 
 #: CRM/Report/Form/Event/Summary.php
-#, fuzzy
 msgid "Fee Label"
-msgstr "Tittel"
+msgstr "Avgiftsetikett"
 
 #: CRM/Report/Form/Event/Summary.php
-#, fuzzy
 msgid "Event Start Date"
-msgstr "Sluttdato"
+msgstr "Arrangementets startdato"
 
 #: CRM/Report/Form/Event/Summary.php
-#, fuzzy
 msgid "Event End Date"
-msgstr "Sluttdato"
+msgstr "Arrangementets sluttdato"
 
 #: CRM/Report/Form/Event/Summary.php
 #, fuzzy
@@ -10525,36 +10542,31 @@ msgstr "By"
 
 #: CRM/Report/Form/Event/Summary.php
 msgid "View Event Income For this Event"
-msgstr ""
+msgstr "Vis inntekter for dette arrangementet"
 
 #: CRM/Report/Form/Instance.php
-#, fuzzy
 msgid "Report Title"
-msgstr "Tittel"
+msgstr "Rapporttittel"
 
 #: CRM/Report/Form/Instance.php
-#, fuzzy
 msgid "Report Description"
-msgstr "Beskrivelse"
+msgstr "Rapportbeskrivelse"
 
 #: CRM/Report/Form/Instance.php
-#, fuzzy
 msgid "Report Header"
-msgstr "Mottatt"
+msgstr "Topptekst"
 
 #: CRM/Report/Form/Instance.php
-#, fuzzy
 msgid "Report Footer"
-msgstr "Mottatt"
+msgstr "Bunntekst"
 
 #: CRM/Report/Form/Instance.php
 msgid "Include Report in Navigation Menu?"
-msgstr ""
+msgstr "Inkluder rapport i navigasjonsmeny?"
 
 #: CRM/Report/Form/Instance.php
-#, fuzzy
 msgid "Available for Dashboard?"
-msgstr "Kontakttype"
+msgstr "Tilgjengelig for skrivebord?"
 
 #: CRM/Report/Form/Instance.php
 #, fuzzy
@@ -10562,23 +10574,20 @@ msgid "Parent Menu"
 msgstr "Status"
 
 #: CRM/Report/Form/Instance.php
-#, fuzzy
 msgid "Save Report"
-msgstr "Mottatt"
+msgstr "Lagre rapport"
 
 #: CRM/Report/Form/Instance.php
-#, fuzzy
 msgid "Title is a required field"
-msgstr "%1 er et påkrevd felt."
+msgstr "Tittel er et obligatorisk felt"
 
 #: CRM/Report/Form/Instance.php
 msgid "Report \"%1\" has been created and is now available in the <a href=\"%3\">report listings under \"%2\" Reports</a>."
 msgstr ""
 
 #: CRM/Report/Form/Instance.php
-#, fuzzy
 msgid "Report \"%1\" has been updated."
-msgstr "Valgt møte er slettet"
+msgstr "Rapport &laquo;%1&raquo; ble oppdatert."
 
 #: CRM/Report/Form/Member/Detail.php
 #, fuzzy
@@ -10598,32 +10607,28 @@ msgstr "Sluttdato"
 #: CRM/Report/Form/Member/Lapse.php
 #: xml/templates/message_templates/pcp_notify_html.tpl
 #: xml/templates/message_templates/pcp_notify_text.tpl
-#, fuzzy
 msgid "Current Status"
-msgstr "Startdato"
+msgstr "Nåværende status"
 
 #: CRM/Report/Form/Member/Lapse.php
 msgid "View Membership Detail for this Contact."
-msgstr ""
+msgstr "Vis medlemskapsdetaljer for denne kontakten."
 
 #: CRM/Report/Form/Membership/Summary.php
-#, fuzzy
 msgid "Current Cycle End Date"
-msgstr "Sluttdato"
+msgstr "Sluttdato for inneværende syklus"
 
 #: CRM/Report/Form/Membership/Summary.php
-#, fuzzy
 msgid "Membership Summary Report"
-msgstr "Sluttdato"
+msgstr "Oppsummeringsrapport for medlemskap"
 
 #: CRM/Report/Form/Member/Summary.php
 msgid "Membership Status"
-msgstr ""
+msgstr "Medlemskapsstatus"
 
 #: CRM/Report/Form/Member/Summary.php
-#, fuzzy
 msgid "Join Date"
-msgstr "Startdato - Fra"
+msgstr "Innmeldingsdato"
 
 #: CRM/Report/Form/Member/Summary.php
 #, fuzzy
@@ -10645,27 +10650,24 @@ msgid "Lists Summary of Memberships for this date unit."
 msgstr ""
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Report Templates"
-msgstr "Velg en gyldig dato"
+msgstr "Rapportmaler"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Select Columns"
-msgstr "Velg en gyldig dato"
+msgstr "Velg kolonner"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Operator:"
-msgstr "Operasjon"
+msgstr "Operator:"
 
 #: CRM/Report/Form.php
 msgid "Min"
-msgstr ""
+msgstr "Min."
 
 #: CRM/Report/Form.php
 msgid "Max"
-msgstr ""
+msgstr "Maks."
 
 #: CRM/Report/Form.php
 #, fuzzy
@@ -10673,147 +10675,128 @@ msgid "Chart"
 msgstr "Tchad"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Group by columns"
-msgstr "Kjønn"
+msgstr "Grupper etter kolonner"
 
 #: CRM/Report/Form.php
 msgid "Frequency"
-msgstr ""
+msgstr "Frekvens"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Update Report"
-msgstr "Oppdater"
+msgstr "Oppdater rapport"
 
 #: CRM/Report/Form.php templates/CRM/Report/Form/Fields.tpl
-#, fuzzy
 msgid "Create Report"
-msgstr "Ferdig"
+msgstr "Opprett rapport"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Print Report"
-msgstr "Aktivitetstype"
+msgstr "Skriv ut rapport"
 
 #: CRM/Report/Form.php
 msgid "PDF"
-msgstr ""
+msgstr "PDF"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Print Preview"
 msgstr "Forhåndsvisning"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Preview PDF"
-msgstr "Forhåndsvisning"
+msgstr "Forhåndsvis PDF"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Export to CSV"
-msgstr "Vennligst velg en relasjon"
+msgstr "Eksporter som CSV"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Preview CSV"
-msgstr "Forhåndsvisning"
+msgstr "Forhåndsvis CSV"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Add these Contacts to Group"
-msgstr "Kontakttype"
+msgstr "Legg disse kontakter til i gruppe"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Preview Report"
-msgstr "Forhåndsvisning"
+msgstr "Forhåndsvis rapport"
 
 #: CRM/Report/Form.php
 msgid "Is less than or equal to"
-msgstr ""
+msgstr "Er mindre enn eller lik"
 
 #: CRM/Report/Form.php
 msgid "Is greater than or equal to"
-msgstr ""
+msgstr "Er større enn eller lik"
 
 #: CRM/Report/Form.php
 msgid "Is between"
-msgstr ""
+msgstr "Er mellom"
 
 #: CRM/Report/Form.php
 msgid "Is equal to"
-msgstr ""
+msgstr "Er lik"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Is less than"
-msgstr "Tekst"
+msgstr "Er mindre enn"
 
 #: CRM/Report/Form.php
 msgid "Is greater than"
-msgstr ""
+msgstr "Er større enn"
 
 #: CRM/Report/Form.php
 msgid "Is not equal to"
-msgstr ""
+msgstr "Er ikke lik"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Is not between"
-msgstr "Land"
+msgstr "Er ikke mellom"
 
 #: CRM/Report/Form.php
 msgid "Is empty (Null)"
-msgstr ""
+msgstr "Er tom (null)"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Is one of"
-msgstr "Til ære for"
+msgstr "Er en av"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Contains"
-msgstr "Sted"
+msgstr "Inneholder"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Starts with"
-msgstr "Status"
+msgstr "Starter med"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Ends with"
-msgstr "Rediger"
+msgstr "Slutter med"
 
 #: CRM/Report/Form.php
 msgid "Does not contain"
-msgstr ""
+msgstr "Inneholder ikke"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Total Row(s)"
-msgstr "Tittel"
+msgstr "Totalt antall rader"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Grouping(s)"
-msgstr "Gruppe(r)"
+msgstr "Gruppering(er)"
 
 #: CRM/Report/Form.php
 msgid "Is"
-msgstr ""
+msgstr "Er"
 
 #: CRM/Report/Form.php
-#, fuzzy
 msgid "Report mail has been sent."
-msgstr "Valgt møte er slettet"
+msgstr "Rapport har blitt sendt med e-post."
 
 #: CRM/Report/Form.php
 msgid "Report mail could not be sent."
-msgstr ""
+msgstr "Rapport kunne ikke sendes med e-post."
 
 #: CRM/Report/Form/Pledge/Pbnp.php
 #, fuzzy
@@ -10827,9 +10810,8 @@ msgstr "Status"
 
 #: CRM/Report/Form/Pledge/Pbnp.php
 #: xml/templates/message_templates/pledge_reminder_text.tpl
-#, fuzzy
 msgid "Due Date"
-msgstr "Sluttdato"
+msgstr "Forfallsdato"
 
 #: CRM/Report/Form/Pledge/Pbnp.php
 #, fuzzy
@@ -10847,13 +10829,12 @@ msgid "Pledge Amount"
 msgstr "Avgiftssum"
 
 #: CRM/Report/Form/Pledge/Summary.php
-#, fuzzy
 msgid "Frequency Unit"
-msgstr "Tittel"
+msgstr "Frekvensenhet"
 
 #: CRM/Report/Form/Pledge/Summary.php
 msgid "Installments"
-msgstr ""
+msgstr "Avdrag"
 
 #: CRM/Report/Form/Pledge/Summary.php
 #, fuzzy
@@ -10876,9 +10857,8 @@ msgid "Pledge Status"
 msgstr "Status"
 
 #: CRM/Report/Form/Pledge/Summary.php
-#, fuzzy
 msgid "Total Amount Paid"
-msgstr "Postnummer"
+msgstr "Betalt totalbeløp"
 
 #: CRM/Report/Form/Pledge/Summary.php
 #, fuzzy
@@ -10886,28 +10866,24 @@ msgid "Pledged Amount"
 msgstr "Avgiftssum"
 
 #: CRM/Report/Form/Pledge/Summary.php
-#, fuzzy
 msgid " Group"
 msgstr "Gruppe"
 
 #: CRM/Report/Form/Register.php xml/templates/civicrm_data.tpl
-#, fuzzy
 msgid "Report Template"
-msgstr "Velg en gyldig dato"
+msgstr "Rapportmal"
 
 #: CRM/Report/Form/Register.php templates/CRM/Report/Page/Options.tpl
 msgid "URL"
-msgstr ""
+msgstr "Nettstedsadresse (URL)"
 
 #: CRM/Report/Form/Register.php
-#, fuzzy
 msgid "Url already exists in Database."
-msgstr "Navn eksisterer allerede i databasen"
+msgstr "Nettadressen finnes allerede i databasen."
 
 #: CRM/Report/Form/Register.php
-#, fuzzy
 msgid "Class already exists in Database."
-msgstr "Navn eksisterer allerede i databasen"
+msgstr "Klassen finnes allerede i databasen."
 
 #: CRM/Report/Form/Register.php
 #, fuzzy
@@ -10919,9 +10895,8 @@ msgid "Report(s) created from the template: %1"
 msgstr ""
 
 #: CRM/Report/Page/Instance.php
-#, fuzzy
 msgid "Your do not have permission to Delete Report."
-msgstr "Du har ikke tilgang til denne siden"
+msgstr "Du har ikke tillatelser til å slette rapporter."
 
 #: CRM/Report/Page/Instance.php
 #, fuzzy
@@ -10933,17 +10908,16 @@ msgid "Could not find template for the instance."
 msgstr ""
 
 #: CRM/Report/Page/Options.php
-#, fuzzy
 msgid "Registered Templates"
-msgstr "Registrert"
+msgstr "Registrerte maler"
 
 #: CRM/Report/Page/Report.php
 msgid "Could not find the report template. Make sure the report template is registered and / or url is correct."
-msgstr ""
+msgstr "Kunne ikke finne rapportmal. Sjekk at malen er registrert og at nettadressen er korrekt."
 
 #: CRM/Report/Utils/Report.php
 msgid "Listed contact(s) have been added to the selected group."
-msgstr ""
+msgstr "Kontakten(e) har blitt lagt til i gruppa."
 
 #: CRM/SMS/BAO/History.php
 msgid "To: %1; Message: %2"
@@ -12289,7 +12263,7 @@ msgstr ""
 #: templates/CRM/Admin/Form/OptionValue.tpl
 #: templates/CRM/Admin/Form/RelationshipType.tpl
 msgid "This may mean the loss of a substantial amount of data, and the action cannot be undone."
-msgstr ""
+msgstr "Dette kan innebære tap av betydelige mengder data, og kan ikke gjøres om."
 
 #: templates/CRM/Admin/Form/CMSUser.tpl
 msgid "Synchronize %1 Users"
@@ -13394,9 +13368,8 @@ msgid "Getting Started"
 msgstr "Gateadresse"
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
-#, fuzzy
 msgid "CiviPledge"
-msgstr "Kjønn"
+msgstr "CiviPledge"
 
 #: templates/CRM/Admin/Page/ContactType.tpl
 msgid "CiviCRM comes with 3 basic (built-in) contact types: Individual, Household, and Organization. You can create additional contact types based on these types to further differentiate contacts (for example you might create Student, Parent, Staff, and /or Volunteer types from the basic Individual type...)."
@@ -13447,7 +13420,7 @@ msgstr ""
 
 #: templates/CRM/Admin/Page/EventTemplate.tpl xml/templates/civicrm_data.tpl
 msgid "Participant Listing"
-msgstr ""
+msgstr "Deltakerliste"
 
 #: templates/CRM/Admin/Page/EventTemplate.tpl
 #, fuzzy
@@ -13455,9 +13428,8 @@ msgid "Public Event"
 msgstr "Brukersider"
 
 #: templates/CRM/Admin/Page/EventTemplate.tpl
-#, fuzzy
 msgid "Paid Event"
-msgstr "Hendelse"
+msgstr "Betalt arrangement"
 
 #: templates/CRM/Admin/Page/EventTemplate.tpl
 #, fuzzy
@@ -13557,7 +13529,7 @@ msgstr ""
 #: templates/CRM/Admin/Page/OptionValue.tpl
 #: templates/CRM/Admin/Page/ParticipantStatus.tpl
 msgid "Reserved?"
-msgstr ""
+msgstr "Reservert?"
 
 #: templates/CRM/Admin/Page/OptionGroup.tpl
 msgid "There are no Option Group entered. You can <a href='%1'>add one</a>."
@@ -13625,7 +13597,7 @@ msgstr ""
 
 #: templates/CRM/Admin/Page/Options.tpl templates/CRM/Report/Page/Options.tpl
 msgid "The existing option choices for %1 group are listed below. You can add, edit or delete them from this screen."
-msgstr ""
+msgstr "De eksisterende valgmuligheter for gruppe %1 er listet under. Du kan legge til, redigere eller slette dem fra denne listen."
 
 #: templates/CRM/Admin/Page/Options.tpl
 msgid "Replacement"
@@ -13954,14 +13926,12 @@ msgid "Public?"
 msgstr "Brukersider"
 
 #: templates/CRM/Auction/Page/Manage.tpl
-#, fuzzy
 msgid "Starts"
-msgstr "Status"
+msgstr "Starter"
 
 #: templates/CRM/Auction/Page/Manage.tpl
-#, fuzzy
 msgid "Ends"
-msgstr "Hendelser"
+msgstr "Slutter"
 
 #: templates/CRM/Block/Add.tpl
 msgid "First Name:"
@@ -14566,9 +14536,8 @@ msgid "Are you sure you want to delete the Relationship '%1'?"
 msgstr "Velg en gyldig dato"
 
 #: templates/CRM/Contact/Form/Search/AdvancedCriteria.tpl
-#, fuzzy
 msgid "loading"
-msgstr "Stedsnavn"
+msgstr "laster"
 
 #: templates/CRM/Contact/Form/Search/AdvancedCriteria.tpl
 #, fuzzy
@@ -15870,23 +15839,23 @@ msgstr ""
 
 #: templates/CRM/HRDCase/Form/CaseActivity.tpl
 msgid "Regarding"
-msgstr ""
+msgstr "Angående"
 
 #: templates/CRM/HRDCase/Form/Case.tpl xml/templates/civicrm_navigation.tpl
 msgid "New Case"
-msgstr ""
+msgstr "Ny sak"
 
 #: templates/CRM/HRDCase/Form/Case.tpl
 msgid "Delete Case"
-msgstr ""
+msgstr "Slett sak"
 
 #: templates/CRM/HRDCase/Form/Case.tpl
 msgid "Detach Activity From Case"
-msgstr ""
+msgstr "Fjern aktivitet fra sak"
 
 #: templates/CRM/HRDCase/Form/Case.tpl
 msgid "Are you sure you want to detach this case from Activity?"
-msgstr ""
+msgstr "Er du sikker på at du vil fjerne denne saken fra aktiviteten?"
 
 #: templates/CRM/HRDCase/Form/Case.tpl
 #, fuzzy
@@ -15895,19 +15864,19 @@ msgstr "Velg en gyldig dato"
 
 #: templates/CRM/HRDCase/Form/Case.tpl
 msgid "Enter the case subject"
-msgstr ""
+msgstr "Skriv inn saksemne"
 
 #: templates/CRM/HRDCase/Form/Case.tpl
 msgid "Select the status for this case"
-msgstr ""
+msgstr "Velg status for denne saken"
 
 #: templates/CRM/HRDCase/Form/Case.tpl
 msgid "Add To "
-msgstr ""
+msgstr "Legg til"
 
 #: templates/CRM/HRDCase/Form/Case.tpl
 msgid "Add More "
-msgstr ""
+msgstr "Legg til mer"
 
 #: templates/CRM/HRDCase/Form/Case.tpl
 msgid "You can optionally add this case to someone. Added case will appear in their Contact Dashboard."
@@ -15915,11 +15884,11 @@ msgstr ""
 
 #: templates/CRM/HRDCase/Form/Case.tpl
 msgid "Select the appropriate type of the case "
-msgstr ""
+msgstr "Velg korrekt sakstype"
 
 #: templates/CRM/HRDCase/Form/CaseView.tpl
 msgid "View Case Record Details"
-msgstr ""
+msgstr "Vis saksoppføringer"
 
 #: templates/CRM/Import/Form/CSV.tpl
 #, fuzzy
@@ -16270,7 +16239,7 @@ msgstr ""
 
 #: templates/CRM/Report/Form/ErrorMessage.tpl
 msgid "Sorry. No results found."
-msgstr ""
+msgstr "Beklager. Fant ingen resultater."
 
 #: templates/CRM/Report/Form/Event/Income.tpl
 msgid "%1 Breakdown"
@@ -16287,9 +16256,8 @@ msgstr ""
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 #: xml/templates/message_templates/membership_online_receipt_html.tpl
 #: xml/templates/message_templates/membership_online_receipt_text.tpl
-#, fuzzy
 msgid "Total"
-msgstr "Tittel"
+msgstr "Total"
 
 #: templates/CRM/Report/Form/Event/Income.tpl
 #, fuzzy
@@ -16302,14 +16270,12 @@ msgid "Revenue"
 msgstr "Fjernet"
 
 #: templates/CRM/Report/Form/Fields.tpl
-#, fuzzy
 msgid "Report Criteria"
-msgstr "Mottatt"
+msgstr "Rapportvilkår"
 
 #: templates/CRM/Report/Form/Fields.tpl
-#, fuzzy
 msgid "Report Settings"
-msgstr "Avbryt"
+msgstr "Rapportinnstillinger"
 
 #: templates/CRM/Report/Form/Fields.tpl
 msgid "Existing report(s) from this template"
@@ -16321,46 +16287,40 @@ msgid "Please select valid Group"
 msgstr "Velg en gyldig dato"
 
 #: templates/CRM/Report/Form/Instance.tpl
-#, fuzzy
 msgid "General Settings"
-msgstr "Profil"
+msgstr "Generelle innstillinger"
 
 #: templates/CRM/Report/Form/Instance.tpl
-#, fuzzy
 msgid "Email Delivery Settings"
-msgstr "Profil"
+msgstr "Innstillinger for sending av E-post"
 
 #: templates/CRM/Report/Form/Instance.tpl
-#, fuzzy
 msgid "Other Settings"
-msgstr "Avbryt"
+msgstr "Andre innstillinger"
 
 #: templates/CRM/Report/Form/Instance.tpl
 msgid "All report instances are automatically included in the Report Listing page. Check this box to also add this report to the navigation menu."
-msgstr ""
+msgstr "Alle rapportforekomster blir automatisk inkludert i rapportlista. Marker denne boksen for å legge denne rapporten til i navigasjonsmenyen også."
 
 #: templates/CRM/Report/Form/Instance.tpl
 msgid "Users with appropriate permissions can add this report to their dashboard."
 msgstr ""
 
 #: templates/CRM/Report/Form/Register.tpl
-#, fuzzy
 msgid "Delete Report Template"
-msgstr "Velg en gyldig dato"
+msgstr "Slett rapportmal"
 
 #: templates/CRM/Report/Form/Register.tpl
 msgid "WARNING: Deleting this option will result in the loss of all Report related records which use the option. This may mean the loss of a substantial amount of data, and the action cannot be undone. Do you want to continue?"
-msgstr ""
+msgstr "ADVARSEL: Dersom du sletter denne valgmuligheten, vil alle rapportrelaterte oppføringer som bruker dette valget slettes. Dette kan bety tap av en betydelig mengde data, og handlingen kan ikke gjøres om. Er du sikker på at du vil fortsette?"
 
 #: templates/CRM/Report/Form/Register.tpl
-#, fuzzy
 msgid "Edit Report Template"
-msgstr "Velg en gyldig dato"
+msgstr "Rediger rapportmal"
 
 #: templates/CRM/Report/Form/Register.tpl
-#, fuzzy
 msgid "New Report Template"
-msgstr "Velg en gyldig dato"
+msgstr "Ny rapportmal"
 
 #: templates/CRM/Report/Form/Register.tpl
 msgid "Report title appear in the display screen."
@@ -16376,27 +16336,24 @@ msgstr ""
 
 #: templates/CRM/Report/Form/Register.tpl
 msgid "Report Class must be present before adding the report here, e.g. 'CRM_Report_Form_Contribute_Summary'"
-msgstr ""
+msgstr "Rapportklassen må være satt før du kan legge til rapporten her. F.eks. &laquo;CRM_Report_Form_Contribute_Summary&raquo;"
 
 #: templates/CRM/Report/Form/Register.tpl
 msgid "Specify the Report if it is belongs to any component like \"CiviContribute\""
 msgstr ""
 
 #: templates/CRM/Report/Page/InstanceList.tpl
-#, fuzzy
 msgid "Contribution Reports"
-msgstr "Sluttdato"
+msgstr "Bidragsrapporter"
 
 #: templates/CRM/Report/Page/InstanceList.tpl
 #: xml/templates/civicrm_navigation.tpl
-#, fuzzy
 msgid "Reports"
-msgstr "Mottatt"
+msgstr "Rapporter"
 
 #: templates/CRM/Report/Page/InstanceList.tpl
-#, fuzzy
 msgid "Run this report"
-msgstr "Husholdning"
+msgstr "Vis denne rapporten"
 
 #: templates/CRM/Report/Page/InstanceList.tpl
 #, fuzzy
@@ -16404,27 +16361,24 @@ msgid "Are you sure you want delete this report? This action can not be undone."
 msgstr "Velg en gyldig dato"
 
 #: templates/CRM/Report/Page/InstanceList.tpl
-#, fuzzy
 msgid "View All Reports"
-msgstr "vis alle kontakter"
+msgstr "Vis alle rapporter"
 
 #: templates/CRM/Report/Page/InstanceList.tpl
 msgid "No report instances have been created for your site."
-msgstr ""
+msgstr "Ingen rapportforekomster har blitt opprettet for ditt webområde."
 
 #: templates/CRM/Report/Page/InstanceList.tpl
 msgid "You can create reports by selecting from the <a href=\"%1\">list of report templates here.</a>"
-msgstr ""
+msgstr "Du kan opprette rapporter ved å velge fra <a href=\"%1\">liste over rapportmaler</a>."
 
 #: templates/CRM/Report/Page/InstanceList.tpl
-#, fuzzy
 msgid "Contact your site administrator for help creating reports."
-msgstr "Vennligst skriv inn et gyldig navn"
+msgstr "Kontakt din nettstedsadministrator for hjelp med å opprette rapporter."
 
 #: templates/CRM/Report/Page/List.tpl
-#, fuzzy
 msgid "Template List"
-msgstr "Velg en gyldig dato"
+msgstr "Liste over maler"
 
 #: templates/CRM/Report/Page/List.tpl
 #, fuzzy
@@ -16437,9 +16391,8 @@ msgid "There are currently no Report."
 msgstr ""
 
 #: templates/CRM/Report/Page/Options.tpl
-#, fuzzy
 msgid "Register New %1"
-msgstr "Registrert"
+msgstr "Registrer ny %1"
 
 #: templates/CRM/Report/Page/Options.tpl
 msgid "There are no option values entered. You can <a href=\"%1\">add one</a>."
@@ -16447,17 +16400,15 @@ msgstr ""
 
 #: templates/CRM/Report/Page/TemplateList.tpl
 msgid "Create reports for your users from any of the report templates listed below. Click on a template titles to get started. Click Existing Report(s) to see any reports that have already been created from that template."
-msgstr ""
+msgstr "Opprett rapporter for dine brukere fra hvilken som helst av rapportmalene listet under. Trykk på en tittel for å begynne. Trykk &laquo;Eksisterende rapport(er)&raquo; for å se allerede opprettede rapporter fra den aktuelle malen."
 
 #: templates/CRM/Report/Page/TemplateList.tpl
-#, fuzzy
 msgid "Create report from this template"
-msgstr "Velg en gyldig dato"
+msgstr "Opprett rapport fra denne malen"
 
 #: templates/CRM/Report/Page/TemplateList.tpl
-#, fuzzy
 msgid "Existing Report(s)"
-msgstr "CiviCRM Kontaktsøk"
+msgstr "Eksisterende rapport(er)"
 
 #: templates/CRM/SMS/Form/Task/SMS.tpl
 msgid "Send an SMS"
@@ -16926,11 +16877,11 @@ msgstr ""
 
 #: xml/templates/civicrm_data.tpl
 msgid "Grant status"
-msgstr ""
+msgstr "Gavestatus"
 
 #: xml/templates/civicrm_data.tpl
 msgid "Grant Type"
-msgstr ""
+msgstr "Gavetype"
 
 #: xml/templates/civicrm_data.tpl
 msgid "Honor Type"
@@ -17955,13 +17906,12 @@ msgid "Awaiting approval"
 msgstr ""
 
 #: xml/templates/civicrm_data.tpl
-#, fuzzy
 msgid "Pending from waitlist"
-msgstr "Beskrivelse"
+msgstr "Venter fra venteliste"
 
 #: xml/templates/civicrm_data.tpl
 msgid "Pending from approval"
-msgstr ""
+msgstr "Venter på godkjenning"
 
 #: xml/templates/civicrm_msg_template.tpl
 #, fuzzy
@@ -18203,9 +18153,8 @@ msgid "Participant Roles"
 msgstr "Kontakttype"
 
 #: xml/templates/civicrm_navigation.tpl
-#, fuzzy
 msgid "CiviGrant"
-msgstr "Tilordne"
+msgstr "CiviGrant"
 
 #: xml/templates/civicrm_navigation.tpl
 #, fuzzy
@@ -18359,9 +18308,8 @@ msgstr "Søk"
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 #: xml/templates/message_templates/membership_offline_receipt_html.tpl
 #: xml/templates/message_templates/membership_offline_receipt_text.tpl
-#, fuzzy
 msgid "Paid By"
-msgstr "Sluttdato"
+msgstr "Betalt av"
 
 #: xml/templates/message_templates/contribution_offline_receipt_html.tpl
 #: xml/templates/message_templates/contribution_offline_receipt_text.tpl
@@ -18386,9 +18334,8 @@ msgstr "Sjekknummer"
 #: xml/templates/message_templates/membership_offline_receipt_text.tpl
 #: xml/templates/message_templates/membership_online_receipt_html.tpl
 #: xml/templates/message_templates/membership_online_receipt_text.tpl
-#, fuzzy
 msgid "Expires"
-msgstr "Utløpt"
+msgstr "Utløper"
 
 #: xml/templates/message_templates/contribution_offline_receipt_html.tpl
 #: xml/templates/message_templates/contribution_offline_receipt_text.tpl
@@ -18460,9 +18407,8 @@ msgstr "Vennligst velg en relasjon"
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 #: xml/templates/message_templates/membership_online_receipt_html.tpl
 #: xml/templates/message_templates/membership_online_receipt_text.tpl
-#, fuzzy
 msgid "Transaction #"
-msgstr "Transaksjons-id"
+msgstr "Transaksjonsnummer"
 
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
 #: xml/templates/message_templates/membership_online_receipt_html.tpl
@@ -18692,9 +18638,8 @@ msgstr "Kontakttype"
 #: xml/templates/message_templates/event_offline_receipt_text.tpl
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
-#, fuzzy
 msgid "Transaction Date"
-msgstr "Organisasjonsnavn"
+msgstr "Transaksjonsdato"
 
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
 #: xml/templates/message_templates/event_offline_receipt_text.tpl
