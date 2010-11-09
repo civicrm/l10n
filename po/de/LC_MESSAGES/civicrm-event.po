@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM 3.2\n"
-"POT-Creation-Date: 2010-11-09 11:03+0100\n"
+"POT-Creation-Date: 2010-11-09 11:36+0100\n"
 "PO-Revision-Date: 2010-04-03 06:35-0700\n"
 "Last-Translator: Felix <felix.staab.privat@gmx.de>\n"
 "Language-Team: CiviCRM Translators <civicrm-translators@lists.civicrm.org>\n"
@@ -67,10 +67,6 @@ msgid "Event Location"
 msgstr "Veranstaltungsort"
 
 #: CRM/Event/Form/ManageEvent.php CRM/Event/Page/ManageEvent.php
-msgid "Configure Event"
-msgstr "Veranstaltung konfigurieren"
-
-#: CRM/Event/Form/ManageEvent.php CRM/Event/Page/ManageEvent.php
 #: templates/CRM/Event/Page/DashBoard.tpl
 msgid "Manage Events"
 msgstr "Veranstaltungen verwalten"
@@ -95,12 +91,21 @@ msgstr "Registriert"
 
 #: CRM/Event/Form/Registration/AdditionalParticipant.php
 #: CRM/Event/Form/Registration/Register.php
+msgid " %1 Participant count extending its maximum participants limit."
+msgstr ""
+
+#: CRM/Event/Form/Registration/AdditionalParticipant.php
+#: CRM/Event/Form/Registration/Register.php
 msgid "Select at least one option from Event Fee(s)."
 msgstr "Wählen sie mindestens eine Teilnahmegebühr aus"
 
 #: CRM/Event/Form/Registration/ParticipantConfirm.php CRM/Event/Task.php
 msgid "Cancel Registration"
 msgstr "Abbruch der Anmeldung"
+
+#: CRM/Event/Form/Registration/Register.php CRM/Event/Info.php
+msgid "Event Registration"
+msgstr "Anmeldung zur Veranstaltung"
 
 #: CRM/Event/Form/Registration/Register.php CRM/Event/Page/EventInfo.php
 msgid "Oops. It looks like you are already registered for this event. If you want to change your registration, or you feel that you've gotten this message in error, please contact the site administrator."
@@ -201,10 +206,6 @@ msgstr "ist Online-Registrierung"
 #: CRM/Event/DAO/Event.php
 msgid "Event Registration Link Text"
 msgstr "Text des Anmeldelinks"
-
-#: CRM/Event/DAO/Event.php
-msgid "Max Participants"
-msgstr "Maximale Teilnehmerzahl"
 
 #: CRM/Event/DAO/Event.php templates/CRM/Event/Form/Registration/Confirm.tpl
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
@@ -519,6 +520,10 @@ msgid "Show Location?"
 msgstr "Soll der Veranstaltungsort angezeigt werden?"
 
 #: CRM/Event/Form/ManageEvent.php
+msgid "Configure Event"
+msgstr "Veranstaltung konfigurieren"
+
+#: CRM/Event/Form/ManageEvent.php
 msgid "New Event Template"
 msgstr "Neue Veranstaltungs-Vorlage"
 
@@ -641,6 +646,11 @@ msgid "CiviEvent Dashboard"
 msgstr "CiviEvent Übersicht"
 
 #: CRM/Event/Form/Participant.php
+#, fuzzy
+msgid "Role is required"
+msgstr "%1 rolle ist Pflichtfeld."
+
+#: CRM/Event/Form/Participant.php
 msgid "Send Notification"
 msgstr "Meldung senden"
 
@@ -721,8 +731,38 @@ msgid "If you skip this participant there will be enough spaces in the event for
 msgstr "Wenn Sie diesen Teilnehmer überspringen, dann sind noch genügend Plätze frei. Bitte gehen Sie zurück auf die Anmeldungseite und reduzieren Sie die Anzahl der zusätzlichen Teilnehmer. Außerdem ergänzen Sie bitte die Zahlungsinformation."
 
 #: CRM/Event/Form/Registration/AdditionalParticipant.php
+#, fuzzy
+msgid "This event is currently full. You are registering in a waiting list. You will be notified if spaces become available."
+msgstr "Die Veranstaltung ist im Moment ausgebucht, Sie können sich aber auf die Warteliste setzen lassen. Falls Plätze frei werden, werden Sie informiert."
+
+#: CRM/Event/Form/Registration/AdditionalParticipant.php
+#, fuzzy
+msgid "It looks like you are now registering a group participants which are extending the event availability. All participant will be listed in the waiting list and you will be notified if spaces become available."
+msgstr "Sie versuchen %1 Teilnehmer anzumelden. Die Veranstaltung hat nur noch %2 freie Plätze. Sie werden nicht auf die Warteliste gesetzt. "
+
+#: CRM/Event/Form/Registration/AdditionalParticipant.php
+#, fuzzy
+msgid "It look like that total participant recoreded will fit in the event availability (you will not be wait listed)."
+msgstr "Wenn Sie diesen Teilnehmer überspringen, dann sind noch genügend Plätze frei. Sie werden dann nicht auf die Warteliste gesetzt."
+
+#: CRM/Event/Form/Registration/AdditionalParticipant.php
+#, fuzzy
+msgid "It look like that total participant recoreded will fit in the event availability (you will not be wait listed). Registration for this event requires approval. You will receive an email once your registration has been reviewed."
+msgstr "Wenn Sie diesen Teilnehmer überspringen, dann sind noch genügend Plätze frei. Die Anmeldung für diese Veranstaltung erfordert eine Bestätigung. Sie werden nach der Überprüfung ihrer Anmeldung per E-Mail informiert."
+
+#: CRM/Event/Form/Registration/AdditionalParticipant.php
+#, fuzzy
+msgid "Please go back to the main registration page, to complete payment information."
+msgstr "Kontaktieren den Homepage Administrator für weitere Informationen."
+
+#: CRM/Event/Form/Registration/AdditionalParticipant.php
 msgid "Skip Participant >>|"
 msgstr "Teilnehmer überspringen >>|"
+
+#: CRM/Event/Form/Registration/AdditionalParticipant.php
+#, fuzzy
+msgid "A person is already registered for this event."
+msgstr "Eine Person mit dieser Emailadresse ist bereits für diese Veranstaltung angemeldet"
 
 #: CRM/Event/Form/Registration/AdditionalParticipant.php
 msgid "A person with this email address is already registered for this event."
@@ -731,6 +771,19 @@ msgstr "Eine Person mit dieser Emailadresse ist bereits für diese Veranstaltung
 #: CRM/Event/Form/Registration/AdditionalParticipant.php
 msgid "The email address must be unique for each participant."
 msgstr "Die Emailadresse muss für jeden Teilnehmer einzigartig sein"
+
+#: CRM/Event/Form/Registration/AdditionalParticipant.php
+msgid "Your event registration will be confirmed. Please go back to the main registration page, to complete payment information."
+msgstr ""
+
+#: CRM/Event/Form/Registration/AdditionalParticipant.php
+msgid "It looks like event has only %2 seats available and you are trying to register %1 participants, so could you please select price options accordingly."
+msgstr ""
+
+#: CRM/Event/Form/Registration/AdditionalParticipant.php
+#, fuzzy
+msgid "You are goinng to skip the last participant, your event registration will be confirmed. Please go back to the main registration page, to complete payment information."
+msgstr "Wenn Sie diesen Teilnehmer überspringen, dann sind noch genügend Plätze frei. Bitte gehen Sie zurück auf die Anmeldungseite und reduzieren Sie die Anzahl der zusätzlichen Teilnehmer. Außerdem ergänzen Sie bitte die Zahlungsinformation."
 
 #: CRM/Event/Form/Registration/AdditionalParticipant.php
 msgid "You have skipped last participant and which result into event having enough spaces, but your registration require approval, Once your registration has been reviewed, you will receive an email with a link to a web page where you can complete the registration process."
@@ -916,12 +969,12 @@ msgid "Please enter a whole number for Number of additional people."
 msgstr "Bitte geben Sie einen gültigen Zahlenwert ein."
 
 #: CRM/Event/Form/Registration/Register.php
-msgid "Event Fee(s) can not be less than zero. Please select the options accordingly"
-msgstr "Die Teilnahmegebühr darf nicht weniger als Null betragen. Bitte ändern Sie Ihre Eingabe dahingehend."
-
-#: CRM/Event/Form/Registration/Register.php
 msgid "Only %1 Registrations available."
 msgstr "Nur noch %1 Anmeldungen möglich"
+
+#: CRM/Event/Form/Registration/Register.php
+msgid "Event Fee(s) can not be less than zero. Please select the options accordingly"
+msgstr "Die Teilnahmegebühr darf nicht weniger als Null betragen. Bitte ändern Sie Ihre Eingabe dahingehend."
 
 #: CRM/Event/Form/Registration/Register.php
 msgid "Registration information for participant 1 has been saved."
@@ -1079,10 +1132,6 @@ msgstr "CiviCRM Veranstaltungs Funktion"
 #: CRM/Event/Info.php
 msgid "Your Event(s)"
 msgstr "Ihre Veranstaltung(en)"
-
-#: CRM/Event/Info.php
-msgid "Event Registration"
-msgstr "Anmeldung zur Veranstaltung"
 
 #: CRM/Event/Page/DashBoard.php
 msgid "events"
@@ -1338,6 +1387,11 @@ msgstr "Wenn diese Veranstaltung aktiv ist, können Links zur Seite der Veransta
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid "No Payment Processor has been configured / enabled for your site. If this is a <strong>paid event</strong> AND you want users to be able to <strong>register and pay online</strong>, you will need to <a href='%1'>configure a Payment Processor</a> first. Then return to this screen and assign the processor to this event."
 msgstr "Kein Zahlungs Prozessor wurde konfiguriert/aktiviert für die Homepage. Falls das eine <strong>kostenpflichtige Veranstaltung</strong> ist UND User <strong >Online Registrieren</strong>können sollen, muss zuerst ein <a href='%1'>Zahlungs Processor</a> konfiguriert werden. Kehren sie danach hier zurück und ordnen sie den Prozessor dieser Veranstaltung zu."
+
+#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
+#, fuzzy
+msgid "Select the currency to be used for event registration."
+msgstr "Wähle den Zahlungs Prozessor, der für diese Spendenseite verwendet werden soll."
 
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid "If this is a paid event and you want users to be able to register and pay online, select a payment processor to use."
@@ -1641,6 +1695,11 @@ msgid "Public Participant Listing"
 msgstr "Öffentliche Teilnehmer Liste"
 
 #: templates/CRM/Event/Form/Participant.tpl
+#, fuzzy
+msgid "This Option is already full for this event."
+msgstr "iCalendar Feed für diese Veranstaltung."
+
+#: templates/CRM/Event/Form/Participant.tpl
 msgid "New Event Registration"
 msgstr "Neue Veranstaltungsteilnahme"
 
@@ -1667,6 +1726,30 @@ msgstr "ACHTUNG: Das Löschen einer Veranstaltungsteilnahme entfernt auch dazuge
 #: templates/CRM/Event/Form/Participant.tpl
 msgid " There are %1 more Participant(s) registered by this participant. Deleting this registration will also result in deletion of these additional participant(s)."
 msgstr "Es wurden % 1 weitere Teilnehmer von diesem Teilnehmer registriert. Das Löschen dieser Registrierung wird auch zur Streichung dieser zusätzlichen Teilnehmer führen."
+
+#: templates/CRM/Event/Form/Participant.tpl
+#: templates/CRM/Event/Form/ParticipantView.tpl
+#, fuzzy
+msgid "Also Registered by this Participant"
+msgstr "Teilnehmer registrieren "
+
+#: templates/CRM/Event/Form/Participant.tpl
+#: templates/CRM/Event/Form/ParticipantView.tpl
+#, fuzzy
+msgid "view additional participant"
+msgstr "Profil für zusätzliche Teilnehmer"
+
+#: templates/CRM/Event/Form/Participant.tpl
+#: templates/CRM/Event/Form/ParticipantView.tpl
+#, fuzzy
+msgid "Registered By"
+msgstr "Registriert nach ID"
+
+#: templates/CRM/Event/Form/Participant.tpl
+#: templates/CRM/Event/Form/ParticipantView.tpl
+#, fuzzy
+msgid "view primary participant"
+msgstr "Teilnehmer ansehen"
 
 #: templates/CRM/Event/Form/Participant.tpl
 msgid "Include past event(s) in this select list."
