@@ -19,7 +19,7 @@ sed "s/NOW/$now/" bin/header > $header
 components=`ls -1 $root/CRM $root/templates/CRM | grep -v :$ | grep -v ^$ | grep -viFf bin/basedirs | sort -u | xargs | tr [A-Z] [a-z]`
 
 # build the three XML-originating files
-echo ' * building civcrm-menu.pot'
+echo ' * building menu.pot'
 cp $header $potdir/menu.pot
 grep -h '<title>' $root/CRM/*/xml/Menu/*.xml | sed 's/^.*<title>\(.*\)<\/title>.*$/\1/' | sort | uniq | tail --lines=+2 | while read entry; do echo -e "msgctxt \"menu\"\nmsgid \"$entry\"\nmsgstr \"\"\n"; done >> $potdir/menu.pot
 echo ' * building countries.pot'
