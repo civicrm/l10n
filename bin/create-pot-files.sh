@@ -15,13 +15,13 @@ header=`tempfile`
 now=`date +'%F %R%z'`
 sed "s/NOW/$now/" bin/header > $header
 
-# $componets are the dirs with strings generating per-component civicrm-$component.po files
+# $componets are the dirs with strings generating per-component $component.po files
 components=`ls -1 $root/CRM $root/templates/CRM | grep -v :$ | grep -v ^$ | grep -viFf bin/basedirs | sort -u | xargs | tr [A-Z] [a-z]`
 
 # build the three XML-originating files
 echo ' * building civcrm-menu.pot'
-cp $header $potdir/civicrm-menu.pot
-grep -h '<title>' $root/CRM/*/xml/Menu/*.xml | sed 's/^.*<title>\(.*\)<\/title>.*$/\1/' | sort | uniq | tail --lines=+2 | while read entry; do echo -e "msgctxt \"menu\"\nmsgid \"$entry\"\nmsgstr \"\"\n"; done >> $potdir/civicrm-menu.pot
+cp $header $potdir/menu.pot
+grep -h '<title>' $root/CRM/*/xml/Menu/*.xml | sed 's/^.*<title>\(.*\)<\/title>.*$/\1/' | sort | uniq | tail --lines=+2 | while read entry; do echo -e "msgctxt \"menu\"\nmsgid \"$entry\"\nmsgstr \"\"\n"; done >> $potdir/menu.pot
 echo ' * building countries.pot'
 cp $header $potdir/countries.pot
 grep ^INSERT $root/xml/templates/civicrm_country.tpl     | cut -d\" -f4                                  | while read entry; do echo -e "msgctxt \"country\"\nmsgid \"$entry\"\nmsgstr \"\"\n"; done >> $potdir/countries.pot
@@ -34,37 +34,37 @@ grep '^(' $root/xml/templates/civicrm_state_province.tpl | cut -d\" -f4         
 msguniq $potdir/provinces.pot | sponge $potdir/provinces.pot
 
 # create base POT file
-echo ' * building civicrm-base.pot'
-cp $header $potdir/civicrm-base.pot
-`dirname $0`/extractor.php base $root >> $potdir/civicrm-base.pot
-msguniq $potdir/civicrm-base.pot | sponge $potdir/civicrm-base.pot
-msgattrib --no-wrap $potdir/civicrm-base.pot | sponge $potdir/civicrm-base.pot
+echo ' * building common-base.pot'
+cp $header $potdir/common-base.pot
+`dirname $0`/extractor.php base $root >> $potdir/common-base.pot
+msguniq $potdir/common-base.pot | sponge $potdir/common-base.pot
+msgattrib --no-wrap $potdir/common-base.pot | sponge $potdir/common-base.pot
 
 # create component POT files
 for comp in $components; do
-  echo ' * building civicrm-'$comp'.pot'
-  cp $header $potdir/civicrm-$comp.pot
-  `dirname $0`/extractor.php $comp $root >> $potdir/civicrm-$comp.pot
-  # drop strings already present in civicrm-base.pot
+  echo ' * building '$comp'.pot'
+  cp $header $potdir/$comp.pot
+  `dirname $0`/extractor.php $comp $root >> $potdir/$comp.pot
+  # drop strings already present in common-base.pot
   common=`tempfile`
-  msgcomm $potdir/civicrm-$comp.pot $potdir/civicrm-base.pot > $common
-  msgcomm -u $potdir/civicrm-$comp.pot $common | sponge $potdir/civicrm-$comp.pot
+  msgcomm $potdir/$comp.pot $potdir/common-base.pot > $common
+  msgcomm -u $potdir/$comp.pot $common | sponge $potdir/$comp.pot
   rm $common
 done
 
-# create civicrm-components.pot with strings common to all components (but not base)
+# create common-components.pot with strings common to all components (but not base)
 paths=''
 for comp in $components; do
-  paths="$paths $potdir/civicrm-$comp.pot"
+  paths="$paths $potdir/$comp.pot"
 done
-echo ' * building civicrm-components.pot'
-msgcomm --no-wrap $paths > $potdir/civicrm-components.pot
+echo ' * building common-components.pot'
+msgcomm --no-wrap $paths > $potdir/common-components.pot
 
-# drop strings in civicrm-components.pot from component POT files
+# drop strings in common-components.pot from component POT files
 for comp in $components; do
   common=`tempfile`
-  msgcomm $potdir/civicrm-$comp.pot $potdir/civicrm-components.pot > $common
-  msgcomm -u --no-wrap $potdir/civicrm-$comp.pot $common | sponge $potdir/civicrm-$comp.pot
+  msgcomm $potdir/$comp.pot $potdir/common-components.pot > $common
+  msgcomm -u --no-wrap $potdir/$comp.pot $common | sponge $potdir/$comp.pot
   rm $common
 done
 
