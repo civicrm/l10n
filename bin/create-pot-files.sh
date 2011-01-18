@@ -19,12 +19,17 @@ sed "s/NOW/$now/" bin/header > $header
 components=`ls -1 $root/CRM $root/templates/CRM | grep -v :$ | grep -v ^$ | grep -viFf bin/basedirs | sort -u | xargs | tr [A-Z] [a-z]`
 
 # build the three XML-originating files
+
 echo ' * building menu.pot'
 cp $header $potdir/menu.pot
-grep -h '<title>' $root/CRM/*/xml/Menu/*.xml | sed 's/^.*<title>\(.*\)<\/title>.*$/\1/' | sort | uniq | tail --lines=+2 | while read entry; do echo -e "msgctxt \"menu\"\nmsgid \"$entry\"\nmsgstr \"\"\n"; done >> $potdir/menu.pot
+grep -h '<title>' $root/CRM/*/xml/Menu/*.xml | sed 's/^.*<title>\(.*\)<\/title>.*$/\1/'                                             | while read entry; do echo -e "msgctxt \"menu\"\nmsgid \"$entry\"\nmsgstr \"\"\n"; done >> $potdir/menu.pot
+`dirname $0`/smarty-extractor.php $root $root/xml/templates/civicrm_navigation.tpl | grep '^msgid "' | sed 's/^msgid "\(.*\)"$/\1/' | while read entry; do echo -e "msgctxt \"menu\"\nmsgid \"$entry\"\nmsgstr \"\"\n"; done >> $potdir/menu.pot
+msguniq $potdir/menu.pot | sponge $potdir/menu.pot
+
 echo ' * building countries.pot'
 cp $header $potdir/countries.pot
 grep ^INSERT $root/xml/templates/civicrm_country.tpl     | cut -d\" -f4                                  | while read entry; do echo -e "msgctxt \"country\"\nmsgid \"$entry\"\nmsgstr \"\"\n"; done >> $potdir/countries.pot
+
 echo ' * building provinces.pot'
 cp $header $potdir/provinces.pot
 grep '^(' $root/xml/templates/civicrm_state_province.tpl | cut -d\" -f4                                  | while read entry; do echo -e "msgctxt \"province\"\nmsgid \"$entry\"\nmsgstr \"\"\n"; done >> $potdir/provinces.pot
