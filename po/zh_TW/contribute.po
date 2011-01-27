@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM 3.2\n"
-"POT-Creation-Date: 2010-12-10 16:13+0100\n"
+"POT-Creation-Date: 2011-01-27 13:33+0100\n"
 "PO-Revision-Date: 2010-02-03 22:35+0800\n"
 "Last-Translator: Charles Chuang <charles>\n"
 "Language-Team: CiviCRM Translators <civicrm-translators@lists.civicrm.org>\n"
@@ -497,10 +497,6 @@ msgstr "失敗次數"
 msgid "Failure Retry Date"
 msgstr "失敗重試日期"
 
-#: CRM/Contribute/DAO/ContributionRecur.php
-msgid "Auto Renew"
-msgstr "自動更新會員資格"
-
 #: CRM/Contribute/DAO/ContributionSoft.php
 msgid "Soft Contribution ID"
 msgstr "小額捐款編號"
@@ -643,6 +639,12 @@ msgid "This Invoice ID already exists in the database."
 msgstr "此發票號碼已存在資料庫中。"
 
 #: CRM/Contribute/Form/AdditionalInfo.php
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+#, fuzzy
+msgid "Online Contribution Page"
+msgstr "線上捐款"
+
+#: CRM/Contribute/Form/AdditionalInfo.php
 msgid "Send Initial Reminder"
 msgstr "傳送始初付款提示"
 
@@ -657,6 +659,34 @@ msgstr "請輸入一個有效的提醒數量。"
 #: CRM/Contribute/Form/AdditionalInfo.php
 msgid "Please enter a valid additional reminder day."
 msgstr "請輸入一個有效的額外提醒日期。"
+
+#: CRM/Contribute/Form/CancelSubscription.php
+#, fuzzy
+msgid "You do not have permission to cancel subscription."
+msgstr "您沒有權限存取此頁"
+
+#: CRM/Contribute/Form/CancelSubscription.php
+#, fuzzy
+msgid "The auto renew membership looks to have been cancelled already."
+msgstr "<br />會員 %1 資格已被取消。"
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Could not detect payment processor OR the processor does not support cancellation of auto renew."
+msgstr ""
+
+#: CRM/Contribute/Form/CancelSubscription.php
+#, fuzzy
+msgid "Not Now"
+msgstr "註記列"
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "The auto-renewal option for your membership has been successfully cancelled. Your membership has not been cancelled. However you will need to arrange payment for renewal when your membership expires."
+msgstr ""
+
+#: CRM/Contribute/Form/CancelSubscription.php
+#, fuzzy
+msgid "Auto renew could not be cancelled."
+msgstr "%1無法被說明"
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid "This contribution has already been submitted. Click <a href='%1'>here</a> if you want to make another contribution."
@@ -1003,6 +1033,10 @@ msgstr "在同一個捐款頁中，您無法同時啟用定期捐款功能和認
 #: CRM/Contribute/Form/ContributionPage/Amount.php
 msgid "If you want to enable the 'Contribution Amounts section', you need to either 'Allow Other Amounts' and/or enter at least one row in the 'Fixed Contribution Amounts' table."
 msgstr "如果您要開啟「捐款金額選項」，您ㄗ需要勾選「允許其他金額」或是輸入一個值到「固定捐款金額表」。"
+
+#: CRM/Contribute/Form/ContributionPage/Amount.php
+msgid " Please note that the Authorize.net payment processor only allows recurring contributions and auto-renew memberships with payment intervals from 7-365 days or 1-12 months (i.e. not greater than 1 year)."
+msgstr ""
 
 #: CRM/Contribute/Form/ContributionPage/Amount.php
 msgid "Amounts"
@@ -1974,6 +2008,16 @@ msgid "To complete your contribution, click the <strong>%1</strong> button below
 msgstr "請點擊<strong>%1</strong>鍵以完成這項捐款。"
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+#, fuzzy
+msgid "I want this membership to be renewed automatically every %1 %2(s)."
+msgstr "此再次捐款會被自動處理每%1 %2"
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+#, fuzzy
+msgid "Your initial membership fee will be processed once you complete the confirmation step. You will be able to modify or cancel the auto-renwal option by visiting the web page link that will be included in your receipt."
+msgstr "您一完成確定步驟您始初的捐款會被處理。您會被允許修改或取消將來捐款在任何時間，透過登入您的用戶。"
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 msgid "I want to contribute this amount every %1 %2(s) for %3 installments."
 msgstr "我想捐款此金額每%1 %2給%3分期付款"
 
@@ -2062,6 +2106,7 @@ msgid "Your contribution will not be completed until you click the <strong>%1</s
 msgstr "在你按下<strong>%1</strong>鍵之前，你的捐款都未算完成。請點按此鍵。"
 
 #: templates/CRM/Contribute/Form/Contribution/Main.tpl
+#: templates/CRM/Contribute/Form/Contribution.tpl
 msgid "for"
 msgstr "為了"
 
@@ -2104,6 +2149,11 @@ msgstr "您<strong>%2</strong>會員籍於%1過期"
 #: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
 msgid "Your <strong>%2</strong> membership expires on %1."
 msgstr "您 <strong>%2</strong>會員籍於%1過期"
+
+#: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
+#, fuzzy
+msgid "Your initial membership fee will be processed once you complete the confirmation step. You will be able to cancel automatic renewals at any time by logging in to your account or contacting us."
+msgstr "您一完成確定步驟您始初的捐款會被處理。您會被允許修改或取消將來捐款在任何時間，透過登入您的用戶。"
 
 #: templates/CRM/Contribute/Form/ContributionPage/AddProduct.tpl
 msgid "This is a preview of this product as it will appear on your Contributions page(s)."
@@ -2374,17 +2424,11 @@ msgid "Should the minimum contribution amount be automatically displayed after e
 msgstr "最少捐款金額是否應該在每次贈品描述後自動展示？"
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
-msgid ""
-"Select the corresponding contribution type for contributions made using this page (e.g. donation, capital campaign, etc.).\n"
-"Contribution types (and associated accounting codes) are included when contributions are exported, so it can helpful to set up\n"
-"specific types for accounting purposes. You can add or modify contribution available types from Administer &gt; CiviContribute &gt; Contribution Types."
+msgid "Select the corresponding contribution type for contributions made using this page (e.g. donation, capital campaign, etc.). Contribution types (and associated accounting codes) are included when contributions are exported, so it can helpful to set up specific types for accounting purposes. You can add or modify contribution available types from Administer &gt; CiviContribute &gt; Contribution Types."
 msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
-msgid ""
-"NOTE: If you are using this contribution page for membership signup and renewals, the contribution type configured in the\n"
-"membership type settings will be used when recording the membership payment. The contribution type selected here will only be used\n"
-"if you are also collecting additional contributions (as configured on the Membership Settings page)."
+msgid "NOTE: If you are using this contribution page for membership signup and renewals, the contribution type configured in the membership type settings will be used when recording the membership payment. The contribution type selected here will only be used if you are also collecting additional contributions (as configured on the Membership Settings page)."
 msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
@@ -2407,6 +2451,10 @@ msgstr ""
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid "If you want to allow contributors to specify a person whom they are honoring with their gift, check this box. An optional Honoree section will be included in the form. Honoree information is automatically saved and linked with the contribution record."
 msgstr "如果您想允許捐款人去指定一個有榮幸得到他們贈品的人，檢查此箱。一個可選項受款人部分會被包括在表格。受款人資料被自動儲存及與捐款記錄連結。"
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid "When enabled, this feature allows users to identify an organization as the donor or member. Logged in users will be given a choice of selecting from a list of organizations that they have a permissioned relationship with OR entering a new organization. Anonymous users are prompted to enter the organization name. If a matching organization is found using your site's configured strict duplicate matching rules for Organizations, the contribution or membership will be linked to that organization. Otherwise a new organization contact record is created. In either case, users will be able to optionally enter email, phone and postal address data for the organization."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid "This is the first step in creating a new online Contribution Page. You can create one or more different Contribution Pages for different purposes, audiences, campaigns, etc. Each page can have it's own introductory message, pre-configured contribution amounts, custom data collection fields, etc."
@@ -2615,6 +2663,16 @@ msgid "Membership Transaction #"
 msgstr "會員交易"
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+#, fuzzy
+msgid "This membership will be renewed automatically every %1 %2(s)."
+msgstr "此再次捐款會被自動處理每%1 %2"
+
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+#, fuzzy
+msgid "You will be able to cancel automatic renewals at any time by logging in to your account or contacting us."
+msgstr "您始初承諾付款已被處理。您會被允許修改或取消將來承諾付款在任何時間，透過登入您的用戶或聯絡我們在%1。"
+
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid "This recurring contribution will be automatically processed every %1 %2(s) for a total %3 installments (including this initial contribution)."
 msgstr "此再次捐款會被自動處理每%1 %2，給總%3分期付款(包括此始初捐款)。"
 
@@ -2690,6 +2748,11 @@ msgid "Actual amount given by contributor."
 msgstr "捐款人的實際捐款金額"
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
+#, fuzzy
+msgid "Your recurring contribution will be processed automatically for the number of installments you specify. You can leave the number of installments blank if you want to make an open-ended commitment. In either case, you can choose to cancel at any time. You will receive an email receipt for each recurring contribution. The receipts will include a link you can use if you decide to modify or cancel your future contributions."
+msgstr "您再次捐款會被自動地處理給您指定的分期付款數目。您可以留空分期付款數目如果您想有一個無底義務。另一個個案，您可以選擇在任何時間取消。"
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
 msgid "Automatically email a receipt for this contribution to %1?"
 msgstr "自動寄送此捐款的電郵收據給%1？"
 
@@ -2762,6 +2825,11 @@ msgstr "此捐款類型是否為免稅？"
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 msgid "Recurring Contribution"
 msgstr "再次捐款"
+
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+#, fuzzy
+msgid "(ongoing)"
+msgstr "繼續"
 
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 msgid "Interval"
@@ -3329,12 +3397,18 @@ msgid "Current Year-to-Date"
 msgstr "現年日"
 
 #: templates/CRM/Contribute/Page/ContributionTotals.tpl
-msgid "# Contributions"
-msgstr "# 捐款"
+#, fuzzy
+msgid "#  Completed Contributions"
+msgstr "刪除捐款"
 
 #: templates/CRM/Contribute/Page/ContributionTotals.tpl
 msgid "Avg Amount"
 msgstr "平均金額"
+
+#: templates/CRM/Contribute/Page/ContributionTotals.tpl
+#, fuzzy
+msgid "# Completed Contributions"
+msgstr "刪除捐款"
 
 #: templates/CRM/Contribute/Page/ContributionTotals.tpl
 msgid "Total Cancelled Amount"

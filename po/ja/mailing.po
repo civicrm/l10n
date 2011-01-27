@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
 "Report-Msgid-Bugs-To: http://issues.civicrm.org/\n"
-"POT-Creation-Date: 2010-12-10 16:13+0100\n"
+"POT-Creation-Date: 2011-01-27 13:33+0100\n"
 "PO-Revision-Date: 2011-01-18 17:47+0000\n"
 "Last-Translator: yukihiro <yasudayukihiro@gmail.com>\n"
 "Language-Team: Japanese <None>\n"
@@ -66,6 +66,11 @@ msgstr "本文テキスト"
 msgid "Subscribe"
 msgstr "購読"
 
+#: CRM/Mailing/DAO/Mailing.php CRM/Mailing/Form/Approve.php
+#, fuzzy
+msgid "Approval Status"
+msgstr "承認待ちの状態"
+
 #: CRM/Mailing/Event/DAO/Bounce.php CRM/Mailing/Event/DAO/Confirm.php
 #: CRM/Mailing/Event/DAO/Delivered.php CRM/Mailing/Event/DAO/Forward.php
 #: CRM/Mailing/Event/DAO/Opened.php CRM/Mailing/Event/DAO/Reply.php
@@ -74,6 +79,11 @@ msgstr "購読"
 #: CRM/Mailing/Event/DAO/Unsubscribe.php
 msgid "Time Stamp"
 msgstr "タイムスタンプ"
+
+#: CRM/Mailing/Form/Approve.php CRM/Mailing/Selector/Browse.php
+#, fuzzy
+msgid "Approve/Reject Mailing"
+msgstr "送信済みメール"
 
 #: CRM/Mailing/Form/Group.php CRM/Mailing/Form/Settings.php
 #: CRM/Mailing/Form/Test.php CRM/Mailing/Form/Upload.php
@@ -289,6 +299,21 @@ msgstr "VERPを上書き"
 msgid "Mailing Created Date"
 msgstr "メール作成日"
 
+#: CRM/Mailing/DAO/Mailing.php
+#, fuzzy
+msgid "Mailing Scheduled Date"
+msgstr "このメールの配信が実行される日付"
+
+#: CRM/Mailing/DAO/Mailing.php
+#, fuzzy
+msgid "Mailing Approved Date"
+msgstr "メール作成日"
+
+#: CRM/Mailing/DAO/Mailing.php
+#, fuzzy
+msgid "Approval Note"
+msgstr "承認待ちの状態"
+
 #: CRM/Mailing/DAO/Spool.php
 msgid "Recipient Email"
 msgstr "受信者メール"
@@ -328,6 +353,10 @@ msgstr "購読申し込みの処理でエラーが発生しました。プライ
 #: CRM/Mailing/Event/DAO/Unsubscribe.php
 msgid "Org Unsubscribe"
 msgstr "団体購読停止"
+
+#: CRM/Mailing/Form/Approve.php
+msgid "Approve/Reject Note"
+msgstr ""
 
 #: CRM/Mailing/Form/Component.php
 msgid "Body - TEXT Format"
@@ -512,15 +541,27 @@ msgid "Send a Test Mailing"
 msgstr "テストメールを送信"
 
 #: CRM/Mailing/Form/Test.php
+#, fuzzy
+msgid "Inform Scheduler"
+msgstr "予定設定済"
+
+#: CRM/Mailing/Form/Test.php
 msgid "Your did not provided any email address or selected any group. No test mail is sent."
 msgstr "メールアドレスが指定されていないかグループが選択されていません。テストメールは送信しません。"
 
 #: CRM/Mailing/Form/Test.php
-msgid "Please enter valid email addresses only"
+#, fuzzy
+msgid "Please enter valid email addresses only."
 msgstr "正確なメールアドレスだけを入力してください"
 
 #: CRM/Mailing/Form/Test.php
-msgid "Your test message has been sent. Click 'Next' when you are ready to Schedule or Send your live mailing (you will still have a chance to confirm or cancel sending this mailing on the next page)."
+#, fuzzy
+msgid "Your test message has been sent."
+msgstr "メッセージを送信しました。"
+
+#: CRM/Mailing/Form/Test.php
+#, fuzzy
+msgid " Click 'Next' when you are ready to Schedule or Send your live mailing (you will still have a chance to confirm or cancel sending this mailing on the next page)."
 msgstr "テストメールを送信しました。準備ができたら「次」をクリックして、メールの送信予定設定または送信を実行してください。(次のページでも、このメールの送信を確認し、キャンセルすることができます)"
 
 #: CRM/Mailing/Form/Upload.php
@@ -655,6 +696,11 @@ msgstr "CiviMailに戻る"
 msgid "CiviMail Report: %1"
 msgstr "CiviMailレポート: %1"
 
+#: CRM/Mailing/Page/View.php
+#, fuzzy
+msgid "You do not have the necessary permission to approve this mailing."
+msgstr "この連絡先を表示するために必要な権限がありません。"
+
 #: CRM/Mailing/Selector/Browse.php
 msgid "Mailings %%StatusMessage%%"
 msgstr "メール %%StatusMessage%%"
@@ -682,6 +728,11 @@ msgstr "このメールを削除しますか。"
 #: CRM/Mailing/Selector/Browse.php
 msgid "Are you sure you want to archive this mailing?"
 msgstr "この送信メールを保存しますか。"
+
+#: CRM/Mailing/Selector/Browse.php
+#, fuzzy
+msgid "Approve/Reject"
+msgstr "承認"
 
 #: CRM/Mailing/Selector/Browse.php
 msgid "Report"
@@ -754,6 +805,28 @@ msgstr "ユニーク開封数"
 #: CRM/Mailing/Selector/Event.php templates/CRM/Mailing/Page/Report.tpl
 msgid "Tracked Opens"
 msgstr "開封回数"
+
+#: templates/CRM/Mailing/Form/Approve.tpl
+#: templates/CRM/Mailing/Form/Schedule.tpl templates/CRM/Mailing/Form/Test.tpl
+msgid "Preview Mailing"
+msgstr "配信するメールのプレビュー"
+
+#: templates/CRM/Mailing/Form/Approve.tpl
+#: templates/CRM/Mailing/Form/Schedule.tpl templates/CRM/Mailing/Form/Test.tpl
+msgid "Attachment(s):"
+msgstr "添付: "
+
+#: templates/CRM/Mailing/Form/Approve.tpl
+#: templates/CRM/Mailing/Form/Schedule.tpl
+#, fuzzy
+msgid "Mailing HTML:"
+msgstr "メールヘッダ - HTML"
+
+#: templates/CRM/Mailing/Form/Approve.tpl
+#: templates/CRM/Mailing/Form/Schedule.tpl
+#, fuzzy
+msgid "Mailing Text:"
+msgstr "メール送信管理"
 
 #: templates/CRM/Mailing/Form/Component.tpl
 msgid "New Mailing Component"
@@ -916,14 +989,6 @@ msgid "(filled with your contact's token values)"
 msgstr "(連絡先のトークンの値が入ります)"
 
 #: templates/CRM/Mailing/Form/Test.tpl
-msgid "Preview Mailing"
-msgstr "配信するメールのプレビュー"
-
-#: templates/CRM/Mailing/Form/Test.tpl
-msgid "Attachment(s):"
-msgstr "添付: "
-
-#: templates/CRM/Mailing/Form/Test.tpl
 msgid "Text Version:"
 msgstr "テキストバージョン: "
 
@@ -1032,16 +1097,33 @@ msgid "Or you can <a href='%1'>browse all %2 mailings</a>."
 msgstr "または<a href='%1'>すべての %2 メールを見る</a>こともできます。"
 
 #: templates/CRM/Mailing/Page/Browse.tpl
-msgid "There are no Unscheduled Mailings. You can <a href='%1'>create and send one</a>."
-msgstr "送信予定が設定されていないメールはありません。<a href='%1'>作成して送信</a>することができます。"
+#, fuzzy
+msgid "There are no Unscheduled Mailings."
+msgstr "配信予定メールの原稿"
+
+#: templates/CRM/Mailing/Page/Browse.tpl
+#, fuzzy
+msgid " You can <a href='%1'>create and send one</a>."
+msgstr "<a href='%1'>項目を追加</a>することができます。"
 
 #: templates/CRM/Mailing/Page/Browse.tpl
 msgid "There are no Archived Mailings. You can archive mailings from <a href='%1'>Scheduled or Sent Mailings</a>."
 msgstr "アーカイブされたメールはありません。<a href='%1'>送信予定設定済または送信済メール</a>でメールをアーカイブすることができます。"
 
 #: templates/CRM/Mailing/Page/Browse.tpl
-msgid "There are no Scheduled or Sent Mailings. You can <a href='%1'>create and send one</a> OR you can search the <a href='%2'>Archived Mailings</a>."
-msgstr "送信予定設定済または送信済メールはありません。<a href='%1'>作成して送信</a>、または、<a href='%2'>アーカイブされたメール</a>から検索できます。"
+#, fuzzy
+msgid "There are no Scheduled or Sent Mailings."
+msgstr "自動で配信されたメール"
+
+#: templates/CRM/Mailing/Page/Browse.tpl
+#, fuzzy
+msgid " You can <a href='%1'>create and send one</a>"
+msgstr "<a href='%1'>項目を追加</a>することができます。"
+
+#: templates/CRM/Mailing/Page/Browse.tpl
+#, fuzzy
+msgid " OR you can search the <a href='%1'>Archived Mailings</a>"
+msgstr "または<a href='%1'>すべての %2 メールを見る</a>こともできます。"
 
 #: templates/CRM/Mailing/Page/Component.tpl
 msgid "Body HTML"

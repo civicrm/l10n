@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
 "Report-Msgid-Bugs-To: http://issues.civicrm.org/\n"
-"POT-Creation-Date: 2010-12-10 16:13+0100\n"
+"POT-Creation-Date: 2011-01-27 13:33+0100\n"
 "PO-Revision-Date: 2011-01-18 17:42+0000\n"
 "Last-Translator: yukihiro <yasudayukihiro@gmail.com>\n"
 "Language-Team: Japanese <None>\n"
@@ -483,10 +483,6 @@ msgstr "失敗回数"
 msgid "Failure Retry Date"
 msgstr "再実行日付"
 
-#: CRM/Contribute/DAO/ContributionRecur.php
-msgid "Auto Renew"
-msgstr "自動更新"
-
 #: CRM/Contribute/DAO/ContributionSoft.php
 msgid "Soft Contribution ID"
 msgstr "ソフト寄付ID"
@@ -629,6 +625,12 @@ msgid "This Invoice ID already exists in the database."
 msgstr "請求明細IDが既にデータベースにあります"
 
 #: CRM/Contribute/Form/AdditionalInfo.php
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+#, fuzzy
+msgid "Online Contribution Page"
+msgstr "オンラインでの寄付"
+
+#: CRM/Contribute/Form/AdditionalInfo.php
 msgid "Send Initial Reminder"
 msgstr "最初の備忘通知を送信"
 
@@ -643,6 +645,34 @@ msgstr "備忘通知の数を入力してください。"
 #: CRM/Contribute/Form/AdditionalInfo.php
 msgid "Please enter a valid additional reminder day."
 msgstr "追加の備忘通知の日を入力してください。"
+
+#: CRM/Contribute/Form/CancelSubscription.php
+#, fuzzy
+msgid "You do not have permission to cancel subscription."
+msgstr "このページにアクセスする権限がありません"
+
+#: CRM/Contribute/Form/CancelSubscription.php
+#, fuzzy
+msgid "The auto renew membership looks to have been cancelled already."
+msgstr "<br />%1の会員権を取り消しました。"
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Could not detect payment processor OR the processor does not support cancellation of auto renew."
+msgstr ""
+
+#: CRM/Contribute/Form/CancelSubscription.php
+#, fuzzy
+msgid "Not Now"
+msgstr "注釈行"
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "The auto-renewal option for your membership has been successfully cancelled. Your membership has not been cancelled. However you will need to arrange payment for renewal when your membership expires."
+msgstr ""
+
+#: CRM/Contribute/Form/CancelSubscription.php
+#, fuzzy
+msgid "Auto renew could not be cancelled."
+msgstr "%1 をパースできません"
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid "This contribution has already been submitted. Click <a href='%1'>here</a> if you want to make another contribution."
@@ -989,6 +1019,10 @@ msgstr "オンラインの同じ寄付ページで、自動更新寄付とプレ
 #: CRM/Contribute/Form/ContributionPage/Amount.php
 msgid "If you want to enable the 'Contribution Amounts section', you need to either 'Allow Other Amounts' and/or enter at least one row in the 'Fixed Contribution Amounts' table."
 msgstr "「寄付金額セクション」を有効にする場合、「他の金額を認める」や「固定寄付金額」のテーブルで少なくとも1行を入力しなければなりません。"
+
+#: CRM/Contribute/Form/ContributionPage/Amount.php
+msgid " Please note that the Authorize.net payment processor only allows recurring contributions and auto-renew memberships with payment intervals from 7-365 days or 1-12 months (i.e. not greater than 1 year)."
+msgstr ""
 
 #: CRM/Contribute/Form/ContributionPage/Amount.php
 msgid "Amounts"
@@ -1944,6 +1978,16 @@ msgid "To complete your contribution, click the <strong>%1</strong> button below
 msgstr "寄付を完了するには、下の<strong>%1</strong>ボタンをクリックしてください。"
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+#, fuzzy
+msgid "I want this membership to be renewed automatically every %1 %2(s)."
+msgstr "この自動更新寄付は%1 %2ごとに自動的に処理されます。"
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+#, fuzzy
+msgid "Your initial membership fee will be processed once you complete the confirmation step. You will be able to modify or cancel the auto-renwal option by visiting the web page link that will be included in your receipt."
+msgstr "確認ステップを完了するとあなたの最初の寄付が処理されます。自分のアカウントにログインすれば、いつでも将来の寄付を修正したりキャンセルできます。"
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 msgid "I want to contribute this amount every %1 %2(s) for %3 installments."
 msgstr "この金額を %1 %2 ごとに %3 回、寄付として支払います。"
 
@@ -2032,6 +2076,7 @@ msgid "Your contribution will not be completed until you click the <strong>%1</s
 msgstr "<strong>%1</strong>ボタンをクリックするまで、寄付は完了しません。ボタンは1回だけクリックしてください。"
 
 #: templates/CRM/Contribute/Form/Contribution/Main.tpl
+#: templates/CRM/Contribute/Form/Contribution.tpl
 msgid "for"
 msgstr ""
 
@@ -2074,6 +2119,11 @@ msgstr "あなたの <strong>%2</strong> 会員権は %1 に期限切れで失�
 #: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
 msgid "Your <strong>%2</strong> membership expires on %1."
 msgstr "あなたの <strong>%2</strong> 会員権は %1 に期限切れで失効します。"
+
+#: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
+#, fuzzy
+msgid "Your initial membership fee will be processed once you complete the confirmation step. You will be able to cancel automatic renewals at any time by logging in to your account or contacting us."
+msgstr "確認ステップを完了するとあなたの最初の寄付が処理されます。自分のアカウントにログインすれば、いつでも将来の寄付を修正したりキャンセルできます。"
 
 #: templates/CRM/Contribute/Form/ContributionPage/AddProduct.tpl
 msgid "This is a preview of this product as it will appear on your Contributions page(s)."
@@ -2324,18 +2374,13 @@ msgid "Should the minimum contribution amount be automatically displayed after e
 msgstr "最低寄付金額を各プレゼントの説明に表示?"
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
-msgid ""
-"Select the corresponding contribution type for contributions made using this page (e.g. donation, capital campaign, etc.).\n"
-"Contribution types (and associated accounting codes) are included when contributions are exported, so it can helpful to set up\n"
-"specific types for accounting purposes. You can add or modify contribution available types from Administer &gt; CiviContribute &gt; Contribution Types."
+msgid "Select the corresponding contribution type for contributions made using this page (e.g. donation, capital campaign, etc.). Contribution types (and associated accounting codes) are included when contributions are exported, so it can helpful to set up specific types for accounting purposes. You can add or modify contribution available types from Administer &gt; CiviContribute &gt; Contribution Types."
 msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
-msgid ""
-"NOTE: If you are using this contribution page for membership signup and renewals, the contribution type configured in the\n"
-"membership type settings will be used when recording the membership payment. The contribution type selected here will only be used\n"
-"if you are also collecting additional contributions (as configured on the Membership Settings page)."
-msgstr ""
+#, fuzzy
+msgid "NOTE: If you are using this contribution page for membership signup and renewals, the contribution type configured in the membership type settings will be used when recording the membership payment. The contribution type selected here will only be used if you are also collecting additional contributions (as configured on the Membership Settings page)."
+msgstr "会員権を含む寄付金額には、選択された会員権タイプ(設定を見るには会員権タイプの設定ツールを使います)で設定した寄付タイプを使います。追加の寄付は、このオンライン寄付のページで設定する寄付タイプを使います。"
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid "Enter content for the introductory message. This will be displayed below the page title. You can include images, as long as they are already uploaded to a server - click the \"Image\" button in the button bar."
@@ -2356,6 +2401,10 @@ msgstr ""
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid "If you want to allow contributors to specify a person whom they are honoring with their gift, check this box. An optional Honoree section will be included in the form. Honoree information is automatically saved and linked with the contribution record."
 msgstr "寄付者がプレゼント付きの栄誉授賞を指定することを認める場合、このボックスをチェック。オプションの栄誉セクションがフォームに追加されます。栄誉情報は自動的に保存され、また自動的に寄付レコードにリンクされます。"
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid "When enabled, this feature allows users to identify an organization as the donor or member. Logged in users will be given a choice of selecting from a list of organizations that they have a permissioned relationship with OR entering a new organization. Anonymous users are prompted to enter the organization name. If a matching organization is found using your site's configured strict duplicate matching rules for Organizations, the contribution or membership will be linked to that organization. Otherwise a new organization contact record is created. In either case, users will be able to optionally enter email, phone and postal address data for the organization."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid "This is the first step in creating a new online Contribution Page. You can create one or more different Contribution Pages for different purposes, audiences, campaigns, etc. Each page can have it's own introductory message, pre-configured contribution amounts, custom data collection fields, etc."
@@ -2562,6 +2611,16 @@ msgid "Membership Transaction #"
 msgstr "会員権取引 #"
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+#, fuzzy
+msgid "This membership will be renewed automatically every %1 %2(s)."
+msgstr "この自動更新寄付は%1 %2ごとに自動的に処理されます。"
+
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+#, fuzzy
+msgid "You will be able to cancel automatic renewals at any time by logging in to your account or contacting us."
+msgstr "最初のプレッジ支払いの処理を実行しました。自分のアカウントにログインするか、 %1 に連絡すれば、いつでも将来の寄付を修正したりキャンセルできます。"
+
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid "This recurring contribution will be automatically processed every %1 %2(s) for a total %3 installments (including this initial contribution)."
 msgstr "この自動更新寄付は%1 %2ごとに%3回(この初回寄付を含む)自動的に処理されます。"
 
@@ -2637,6 +2696,11 @@ msgid "Actual amount given by contributor."
 msgstr "寄付者から受け取った実際の金額。"
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
+#, fuzzy
+msgid "Your recurring contribution will be processed automatically for the number of installments you specify. You can leave the number of installments blank if you want to make an open-ended commitment. In either case, you can choose to cancel at any time. You will receive an email receipt for each recurring contribution. The receipts will include a link you can use if you decide to modify or cancel your future contributions."
+msgstr "自動更新寄付は、指定された回数だけ自動的に処理されます。無期限でのお申し込みは回数欄を空欄にしてください。どちらの場合も、いつでもキャンセルすることができます。"
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
 msgid "Automatically email a receipt for this contribution to %1?"
 msgstr "%1 にこの寄付の受領証を自動送信する?"
 
@@ -2709,6 +2773,11 @@ msgstr "このタイプの寄付は税控除の対象?"
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 msgid "Recurring Contribution"
 msgstr "自動更新寄付"
+
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+#, fuzzy
+msgid "(ongoing)"
+msgstr "進行中"
 
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 msgid "Interval"
@@ -3265,12 +3334,18 @@ msgid "Current Year-to-Date"
 msgstr "今年1年"
 
 #: templates/CRM/Contribute/Page/ContributionTotals.tpl
-msgid "# Contributions"
-msgstr "寄付者数"
+#, fuzzy
+msgid "#  Completed Contributions"
+msgstr "寄付を削除"
 
 #: templates/CRM/Contribute/Page/ContributionTotals.tpl
 msgid "Avg Amount"
 msgstr "平均金額"
+
+#: templates/CRM/Contribute/Page/ContributionTotals.tpl
+#, fuzzy
+msgid "# Completed Contributions"
+msgstr "寄付を削除"
 
 #: templates/CRM/Contribute/Page/ContributionTotals.tpl
 msgid "Total Cancelled Amount"

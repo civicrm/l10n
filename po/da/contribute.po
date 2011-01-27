@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
 "Report-Msgid-Bugs-To: http://issues.civicrm.org/\n"
-"POT-Creation-Date: 2010-12-10 16:13+0100\n"
+"POT-Creation-Date: 2011-01-27 13:33+0100\n"
 "PO-Revision-Date: 2010-12-11 23:58+0000\n"
 "Last-Translator: chastell <chastell@chastell.net>\n"
 "Language-Team: Danish <None>\n"
@@ -483,10 +483,6 @@ msgstr "Antal fejl"
 msgid "Failure Retry Date"
 msgstr "Fejl gentag dato"
 
-#: CRM/Contribute/DAO/ContributionRecur.php
-msgid "Auto Renew"
-msgstr "Forny automatisk"
-
 #: CRM/Contribute/DAO/ContributionSoft.php
 msgid "Soft Contribution ID"
 msgstr "Blød bidrags ID"
@@ -629,6 +625,12 @@ msgid "This Invoice ID already exists in the database."
 msgstr "Faktura ID findes allerede i databasen."
 
 #: CRM/Contribute/Form/AdditionalInfo.php
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+#, fuzzy
+msgid "Online Contribution Page"
+msgstr "Online bidrag"
+
+#: CRM/Contribute/Form/AdditionalInfo.php
 msgid "Send Initial Reminder"
 msgstr "Send første påmindelse"
 
@@ -643,6 +645,33 @@ msgstr "Angiv venligst et gyldigt antal påmindelser."
 #: CRM/Contribute/Form/AdditionalInfo.php
 msgid "Please enter a valid additional reminder day."
 msgstr "Angiv venligst en anden gyldig påmindelsesdato"
+
+#: CRM/Contribute/Form/CancelSubscription.php
+#, fuzzy
+msgid "You do not have permission to cancel subscription."
+msgstr "Du har ikke adgang til denne side"
+
+#: CRM/Contribute/Form/CancelSubscription.php
+#, fuzzy
+msgid "The auto renew membership looks to have been cancelled already."
+msgstr "<br />Medlemskab for %1 er blevet annulleret."
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Could not detect payment processor OR the processor does not support cancellation of auto renew."
+msgstr ""
+
+#: CRM/Contribute/Form/CancelSubscription.php
+#, fuzzy
+msgid "Not Now"
+msgstr "Doner nu"
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "The auto-renewal option for your membership has been successfully cancelled. Your membership has not been cancelled. However you will need to arrange payment for renewal when your membership expires."
+msgstr ""
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Auto renew could not be cancelled."
+msgstr ""
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid "This contribution has already been submitted. Click <a href='%1'>here</a> if you want to make another contribution."
@@ -989,6 +1018,10 @@ msgstr "Du kan ikke aktivere både Gentaget Bidrag OG Løfter på den samme onli
 #: CRM/Contribute/Form/ContributionPage/Amount.php
 msgid "If you want to enable the 'Contribution Amounts section', you need to either 'Allow Other Amounts' and/or enter at least one row in the 'Fixed Contribution Amounts' table."
 msgstr "Hvis du vil aktivere 'Bidragsbeløb sektionen', så skal du enten aktivere 'Tillad andre beløb' og/eller indskriv mindst en række i 'Faste bidragsbeløb' tabellen."
+
+#: CRM/Contribute/Form/ContributionPage/Amount.php
+msgid " Please note that the Authorize.net payment processor only allows recurring contributions and auto-renew memberships with payment intervals from 7-365 days or 1-12 months (i.e. not greater than 1 year)."
+msgstr ""
 
 #: CRM/Contribute/Form/ContributionPage/Amount.php
 msgid "Amounts"
@@ -1944,6 +1977,15 @@ msgid "To complete your contribution, click the <strong>%1</strong> button below
 msgstr "For at fuldføre dit bidrag skal du klikke på <strong>%1</strong> nedenfor."
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+msgid "I want this membership to be renewed automatically every %1 %2(s)."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+#, fuzzy
+msgid "Your initial membership fee will be processed once you complete the confirmation step. You will be able to modify or cancel the auto-renwal option by visiting the web page link that will be included in your receipt."
+msgstr "Dit oprindelige bidrag vil blive gennemført, lige så snart du har fuldført den endelige bekræftelse på bidraget. Du kan altid ændre eller annullere fremtidige bidrag ved at logge ind på din konto."
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 msgid "I want to contribute this amount every %1 %2(s) for %3 installments."
 msgstr "Jeg vil gerne bidrage dette beløb hver %1 %2 med %3 betalinger."
 
@@ -2032,6 +2074,7 @@ msgid "Your contribution will not be completed until you click the <strong>%1</s
 msgstr "Dit bidrag vil først blive gennemført, når du klikker på knappen <strong>%1</strong>. Klik venligst kun på knappen en gang."
 
 #: templates/CRM/Contribute/Form/Contribution/Main.tpl
+#: templates/CRM/Contribute/Form/Contribution.tpl
 msgid "for"
 msgstr "for"
 
@@ -2074,6 +2117,11 @@ msgstr "Dit <strong>%2</strong> medlemskab udløb den %1."
 #: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
 msgid "Your <strong>%2</strong> membership expires on %1."
 msgstr "Dit <strong>%2</strong> medlemskab udløber den %1."
+
+#: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
+#, fuzzy
+msgid "Your initial membership fee will be processed once you complete the confirmation step. You will be able to cancel automatic renewals at any time by logging in to your account or contacting us."
+msgstr "Dit oprindelige bidrag vil blive gennemført, lige så snart du har fuldført den endelige bekræftelse på bidraget. Du kan altid ændre eller annullere fremtidige bidrag ved at logge ind på din konto."
 
 #: templates/CRM/Contribute/Form/ContributionPage/AddProduct.tpl
 msgid "This is a preview of this product as it will appear on your Contributions page(s)."
@@ -2324,17 +2372,11 @@ msgid "Should the minimum contribution amount be automatically displayed after e
 msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
-msgid ""
-"Select the corresponding contribution type for contributions made using this page (e.g. donation, capital campaign, etc.).\n"
-"Contribution types (and associated accounting codes) are included when contributions are exported, so it can helpful to set up\n"
-"specific types for accounting purposes. You can add or modify contribution available types from Administer &gt; CiviContribute &gt; Contribution Types."
+msgid "Select the corresponding contribution type for contributions made using this page (e.g. donation, capital campaign, etc.). Contribution types (and associated accounting codes) are included when contributions are exported, so it can helpful to set up specific types for accounting purposes. You can add or modify contribution available types from Administer &gt; CiviContribute &gt; Contribution Types."
 msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
-msgid ""
-"NOTE: If you are using this contribution page for membership signup and renewals, the contribution type configured in the\n"
-"membership type settings will be used when recording the membership payment. The contribution type selected here will only be used\n"
-"if you are also collecting additional contributions (as configured on the Membership Settings page)."
+msgid "NOTE: If you are using this contribution page for membership signup and renewals, the contribution type configured in the membership type settings will be used when recording the membership payment. The contribution type selected here will only be used if you are also collecting additional contributions (as configured on the Membership Settings page)."
 msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
@@ -2355,6 +2397,10 @@ msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid "If you want to allow contributors to specify a person whom they are honoring with their gift, check this box. An optional Honoree section will be included in the form. Honoree information is automatically saved and linked with the contribution record."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid "When enabled, this feature allows users to identify an organization as the donor or member. Logged in users will be given a choice of selecting from a list of organizations that they have a permissioned relationship with OR entering a new organization. Anonymous users are prompted to enter the organization name. If a matching organization is found using your site's configured strict duplicate matching rules for Organizations, the contribution or membership will be linked to that organization. Otherwise a new organization contact record is created. In either case, users will be able to optionally enter email, phone and postal address data for the organization."
 msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
@@ -2562,6 +2608,15 @@ msgid "Membership Transaction #"
 msgstr "Medlemsskabstransaktion #"
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+msgid "This membership will be renewed automatically every %1 %2(s)."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+#, fuzzy
+msgid "You will be able to cancel automatic renewals at any time by logging in to your account or contacting us."
+msgstr "Klik på &quot;%2&quot; nedenfor for at registrere dit løfte. Du kan ændre eller annullere fremtidige betalinger til enhver tid ved at logge ind på din konto eller kontakte os på %1."
+
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid "This recurring contribution will be automatically processed every %1 %2(s) for a total %3 installments (including this initial contribution)."
 msgstr ""
 
@@ -2637,6 +2692,11 @@ msgid "Actual amount given by contributor."
 msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
+#, fuzzy
+msgid "Your recurring contribution will be processed automatically for the number of installments you specify. You can leave the number of installments blank if you want to make an open-ended commitment. In either case, you can choose to cancel at any time. You will receive an email receipt for each recurring contribution. The receipts will include a link you can use if you decide to modify or cancel your future contributions."
+msgstr "Dit tilbagevendende bidrag vil blive gennemført automatisk for det antal af rater, du angiver. Du kan efterlade antallet af rater tomt, hvis du ønsker at foretage en tidsubegrænset forpligtelse. I begge tilfælde kan du vælge at annullere når som helst."
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
 msgid "Automatically email a receipt for this contribution to %1?"
 msgstr "Send automatisk mail-kvittering for dette bidrag til %1?"
 
@@ -2709,6 +2769,11 @@ msgstr ""
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 msgid "Recurring Contribution"
 msgstr "Gentaget bidrag"
+
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+#, fuzzy
+msgid "(ongoing)"
+msgstr "Hong Kong"
 
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 msgid "Interval"
@@ -3269,12 +3334,18 @@ msgid "Current Year-to-Date"
 msgstr ""
 
 #: templates/CRM/Contribute/Page/ContributionTotals.tpl
-msgid "# Contributions"
-msgstr "# bidrag"
+#, fuzzy
+msgid "#  Completed Contributions"
+msgstr "Slet bidrag"
 
 #: templates/CRM/Contribute/Page/ContributionTotals.tpl
 msgid "Avg Amount"
 msgstr ""
+
+#: templates/CRM/Contribute/Page/ContributionTotals.tpl
+#, fuzzy
+msgid "# Completed Contributions"
+msgstr "Slet bidrag"
 
 #: templates/CRM/Contribute/Page/ContributionTotals.tpl
 msgid "Total Cancelled Amount"

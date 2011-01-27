@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
 "Report-Msgid-Bugs-To: http://issues.civicrm.org/\n"
-"POT-Creation-Date: 2010-12-10 16:13+0100\n"
+"POT-Creation-Date: 2011-01-27 13:33+0100\n"
 "PO-Revision-Date: 2010-12-12 17:30+0000\n"
 "Last-Translator: chastell <chastell@chastell.net>\n"
 "Language-Team: Chinese (Taiwan) <>\n"
@@ -112,9 +112,9 @@ msgstr "全部"
 #: CRM/ACL/DAO/ACL.php CRM/ACL/DAO/EntityRole.php CRM/Core/DAO/Discount.php
 #: CRM/Core/DAO/EntityBatch.php CRM/Core/DAO/EntityFile.php
 #: CRM/Core/DAO/EntityFinancialTrxn.php CRM/Core/DAO/EntityTag.php
-#: CRM/Core/DAO/Log.php CRM/Core/DAO/Note.php CRM/Core/DAO/UFJoin.php
-#: CRM/Friend/DAO/Friend.php CRM/Price/DAO/LineItem.php
-#: CRM/Price/DAO/SetEntity.php
+#: CRM/Core/DAO/Log.php CRM/Core/DAO/Note.php CRM/Core/DAO/PrevNextCache.php
+#: CRM/Core/DAO/UFJoin.php CRM/Friend/DAO/Friend.php
+#: CRM/Price/DAO/LineItem.php CRM/Price/DAO/SetEntity.php
 msgid "Entity Table"
 msgstr "表格"
 
@@ -416,9 +416,9 @@ msgstr "狀態"
 msgid "Added By"
 msgstr "新增自"
 
-#: CRM/Activity/Form/Activity.php CRM/Contact/Form/Task/Delete.php
-#: CRM/Price/BAO/Set.php CRM/Utils/System/Joomla.php
-#: CRM/Utils/System/Standalone.php CRM/Utils/System/UnitTests.php
+#: CRM/Activity/Form/Activity.php CRM/Price/BAO/Set.php
+#: CRM/Utils/System/Joomla.php CRM/Utils/System/Standalone.php
+#: CRM/Utils/System/UnitTests.php
 msgid "You do not have permission to access this page"
 msgstr "您沒有權限存取此頁"
 
@@ -482,6 +482,7 @@ msgstr "標籤"
 #: CRM/Price/Form/Field.php CRM/UF/Form/Field.php CRM/UF/Form/Group.php
 #: templates/CRM/Contact/Form/Relationship.tpl
 #: templates/CRM/Contact/Page/DashBoardDashlet.tpl
+#: templates/CRM/Contact/Page/DedupeException.tpl
 #: templates/CRM/Contact/Page/DedupeFind.tpl
 #: templates/CRM/Contact/Page/View/Note.tpl
 #: templates/CRM/Contact/Page/View/Print.tpl
@@ -1841,6 +1842,7 @@ msgid "Path"
 msgstr "路徑"
 
 #: CRM/Core/DAO/Cache.php CRM/Core/DAO/Log.php CRM/Core/DAO/Persistent.php
+#: CRM/Core/DAO/PrevNextCache.php
 msgid "Data"
 msgstr "資料"
 
@@ -3003,6 +3005,11 @@ msgstr "關係 -未啟用"
 msgid "Selected relationship has been deleted successfully."
 msgstr ""
 
+#: CRM/Contact/BAO/Relationship.php
+#, fuzzy
+msgid "Manage Case #%1"
+msgstr "管理個案"
+
 #: CRM/Contact/BAO/RelationshipType.php
 msgid "Invalid relationship type"
 msgstr "無效的關係類別"
@@ -4080,6 +4087,16 @@ msgid "Contact SubType field of %1 nunber of contact(s) has not been updated."
 msgstr "1%的聯絡人子類型欄位，聯絡人數字尚未更新。"
 
 #: CRM/Contact/Form/Task/Delete.php
+#, fuzzy
+msgid "You do not have permission to access this contact."
+msgstr "您沒有權限檢視此聯絡人。"
+
+#: CRM/Contact/Form/Task/Delete.php
+#, fuzzy
+msgid "You do not have permission to delete this contact."
+msgstr "您沒有權限檢視此聯絡人。"
+
+#: CRM/Contact/Form/Task/Delete.php
 msgid "You do not have permission to delete this contact. Note: you can delete contacts if you can edit them."
 msgstr ""
 
@@ -4339,6 +4356,11 @@ msgstr "預設的消除重複記錄規則"
 msgid "Delete DedupeRule"
 msgstr "刪除消除重複記錄規則"
 
+#: CRM/Contact/Page/DedupeRules.php
+#, fuzzy
+msgid "Selected contacts have been marked as not duplicates"
+msgstr "選擇的聯絡人類型已被刪除。"
+
 #: CRM/Contact/Page/View/Email.php
 msgid "Email Sent"
 msgstr "已傳送電子郵件"
@@ -4411,6 +4433,11 @@ msgstr "啟用關係"
 #: templates/CRM/Contact/Form/Relationship.tpl
 msgid "Delete Relationship"
 msgstr "刪除關係"
+
+#: CRM/Contact/Page/View/Relationship.php
+#: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
+msgid "Manage Case"
+msgstr "管理個案"
 
 #: CRM/Contact/Page/View/Summary.php
 msgid "Contact Page"
@@ -4534,6 +4561,11 @@ msgstr "新增聯絡人到活動"
 
 #: CRM/Contact/Task.php
 msgid "Schedule/Send a Mass Mailing"
+msgstr "排程/傳送大宗郵件"
+
+#: CRM/Contact/Task.php
+#, fuzzy
+msgid "Create a Mass Mailing"
 msgstr "排程/傳送大宗郵件"
 
 #: CRM/Core/BAO/Address.php
@@ -4666,6 +4698,16 @@ msgstr "%1 To 必須是正確的金錢格式（允許小數點/逗號/空格）�
 #: CRM/Core/BAO/CustomField.php
 msgid "%1 must be in proper money format. (decimal point/comma/space is allowed)."
 msgstr "%1 必須是正確的金錢格式（允許小數點/逗號/空格）。"
+
+#: CRM/Core/BAO/CustomField.php
+#, fuzzy
+msgid "%1 must in proper money format. (decimal point/comma/space is allowed)."
+msgstr "%1 To 必須是正確的金錢格式（允許小數點/逗號/空格）。 "
+
+#: CRM/Core/BAO/CustomField.php
+#, fuzzy
+msgid "%1 must be valid Website."
+msgstr "輸入一個有效的網址>"
 
 #: CRM/Core/BAO/CustomGroup.php
 msgid "Are you sure you want to delete attached file."
@@ -5616,6 +5658,21 @@ msgstr "導覽"
 msgid "Contact Autocomplete Options"
 msgstr "聯絡人自動完成選項"
 
+#: CRM/Core/DAO/PrevNextCache.php
+#, fuzzy
+msgid "Entity Id1"
+msgstr "實體編號"
+
+#: CRM/Core/DAO/PrevNextCache.php
+#, fuzzy
+msgid "Entity Id2"
+msgstr "實體編號"
+
+#: CRM/Core/DAO/PrevNextCache.php
+#, fuzzy
+msgid "Cachekey"
+msgstr "Cacheu"
+
 #: CRM/Core/DAO/StateProvince.php
 msgid "State Abbreviation"
 msgstr "州/省縮寫"
@@ -5984,6 +6041,11 @@ msgstr "此付款處理器未設定API Login"
 #: CRM/Core/Payment/AuthorizeNet.php
 msgid "Key is not set for this payment processor"
 msgstr "此付款處理器未設定密鑰。"
+
+#: CRM/Core/Payment/BaseIPN.php
+#, fuzzy
+msgid "Offline Recurring Contribution"
+msgstr "搜尋定期捐款？"
 
 #: CRM/Core/Payment/BaseIPN.php
 msgid "Please set a location type of %1"
@@ -6418,8 +6480,9 @@ msgid "end date"
 msgstr "結束日期"
 
 #: CRM/Core/SelectValues.php
-msgid "join date"
-msgstr "加入日期"
+#, fuzzy
+msgid "member since"
+msgstr "成為會員從"
 
 #: CRM/Core/SelectValues.php
 msgid "Decimal Number"
@@ -9045,7 +9108,7 @@ msgstr ""
 #: templates/CRM/Contact/Form/Search/Criteria/Relationship.tpl
 #: templates/CRM/Custom/Form/CustomField.tpl
 #: templates/CRM/Custom/Form/Preview.tpl templates/CRM/Custom/Form/Search.tpl
-#: templates/CRM/Profile/Form/Dynamic.tpl
+#: templates/CRM/Form/attachment.tpl templates/CRM/Profile/Form/Dynamic.tpl
 #: templates/CRM/Profile/Form/Search.tpl templates/CRM/UF/Form/Block.tpl
 #: templates/CRM/UF/Form/Preview.tpl
 msgid "clear"
@@ -9491,16 +9554,18 @@ msgid "Mark as Dedupe Exception"
 msgstr ""
 
 #: templates/CRM/common/dedupe.tpl
-msgid "Are you sure you want to mark these contacts as dedupe exception."
-msgstr ""
+#, fuzzy
+msgid "Are you sure you want to mark this pair of contacts as NOT duplicates?"
+msgstr "您確定停用此聯絡人類型？"
 
 #: templates/CRM/common/dedupe.tpl
 msgid "Remove Dedupe Exception"
 msgstr ""
 
 #: templates/CRM/common/dedupe.tpl
-msgid "Are you sure you want to remove dedupe exception."
-msgstr ""
+#, fuzzy
+msgid "Are you sure you want to remove this dedupe exception."
+msgstr "您確定要刪除此價格設定？"
 
 #: templates/CRM/common/dedupe.tpl
 msgid "Marked as non duplicates."
@@ -10078,7 +10143,7 @@ msgid "WARNING: The duplicate contact record WILL BE DELETED after the merge is 
 msgstr "警告：複製聯絡人記錄會被刪除在完成合併之後。"
 
 #: templates/CRM/Contact/Form/Merge.tpl
-msgid "There are Drupal user accounts associated with both the original and duplicate contacts. If you continue with the merge, the user record associated with the duplicate contact will not be deleted, but will be un-linked from the associated contact record (which will be deleted). If that user logs in again, a new contact record will be created for them."
+msgid "There are %1 user accounts associated with both the original and duplicate contacts. If you continue with the merge, the user record associated with the duplicate contact will not be deleted, but will be un-linked from the associated contact record (which will be deleted). If that user logs in again, a new contact record will be created for them."
 msgstr ""
 
 #: templates/CRM/Contact/Form/NewContact.tpl
@@ -10425,10 +10490,6 @@ msgstr "個案編號"
 #: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
 msgid "Restore Case"
 msgstr "回復個案"
-
-#: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
-msgid "Manage Case"
-msgstr "管理個案"
 
 #: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
 msgid "View all results for cases"
@@ -10782,7 +10843,8 @@ msgid "Click 'Update Report'."
 msgstr "點擊\"更新報告\""
 
 #: templates/CRM/Contact/Page/Dashboard.hlp
-msgid "Repeat for each report your want to include on your dashboard."
+#, fuzzy
+msgid "Repeat for each report you want to include on your dashboard."
 msgstr "重複您在控制面板裡的每一個報表。"
 
 #: templates/CRM/Contact/Page/Dashboard.hlp
@@ -10800,6 +10862,10 @@ msgstr "要包含排程活動的面板組件，請拖曳「活動」面板組件
 #: templates/CRM/Contact/Page/Dashboard.hlp
 msgid "Navigate to a report instance and verify the report filters and display type (Tabular, Bar or Pie Chart). OR create a new report instance from the Reports menu &raquo; Create Reports from Templates."
 msgstr "導到一份報表，並驗證該報告的過濾器與呈現類型（表格、長條，或圓餅圖）。或者創建一個新的報表，請由 Reports menu » Create Reports from Templates 。"
+
+#: templates/CRM/Contact/Page/Dashboard.hlp
+msgid "Repeat for each report your want to include on your dashboard."
+msgstr "重複您在控制面板裡的每一個報表。"
 
 #: templates/CRM/Contact/Page/Dashboard.hlp
 msgid "If you want to remove dashlets from the set of 'Available Dashlets' you can click the 'x' in the right corner of any dashlet. This will also remove the dashlet from any users' dashboards that currently include it. You can make a dashlet available again by checking the 'Available for Dashboard' box in the Report Settings of the associated report instance."
@@ -10822,7 +10888,8 @@ msgid "Right Column"
 msgstr "右欄"
 
 #: templates/CRM/Contact/Page/Dashlet.tpl
-msgid "Do you want to remove this dashlet as an 'Available Dashlet', AND delete it from all users' dashboards?"
+#, fuzzy
+msgid "Do you want to remove this dashlet as an \"Available Dashlet\", AND delete it from all user dashboards?"
 msgstr "您要移除這個面板組件，作為一個「可用的面板組件」，並且把它從所有使用者的面板上刪除？"
 
 #: templates/CRM/Contact/Page/DedupeException.tpl
@@ -10886,20 +10953,24 @@ msgid "Manage the rules used to identify potentially duplicate contact records. 
 msgstr "管理用作分辨有潛質複製聯絡人記錄的規測。使用已選取規測及合併複製聯絡人資料來掃描給副本是需要的。"
 
 #: templates/CRM/Contact/Page/DedupeRules.tpl
-msgid "Add Dedupe Rule for Individuals"
-msgstr ""
+#, fuzzy
+msgid "Add Rule for Individuals"
+msgstr "新個人"
 
 #: templates/CRM/Contact/Page/DedupeRules.tpl
-msgid "Add Dedupe Rule for Households"
-msgstr ""
+#, fuzzy
+msgid "Add Rule for Households"
+msgstr "新增到家庭"
 
 #: templates/CRM/Contact/Page/DedupeRules.tpl
-msgid "Add Dedupe Rule for Organizations"
-msgstr ""
+#, fuzzy
+msgid "Add Rule for Organizations"
+msgstr "新增到機構"
 
 #: templates/CRM/Contact/Page/DedupeRules.tpl
-msgid "Dedupe Exceptions"
-msgstr ""
+#, fuzzy
+msgid "View Dedupe Exceptions"
+msgstr "檢視多選選項"
 
 #: templates/CRM/Contact/Page/SavedSearch.tpl
 msgid "Saved Search"
@@ -12312,16 +12383,35 @@ msgid "If you no longer want to use this price set, click the event title below,
 msgstr "如果您已無法使用此價格設定，按以下活動標題，及修改活動費用。"
 
 #: templates/CRM/Price/Page/table.tpl
+msgid "This price set is used by the event(s) listed below. Click the event title to change or remove the price set."
+msgstr ""
+
+#: templates/CRM/Price/Page/table.tpl
 msgid "Date(s)"
 msgstr "日期"
 
 #: templates/CRM/Price/Page/table.tpl
-msgid "If you no longer want to use this price set, click the contribution page title below, and modify the amount for that contribution page."
+#, fuzzy
+msgid "Change or remove the price set used for this event."
+msgstr "現沒有參與者登記此活動"
+
+#: templates/CRM/Price/Page/table.tpl
+#, fuzzy
+msgid "If you no longer want to use this price set, click the contribution page title below, and modify the contribution amounts configuration."
 msgstr "如果您已無法使用此價目表，請點選下列捐款頁的標題，更改本捐款頁的價格。"
+
+#: templates/CRM/Price/Page/table.tpl
+msgid "This price set is used by the contribution page(s) listed below. Click the contribution page title to change or remove the price set."
+msgstr ""
 
 #: templates/CRM/Price/Page/table.tpl
 msgid "Contribution Page"
 msgstr "捐款頁面"
+
+#: templates/CRM/Price/Page/table.tpl
+#, fuzzy
+msgid "Change or remove the price set used for this contribution page."
+msgstr "選擇會被用作此捐款頁的付款處理器"
 
 #: templates/CRM/Profile/Form/Search.tpl
 msgid "No fields in this Profile have been configured as searchable. Ask the site administrator to check the Profile setup."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
 "Report-Msgid-Bugs-To: http://issues.civicrm.org/\n"
-"POT-Creation-Date: 2010-12-10 16:13+0100\n"
+"POT-Creation-Date: 2011-01-27 13:33+0100\n"
 "PO-Revision-Date: 2010-12-12 06:11+0000\n"
 "Last-Translator: chastell <chastell@chastell.net>\n"
 "Language-Team: CiviCRM Translators <civicrm-translators@lists.civicrm.org>\n"
@@ -112,9 +112,9 @@ msgstr "הכול"
 #: CRM/ACL/DAO/ACL.php CRM/ACL/DAO/EntityRole.php CRM/Core/DAO/Discount.php
 #: CRM/Core/DAO/EntityBatch.php CRM/Core/DAO/EntityFile.php
 #: CRM/Core/DAO/EntityFinancialTrxn.php CRM/Core/DAO/EntityTag.php
-#: CRM/Core/DAO/Log.php CRM/Core/DAO/Note.php CRM/Core/DAO/UFJoin.php
-#: CRM/Friend/DAO/Friend.php CRM/Price/DAO/LineItem.php
-#: CRM/Price/DAO/SetEntity.php
+#: CRM/Core/DAO/Log.php CRM/Core/DAO/Note.php CRM/Core/DAO/PrevNextCache.php
+#: CRM/Core/DAO/UFJoin.php CRM/Friend/DAO/Friend.php
+#: CRM/Price/DAO/LineItem.php CRM/Price/DAO/SetEntity.php
 msgid "Entity Table"
 msgstr "טבלת יישות"
 
@@ -416,9 +416,9 @@ msgstr "סטטוס"
 msgid "Added By"
 msgstr "הוסף בידי"
 
-#: CRM/Activity/Form/Activity.php CRM/Contact/Form/Task/Delete.php
-#: CRM/Price/BAO/Set.php CRM/Utils/System/Joomla.php
-#: CRM/Utils/System/Standalone.php CRM/Utils/System/UnitTests.php
+#: CRM/Activity/Form/Activity.php CRM/Price/BAO/Set.php
+#: CRM/Utils/System/Joomla.php CRM/Utils/System/Standalone.php
+#: CRM/Utils/System/UnitTests.php
 msgid "You do not have permission to access this page"
 msgstr "אין לך הרשאה לגשת לדף זה"
 
@@ -482,6 +482,7 @@ msgstr "תגיות"
 #: CRM/Price/Form/Field.php CRM/UF/Form/Field.php CRM/UF/Form/Group.php
 #: templates/CRM/Contact/Form/Relationship.tpl
 #: templates/CRM/Contact/Page/DashBoardDashlet.tpl
+#: templates/CRM/Contact/Page/DedupeException.tpl
 #: templates/CRM/Contact/Page/DedupeFind.tpl
 #: templates/CRM/Contact/Page/View/Note.tpl
 #: templates/CRM/Contact/Page/View/Print.tpl
@@ -1356,7 +1357,7 @@ msgstr ""
 #: CRM/Contact/Form/Task/AddToHousehold.php
 #: CRM/Contact/Form/Task/AddToOrganization.php
 msgid "Relationship Type"
-msgstr ""
+msgstr "סוג קשר"
 
 #: CRM/Contact/Form/Search/Advanced.php CRM/Custom/Form/Field.php
 msgid "Custom Fields"
@@ -1842,6 +1843,7 @@ msgid "Path"
 msgstr "דרך"
 
 #: CRM/Core/DAO/Cache.php CRM/Core/DAO/Log.php CRM/Core/DAO/Persistent.php
+#: CRM/Core/DAO/PrevNextCache.php
 msgid "Data"
 msgstr "מידע"
 
@@ -2559,7 +2561,7 @@ msgstr "זיהוי איש/אשת קשר (מותאם לאיש/אשת קשר)"
 
 #: CRM/Activity/Form/Activity.php
 msgid "Priority"
-msgstr ""
+msgstr "עדיפות"
 
 #: CRM/Activity/Form/Activity.php
 msgid "Followup Activity"
@@ -3004,6 +3006,11 @@ msgstr ""
 msgid "Selected relationship has been deleted successfully."
 msgstr ""
 
+#: CRM/Contact/BAO/Relationship.php
+#, fuzzy
+msgid "Manage Case #%1"
+msgstr "ניהול הרשאות גישה"
+
 #: CRM/Contact/BAO/RelationshipType.php
 msgid "Invalid relationship type"
 msgstr ""
@@ -3014,15 +3021,15 @@ msgstr ""
 
 #: CRM/Contact/DAO/Contact.php
 msgid "Do Not Phone"
-msgstr ""
+msgstr "לא להתקשר"
 
 #: CRM/Contact/DAO/Contact.php
 msgid "Do Not Mail"
-msgstr ""
+msgstr "לא לשלוח דיוור ישיר"
 
 #: CRM/Contact/DAO/Contact.php
 msgid "Do Not Sms"
-msgstr ""
+msgstr "לא לשלוח אס-אמ-אסים"
 
 #: CRM/Contact/DAO/Contact.php
 msgid "Do Not Trade"
@@ -3042,12 +3049,12 @@ msgstr ""
 
 #: CRM/Contact/DAO/Contact.php
 msgid "Sort Name"
-msgstr ""
+msgstr "סנן שם"
 
 #: CRM/Contact/DAO/Contact.php
 #: templates/CRM/Activity/Form/Task/SearchTaskHookSample.tpl
 msgid "Display Name"
-msgstr ""
+msgstr "שם תצוגה"
 
 #: CRM/Contact/DAO/Contact.php
 msgid "Hash"
@@ -4086,6 +4093,16 @@ msgid "Contact SubType field of %1 nunber of contact(s) has not been updated."
 msgstr ""
 
 #: CRM/Contact/Form/Task/Delete.php
+#, fuzzy
+msgid "You do not have permission to access this contact."
+msgstr "אין לך הרשאה לגשת לדף זה"
+
+#: CRM/Contact/Form/Task/Delete.php
+#, fuzzy
+msgid "You do not have permission to delete this contact."
+msgstr "אין לך הרשאות לשנות איש הקשר"
+
+#: CRM/Contact/Form/Task/Delete.php
 msgid "You do not have permission to delete this contact. Note: you can delete contacts if you can edit them."
 msgstr ""
 
@@ -4345,6 +4362,10 @@ msgstr ""
 msgid "Delete DedupeRule"
 msgstr ""
 
+#: CRM/Contact/Page/DedupeRules.php
+msgid "Selected contacts have been marked as not duplicates"
+msgstr ""
+
 #: CRM/Contact/Page/View/Email.php
 msgid "Email Sent"
 msgstr "דואר אלקטרוני נשלח"
@@ -4416,6 +4437,11 @@ msgstr ""
 #: CRM/Contact/Page/View/Relationship.php
 #: templates/CRM/Contact/Form/Relationship.tpl
 msgid "Delete Relationship"
+msgstr ""
+
+#: CRM/Contact/Page/View/Relationship.php
+#: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
+msgid "Manage Case"
 msgstr ""
 
 #: CRM/Contact/Page/View/Summary.php
@@ -4541,6 +4567,11 @@ msgstr "הוסף אנשי קשר לארוע"
 #: CRM/Contact/Task.php
 msgid "Schedule/Send a Mass Mailing"
 msgstr ""
+
+#: CRM/Contact/Task.php
+#, fuzzy
+msgid "Create a Mass Mailing"
+msgstr "הפצת דואר - תצוגה מקדימה"
 
 #: CRM/Core/BAO/Address.php
 msgid "Unsupported locale specified to parseStreetAddress: %1. Proceeding with en_US locale."
@@ -4675,6 +4706,15 @@ msgstr ""
 #: CRM/Core/BAO/CustomField.php
 msgid "%1 must be in proper money format. (decimal point/comma/space is allowed)."
 msgstr ""
+
+#: CRM/Core/BAO/CustomField.php
+msgid "%1 must in proper money format. (decimal point/comma/space is allowed)."
+msgstr ""
+
+#: CRM/Core/BAO/CustomField.php
+#, fuzzy
+msgid "%1 must be valid Website."
+msgstr "הכנס אתר אינטרנט חוקי"
 
 #: CRM/Core/BAO/CustomGroup.php
 msgid "Are you sure you want to delete attached file."
@@ -5625,6 +5665,21 @@ msgstr ""
 msgid "Contact Autocomplete Options"
 msgstr ""
 
+#: CRM/Core/DAO/PrevNextCache.php
+#, fuzzy
+msgid "Entity Id1"
+msgstr "טבלת יישות"
+
+#: CRM/Core/DAO/PrevNextCache.php
+#, fuzzy
+msgid "Entity Id2"
+msgstr "טבלת יישות"
+
+#: CRM/Core/DAO/PrevNextCache.php
+#, fuzzy
+msgid "Cachekey"
+msgstr "צ'ק"
+
 #: CRM/Core/DAO/StateProvince.php
 msgid "State Abbreviation"
 msgstr ""
@@ -5680,7 +5735,7 @@ msgstr ""
 
 #: CRM/Core/DAO/UFMatch.php
 msgid "Language"
-msgstr ""
+msgstr "שפה"
 
 #: CRM/Core/Error.php
 msgid "Payment Processor Error message"
@@ -5995,6 +6050,11 @@ msgid "Key is not set for this payment processor"
 msgstr ""
 
 #: CRM/Core/Payment/BaseIPN.php
+#, fuzzy
+msgid "Offline Recurring Contribution"
+msgstr "תרומות מקוונות"
+
+#: CRM/Core/Payment/BaseIPN.php
 msgid "Please set a location type of %1"
 msgstr ""
 
@@ -6264,7 +6324,7 @@ msgstr "ערוך כל אנשי קשר"
 
 #: CRM/Core/Permission.php
 msgid "delete contacts"
-msgstr ""
+msgstr "מחק אנשי קשר"
 
 #: CRM/Core/Permission.php
 msgid "access deleted contacts"
@@ -6280,7 +6340,7 @@ msgstr "ערוך אנשי קשר"
 
 #: CRM/Core/Permission.php
 msgid "administer CiviCRM"
-msgstr ""
+msgstr "CRM נהל מערכת"
 
 #: CRM/Core/Permission.php
 msgid "access uploaded files"
@@ -6292,19 +6352,19 @@ msgstr "רישום פרופילים וטופסים"
 
 #: CRM/Core/Permission.php
 msgid "profile listings"
-msgstr ""
+msgstr "רשימת פופילים"
 
 #: CRM/Core/Permission.php
 msgid "profile create"
-msgstr ""
+msgstr "צור פרופיל"
 
 #: CRM/Core/Permission.php
 msgid "profile edit"
-msgstr ""
+msgstr "ערוך פרופיל"
 
 #: CRM/Core/Permission.php
 msgid "profile view"
-msgstr ""
+msgstr "הצג פרופיל"
 
 #: CRM/Core/Permission.php
 msgid "access all custom data"
@@ -6312,11 +6372,11 @@ msgstr "גישה למידע מותאם אישית"
 
 #: CRM/Core/Permission.php
 msgid "view all activities"
-msgstr ""
+msgstr "הצג את כל הפעילויות"
 
 #: CRM/Core/Permission.php
 msgid "delete activities"
-msgstr ""
+msgstr "מחק פעילויות"
 
 #: CRM/Core/Permission.php
 msgid "access CiviCRM"
@@ -6427,8 +6487,9 @@ msgid "end date"
 msgstr ""
 
 #: CRM/Core/SelectValues.php
-msgid "join date"
-msgstr ""
+#, fuzzy
+msgid "member since"
+msgstr "חברות"
 
 #: CRM/Core/SelectValues.php
 msgid "Decimal Number"
@@ -9056,7 +9117,7 @@ msgstr ""
 #: templates/CRM/Contact/Form/Search/Criteria/Relationship.tpl
 #: templates/CRM/Custom/Form/CustomField.tpl
 #: templates/CRM/Custom/Form/Preview.tpl templates/CRM/Custom/Form/Search.tpl
-#: templates/CRM/Profile/Form/Dynamic.tpl
+#: templates/CRM/Form/attachment.tpl templates/CRM/Profile/Form/Dynamic.tpl
 #: templates/CRM/Profile/Form/Search.tpl templates/CRM/UF/Form/Block.tpl
 #: templates/CRM/UF/Form/Preview.tpl
 msgid "clear"
@@ -9506,16 +9567,18 @@ msgid "Mark as Dedupe Exception"
 msgstr ""
 
 #: templates/CRM/common/dedupe.tpl
-msgid "Are you sure you want to mark these contacts as dedupe exception."
-msgstr ""
+#, fuzzy
+msgid "Are you sure you want to mark this pair of contacts as NOT duplicates?"
+msgstr "האם אתה בטוח שברצונך לאפשר רשומה זו?"
 
 #: templates/CRM/common/dedupe.tpl
 msgid "Remove Dedupe Exception"
 msgstr ""
 
 #: templates/CRM/common/dedupe.tpl
-msgid "Are you sure you want to remove dedupe exception."
-msgstr ""
+#, fuzzy
+msgid "Are you sure you want to remove this dedupe exception."
+msgstr "האם אתה בטוח שברצונך לאפשר רשומה זו?"
 
 #: templates/CRM/common/dedupe.tpl
 msgid "Marked as non duplicates."
@@ -9981,7 +10044,7 @@ msgstr ""
 
 #: templates/CRM/Contact/Form/Edit/Address.tpl
 msgid "Location type"
-msgstr ""
+msgstr "סוג מיקום"
 
 #: templates/CRM/Contact/Form/Edit/Address.tpl
 msgid "has already been assigned to another address. Please select another location type for this address."
@@ -10020,7 +10083,7 @@ msgstr ""
 #: templates/CRM/Contact/Form/Edit/Phone.tpl
 #: templates/CRM/Contact/Form/Edit/Website.tpl
 msgid "delete"
-msgstr ""
+msgstr "מחק"
 
 #: templates/CRM/Contact/Form/Edit/IM.tpl
 msgid "Delete IM Block"
@@ -10095,7 +10158,7 @@ msgid "WARNING: The duplicate contact record WILL BE DELETED after the merge is 
 msgstr ""
 
 #: templates/CRM/Contact/Form/Merge.tpl
-msgid "There are Drupal user accounts associated with both the original and duplicate contacts. If you continue with the merge, the user record associated with the duplicate contact will not be deleted, but will be un-linked from the associated contact record (which will be deleted). If that user logs in again, a new contact record will be created for them."
+msgid "There are %1 user accounts associated with both the original and duplicate contacts. If you continue with the merge, the user record associated with the duplicate contact will not be deleted, but will be un-linked from the associated contact record (which will be deleted). If that user logs in again, a new contact record will be created for them."
 msgstr ""
 
 #: templates/CRM/Contact/Form/NewContact.tpl
@@ -10444,10 +10507,6 @@ msgid "Restore Case"
 msgstr ""
 
 #: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
-msgid "Manage Case"
-msgstr ""
-
-#: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
 msgid "View all results for cases"
 msgstr ""
 
@@ -10568,7 +10627,7 @@ msgstr ""
 #: templates/CRM/Contact/Form/Task/AddToHousehold.tpl
 #: templates/CRM/Contact/Form/Task/AddToOrganization.tpl
 msgid "Contact type"
-msgstr ""
+msgstr "סוג איש קשר"
 
 #: templates/CRM/Contact/Form/Task/AddToOrganization.tpl
 msgid "Choose Relationship Type and Target Organization"
@@ -10802,7 +10861,7 @@ msgid "Click 'Update Report'."
 msgstr ""
 
 #: templates/CRM/Contact/Page/Dashboard.hlp
-msgid "Repeat for each report your want to include on your dashboard."
+msgid "Repeat for each report you want to include on your dashboard."
 msgstr ""
 
 #: templates/CRM/Contact/Page/Dashboard.hlp
@@ -10819,6 +10878,10 @@ msgstr ""
 
 #: templates/CRM/Contact/Page/Dashboard.hlp
 msgid "Navigate to a report instance and verify the report filters and display type (Tabular, Bar or Pie Chart). OR create a new report instance from the Reports menu &raquo; Create Reports from Templates."
+msgstr ""
+
+#: templates/CRM/Contact/Page/Dashboard.hlp
+msgid "Repeat for each report your want to include on your dashboard."
 msgstr ""
 
 #: templates/CRM/Contact/Page/Dashboard.hlp
@@ -10842,7 +10905,7 @@ msgid "Right Column"
 msgstr ""
 
 #: templates/CRM/Contact/Page/Dashlet.tpl
-msgid "Do you want to remove this dashlet as an 'Available Dashlet', AND delete it from all users' dashboards?"
+msgid "Do you want to remove this dashlet as an \"Available Dashlet\", AND delete it from all user dashboards?"
 msgstr ""
 
 #: templates/CRM/Contact/Page/DedupeException.tpl
@@ -10906,19 +10969,21 @@ msgid "Manage the rules used to identify potentially duplicate contact records. 
 msgstr ""
 
 #: templates/CRM/Contact/Page/DedupeRules.tpl
-msgid "Add Dedupe Rule for Individuals"
+msgid "Add Rule for Individuals"
 msgstr ""
 
 #: templates/CRM/Contact/Page/DedupeRules.tpl
-msgid "Add Dedupe Rule for Households"
-msgstr ""
+#, fuzzy
+msgid "Add Rule for Households"
+msgstr "משק בית חדש"
 
 #: templates/CRM/Contact/Page/DedupeRules.tpl
-msgid "Add Dedupe Rule for Organizations"
-msgstr ""
+#, fuzzy
+msgid "Add Rule for Organizations"
+msgstr "הוספת איש קשר לאירגון"
 
 #: templates/CRM/Contact/Page/DedupeRules.tpl
-msgid "Dedupe Exceptions"
+msgid "View Dedupe Exceptions"
 msgstr ""
 
 #: templates/CRM/Contact/Page/SavedSearch.tpl
@@ -10963,7 +11028,7 @@ msgstr ""
 
 #: templates/CRM/Contact/Page/View/Demographics.tpl
 msgid "Age"
-msgstr ""
+msgstr "גיל"
 
 #: templates/CRM/Contact/Page/View/Demographics.tpl
 msgid "%count year"
@@ -12344,15 +12409,31 @@ msgid "If you no longer want to use this price set, click the event title below,
 msgstr ""
 
 #: templates/CRM/Price/Page/table.tpl
+msgid "This price set is used by the event(s) listed below. Click the event title to change or remove the price set."
+msgstr ""
+
+#: templates/CRM/Price/Page/table.tpl
 msgid "Date(s)"
 msgstr ""
 
 #: templates/CRM/Price/Page/table.tpl
-msgid "If you no longer want to use this price set, click the contribution page title below, and modify the amount for that contribution page."
+msgid "Change or remove the price set used for this event."
+msgstr ""
+
+#: templates/CRM/Price/Page/table.tpl
+msgid "If you no longer want to use this price set, click the contribution page title below, and modify the contribution amounts configuration."
+msgstr ""
+
+#: templates/CRM/Price/Page/table.tpl
+msgid "This price set is used by the contribution page(s) listed below. Click the contribution page title to change or remove the price set."
 msgstr ""
 
 #: templates/CRM/Price/Page/table.tpl
 msgid "Contribution Page"
+msgstr ""
+
+#: templates/CRM/Price/Page/table.tpl
+msgid "Change or remove the price set used for this contribution page."
 msgstr ""
 
 #: templates/CRM/Profile/Form/Search.tpl

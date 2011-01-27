@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
 "Report-Msgid-Bugs-To: http://issues.civicrm.org/\n"
-"POT-Creation-Date: 2010-12-10 16:13+0100\n"
+"POT-Creation-Date: 2011-01-27 13:33+0100\n"
 "PO-Revision-Date: 2011-01-18 17:44+0000\n"
 "Last-Translator: yukihiro <yasudayukihiro@gmail.com>\n"
 "Language-Team: Japanese <None>\n"
@@ -112,9 +112,9 @@ msgstr "全て"
 #: CRM/ACL/DAO/ACL.php CRM/ACL/DAO/EntityRole.php CRM/Core/DAO/Discount.php
 #: CRM/Core/DAO/EntityBatch.php CRM/Core/DAO/EntityFile.php
 #: CRM/Core/DAO/EntityFinancialTrxn.php CRM/Core/DAO/EntityTag.php
-#: CRM/Core/DAO/Log.php CRM/Core/DAO/Note.php CRM/Core/DAO/UFJoin.php
-#: CRM/Friend/DAO/Friend.php CRM/Price/DAO/LineItem.php
-#: CRM/Price/DAO/SetEntity.php
+#: CRM/Core/DAO/Log.php CRM/Core/DAO/Note.php CRM/Core/DAO/PrevNextCache.php
+#: CRM/Core/DAO/UFJoin.php CRM/Friend/DAO/Friend.php
+#: CRM/Price/DAO/LineItem.php CRM/Price/DAO/SetEntity.php
 msgid "Entity Table"
 msgstr "実体テーブル"
 
@@ -416,9 +416,9 @@ msgstr "状態"
 msgid "Added By"
 msgstr "追加者"
 
-#: CRM/Activity/Form/Activity.php CRM/Contact/Form/Task/Delete.php
-#: CRM/Price/BAO/Set.php CRM/Utils/System/Joomla.php
-#: CRM/Utils/System/Standalone.php CRM/Utils/System/UnitTests.php
+#: CRM/Activity/Form/Activity.php CRM/Price/BAO/Set.php
+#: CRM/Utils/System/Joomla.php CRM/Utils/System/Standalone.php
+#: CRM/Utils/System/UnitTests.php
 msgid "You do not have permission to access this page"
 msgstr "このページにアクセスする権限がありません"
 
@@ -482,6 +482,7 @@ msgstr "タグ"
 #: CRM/Price/Form/Field.php CRM/UF/Form/Field.php CRM/UF/Form/Group.php
 #: templates/CRM/Contact/Form/Relationship.tpl
 #: templates/CRM/Contact/Page/DashBoardDashlet.tpl
+#: templates/CRM/Contact/Page/DedupeException.tpl
 #: templates/CRM/Contact/Page/DedupeFind.tpl
 #: templates/CRM/Contact/Page/View/Note.tpl
 #: templates/CRM/Contact/Page/View/Print.tpl
@@ -862,7 +863,7 @@ msgstr "キロ"
 #: templates/CRM/Contact/Form/Task/AddToOrganization.tpl
 #: templates/CRM/Contact/Form/Task/Print.tpl
 msgid "State"
-msgstr ""
+msgstr "都道府県"
 
 #: CRM/Contact/BAO/Query.php CRM/Contact/Form/Edit/Address.php
 #: CRM/Contact/Form/Search/Criteria.php
@@ -1841,6 +1842,7 @@ msgid "Path"
 msgstr "パス"
 
 #: CRM/Core/DAO/Cache.php CRM/Core/DAO/Log.php CRM/Core/DAO/Persistent.php
+#: CRM/Core/DAO/PrevNextCache.php
 msgid "Data"
 msgstr "データ"
 
@@ -3003,6 +3005,11 @@ msgstr "関係 - 非アクティブ"
 msgid "Selected relationship has been deleted successfully."
 msgstr "選択された関係を削除しました。"
 
+#: CRM/Contact/BAO/Relationship.php
+#, fuzzy
+msgid "Manage Case #%1"
+msgstr "事例管理"
+
 #: CRM/Contact/BAO/RelationshipType.php
 msgid "Invalid relationship type"
 msgstr "無効な関係タイプです"
@@ -4080,6 +4087,16 @@ msgid "Contact SubType field of %1 nunber of contact(s) has not been updated."
 msgstr "%1 の連絡先サブタイプフィールドは更新されませんでした。"
 
 #: CRM/Contact/Form/Task/Delete.php
+#, fuzzy
+msgid "You do not have permission to access this contact."
+msgstr "このページにアクセスする権限がありません"
+
+#: CRM/Contact/Form/Task/Delete.php
+#, fuzzy
+msgid "You do not have permission to delete this contact."
+msgstr "この連絡先を表示する権限がありません"
+
+#: CRM/Contact/Form/Task/Delete.php
 msgid "You do not have permission to delete this contact. Note: you can delete contacts if you can edit them."
 msgstr "この連絡先を削除する権限がありません。注意: 連絡先を編集できる場合は削除もできます。"
 
@@ -4339,6 +4356,11 @@ msgstr "デフォルトの重複排除規則"
 msgid "Delete DedupeRule"
 msgstr "重複排除規則を削除"
 
+#: CRM/Contact/Page/DedupeRules.php
+#, fuzzy
+msgid "Selected contacts have been marked as not duplicates"
+msgstr "非重複にマークされている連絡先です。"
+
 #: CRM/Contact/Page/View/Email.php
 msgid "Email Sent"
 msgstr "送信メール"
@@ -4411,6 +4433,11 @@ msgstr "関係を有効化"
 #: templates/CRM/Contact/Form/Relationship.tpl
 msgid "Delete Relationship"
 msgstr "関係を削除"
+
+#: CRM/Contact/Page/View/Relationship.php
+#: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
+msgid "Manage Case"
+msgstr "事例管理"
 
 #: CRM/Contact/Page/View/Summary.php
 msgid "Contact Page"
@@ -4534,6 +4561,11 @@ msgstr "イベントに連絡先を追加"
 
 #: CRM/Contact/Task.php
 msgid "Schedule/Send a Mass Mailing"
+msgstr "一括メールの予定設定/送信"
+
+#: CRM/Contact/Task.php
+#, fuzzy
+msgid "Create a Mass Mailing"
 msgstr "一括メールの予定設定/送信"
 
 #: CRM/Core/BAO/Address.php
@@ -4666,6 +4698,16 @@ msgstr "%1 To は正しい金額の形式(小数点、コンマ、空白が使�
 #: CRM/Core/BAO/CustomField.php
 msgid "%1 must be in proper money format. (decimal point/comma/space is allowed)."
 msgstr "%1 は正しい金額の形式(小数点、コンマ、空白が使えます)で入力してください。"
+
+#: CRM/Core/BAO/CustomField.php
+#, fuzzy
+msgid "%1 must in proper money format. (decimal point/comma/space is allowed)."
+msgstr "%1 To は正しい金額の形式(小数点、コンマ、空白が使えます)で入力してください。"
+
+#: CRM/Core/BAO/CustomField.php
+#, fuzzy
+msgid "%1 must be valid Website."
+msgstr "サイトを入力してください"
 
 #: CRM/Core/BAO/CustomGroup.php
 msgid "Are you sure you want to delete attached file."
@@ -5259,7 +5301,7 @@ msgstr "取引タイプ"
 #: CRM/Core/DAO/FinancialTrxn.php
 #: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
 msgid "Fee Amount"
-msgstr ""
+msgstr "料金の額"
 
 #: CRM/Core/DAO/FinancialTrxn.php
 msgid "Net Amount"
@@ -5615,6 +5657,21 @@ msgstr "ナビゲーション"
 #: CRM/Core/DAO/Preferences.php
 msgid "Contact Autocomplete Options"
 msgstr "連絡先自動補完オプション"
+
+#: CRM/Core/DAO/PrevNextCache.php
+#, fuzzy
+msgid "Entity Id1"
+msgstr "実体ID"
+
+#: CRM/Core/DAO/PrevNextCache.php
+#, fuzzy
+msgid "Entity Id2"
+msgstr "実体ID"
+
+#: CRM/Core/DAO/PrevNextCache.php
+#, fuzzy
+msgid "Cachekey"
+msgstr "キャッシュ日"
 
 #: CRM/Core/DAO/StateProvince.php
 msgid "State Abbreviation"
@@ -5984,6 +6041,11 @@ msgstr "この支払プロセッサにAPIログインが設定されていませ
 #: CRM/Core/Payment/AuthorizeNet.php
 msgid "Key is not set for this payment processor"
 msgstr "この支払プロセッサにはキーが設定されていません"
+
+#: CRM/Core/Payment/BaseIPN.php
+#, fuzzy
+msgid "Offline Recurring Contribution"
+msgstr "自動更新寄付を検索?"
 
 #: CRM/Core/Payment/BaseIPN.php
 msgid "Please set a location type of %1"
@@ -6418,8 +6480,9 @@ msgid "end date"
 msgstr "終了日"
 
 #: CRM/Core/SelectValues.php
-msgid "join date"
-msgstr "加入日"
+#, fuzzy
+msgid "member since"
+msgstr "入会"
 
 #: CRM/Core/SelectValues.php
 msgid "Decimal Number"
@@ -9047,7 +9110,7 @@ msgstr "活動タグ"
 #: templates/CRM/Contact/Form/Search/Criteria/Relationship.tpl
 #: templates/CRM/Custom/Form/CustomField.tpl
 #: templates/CRM/Custom/Form/Preview.tpl templates/CRM/Custom/Form/Search.tpl
-#: templates/CRM/Profile/Form/Dynamic.tpl
+#: templates/CRM/Form/attachment.tpl templates/CRM/Profile/Form/Dynamic.tpl
 #: templates/CRM/Profile/Form/Search.tpl templates/CRM/UF/Form/Block.tpl
 #: templates/CRM/UF/Form/Preview.tpl
 msgid "clear"
@@ -9493,7 +9556,8 @@ msgid "Mark as Dedupe Exception"
 msgstr "重複排除の例外としてマーク"
 
 #: templates/CRM/common/dedupe.tpl
-msgid "Are you sure you want to mark these contacts as dedupe exception."
+#, fuzzy
+msgid "Are you sure you want to mark this pair of contacts as NOT duplicates?"
 msgstr "これらの連絡先を重複排除の例外としてマークしていいですか。"
 
 #: templates/CRM/common/dedupe.tpl
@@ -9501,7 +9565,8 @@ msgid "Remove Dedupe Exception"
 msgstr "重複排除の例外を削除"
 
 #: templates/CRM/common/dedupe.tpl
-msgid "Are you sure you want to remove dedupe exception."
+#, fuzzy
+msgid "Are you sure you want to remove this dedupe exception."
 msgstr "重複排除の例外を削除していいですか。"
 
 #: templates/CRM/common/dedupe.tpl
@@ -10087,7 +10152,8 @@ msgid "WARNING: The duplicate contact record WILL BE DELETED after the merge is 
 msgstr "警告: マージ後、重複した連絡先のレコードは削除されます。"
 
 #: templates/CRM/Contact/Form/Merge.tpl
-msgid "There are Drupal user accounts associated with both the original and duplicate contacts. If you continue with the merge, the user record associated with the duplicate contact will not be deleted, but will be un-linked from the associated contact record (which will be deleted). If that user logs in again, a new contact record will be created for them."
+#, fuzzy
+msgid "There are %1 user accounts associated with both the original and duplicate contacts. If you continue with the merge, the user record associated with the duplicate contact will not be deleted, but will be un-linked from the associated contact record (which will be deleted). If that user logs in again, a new contact record will be created for them."
 msgstr "元の連絡先、および重複する連絡先と関連付けられているDrupalユーザ・アカウントがあります。マージすると、重複連絡先と関連付けられているユーザレコードは削除されませんが、その関連付けられた削除されていない連絡先レコードとのリンクが切られます。そのユーザがログインすると、新しい連絡先レコードが作られます。"
 
 #: templates/CRM/Contact/Form/NewContact.tpl
@@ -10436,10 +10502,6 @@ msgstr "事例ID"
 #: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
 msgid "Restore Case"
 msgstr "事例を元に戻す"
-
-#: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
-msgid "Manage Case"
-msgstr "事例管理"
 
 #: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
 msgid "View all results for cases"
@@ -10793,7 +10855,8 @@ msgid "Click 'Update Report'."
 msgstr "'レポート更新'をクリック。"
 
 #: templates/CRM/Contact/Page/Dashboard.hlp
-msgid "Repeat for each report your want to include on your dashboard."
+#, fuzzy
+msgid "Repeat for each report you want to include on your dashboard."
 msgstr "ダッシュボードに追加したいレポートでこれを繰り返してください。"
 
 #: templates/CRM/Contact/Page/Dashboard.hlp
@@ -10811,6 +10874,10 @@ msgstr "作業予定をダッシュレットに入れるには、「作業」ダ
 #: templates/CRM/Contact/Page/Dashboard.hlp
 msgid "Navigate to a report instance and verify the report filters and display type (Tabular, Bar or Pie Chart). OR create a new report instance from the Reports menu &raquo; Create Reports from Templates."
 msgstr "レポート実体に進み、レポートフィルタと表示タイプ(表、棒グラフ、円グラフ)を確認してください。あるいは、レポートメニューの「テンプレートからレポート作成」で新しいレポートの実体を作成してください。"
+
+#: templates/CRM/Contact/Page/Dashboard.hlp
+msgid "Repeat for each report your want to include on your dashboard."
+msgstr "ダッシュボードに追加したいレポートでこれを繰り返してください。"
 
 #: templates/CRM/Contact/Page/Dashboard.hlp
 msgid "If you want to remove dashlets from the set of 'Available Dashlets' you can click the 'x' in the right corner of any dashlet. This will also remove the dashlet from any users' dashboards that currently include it. You can make a dashlet available again by checking the 'Available for Dashboard' box in the Report Settings of the associated report instance."
@@ -10833,7 +10900,8 @@ msgid "Right Column"
 msgstr "右列"
 
 #: templates/CRM/Contact/Page/Dashlet.tpl
-msgid "Do you want to remove this dashlet as an 'Available Dashlet', AND delete it from all users' dashboards?"
+#, fuzzy
+msgid "Do you want to remove this dashlet as an \"Available Dashlet\", AND delete it from all user dashboards?"
 msgstr "このダッシュレットを削除し、「利用可能なダッシュレット」にしますか? その場合、このダッシュレットはすべてのユーザのダッシュボードからも削除されます。"
 
 #: templates/CRM/Contact/Page/DedupeException.tpl
@@ -10897,19 +10965,23 @@ msgid "Manage the rules used to identify potentially duplicate contact records. 
 msgstr "重複の可能性がある連絡先レコードを見つけるための規則を管理します。選択した規則で重複を走査し、必要であれば重複連絡先データをマージします。"
 
 #: templates/CRM/Contact/Page/DedupeRules.tpl
-msgid "Add Dedupe Rule for Individuals"
+#, fuzzy
+msgid "Add Rule for Individuals"
 msgstr "個人の重複排除規則を追加"
 
 #: templates/CRM/Contact/Page/DedupeRules.tpl
-msgid "Add Dedupe Rule for Households"
+#, fuzzy
+msgid "Add Rule for Households"
 msgstr "世帯の重複排除規則を追加"
 
 #: templates/CRM/Contact/Page/DedupeRules.tpl
-msgid "Add Dedupe Rule for Organizations"
+#, fuzzy
+msgid "Add Rule for Organizations"
 msgstr "団体の重複排除規則を追加"
 
 #: templates/CRM/Contact/Page/DedupeRules.tpl
-msgid "Dedupe Exceptions"
+#, fuzzy
+msgid "View Dedupe Exceptions"
 msgstr "重複排除の例外"
 
 #: templates/CRM/Contact/Page/SavedSearch.tpl
@@ -12323,16 +12395,35 @@ msgid "If you no longer want to use this price set, click the event title below,
 msgstr "もうこの料金フィールドを使わないのであれば、下のイベントタイトルをクリックしてこのイベントの料金を修正してください。"
 
 #: templates/CRM/Price/Page/table.tpl
+msgid "This price set is used by the event(s) listed below. Click the event title to change or remove the price set."
+msgstr ""
+
+#: templates/CRM/Price/Page/table.tpl
 msgid "Date(s)"
 msgstr "日付"
 
 #: templates/CRM/Price/Page/table.tpl
-msgid "If you no longer want to use this price set, click the contribution page title below, and modify the amount for that contribution page."
+#, fuzzy
+msgid "Change or remove the price set used for this event."
+msgstr "ここをクリックしてこのイベントに別の参加者を登録する。"
+
+#: templates/CRM/Price/Page/table.tpl
+#, fuzzy
+msgid "If you no longer want to use this price set, click the contribution page title below, and modify the contribution amounts configuration."
 msgstr "もうこの料金フィールドを使わないのであれば、下の寄付ページをクリックしてこの寄付ページの金額を修正してください。"
+
+#: templates/CRM/Price/Page/table.tpl
+msgid "This price set is used by the contribution page(s) listed below. Click the contribution page title to change or remove the price set."
+msgstr ""
 
 #: templates/CRM/Price/Page/table.tpl
 msgid "Contribution Page"
 msgstr "寄付のページ"
+
+#: templates/CRM/Price/Page/table.tpl
+#, fuzzy
+msgid "Change or remove the price set used for this contribution page."
+msgstr "この寄付ページで使用する支払プロセッサを選択。"
 
 #: templates/CRM/Profile/Form/Search.tpl
 msgid "No fields in this Profile have been configured as searchable. Ask the site administrator to check the Profile setup."

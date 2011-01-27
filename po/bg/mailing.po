@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
 "Report-Msgid-Bugs-To: http://issues.civicrm.org/\n"
-"POT-Creation-Date: 2010-12-10 16:13+0100\n"
+"POT-Creation-Date: 2011-01-27 13:33+0100\n"
 "PO-Revision-Date: 2010-12-11 14:36+0000\n"
 "Last-Translator: chastell <chastell@chastell.net>\n"
 "Language-Team: CiviCRM Translators <civicrm-translators@lists.civicrm.org>\n"
@@ -66,6 +66,10 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
+#: CRM/Mailing/DAO/Mailing.php CRM/Mailing/Form/Approve.php
+msgid "Approval Status"
+msgstr ""
+
 #: CRM/Mailing/Event/DAO/Bounce.php CRM/Mailing/Event/DAO/Confirm.php
 #: CRM/Mailing/Event/DAO/Delivered.php CRM/Mailing/Event/DAO/Forward.php
 #: CRM/Mailing/Event/DAO/Opened.php CRM/Mailing/Event/DAO/Reply.php
@@ -74,6 +78,11 @@ msgstr ""
 #: CRM/Mailing/Event/DAO/Unsubscribe.php
 msgid "Time Stamp"
 msgstr ""
+
+#: CRM/Mailing/Form/Approve.php CRM/Mailing/Selector/Browse.php
+#, fuzzy
+msgid "Approve/Reject Mailing"
+msgstr "Архивирани Мейлсписъци"
 
 #: CRM/Mailing/Form/Group.php CRM/Mailing/Form/Settings.php
 #: CRM/Mailing/Form/Test.php CRM/Mailing/Form/Upload.php
@@ -289,6 +298,18 @@ msgstr ""
 msgid "Mailing Created Date"
 msgstr ""
 
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Mailing Scheduled Date"
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Mailing Approved Date"
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Approval Note"
+msgstr ""
+
 #: CRM/Mailing/DAO/Spool.php
 msgid "Recipient Email"
 msgstr ""
@@ -327,6 +348,10 @@ msgstr ""
 
 #: CRM/Mailing/Event/DAO/Unsubscribe.php
 msgid "Org Unsubscribe"
+msgstr ""
+
+#: CRM/Mailing/Form/Approve.php
+msgid "Approve/Reject Note"
 msgstr ""
 
 #: CRM/Mailing/Form/Component.php
@@ -514,15 +539,23 @@ msgid "Send a Test Mailing"
 msgstr ""
 
 #: CRM/Mailing/Form/Test.php
+msgid "Inform Scheduler"
+msgstr ""
+
+#: CRM/Mailing/Form/Test.php
 msgid "Your did not provided any email address or selected any group. No test mail is sent."
 msgstr ""
 
 #: CRM/Mailing/Form/Test.php
-msgid "Please enter valid email addresses only"
+msgid "Please enter valid email addresses only."
 msgstr ""
 
 #: CRM/Mailing/Form/Test.php
-msgid "Your test message has been sent. Click 'Next' when you are ready to Schedule or Send your live mailing (you will still have a chance to confirm or cancel sending this mailing on the next page)."
+msgid "Your test message has been sent."
+msgstr ""
+
+#: CRM/Mailing/Form/Test.php
+msgid " Click 'Next' when you are ready to Schedule or Send your live mailing (you will still have a chance to confirm or cancel sending this mailing on the next page)."
 msgstr ""
 
 #: CRM/Mailing/Form/Upload.php
@@ -657,6 +690,11 @@ msgstr ""
 msgid "CiviMail Report: %1"
 msgstr ""
 
+#: CRM/Mailing/Page/View.php
+#, fuzzy
+msgid "You do not have the necessary permission to approve this mailing."
+msgstr "Вие нямате права за достъп до тази страница"
+
 #: CRM/Mailing/Selector/Browse.php
 msgid "Mailings %%StatusMessage%%"
 msgstr ""
@@ -683,6 +721,10 @@ msgstr ""
 
 #: CRM/Mailing/Selector/Browse.php
 msgid "Are you sure you want to archive this mailing?"
+msgstr ""
+
+#: CRM/Mailing/Selector/Browse.php
+msgid "Approve/Reject"
 msgstr ""
 
 #: CRM/Mailing/Selector/Browse.php
@@ -755,6 +797,26 @@ msgstr ""
 
 #: CRM/Mailing/Selector/Event.php templates/CRM/Mailing/Page/Report.tpl
 msgid "Tracked Opens"
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Approve.tpl
+#: templates/CRM/Mailing/Form/Schedule.tpl templates/CRM/Mailing/Form/Test.tpl
+msgid "Preview Mailing"
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Approve.tpl
+#: templates/CRM/Mailing/Form/Schedule.tpl templates/CRM/Mailing/Form/Test.tpl
+msgid "Attachment(s):"
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Approve.tpl
+#: templates/CRM/Mailing/Form/Schedule.tpl
+msgid "Mailing HTML:"
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Approve.tpl
+#: templates/CRM/Mailing/Form/Schedule.tpl
+msgid "Mailing Text:"
 msgstr ""
 
 #: templates/CRM/Mailing/Form/Component.tpl
@@ -918,14 +980,6 @@ msgid "(filled with your contact's token values)"
 msgstr ""
 
 #: templates/CRM/Mailing/Form/Test.tpl
-msgid "Preview Mailing"
-msgstr ""
-
-#: templates/CRM/Mailing/Form/Test.tpl
-msgid "Attachment(s):"
-msgstr ""
-
-#: templates/CRM/Mailing/Form/Test.tpl
 msgid "Text Version:"
 msgstr ""
 
@@ -1034,7 +1088,11 @@ msgid "Or you can <a href='%1'>browse all %2 mailings</a>."
 msgstr ""
 
 #: templates/CRM/Mailing/Page/Browse.tpl
-msgid "There are no Unscheduled Mailings. You can <a href='%1'>create and send one</a>."
+msgid "There are no Unscheduled Mailings."
+msgstr ""
+
+#: templates/CRM/Mailing/Page/Browse.tpl
+msgid " You can <a href='%1'>create and send one</a>."
 msgstr ""
 
 #: templates/CRM/Mailing/Page/Browse.tpl
@@ -1042,7 +1100,15 @@ msgid "There are no Archived Mailings. You can archive mailings from <a href='%1
 msgstr ""
 
 #: templates/CRM/Mailing/Page/Browse.tpl
-msgid "There are no Scheduled or Sent Mailings. You can <a href='%1'>create and send one</a> OR you can search the <a href='%2'>Archived Mailings</a>."
+msgid "There are no Scheduled or Sent Mailings."
+msgstr ""
+
+#: templates/CRM/Mailing/Page/Browse.tpl
+msgid " You can <a href='%1'>create and send one</a>"
+msgstr ""
+
+#: templates/CRM/Mailing/Page/Browse.tpl
+msgid " OR you can search the <a href='%1'>Archived Mailings</a>"
 msgstr ""
 
 #: templates/CRM/Mailing/Page/Component.tpl
