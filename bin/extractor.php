@@ -66,7 +66,7 @@ $smartyExtractor = dirname(__FILE__) . '/smarty-extractor.php';
 
 $dir = $argv[2];
 
-$command = "find $dir/CRM $dir/standalone $dir/packages/HTML/QuickForm $phpModifier -not -wholename '*/CRM/Core/I18n.php' -not -wholename '*/CRM/Core/Smarty/plugins/block.ts.php' | grep -v '/\.svn/' | sort | xargs $phpExtractor $dir";
+$command = "find $dir/CRM $dir/packages/HTML/QuickForm $phpModifier -not -wholename '*/CRM/Core/I18n.php' -not -wholename '*/CRM/Core/Smarty/plugins/block.ts.php' | grep -v '/\.svn/' | sort | xargs $phpExtractor $dir";
 $phpPot = `$command`;
 
 $command = "find $dir/templates $dir/xml $smartyModifier | grep -v '/\.svn/' | sort | xargs $smartyExtractor $dir";
