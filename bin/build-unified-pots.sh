@@ -37,7 +37,7 @@ pots=`for pot in $temp/pot/*/*.pot; do basename $pot .pot; done | sort -u | grep
 # merge per-release files into unified ones
 for pot in $pots; do
   echo " * merging $pot.pot files"
-  msgcat --no-wrap --use-first $temp/pot/*/$pot.pot > $potdir/$pot.pot
+  msgcat --use-first $temp/pot/*/$pot.pot > $potdir/$pot.pot
 done
 
 # drop strings in common-base.pot from other files
@@ -46,7 +46,7 @@ for pot in $pots; do
   echo " * dropping common-base strings from $pot.pot"
   common=`tempfile`
   msgcomm $potdir/$pot.pot $potdir/common-base.pot > $common
-  msgcomm --no-wrap --unique $potdir/$pot.pot $common | sponge $potdir/$pot.pot
+  msgcomm --unique $potdir/$pot.pot $common | sponge $potdir/$pot.pot
   rm $common
 done
 
@@ -57,7 +57,7 @@ for pot in $pots; do
   echo " * dropping common-components strings from $pot.pot"
   common=`tempfile`
   msgcomm $potdir/$pot.pot $potdir/common-components.pot > $common
-  msgcomm --no-wrap --unique $potdir/$pot.pot $common | sponge $potdir/$pot.pot
+  msgcomm --unique $potdir/$pot.pot $common | sponge $potdir/$pot.pot
   rm $common
 done
 

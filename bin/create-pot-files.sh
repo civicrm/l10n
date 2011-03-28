@@ -43,7 +43,6 @@ echo ' * building common-base.pot'
 cp $header $potdir/common-base.pot
 `dirname $0`/extractor.php base $root >> $potdir/common-base.pot
 msguniq $potdir/common-base.pot | sponge $potdir/common-base.pot
-msgattrib --no-wrap $potdir/common-base.pot | sponge $potdir/common-base.pot
 
 # create component POT files
 for comp in $components; do
@@ -63,13 +62,13 @@ for comp in $components; do
   paths="$paths $potdir/$comp.pot"
 done
 echo ' * building common-components.pot'
-msgcomm --no-wrap $paths > $potdir/common-components.pot
+msgcomm $paths > $potdir/common-components.pot
 
 # drop strings in common-components.pot from component POT files
 for comp in $components; do
   common=`tempfile`
   msgcomm $potdir/$comp.pot $potdir/common-components.pot > $common
-  msgcomm --no-wrap --unique $potdir/$comp.pot $common | sponge $potdir/$comp.pot
+  msgcomm --unique $potdir/$comp.pot $common | sponge $potdir/$comp.pot
   rm $common
 done
 
