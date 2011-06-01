@@ -1,7 +1,7 @@
 #!/bin/bash
 
-[ -z "$1" ] || [ ! -d "$1" ] || [ -z "$2" ] || [ ! -d "$2" ] || [ -z "$3" ] && echo "usage: $0 CiviCRM-dir POT-dir releases"          && exit 1
-[ -n "$4" ]                                                                 && echo 'provide releases as one, space-separated string' && exit 1
+[ -z "$1" ] || [ -z "$1" ] || [ -z "$2" ] || [ ! -d "$2" ] || [ -z "$3" ] && echo "usage: $0 source-dir-or-repo POT-dir releases"   && exit 1
+[ -n "$4" ]                                                               && echo 'provide releases as one, space-separated string' && exit 1
 
 root="$1"
 potdir="$2"
@@ -16,8 +16,13 @@ for rel in $rels; do
 
   pushd .
 
-  cd $root
-  git archive $rel | tar -xC $temp/$rel
+  # get fresh codebase from either Git or Subversion
+  if [[ $root == http* ]]; then
+    svn export --force "$root/$rel" "$temp/$rel"
+  else
+    cd $root
+    git archive $rel | tar -xC $temp/$rel
+  fi
 
   mkdir $temp/$rel/xml/default
   echo '<?php define("CIVICRM_CONFDIR", ".");' > $temp/$rel/settings_location.php
