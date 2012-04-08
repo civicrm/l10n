@@ -11,6 +11,10 @@ temp=`mktemp -d`
 
 for rel in $rels; do
 
+  ## This can be useful to debug the build process or to test on a trunk checkout
+  ## (if you use this, comment out the 'get fresh codebase' block below)
+  # cp -r /path/to/civicrm $temp/v4.1
+
   mkdir -p $temp/$rel
   mkdir -p $temp/pot/$rel
 
