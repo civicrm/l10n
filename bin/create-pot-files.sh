@@ -18,6 +18,21 @@ sed "s/NOW/$now/" bin/header > $header
 # $componets are the dirs with strings generating per-component $component.po files
 components=`ls -1 $root/CRM $root/templates/CRM | grep -v :$ | grep -v ^$ | grep -viFf bin/basedirs | sort -u | xargs | tr [A-Z] [a-z]`
 
+# Helper function for extracting strings from xml/templates
+# which are mostly component-specific. We also run a msguniq on
+# them because later msgcomm calls tends to filter out strings
+# that repeat themselves in {component}.po files.
+function smarty_extractor {
+  ME=$1
+  root=$2
+  potdir=$3
+  input=$4
+  component=$5
+
+  `dirname $ME`/smarty-extractor.php $root $root/$input >> ${potdir}/${component}.pot
+  msguniq $potdir/${component}.pot | sponge $potdir/${component}.pot
+}
+
 # build the three XML-originating files
 
 echo ' * building menu.pot'
@@ -63,6 +78,24 @@ for comp in $components; do
 done
 echo ' * building common-components.pot'
 msgcomm $paths > $potdir/common-components.pot
+
+# Add strings from message templates
+echo ' * adding template strings'
+
+smarty_extractor $0 $root $potdir 'xml/templates/civicrm_acl.tpl' 'common-base'
+smarty_extractor $0 $root $potdir 'xml/templates/civicrm_data.tpl' 'common-base'
+smarty_extractor $0 $root $potdir 'xml/templates/civicrm_msg_template.tpl' 'common-base'
+smarty_extractor $0 $root $potdir 'xml/templates/message_templates/friend_*' 'common-base'
+smarty_extractor $0 $root $potdir 'xml/templates/message_templates/uf_notify_*' 'common-base'
+smarty_extractor $0 $root $potdir 'xml/templates/message_templates/case_*' 'case'
+smarty_extractor $0 $root $potdir 'xml/templates/message_templates/contribution_*' 'contribute'
+smarty_extractor $0 $root $potdir 'xml/templates/message_templates/event_*' 'event'
+smarty_extractor $0 $root $potdir 'xml/templates/message_templates/participant_*' 'event'
+smarty_extractor $0 $root $potdir 'xml/templates/message_templates/membership_*' 'member'
+smarty_extractor $0 $root $potdir 'xml/templates/message_templates/pcp_*' 'pcp'
+smarty_extractor $0 $root $potdir 'xml/templates/message_templates/petition_*' 'campaign'
+smarty_extractor $0 $root $potdir 'xml/templates/message_templates/pledge_*' 'pledge'
+smarty_extractor $0 $root $potdir 'xml/templates/message_templates/test_*' 'contribute'
 
 # drop strings in common-components.pot from component POT files
 for comp in $components; do
