@@ -25,6 +25,7 @@
 #
 # Copyright (C) 2007-2010 Karel Zak <kzak@redhat.com>
 # Adapted by Mathieu Lutfy <mathieu@bidon.ca> for CiviCRM translation files
+# Original version: http://people.redhat.com/kzak/git-scripts/git-tp-sync
 #
 # This file is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
