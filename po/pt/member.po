@@ -1,4 +1,4 @@
-# Copyright CiviCRM LLC (c) 2004-2011
+# Copyright CiviCRM LLC (c) 2004-2012
 # This file is distributed under the same license as the CiviCRM package.
 # If you contribute heavily to a translation and deem your work copyrightable,
 # make sure you license it to CiviCRM LLC under Academic Free License 3.0.
@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
 "Report-Msgid-Bugs-To: http://issues.civicrm.org/\n"
-"POT-Creation-Date: 2012-07-24 15:27-0400\n"
-"PO-Revision-Date: 2012-09-07 13:06+0000\n"
+"POT-Creation-Date: 2012-09-28 18:25-0400\n"
+"PO-Revision-Date: 2012-10-25 09:15+0000\n"
 "Last-Translator: migfly <miggamito@yahoo.co.uk>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/civicrm/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -63,22 +63,27 @@ msgid "Renewal Reminder Day"
 msgstr "Dia de Lembrete de Renovação"
 
 #: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
+msgid "Membership renewed automatically"
+msgstr "Auto-renovação do estado de membro"
+
+#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
 msgid "Send Confirmation and Receipt?"
 msgstr "Enviar Confirmação e Recibo?"
-
-#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
-msgid "Please enter the contribution Type."
-msgstr "Por favor seleccione o tipo de contribuição."
-
-#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
-msgid "Please enter the contribution."
-msgstr "Por favor seleccione a contribuição."
 
 #: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
 msgid "The new membership End Date is %1."
 msgstr "A Data final da nova associação é %1."
 
+#: CRM/Member/Form/MembershipType.php CRM/Member/Page/AJAX.php
+msgid "No auto-renew option"
+msgstr "Sem auto-renovação do estado de membro"
+
+#: CRM/Member/Form/MembershipType.php CRM/Member/Page/AJAX.php
+msgid "Auto-renew required "
+msgstr "Auto-renovação do estado de membro requerida"
+
 #: CRM/Member/Form.php CRM/Member/Page/Tab.php CRM/Member/Selector/Search.php
+#: templates/CRM/Member/Page/DashBoard.tpl
 msgid "Renew"
 msgstr "Renovar"
 
@@ -135,12 +140,12 @@ msgid ""
 msgstr "O membro não pode ser guardado. Não existem estado de membro para estas datas."
 
 #: CRM/Member/BAO/Membership.php
-msgid "Please select one of the memberships"
-msgstr "Por favor selecionar um membro"
+msgid "Please select one of the memberships."
+msgstr "Por favor seleccione uma das afiliações."
 
 #: CRM/Member/BAO/Membership.php
-msgid "Please renew my membership automatically"
-msgstr "Por favor atualizem o meu estado de membro automaticamente"
+msgid "Please renew my membership automatically."
+msgstr "Por favor, renove a minha afiliação automaticamente."
 
 #: CRM/Member/BAO/Membership.php
 msgid "do not import"
@@ -157,6 +162,10 @@ msgstr "Data inválida \"%1\" (tem de ter o seguinte formato aaaammdd)."
 #: CRM/Member/BAO/Membership.php
 msgid "There are no status present, You cannot add membership."
 msgstr "Não existe estado presente. Não é possível adicionar membro."
+
+#: CRM/Member/BAO/Membership.php
+msgid "Could not find a system table"
+msgstr "Não foi possível encontrar a tabela do sistema"
 
 #: CRM/Member/BAO/Membership.php
 msgid "Online Contribution:"
@@ -415,10 +424,22 @@ msgid "Membership Types Default"
 msgstr "Tipo padrão de membro"
 
 #: CRM/Member/Form/MembershipBlock.php
+msgid "Membership Price Set"
+msgstr "Definir preço de afiliação"
+
+#: CRM/Member/Form/MembershipBlock.php
 msgid ""
-"You cannot enable both Membership Signup and Price Set on the same online "
-"contribution page."
-msgstr "Não pode habilitar os dois, cadastro membro e definir preço, na mesma página de contribuição online."
+"You cannot enable both Membership Signup and a Contribution Price Set on the"
+" same online contribution page."
+msgstr "Não pode habilitar a Inscrição e definir o Preço da contribuição na mesma página de contribuição online."
+
+#: CRM/Member/Form/MembershipBlock.php
+msgid ""
+"You cannot use Membership Price Sets with the Contribution Amounts section. "
+"However, a membership price set may include additional fields for non-"
+"membership options that requires an additional fee (e.g. magazine "
+"subscription) or an additional voluntary contribution."
+msgstr "Não pode usar os preços de adesão com a seção de Valores de Contribuição. No entanto, um conjunto preço de adesão pode incluir campos adicionais para não membros, o que exige uma taxa adicional (assinatura de revista, por exemplo) ou uma contribuição voluntária adicional."
 
 #: CRM/Member/Form/MembershipBlock.php
 msgid ""
@@ -439,8 +460,21 @@ msgid "Please enable the contribution amount section to use this option."
 msgstr "Por favor, permita a seção valor de contribuição para usar esta opção."
 
 #: CRM/Member/Form/Membership.php
-msgid "Membership renewed automatically"
-msgstr "Auto-renovação do estado de membro"
+msgid ""
+"This contact has an existing %1 membership record with %2 status and end "
+"date of %3. <a href=\"%4\">Click here if you want to renew this "
+"membership</a> (rather than creating a new membership record). <a "
+"href=\"%5\">Click here to view all existing and / or expired memberships for"
+" this contact.</a>"
+msgstr "Este contato %1 tem um registro de membro existente com %2 de status e data de término de %3. <a href=\"%4\">  Clique aqui se você quiser renovar esta afiliação </ a> (em vez de criar uma nova afiliação). <a href=\"%5\">  Clique aqui para ver todas as associações existentes e / ou as expiradas para este contato. </ a>"
+
+#: CRM/Member/Form/Membership.php
+msgid ""
+"This contact has an existing %1 membership record with %2 status. <a "
+"href=\"%3\">Click here if you want to renew this membership</a> (rather than"
+" creating a new membership record). <a href=\"%4\">Click here to view all "
+"existing and / or expired memberships for this contact.</a>"
+msgstr "Este contato %1 tem um registro de membro existente com %2 de status. <a href=\"%3\"> Clique aqui se você quiser renovar esta afiliação </ a> (em vez de criar uma nova afiliação). <a href=\"%4\">  Clique aqui para ver todas as associações existentes e / ou as expiradas para este contato. </ a>"
 
 #: CRM/Member/Form/Membership.php
 #: templates/CRM/Member/Form/MembershipRenewal.tpl
@@ -456,8 +490,26 @@ msgid "Record Membership Payment?"
 msgstr "Pagamento Membership registo?"
 
 #: CRM/Member/Form/Membership.php
+msgid "Select at most one option associated with the same membership type."
+msgstr "Selecione, no máximo, uma opção associada ao mesmo tipo de afiliação."
+
+#: CRM/Member/Form/Membership.php
 msgid "Please select a membership type."
 msgstr "Por favor seleccione um tipo de membro."
+
+#: CRM/Member/Form/Membership.php
+msgid "Select at least one membership option."
+msgstr "Selecione pelo menPor favor, não selecione mais de um membro associada com a mesma organização.os uma opção de adesão.Por favor, não selecione mais de um membro associada com a mesma organização."
+
+#: CRM/Member/Form/Membership.php
+msgid ""
+"Please do not select more than one membership associated with the same "
+"organization."
+msgstr "Por favor, não selecione mais de uma afiliação associada com a mesma organização."
+
+#: CRM/Member/Form/Membership.php
+msgid "Record Membership Payment is required when you using price set."
+msgstr "O registo de Pagamento de afiliação é necessário quando usar a definição de preços."
 
 #: CRM/Member/Form/Membership.php
 msgid "Start date must be the same or later than Member since."
@@ -503,8 +555,20 @@ msgid "Please enter the status."
 msgstr "Por favor insira o estado."
 
 #: CRM/Member/Form/Membership.php
-msgid "Online Membership: Admin Interface"
-msgstr "membro on-line: Interface de administração"
+msgid "Please enter the contribution Type."
+msgstr "Por favor seleccione o tipo de contribuição."
+
+#: CRM/Member/Form/Membership.php
+msgid "Please enter the contribution."
+msgstr "Por favor seleccione a contribuição."
+
+#: CRM/Member/Form/Membership.php
+msgid "%1 Membership: Offline signup (by %2)"
+msgstr "Composição %1: inscrição offline (por %2)"
+
+#: CRM/Member/Form/Membership.php
+msgid "%1 Membership Signup: Credit card or direct debit (by %2)"
+msgstr "Cadastre-se como membro %1: cartão de crédito ou de débito directo (por %2)"
 
 #: CRM/Member/Form/Membership.php
 msgid "Membership for %1 has been updated."
@@ -528,9 +592,14 @@ msgstr "A confirmação de adesão e recebimento foi enviada para %1."
 
 #: CRM/Member/Form/MembershipRenewal.php
 msgid ""
-"Membership Renewal using credit card required Membership fee, since this "
-"memebrship type have no fee, you can use normal renew mode"
-msgstr "Renovação de associação usando cartão de crédito taxa de membro necessária, já que este tipo memebrship têm nenhuma taxa, você pode usar o modo normal de renovar"
+"Membership Renewal using a credit card requires a Membership fee. Since "
+"there is no fee associated with the selected memebership type, you can use "
+"the normal renewal mode."
+msgstr "Renovação de membro usando um cartão de crédito requer uma taxa de adesão. Como não há taxa associada com o tipo membro selecionado, pode usar o modo de renovação normal."
+
+#: CRM/Member/Form/MembershipRenewal.php
+msgid "Renewal Membership Organization and Type"
+msgstr "Renovação da Organização e tipo de membro"
 
 #: CRM/Member/Form/MembershipRenewal.php
 msgid "Date Renewal Entered"
@@ -543,6 +612,28 @@ msgstr "Registo do Pagamento Renovação?"
 #: CRM/Member/Form/MembershipRenewal.php
 msgid "Renewal Message"
 msgstr "Mensagem de renovação"
+
+#: CRM/Member/Form/MembershipRenewal.php
+msgid ""
+"Oops. It looks like you are trying to change the membership type while "
+"renewing the membership. Please click the \"change membership type\" link, "
+"and select a Membership Organization."
+msgstr "Oops. Parece que está tentando mudar o tipo de associação ao renovar a assinatura. Por favor, clique em \"alterar a associação de tipo\" link e selecione uma Organização membro."
+
+#: CRM/Member/Form/MembershipRenewal.php
+msgid ""
+"Oops. It looks like you are trying to change the membership type while "
+"renewing the membership. Please click the \"change membership type\" link "
+"and select a Membership Type from the list."
+msgstr "Oops. Parece que está tentando mudar o tipo de associação ao renovar a assinatura. Por favor, clique em \"alterar a associação de tipo\" link e selecione um tipo de Composição da lista."
+
+#: CRM/Member/Form/MembershipRenewal.php
+msgid "Please select a Contribution Type."
+msgstr "Por favor selecione um tipo de contribuição."
+
+#: CRM/Member/Form/MembershipRenewal.php
+msgid "Please enter a Contribution Amount."
+msgstr "Por favor digite um valor de contribuição"
 
 #: CRM/Member/Form/MembershipRenewal.php
 msgid "%1 membership for %2 has been renewed."
@@ -590,14 +681,6 @@ msgstr "Por favor digite um valor monetário para a taxa mínima."
 #: CRM/Member/Form/MembershipType.php
 msgid "Membership Organization"
 msgstr "Organização membro"
-
-#: CRM/Member/Form/MembershipType.php
-msgid "No auto-renew option"
-msgstr "Sem auto-renovação do estado de membro"
-
-#: CRM/Member/Form/MembershipType.php
-msgid "Auto-renew required "
-msgstr "Auto-renovação do estado de membro requerida"
 
 #: CRM/Member/Form/MembershipType.php
 msgid "Auto-renew Reminder Message"
@@ -902,6 +985,15 @@ msgid "Membership section introductory text - displayed to renewing members."
 msgstr "Texto Membro seção introdutória - exibido a membros renovação."
 
 #: templates/CRM/Member/Form/MembershipBlock.tpl
+msgid ""
+"No Membership Price Sets have been configured / enabled for your site. Price"
+" sets allow you to configure more complex membership signup and renewal "
+"options, including allowing constituents to sign up for multiple memberships"
+" at the same time. Click <a href='%1'>here</a> if you want to configure "
+"price sets for your site."
+msgstr "Nenhum Conjunto de Preço de Afiliação foram configurados / habilitados para o seu site. Os Conjuntos de de Preços permitem configurar inscrição de membros mais complexos e opções de renovação, inclusive permitindo aos afiliados inscrever vários membros, ao mesmo tempo. Clique <a href='%1'> aqui </ a> se deseja configurar conjuntos de preços para o seu site."
+
+#: templates/CRM/Member/Form/MembershipBlock.tpl
 msgid "Include these membership types"
 msgstr "Incluir esses tipos de associação"
 
@@ -961,6 +1053,15 @@ msgid ""
 "'Date Renewal Entered'. This date can be adjusted including being set to the"
 " day after the previous End Date - if continuous membership is required."
 msgstr "Renovação irá adicionar o período de adesão normal à data final do período anterior para membros cujo estatuto é atual ou Grace. Para membros expirados, renovando irá criar um período de assinatura de início da \"Data de Renovação Introduzido '. Esta data pode ser ajustado, incluindo a ser definida como o dia após a data final anterior - se a adesão contínua é necessária."
+
+#: templates/CRM/Member/Form/MembershipRenewal.tpl
+msgid "change membership type"
+msgstr "Alterar tipo de membro"
+
+#: templates/CRM/Member/Form/MembershipRenewal.tpl
+#: templates/CRM/Member/Form/Membership.tpl
+msgid "Select Membership Organization and then Membership Type."
+msgstr "Selecione organização da sociedade e, em seguida, Tipo Membro."
 
 #: templates/CRM/Member/Form/MembershipRenewal.tpl
 msgid "Status of this membership."
@@ -1085,19 +1186,21 @@ msgstr "Use este formulário para enviar registo de membro, em nome de %1. <stro
 
 #: templates/CRM/Member/Form/Membership.tpl
 msgid ""
-"WARNING: Deleting this membership will also delete related membership log "
-"and payment records."
-msgstr "AVISO: Excluir este membro também irá apagar log de ​​associação relacionada e registros de pagamento."
+"WARNING: Deleting this membership will also delete any related payment "
+"(contribution) records."
+msgstr "AVISO: Excluir este membro também irá excluir qualquer pagamento relacionado (contribuição) registros."
 
 #: templates/CRM/Member/Form/Membership.tpl
 msgid ""
-"Consider modifying the membership status instead if you want to maintain a "
-"record of this membership."
-msgstr "Considere modificar o status de associação, em vez se você quiser manter um registro desta associação"
+"Consider modifying the membership status instead if you want to maintain an "
+"audit trail and avoid losing payment data. You can set the status to "
+"Cancelled by editing the membership and clicking the Status Override "
+"checkbox."
+msgstr "Considere modificar o estado de membro, em vez quiser manter uma trilha de auditoria e evitar a perda de dados de pagamento. Pode definir o estado de Cancelamento editando o membro e clicando na caixa de seleção Substituir estado."
 
 #: templates/CRM/Member/Form/Membership.tpl
-msgid "Select Membership Organization and then Membership Type."
-msgstr "Selecione organização da sociedade e, em seguida, Tipo Membro."
+msgid "Click 'Delete' if you want to continue."
+msgstr "Clique 'Apagar' se desejar continuar."
 
 #: templates/CRM/Member/Form/Membership.tpl
 msgid "Source of this membership. This value is searchable."
@@ -1125,6 +1228,10 @@ msgid ""
 "remain in force (it will NOT be modified by the automated status update "
 "script)."
 msgstr "Se Override Estado </ strong> estiver marcada, o status selecionado permanecerá em vigor (NÃO será modificado pelo script automatizado estado de actualização)."
+
+#: templates/CRM/Member/Form/Membership.tpl
+msgid "Membership payment amount."
+msgstr "Valor do pagamento da adesão"
 
 #: templates/CRM/Member/Form/Membership.tpl
 msgid "Update Payment Status"
@@ -1563,24 +1670,20 @@ msgid "Members by Type"
 msgstr "membros por tipo"
 
 #: templates/CRM/Member/Page/DashBoard.tpl
-msgid "New/Renew (Last Month)"
-msgstr "Novo/Renovado (mês passado)"
+msgid "(Last Month)"
+msgstr "(mês passado)"
 
 #: templates/CRM/Member/Page/DashBoard.tpl
-msgid "New/Renew (MTD)"
-msgstr "Novo/Renovado (m.c.)"
+msgid " (MTD)"
+msgstr "(m.c.)"
 
 #: templates/CRM/Member/Page/DashBoard.tpl
-msgid "New/Renew"
-msgstr "Novo/Renovado"
+msgid "(YTD)"
+msgstr "(a.c.)"
 
 #: templates/CRM/Member/Page/DashBoard.tpl
-msgid "New/Renew (YTD)"
-msgstr "Novo/Renovado (a.c.)"
-
-#: templates/CRM/Member/Page/DashBoard.tpl
-msgid "New/Renew through %1"
-msgstr "Novo/Renovado atravéz %1"
+msgid "through %1"
+msgstr "através de %1"
 
 #: templates/CRM/Member/Page/DashBoard.tpl
 msgid "Current #"
@@ -1857,11 +1960,6 @@ msgstr "Mostrar No Livro de Honra"
 
 #: xml/templates/message_templates/membership_online_receipt_html.tpl
 #: xml/templates/message_templates/membership_online_receipt_text.tpl
-msgid "On Behalf Of"
-msgstr "Em nome de"
-
-#: xml/templates/message_templates/membership_online_receipt_html.tpl
-#: xml/templates/message_templates/membership_online_receipt_text.tpl
 msgid "Registered Email"
 msgstr "Email registado"
 
@@ -1906,162 +2004,9 @@ msgid ""
 "auto-renewal option by visiting this web page: %1."
 msgstr "Esta adesão será renovada automaticamente. Você pode modificar ou cancelar a opção de renovação automática nesta página web: %1."
 
-#: CRM/Member/BAO/Membership.php
-msgid "Please select one of the memberships."
-msgstr "Por favor seleccione uma das afiliações."
-
-#: CRM/Member/BAO/Membership.php
-msgid "Please renew my membership automatically."
-msgstr "Por favor, renove a minha afiliação automaticamente."
-
-#: CRM/Member/BAO/Membership.php
-msgid "Could not find a system table"
-msgstr "Não foi possível encontrar a tabela do sistema"
-
-#: CRM/Member/Form/MembershipBlock.php
-msgid "Membership Price Set"
-msgstr "Definir preço de afiliação"
-
-#: CRM/Member/Form/MembershipBlock.php
-msgid ""
-"You cannot enable both Membership Signup and a Contribution Price Set on the"
-" same online contribution page."
-msgstr "Não pode habilitar a Inscrição e definir o Preço da contribuição na mesma página de contribuição online."
-
-#: CRM/Member/Form/MembershipBlock.php
-msgid ""
-"You cannot use Membership Price Sets with the Contribution Amounts section. "
-"However, a membership price set may include additional fields for non-"
-"membership options that requires an additional fee (e.g. magazine "
-"subscription) or an additional voluntary contribution."
-msgstr "Não pode usar os preços de adesão com a seção de Valores de Contribuição. No entanto, um conjunto preço de adesão pode incluir campos adicionais para não membros, o que exige uma taxa adicional (assinatura de revista, por exemplo) ou uma contribuição voluntária adicional."
-
-#: CRM/Member/Form/Membership.php
-msgid ""
-"This contact has an existing %1 membership record with %2 status and end "
-"date of %3. <a href=\"%4\">Click here if you want to renew this "
-"membership</a> (rather than creating a new membership record). <a "
-"href=\"%5\">Click here to view all existing and / or expired memberships for"
-" this contact.</a>"
-msgstr "Este contato %1 tem um registro de membro existente com %2 de status e data de término de %3. <a href=\"%4\">  Clique aqui se você quiser renovar esta afiliação </ a> (em vez de criar uma nova afiliação). <a href=\"%5\">  Clique aqui para ver todas as associações existentes e / ou as expiradas para este contato. </ a>"
-
-#: CRM/Member/Form/Membership.php
-msgid ""
-"This contact has an existing %1 membership record with %2 status. <a "
-"href=\"%3\">Click here if you want to renew this membership</a> (rather than"
-" creating a new membership record). <a href=\"%4\">Click here to view all "
-"existing and / or expired memberships for this contact.</a>"
-msgstr "Este contato %1 tem um registro de membro existente com %2 de status. <a href=\"%3\"> Clique aqui se você quiser renovar esta afiliação </ a> (em vez de criar uma nova afiliação). <a href=\"%4\">  Clique aqui para ver todas as associações existentes e / ou as expiradas para este contato. </ a>"
-
-#: CRM/Member/Form/Membership.php
-msgid "Select at most one option associated with the same membership type."
-msgstr "Selecione, no máximo, uma opção associada ao mesmo tipo de afiliação."
-
-#: CRM/Member/Form/Membership.php
-msgid "Select at least one membership option."
-msgstr "Selecione pelo menPor favor, não selecione mais de um membro associada com a mesma organização.os uma opção de adesão.Por favor, não selecione mais de um membro associada com a mesma organização."
-
-#: CRM/Member/Form/Membership.php
-msgid ""
-"Please do not select more than one membership associated with the same "
-"organization."
-msgstr "Por favor, não selecione mais de uma afiliação associada com a mesma organização."
-
-#: CRM/Member/Form/Membership.php
-msgid "Record Membership Payment is required when you using price set."
-msgstr "O registo de Pagamento de afiliação é necessário quando usar a definição de preços."
-
-#: CRM/Member/Form/Membership.php
-msgid "%1 Membership: Offline signup (by %2)"
-msgstr "Composição %1: inscrição offline (por %2)"
-
-#: CRM/Member/Form/Membership.php
-msgid "%1 Membership Signup: Credit card or direct debit (by %2)"
-msgstr "Cadastre-se como membro %1: cartão de crédito ou de débito directo (por %2)"
-
-#: CRM/Member/Form/MembershipRenewal.php
-msgid ""
-"Membership Renewal using a credit card requires a Membership fee. Since "
-"there is no fee associated with the selected memebership type, you can use "
-"the normal renewal mode."
-msgstr "Renovação de membro usando um cartão de crédito requer uma taxa de adesão. Como não há taxa associada com o tipo membro selecionado, pode usar o modo de renovação normal."
-
-#: CRM/Member/Form/MembershipRenewal.php
-msgid "Renewal Membership Organization and Type"
-msgstr "Renovação da Organização e tipo de membro"
-
-#: CRM/Member/Form/MembershipRenewal.php
-msgid ""
-"Oops. It looks like you are trying to change the membership type while "
-"renewing the membership. Please click the \"change membership type\" link, "
-"and select a Membership Organization."
-msgstr "Oops. Parece que está tentando mudar o tipo de associação ao renovar a assinatura. Por favor, clique em \"alterar a associação de tipo\" link e selecione uma Organização membro."
-
-#: CRM/Member/Form/MembershipRenewal.php
-msgid ""
-"Oops. It looks like you are trying to change the membership type while "
-"renewing the membership. Please click the \"change membership type\" link "
-"and select a Membership Type from the list."
-msgstr "Oops. Parece que está tentando mudar o tipo de associação ao renovar a assinatura. Por favor, clique em \"alterar a associação de tipo\" link e selecione um tipo de Composição da lista."
-
-#: CRM/Member/Form/MembershipRenewal.php
-msgid "Please select a Contribution Type."
-msgstr "Por favor selecione um tipo de contribuição."
-
-#: CRM/Member/Form/MembershipRenewal.php
-msgid "Please enter a Contribution Amount."
-msgstr "Por favor digite um valor de contribuição"
-
-#: templates/CRM/Member/Form/MembershipBlock.tpl
-msgid ""
-"No Membership Price Sets have been configured / enabled for your site. Price"
-" sets allow you to configure more complex membership signup and renewal "
-"options, including allowing constituents to sign up for multiple memberships"
-" at the same time. Click <a href='%1'>here</a> if you want to configure "
-"price sets for your site."
-msgstr "Nenhum Conjunto de Preço de Afiliação foram configurados / habilitados para o seu site. Os Conjuntos de de Preços permitem configurar inscrição de membros mais complexos e opções de renovação, inclusive permitindo aos afiliados inscrever vários membros, ao mesmo tempo. Clique <a href='%1'> aqui </ a> se deseja configurar conjuntos de preços para o seu site."
-
-#: templates/CRM/Member/Form/MembershipRenewal.tpl
-msgid "change membership type"
-msgstr "Alterar tipo de membro"
-
-#: templates/CRM/Member/Form/Membership.tpl
-msgid ""
-"WARNING: Deleting this membership will also delete any related payment "
-"(contribution) records."
-msgstr "AVISO: Excluir este membro também irá excluir qualquer pagamento relacionado (contribuição) registros."
-
-#: templates/CRM/Member/Form/Membership.tpl
-msgid ""
-"Consider modifying the membership status instead if you want to maintain an "
-"audit trail and avoid losing payment data. You can set the status to "
-"Cancelled by editing the membership and clicking the Status Override "
-"checkbox."
-msgstr "Considere modificar o estado de membro, em vez quiser manter uma trilha de auditoria e evitar a perda de dados de pagamento. Pode definir o estado de Cancelamento editando o membro e clicando na caixa de seleção Substituir estado."
-
-#: templates/CRM/Member/Form/Membership.tpl
-msgid "Click 'Delete' if you want to continue."
-msgstr "Clique 'Apagar' se desejar continuar."
-
-#: templates/CRM/Member/Form/Membership.tpl
-msgid "Membership payment amount."
-msgstr "Valor do pagamento da adesão"
-
-#: templates/CRM/Member/Page/DashBoard.tpl
-msgid "(Last Month)"
-msgstr "(mês passado)"
-
-#: templates/CRM/Member/Page/DashBoard.tpl
-msgid " (MTD)"
-msgstr "(m.c.)"
-
-#: templates/CRM/Member/Page/DashBoard.tpl
-msgid "(YTD)"
-msgstr "(a.c.)"
-
-#: templates/CRM/Member/Page/DashBoard.tpl
-msgid "through %1"
-msgstr "através de %1"
+#: xml/templates/message_templates/membership_online_receipt_text.tpl
+msgid "On Behalf Of"
+msgstr "Em nome de"
 
 #: CRM/Member/BAO/Membership.php
 msgid ""
@@ -2146,6 +2091,12 @@ msgstr "Pagamento de subscrição é : "
 #: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
 msgid "-"
 msgstr "-"
+
+#: CRM/Member/BAO/Membership.php
+msgid ""
+"The membership cannot be saved. No valid membership status for given dates. "
+"Please provide at least start_date. Optionally end_date and join_date."
+msgstr ""
 
 #: CRM/Member/Page/Tab.php
 msgid ""
