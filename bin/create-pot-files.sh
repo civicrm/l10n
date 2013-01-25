@@ -84,6 +84,7 @@ echo ' * adding template strings'
 
 smarty_extractor $0 $root $potdir 'xml/templates/civicrm_acl.tpl' 'common-base'
 smarty_extractor $0 $root $potdir 'xml/templates/civicrm_data.tpl' 'common-base'
+smarty_extractor $0 $root $potdir 'xml/templates/languages.tpl' 'common-base'
 smarty_extractor $0 $root $potdir 'xml/templates/civicrm_msg_template.tpl' 'common-base'
 smarty_extractor $0 $root $potdir 'xml/templates/message_templates/friend_*' 'common-base'
 smarty_extractor $0 $root $potdir 'xml/templates/message_templates/uf_notify_*' 'common-base'
