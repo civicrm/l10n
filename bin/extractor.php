@@ -45,23 +45,29 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
  */
 
 $phpModifier    = "-iname '*.php' ";
+$jsModifier    = "-iname '*.js' ";
 $smartyModifier = "\( -iname '*.tpl' -or -iname '*.hlp' \) ";
 
 if ($argv[1] == 'base') {
     $phpDir = array();
+    $jsDir = array();
     $tplDir = array();
     foreach (explode("\n", file_get_contents('bin/basedirs')) as $dir) {
-        $phpDir[] = "-iwholename           '*/CRM/$dir/*'";
+        $phpDir[] = "-iwholename '*/CRM/$dir/*'";
+        $jsDir[] = "-iwholename '*/templates/CRM/$dir/*'";
         $tplDir[] = "-iwholename '*/templates/CRM/$dir/*'";
     }
     $phpModifier    .= "\( " . implode(' -or ', $phpDir) . " \)";
+    $jsModifier    .= "\( " . implode(' -or ', $jsDir) . " \)";
     $smartyModifier .= "\( " . implode(' -or ', $tplDir) . " \)";
 } else {
-    $phpModifier    .= "-iwholename           '*/CRM/{$argv[1]}/*'";
+    $phpModifier    .= "-iwholename '*/CRM/{$argv[1]}/*'";
+    $jsModifier .= "-iwholename '*/templates/CRM/{$argv[1]}/*'";
     $smartyModifier .= "-iwholename '*/templates/CRM/{$argv[1]}/*'";
 }
 
 $phpExtractor    = dirname(__FILE__) . '/php-extractor.php';
+$jsExtractor = dirname(__FILE__) . '/js-extractor.php';
 $smartyExtractor = dirname(__FILE__) . '/smarty-extractor.php';
 
 $dir = $argv[2];
@@ -70,10 +76,13 @@ $command = "find $dir/CRM $dir/packages/HTML/QuickForm $phpModifier -not -wholen
 fwrite(STDERR, "Running: $command\n");
 $phpPot = `$command`;
 
+$command = "find $dir/templates $dir/xml $jsModifier | grep -v '/\.svn/' | sort | xargs $jsExtractor $dir";
+$jsPot = `$command`;
+
 $command = "find $dir/templates $dir/xml $smartyModifier | grep -v '/\.svn/' | sort | xargs $smartyExtractor $dir";
 $smartyPot = `$command`;
 
-$originalArray = explode("\n", $phpPot . $smartyPot);
+$originalArray = explode("\n", $phpPot . $jsPot . $smartyPot);
 
 $block = array();
 $blocks = array();
