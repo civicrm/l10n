@@ -2,8 +2,7 @@
 
 function usage() {
   cat <<EOT
-build-unified-pots.sh - builds a set of .pot files for the last 3 versions
-of CiviCRM.
+build-unified-pots.sh - builds .pot files for the last 3 versions of CiviCRM.
 
 Usage:
 
@@ -38,8 +37,9 @@ EOT
 SVNROOT="http://svn.civicrm.org/civicrm/branches"
 
 [ "$1" = "--help" ] && usage
-[ -z "$1" ] || [ -z "$1" ] || [ -z "$2" ] || [ ! -d "$2" ] || [ -z "$3" ] && usage
-[ -n "$4" ]                                                               && echo 'ERROR: provide releases as one, space-separated string' && usage
+[ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ] && usage
+[ ! -d "$2" ]                             && echo "ERROR: $2: directory not found." && usage
+[ -n "$4" ]                               && echo 'ERROR: provide releases as one, space-separated string' && usage
 
 
 root="$1"
