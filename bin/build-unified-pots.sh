@@ -1,38 +1,46 @@
 #!/bin/bash
-#
-# build-unified-pots.sh - builds a set of .pot files for the last 3 versions
-# of CiviCRM.
-#
-# Usage:
-#
-# - Prepare a directory that has all of the CiviCRM git repositories, ex:
-#   /path/to/repositories/civicrm-{core,drupal,joomla,wordpress,packages}
-#
-#   In other words:
-#     $ mkdir -p ~/repositories/civicrm
-#     $ cd ~/repositories/civicrm
-#     $ git clone https://github.com/civicrm/civicrm-core.git
-#     $ git clone https://github.com/civicrm/civicrm-drupal.git
-#     $ git clone https://github.com/civicrm/civicrm-joomla.git
-#     $ git clone https://github.com/civicrm/civicrm-wordpress.git
-#     $ git clone https://github.com/civicrm/civicrm-packages.git
-#
-#   WARNING: the script assumes you are tracking "origin",
-#   the script will "git pull origin $release" for each repo.
-#
-# - Run this script:
-#     $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot 'v4.1 v4.2 v4.3'
-#     $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot 'v4.1 v4.2 master'
-#
-# - Push the new strings to Transifex.
-#
-# NB: since the migration to git, as of 4.3, we hardcode for now that v4.1 and v4.2
-# are fetched from SVN, and v4.3 from git.
+
+function usage() {
+  cat <<EOT
+build-unified-pots.sh - builds a set of .pot files for the last 3 versions
+of CiviCRM.
+
+Usage:
+
+- Prepare a directory that has all of the CiviCRM git repositories, ex:
+  /path/to/repositories/civicrm-{core,drupal,joomla,wordpress,packages}
+
+  In other words:
+    $ mkdir -p ~/repositories/civicrm
+    $ cd ~/repositories/civicrm
+    $ git clone https://github.com/civicrm/civicrm-core.git
+    $ git clone https://github.com/civicrm/civicrm-drupal.git
+    $ git clone https://github.com/civicrm/civicrm-joomla.git
+    $ git clone https://github.com/civicrm/civicrm-wordpress.git
+    $ git clone https://github.com/civicrm/civicrm-packages.git
+
+  WARNING: the script assumes you are tracking "origin",
+  the script will "git pull origin $release" for each repo.
+
+- Run this script:
+    $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot 'v4.1 v4.2 v4.3'
+    $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot 'v4.1 v4.2 master'
+
+- Push the new strings to Transifex.
+
+NB: since the migration to git, as of 4.3, we hardcode for now that v4.1 and v4.2
+are fetched from SVN, and v4.3 from git.
+EOT
+
+  exit 1;
+}
 
 SVNROOT="http://svn.civicrm.org/civicrm/branches"
 
-[ -z "$1" ] || [ -z "$1" ] || [ -z "$2" ] || [ ! -d "$2" ] || [ -z "$3" ] && echo "usage: $0 source-dir-or-repo POT-dir releases"   && exit 1
-[ -n "$4" ]                                                               && echo 'provide releases as one, space-separated string' && exit 1
+[ "$1" = "--help" ] && usage
+[ -z "$1" ] || [ -z "$1" ] || [ -z "$2" ] || [ ! -d "$2" ] || [ -z "$3" ] && usage
+[ -n "$4" ]                                                               && echo 'ERROR: provide releases as one, space-separated string' && usage
+
 
 root="$1"
 potdir="$2"
