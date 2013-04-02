@@ -63,7 +63,7 @@ for rel in $releases; do
   # assuming that before that, we are fetching from SVN
   # when we drop support for 4.2, we can cleanup this code.
   if [ "$rel" = "v4.2" -o "$rel" = "v4.1" ]; then
-    svn export --force "$SVNROOT/$rel" "$temp/$rel"
+    svn export --ignore-externals --force "$SVNROOT/$rel" "$temp/$rel"
   else
     cd $root/civicrm-core
     git pull
