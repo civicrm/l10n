@@ -42,6 +42,8 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
  * Extracts translatable strings from CiviCRM PHP source (ts() calls) and
  * Smarty templates ({ts} calls). Outputs a POT file on STDOUT, errors on
  * STDERR.
+ *
+ * Called from bin/create-pot-files.sh
  */
 
 $phpModifier    = "-iname '*.php' ";
@@ -49,6 +51,8 @@ $jsModifier    = "-iname '*.js' ";
 $smartyModifier = "\( -iname '*.tpl' -or -iname '*.hlp' \) ";
 
 if ($argv[1] == 'base') {
+    // 'base' is a special case for the common-base.pot file
+    // it fetches a list of directories from bin/basedirs
     $phpDir = array();
     $jsDir = array();
     $tplDir = array();
@@ -76,10 +80,12 @@ $command = "find $dir/CRM $dir/packages/HTML/QuickForm $phpModifier -not -wholen
 fwrite(STDERR, "Running: $command\n");
 $phpPot = `$command`;
 
-$command = "find $dir/templates $dir/xml $jsModifier | grep -v '/\.svn/' | sort | xargs $jsExtractor $dir";
+$command = "find $dir/js $dir/templates $dir/xml $jsModifier | grep -v '/\.svn/' | sort | xargs $jsExtractor $dir";
+fwrite(STDERR, "Running: $command\n");
 $jsPot = `$command`;
 
 $command = "find $dir/templates $dir/xml $smartyModifier | grep -v '/\.svn/' | sort | xargs $smartyExtractor $dir";
+fwrite(STDERR, "Running: $command\n");
 $smartyPot = `$command`;
 
 $originalArray = explode("\n", $phpPot . $jsPot . $smartyPot);
