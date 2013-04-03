@@ -42,6 +42,7 @@ array_splice($_SERVER['argv'], 1, 1);
 $extensions = array('js');
 
 // "fix" string - strip slashes, escape and convert new lines to \n
+// see: http://issues.civicrm.org/jira/browse/CRM-10833
 function fs($text) {
   $quote = $text[0];
   // Remove newlines
