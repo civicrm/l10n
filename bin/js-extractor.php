@@ -75,9 +75,11 @@ function do_file($file) {
       [,\)]                                         # match ")" or "," to finish
       ~sx', $content, $matches);
     foreach($matches[1] as $text) {
-      print '#: ' . substr($file, strlen($root) + 1) . "\n";
-      print 'msgid "' . fs($text) . "\"\n";
-      print "msgstr \"\"\n\n";
+      if ($text = fs($text)) {
+        print '#: ' . substr($file, strlen($root) + 1) . "\n";
+        print 'msgid "' . $text . "\"\n";
+        print "msgstr \"\"\n\n";
+      }
     }
 }
 
