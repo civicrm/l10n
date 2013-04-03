@@ -479,6 +479,11 @@ foreach ($strings as $str => $fileinfo) {
 
     $occured = $filelist = array();
 
+    // empty strings can make msguniq complain
+    if (! $str) {
+        continue;
+    }
+
     foreach ($fileinfo as $file => $lines) {
 //      $occured[] = "$file:" . join(";", $lines);
         $occured[] = substr($file, strlen($argv[0]) + 1);
