@@ -50,6 +50,8 @@ function fs($text) {
   $text = str_replace('\\' . $quote, $quote, $text);
   // Remove end quotes
   $text = substr(ltrim($text, $quote), 0, -1);
+  // Escape double quotes
+  $text = str_replace('"', '\"', $text);
   return $text;
 }
 
