@@ -69,13 +69,18 @@ for rel in $releases; do
     git pull
     git archive $rel | tar -xC $temp/$rel
 
-    ## FIXME: will change to 7.x-${rel}
-    ## we use ${rel:2} so that v4.3 => 4.3
     mkdir -p $temp/$rel/drupal
     cd $root/civicrm-drupal
-    git checkout ${rel:1}-7.x
-    git pull
-    git archive ${rel:1}-7.x | tar -xC $temp/$rel/drupal
+    if [ "$rel" = "master" ]; then
+      git checkout 7.x-${rel}
+      git pull
+      git archive 7.x-${rel} | tar -xC $temp/$rel/drupal
+    else
+      # we use ${rel:1} so that v4.3 => 4.3
+      git checkout 7.x-${rel:1}
+      git pull
+      git archive 7.x-${rel:1} | tar -xC $temp/$rel/drupal
+    fi
 
     mkdir -p $temp/$rel/joomla
     cd $root/civicrm-joomla
