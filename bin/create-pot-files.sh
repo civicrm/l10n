@@ -57,6 +57,7 @@ msguniq $potdir/provinces.pot | sponge $potdir/provinces.pot
 echo ' * building common-base.pot'
 cp $header $potdir/common-base.pot
 `dirname $0`/extractor.php base $root >> $potdir/common-base.pot
+`dirname $0`/js-extractor.php $root $root/js >> $potdir/common-base.pot
 msguniq $potdir/common-base.pot | sponge $potdir/common-base.pot
 
 # create component POT files
