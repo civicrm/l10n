@@ -1,7 +1,22 @@
 #!/bin/bash
 
-[ -z "$1" ] && echo 'source locale missing' && exit 1
-[ -z "$2" ] && echo 'target locale missing' && exit 1
+function usage() {
+  cat <<EOT
+sync-translated.sh - Copies translated strings from one translation
+for untranslated strings of the other translation. Synchronizes both ways.
+
+Usage:
+  ./bin/sync-translated.sh [src] [dst]
+
+Example:
+  ./bin/sync-translated.sh fr fr_CA
+EOT
+
+  exit 1;
+}
+
+[ -z "$1" ] && echo 'Error: source locale missing' && usage
+[ -z "$2" ] && echo 'Error: target locale missing' && usage
 
 echo "porting from $1 to $2"
 
