@@ -29,6 +29,12 @@ Usage:
 
 NB: since the migration to git, as of 4.3, we hardcode for now that v4.1 and v4.2
 are fetched from SVN, and v4.3 from git.
+
+NB: use the "patience" diff algorithm from git to generate cleaner diffs:
+    $ git config --global diff.algorithm patience
+
+For more information:
+http://wiki.civicrm.org/confluence/display/CRMDOC/Localisation+stack
 EOT
 
   exit 1;
@@ -143,3 +149,36 @@ for pot in $pots; do
 done
 
 rm -r $temp
+
+cat <<EOT
+
+ALL DONE
+
+Next step is to review the new strings with "git diff".
+You are strongly encouraged to use the "patience" algorightm otherwise
+the diffs will seem bigger than they actually are:
+
+    $ git status
+    $ git diff --patience
+
+If it all looks good, commit the changes:
+
+    $ git add po/pot/*
+    $ git tag 4.3.1
+    $ git push --tags
+
+After that, you can push the source pot files to Transifex:
+
+    $ tx push -s
+
+If a new component was added to CiviCRM (i.e. you have a new something.pot
+that was created), it needs to be added to Transifex. For example:
+
+    $ tx set --auto-local -r civicrm.pcp 'po/<lang>.po' --source-lang en --source-file po/pot/pcp.pot --execute
+    $ tx push -s -r civicrm.pcp
+    $ tx pull -a -r civicrm.pcp
+
+NB: use the "patience" diff algorithm from git to generate cleaner diffs:
+    $ git config --global diff.algorithm patience
+
+EOT
