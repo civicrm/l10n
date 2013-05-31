@@ -53,6 +53,7 @@ function tsCallType($tokens)
 
     // $mid has to be a T_CONSTANT_ENCAPSED_STRING
     if (!is_array($mid) or ($mid[0] != T_CONSTANT_ENCAPSED_STRING)) {
+        fwrite(STDERR, "[011] Invalid marker content");
         return TS_CALL_TYPE_INVALID;
     }
 
@@ -61,18 +62,21 @@ function tsCallType($tokens)
     if ($rig == ')') {
         return TS_CALL_TYPE_SINGLE;
     } elseif ($rig != ',') {
+        fwrite(STDERR, "[010] Invalid marker content");
         return TS_CALL_TYPE_INVALID;
     }
 
     // if $rig is a comma the next token must be a T_ARRAY call
     // and the next one must be an opening paren
     if ($tokens[4][0] != T_ARRAY or $tokens[5] != '(') {
+        fwrite(STDERR, "[009] Invalid marker content");
         return TS_CALL_TYPE_INVALID;
     }
 
     // if there's an array, it cannot be empty
     // i.e. no ts('string', array()) calls
     if ($tokens[6] == ')') {
+        fwrite(STDERR, "[008] Invalid marker content");
         return TS_CALL_TYPE_INVALID;
     }
 
@@ -88,12 +92,21 @@ function tsCallType($tokens)
 
         // if it's not a => in the middle, it's not an array, really
         if ($doubleArrow[0] != T_DOUBLE_ARROW) {
-            return TS_CALL_TYPE_INVALID;
+            // Except for closing parenthesis, because we may have array items with a trailing comma
+            // c.f. Drupal coding standards
+            if ($tokens[$i + 1] == ')') {
+                $i--;
+            }
+            else {
+                fwrite(STDERR, "[007] Invalid marker content: " . $tokens[$i + 1]);
+                return TS_CALL_TYPE_INVALID;
+            }
         }
 
         if ($key[1] == "'count'" or $key[1] == '"count"') {
             // no double count declarations
             if ($haveCount) {
+                fwrite(STDERR, "[006] Invalid marker content");
                 return TS_CALL_TYPE_INVALID;
             }
             $haveCount = true;
@@ -101,11 +114,13 @@ function tsCallType($tokens)
         } elseif ($key[1] == "'plural'" or $key[1] == '"plural"') {
             // no double plural declarations
             if ($havePlural) {
+                fwrite(STDERR, "[005] Invalid marker content");
                 return TS_CALL_TYPE_INVALID;
             }
             $havePlural = true;
             // plural value must be a string
             if ($value[0] != T_CONSTANT_ENCAPSED_STRING) {
+                fwrite(STDERR, "[004] Invalid marker content");
                 return TS_CALL_TYPE_INVALID;
             }
 
@@ -123,6 +138,7 @@ function tsCallType($tokens)
 
         // no non-number keys (except count and plural, above)
         } elseif ($key[0] != T_LNUMBER) {
+            fwrite(STDERR, "[003] Invalid marker content");
             return TS_CALL_TYPE_INVALID;
 
         }
@@ -157,6 +173,7 @@ function tsCallType($tokens)
 
     // only one present - no deal
     } elseif ($haveCount or $havePlural) {
+        fwrite(STDERR, "[002] Invalid marker content");
         return TS_CALL_TYPE_INVALID;
 
     // all of the array's keys are of type T_LNUMBER - it's a single call
