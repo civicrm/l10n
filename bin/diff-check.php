@@ -35,11 +35,6 @@ while ($line = fgets(STDIN)) {
   $counter++;
   $op = substr($line, 0, 1);
 
-  // Skip lines starting with a space. It means the string didn't change.
-  if (substr($line, 0, 1) == ' ') {
-    continue;
-  }
-
   // Skip comments, then can change if a new file references the same string
   // and would show as a string added/removed from the file.
   if (substr($line, 1, 1) == '#') {
@@ -68,6 +63,14 @@ while ($line = fgets(STDIN)) {
     continue;
   }
 
+  if (substr($line, 1) == "msgid \"\"\n") {
+    continue;
+  }
+
+  if (substr($line, 2, 17) == 'POT-Creation-Date') {
+    continue;
+  }
+
   if ($state == STATE_NEUTRAL) {
     if ($op == '+') {
       $state = STATE_ADDING;
@@ -77,17 +80,47 @@ while ($line = fgets(STDIN)) {
     }
   }
 
+  // We were in an add/remove state, and the state changed, so flush the buffer
   if ($op == '+' && $state == STATE_REMOVING) {
-    strings_add($buffer, $strings);
-    $state = STATE_NEUTRAL;
+    strings_remove($buffer, $strings);
+    $state = STATE_ADDING;
     $buffer = '';
   }
   elseif ($op == '-' && $state == STATE_ADDING) {
-    strings_remove($buffer, $strings);
-    $state = STATE_NEUTRAL;
+    strings_add($buffer, $strings);
+    $state = STATE_REMOVING;
     $buffer = '';
   }
+  elseif ($op == ' ' && $state != STATE_NEUTRAL) {
+    /**
+     * If we were in an add/remove, and we have lines that are neither (just context lines),
+     * then we should flush our buffer.
+     *
+     * For example:
+     * +msgid "Uninstall"
+     * msgstr ""
+     * 
+     * #: CRM/Admin/Form/Extensions.php CRM/Admin/Page/Extensions.php
+     */
+    if ($state == STATE_REMOVING) {
+      strings_remove($buffer, $strings);
+      $state = STATE_NEUTRAL;
+      $buffer = '';
+    }
+    elseif ($state == STATE_ADDING) {
+      strings_add($buffer, $strings);
+      $state = STATE_NEUTRAL;
+      $buffer = '';
+    }
+  }
 
+  /**
+   * Example:
+   * -msgid "Global Settings"
+   * -msgstr ""
+   * -
+   * -#: CRM/Admin/Form/CMSUser.php
+   */
   if (empty($line) || preg_match('/^\+$/', $line) || preg_match('/^-$/', $line)) {
     if ($state == STATE_REMOVING) {
       strings_remove($buffer, $strings);
@@ -107,7 +140,15 @@ while ($line = fgets(STDIN)) {
 
   if ($line) {
     // remove the first char, since it's a + or -
+    // Ex: +msgid "Must be an integer"
     $line = substr($line, 1);
+
+    // remove trailing newline
+    $line = str_replace("\n", '', $line);
+
+    // remove msgid prefix
+    $line = str_replace('msgid ', '', $line);
+
     $buffer .= $line;
   }
 }
@@ -116,17 +157,23 @@ $added = 0;
 $removed = 0;
 $unchanged = 0;
 
+// Show removed strings
 foreach ($strings as $key => $val) {
   if ($val < 0) {
     $removed++;
     echo "REMOVED: " . $key . "\n";
   }
-  elseif ($val > 0) {
+  elseif ($val == 0) {
+    // Count unchanged
+    $unchanged++;
+  }
+}
+
+// Show added strings
+foreach ($strings as $key => $val) {
+  if ($val > 0) {
     $added++;
     echo "ADDED: " . $key . "\n";
-  }
-  else {
-    $unchanged++;
   }
 }
 
