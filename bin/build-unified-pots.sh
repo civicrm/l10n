@@ -22,8 +22,8 @@ Usage:
   the script will "git pull origin $release" for each repo.
 
 - Run this script:
-    $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot 'v4.1 v4.2 v4.3'
-    $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot 'v4.1 v4.2 master'
+    $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot 'v4.1 v4.2 v4.3' 2>&1 | tee pots.log
+    $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot 'v4.1 v4.2 master' 2>&1 | tee pots.log
 
 - Push the new strings to Transifex.
 
@@ -69,59 +69,66 @@ for rel in $releases; do
   # assuming that before that, we are fetching from SVN
   # when we drop support for 4.2, we can cleanup this code.
   if [ "$rel" = "v4.2" -o "$rel" = "v4.1" -o "$rel" = "v4.0" ]; then
-    svn export --ignore-externals --force "$SVNROOT/$rel" "$temp/$rel"
+    svn export -q --ignore-externals --force "$SVNROOT/$rel" "$temp/$rel"
   else
-    cd $root/civicrm-core
-    git pull
-    git archive $rel | tar -xC $temp/$rel
-
-    mkdir -p $temp/$rel/drupal
-    cd $root/civicrm-drupal
+    # we use ${rel:1} so that v4.3 => 4.3, except for "master".
+    r=${rel:1}
     if [ "$rel" = "master" ]; then
-      git checkout 7.x-${rel}
-      git pull
-      git archive 7.x-${rel} | tar -xC $temp/$rel/drupal
-    else
-      # we use ${rel:1} so that v4.3 => 4.3
-      git checkout 7.x-${rel:1}
-      git pull
-      git archive 7.x-${rel:1} | tar -xC $temp/$rel/drupal
+      r="master"
     fi
 
+    echo "Copying $root/civicrm-core ($r) to $temp/$rel ..."
+    cd $root/civicrm-core
+    git pull
+    git archive $r | tar -xC $temp/$rel
+
+    echo "Copying $root/civicrm-drupal (7x-$r) to $temp/$rel/drupal ..."
+    mkdir -p $temp/$rel/drupal
+    cd $root/civicrm-drupal
+    git checkout 7.x-$r
+    git pull
+    git archive 7.x-$r | tar -xC $temp/$rel/drupal
+
+    echo "Copying $root/civicrm-joomla ($r) to $temp/$rel/joomla ..."
     mkdir -p $temp/$rel/joomla
     cd $root/civicrm-joomla
-    git checkout $rel
+    git checkout $r
     git pull
-    git archive $rel | tar -xC $temp/$rel/joomla
+    git archive $r | tar -xC $temp/$rel/joomla
 
+    echo "Copying $root/civicrm-wordpress ($r) to $temp/$rel/wordpress ..."
     mkdir -p $temp/$rel/wordpress
     cd $root/civicrm-wordpress
-    git checkout $rel
+    git checkout $r
     git pull
-    git archive $rel | tar -xC $temp/$rel/wordpress
+    git archive $r | tar -xC $temp/$rel/wordpress
 
+    echo "Copying $root/civicrm-packages ($r) to $temp/$rel/packages ..."
     mkdir -p $temp/$rel/packages
     cd $root/civicrm-packages
-    git checkout $rel
+    git checkout $r
     git pull
-    git archive $rel | tar -xC $temp/$rel/packages
+    git archive $r | tar -xC $temp/$rel/packages
   fi
 
   mkdir $temp/$rel/xml/default
   echo '<?php define("CIVICRM_CONFDIR", ".");' > $temp/$rel/settings_location.php
   echo '<?php define("CIVICRM_UF", "Drupal");' > $temp/$rel/xml/default/civicrm.settings.php
 
+  echo "Running GenCode.php ..."
   cd $temp/$rel/xml
-  php GenCode.php schema/Schema.xml
+  php GenCode.php schema/Schema.xml | grep -v Generating
 
   popd
 
+  echo "Executing: create-pot-files.sh $temp/$rel $temp/pot/$rel"
   bin/create-pot-files.sh $temp/$rel $temp/pot/$rel
 done
 
 pots=`for pot in $temp/pot/*/*.pot; do basename $pot .pot; done | sort -u | grep -v ^drupal-civicrm$`
 
 # merge per-release files into unified ones
+echo "Merging pots files of various versions: $pots ..."
 for pot in $pots; do
   echo " * merging $pot.pot files"
   msgcat --use-first $temp/pot/*/$pot.pot > $potdir/$pot.pot
