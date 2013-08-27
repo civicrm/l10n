@@ -6,14 +6,14 @@
 # krevad <jahve@rocketmail.com>, 2013
 # krevad <jahve@rocketmail.com>, 2012
 # Piotr Szotkowski <chastell@chastell.net>, 2011
-# Thomas Nilsson <thomas.nilsson@responsive.se>, 2011-2012
+# Thomas Nilsson <thomas.nilsson@responsive.se>, 2011-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
 "Report-Msgid-Bugs-To: http://issues.civicrm.org/\n"
-"POT-Creation-Date: 2013-01-24 14:47-0500\n"
-"PO-Revision-Date: 2013-05-03 12:42+0000\n"
-"Last-Translator: krevad <jahve@rocketmail.com>\n"
+"POT-Creation-Date: 2013-05-31 09:03-0400\n"
+"PO-Revision-Date: 2013-08-27 09:49+0000\n"
+"Last-Translator: Thomas Nilsson <thomas.nilsson@responsive.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/civicrm/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,10 +24,6 @@ msgstr ""
 #: CRM/Mailing/BAO/Job.php CRM/Mailing/DAO/Job.php
 msgid "Running"
 msgstr "Pågående"
-
-#: CRM/Mailing/BAO/Job.php CRM/Mailing/DAO/Job.php
-msgid "Complete"
-msgstr "Fullständigt"
 
 #: CRM/Mailing/BAO/Job.php CRM/Mailing/DAO/Job.php
 msgid "Paused"
@@ -159,6 +155,12 @@ msgstr "Välj mall"
 msgid "Your Letter"
 msgstr "Ditt brev"
 
+#: CRM/Mailing/BAO/Mailing.php
+msgid ""
+"The <a href=\"%1\">default mailbox</a> has not been configured. You will "
+"find <a href=\"%2\">more info in the online user and administrator guide</a>"
+msgstr ""
+
 #: CRM/Mailing/BAO/Query.php
 msgid "Mailing Delivery Status"
 msgstr "Utskickets leveransstatus"
@@ -276,10 +278,6 @@ msgid "Job Limit"
 msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
-msgid "From Name"
-msgstr "Från namn"
-
-#: CRM/Mailing/DAO/Mailing.php
 msgid "From Email"
 msgstr "E-post från"
 
@@ -322,6 +320,10 @@ msgstr ""
 #: CRM/Mailing/DAO/Mailing.php
 msgid "Approval Note"
 msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Dedupe Email"
+msgstr "Avdubblera epost"
 
 #: CRM/Mailing/DAO/Spool.php
 msgid "Recipient Email"
@@ -429,12 +431,17 @@ msgstr[1] "Utskicket skickat till %count e-postadresser."
 #: CRM/Mailing/Form/Group.php
 msgid ""
 "The <a href=\"%1\">default mailbox</a> has not been configured. You will "
-"find <a href=\"%2\">more info in our book</a>"
+"find <a href=\"%2\">more info in our online user and administrator "
+"guide.</a>"
 msgstr ""
 
 #: CRM/Mailing/Form/Group.php
 msgid "Name Your Mailing"
 msgstr "Ange ett namn på utskicket"
+
+#: CRM/Mailing/Form/Group.php
+msgid "Remove duplicate emails?"
+msgstr "Ta bort dublettadresser?"
 
 #: CRM/Mailing/Form/Group.php
 msgid "Unsubscription Group"
@@ -724,10 +731,6 @@ msgid "CiviMail Mailings"
 msgstr "CiviMail utskick"
 
 #: CRM/Mailing/Selector/Event.php
-msgid "%1 %%StatusMessage%%"
-msgstr "%1 %%StatusMessage%%"
-
-#: CRM/Mailing/Selector/Event.php
 msgid "Forwarded Email"
 msgstr "Vidarebefordrat e-postmeddelande"
 
@@ -816,6 +819,64 @@ msgid "General Monthly Newsletter: 200709"
 msgstr "Allmänt månatligt nyhetsbrev: 200709"
 
 #: templates/CRM/Mailing/Form/Group.hlp
+msgid "Search-based mailings require an \"unsubscribe tracking\" group."
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"Because this mailing is using the results of a search to provide the "
+"recipient list, you need to specify a group to track people who unsubscribe "
+"in response to this mailing."
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"If a recipient unsubscribes from this mailing, they will be excluded from "
+"future mailings which use the same \"Unsubscription Group\". This is "
+"achieved through actually marking the contact as \"unsubscribed from the "
+"group\". If a contact in your search results has already been marked as "
+"unsubscribed from that group, they will be excluded from this mailing."
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"If a recipient clicks the unsubscribe link they will see the "
+"\"Unsubscription Group\" title on the unsubscribe page. The selected group "
+"should have a title that corresponds to the content / type of mailing being "
+"sent."
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"NOTE: Contacts who are in the \"Unsubscription Group\" but do not match your"
+" search critera will not be included in the mailing regardless of their "
+"status in that group. This is a change from previous versions which used the"
+" term \"Base Group\"."
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"CiviCRM will always dedupe your mailing based on unique contact records. For"
+" example, if a contact is in three of the groups you are including in your "
+"mailing, they will only be sent one copy of the email."
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"However, if the same email is used by multiple contacts, that email address "
+"will receive multiple copies of the email -- one for each contact using that"
+" address."
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"Selecting this option will ensure only one email is sent to each address. "
+"Note that when using this option and including contact tokens in your email "
+"content, the email with it's respective tokens will only be created for one "
+"of the matching contacts."
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Group.hlp
 msgid ""
 "Determine the contacts in your database who should receive this mailing by "
 "first selecting one or more <strong>Included Groups</strong>. (Groups must "
@@ -844,7 +905,7 @@ msgstr ""
 #: templates/CRM/Mailing/Form/Group.hlp
 msgid ""
 "You also have the option to <strong>Exclude</strong> some contacts in your "
-"included groups by selecting on or more <strong>Excluded Groups</strong>. "
+"included groups by selecting one or more <strong>Excluded Groups</strong>. "
 "Contacts who are in both groups will NOT receive the mailing (they are "
 "'excluded')."
 msgstr ""
@@ -999,19 +1060,18 @@ msgstr "Skriv in din e-postadress och markera de listor du vill prenumerera på.
 msgid "Group Listings."
 msgstr "Grupplistor."
 
-#: templates/CRM/Mailing/Form/Test.hlp templates/CRM/Mailing/Form/Test.tpl
+#: templates/CRM/Mailing/Form/Test.hlp
 msgid ""
 "It's a good idea to test your mailing by sending it to yourself and/or a "
 "selected group of people in your organization. You can also view your "
-"content by clicking (+) Preview Mailing."
-msgstr "Det är en bra idé att kontrollera utskicket genom att skicka det till dig själv och/eller en utvald grupp i din organisation. Du kan också förhandsgranska utskicket genom att trycka på (+) Förhandsgranska."
+"content in the preview panel below."
+msgstr "Det är en god idé att kontrollera utskicket genom att skicka det till dig själv och/eller en utvald grupp personer i din organisation. Du kan också granska innehållet i förhandsgranskningsfältet nedan."
 
 #: templates/CRM/Mailing/Form/Test.hlp
 msgid ""
-"Verify the test email address and/or test recipient group. Then click "
-"<strong>Next</strong> with 'Send Test Mailing' checked to generate the test "
-"mailing. Once you receive the test mailing:"
-msgstr "Verifiera provutskickets e-postadress och/eller mottagargrupp. Klicka sedan på <strong>Nästa</strong> med 'Sänd provutskick' markerat för att generera ett provutskick. När du tagit emot provutskicket:"
+"Enter a single email address or select an existing group and click \"Send a "
+"Test Mailing.\" Once you receive the test mailing:"
+msgstr "Ange en e-postadress eller välj en befintlig grupp och klicka \"Skicka ett provutskick\". När du fått provutskicket:"
 
 #: templates/CRM/Mailing/Form/Test.hlp
 msgid "Verify the content and formattting."
@@ -1021,7 +1081,7 @@ msgstr "Verifiera innehåll och formattering"
 msgid ""
 "If you are using mail-merge tokens, check that they have been replaced with "
 "expected values."
-msgstr ""
+msgstr "Om du använder textersättningssymboler, kontrollera att de har ersatts med förväntade värden."
 
 #: templates/CRM/Mailing/Form/Test.hlp
 msgid ""
@@ -1030,10 +1090,16 @@ msgstr ""
 
 #: templates/CRM/Mailing/Form/Test.hlp
 msgid ""
-"If you need to make changes, you can click <strong>Previous</strong> from "
-"the next screen, and again from this screen to return to step 3. After "
-"making your changes, you can send another test and repeat as needed."
-msgstr ""
+"If you need to make changes, you can click <strong>Previous</strong> to "
+"return to the content step, make your changes, and send another test."
+msgstr "Om du behöver göra några justeringar kan du klicka <strong>Föregående</strong> för att återgå till innehållsredigeringen, göra dina förändringar och sedan skicka ett nytt provmeddelande."
+
+#: templates/CRM/Mailing/Form/Test.tpl
+msgid ""
+"It's a good idea to test your mailing by sending it to yourself and/or a "
+"selected group of people in your organization. You can also view your "
+"content by clicking (+) Preview Mailing."
+msgstr "Det är en bra idé att kontrollera utskicket genom att skicka det till dig själv och/eller en utvald grupp i din organisation. Du kan också förhandsgranska utskicket genom att trycka på (+) Förhandsgranska."
 
 #: templates/CRM/Mailing/Form/Test.tpl
 msgid "(filled with your contact's token values)"
@@ -1191,7 +1257,7 @@ msgid "There are no Unscheduled Mailings."
 msgstr "Det finns inga ännu inte schemalagda utskick."
 
 #: templates/CRM/Mailing/Page/Browse.tpl
-msgid " You can <a href='%1'>create and send one</a>."
+msgid "You can <a href='%1'>create and send one</a>."
 msgstr "Du kan <a href='%1'>skapa och skicka ett</a>."
 
 #: templates/CRM/Mailing/Page/Browse.tpl
@@ -1205,8 +1271,8 @@ msgid "There are no Scheduled or Sent Mailings."
 msgstr "Det finns inga schemalagda eller sända utskick."
 
 #: templates/CRM/Mailing/Page/Browse.tpl
-msgid " You can <a href='%1'>create and send one</a>"
-msgstr "Du kan <a href='%1'>skapa och skicka ett</a>"
+msgid "You can <a href='%1'>create and send one</a>"
+msgstr "Du kan <a href='%1'>skapa och skicka ett</a>."
 
 #: templates/CRM/Mailing/Page/Browse.tpl
 msgid " OR you can search the <a href='%1'>Archived Mailings</a>"
@@ -1341,140 +1407,12 @@ msgid "Are you sure you want to resubscribe: %1 (%2)"
 msgstr "Är du säker på att du åter vill prenumerera på: %1 (%2)"
 
 #: templates/CRM/Mailing/Page/Unsubscribe.tpl
-msgid "has been successfully unsubscribed."
-msgstr "har tagits bort som prenumerant."
+msgid "has been successfully removed from the specified mailing list(s)."
+msgstr ""
 
 #: templates/CRM/Mailing/Page/Unsubscribe.tpl
 msgid " %1 (%2)"
 msgstr " %1 (%2)"
-
-#: templates/CRM/Mailing/Page/Unsubscribe.tpl
-msgid "Are you sure you want to be unsubscribed from mailing lists:"
-msgstr "Är du säker på att du vill avsluta prenumerationen på följande sändlistor:"
-
-#: templates/CRM/Mailing/Page/Unsubscribe.tpl
-msgid ""
-"Sorry you are not on the mailing list. Probably you are already "
-"unsubscribed."
-msgstr ""
-
-#: CRM/Mailing/BAO/Mailing.php
-msgid ""
-"The <a href=\"%1\">default mailbox</a> has not been configured. You will "
-"find <a href=\"%2\">more info in the online user and administrator guide</a>"
-msgstr ""
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Dedupe Email"
-msgstr "Avdubblera epost"
-
-#: CRM/Mailing/Form/Group.php
-msgid ""
-"The <a href=\"%1\">default mailbox</a> has not been configured. You will "
-"find <a href=\"%2\">more info in our online user and administrator "
-"guide.</a>"
-msgstr ""
-
-#: CRM/Mailing/Form/Group.php
-msgid "Remove duplicate emails?"
-msgstr "Ta bort dublettadresser?"
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid "Search-based mailings require an \"unsubscribe tracking\" group."
-msgstr ""
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"Because this mailing is using the results of a search to provide the "
-"recipient list, you need to specify a group to track people who unsubscribe "
-"in response to this mailing."
-msgstr ""
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"If a recipient unsubscribes from this mailing, they will be excluded from "
-"future mailings which use the same \"Unsubscription Group\". This is "
-"achieved through actually marking the contact as \"unsubscribed from the "
-"group\". If a contact in your search results has already been marked as "
-"unsubscribed from that group, they will be excluded from this mailing."
-msgstr ""
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"If a recipient clicks the unsubscribe link they will see the "
-"\"Unsubscription Group\" title on the unsubscribe page. The selected group "
-"should have a title that corresponds to the content / type of mailing being "
-"sent."
-msgstr ""
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"NOTE: Contacts who are in the \"Unsubscription Group\" but do not match your"
-" search critera will not be included in the mailing regardless of their "
-"status in that group. This is a change from previous versions which used the"
-" term \"Base Group\"."
-msgstr ""
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"CiviCRM will always dedupe your mailing based on unique contact records. For"
-" example, if a contact is in three of the groups you are including in your "
-"mailing, they will only be sent one copy of the email."
-msgstr ""
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"However, if the same email is used by multiple contacts, that email address "
-"will receive multiple copies of the email -- one for each contact using that"
-" address."
-msgstr ""
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"Selecting this option will ensure only one email is sent to each address. "
-"Note that when using this option and including contact tokens in your email "
-"content, the email with it's respective tokens will only be created for one "
-"of the matching contacts."
-msgstr ""
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"You also have the option to <strong>Exclude</strong> some contacts in your "
-"included groups by selecting one or more <strong>Excluded Groups</strong>. "
-"Contacts who are in both groups will NOT receive the mailing (they are "
-"'excluded')."
-msgstr ""
-
-#: templates/CRM/Mailing/Form/Test.hlp
-msgid ""
-"It's a good idea to test your mailing by sending it to yourself and/or a "
-"selected group of people in your organization. You can also view your "
-"content in the preview panel below."
-msgstr "Det är en god idé att kontrollera utskicket genom att skicka det till dig själv och/eller en utvald grupp personer i din organisation. Du kan också granska innehållet i förhandsgranskningsfältet nedan."
-
-#: templates/CRM/Mailing/Form/Test.hlp
-msgid ""
-"Enter a single email address or select an existing group and click \"Send a "
-"Test Mailing.\" Once you receive the test mailing:"
-msgstr "Ange en e-postadress eller välj en befintlig grupp och klicka \"Skicka ett provutskick\". När du fått provutskicket:"
-
-#: templates/CRM/Mailing/Form/Test.hlp
-msgid ""
-"If you need to make changes, you can click <strong>Previous</strong> to "
-"return to the content step, make your changes, and send another test."
-msgstr "Om du behöver göra några justeringar kan du klicka <strong>Föregående</strong> för att återgå till innehållsredigeringen, göra dina förändringar och sedan skicka ett nytt provmeddelande."
-
-#: templates/CRM/Mailing/Page/Browse.tpl
-msgid "You can <a href='%1'>create and send one</a>."
-msgstr "Du kan <a href='%1'>skapa och skicka ett</a>."
-
-#: templates/CRM/Mailing/Page/Browse.tpl
-msgid "You can <a href='%1'>create and send one</a>"
-msgstr "Du kan <a href='%1'>skapa och skicka ett</a>."
-
-#: templates/CRM/Mailing/Page/Unsubscribe.tpl
-msgid "has been successfully removed from the specified mailing list(s)."
-msgstr ""
 
 #: templates/CRM/Mailing/Page/Unsubscribe.tpl
 msgid ""
@@ -1603,3 +1541,83 @@ msgstr "Det finns inga %1 som inte är schemalagda eller skickade."
 #: templates/CRM/Mailing/Page/Browse.tpl
 msgid " OR you can search the <a href='%1'>Archived %2</a>"
 msgstr "ELLER så kan du söka bland <a href='%1'>arkiverade %2</a>"
+
+#: CRM/Mailing/Form/Group.php CRM/Mailing/Form/Settings.php
+#: CRM/Mailing/Form/Test.php CRM/Mailing/Form/Upload.php
+msgid ""
+"You can continue later by clicking the 'Continue' action to resume working "
+"on it.<br />From <a href='%1'>Draft and Unscheduled Mailings</a>."
+msgstr ""
+
+#: CRM/Mailing/Form/Group.php CRM/Mailing/Form/Schedule.php
+#: CRM/Mailing/Form/Settings.php CRM/Mailing/Form/Test.php
+#: CRM/Mailing/Form/Upload.php
+msgid "Click the 'Continue' action to resume working on it."
+msgstr ""
+
+#: CRM/Mailing/Form/Group.php CRM/Mailing/Form/Schedule.php
+#: CRM/Mailing/Form/Settings.php CRM/Mailing/Form/Test.php
+#: CRM/Mailing/Form/Upload.php
+msgid "Mailing Saved"
+msgstr ""
+
+#: CRM/Mailing/Form/Schedule.php
+msgid ""
+"Your mailing has been saved. You can continue later by clicking the "
+"'Continue' action to resume working on it.<br />From <a href='%1'>Draft and "
+"Unscheduled Mailings</a>."
+msgstr ""
+
+#: CRM/Mailing/Form/Test.php
+msgid "You did not provide an email address or select a group."
+msgstr ""
+
+#: CRM/Mailing/Form/Test.php
+msgid "Test not sent."
+msgstr ""
+
+#: CRM/Mailing/Form/Test.php
+msgid "Please enter a valid email addresses."
+msgstr ""
+
+#: CRM/Mailing/Form/Test.php
+msgid ""
+"You can not schedule or send this mailing because there are currently no "
+"recipients selected. Click 'Previous' to return to the Select Recipients "
+"step, OR click 'Save & Continue Later'."
+msgstr ""
+
+#: CRM/Mailing/Form/Test.php
+msgid ""
+"Click 'Next' when you are ready to Schedule or Send your live mailing (you "
+"will still have a chance to confirm or cancel sending this mailing on the "
+"next page)."
+msgstr ""
+
+#: CRM/Mailing/Form/Test.php
+msgid "Test message sent"
+msgstr ""
+
+#: CRM/Mailing/Selector/Event.php
+msgid "%1 %%StatusMessage%%"
+msgstr "%1 %%StatusMessage%%"
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid "Dedupe"
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid "Include Mailings"
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid "Exclude Mailings"
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Test.hlp
+msgid "Test Message"
+msgstr ""
+
+#: templates/CRM/Mailing/Page/Browse.hlp
+msgid "Mailing Sender"
+msgstr ""
