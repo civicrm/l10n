@@ -11,26 +11,28 @@ Usage:
 
   In other words:
     $ mkdir -p ~/repositories/civicrm
-    $ cd ~/repositories/civicrm
-    $ git clone https://github.com/civicrm/civicrm-core.git
-    $ git clone https://github.com/civicrm/civicrm-drupal.git
-    $ git clone https://github.com/civicrm/civicrm-joomla.git
-    $ git clone https://github.com/civicrm/civicrm-wordpress.git
-    $ git clone https://github.com/civicrm/civicrm-packages.git
+    $ ./bin/git-clone-all.sh
 
-  WARNING: the script assumes you are tracking "origin",
+  WARNING: if you clone yourself, the script assumes you are tracking "origin",
   the script will "git pull origin $release" for each repo.
 
 - Run this script:
-    $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot 'v4.1 v4.2 v4.3' 2>&1 | tee pots.log
-    $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot 'v4.1 v4.2 master' 2>&1 | tee pots.log
+    $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot '4.2 4.3 4.4' 2>&1 | tee pots.log
+
+  or, for master:
+    $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot '4.2 4.3 master' 2>&1 | tee pots.log
+
+- Use diff-check.php to see if the changes make sense. For example:
+    $ git diff --patience po/pot/admin.pot | ./bin/diff-check.php
 
 - Push the new strings to Transifex.
 
-NB: since the migration to git, as of 4.3, we hardcode for now that v4.1 and v4.2
-are fetched from SVN, and v4.3 from git.
+NB: We usually build the po files that are compatible for the last 3 versions
+of CiviCRM. As of CiviCRM 4.4, we there still fetch 4.2 from the LTS repo.
+When it will be time to release 4.5, we will have only 1 single set of repos.
 
-NB: use the "patience" diff algorithm from git to generate cleaner diffs:
+NB: the git "patience" diff algorithm from generates cleaner diffs.
+You can set it globally:
     $ git config --global diff.algorithm patience
 
 For more information:
@@ -39,8 +41,6 @@ EOT
 
   exit 1;
 }
-
-SVNROOT="http://svn.civicrm.org/civicrm/branches"
 
 [ "$1" = "--help" ] && usage
 [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ] && usage
@@ -51,14 +51,11 @@ SVNROOT="http://svn.civicrm.org/civicrm/branches"
 root="$1"
 potdir="$2"
 releases=`echo "$3" | tr ' ' '\n'`
+lts=""
 
 temp=`mktemp -d`
 
 for rel in $releases; do
-  ## This can be useful to debug the build process or to test on a trunk checkout
-  ## (if you use this, comment out the 'get fresh codebase' block below)
-  # cp -r /path/to/civicrm $temp/v4.1
-
   mkdir -p $temp/$rel
   mkdir -p $temp/pot/$rel
 
@@ -66,50 +63,52 @@ for rel in $releases; do
 
   # Get fresh codebase
   # starting 4.3, civicrm is using git
-  # assuming that before that, we are fetching from SVN
+  # as of 4.4, we will support 4.2 from the LTS repos.
   # when we drop support for 4.2, we can cleanup this code.
-  if [ "$rel" = "v4.2" -o "$rel" = "v4.1" -o "$rel" = "v4.0" ]; then
-    svn export -q --ignore-externals --force "$SVNROOT/$rel" "$temp/$rel"
+  if [ "$rel" = "4.2" ]; then
+    lts="42"
   else
-    # we use ${rel:1} so that v4.3 => 4.3, except for "master".
-    r=${rel:1}
-    if [ "$rel" = "master" ]; then
-      r="master"
-    fi
-
-    echo "Copying $root/civicrm-core ($r) to $temp/$rel ..."
-    cd $root/civicrm-core
-    git pull
-    git archive $r | tar -xC $temp/$rel
-
-    echo "Copying $root/civicrm-drupal (7x-$r) to $temp/$rel/drupal ..."
-    mkdir -p $temp/$rel/drupal
-    cd $root/civicrm-drupal
-    git checkout 7.x-$r
-    git pull
-    git archive 7.x-$r | tar -xC $temp/$rel/drupal
-
-    echo "Copying $root/civicrm-joomla ($r) to $temp/$rel/joomla ..."
-    mkdir -p $temp/$rel/joomla
-    cd $root/civicrm-joomla
-    git checkout $r
-    git pull
-    git archive $r | tar -xC $temp/$rel/joomla
-
-    echo "Copying $root/civicrm-wordpress ($r) to $temp/$rel/wordpress ..."
-    mkdir -p $temp/$rel/wordpress
-    cd $root/civicrm-wordpress
-    git checkout $r
-    git pull
-    git archive $r | tar -xC $temp/$rel/wordpress
-
-    echo "Copying $root/civicrm-packages ($r) to $temp/$rel/packages ..."
-    mkdir -p $temp/$rel/packages
-    cd $root/civicrm-packages
-    git checkout $r
-    git pull
-    git archive $r | tar -xC $temp/$rel/packages
+    lts=""
   fi
+
+  # we use ${rel:1} so that v4.3 => 4.3, except for "master".
+  # r=${rel:1}
+  # if [ "$rel" = "master" ]; then
+  #  r="master"
+  # fi
+
+  echo "Copying $root/civicrm${lts}-core ($rel) to $temp/$rel ..."
+  cd $root/civicrm${lts}-core
+  git pull
+  git archive $r | tar -xC $temp/$rel
+
+  echo "Copying $root/civicrm${lts}-drupal (7x-$rel) to $temp/$rel/drupal ..."
+  mkdir -p $temp/$rel/drupal
+  cd $root/civicrm${lts}-drupal
+  git checkout 7.x-$rel
+  git pull
+  git archive 7.x-$rel | tar -xC $temp/$rel/drupal
+
+  echo "Copying $root/civicrm${lts}-joomla ($rel) to $temp/$rel/joomla ..."
+  mkdir -p $temp/$rel/joomla
+  cd $root/civicrm${lts}-joomla
+  git checkout $rel
+  git pull
+  git archive $rel | tar -xC $temp/$rel/joomla
+
+  echo "Copying $root/civicrm${lts}-wordpress ($rel) to $temp/$rel/wordpress ..."
+  mkdir -p $temp/$rel/wordpress
+  cd $root/civicrm${lts}-wordpress
+  git checkout $rel
+  git pull
+  git archive $rel | tar -xC $temp/$rel/wordpress
+
+  echo "Copying $root/civicrm${lts}-packages ($rel) to $temp/$rel/packages ..."
+  mkdir -p $temp/$rel/packages
+  cd $root/civicrm${lts}-packages
+  git checkout $rel
+  git pull
+  git archive $rel | tar -xC $temp/$rel/packages
 
   mkdir $temp/$rel/xml/default
   echo '<?php define("CIVICRM_CONFDIR", ".");' > $temp/$rel/settings_location.php
