@@ -79,34 +79,35 @@ for rel in $releases; do
 
   echo "Copying $root/civicrm${lts}-core ($rel) to $temp/$rel ..."
   cd $root/civicrm${lts}-core
+  git checkout -t origin/$rel
   git pull
-  git archive $r | tar -xC $temp/$rel
+  git archive $rel | tar -xC $temp/$rel
 
   echo "Copying $root/civicrm${lts}-drupal (7x-$rel) to $temp/$rel/drupal ..."
   mkdir -p $temp/$rel/drupal
   cd $root/civicrm${lts}-drupal
-  git checkout 7.x-$rel
+  git checkout -t origin/7.x-$rel
   git pull
   git archive 7.x-$rel | tar -xC $temp/$rel/drupal
 
   echo "Copying $root/civicrm${lts}-joomla ($rel) to $temp/$rel/joomla ..."
   mkdir -p $temp/$rel/joomla
   cd $root/civicrm${lts}-joomla
-  git checkout $rel
+  git checkout -t origin/$rel
   git pull
   git archive $rel | tar -xC $temp/$rel/joomla
 
   echo "Copying $root/civicrm${lts}-wordpress ($rel) to $temp/$rel/wordpress ..."
   mkdir -p $temp/$rel/wordpress
   cd $root/civicrm${lts}-wordpress
-  git checkout $rel
+  git checkout -t origin/$rel
   git pull
   git archive $rel | tar -xC $temp/$rel/wordpress
 
   echo "Copying $root/civicrm${lts}-packages ($rel) to $temp/$rel/packages ..."
   mkdir -p $temp/$rel/packages
   cd $root/civicrm${lts}-packages
-  git checkout $rel
+  git checkout -t origin/$rel
   git pull
   git archive $rel | tar -xC $temp/$rel/packages
 
