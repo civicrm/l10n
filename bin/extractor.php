@@ -64,7 +64,11 @@ if ($argv[1] == 'base') {
     $phpModifier    .= "\( " . implode(' -or ', $phpDir) . " \)";
     $jsModifier    .= "\( " . implode(' -or ', $jsDir) . " \)";
     $smartyModifier .= "\( " . implode(' -or ', $tplDir) . " \)";
-} else {
+}
+elseif ($argv[1] == 'extension') {
+    // nothing to do
+}
+else {
     $phpModifier    .= "-iwholename '*/CRM/{$argv[1]}/*'";
     $jsModifier .= "-iwholename '*/templates/CRM/{$argv[1]}/*'";
     $smartyModifier .= "-iwholename '*/templates/CRM/{$argv[1]}/*'";
@@ -76,15 +80,33 @@ $smartyExtractor = dirname(__FILE__) . '/smarty-extractor.php';
 
 $dir = $argv[2];
 
+# PHP extraction
 $command = "find $dir/CRM $dir/packages/HTML/QuickForm $phpModifier -not -wholename '*/CRM/Core/I18n.php' -not -wholename '*/CRM/Core/Smarty/plugins/block.ts.php' | grep -v '/\.svn/' | sort | xargs $phpExtractor $dir";
+
+if ($argv[1] == 'extension') {
+    $command = "find ./ | grep -vE '\.(git|svn)/' | sort | xargs $phpExtractor $dir";
+}
+
 fwrite(STDERR, "Running: $command\n");
 $phpPot = `$command`;
 
+# JS extraction
 $command = "find $dir/js $dir/templates $dir/xml $jsModifier | grep -v '/\.svn/' | sort | xargs $jsExtractor $dir";
+
+if ($argv[1] == 'extension') {
+    $command = "find ./ | grep -vE '\.(git|svn)/' | sort | xargs $jsExtractor $dir";
+}
+
 fwrite(STDERR, "Running: $command\n");
 $jsPot = `$command`;
 
+# Smarty/tpl extraction
 $command = "find $dir/templates $dir/xml $smartyModifier | grep -v '/\.svn/' | sort | xargs $smartyExtractor $dir";
+
+if ($argv[1] == 'extension') {
+    $command = "find $dir/templates $dir/xml $smartyModifier | grep -vE '\.(svn|git)/' | sort | xargs $smartyExtractor $dir";
+}
+
 fwrite(STDERR, "Running: $command\n");
 $smartyPot = `$command`;
 
