@@ -128,6 +128,10 @@ function tsCallType($tokens)
         } elseif ($key[1] == "'escape'" or $key[1] == '"escape"') {
             // no-op
 
+        // ‘domain’ is a valid param for extensions, so accept it
+        } elseif ($key[1] == "'domain'" or $key[1] == '"domain"') {
+            // no-op
+
         // Drupal uses bang-prepended placeholders, so accept them
         } elseif (preg_match('/^[\'"]!\d+[\'"]$/', $key[1])) {
             // no-op
