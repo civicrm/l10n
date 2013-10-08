@@ -36,7 +36,7 @@ You can set it globally:
     $ git config --global diff.algorithm patience
 
 For more information:
-http://wiki.civicrm.org/confluence/display/CRMDOC/Localisation+stack
+http://wiki.civicrm.org/confluence/display/CRMDOC/Pushing+new+strings+to+Transifex
 EOT
 
   exit 1;
