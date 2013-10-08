@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
 "Report-Msgid-Bugs-To: http://issues.civicrm.org/\n"
-"POT-Creation-Date: 2013-04-30 13:40-0400\n"
-"PO-Revision-Date: 2013-04-30 18:22+0000\n"
+"POT-Creation-Date: 2013-10-08 08:14-0400\n"
+"PO-Revision-Date: 2013-10-08 12:39+0000\n"
 "Last-Translator: Mathieu Lutfy <mathieu@bidon.ca>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/civicrm/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -23,9 +23,10 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: CRM/Contribute/BAO/PCP.php CRM/Contribute/Form/PCP/PCPAccount.php
-msgid "Update Contact Information"
-msgstr "Обновить информацию о контакте"
+#: CRM/Contribute/BAO/ContributionRecur.php
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Recurring contribution cancelled"
+msgstr "Регулярный взнос отменен"
 
 #: CRM/Contribute/DAO/ContributionPage.php
 #: CRM/Contribute/Form/ContributionPage/ThankYou.php
@@ -46,11 +47,6 @@ msgstr "Сумма без вычетов"
 #: CRM/Contribute/Form/ContributionType.php
 msgid "Accounting Code"
 msgstr "Бухгалтерский код"
-
-#: CRM/Contribute/DAO/PCPBlock.php
-#: CRM/Contribute/Form/ContributionPage/PCP.php
-msgid "Notify Email"
-msgstr "Email для уведомлений"
 
 #: CRM/Contribute/DAO/Product.php CRM/Contribute/Form/ManagePremiums.php
 #: templates/CRM/Contribute/Page/ManagePremiums.tpl
@@ -87,6 +83,11 @@ msgstr "Благодарность Отправлена"
 #: CRM/Contribute/Form/ContributionPage/Amount.php
 msgid "Send up to"
 msgstr "Отсылать до"
+
+#: CRM/Contribute/Form/CancelSubscription.php
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Notify Contributor?"
+msgstr "Уведомить плательщика?"
 
 #: CRM/Contribute/Form/ContributionPage/Amount.php
 #: CRM/Contribute/Form/ContributionPage.php
@@ -138,11 +139,6 @@ msgid "Disable Premium"
 msgstr "Отменить Вознаграждение"
 
 #: CRM/Contribute/Page/Tab.php CRM/Contribute/Selector/Search.php
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "View Contribution"
-msgstr "Просмотр взноса"
-
-#: CRM/Contribute/Page/Tab.php CRM/Contribute/Selector/Search.php
 #: templates/CRM/Contribute/Form/Contribution.tpl
 msgid "Edit Contribution"
 msgstr "Редактировать взнос"
@@ -163,6 +159,10 @@ msgstr "- Поля взносов -"
 #: CRM/Contribute/BAO/Contribution.php
 msgid "Recurring Contributions ID"
 msgstr "ИН повторяющихся взносов"
+
+#: CRM/Contribute/BAO/ContributionRecur.php
+msgid "Automatic renewal of %1 membership cancelled."
+msgstr "Автоматическое продление членства %1 отменено."
 
 #: CRM/Contribute/BAO/ContributionType.php
 msgid ""
@@ -185,28 +185,6 @@ msgid ""
 "This Premium is being linked to <a href='%1'>Online Contribution page</a>. "
 "Please remove it in order to delete this Premium."
 msgstr "Это вознаграждение связано с <a href='%1'>Онлайн страницей взносов</a>. Пожалуйста, удалите ее для удаления этого вознаграждения."
-
-#: CRM/Contribute/BAO/PCP.php
-msgid "Are you sure you want to delete this Personal Campaign Page?"
-msgstr "Вы уверены, что хотите удалить эту страницу персональной кампании?"
-
-#: CRM/Contribute/BAO/PCP.php
-msgid "Create a Personal Campaign Page"
-msgstr "Создать страницу персональной кампании"
-
-#: CRM/Contribute/BAO/PCP.php
-msgid "Edit Your Page"
-msgstr "Редактировать вашу страницу"
-
-#: CRM/Contribute/BAO/PCP.php
-msgid "Tell Friends"
-msgstr "Рассказать друзьям"
-
-#: CRM/Contribute/BAO/PCP.php
-msgid ""
-"Supporter profile is not set for this Personal Campaign Page or the profile "
-"is disabled. Please contact the site administrator if you need assistance."
-msgstr "Для данной страницы персональной кампании не задан профиль поддержки или он отключен. Если вам нужна помощь в данном вопросе, обратитесь к администратору сайта."
 
 #: CRM/Contribute/BAO/Premium.php
 msgid "Selected Option"
@@ -261,6 +239,10 @@ msgid "Displaying Recurring Contributions"
 msgstr "Отображение повторяющихся взносов"
 
 #: CRM/Contribute/BAO/Query.php
+msgid "Displaying Non Recurring Contributions"
+msgstr "Отображение неповторяющихся взносов"
+
+#: CRM/Contribute/BAO/Query.php
 msgid "Contribution ID %1 %2"
 msgstr "ИН взноса %1 %2"
 
@@ -269,16 +251,16 @@ msgid "Contribution Note %1 %2"
 msgstr "Примечание по взносу %1 %2"
 
 #: CRM/Contribute/BAO/Query.php
-msgid "Display in Roll"
-msgstr "Отобразить в реестре"
+msgid "Personal Campaign Page Honor Roll"
+msgstr "Почетный список страницы персональной кампании"
 
 #: CRM/Contribute/BAO/Query.php
 msgid "Currency Type - %1"
 msgstr "Тип валюты - %1"
 
 #: CRM/Contribute/BAO/Query.php
-msgid "Contribution Dates - From"
-msgstr "Даты взносов - От"
+msgid "Batch Name %1 %2"
+msgstr "Название пакета %1 %2"
 
 #: CRM/Contribute/BAO/Query.php
 msgid "Currency Type"
@@ -305,8 +287,12 @@ msgid "Find Recurring Contributions?"
 msgstr "Найти повторяющиеся взносы?"
 
 #: CRM/Contribute/BAO/Query.php
-msgid "Display In Roll ?"
-msgstr "Отобразить в списке?"
+msgid "Find Non Recurring Contributions?"
+msgstr "Найти неповторяющиеся взносов?"
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Personal Campaign Page Honor Roll?"
+msgstr "Почетный список страницы персональной кампании?"
 
 #: CRM/Contribute/BAO/Widget.php
 msgid "Campaign is ongoing"
@@ -323,10 +309,6 @@ msgstr "Кампания, завершившаяся %1"
 #: CRM/Contribute/BAO/Widget.php
 msgid "Campaign ends on %1"
 msgstr "Кампания заканчивается %1"
-
-#: CRM/Contribute/BAO/Widget.php
-msgid "Raised %1 of %2"
-msgstr "Собрано %1 из %2"
 
 #: CRM/Contribute/BAO/Widget.php
 msgid "Raised %1"
@@ -409,10 +391,6 @@ msgid "Product Option"
 msgstr "Опции Продукта"
 
 #: CRM/Contribute/DAO/ContributionProduct.php
-msgid "Quantity"
-msgstr "Величина"
-
-#: CRM/Contribute/DAO/ContributionProduct.php
 msgid "Fulfilled Date"
 msgstr "Дата исполнения"
 
@@ -421,6 +399,7 @@ msgid "Recurring Contribution Status"
 msgstr "Статус повторяющегося взноса"
 
 #: CRM/Contribute/DAO/ContributionRecur.php
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
 msgid "Cycle Day"
 msgstr "День цикла"
 
@@ -429,10 +408,12 @@ msgid "Next Sched Contribution"
 msgstr "Следующий запланированый взнос"
 
 #: CRM/Contribute/DAO/ContributionRecur.php
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
 msgid "Failure Count"
 msgstr "Количество Сбоев"
 
 #: CRM/Contribute/DAO/ContributionRecur.php
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
 msgid "Failure Retry Date"
 msgstr "Дата повторной попытки при Неудаче"
 
@@ -451,38 +432,6 @@ msgstr "Рср Ник списка"
 #: CRM/Contribute/DAO/ContributionSoft.php
 msgid "Pcp Personal Note"
 msgstr "Рср Личная заметка"
-
-#: CRM/Contribute/DAO/PCPBlock.php
-msgid "Tellfriend Limit"
-msgstr "Ограничение на отсылку приглашений друзьям"
-
-#: CRM/Contribute/DAO/PCPBlock.php
-msgid "Link Text"
-msgstr "Ссылка на текст"
-
-#: CRM/Contribute/DAO/PCP.php
-msgid "Personal Campaign Page ID"
-msgstr "ИН страницы персональной кампании"
-
-#: CRM/Contribute/DAO/PCP.php
-msgid "Personal Campaign Page Status"
-msgstr "Статус страницы персональной кампании"
-
-#: CRM/Contribute/DAO/PCP.php
-msgid "Personal Campaign Page Title"
-msgstr "Заголовок страницы персональной кампании"
-
-#: CRM/Contribute/DAO/PCP.php
-msgid "Page Text"
-msgstr "Текст страницы"
-
-#: CRM/Contribute/DAO/PCP.php
-msgid "Donate Link Text"
-msgstr "Текст ссылки пожертвования"
-
-#: CRM/Contribute/DAO/PCP.php
-msgid "Referer"
-msgstr "Реферал"
 
 #: CRM/Contribute/DAO/Premium.php
 msgid "Premiums Active"
@@ -574,6 +523,18 @@ msgid "Fulfilled"
 msgstr "Исполнено"
 
 #: CRM/Contribute/Form/AdditionalInfo.php
+msgid "Please enter a valid monetary value for Non-deductible Amount."
+msgstr "Пожалуйста, введите корректную денежную величину для невычитаемой суммы."
+
+#: CRM/Contribute/Form/AdditionalInfo.php
+msgid "Please enter a valid monetary value for Fee Amount."
+msgstr "Пожалуйста, введите корректную денежную величину для суммы взноса."
+
+#: CRM/Contribute/Form/AdditionalInfo.php
+msgid "Please enter a valid monetary value for Net Amount."
+msgstr "Пожалуйста, введите корректную денежную величину для суммы нетто."
+
+#: CRM/Contribute/Form/AdditionalInfo.php
 msgid "This Invoice ID already exists in the database."
 msgstr "Такой ИН счёта уже существует в базе"
 
@@ -594,39 +555,63 @@ msgid "Please enter a valid additional reminder day."
 msgstr "Пожалуйста, введите действительный дополнительный день напоминания."
 
 #: CRM/Contribute/Form/CancelSubscription.php
-msgid "You do not have permission to cancel subscription."
-msgstr "У вас нет прав для отмены подписки."
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "The auto renew membership looks to have been cancelled already."
-msgstr "Похоже, что автоматическое обновление членства уже было отменено."
-
-#: CRM/Contribute/Form/CancelSubscription.php
 msgid ""
-"Could not detect payment processor OR the processor does not support "
-"cancellation of auto renew."
-msgstr "Платёжный оператор не найден ИЛИ не поддерживает отмену автоматического обновления."
+"The auto renewal option for this membership looks to have been cancelled "
+"already."
+msgstr "Похоже, что опция автопродления для членства уже отменена."
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "The recurring contribution looks to have been cancelled already."
+msgstr "Похоже, что регулярные взносы уже отменены."
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "You do not have permission to cancel this recurring contribution."
+msgstr "У вас нет доступа для отмены этого регулярного взноса"
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Send cancellation request to %1 ?"
+msgstr "Отправить запрос на отмену к %1?"
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Cancel Automatic Membership Renewal"
+msgstr "Отменить автоматическое продление членства"
 
 #: CRM/Contribute/Form/CancelSubscription.php
 msgid "Not Now"
 msgstr "Не сейчас"
 
 #: CRM/Contribute/Form/CancelSubscription.php
-msgid ""
-"The auto-renewal option for your membership has been successfully cancelled."
-" Your membership has not been cancelled. However you will need to arrange "
-"payment for renewal when your membership expires."
-msgstr "Возможность автоматического продления вашего членства успешно отменена. Ваше членство не отменено, однако по истечению срока его действия вам придётся организовать платёж за продление."
+msgid "Auto-renewal membership cancelled"
+msgstr "Автоматическое продление членства отменено"
 
 #: CRM/Contribute/Form/CancelSubscription.php
-msgid "Auto renew could not be cancelled."
-msgstr "Автоматическое обновления не может быть отменено."
+msgid ""
+"The automatic renewal of your %1 membership has been cancelled as requested."
+" This does not affect the status of your membership - you will receive a "
+"separate notification when your membership is up for renewal."
+msgstr "Автоматическое обновление Вашего %1 членства было отменено на основании Вашего запроса. Это не оказывает влияния на текущий уровень Вашего членства. Вы получите отдельное уведомление когда Ваше членство потребует продления."
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid ""
+"Recurring contribution was cancelled successfully by the processor, but "
+"could not be marked as cancelled in the database."
+msgstr "Регулярные взносы были успешно отменены обработчиком, но не могут быть отменены в базе."
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Recurring contribution could not be cancelled in the database."
+msgstr "Регулярные взносы не могут быть отменены в базе данных."
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "The recurring contribution could not be cancelled."
+msgstr "Регулярный взнос не может быть отменен."
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid ""
-"This contribution has already been submitted. Click <a href='%1'>here</a> if"
-" you want to make another contribution."
-msgstr "Этот взнос уже был предоставлен. Нажмите <a href='%1'>здесь</a> для еще одного взноса."
+"An error occurred during form submission. This page requires form data to be"
+" submitted for processing and no form data was submitted or processed. We "
+"are sorry for any inconvience. Please click <a href='%1'>here</a> to visit "
+"the contribution page and re-start the contribution process."
+msgstr ""
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid ""
@@ -648,64 +633,10 @@ msgstr "Эта страница включает профиль с полями 
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid ""
-"This contribution page is not related to the Personal Campaign Page you have"
-" just visited. However you can still make a contribution here."
-msgstr "Эта страница взноса не связана со страницей персональной кампании, которую вы только что посетили. Однако вы все равно можете внести здесь свой взнос."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"The Personal Campaign Page you have just visited is currently %1. However "
-"you can still support the campaign by making a contribution here."
-msgstr "Страница персональной кампании, которую вы только что посетили, в настоящее время %1. Однако вы все еще можете поддержать кампанию, делая свой взнос здесь."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"Personal Campaign Pages are currently not enabled for this contribution "
-"page. However you can still support the campaign by making a contribution "
-"here."
-msgstr "Страницы персональных кампаний, которые вы только что посетили, на данный момент для этой страницы взносов неактивны. Однако вы все равно можете сделать свой взнос здесь."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"The Personal Campaign Page you have just visited is current inactive. "
-"However you can still make a contribution here."
-msgstr "Страница персональной кампании, которую вы только что посетили, на данный момент неактивна. Однако вы все равно можете сделать свой взнос здесь."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"The Personal Campaign Page you have just visited is only active between %1 "
-"to %2. However you can still support the campaign by making a contribution "
-"here."
-msgstr "Страница персональной кампании, которую вы только что посетили, активна в промежутке с %1 до %2. Однако вы все равно можете внести свой взнос здесь."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"The Personal Campaign Page you have just visited will be active beginning on"
-" %1. However you can still support the campaign by making a contribution "
-"here."
-msgstr "Страница персональной кампании, которую вы только что посетили, активируется с %1. Однако вы все равно можете внести свой взнос здесь."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"The Personal Campaign Page you have just visited is not longer active (as of"
-" %1). However you can still support the campaign by making a contribution "
-"here."
-msgstr "Страница персональной кампании, которую вы только что посетили, больше не активна (по состоянию на %1). Однако вы все еще можете поддержать кампанию, делая свой взнос здесь."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
 "The requested online contribution page is missing a required Contribution "
 "Amount section or Membership section or Price Set. Please check with the "
 "site administrator for assistance."
 msgstr "В запрашиваемой странице онлайн-взноса отсутствует обязательный раздел 'Размер взноса', 'Членство' или 'Ценовой набор'. За дополнительной информацией обращайтесь к администратору сайта."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"This contribution page is configured to support separate contribution and "
-"membership payments. This %1 plugin does not currently support multiple "
-"simultaneous payments. Please contact the site administrator and notify them"
-" of this error"
-msgstr "Эта страница взносов настроена на поддержку раздельных платежей по взносам и членству. Этот %1 плагин  на данный момент не поддерживает множественных отдельных платежей. Пожалуйста, обратитесь за поддержкой к администрации сайта и уведомьте их об этой ошибке."
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid ""
@@ -735,12 +666,12 @@ msgid "Select Year (for monthly breakdown)"
 msgstr "Выберите год (для помесячного распределения)"
 
 #: CRM/Contribute/Form/Contribution/Confirm.php
-msgid "Anonymous"
-msgstr "Анонимно"
-
-#: CRM/Contribute/Form/Contribution/Confirm.php
 msgid "Make Contribution"
 msgstr "Сделать взнос"
+
+#: CRM/Contribute/Form/Contribution/Confirm.php
+msgid "Anonymous"
+msgstr "Анонимно"
 
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid "Mixed profile not allowed for on behalf of registration/sign up."
@@ -783,12 +714,30 @@ msgid "Number of installments must be a whole number."
 msgstr "Количество частей должно быть целым числом."
 
 #: CRM/Contribute/Form/Contribution/Main.php
+msgid "Contribution amount must be at least %1"
+msgstr "Размер взноса должен быть по меньшей мере %1"
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Contribution amount cannot be more than %1."
+msgstr "Размер взноса не может быть больше %1."
+
+#: CRM/Contribute/Form/Contribution/Main.php
 msgid "Select at least one option from Membership Type(s)."
 msgstr "Выберите хотя бы один вариант в типах членства."
 
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid "Select at least one option from Contribution(s)."
 msgstr "Выберите во взносах по крайней мере один вариант."
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Amount is required field."
+msgstr "Количество — обязательное поле."
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid ""
+"You already have a lifetime membership and cannot select a membership with a"
+" shorter term."
+msgstr "Для вас уже оформлено пожизненное членство, и вы не можете выбрать членство на более короткий период."
 
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid ""
@@ -800,6 +749,10 @@ msgstr "Вы выбрали несколько членств для одной 
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid "Please select at least one membership option."
 msgstr "Выберите хотя бы один вариант членства."
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "The Membership you have selected requires a minimum contribution of %1"
+msgstr "Избранное вами членство требует минимального взноса в %1"
 
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid ""
@@ -845,22 +798,6 @@ msgstr "Пожалуйста, введите имя организации."
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid "Organization email is required."
 msgstr "Необходимо указать email адрес организации."
-
-#: CRM/Contribute/Form/Contribution/Main.php
-msgid "The Membership you have selected requires a minimum contribution of %1"
-msgstr "Избранное вами членство требует минимального взноса в %1"
-
-#: CRM/Contribute/Form/Contribution/Main.php
-msgid "Amount is required field."
-msgstr "Количество — обязательное поле."
-
-#: CRM/Contribute/Form/Contribution/Main.php
-msgid "Contribution amount must be at least %1"
-msgstr "Размер взноса должен быть по меньшей мере %1"
-
-#: CRM/Contribute/Form/Contribution/Main.php
-msgid "Contribution amount cannot be more than %1."
-msgstr "Размер взноса не может быть больше %1."
 
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid ""
@@ -1088,60 +1025,6 @@ msgstr "Удалить страницу взноса"
 msgid "The contribution page '%1' has been deleted."
 msgstr "Страница взносов '%1' была удалена."
 
-#: CRM/Contribute/Form/ContributionPage/PCP.php
-msgid "Personal Campaign Page Settings (%1)"
-msgstr "Настройки страниц персональных кампаний (%1)"
-
-#: CRM/Contribute/Form/ContributionPage/PCP.php
-msgid "Create your own fundraising page"
-msgstr "Создайте собственную страницу сбора средств"
-
-#: CRM/Contribute/Form/ContributionPage/PCP.php
-msgid "Enable Personal Campaign Pages (for this contribution page)?"
-msgstr "Активировать страницы персональных кампаний (для этой страницы взносов)?"
-
-#: CRM/Contribute/Form/ContributionPage/PCP.php
-msgid "Approval required"
-msgstr "Требуется подтверждение"
-
-#: CRM/Contribute/Form/ContributionPage/PCP.php
-msgid "Supporter profile"
-msgstr "Профиль автора взноса"
-
-#: CRM/Contribute/Form/ContributionPage/PCP.php
-msgid "Allow 'Tell a friend' functionality"
-msgstr "Разрешить функцию \"Расскажи другу\""
-
-#: CRM/Contribute/Form/ContributionPage/PCP.php
-msgid "'Tell a friend' maximum recipients limit"
-msgstr "Максимальное количество адресатов для расылки 'Рассказать другу' "
-
-#: CRM/Contribute/Form/ContributionPage/PCP.php
-msgid "Please enter a valid limit."
-msgstr "Пожалуйста, введите действительное ограничение."
-
-#: CRM/Contribute/Form/ContributionPage/PCP.php
-msgid "'Create Personal Campaign Page' link text"
-msgstr "Текст ссылки 'Создать страницу персональной кампании'"
-
-#: CRM/Contribute/Form/ContributionPage/PCP.php
-msgid ""
-"if Tell Friend is enable, Maximum recipients limit should be greater than "
-"zero."
-msgstr "если 'Рассказать другу' включено, ограничение на число получателей должно быть больше нуля."
-
-#: CRM/Contribute/Form/ContributionPage/PCP.php
-msgid "Supporter profile is a required field."
-msgstr "Профиль автора взноса — обязательное поле."
-
-#: CRM/Contribute/Form/ContributionPage/PCP.php
-msgid "A valid Notify Email address must be specified"
-msgstr "Должен быть указан действующий email адрес для уведомлений"
-
-#: CRM/Contribute/Form/ContributionPage/PCP.php
-msgid "Enable Personal Campaign Pages"
-msgstr "Активировать страницы персональных кампаний"
-
 #: CRM/Contribute/Form/ContributionPage.php
 msgid "Configure Page - %1"
 msgstr "Настроить страницу - %1"
@@ -1199,6 +1082,10 @@ msgstr "Профиль организации"
 #: CRM/Contribute/Form/ContributionPage/Settings.php
 msgid "On behalf of Label"
 msgstr "Заголовок для опции 'от лица'"
+
+#: CRM/Contribute/Form/ContributionPage/Settings.php
+msgid "Use a confirmation page?"
+msgstr "Использовать страницу подтверждения?"
 
 #: CRM/Contribute/Form/ContributionPage/Settings.php
 msgid "Is this Online Contribution Page Active?"
@@ -1312,10 +1199,6 @@ msgstr "Цвет ссылки домашней страницы"
 #: CRM/Contribute/Form/ContributionPage/Widget.php
 msgid "Enable Widget?"
 msgstr "Включить виджет?"
-
-#: CRM/Contribute/Form/ContributionPage/Widget.php
-msgid "Save and Preview"
-msgstr "Сохранить и просмотреть"
 
 #: CRM/Contribute/Form/ContributionPage/Widget.php
 msgid "Title is a required field."
@@ -1432,11 +1315,6 @@ msgstr "<br />Членство для %1 было отменено."
 #: CRM/Contribute/Form/Contribution.php
 msgid "<br />Membership for %1 has been Expired."
 msgstr "<br />Членство для%1 было просрочено."
-
-#: CRM/Contribute/Form/Contribution.php
-msgid ""
-"<br />Membership for %1 has been updated. The membership End Date is %2."
-msgstr "<br />Членство для %1 было обновлено. Дата окончания членства %2."
 
 #: CRM/Contribute/Form/Contribution.php
 msgid "<br />Event Registration for %1 has been Cancelled."
@@ -1576,110 +1454,6 @@ msgstr "Отметьте: миниатюра вашей картинки не с
 msgid "The Premium '%1' has been saved."
 msgstr "Премия '%1' сохранена."
 
-#: CRM/Contribute/Form/PCP/Campaign.php
-msgid "Setup a Personal Campaign Page - Step 2"
-msgstr "Установка страницы персональной кампании - Шаг 2"
-
-#: CRM/Contribute/Form/PCP/Campaign.php
-msgid "Edit Your Personal Campaign Page"
-msgstr "Редактировать вашу страницу персональной кампании"
-
-#: CRM/Contribute/Form/PCP/Campaign.php
-msgid "Your Goal"
-msgstr "Ваша цель"
-
-#: CRM/Contribute/Form/PCP/Campaign.php
-msgid "Goal Amount should be a numeric value"
-msgstr "Целевая сумма должна быть числовым значением"
-
-#: CRM/Contribute/Form/PCP/Campaign.php
-msgid "Donate Now"
-msgstr "Пожертвовать сейчас"
-
-#: CRM/Contribute/Form/PCP/Campaign.php
-msgid "Donation Button"
-msgstr "Кнопка для пожертвований"
-
-#: CRM/Contribute/Form/PCP/Campaign.php
-msgid "Progress Bar"
-msgstr "Строка состояния прогреса"
-
-#: CRM/Contribute/Form/PCP/Campaign.php
-msgid "Honor Roll"
-msgstr "Почетный список"
-
-#: CRM/Contribute/Form/PCP/Campaign.php
-msgid "Goal Amount should be a numeric value greater than zero."
-msgstr "Целевая сумма должна быть числовым значением больше нуля."
-
-#: CRM/Contribute/Form/PCP/Campaign.php
-msgid "Button Text must be less than 64 characters."
-msgstr "Текст на кнопке должен быть меньше 64 символов."
-
-#: CRM/Contribute/Form/PCP/Campaign.php
-msgid ""
-"but requires administrator review before you can begin your fundraising "
-"efforts. You will receive an email confirmation shortly which includes a "
-"link to return to your fundraising page."
-msgstr "но требует просмотра администратором до того как вы сможете начать сбор средств. Вы получите подтверждение по электронной почте со ссылкой для возврата к странице сбору средств."
-
-#: CRM/Contribute/Form/PCP/Campaign.php
-msgid "and is ready to use."
-msgstr "и готова к использованию."
-
-#: CRM/Contribute/Form/PCP/Campaign.php
-msgid "updated"
-msgstr "обновлено"
-
-#: CRM/Contribute/Form/PCP/Campaign.php
-msgid "created"
-msgstr "создано"
-
-#: CRM/Contribute/Form/PCP/Campaign.php
-msgid "A notification email has been sent to the site administrator."
-msgstr "Администратору сайта было отправлено электронное сообщение с уведомлением."
-
-#: CRM/Contribute/Form/PCP/Campaign.php
-msgid ""
-" You will receive a second email as soon as the review process is complete."
-msgstr "Вы получите второе письмо как только процесс рассмотрения будет завершен."
-
-#: CRM/Contribute/Form/PCP/Campaign.php
-msgid "Your Personal Campaign Page has been %1 %2 %3"
-msgstr "Ваша страница персональной кампании была %1 %2 %3"
-
-#: CRM/Contribute/Form/PCP/PCPAccount.php
-msgid "Could not find contribution page id."
-msgstr "Невозможно найти ИН страницы взноса."
-
-#: CRM/Contribute/Form/PCP/PCPAccount.php
-msgid ""
-"You must login with your OpenID provider before you can create a Personal "
-"Campaign Page."
-msgstr "Вы должны войти используя ваш OpenID, прежде чем вы сможете создать страницу персональной кампании."
-
-#: CRM/Contribute/Form/PCP/PCPAccount.php
-msgid ""
-"There is already an user associated with this email address. Please enter "
-"different email address."
-msgstr "Уже существует пользователь с таким email адресом. Пожалуйста введите другой email адрес."
-
-#: CRM/Contribute/Form/PCP/PCP.php
-msgid "The Campaign Page '%1' has been deleted."
-msgstr "Страница кампаний '%1' была удалена."
-
-#: CRM/Contribute/Form/PCP/PCP.php
-msgid "The Campaign Page '%1' has been disabled."
-msgstr "Страница кампании '%1' отключена."
-
-#: CRM/Contribute/Form/PCP/PCP.php
-msgid "The Campaign Page '%1' has been enabled."
-msgstr "Страница кампании '%1' активизирована."
-
-#: CRM/Contribute/Form/Search.php
-msgid "Contributor Name or Email"
-msgstr "Имя или email адрес автора взноса"
-
 #: CRM/Contribute/Form/Search.php
 msgid "Find Contributions"
 msgstr "Найти взносы"
@@ -1703,6 +1477,38 @@ msgstr "Удалить взносы: %1"
 #: CRM/Contribute/Form/Task/Delete.php
 msgid "Total Selected Contribution(s): %1"
 msgstr "Всего выбрано взносов: %1"
+
+#: CRM/Contribute/Form/Task/PDFLetterCommon.php
+msgid "Receipt date has been updated for %1 contributions."
+msgstr "Для %1 взносов обновлены даты квитанций."
+
+#: CRM/Contribute/Form/Task/PDFLetterCommon.php
+msgid "Thank-you date has been updated for %1 contributions."
+msgstr "Для %1 взносов обновлены даты благодарностей."
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "Record Update Options"
+msgstr "Опции обновления записи"
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "Update receipt dates for these contributions"
+msgstr "Обновить даты квитанций для этих взносов"
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "Update thank-you dates for these contributions"
+msgstr "Обновить даты благодарностей для этих взносов"
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "Recurring"
+msgstr "Регулярный"
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "Grouping contributions in one letter based on"
+msgstr "Группировка взносов в одно письмо, на основе"
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "Make Thank-you Letters"
+msgstr "Подготовить благодарственные письма"
 
 #: CRM/Contribute/Form/Task/PDF.php
 msgid "Print Contribution Receipts"
@@ -1735,8 +1541,8 @@ msgid "Your mail has been sent."
 msgstr "Ваше электронное письмо отправлено."
 
 #: CRM/Contribute/Form/Task/PickProfile.php
-msgid "Batch Profile Update for Contribution"
-msgstr "Групповое обновление профиля для взносов"
+msgid "Batch Update Contributions via Profile"
+msgstr ""
 
 #: CRM/Contribute/Form/Task/Status.php
 msgid "Please select only online contributions with Pending status."
@@ -1759,6 +1565,60 @@ msgstr "Выплата должна быть чеком, когда провер
 #: CRM/Contribute/Form/Task/Status.php
 msgid "Contribution status has been updated for selected record(s)."
 msgstr "Состояние взноса обновлено для  выбранной(ых) записи(ей)."
+
+#: CRM/Contribute/Form/UpdateBilling.php
+msgid "You do not have permission to cancel subscription."
+msgstr "У вас нет прав для отмены подписки."
+
+#: CRM/Contribute/Form/UpdateBilling.php
+msgid "%1 processor doesn't support updating subscription billing details."
+msgstr "%1 обработчик не поддерживает обновление платежных данных подписки."
+
+#: CRM/Contribute/Form/UpdateBilling.php
+msgid ""
+"Billing details for your automatically renewed %1 membership have been "
+"updated."
+msgstr "Платежные данные для автоматического продления %1 членства были обновлены."
+
+#: CRM/Contribute/Form/UpdateBilling.php
+msgid "Recurring Contribution Billing Details Updated"
+msgstr "Платежные данные регулярных взносов обновлены"
+
+#: CRM/Contribute/Form/UpdateBilling.php
+msgid "There was some problem updating the billing details."
+msgstr "Произошла проблема при обновлении платежных данных."
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "You cannot update the subscription."
+msgstr "Вы не можете обновить подписку."
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "You do not have permission to update subscription."
+msgstr "У вас нет доступа для обновления подписки."
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid ""
+"WARNING: Updates made using this form will change the recurring contribution"
+" information stored in your CiviCRM database, but will NOT be sent to the "
+"payment processor. You must enter the same changes using the payment "
+"processor web site."
+msgstr "ВНИМАНИЕ: Если сделать обновления с помощью этой формы, в базе CiviCRM изменится информация о повторяющихся взносах, но платёжный оператор извещён НЕ будет. Вам придётся повторно ввести эти же изменения через веб-сайт оператора."
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Recurring Contribution Amount"
+msgstr "Сума регулярных взносов"
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Number of Installments"
+msgstr "Количество платежей"
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Could not update the Recurring contribution details"
+msgstr "Не могу обновить данные регулярных взносов"
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Recurring Contribution Updated"
+msgstr "Регулярный взнос обновлен"
 
 #: CRM/Contribute/Import/Form/MapField.php
 msgid ""
@@ -1913,81 +1773,30 @@ msgstr "Включить премию"
 msgid "Delete Premium"
 msgstr "Удалить премию"
 
-#: CRM/Contribute/Page/PCPInfo.php
-msgid "The personal campaign page you requested is currently unavailable."
-msgstr "Страница персональной кампании, которую вы запросили, в настоящее время недоступна."
-
-#: CRM/Contribute/Page/PCPInfo.php
-msgid ""
-"Once you've received your new account welcome email, you can <a "
-"href=%1>click here</a> to login and promote your campaign page."
-msgstr "После того как Вы получили приветственное email сообщение о вашей новой учетной записи , <a href=%1> нажмите здесь </а>, чтобы войти в систему и  приступить к продвижению вашей страницы кампании."
-
-#: CRM/Contribute/Page/PCPInfo.php
-msgid ""
-"The personal campaign page you requested is currently unavailable. However "
-"you can still support the campaign by making a contribution here."
-msgstr "Страница персональной кампании, которую вы запросили в настоящее время недоступна. Однако вы все еще можете поддержать кампанию, делая свой взнос здесь."
-
-#: CRM/Contribute/Page/PCPInfo.php
-msgid "Change the content and appearance of your page"
-msgstr "Изменить содержание и внешний вид страницы"
-
-#: CRM/Contribute/Page/PCPInfo.php
-msgid "Send emails inviting your friends to support your campaign!"
-msgstr "Отправьте приглашения электронной почтой друзьям с просьбой поддержать вашу кампанию!"
-
-#: CRM/Contribute/Page/PCPInfo.php
-msgid "Update your personal contact information"
-msgstr "Обновите вашу личную контактную информацию"
-
-#: CRM/Contribute/Page/PCPInfo.php
-msgid "De-activate the page (you can re-activate it later)"
-msgstr "Деактивировать страницы (вы можете повторно активировать ее позднее)"
-
-#: CRM/Contribute/Page/PCPInfo.php
-msgid "Remove the page (this cannot be undone!)"
-msgstr "Удалить страницу (необратимо!)"
-
-#: CRM/Contribute/Page/PCPInfo.php
-msgid "Contribute Now"
-msgstr "Сделать взнос"
-
-#: CRM/Contribute/Page/PCP.php
-msgid "Are you sure you want to delete this Campaign Page ?"
-msgstr "Вы действительно хотите удалить эту страницу кампании?"
-
-#: CRM/Contribute/Page/PCP.php
-msgid "Edit Personal Campaign Page"
-msgstr "Редактировать страницу персональной кампании"
-
-#: CRM/Contribute/Page/PCP.php
-msgid "Approve"
-msgstr "Подтвердить"
-
-#: CRM/Contribute/Page/PCP.php
-msgid "Approve Personal Campaign Page"
-msgstr "Одобрить страницу персональной кампании"
-
-#: CRM/Contribute/Page/PCP.php
-msgid "Reject"
-msgstr "Отказ"
-
-#: CRM/Contribute/Page/PCP.php
-msgid "Reject Personal Campaign Page"
-msgstr "Отклонить страницу персональной кампании"
-
-#: CRM/Contribute/Page/PCP.php
-msgid "Delete Personal Campaign Page"
-msgstr "Удалить страницу персональной кампании"
-
-#: CRM/Contribute/Page/PCP.php
-msgid "Search Campaign Pages"
-msgstr "Посик страниц кампании"
-
 #: CRM/Contribute/Page/Premium.php
 msgid "Are you sure you want to remove this product form this page?"
 msgstr "Вы уверенны, что хотите удалить этот продукт с этой страницы?"
+
+#: CRM/Contribute/Page/Tab.php
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "View Recurring Payment"
+msgstr "Смотреть регулярный платеж"
+
+#: CRM/Contribute/Page/Tab.php
+msgid "Edit Recurring Payment"
+msgstr "Изменить регулярный платеж"
+
+#: CRM/Contribute/Selector/Search.php
+#: templates/CRM/Contribute/Form/Contribution.tpl
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+msgid "Pay Later"
+msgstr "Оплата Позже"
+
+#: CRM/Contribute/Selector/Search.php
+#: templates/CRM/Contribute/Form/Contribution.tpl
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+msgid "Incomplete Transaction"
+msgstr "Незавершенная Трансакция"
 
 #: CRM/Contribute/Task.php
 msgid "Export Contributions"
@@ -2004,6 +1813,10 @@ msgstr "Обновить состояние ожидаемых взносов"
 #: CRM/Contribute/Task.php
 msgid "Print or Email Contribution Receipts"
 msgstr "Распечатать или отправить по электронной почте квитанции по взносам"
+
+#: CRM/Contribute/Task.php
+msgid "Thank-you Letters for Contributions"
+msgstr "Благодарственные письма за взносы"
 
 #: templates/CRM/Contribute/Form/AcceptCreditCard.tpl
 msgid "New Credit Card"
@@ -2074,6 +1887,30 @@ msgstr "Напоминания о каждом запланированном п
 msgid "Days after the last one sent, up to the maximum number of reminders."
 msgstr "Дни после последнего отосланного, до максимального количества напоминаний."
 
+#: templates/CRM/Contribute/Form/CancelSubscription.tpl
+#: templates/CRM/Contribute/Form/UpdateBilling.tpl
+msgid "Recurring Contribution Details: %1 every %2 %3"
+msgstr "Данные регулярного взноса: %1 каждые %2 %3"
+
+#: templates/CRM/Contribute/Form/CancelSubscription.tpl
+#: templates/CRM/Contribute/Form/UpdateBilling.tpl
+msgid "for %1 installments"
+msgstr "для %1 платежей"
+
+#: templates/CRM/Contribute/Form/CancelSubscription.tpl
+msgid ""
+"Click the button below to cancel this commitment and stop future "
+"transactions. This does not affect contributions which have already been "
+"completed."
+msgstr "Нажмите кнопку внизу чтобы отменить этот взнос и остановить будущие транзакции. Это не повлияет на взносы, которые уже были сделаны."
+
+#: templates/CRM/Contribute/Form/CancelSubscription.tpl
+msgid ""
+"Automatic cancellation is not supported for this payment processor. You or "
+"the contributor will need to manually cancel this recurring contribution "
+"using the payment processor website."
+msgstr "Автоматическая отмена не поддерживается для этого платёжного оператора. Вам нужно вручную отменить этот регулярный взнос через веб-сайт оператора."
+
 #: templates/CRM/Contribute/Form/ContributionCharts.tpl
 msgid "There were no contributions during the selected year."
 msgstr "У выбранном году не было взносов."
@@ -2117,9 +1954,9 @@ msgstr "Я хочу, чтобы это членство обновлялось �
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 msgid ""
 "Your initial membership fee will be processed once you complete the "
-"confirmation step. You will be able to modify or cancel the auto-renwal "
-"option by visiting the web page link that will be included in your receipt."
-msgstr "Ваш стартовый членский взнос будет обработан, как только вы пройдете этап подтверждения. Вы сможете модифицировать возможность автоматического обновления или отменить ее, перейдя на соответствующую Web-страницу по ссылке, которая будет включена в вашу квитанцию."
+"confirmation step. You will be able to cancel the auto-renwal option by "
+"visiting the web page link that will be included in your receipt."
+msgstr "Ваш начальный платеж за членство будет обработан, как только вы завершите этап подтверждения. Вы сможете отменить авто-продление, перейдя по ссылке, которая будет в вашем счете."
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 msgid "I want to contribute this amount every %1 %2(s) for %3 installments."
@@ -2132,9 +1969,9 @@ msgstr "Я желаю вносить это количество каждые %1
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 msgid ""
 "Your initial contribution will be processed once you complete the "
-"confirmation step. You will be able to modify or cancel future contributions"
-" at any time by logging in to your account."
-msgstr "Ваш начальный взнос будет обработан когда вы завершите этап подтверждения. Вы сможете изменить или отменить будущие взносы в любое время, зайдя на вашу учетную запись."
+"confirmation step. You will be able to cancel the recurring contribution by "
+"visiting the web page link that will be included in your receipt."
+msgstr "Как только вы пройдёте подтверддение, ваш первоначальный взнос будет обработан. Вы сможете отменить регулярный взнос, пройдя по ссылке, которая будет включена в Вашу квитанцию."
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
@@ -2191,6 +2028,12 @@ msgid ""
 "Your contribution will not be completed until you click the "
 "<strong>%1</strong> button. Please click the button one time only."
 msgstr "Ваш взнос не будет завершен, пока вы не нажмете кнопку <strong>%1</strong>. Пожалуйста, нажмите ее только один раз."
+
+#: templates/CRM/Contribute/Form/Contribution/Main.tpl
+msgid ""
+"This page requires Javascript. Please enable Javascript in your web browser "
+"preferences and refresh the page."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/Main.tpl
 #: templates/CRM/Contribute/Form/Contribution.tpl
@@ -2346,17 +2189,17 @@ msgstr "Выберите платёжного оператора для осущ
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid ""
-"Uncheck this box if you are using this contribution page for membership "
-"signup and renewal only - and you do NOT want users to select or enter any "
-"additional contribution amounts."
-msgstr "Отмените эту отметку, если ваша страница взносов используется толькодля регистрации и обновления членств - и вы НЕ желаете, чтобы пользователи выбирали или вводили дополнительные суммы взносов."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
 "Instructions added to Confirmation and Thank-you pages, as well as the "
 "confirmation email, when the user selects the 'pay later' option (e.g. 'Mail"
 " your check to ... within 3 business days.')."
 msgstr "Инструкции добавлены к страницам Подтверждения и Благодарности, а также к сообщению благодарности, когда пользователь выбирает опцию 'оплата позже' (напр. 'Отправьте ваш чек ... в промежутке трех деловых дней.')."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
+msgid ""
+"Uncheck this box if you are using this contribution page for membership "
+"signup and renewal only - and you do NOT want users to select or enter any "
+"additional contribution amounts."
+msgstr "Отмените эту отметку, если ваша страница взносов используется толькодля регистрации и обновления членств - и вы НЕ желаете, чтобы пользователи выбирали или вводили дополнительные суммы взносов."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid ""
@@ -2373,6 +2216,21 @@ msgid ""
 "\"Contribute $25 more to receive our monthly magazine.\"). Click <a "
 "href='%1'>here</a> if you want to configure price sets for your site."
 msgstr "Ценовые наборы взносов не были сконфигурированы/активизированы для вашего сайта. Ценовые наборы позволяют конфигурировать более сложные варианты взносов (например, \"Вложить на $25 больше, чтобы получать наш ежемесячный журнал.\"). Щелкните <a href='%1'>здесь</a>, если вы хотите сконфигурировать для своего сайта ценовые наборы."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
+msgid ""
+"Check this box if you want to give users the option to make recurring "
+"contributions. This feature requires that you use a payment processor which "
+"supports recurring billing / subscriptions functionality."
+msgstr "Установите этот флажок, если вы хотите предоставить пользователям возможность вносить повторные взносы. Эта функция требует использования какого-нибудь средства обработки платежей, поддерживающего повторную выписку счетов/подписок."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
+msgid "Select recurring units supported for recurring payments."
+msgstr "Выберите повторяющиеся единицы, что поддерживаются для повторяющихся платежей."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
+msgid "Can users also set an interval (e.g. every '3' months)?"
+msgstr "Могут ли пользователи также установить интервал (напр. каждые '3' месяца)?"
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid ""
@@ -2404,21 +2262,6 @@ msgstr "дней после последнего отосланного, до м
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid ""
-"Check this box if you want to give users the option to make recurring "
-"contributions. This feature requires that you use a payment processor which "
-"supports recurring billing / subscriptions functionality."
-msgstr "Установите этот флажок, если вы хотите предоставить пользователям возможность вносить повторные взносы. Эта функция требует использования какого-нибудь средства обработки платежей, поддерживающего повторную выписку счетов/подписок."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid "Select recurring units supported for recurring payments."
-msgstr "Выберите повторяющиеся единицы, что поддерживаются для повторяющихся платежей."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid "Can users also set an interval (e.g. every '3' months)?"
-msgstr "Могут ли пользователи также установить интервал (напр. каждые '3' месяца)?"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
 "Check this box if you want to give users the option to enter their own "
 "contribution amount. Your page will then include a text field labeled "
 "<strong>Other Amount</strong>."
@@ -2441,6 +2284,13 @@ msgid ""
 "will be presented as a list of radio button options. Both the label and "
 "dollar amount will be displayed."
 msgstr "Используйте таблицу ниже для ввода до десяти фиксированных сумм взносов. Они будут представлены как список кружков. И метка, и валютная сумма будут показаны."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
+msgid ""
+" Click <a  id = 'quickconfig' href='#'>here</a> if you want to configure the"
+" Fixed Contribution Options below as part of a Price Set, with the added "
+"flexibility and complexity that entails."
+msgstr " Щёлкните <a  id = 'quickconfig' href='#'>здесь</a>, если хотите настроить параметры фиксированного взноса как часть набора цен, со всей вытекающей дополнительной гибкостью и сложностью."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid "Contribution Label"
@@ -2478,10 +2328,10 @@ msgstr "Создайте профиль (например, 'Информация
 
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.hlp
 msgid ""
-"Return to this screen (<strong>Administer CiviCRM &raquo; Manage "
-"Contribution Page &raquo; Configure &raquo; Custom Elements</strong>) and "
-"select your profile."
-msgstr "Вернитесь к этой странице (<strong>Управление CiviCRM &raquo; Страница управления взносами &raquo; Конфигурация &raquo; Пользовательские элементы</strong>) и выберите ваш профиль."
+"Return to this screen (<strong>Administer CiviCRM &raquo; CiviContribute "
+"&raquo; Manage Contribution Pages &raquo; Configure &raquo; Include "
+"Profiles</strong>) and select your profile."
+msgstr "Вернитесь к этому экрану (<strong>Управление CiviCRM &raquo; CiviContribute &raquo; Управлять страницами взносов &raquo; Настроить &raquo; Добавить профили</strong>) выберите ваш профиль."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.tpl
 msgid ""
@@ -2536,14 +2386,6 @@ msgid ""
 "inviting them to create their own fundraising page after making a "
 "contribution."
 msgstr "Когда разрешены страницы персональных кампаний, пользователи увидят ссылку с предложением создать собственную страницу по сбору средств после того, как они внесут свой взнос."
-
-#: templates/CRM/Contribute/Form/ContributionPage/PCP.tpl
-msgid ""
-"No Profile with a user account registration option has been configured / "
-"enabled for your site. You need to <a href='%1'>configure a Supporter "
-"profile</a> first. It will be used to collect or update basic information "
-"from users while they are creating a Personal Campaign Page."
-msgstr "Нет ни одного настроенного/активированного профиля с опцией регистрации учетной записи пользователя для вашего сайта. Необходимо <a href='%1'> настроить профиль Помощника </а> в первую очередь. Он будет использоваться для сбора или обновления базовой информации от пользователей, в то время как они будут создавать страницу персональной кампании."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
 msgid ""
@@ -2665,18 +2507,17 @@ msgid ""
 "organization name. If a matching organization is found using your site's "
 "configured strict duplicate matching rules for Organizations, the "
 "contribution or membership will be linked to that organization. Otherwise a "
-"new organization contact record is created. In either case, users will be "
-"able to optionally enter email, phone and postal address data for the "
-"organization."
-msgstr "Эта функция, когда активна, позволяет пользователям идентифицировать организацию как спонсора или члена. Зарегистрированным в системе пользователям предоставлена возможность выбрать из списка организацию, с которой у них есть разрешенное отношение, ИЛИ ввести новую организацию. Анонимным пользователям будет предложено ввести название организации. Если с помощью сконфигурированных для вашего сайта строгих правил поиска соответствий будет найдена какая-нибудь организация, взнос или членство подключается именно к ней. В противном случае, будет создана новая запись контакта-организации. При любом варианте пользователи смогут при желании ввести адрес электронной почты, номер телефона и почтовый адрес организации."
+"new organization contact record is created."
+msgstr "Это средство, когда оно активизировано, позволяет пользователям идентифицировать организацию как спонсора или участника. Зарегистрированным пользователям будет предоставлена возможность выбрать в списке одну из организаций, с которой для них установлена разрешенное отношение, ИЛИ ввести новую организацию. Анонимным пользователям будет предложено ввести название организации. Если с помощью строгих правил поиска дубликатов, сконфигурированных для вашего сайта, по введенному названию будет найдена какая-нибудь организация, с ней будет связан взнос или членство. В противном случае будет создана запись контакта для новой организации."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
-"To change the organization data collected use the \"On Behalf Of "
-"Organization\" profile (<a href=\"%1\">Administer > Customize > CiviCRM "
-"Profile</a>)."
-msgstr "Для изменения собранных по организации данных воспользуйтесь профилем \"В интересах организации\" (<a href=\"%1\">Управление > Настройка > Профиль CiviCRM</a>)."
+"The organization data collected from users is controlled by the Organization"
+" Profile selected below. You can use the default \"On Behalf Of "
+"Organization\" profile, or any other profile with type 'Contact' and/or "
+"'Organization' (<a href=\"%1\">Administer > Customize > CiviCRM "
+"Profile</a>). The profile must include Organization Name and Email Address."
+msgstr "Данные об организации, собранные от пользователей, контролируются выбранным ниже профилем организации. Вы можете воспользоваться установленным по умолчанию профилем \"От имени организации\" или же любым другим профилем типа 'Контакт' и/или 'Организация' (<a href=\"%1\">Управление > Настройка > Профиль CiviCRM</a>). Профиль должен включать в себя название организации и адрес электронной почты."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
@@ -2723,6 +2564,13 @@ msgid ""
 msgstr "Для того чтобы позволить отдельным людям вносить взносы от имени некоторой организации, вы должны <a href=\"%1\">сконфигурировать корректный профиль организации</a>. Такие профили включают в себя поля Контакт и/или Организация, а также могут содержать поля взнос и членство."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
+msgid ""
+"To change the organization data collected use the \"On Behalf Of "
+"Organization\" profile (<a href=\"%1\">Administer > Customize > CiviCRM "
+"Profile</a>)."
+msgstr "Для изменения собранных по организации данных воспользуйтесь профилем \"В интересах организации\" (<a href=\"%1\">Управление > Настройка > Профиль CiviCRM</a>)."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid "Text displayed next to the checkbox on the contribution form."
 msgstr "Текст возле чек-бокса в форме взноса."
 
@@ -2744,6 +2592,18 @@ msgstr "Альтернативный обьяснительный текст д�
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
+"If you disable this contributions will be processed immediately after "
+"submitting the contribution form."
+msgstr "Если вы выключите, эти взносы будут обработаны сразу после отправки формы взноса."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
+msgid ""
+"When enabled, links will appear allowing people to share this event through "
+"social media."
+msgstr "Если эта возможность активизирована, появятся ссылки, позволяющие делиться этим событием в социальных сетях."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
+msgid ""
 "When your page is active, you can link people to the page by copying and "
 "pasting the following URL:"
 msgstr "Когда ваша страница активна, вы можете связывать людей с страницей, копируя и вставляя слеующую URL:"
@@ -2751,9 +2611,10 @@ msgstr "Когда ваша страница активна, вы можете �
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
 "When your page is active, create front-end links to the contribution page "
-"using the Menu Manager. Select <strong>CiviCRM &raquo; Contribution "
-"Pages</strong> and select <strong>%1</strong> for the contribution page."
-msgstr "Когда ваша страница активна, создайте ссылки на страницу взносов, используя менеджер меню. Выберите <strong>CiviCRM &raquo; Страницы взносов</strong> и выберите <strong>%1</strong> для страницы взноса."
+"using the Menu Manager. Select <strong>Administer CiviCRM &raquo; "
+"CiviContribute &raquo; Manage Contribution Pages</strong> and select "
+"<strong>%1</strong> for the contribution page."
+msgstr "Когда активируете вашу страницу, создайте ссылки на неё с главной станицы с помощью менеджера меню. Выберите <strong>Управление CiviCRM &raquo; CiviContribute &raquo; Управление страницами взносов</strong>, а затем <strong>%1</strong> для страницы взносов."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
 msgid ""
@@ -3101,9 +2962,9 @@ msgstr "Это членство будет автоматически обнов
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
-"You will be able to cancel automatic renewals at any time by logging in to "
-"your account or contacting us."
-msgstr "Вы сможете в любой отменить автоматические обновления, войдя в свою учетную запись или связавшись с нами."
+"You will receive an email receipt which includes information about how to "
+"cancel the auto-renwal option."
+msgstr "Вы получите выписку по электронной почте, в которой будет содержаться информация о том, как отменить опцию авто-продления."
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
@@ -3118,23 +2979,9 @@ msgstr "Этот повторяющийся взнос будет автомат
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
-"You can modify or cancel future contributions at any time by <a "
-"href='%1'>logging in to your account</a>."
-msgstr "Вы можете изменять или отменять будущие взносы в любое время через <a href='%1'>logging in to your account</a>."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid "To modify or cancel future contributions please contact us at %1."
-msgstr "Для модификации или отмены будущих взносов пожалуйста свяжитесь с нами по %1."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid "You will receive an email receipt for each recurring contribution."
-msgstr "Вы будете получать по электронной почте квитанцию для каждого повторного взноса."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"The receipts will also include a link you can use if you decide to modify or"
-" cancel your future contributions."
-msgstr "Квитанции также будут содержать ссылку, которой вы можете воспользоваться, если решите модифицировать или отменить свои будущие взносы."
+"You will receive an email receipt which includes information about how to "
+"update or cancel this recurring contribution."
+msgstr "Вы получите по e-mail квитанцию, в которой также будет информация, как изменить или отменить этот регулярный взнос."
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
@@ -3146,9 +2993,8 @@ msgstr "Мы запишем ваш начальный обещанный пла�
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
 "Your initial pledge payment has been processed. You will be able to modify "
-"or cancel future pledge payments at any time by logging in to your account "
-"or contacting us at %1."
-msgstr "Ваш начальный обещанный платеж обработан. Вы сможете изменять или отменять будущие обещанные платежи в любое время, зайдя на вашу учетную запись или связавшись с нами на %1."
+"or cancel future pledge payments at any time by contacting us at %1."
+msgstr "Ваш начальный обещанный платеж обработан. Вы сможете изменять или отменять будущие обещанные платежи в любое время, связавшись с нами через %1."
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
@@ -3185,13 +3031,6 @@ msgid ""
 "WARNING: Deleting this contribution will result in the loss of the "
 "associated financial transactions (if any)."
 msgstr "ВНИМАНИЕ: удаление этого взноса повлечет потерю связанных финансовых трансакций (если есть)."
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-#: templates/CRM/Contribute/Page/ContributionHonor.tpl
-#: templates/CRM/Contribute/Page/ContributionSoft.tpl
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Contributor"
-msgstr "Плательщик"
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
 msgid "<a href='#' onclick='adjustPayment();'>adjust payment amount</a>"
@@ -3237,16 +3076,6 @@ msgstr "Дата получения этого взноса."
 #: templates/CRM/Contribute/Form/Contribution.tpl
 msgid "Leave blank for non-monetary contributions."
 msgstr "Оставить пустым для неденежных взносов."
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "Pay Later"
-msgstr "Оплата Позже"
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "Incomplete Transaction"
-msgstr "Незавершенная Трансакция"
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
 msgid "Cancellation Information"
@@ -3332,8 +3161,8 @@ msgid "Interval"
 msgstr "Промежуток"
 
 #: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "pending"
-msgstr "ожидается"
+msgid "not available"
+msgstr "не доступно"
 
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 #: templates/CRM/Contribute/Page/UserDashboard.tpl
@@ -3525,6 +3354,10 @@ msgid ""
 " be listed.)"
 msgstr "Если выбран этот вариант,  \"почетный список\" будет отображать имена (или псевдонимы) тех, кто пожертвовал через вашу страницу по сбору средств. (Спонсоры будут иметь возможность остаться анонимным. Их имена НЕ будут показаны.)"
 
+#: templates/CRM/Contribute/Form/Search/Common.tpl
+msgid "Contribution Dates"
+msgstr "Даты взноса"
+
 #: templates/CRM/Contribute/Form/SearchContribution.tpl
 msgid "Find Contribution Pages"
 msgstr "Найти Страницы Взносов"
@@ -3569,18 +3402,18 @@ msgid ""
 "associated with these contributions."
 msgstr "Действительно хотите удалить выбранные взносы? Операция удаления не может быть отменена и удалит все трансакции и действия, связанную с этими взносами."
 
+#: templates/CRM/Contribute/Form/Task/PDFLetter.tpl
+msgid "Thank-you Letter for Contributions (PDF)"
+msgstr "Благодарственные письма плательщикам (PDF)"
+
 #: templates/CRM/Contribute/Form/Task/PDF.tpl
 msgid ""
-"You may choose to Email receipts to Contributers OR Download a PDF file "
+"You may choose to email receipts to contributors OR download a PDF file "
 "containing one receipt per page to your local computer by clicking "
 "<strong>Process Receipt(s)</strong>. Your browser may display the file for "
 "you automatically, or you may need to open it for printing using any PDF "
 "reader (such as Adobe&reg; Reader)."
-msgstr "Вы можете избрать отправку квитанций плательщикам по электронной почте ИЛИ загрузку PDF-файла, содержащего одну квитанцию на страницу, в локальный компьютер по щелчку на <strong>Обработать квитанции</strong>. Ваш браузер может отобразить этот файл автоматически или же, возможно, вам потребуется открыть его для печати с помощью любой программы чтения PDF-файлов (например, Adobe&reg; Reader)."
-
-#: templates/CRM/Contribute/Form/Task/PickProfile.tpl
-msgid "Batch Update Contribution via Profile"
-msgstr "Групповое Обновление Взноса через Профиль"
+msgstr "Вы можете установить отправку квитанций плательщикам по электронной почте ИЛИ загрузку PDF-файла, содержащего одну квитанцию на страницу, на локальный компьютер, щелкнув <strong>Обработка квитанций</strong>. Ваш браузер может отобразить файл автоматически или, возможно, вам придется открыть его вручную с помощью любой программы чтения PDF-документов (например, Adobe&reg; Reader)."
 
 #: templates/CRM/Contribute/Form/Task/Status.tpl
 msgid ""
@@ -3601,6 +3434,37 @@ msgstr "Назначить избранный статус всем взноса
 #: templates/CRM/Contribute/Form/Task.tpl
 msgid "Number of selected contributions: %1"
 msgstr "Число выбранных взносов: %1"
+
+#: templates/CRM/Contribute/Form/UpdateBilling.tpl
+msgid ""
+"Use this form to update the credit card and billing name and address used "
+"for this recurring contribution."
+msgstr "Используйте эту форму для обновление кредитной карты и платежного имение и адреса для регулярных платежей."
+
+#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
+msgid ""
+"Use this form to change the amount or number of installments for this "
+"recurring contribution. Changes will be automatically sent to the payment "
+"processor. You can not change the contribution frequency."
+msgstr "Используйте эту форму, чтобы изменить сумму или число платежей для этого регулярного взноса. Изменения автоматически будут отправлены платёжному оператору. Вы не можете изменить частоту взносов."
+
+#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
+msgid ""
+"Total number of payments to be made. Set this to 0 if this is an open-ended "
+"commitment i.e. no set end date."
+msgstr "Общее количество платежей, которые нужно сделать. Установить в 0, если нет конечного платежа, то есть не установлена даты окончания."
+
+#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
+msgid "Number of time units for recurrence of payment."
+msgstr "Число единиц времени между платежами."
+
+#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
+msgid "Time unit for recurrence of payment. For example, \"month\"."
+msgstr "Период для регулярного платежа. Например, \"месяц\"."
+
+#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
+msgid "Day in the period when the payment should be charged."
+msgstr "День в периоде, когда платеж должен быть выполнен."
 
 #: templates/CRM/Contribute/Import/Form/Preview.tpl
 #: templates/CRM/Contribute/Import/Form/Summary.tpl
@@ -3664,10 +3528,6 @@ msgid ""
 "Rows with invalid data in one or more fields. These rows have been skipped "
 "(not imported)."
 msgstr "Ряды с неправильными данными в одном или более полей. Эти ряды были пропущены (не импортированы)."
-
-#: templates/CRM/Contribute/Import/Form/Summary.tpl
-msgid "Soft Credits"
-msgstr "Льготные кредиты"
 
 #: templates/CRM/Contribute/Import/Form/Summary.tpl
 msgid "Rows where a soft credit was successfully assigned to a contact."
@@ -3870,9 +3730,17 @@ msgid ""
 "href='%1'>here</a> to create a new contribution page."
 msgstr "Ни одной страницы взноса еще создано не было. Щелкните <a accesskey=\"N\" href='%1'>здесь</a>, чтобы создать новую страницу взноса."
 
-#: templates/CRM/Contribute/Page/ContributionSoft.tpl
-msgid "Total Soft Credits"
-msgstr "Общая Сумма льготных кредитов"
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "Processor ID"
+msgstr "ИН обработчика"
+
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "Next Contribution"
+msgstr "Следующий взнос"
+
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "Auto Renew?"
+msgstr "Автопродление?"
 
 #: templates/CRM/Contribute/Page/ContributionSoft.tpl
 msgid "Avg Soft Credits"
@@ -3887,7 +3755,8 @@ msgid "View contributor contact record"
 msgstr "Просмотреть запись контакта по взносу"
 
 #: templates/CRM/Contribute/Page/ContributionSoft.tpl
-msgid "( n/a )"
+#: templates/CRM/Contribute/Page/DashBoard.tpl
+msgid "(n/a)"
 msgstr "(не относится)"
 
 #: templates/CRM/Contribute/Page/ContributionSoft.tpl
@@ -3925,14 +3794,6 @@ msgid ""
 msgstr "Типы взносов используются для категоризации взносов для учетности и докладов. Их также называют <strong>Funds</strong>. Вы можете установить столько типов, сколько необходимо. Каждый тип может нести учетный код, который может использоватся для разметки взносов с кодами вашей системы учетности. Обычно используемые типы взносов: Пожертвования, Взносы на Кампанию, Членские Взносы..."
 
 #: templates/CRM/Contribute/Page/ContributionType.tpl
-msgid "Acctg Code"
-msgstr "Бухгалтерский Код"
-
-#: templates/CRM/Contribute/Page/ContributionType.tpl
-msgid "Deductible?"
-msgstr "Налогооблагаемое?"
-
-#: templates/CRM/Contribute/Page/ContributionType.tpl
 msgid "Add Contribution Type"
 msgstr "Добавить тип взноса"
 
@@ -3960,10 +3821,6 @@ msgid ""
 " customized searches - click <a href='%1'>Find Contributions</a>. You can "
 "search by Contributor Name, Amount Range, and a variety of other criteria."
 msgstr "Таблица <strong>Сводка по взносу</strong> предоставляет информацию о размере взносов за месяц и с начала года, а также содержит средства просмотра сведений о взносах за эти часто используемые периоды поиска. Для того чтобы выполнить поиск по уникальным условиям, щелкните <a href='%1'>Найти взносы</a>. Вы можете выполнять поиск по имени плательщика, диапазону сумм и множеству других критериев."
-
-#: templates/CRM/Contribute/Page/DashBoard.tpl
-msgid "(n/a)"
-msgstr "(не относится)"
 
 #: templates/CRM/Contribute/Page/DashBoard.tpl
 msgid "view details"
@@ -4021,114 +3878,6 @@ msgid ""
 "href='%1'>add one</a>."
 msgstr "Нет созданных премиальных продуктов для вашего сайта. Вы можете <a href='%1'>add one</a>."
 
-#: templates/CRM/Contribute/Page/PCP.hlp
-msgid ""
-"Personal Campaign Pages (PCPs) allow your constituents to create their own "
-"fundraising page for your organization. This means that a donor, after "
-"donating to your organization, can elect to create a page with her own "
-"photo, text, and personal information. She can then send a link to the page "
-"to her friends, soliciting support for your organization. This is a powerful"
-" way to widely and quickly spread the message about your campaign."
-msgstr "Страницы персональных кампаний (PCP) позволяют вашим пользователям создавать собственные страницы сбора средств для вашей организации. Это означает, что спонсор, сделав пожертвования для вашей организации, может решить создать страницу с собственной фотографией, текстом и персональной информацией. Затем он может отправить ссылку на эту страницу своим друзьям с просьбой оказать поддержку вашей организации. Это эффективный способ широкого и быстрого распространения сведений о вашей кампании."
-
-#: templates/CRM/Contribute/Page/PCP.hlp
-msgid ""
-"When someone donates through a personal campaign page, a soft credit is "
-"given to the owner of the page to recognize the role she played in the "
-"contribution. CiviContribute has a section that allows you to administer all"
-" of the PCPs for your organization. You can require approval before a PCP "
-"goes 'live', and disable or delete any campaign pages you don't approve of."
-msgstr "Когда кто-то делает пожертвование через некоторую страницу персональной кампании, владельцу этой страницы выдается льготный кредит в знак признания его роли в данном взносе. CiviContribute содержит раздел, позволяющий вам управлять всеми PCP-страницами вашей организации. Вы можете затребовать одобрение PCP-страниц перед их публикацией, а также отключить или удалить любую страницу кампании, которую вы не одобряете."
-
-#: templates/CRM/Contribute/Page/PCPInfo.tpl
-msgid "Personal Fundraiser View"
-msgstr "Просмотр Личного Фандрайзера"
-
-#: templates/CRM/Contribute/Page/PCPInfo.tpl
-msgid ""
-"This is a preview of your Personal Campaign Page in support of <a "
-"href=\"%1\"><strong>\"%2\"</strong></a>."
-msgstr "Это предварительный просмотр вашей страницы персональной кампании в поддержку <a href=\"%1\"><strong>\"%2\"</strong></a>."
-
-#: templates/CRM/Contribute/Page/PCPInfo.tpl
-msgid "The current status of your page is"
-msgstr "Текущий статус вашей страницы"
-
-#: templates/CRM/Contribute/Page/PCPInfo.tpl
-msgid ""
-"You will receive an email notification when your page is Approved and you "
-"can begin promoting your campaign."
-msgstr "Вы получите уведомление по электронной почте, когда ваша страница будет Одобрена и вы можете начать продвижение вашей кампании."
-
-#: templates/CRM/Contribute/Page/PCPInfo.tpl
-msgid "This campaign is active from"
-msgstr "Эта кампания активна с"
-
-#: templates/CRM/Contribute/Page/PCPInfo.tpl
-msgid "You can"
-msgstr "Вы можете"
-
-#: templates/CRM/Contribute/Page/PCPInfo.tpl
-msgid "Tip"
-msgstr "Подсказка"
-
-#: templates/CRM/Contribute/Page/PCPInfo.tpl
-msgid ""
-"You must be logged in to your account to access the editing options above. "
-"(If you visit this page without logging in, you will be viewing the page in "
-"\"live\" mode - as your visitors and friends see it.)"
-msgstr "Вы должны войти в свою учетную запись для доступа к настройкам выше. (Если вы посетите эту страницу без входа в систему, вы будете просматривать страницы в \"живом\" режиме - как гости и друзья видят их.)"
-
-#: templates/CRM/Contribute/Page/PCPInfo.tpl
-msgid "Goal"
-msgstr "Цель"
-
-#: templates/CRM/Contribute/Page/PCPInfo.tpl
-msgid "raised"
-msgstr "собрано"
-
-#: templates/CRM/Contribute/Page/PCPInfo.tpl
-msgid "HONOR ROLL"
-msgstr "ПОЧЕТНЫЙ СПИСОК"
-
-#: templates/CRM/Contribute/Page/PCPInfo.tpl
-msgid "Stop"
-msgstr "Остановить"
-
-#: templates/CRM/Contribute/Page/PCPInfo.tpl
-msgid "Start scrolling"
-msgstr "Начать прокрутку"
-
-#: templates/CRM/Contribute/Page/PCPInfo.tpl
-msgid "Stop scrolling"
-msgstr "Остановить прокрутку"
-
-#: templates/CRM/Contribute/Page/PCP.tpl
-msgid ""
-"This screen shows all the Personal Campaign Pages created in the system and "
-"allows administrator to review them and change their status."
-msgstr "На этом экране отображаются все страницы персональных кампаний, созданные в системе, что позволяет администратору рассмотреть их и изменить их статус."
-
-#: templates/CRM/Contribute/Page/PCP.tpl
-msgid "Page Title"
-msgstr "Заголовок страницы"
-
-#: templates/CRM/Contribute/Page/PCP.tpl
-msgid "Preview Personal Campaign Page"
-msgstr "Предварительный просмотр страницы персональной кампании"
-
-#: templates/CRM/Contribute/Page/PCP.tpl
-msgid "View contribution page"
-msgstr "Просмотреть страницу взносов"
-
-#: templates/CRM/Contribute/Page/PCP.tpl
-msgid "There are no Personal Campaign Pages which match your search criteria."
-msgstr "Нет страниц персональных кампаний, которые соответствуют вашим критериям поиска."
-
-#: templates/CRM/Contribute/Page/PCP.tpl
-msgid "There are currently no Personal Campaign Pages."
-msgstr "На данный момент нет страниц персональных кампаний."
-
 #: templates/CRM/Contribute/Page/PcpUserDashboard.tpl
 msgid "Your Page"
 msgstr "Ваша страница"
@@ -4166,9 +3915,9 @@ msgid ""
 "The premiums listed below are currently offered on this Contribution Page. "
 "If you have other premiums which are not already being offered on this page,"
 " you will see a link below to offer another premium. Use <a "
-"href='%1'>Administer CiviCRM &raquo; Manage Premiums</a> to create or enable"
-" additional premium choices which can be used on any Contribution page."
-msgstr "Премии, перечисленные ниже, сейчас предлагаются на этой Странице Взносов. Если у вас есть другие премии, которые еще не предлагаются на этой странице, вы увидите ссылку ниже для предложения еще одной премии. Используйте <a href='%1'>Управление CiviCRM &raquo; Управление премиями</a> для создания или включения дополнительных вариантов премий, которые могут использоватся на любой странице Взносов."
+"href='%1'>Contributions &raquo; Premiums</a> to create or enable additional "
+"premium choices which can be used on any Contribution page."
+msgstr "Нижеперечисленные премии предлагаются на странице взносов. Если у вас есть другие премии, которые пока на этой странице не предлагаются, вы увидите внизу ссылку для предложения премии. Создавайте дополнительные премии, которые могут быть использованы для любой страницы взносов, с помощью <a href='%1'>Взносы &raquo; Премии</a>."
 
 #: templates/CRM/Contribute/Page/Premium.tpl
 msgid "Offer Another Premium on this Contribution Page"
@@ -4260,6 +4009,10 @@ msgid "No contributions have been recorded from this contact."
 msgstr "Для этого контакта нет записей о взносах."
 
 #: templates/CRM/Contribute/Page/Tab.tpl
+msgid "Recurring Contributions"
+msgstr "Повторяющиеся взносы"
+
+#: templates/CRM/Contribute/Page/Tab.tpl
 msgid "Soft credits"
 msgstr "Льготные кредиты"
 
@@ -4287,10 +4040,6 @@ msgstr "Повторяющиеся Взносы"
 #: templates/CRM/Contribute/Page/UserDashboard.tpl
 msgid "Terms:"
 msgstr "Условия:"
-
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Change Recurring Contribution"
-msgstr "Изменить Повторяющиеся Взносы"
 
 #: xml/templates/message_templates/contribution_dupalert_html.tpl
 #: xml/templates/message_templates/contribution_dupalert_text.tpl
@@ -4353,11 +4102,6 @@ msgstr "Каждый"
 msgid "Honoree Email"
 msgstr "Адрес электронной почты награжденного"
 
-#: xml/templates/message_templates/contribution_offline_receipt_html.tpl
-#: xml/templates/message_templates/contribution_offline_receipt_text.tpl
-msgid "Sent"
-msgstr "Выслано"
-
 #: xml/templates/message_templates/contribution_offline_receipt_subject.tpl
 msgid "Contribution Receipt"
 msgstr "Квитанция Взноса"
@@ -4365,547 +4109,6 @@ msgstr "Квитанция Взноса"
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
 msgid "Please print this confirmation for your records."
 msgstr "Пожалуйста, распечатайте это подтверждение для вашего учета"
-
-#: xml/templates/message_templates/contribution_online_receipt_html.tpl
-msgid ""
-"This is a recurring contribution. You can modify or cancel future "
-"contributions by <a href=\"%1\">logging in to your account</a>."
-msgstr "Это повторяющийся взнос. Вы можете изменить или отменить будущие взносы, <a href=\"%1\">войдя в свою учетную запись</a>."
-
-#: xml/templates/message_templates/contribution_online_receipt_html.tpl
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid ""
-"This is a recurring contribution. To modify or cancel future contributions "
-"please contact us at %1."
-msgstr "Это повторяющийся взнос. Для того чтобы изменить или отменить будущие взносы, свяжитесь с нами по адресу %1."
-
-#: xml/templates/message_templates/contribution_online_receipt_html.tpl
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid "Display In Honor Roll"
-msgstr "Отображать в почетном списке"
-
-#: xml/templates/message_templates/contribution_online_receipt_html.tpl
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid "Registered Email"
-msgstr "Зарегистрированный e-mail"
-
-#: xml/templates/message_templates/contribution_online_receipt_html.tpl
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid "For information about this premium, contact:"
-msgstr "Для получения информации об этой награде, свяжитесь с:"
-
-#: xml/templates/message_templates/contribution_online_receipt_subject.tpl
-msgid "Invoice"
-msgstr "Счет"
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid ""
-"This is a recurring contribution. You can modify or cancel future "
-"contributions by logging in to your account at:"
-msgstr "Это повторяющийся взнос. Вы можете изменить или отменить будущие взносы, войдя в свою учетную запись:"
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid "On Behalf Of"
-msgstr "От лица организации"
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid "Dear %1"
-msgstr "Уважаемый %1"
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid "Thanks for your auto renew membership sign-up."
-msgstr "Благодарим за подачу заявки на автоматическое обновление членства."
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-msgid ""
-"This membership will be automatically renewed \n"
-"      every %1 %2(s). "
-msgstr "Это членство будет автоматически обновляться  \n      каждые %1 %2(s). "
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid "Thanks for your recurring contribution sign-up."
-msgstr "Благодирим вас регистрацию повторяющегося взноса."
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-msgid ""
-"This recurring contribution will be\n"
-"     automatically processed every %1 %2(s) for a total of %3 installment(s)."
-msgstr "Этот повторяющийся взнос будет\n     автоматически обрабатываться каждые %1 %2(s) для %3 инсталляций."
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid ""
-"You have pledged to make this recurring donation. You will be charged "
-"periodically (per frequency listed above), and you will receive an email "
-"receipt from %1 following each charge. These recurring donations will "
-"continue until you explicitly cancel the donation. You may change or cancel "
-"your recurring donation at anytime by logging into your account. If you have"
-" questions about recurring donations please contact us at %2."
-msgstr "Вы пообещали делать регулярное пожертвование. Вам периодически (с указанной выше частотой) будет выставляться счет, и вы будете каждый раз получать по электронной почте уведомление от %1. Эти регулярные пожертвования будут действовать до тех пор, пока вы явно не отмените их. Вы можете сделать это в любое время, войдя в свою учетную запись. Если у вас есть какие-нибудь вопросы о повторяющихся пожертвованиях, свяжитесь с нами по адресу %2."
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid ""
-"Your auto renew membership sign-up has ended and your membership will not be"
-" automatically renewed."
-msgstr "Ваш период заявки на автоматическое обновление членства истек, и ваше членство не будет продлено автоматически."
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid "Your recurring contribution term has ended."
-msgstr "Срок Вашего повторяющегося взноса окончился."
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid ""
-"You have successfully completed %1 recurring contributions. Thank you for "
-"your support."
-msgstr "Вы успешно завершили %1 повторяющихся взносов. Благодарим вас за поддержку."
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid "Interval of Subscription for %1 installment(s)"
-msgstr "Интервал подписки для %1 инсталляций."
-
-#: xml/templates/message_templates/contribution_recurring_notify_subject.tpl
-msgid "Recurring Contribution Notification"
-msgstr "Уведомление о повторном взносе"
-
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid "This membership will be automatically renewed every %1 %2(s)."
-msgstr "Это членство будет автоматически обновляться каждые %1 %2(s)."
-
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid ""
-"This recurring contribution will be automatically processed every %1 %2(s) "
-"for a total of %3 installment(s)."
-msgstr "Этот повторяющийся взнос будет автоматически обрабатываться каждые %1 %2(s) для %3 инсталляций."
-
-#: xml/templates/message_templates/test_preview_html.tpl
-#: xml/templates/message_templates/test_preview_text.tpl
-msgid "Test-drive Email / Receipt"
-msgstr "Тестовый e-mail / квитанция"
-
-#: xml/templates/message_templates/test_preview_html.tpl
-#: xml/templates/message_templates/test_preview_text.tpl
-msgid ""
-"This is a test-drive email. No live financial transaction has occurred."
-msgstr "Это тестовое сообщение. Никаких реальных финансовых транзакций не произошло."
-
-#: CRM/Contribute/BAO/Query.php
-msgid "Displaying Non Recurring Contributions"
-msgstr "Отображение неповторяющихся взносов"
-
-#: CRM/Contribute/BAO/Query.php
-msgid "Personal Campaign Page Honor Roll"
-msgstr "Почетный список страницы персональной кампании"
-
-#: CRM/Contribute/BAO/Query.php
-msgid "Find Non Recurring Contributions?"
-msgstr "Найти неповторяющиеся взносов?"
-
-#: CRM/Contribute/BAO/Query.php
-msgid "Personal Campaign Page Honor Roll?"
-msgstr "Почетный список страницы персональной кампании?"
-
-#: CRM/Contribute/Form/AdditionalInfo.php
-msgid "Please enter a valid monetary value for Non-deductible Amount."
-msgstr "Пожалуйста, введите корректную денежную величину для невычитаемой суммы."
-
-#: CRM/Contribute/Form/AdditionalInfo.php
-msgid "Please enter a valid monetary value for Fee Amount."
-msgstr "Пожалуйста, введите корректную денежную величину для суммы взноса."
-
-#: CRM/Contribute/Form/AdditionalInfo.php
-msgid "Please enter a valid monetary value for Net Amount."
-msgstr "Пожалуйста, введите корректную денежную величину для суммы нетто."
-
-#: CRM/Contribute/Form/Contribution/Main.php
-msgid ""
-"You already have a lifetime membership and cannot select a membership with a"
-" shorter term."
-msgstr "Для вас уже оформлено пожизненное членство, и вы не можете выбрать членство на более короткий период."
-
-#: CRM/Contribute/Form/ContributionPage.php
-msgid "Save and Next"
-msgstr "Сохранить и перейти далее"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
-msgid ""
-"When enabled, this feature allows users to identify an organization as the "
-"donor or member. Logged in users will be given a choice of selecting from a "
-"list of organizations that they have a permissioned relationship with OR "
-"entering a new organization. Anonymous users are prompted to enter the "
-"organization name. If a matching organization is found using your site's "
-"configured strict duplicate matching rules for Organizations, the "
-"contribution or membership will be linked to that organization. Otherwise a "
-"new organization contact record is created."
-msgstr "Это средство, когда оно активизировано, позволяет пользователям идентифицировать организацию как спонсора или участника. Зарегистрированным пользователям будет предоставлена возможность выбрать в списке одну из организаций, с которой для них установлена разрешенное отношение, ИЛИ ввести новую организацию. Анонимным пользователям будет предложено ввести название организации. Если с помощью строгих правил поиска дубликатов, сконфигурированных для вашего сайта, по введенному названию будет найдена какая-нибудь организация, с ней будет связан взнос или членство. В противном случае будет создана запись контакта для новой организации."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
-msgid ""
-"The organization data collected from users is controlled by the Organization"
-" Profile selected below. You can use the default \"On Behalf Of "
-"Organization\" profile, or any other profile with type 'Contact' and/or "
-"'Organization' (<a href=\"%1\">Administer > Customize > CiviCRM "
-"Profile</a>). The profile must include Organization Name and Email Address."
-msgstr "Данные об организации, собранные от пользователей, контролируются выбранным ниже профилем организации. Вы можете воспользоваться установленным по умолчанию профилем \"От имени организации\" или же любым другим профилем типа 'Контакт' и/или 'Организация' (<a href=\"%1\">Управление > Настройка > Профиль CiviCRM</a>). Профиль должен включать в себя название организации и адрес электронной почты."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"When enabled, links will appear allowing people to share this event through "
-"social media."
-msgstr "Если эта возможность активизирована, появятся ссылки, позволяющие делиться этим событием в социальных сетях."
-
-#: templates/CRM/Contribute/Form/Task/PDF.tpl
-msgid ""
-"You may choose to email receipts to contributors OR download a PDF file "
-"containing one receipt per page to your local computer by clicking "
-"<strong>Process Receipt(s)</strong>. Your browser may display the file for "
-"you automatically, or you may need to open it for printing using any PDF "
-"reader (such as Adobe&reg; Reader)."
-msgstr "Вы можете установить отправку квитанций плательщикам по электронной почте ИЛИ загрузку PDF-файла, содержащего одну квитанцию на страницу, на локальный компьютер, щелкнув <strong>Обработка квитанций</strong>. Ваш браузер может отобразить файл автоматически или, возможно, вам придется открыть его вручную с помощью любой программы чтения PDF-документов (например, Adobe&reg; Reader)."
-
-#: templates/CRM/Contribute/Page/Tab.tpl
-msgid "Recurring Contributions"
-msgstr "Повторяющиеся взносы"
-
-#: CRM/Contribute/BAO/ContributionRecur.php
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "Recurring contribution cancelled"
-msgstr "Регулярный взнос отменен"
-
-#: CRM/Contribute/Form/CancelSubscription.php
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "Notify Contributor?"
-msgstr "Уведомить плательщика?"
-
-#: CRM/Contribute/BAO/ContributionRecur.php
-msgid "Automatic renewal of %1 membership cancelled."
-msgstr "Автоматическое продление членства %1 отменено."
-
-#: CRM/Contribute/BAO/Query.php
-msgid "Batch Name %1 %2"
-msgstr "Название пакета %1 %2"
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid ""
-"The auto renewal option for this membership looks to have been cancelled "
-"already."
-msgstr "Похоже, что опция автопродления для членства уже отменена."
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "The recurring contribution looks to have been cancelled already."
-msgstr "Похоже, что регулярные взносы уже отменены."
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "You do not have permission to cancel this recurring contribution."
-msgstr "У вас нет доступа для отмены этого регулярного взноса"
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "Send cancellation request to %1 ?"
-msgstr "Отправить запрос на отмену к %1?"
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "Cancel Automatic Membership Renewal"
-msgstr "Отменить автоматическое продление членства"
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "Auto-renewal membership cancelled"
-msgstr "Автоматическое продление членства отменено"
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid ""
-"The automatic renewal of your %1 membership has been cancelled as requested."
-" This does not affect the status of your membership - you will receive a "
-"separate notification when your membership is up for renewal."
-msgstr "Автоматическое обновление Вашего %1 членства было отменено на основании Вашего запроса. Это не оказывает влияния на текущий уровень Вашего членства. Вы получите отдельное уведомление когда Ваше членство потребует продления."
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid ""
-"Recurring contribution was cancelled successfully by the processor, but "
-"could not be marked as cancelled in the database."
-msgstr "Регулярные взносы были успешно отменены обработчиком, но не могут быть отменены в базе."
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "Recurring contribution could not be cancelled in the database."
-msgstr "Регулярные взносы не могут быть отменены в базе данных."
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "The recurring contribution could not be cancelled."
-msgstr "Регулярный взнос не может быть отменен."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"An error occurred during form submission. This page requires form data to be"
-" submitted for processing and no form data was submitted or processed. We "
-"are sorry for any inconvience. Please click <a href='%1'>here</a> to visit "
-"the contribution page and re-start the contribution process."
-msgstr ""
-
-#: CRM/Contribute/Form/ContributionPage/Settings.php
-msgid "Use a confirmation page?"
-msgstr "Использовать страницу подтверждения?"
-
-#: CRM/Contribute/Form/Task/PDFLetterCommon.php
-msgid "Receipt date has been updated for %1 contributions."
-msgstr "Для %1 взносов обновлены даты квитанций."
-
-#: CRM/Contribute/Form/Task/PDFLetterCommon.php
-msgid "Thank-you date has been updated for %1 contributions."
-msgstr "Для %1 взносов обновлены даты благодарностей."
-
-#: CRM/Contribute/Form/Task/PDFLetter.php
-msgid "Record Update Options"
-msgstr "Опции обновления записи"
-
-#: CRM/Contribute/Form/Task/PDFLetter.php
-msgid "Update receipt dates for these contributions"
-msgstr "Обновить даты квитанций для этих взносов"
-
-#: CRM/Contribute/Form/Task/PDFLetter.php
-msgid "Update thank-you dates for these contributions"
-msgstr "Обновить даты благодарностей для этих взносов"
-
-#: CRM/Contribute/Form/Task/PDFLetter.php
-msgid "Recurring"
-msgstr "Регулярный"
-
-#: CRM/Contribute/Form/Task/PDFLetter.php
-msgid "Grouping contributions in one letter based on"
-msgstr "Группировка взносов в одно письмо, на основе"
-
-#: CRM/Contribute/Form/Task/PDFLetter.php
-msgid "Make Thank-you Letters"
-msgstr "Подготовить благодарственные письма"
-
-#: CRM/Contribute/Form/Task/PickProfile.php
-msgid "Batch Update Contributions via Profile"
-msgstr ""
-
-#: CRM/Contribute/Form/UpdateBilling.php
-msgid "%1 processor doesn't support updating subscription billing details."
-msgstr "%1 обработчик не поддерживает обновление платежных данных подписки."
-
-#: CRM/Contribute/Form/UpdateBilling.php
-msgid ""
-"Billing details for your automatically renewed %1 membership have been "
-"updated."
-msgstr "Платежные данные для автоматического продления %1 членства были обновлены."
-
-#: CRM/Contribute/Form/UpdateBilling.php
-msgid "Recurring Contribution Billing Details Updated"
-msgstr "Платежные данные регулярных взносов обновлены"
-
-#: CRM/Contribute/Form/UpdateBilling.php
-msgid "There was some problem updating the billing details."
-msgstr "Произошла проблема при обновлении платежных данных."
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "You cannot update the subscription."
-msgstr "Вы не можете обновить подписку."
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "You do not have permission to update subscription."
-msgstr "У вас нет доступа для обновления подписки."
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid ""
-"WARNING: Updates made using this form will change the recurring contribution"
-" information stored in your CiviCRM database, but will NOT be sent to the "
-"payment processor. You must enter the same changes using the payment "
-"processor web site."
-msgstr "ВНИМАНИЕ: Если сделать обновления с помощью этой формы, в базе CiviCRM изменится информация о повторяющихся взносах, но платёжный оператор извещён НЕ будет. Вам придётся повторно ввести эти же изменения через веб-сайт оператора."
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "Recurring Contribution Amount"
-msgstr "Сума регулярных взносов"
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "Number of Installments"
-msgstr "Количество платежей"
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "Could not update the Recurring contribution details"
-msgstr "Не могу обновить данные регулярных взносов"
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "Recurring Contribution Updated"
-msgstr "Регулярный взнос обновлен"
-
-#: CRM/Contribute/Page/Tab.php
-#: templates/CRM/Contribute/Page/ContributionRecur.tpl
-msgid "View Recurring Payment"
-msgstr "Смотреть регулярный платеж"
-
-#: CRM/Contribute/Page/Tab.php
-msgid "Edit Recurring Payment"
-msgstr "Изменить регулярный платеж"
-
-#: CRM/Contribute/Task.php
-msgid "Thank-you Letters for Contributions"
-msgstr "Благодарственные письма за взносы"
-
-#: templates/CRM/Contribute/Form/CancelSubscription.tpl
-#: templates/CRM/Contribute/Form/UpdateBilling.tpl
-msgid "Recurring Contribution Details: %1 every %2 %3"
-msgstr "Данные регулярного взноса: %1 каждые %2 %3"
-
-#: templates/CRM/Contribute/Form/CancelSubscription.tpl
-#: templates/CRM/Contribute/Form/UpdateBilling.tpl
-msgid "for %1 installments"
-msgstr "для %1 платежей"
-
-#: templates/CRM/Contribute/Form/CancelSubscription.tpl
-msgid ""
-"Click the button below to cancel this commitment and stop future "
-"transactions. This does not affect contributions which have already been "
-"completed."
-msgstr "Нажмите кнопку внизу чтобы отменить этот взнос и остановить будущие транзакции. Это не повлияет на взносы, которые уже были сделаны."
-
-#: templates/CRM/Contribute/Form/CancelSubscription.tpl
-msgid ""
-"Automatic cancellation is not supported for this payment processor. You or "
-"the contributor will need to manually cancel this recurring contribution "
-"using the payment processor website."
-msgstr "Автоматическая отмена не поддерживается для этого платёжного оператора. Вам нужно вручную отменить этот регулярный взнос через веб-сайт оператора."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Your initial membership fee will be processed once you complete the "
-"confirmation step. You will be able to cancel the auto-renwal option by "
-"visiting the web page link that will be included in your receipt."
-msgstr "Ваш начальный платеж за членство будет обработан, как только вы завершите этап подтверждения. Вы сможете отменить авто-продление, перейдя по ссылке, которая будет в вашем счете."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Your initial contribution will be processed once you complete the "
-"confirmation step. You will be able to cancel the recurring contribution by "
-"visiting the web page link that will be included in your receipt."
-msgstr "Как только вы пройдёте подтверддение, ваш первоначальный взнос будет обработан. Вы сможете отменить регулярный взнос, пройдя по ссылке, которая будет включена в Вашу квитанцию."
-
-#: templates/CRM/Contribute/Form/Contribution/Main.tpl
-msgid ""
-"This page requires Javascript. Please enable Javascript in your web browser "
-"preferences and refresh the page."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/Contribution/Main.tpl
-msgid "Payment Options"
-msgstr "Данные платежа"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-" Click <a  id = 'quickconfig' href='#'>here</a> if you want to configure the"
-" Fixed Contribution Options below as part of a Price Set, with the added "
-"flexibility and complexity that entails."
-msgstr " Щёлкните <a  id = 'quickconfig' href='#'>здесь</a>, если хотите настроить параметры фиксированного взноса как часть набора цен, со всей вытекающей дополнительной гибкостью и сложностью."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Custom.hlp
-msgid ""
-"Return to this screen (<strong>Administer CiviCRM &raquo; CiviContribute "
-"&raquo; Manage Contribution Pages &raquo; Configure &raquo; Include "
-"Profiles</strong>) and select your profile."
-msgstr "Вернитесь к этому экрану (<strong>Управление CiviCRM &raquo; CiviContribute &raquo; Управлять страницами взносов &raquo; Настроить &raquo; Добавить профили</strong>) выберите ваш профиль."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"If you disable this contributions will be processed immediately after "
-"submitting the contribution form."
-msgstr "Если вы выключите, эти взносы будут обработаны сразу после отправки формы взноса."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"When your page is active, create front-end links to the contribution page "
-"using the Menu Manager. Select <strong>Administer CiviCRM &raquo; "
-"CiviContribute &raquo; Manage Contribution Pages</strong> and select "
-"<strong>%1</strong> for the contribution page."
-msgstr "Когда активируете вашу страницу, создайте ссылки на неё с главной станицы с помощью менеджера меню. Выберите <strong>Управление CiviCRM &raquo; CiviContribute &raquo; Управление страницами взносов</strong>, а затем <strong>%1</strong> для страницы взносов."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"You will receive an email receipt which includes information about how to "
-"cancel the auto-renwal option."
-msgstr "Вы получите выписку по электронной почте, в которой будет содержаться информация о том, как отменить опцию авто-продления."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"You will receive an email receipt which includes information about how to "
-"update or cancel this recurring contribution."
-msgstr "Вы получите по e-mail квитанцию, в которой также будет информация, как изменить или отменить этот регулярный взнос."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"Your initial pledge payment has been processed. You will be able to modify "
-"or cancel future pledge payments at any time by contacting us at %1."
-msgstr "Ваш начальный обещанный платеж обработан. Вы сможете изменять или отменять будущие обещанные платежи в любое время, связавшись с нами через %1."
-
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "not available"
-msgstr "не доступно"
-
-#: templates/CRM/Contribute/Form/Search/Common.tpl
-msgid "Contribution Dates"
-msgstr "Даты взноса"
-
-#: templates/CRM/Contribute/Form/Task/PDFLetter.tpl
-msgid "Thank-you Letter for Contributions (PDF)"
-msgstr "Благодарственные письма плательщикам (PDF)"
-
-#: templates/CRM/Contribute/Form/UpdateBilling.tpl
-msgid ""
-"Use this form to update the credit card and billing name and address used "
-"for this recurring contribution."
-msgstr "Используйте эту форму для обновление кредитной карты и платежного имение и адреса для регулярных платежей."
-
-#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
-msgid ""
-"Use this form to change the amount or number of installments for this "
-"recurring contribution. Changes will be automatically sent to the payment "
-"processor. You can not change the contribution frequency."
-msgstr "Используйте эту форму, чтобы изменить сумму или число платежей для этого регулярного взноса. Изменения автоматически будут отправлены платёжному оператору. Вы не можете изменить частоту взносов."
-
-#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
-msgid ""
-"Total number of payments to be made. Set this to 0 if this is an open-ended "
-"commitment i.e. no set end date."
-msgstr "Общее количество платежей, которые нужно сделать. Установить в 0, если нет конечного платежа, то есть не установлена даты окончания."
-
-#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
-msgid "Number of time units for recurrence of payment."
-msgstr "Число единиц времени между платежами."
-
-#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
-msgid "Time unit for recurrence of payment. For example, \"month\"."
-msgstr "Период для регулярного платежа. Например, \"месяц\"."
-
-#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
-msgid "Day in the period when the payment should be charged."
-msgstr "День в периоде, когда платеж должен быть выполнен."
-
-#: templates/CRM/Contribute/Page/ContributionRecur.tpl
-msgid "Processor ID"
-msgstr "ИН обработчика"
-
-#: templates/CRM/Contribute/Page/ContributionRecur.tpl
-msgid "Next Contribution"
-msgstr "Следующий взнос"
-
-#: templates/CRM/Contribute/Page/ContributionRecur.tpl
-msgid "Auto Renew?"
-msgstr "Автопродление?"
-
-#: templates/CRM/Contribute/Page/Premium.tpl
-msgid ""
-"The premiums listed below are currently offered on this Contribution Page. "
-"If you have other premiums which are not already being offered on this page,"
-" you will see a link below to offer another premium. Use <a "
-"href='%1'>Contributions &raquo; Premiums</a> to create or enable additional "
-"premium choices which can be used on any Contribution page."
-msgstr "Нижеперечисленные премии предлагаются на странице взносов. Если у вас есть другие премии, которые пока на этой странице не предлагаются, вы увидите внизу ссылку для предложения премии. Создавайте дополнительные премии, которые могут быть использованы для любой страницы взносов, с помощью <a href='%1'>Взносы &raquo; Премии</a>."
 
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
 msgid ""
@@ -4929,6 +4132,25 @@ msgid ""
 " web page</a>."
 msgstr "Вы можете изменить размер регулярного взноса или изменить количество траншей, <a href=\"%1\">посетив эту страницу</a>."
 
+#: xml/templates/message_templates/contribution_online_receipt_html.tpl
+#: xml/templates/message_templates/contribution_online_receipt_text.tpl
+msgid "Display In Honor Roll"
+msgstr "Отображать в почетном списке"
+
+#: xml/templates/message_templates/contribution_online_receipt_html.tpl
+#: xml/templates/message_templates/contribution_online_receipt_text.tpl
+msgid "Registered Email"
+msgstr "Зарегистрированный e-mail"
+
+#: xml/templates/message_templates/contribution_online_receipt_html.tpl
+#: xml/templates/message_templates/contribution_online_receipt_text.tpl
+msgid "For information about this premium, contact:"
+msgstr "Для получения информации об этой награде, свяжитесь с:"
+
+#: xml/templates/message_templates/contribution_online_receipt_subject.tpl
+msgid "Invoice"
+msgstr "Счет"
+
 #: xml/templates/message_templates/contribution_online_receipt_text.tpl
 msgid ""
 "This is a recurring contribution. You can cancel future contributions at:"
@@ -4943,6 +4165,21 @@ msgid ""
 "You can update recurring contribution amount or change the number of "
 "installments for this recurring contribution at:"
 msgstr "Вы можете изменить размер регулярного взноса или изменить количество траншей здесь:"
+
+#: xml/templates/message_templates/contribution_online_receipt_text.tpl
+msgid "On Behalf Of"
+msgstr "От лица организации"
+
+#: xml/templates/message_templates/contribution_recurring_billing_html.tpl
+#: xml/templates/message_templates/contribution_recurring_billing_text.tpl
+#: xml/templates/message_templates/contribution_recurring_cancelled_html.tpl
+#: xml/templates/message_templates/contribution_recurring_cancelled_text.tpl
+#: xml/templates/message_templates/contribution_recurring_edit_html.tpl
+#: xml/templates/message_templates/contribution_recurring_edit_text.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid "Dear %1"
+msgstr "Уважаемый %1"
 
 #: xml/templates/message_templates/contribution_recurring_billing_html.tpl
 #: xml/templates/message_templates/contribution_recurring_billing_text.tpl
@@ -4995,6 +4232,11 @@ msgid "Your recurring contribution has been updated as requested:"
 msgstr "Ваш регулярный взнос был обновлен по запросу"
 
 #: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid "Thanks for your auto renew membership sign-up."
+msgstr "Благодарим за подачу заявки на автоматическое обновление членства."
+
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
 msgid "This membership will be automatically renewed every %1 %2(s). "
 msgstr "Это членство будет автоматически продлеваться каждые %1 %2()."
 
@@ -5013,6 +4255,18 @@ msgid ""
 msgstr "Вы можете обновить платежные данные для этого членства с автопродлением, на <a href=\"%1\">этой страничке</a>."
 
 #: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid "Thanks for your recurring contribution sign-up."
+msgstr "Благодирим вас регистрацию повторяющегося взноса."
+
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid ""
+"This recurring contribution will be automatically processed every %1 %2(s) "
+"for a total of %3 installment(s)."
+msgstr "Этот повторяющийся взнос будет автоматически обрабатываться каждые %1 %2(s) для %3 инсталляций."
+
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
 msgid ""
 " You can cancel the recurring contribution option by <a href=\"%1\">visiting"
 " this web page</a>."
@@ -5025,8 +4279,781 @@ msgid ""
 "href=\"%1\">visiting this web page</a>."
 msgstr "Вы можете изменить размер регулярного взноса или изменить количество траншей, <a href=\"%1\">посетив эту страницу</a>."
 
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid ""
+"Your auto renew membership sign-up has ended and your membership will not be"
+" automatically renewed."
+msgstr "Ваш период заявки на автоматическое обновление членства истек, и ваше членство не будет продлено автоматически."
+
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid "Your recurring contribution term has ended."
+msgstr "Срок Вашего повторяющегося взноса окончился."
+
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid ""
+"You have successfully completed %1 recurring contributions. Thank you for "
+"your support."
+msgstr "Вы успешно завершили %1 повторяющихся взносов. Благодарим вас за поддержку."
+
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid "Interval of Subscription for %1 installment(s)"
+msgstr "Интервал подписки для %1 инсталляций."
+
+#: xml/templates/message_templates/contribution_recurring_notify_subject.tpl
+msgid "Recurring Contribution Notification"
+msgstr "Уведомление о повторном взносе"
+
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid "This membership will be automatically renewed every %1 %2(s)."
+msgstr "Это членство будет автоматически обновляться каждые %1 %2(s)."
+
 #: xml/templates/message_templates/contribution_recurring_notify_text.tpl
 msgid ""
 "You can cancel the recurring contribution option by <a href=\"%1\">visiting "
 "this web page</a>."
 msgstr "Вы можете отменить регулярный взнос <a href=\"%1\">перейдя по ссылке</a>."
+
+#: xml/templates/message_templates/test_preview_html.tpl
+#: xml/templates/message_templates/test_preview_text.tpl
+msgid "Test-drive Email / Receipt"
+msgstr "Тестовый e-mail / квитанция"
+
+#: xml/templates/message_templates/test_preview_html.tpl
+#: xml/templates/message_templates/test_preview_text.tpl
+msgid ""
+"This is a test-drive email. No live financial transaction has occurred."
+msgstr "Это тестовое сообщение. Никаких реальных финансовых транзакций не произошло."
+
+#: CRM/Contribute/BAO/ContributionRecur.php
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "The recurring contribution of %1, every %2 %3 has been cancelled."
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Amount.php
+#: CRM/Contribute/Form/ContributionPage/Settings.php
+#: CRM/Contribute/Form/Contribution.php
+msgid ""
+"Financial Account of account relationship of 'Expense Account is' is not "
+"configured for Financial Type : "
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateBilling.php
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Update Error"
+msgstr ""
+
+#: CRM/Contribute/BAO/Contribution.php
+msgid "Cannot change contribution status from %1 to %2."
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid ""
+"The contribution type criteria is now obsolete, please update your smart "
+"group"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Contribution Thank-you Sent"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Contribution Thank-you Not Sent"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Contribution Receipt Sent"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Contribution Receipt Not Sent"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Only Display Test Contributions"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Exclude Pay Later Contributions"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Find Recurring Contributions"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Exclude Recurring Contributions"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "NOT Personal Campaign Page Honor Roll"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid ""
+"We did not recognize the search field: %1. Please check and fix your "
+"contribution related smart groups."
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Thank-you sent?"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Receipt sent?"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Contribution is Pay Later?"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Contribution is Recurring?"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Contribution is a Test?"
+msgstr ""
+
+#: CRM/Contribute/BAO/Widget.php
+msgid "Raised %1 of %2"
+msgstr "Собрано %1 из %2"
+
+#: CRM/Contribute/DAO/ContributionPage.php
+msgid "Min Initial Amount"
+msgstr ""
+
+#: CRM/Contribute/DAO/Premium.php
+msgid "No Thank-you Text"
+msgstr ""
+
+#: CRM/Contribute/DAO/Premium.php
+msgid "No Thank-you Position"
+msgstr ""
+
+#: CRM/Contribute/Form/AbstractEditPayment.php
+msgid "Membership for %1 has been Cancelled."
+msgstr ""
+
+#: CRM/Contribute/Form/AbstractEditPayment.php
+msgid "Membership for %1 has been Expired."
+msgstr ""
+
+#: CRM/Contribute/Form/AbstractEditPayment.php
+msgid "Membership for %1 has been updated. The membership End Date is %2."
+msgstr ""
+
+#: CRM/Contribute/Form/AbstractEditPayment.php
+msgid "Event Registration for %1 has been Cancelled."
+msgstr ""
+
+#: CRM/Contribute/Form/AbstractEditPayment.php
+msgid "Event Registration for %1 has been updated."
+msgstr ""
+
+#: CRM/Contribute/Form/AbstractEditPayment.php
+msgid "Pledge Payment for %1 has been Cancelled."
+msgstr ""
+
+#: CRM/Contribute/Form/AbstractEditPayment.php
+msgid "Pledge Payment for %1 has been Failed."
+msgstr ""
+
+#: CRM/Contribute/Form/AbstractEditPayment.php
+msgid "Pledge Payment for %1 has been updated."
+msgstr ""
+
+#: CRM/Contribute/Form/AdditionalInfo.php
+msgid "receipt"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionBase.php
+msgid "Membership Invalid"
+msgstr ""
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Contribute"
+msgstr ""
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Additional Contribution is required."
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Amount.php
+msgid "Offer installments"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Custom.php
+msgid ""
+"You should move the membership related fields in the \"On Behalf\" profile "
+"for this Contribution Page"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Premium.php
+msgid "No Thank-you Label"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Premium.php
+msgid "Before Premiums"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Premium.php
+msgid "After Premiums"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Premium.php
+msgid "No Thank-you Option"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Settings.php
+msgid "End date should be after Start date."
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Settings.php
+msgid ""
+"You should move the membership related fields configured in %1 to the 'On "
+"Behalf' profile for this Contribution Page"
+msgstr ""
+
+#: CRM/Contribute/Form/Contribution.php
+msgid "Contribution from"
+msgstr ""
+
+#: CRM/Contribute/Form/Contribution.php
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+msgid "Cancelled / Refunded Date"
+msgstr ""
+
+#: CRM/Contribute/Form/Contribution.php
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+msgid "Cancellation / Refund Reason"
+msgstr ""
+
+#: CRM/Contribute/Form/Contribution.php
+msgid "The sum of fee amount and net amount must be equal to total amount"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionView.php
+msgid "View Contribution from"
+msgstr ""
+
+#: CRM/Contribute/Form/ManagePremiums.php
+msgid "Image URL is Required"
+msgstr ""
+
+#: CRM/Contribute/Form/ManagePremiums.php
+msgid "Thumbnail URL is Required"
+msgstr ""
+
+#: CRM/Contribute/Form/ManagePremiums.php
+msgid "Financial Type is required for product having cost."
+msgstr ""
+
+#: CRM/Contribute/Form/ManagePremiums.php
+msgid ""
+"No thumbnail of your image was created because the GD image library is not "
+"currently compiled in your PHP installation. Product is currently configured"
+" to use default thumbnail image. If you have a local thumbnail image you can"
+" upload it separately and input the thumbnail URL by editing this premium."
+msgstr ""
+
+#: CRM/Contribute/Form/Task/PDF.php
+msgid "Email Error"
+msgstr ""
+
+#: CRM/Contribute/Form/Task/PickProfile.php
+msgid ""
+"The maximum number of contributions you can select for Batch Update is %1. "
+"You have selected %2. Please select fewer contributions from your search "
+"results and try again."
+msgstr ""
+
+#: CRM/Contribute/Form/Task/Status.php
+msgid "Status Updated"
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateBilling.php
+msgid "Details Updated"
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateBilling.php
+msgid ""
+"Billing details for the recurring contribution of %1, every %2 %3 have been "
+"updated."
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid ""
+"Updates made using this form will change the recurring contribution "
+"information stored in your CiviCRM database, but will NOT be sent to the "
+"payment processor. You must enter the same changes using the payment "
+"processor web site."
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid ""
+"Recurring contribution has been updated to: %1, every %2 %3(s) for %4 "
+"installments."
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Update Success"
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid ""
+"Recurring contribution amount has been updated from %1 to %2 for this "
+"subscription."
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid ""
+"Recurring contribution installments have been updated from %1 to %2 for this"
+" subscription."
+msgstr ""
+
+#: CRM/Contribute/Page/ContributionPage.php
+msgid "Successfully Copied"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution/Main.tpl
+msgid ""
+"You have a current Lifetime Membership which does not need to be renewed."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/AddProduct.hlp
+msgid ""
+"Select a Financial Type that has both a 'Cost of Sales Premiums Account' and"
+" a 'Premiums Inventory Account' if you want to generate accounting "
+"transactions to track the cost of premiums used."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/AddProduct.tpl
+#: templates/CRM/Contribute/Form/ManagePremiums.tpl
+msgid ""
+"There are no financial types configured with linked 'Cost of Sales Premiums'"
+" and 'Premiums Inventory Account' accounts. If you want to generate "
+"accounting transactions which track the cost of premiums used <a "
+"href='%1'>click here</a> to configure financial types and accounts."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
+msgid ""
+"Give the user a choice of installments (e.g. donate every month for 6 "
+"months)? If not, recurring donations will continue indefinitely."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
+msgid ""
+" Click <a id='quickconfig' href='#'>here</a> if you want to configure the "
+"Fixed Contribution Options below as part of a Price Set, with the added "
+"flexibility and complexity that entails."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Custom.hlp
+msgid "Contributer Profiles"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/PCP.hlp
+msgid "Notification Email"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/PCP.hlp
+msgid ""
+"This is used to collect or update basic information (e.g. name and email "
+"address) from users while they are creating a Personal Campaign Page. The "
+"profile you select must be configured with 'Account creation required' "
+"(under Profile Settings &raquo; Advanced Settings). You must include an "
+"Email address field - and you may include any number of other fields in the "
+"profile. If you don't yet have an appropriate Profile configured, you will "
+"need to <a href='%1'>create one first</a>, and then return to this form to "
+"select it."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
+msgid "You can change the text for the 'No thank-you' radio button."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
+msgid ""
+"Place the 'No thank-you' radio button before OR after the list of premiums "
+"offered on this page."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid ""
+"Select the corresponding financial type for contributions made using this "
+"page (e.g. donation, capital campaign, etc.). Financial types (and "
+"associated accounting codes) are included when contributions are exported, "
+"so it can helpful to set up specific types for accounting purposes. You can "
+"add or modify contribution available types from Administer &gt; "
+"CiviContribute &gt; Financial Types."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid ""
+"NOTE: If you are using this contribution page for membership signup and "
+"renewals, the financial type configured in the membership type settings will"
+" be used when recording the membership payment. The financial type selected "
+"here will only be used if you are also collecting additional contributions "
+"(as configured on the Membership Settings page)."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid "Intro Content"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid "Footer Content"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid "Date Range"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid ""
+"You can optionally set an \"active date range\" for this contribution page. "
+"These dates are currently used by the \"Contribution Widget\" and \"Personal"
+" Campaign Pages\". The widget will give a \"Campaign is over\" message if it"
+" is accessed outside of the specified range. The \"Donate\" button will be "
+"hidden on Personal Campaign Pages if accessed outside of the specified "
+"range."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid "Honoree"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid ""
+"When enabled, this feature allows users to identify an organization as the "
+"donor or member. Logged in users will be given a choice of selecting from a "
+"list of organizations that they have a permissioned relationship with OR "
+"entering a new organization. Anonymous users are prompted to enter the "
+"organization name. If a matching organization is found using your site's "
+"configured unsupervised duplicate matching rules for Organizations, the "
+"contribution or membership will be linked to that organization. Otherwise a "
+"new organization contact record is created."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid ""
+"The organization data collected from users is controlled by the Organization"
+" Profile selected below. You can use the default \"On Behalf Of "
+"Organization\" profile, or any other profile with type 'Contact' and/or "
+"'Organization' (<a href=\"%1\">Administer > Customize Data and Screens > "
+"Profiles</a>). The profile must include Organization Name and Email Address."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid ""
+"When enabled, links allowing people to share this online contribution page "
+"with their social network will be displayed (e.g. Facebook \"Like\", "
+"Google+, and Twitter)."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid ""
+"Social media links will be included on the Contribution Thank-you page, "
+"Tell-a-Friend page (if enabled), and in contribution receipt emails."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
+msgid ""
+"In this step, you will configure the page title, financial type (donation, "
+"campaign contribution, etc.), goal amount, and introductory message. You "
+"will be able to go back and modify all aspects of this page at any time "
+"after completing the setup wizard."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
+#: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
+msgid ""
+"Use this form to edit the page title, financial type (e.g. donation, "
+"campaign contribution, etc.), goal amount, introduction, and status "
+"(active/inactive) for this online contribution page."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
+msgid ""
+"Select the corresponding financial type for contributions made using this "
+"page."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
+msgid ""
+"To change the organization data collected use the \"On Behalf Of "
+"Organization\" profile (<a href=\"%1\">Administer > Customize Data and "
+"Screens > Profiles</a>)."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
+msgid "Contribution Page Configuration"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution/PremiumBlock.tpl
+msgid "You must contribute at least %1 to get this item"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution/PremiumBlock.tpl
+msgid "Contribute %1 Instead"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution/PremiumBlock.tpl
+msgid "Minimum: %1"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution/PremiumBlock.tpl
+msgid "You must contribute more to get that item"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
+msgid ""
+"Use this form to submit a new contribution. <strong>A %2 transaction will be"
+" submitted</strong> using the selected payment processor."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
+msgid "submit credit card contribution"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
+msgid "Cancellation or Refund Information"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
+msgid ""
+"Enter the cancellation or refunded date, or you can skip this field and the "
+"cancellation date or refunded date will be automatically set to TODAY."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
+msgid "credit this contribution to a personal campaign page"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
+msgid "Payment Details"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
+msgid "Automatically email a receipt for this payment to %1?"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
+msgid "Automatically email a receipt for this payment to "
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
+msgid "Manual contribution amount"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+msgid "Received Into"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ManagePremiums.tpl
+msgid ""
+"You can give this premium a picture that will be displayed on the "
+"contribution page. Both a 50 x 50 pixel thumbnail image and a 200 x 200 "
+"pixel larger image will be displayed. Images must be in GIF, JPEG, or PNG "
+"format."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ManagePremiums.tpl
+msgid ""
+"Select a financial type that is linked to both a 'Cost of Sales Premiums "
+"Account' and a 'Premiums Inventory Account' if you want to generate "
+"accounting transactions to track the cost of premiums used."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/PaymentInstrument.tpl
+msgid ""
+"WARNING: Deleting this option will result in the loss of all contribution "
+"records which use this option."
+msgstr ""
+
+#: templates/CRM/Contribute/Page/ContributionType.tpl
+msgid ""
+"Financial types are used to categorize contributions for reporting and "
+"accounting purposes. These are also referred to as <strong>Funds</strong>. "
+"You may set up as many types as needed. Each type can carry an accounting "
+"code which can be used to map contributions to codes in your accounting "
+"system. Commonly used financial types are: Donation, Campaign Contribution, "
+"Membership Dues..."
+msgstr ""
+
+#: templates/CRM/Contribute/Page/DashBoard.hlp
+msgid "Contribution Dashboard"
+msgstr ""
+
+#: templates/CRM/Contribute/Page/Tab.hlp
+msgid "Select the appropriate financial type for this transaction."
+msgstr ""
+
+#: templates/CRM/Contribute/Page/Tab.hlp
+msgid ""
+"Use to indicate that a contact has a relationship with the actual donor and "
+"/ or was indirectly responsible for the contribution. For example, if one "
+"family member makes a large contribution - it is often useful to record a "
+"Soft Credit for the other family member(s). You can record a soft credit "
+"while adding or editing a contribution record from this tab."
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Cancel Date"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution End Date"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Recurring Contribution Start Date"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Next Scheduled Recurring Contribution"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Failed Recurring Contribution Retry Date"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution ID"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Interval (number of units)"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Started Date"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Created Date"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Modified Date"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Number of Cycle Day"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Next Scheduled Contribution Date"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Number of Failures"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Retry Failed Attempt Date"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Send email Receipt?"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Amount.php
+msgid "Contribution Amounts Label"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Amount.php
+msgid "Please enter the contribution amount label."
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Premium.php
+msgid "No Thank-you Label is a required field."
+msgstr ""
+
+#: CRM/Contribute/Form/SoftCredit.php
+msgid "You cannot enter multiple soft credits for the same contact."
+msgstr ""
+
+#: CRM/Contribute/Form/SoftCredit.php
+msgid "Soft credit amount cannot be more than the total amount."
+msgstr ""
+
+#: CRM/Contribute/Form/SoftCredit.php
+msgid "Please enter the soft credit amount."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/AdditionalInfo/Honoree.tpl
+#: templates/CRM/Contribute/Form/Contribution/Main.tpl
+msgid "Select an option to reveal honoree information fields."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
+msgid ""
+"Edit\n"
+"    <strong>Premiums Settings</strong>\n"
+"    to customize the title and introductory message (e.g ...in appreciation of your support, you will be able to select\n"
+"    from a number of exciting thank-you gifts...). You can optionally provide a contact email address and/or\n"
+"    phone number for inquiries."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
+msgid ""
+"Enter content for the introductory message. This will be displayed below the Premiums section title.\n"
+"                You may include HTML formatting tags. You can also include images, as long as they are already\n"
+"                uploaded to a server - reference them using complete URLs."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
+msgid ""
+"This email address is included in automated contribution receipts if the contributor has selected\n"
+"                a premium. It should be an appropriate contact mailbox for inquiries about premium\n"
+"                fulfillment/shipping."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
+msgid ""
+"This phone number is included in automated contribution receipts if the contributor has selected\n"
+"                a premium. It should be an appropriate phone number for inquiries about premium\n"
+"                fulfillment/shipping."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
+msgid "unlink from personal campaign page"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
+msgid ""
+"Search for the Personal Campaign Page by the fund-raiser's last name or\n"
+"                 email address."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
+msgid ""
+"Name or nickname contributor wants to be displayed in the Honor\n"
+"                      Roll. Enter \"Anonymous\" for anonymous contributions."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Search/ContributionRecur.tpl
+msgid "Next Scheduled"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Search/ContributionRecur.tpl
+msgid "Retry Date"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/SoftCredit.tpl
+msgid "add another soft credit"
+msgstr ""
+
+#: xml/templates/message_templates/contribution_dupalert_html.tpl
+#: xml/templates/message_templates/contribution_dupalert_text.tpl
+msgid ""
+"If you think this may be a duplicate contact which should be merged with an existing record -\n"
+"Go to \"Contacts >> Find and Merge Duplicate Contacts\". Use the strict\n"
+"rule for Organizations to find the potential duplicates and merge them if appropriate."
+msgstr ""
