@@ -10,15 +10,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
 "Report-Msgid-Bugs-To: http://issues.civicrm.org/\n"
-"POT-Creation-Date: 2013-05-31 09:03-0400\n"
-"PO-Revision-Date: 2013-09-10 14:30+0000\n"
-"Last-Translator: Thomas Nilsson <thomas.nilsson@responsive.se>\n"
+"POT-Creation-Date: 2013-10-08 08:14-0400\n"
+"PO-Revision-Date: 2013-10-08 12:39+0000\n"
+"Last-Translator: Mathieu Lutfy <mathieu@bidon.ca>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/civicrm/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: CRM/Contribute/BAO/ContributionRecur.php
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Recurring contribution cancelled"
+msgstr ""
 
 #: CRM/Contribute/DAO/ContributionPage.php
 #: CRM/Contribute/Form/ContributionPage/ThankYou.php
@@ -75,6 +80,11 @@ msgstr "Tack-meddelande skickat"
 #: CRM/Contribute/Form/ContributionPage/Amount.php
 msgid "Send up to"
 msgstr "Sänd upp till"
+
+#: CRM/Contribute/Form/CancelSubscription.php
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Notify Contributor?"
+msgstr "Meddela inbetalaren?"
 
 #: CRM/Contribute/Form/ContributionPage/Amount.php
 #: CRM/Contribute/Form/ContributionPage.php
@@ -146,6 +156,10 @@ msgstr "- inbetalningsfält - "
 #: CRM/Contribute/BAO/Contribution.php
 msgid "Recurring Contributions ID"
 msgstr "ID för återkommande inbetalning"
+
+#: CRM/Contribute/BAO/ContributionRecur.php
+msgid "Automatic renewal of %1 membership cancelled."
+msgstr ""
 
 #: CRM/Contribute/BAO/ContributionType.php
 msgid ""
@@ -242,8 +256,8 @@ msgid "Currency Type - %1"
 msgstr "Valutatyp - %1"
 
 #: CRM/Contribute/BAO/Query.php
-msgid "Contribution Dates - From"
-msgstr "Inbetalningsdatum - från"
+msgid "Batch Name %1 %2"
+msgstr ""
 
 #: CRM/Contribute/BAO/Query.php
 msgid "Currency Type"
@@ -382,6 +396,7 @@ msgid "Recurring Contribution Status"
 msgstr ""
 
 #: CRM/Contribute/DAO/ContributionRecur.php
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
 msgid "Cycle Day"
 msgstr ""
 
@@ -390,10 +405,12 @@ msgid "Next Sched Contribution"
 msgstr "Nästa schemalagda inbetalning"
 
 #: CRM/Contribute/DAO/ContributionRecur.php
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
 msgid "Failure Count"
 msgstr "Felräkning"
 
 #: CRM/Contribute/DAO/ContributionRecur.php
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
 msgid "Failure Retry Date"
 msgstr "Fel försök igen datum"
 
@@ -535,17 +552,25 @@ msgid "Please enter a valid additional reminder day."
 msgstr "Ange ytterligare en giltigt påminnelsedag."
 
 #: CRM/Contribute/Form/CancelSubscription.php
-msgid "You do not have permission to cancel subscription."
-msgstr ""
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "The auto renew membership looks to have been cancelled already."
-msgstr ""
-
-#: CRM/Contribute/Form/CancelSubscription.php
 msgid ""
-"Could not detect payment processor OR the processor does not support "
-"cancellation of auto renew."
+"The auto renewal option for this membership looks to have been cancelled "
+"already."
+msgstr ""
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "The recurring contribution looks to have been cancelled already."
+msgstr ""
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "You do not have permission to cancel this recurring contribution."
+msgstr ""
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Send cancellation request to %1 ?"
+msgstr ""
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Cancel Automatic Membership Renewal"
 msgstr ""
 
 #: CRM/Contribute/Form/CancelSubscription.php
@@ -553,20 +578,36 @@ msgid "Not Now"
 msgstr ""
 
 #: CRM/Contribute/Form/CancelSubscription.php
-msgid ""
-"The auto-renewal option for your membership has been successfully cancelled."
-" Your membership has not been cancelled. However you will need to arrange "
-"payment for renewal when your membership expires."
+msgid "Auto-renewal membership cancelled"
 msgstr ""
 
 #: CRM/Contribute/Form/CancelSubscription.php
-msgid "Auto renew could not be cancelled."
+msgid ""
+"The automatic renewal of your %1 membership has been cancelled as requested."
+" This does not affect the status of your membership - you will receive a "
+"separate notification when your membership is up for renewal."
+msgstr ""
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid ""
+"Recurring contribution was cancelled successfully by the processor, but "
+"could not be marked as cancelled in the database."
+msgstr ""
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Recurring contribution could not be cancelled in the database."
+msgstr ""
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "The recurring contribution could not be cancelled."
 msgstr ""
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid ""
-"This contribution has already been submitted. Click <a href='%1'>here</a> if"
-" you want to make another contribution."
+"An error occurred during form submission. This page requires form data to be"
+" submitted for processing and no form data was submitted or processed. We "
+"are sorry for any inconvience. Please click <a href='%1'>here</a> to visit "
+"the contribution page and re-start the contribution process."
 msgstr ""
 
 #: CRM/Contribute/Form/ContributionBase.php
@@ -670,12 +711,24 @@ msgid "Number of installments must be a whole number."
 msgstr ""
 
 #: CRM/Contribute/Form/Contribution/Main.php
+msgid "Contribution amount must be at least %1"
+msgstr "Beloppet måste vara minst %1"
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Contribution amount cannot be more than %1."
+msgstr "Bbeloppet kan inte vara större än %1."
+
+#: CRM/Contribute/Form/Contribution/Main.php
 msgid "Select at least one option from Membership Type(s)."
 msgstr ""
 
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid "Select at least one option from Contribution(s)."
 msgstr "Välj minst ett alternativ från inbetalningarna."
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Amount is required field."
+msgstr "Belopp är ett obligatoriskt fält"
 
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid ""
@@ -693,6 +746,10 @@ msgstr ""
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid "Please select at least one membership option."
 msgstr ""
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "The Membership you have selected requires a minimum contribution of %1"
+msgstr "Medlemskapet du har valt kräver en minsta inbetalning på %1"
 
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid ""
@@ -738,22 +795,6 @@ msgstr "Ange organisationens namn."
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid "Organization email is required."
 msgstr "Organisationens e-post krävs."
-
-#: CRM/Contribute/Form/Contribution/Main.php
-msgid "The Membership you have selected requires a minimum contribution of %1"
-msgstr "Medlemskapet du har valt kräver en minsta inbetalning på %1"
-
-#: CRM/Contribute/Form/Contribution/Main.php
-msgid "Amount is required field."
-msgstr "Belopp är ett obligatoriskt fält"
-
-#: CRM/Contribute/Form/Contribution/Main.php
-msgid "Contribution amount must be at least %1"
-msgstr "Beloppet måste vara minst %1"
-
-#: CRM/Contribute/Form/Contribution/Main.php
-msgid "Contribution amount cannot be more than %1."
-msgstr "Bbeloppet kan inte vara större än %1."
 
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid ""
@@ -1040,6 +1081,10 @@ msgid "On behalf of Label"
 msgstr ""
 
 #: CRM/Contribute/Form/ContributionPage/Settings.php
+msgid "Use a confirmation page?"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Settings.php
 msgid "Is this Online Contribution Page Active?"
 msgstr ""
 
@@ -1151,10 +1196,6 @@ msgstr ""
 #: CRM/Contribute/Form/ContributionPage/Widget.php
 msgid "Enable Widget?"
 msgstr ""
-
-#: CRM/Contribute/Form/ContributionPage/Widget.php
-msgid "Save and Preview"
-msgstr "Spara och Förhandsgranska"
 
 #: CRM/Contribute/Form/ContributionPage/Widget.php
 msgid "Title is a required field."
@@ -1434,6 +1475,38 @@ msgstr "Borttagna inbetalning(ar): %1"
 msgid "Total Selected Contribution(s): %1"
 msgstr "Totalt valda inbetalning(ar): %1"
 
+#: CRM/Contribute/Form/Task/PDFLetterCommon.php
+msgid "Receipt date has been updated for %1 contributions."
+msgstr ""
+
+#: CRM/Contribute/Form/Task/PDFLetterCommon.php
+msgid "Thank-you date has been updated for %1 contributions."
+msgstr ""
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "Record Update Options"
+msgstr ""
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "Update receipt dates for these contributions"
+msgstr ""
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "Update thank-you dates for these contributions"
+msgstr ""
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "Recurring"
+msgstr ""
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "Grouping contributions in one letter based on"
+msgstr ""
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "Make Thank-you Letters"
+msgstr ""
+
 #: CRM/Contribute/Form/Task/PDF.php
 msgid "Print Contribution Receipts"
 msgstr "Skriv ut kvitton på inbetalningar"
@@ -1465,7 +1538,7 @@ msgid "Your mail has been sent."
 msgstr "Din e-post har skickats."
 
 #: CRM/Contribute/Form/Task/PickProfile.php
-msgid "Batch Profile Update for Contribution"
+msgid "Batch Update Contributions via Profile"
 msgstr ""
 
 #: CRM/Contribute/Form/Task/Status.php
@@ -1488,6 +1561,60 @@ msgstr ""
 
 #: CRM/Contribute/Form/Task/Status.php
 msgid "Contribution status has been updated for selected record(s)."
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateBilling.php
+msgid "You do not have permission to cancel subscription."
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateBilling.php
+msgid "%1 processor doesn't support updating subscription billing details."
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateBilling.php
+msgid ""
+"Billing details for your automatically renewed %1 membership have been "
+"updated."
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateBilling.php
+msgid "Recurring Contribution Billing Details Updated"
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateBilling.php
+msgid "There was some problem updating the billing details."
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "You cannot update the subscription."
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "You do not have permission to update subscription."
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid ""
+"WARNING: Updates made using this form will change the recurring contribution"
+" information stored in your CiviCRM database, but will NOT be sent to the "
+"payment processor. You must enter the same changes using the payment "
+"processor web site."
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Recurring Contribution Amount"
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Number of Installments"
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Could not update the Recurring contribution details"
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Recurring Contribution Updated"
 msgstr ""
 
 #: CRM/Contribute/Import/Form/MapField.php
@@ -1647,6 +1774,27 @@ msgstr ""
 msgid "Are you sure you want to remove this product form this page?"
 msgstr ""
 
+#: CRM/Contribute/Page/Tab.php
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "View Recurring Payment"
+msgstr ""
+
+#: CRM/Contribute/Page/Tab.php
+msgid "Edit Recurring Payment"
+msgstr ""
+
+#: CRM/Contribute/Selector/Search.php
+#: templates/CRM/Contribute/Form/Contribution.tpl
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+msgid "Pay Later"
+msgstr ""
+
+#: CRM/Contribute/Selector/Search.php
+#: templates/CRM/Contribute/Form/Contribution.tpl
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+msgid "Incomplete Transaction"
+msgstr ""
+
 #: CRM/Contribute/Task.php
 msgid "Export Contributions"
 msgstr "Exportera inbetalningar"
@@ -1661,6 +1809,10 @@ msgstr ""
 
 #: CRM/Contribute/Task.php
 msgid "Print or Email Contribution Receipts"
+msgstr ""
+
+#: CRM/Contribute/Task.php
+msgid "Thank-you Letters for Contributions"
 msgstr ""
 
 #: templates/CRM/Contribute/Form/AcceptCreditCard.tpl
@@ -1732,6 +1884,30 @@ msgstr ""
 msgid "Days after the last one sent, up to the maximum number of reminders."
 msgstr ""
 
+#: templates/CRM/Contribute/Form/CancelSubscription.tpl
+#: templates/CRM/Contribute/Form/UpdateBilling.tpl
+msgid "Recurring Contribution Details: %1 every %2 %3"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/CancelSubscription.tpl
+#: templates/CRM/Contribute/Form/UpdateBilling.tpl
+msgid "for %1 installments"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/CancelSubscription.tpl
+msgid ""
+"Click the button below to cancel this commitment and stop future "
+"transactions. This does not affect contributions which have already been "
+"completed."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/CancelSubscription.tpl
+msgid ""
+"Automatic cancellation is not supported for this payment processor. You or "
+"the contributor will need to manually cancel this recurring contribution "
+"using the payment processor website."
+msgstr ""
+
 #: templates/CRM/Contribute/Form/ContributionCharts.tpl
 msgid "There were no contributions during the selected year."
 msgstr ""
@@ -1775,8 +1951,8 @@ msgstr "Jag vill att detta medlemskap måste förnyas automatiskt varje %1 %2 (s
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 msgid ""
 "Your initial membership fee will be processed once you complete the "
-"confirmation step. You will be able to modify or cancel the auto-renwal "
-"option by visiting the web page link that will be included in your receipt."
+"confirmation step. You will be able to cancel the auto-renwal option by "
+"visiting the web page link that will be included in your receipt."
 msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
@@ -1790,8 +1966,8 @@ msgstr ""
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 msgid ""
 "Your initial contribution will be processed once you complete the "
-"confirmation step. You will be able to modify or cancel future contributions"
-" at any time by logging in to your account."
+"confirmation step. You will be able to cancel the recurring contribution by "
+"visiting the web page link that will be included in your receipt."
 msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
@@ -1848,6 +2024,12 @@ msgstr ""
 msgid ""
 "Your contribution will not be completed until you click the "
 "<strong>%1</strong> button. Please click the button one time only."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution/Main.tpl
+msgid ""
+"This page requires Javascript. Please enable Javascript in your web browser "
+"preferences and refresh the page."
 msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/Main.tpl
@@ -2004,16 +2186,16 @@ msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid ""
-"Uncheck this box if you are using this contribution page for membership "
-"signup and renewal only - and you do NOT want users to select or enter any "
-"additional contribution amounts."
+"Instructions added to Confirmation and Thank-you pages, as well as the "
+"confirmation email, when the user selects the 'pay later' option (e.g. 'Mail"
+" your check to ... within 3 business days.')."
 msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid ""
-"Instructions added to Confirmation and Thank-you pages, as well as the "
-"confirmation email, when the user selects the 'pay later' option (e.g. 'Mail"
-" your check to ... within 3 business days.')."
+"Uncheck this box if you are using this contribution page for membership "
+"signup and renewal only - and you do NOT want users to select or enter any "
+"additional contribution amounts."
 msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
@@ -2030,6 +2212,21 @@ msgid ""
 "Price sets allow you to configure more complex contribution options (e.g. "
 "\"Contribute $25 more to receive our monthly magazine.\"). Click <a "
 "href='%1'>here</a> if you want to configure price sets for your site."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
+msgid ""
+"Check this box if you want to give users the option to make recurring "
+"contributions. This feature requires that you use a payment processor which "
+"supports recurring billing / subscriptions functionality."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
+msgid "Select recurring units supported for recurring payments."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
+msgid "Can users also set an interval (e.g. every '3' months)?"
 msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
@@ -2062,21 +2259,6 @@ msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid ""
-"Check this box if you want to give users the option to make recurring "
-"contributions. This feature requires that you use a payment processor which "
-"supports recurring billing / subscriptions functionality."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid "Select recurring units supported for recurring payments."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid "Can users also set an interval (e.g. every '3' months)?"
-msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
 "Check this box if you want to give users the option to enter their own "
 "contribution amount. Your page will then include a text field labeled "
 "<strong>Other Amount</strong>."
@@ -2098,6 +2280,13 @@ msgid ""
 "Use the table below to enter up to ten fixed contribution amounts. These "
 "will be presented as a list of radio button options. Both the label and "
 "dollar amount will be displayed."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
+msgid ""
+" Click <a  id = 'quickconfig' href='#'>here</a> if you want to configure the"
+" Fixed Contribution Options below as part of a Price Set, with the added "
+"flexibility and complexity that entails."
 msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
@@ -2136,9 +2325,9 @@ msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.hlp
 msgid ""
-"Return to this screen (<strong>Administer CiviCRM &raquo; Manage "
-"Contribution Page &raquo; Configure &raquo; Custom Elements</strong>) and "
-"select your profile."
+"Return to this screen (<strong>Administer CiviCRM &raquo; CiviContribute "
+"&raquo; Manage Contribution Pages &raquo; Configure &raquo; Include "
+"Profiles</strong>) and select your profile."
 msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.tpl
@@ -2400,6 +2589,12 @@ msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
+"If you disable this contributions will be processed immediately after "
+"submitting the contribution form."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
+msgid ""
 "When enabled, links will appear allowing people to share this event through "
 "social media."
 msgstr ""
@@ -2413,8 +2608,9 @@ msgstr ""
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
 "When your page is active, create front-end links to the contribution page "
-"using the Menu Manager. Select <strong>CiviCRM &raquo; Contribution "
-"Pages</strong> and select <strong>%1</strong> for the contribution page."
+"using the Menu Manager. Select <strong>Administer CiviCRM &raquo; "
+"CiviContribute &raquo; Manage Contribution Pages</strong> and select "
+"<strong>%1</strong> for the contribution page."
 msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
@@ -2763,8 +2959,8 @@ msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
-"You will be able to cancel automatic renewals at any time by logging in to "
-"your account or contacting us."
+"You will receive an email receipt which includes information about how to "
+"cancel the auto-renwal option."
 msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
@@ -2780,22 +2976,8 @@ msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
-"You can modify or cancel future contributions at any time by <a "
-"href='%1'>logging in to your account</a>."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid "To modify or cancel future contributions please contact us at %1."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid "You will receive an email receipt for each recurring contribution."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"The receipts will also include a link you can use if you decide to modify or"
-" cancel your future contributions."
+"You will receive an email receipt which includes information about how to "
+"update or cancel this recurring contribution."
 msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
@@ -2808,9 +2990,8 @@ msgstr "Vi kommer att registrera din första inbetalning enligt din betalningsut
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
 "Your initial pledge payment has been processed. You will be able to modify "
-"or cancel future pledge payments at any time by logging in to your account "
-"or contacting us at %1."
-msgstr "Din första inbetalning enligt din betalningsutfästelse har behandlats. Du kommer att kunna ändra eller avboka framtida inbetalningar när som helst genom att logga in på ditt konto eller kontakta oss på %1."
+"or cancel future pledge payments at any time by contacting us at %1."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
@@ -2891,16 +3072,6 @@ msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
 msgid "Leave blank for non-monetary contributions."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "Pay Later"
-msgstr ""
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "Incomplete Transaction"
 msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
@@ -2987,7 +3158,7 @@ msgid "Interval"
 msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "pending"
+msgid "not available"
 msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionView.tpl
@@ -3180,6 +3351,10 @@ msgid ""
 " be listed.)"
 msgstr ""
 
+#: templates/CRM/Contribute/Form/Search/Common.tpl
+msgid "Contribution Dates"
+msgstr ""
+
 #: templates/CRM/Contribute/Form/SearchContribution.tpl
 msgid "Find Contribution Pages"
 msgstr ""
@@ -3224,6 +3399,10 @@ msgid ""
 "associated with these contributions."
 msgstr ""
 
+#: templates/CRM/Contribute/Form/Task/PDFLetter.tpl
+msgid "Thank-you Letter for Contributions (PDF)"
+msgstr ""
+
 #: templates/CRM/Contribute/Form/Task/PDF.tpl
 msgid ""
 "You may choose to email receipts to contributors OR download a PDF file "
@@ -3231,10 +3410,6 @@ msgid ""
 "<strong>Process Receipt(s)</strong>. Your browser may display the file for "
 "you automatically, or you may need to open it for printing using any PDF "
 "reader (such as Adobe&reg; Reader)."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/Task/PickProfile.tpl
-msgid "Batch Update Contribution via Profile"
 msgstr ""
 
 #: templates/CRM/Contribute/Form/Task/Status.tpl
@@ -3255,6 +3430,37 @@ msgstr ""
 
 #: templates/CRM/Contribute/Form/Task.tpl
 msgid "Number of selected contributions: %1"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/UpdateBilling.tpl
+msgid ""
+"Use this form to update the credit card and billing name and address used "
+"for this recurring contribution."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
+msgid ""
+"Use this form to change the amount or number of installments for this "
+"recurring contribution. Changes will be automatically sent to the payment "
+"processor. You can not change the contribution frequency."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
+msgid ""
+"Total number of payments to be made. Set this to 0 if this is an open-ended "
+"commitment i.e. no set end date."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
+msgid "Number of time units for recurrence of payment."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
+msgid "Time unit for recurrence of payment. For example, \"month\"."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
+msgid "Day in the period when the payment should be charged."
 msgstr ""
 
 #: templates/CRM/Contribute/Import/Form/Preview.tpl
@@ -3314,10 +3520,6 @@ msgstr[1] ""
 msgid ""
 "Rows with invalid data in one or more fields. These rows have been skipped "
 "(not imported)."
-msgstr ""
-
-#: templates/CRM/Contribute/Import/Form/Summary.tpl
-msgid "Soft Credits"
 msgstr ""
 
 #: templates/CRM/Contribute/Import/Form/Summary.tpl
@@ -3521,8 +3723,16 @@ msgid ""
 "href='%1'>here</a> to create a new contribution page."
 msgstr ""
 
-#: templates/CRM/Contribute/Page/ContributionSoft.tpl
-msgid "Total Soft Credits"
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "Processor ID"
+msgstr ""
+
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "Next Contribution"
+msgstr ""
+
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "Auto Renew?"
 msgstr ""
 
 #: templates/CRM/Contribute/Page/ContributionSoft.tpl
@@ -3698,8 +3908,8 @@ msgid ""
 "The premiums listed below are currently offered on this Contribution Page. "
 "If you have other premiums which are not already being offered on this page,"
 " you will see a link below to offer another premium. Use <a "
-"href='%1'>Administer CiviCRM &raquo; Manage Premiums</a> to create or enable"
-" additional premium choices which can be used on any Contribution page."
+"href='%1'>Contributions &raquo; Premiums</a> to create or enable additional "
+"premium choices which can be used on any Contribution page."
 msgstr ""
 
 #: templates/CRM/Contribute/Page/Premium.tpl
@@ -3824,10 +4034,6 @@ msgstr ""
 msgid "Terms:"
 msgstr ""
 
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Change Recurring Contribution"
-msgstr ""
-
 #: xml/templates/message_templates/contribution_dupalert_html.tpl
 #: xml/templates/message_templates/contribution_dupalert_text.tpl
 msgid ""
@@ -3899,15 +4105,24 @@ msgstr ""
 
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
 msgid ""
-"This is a recurring contribution. You can modify or cancel future "
-"contributions by <a href=\"%1\">logging in to your account</a>."
+"This is a recurring contribution. You can cancel future contributions by <a "
+"href=\"%1\">visiting this web page</a>."
 msgstr ""
 
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
 msgid ""
-"This is a recurring contribution. To modify or cancel future contributions "
-"please contact us at %1."
+"You can update billing details for this recurring contribution by <a "
+"href=\"%1\">visiting this web page</a>."
+msgstr ""
+
+#: xml/templates/message_templates/contribution_online_receipt_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid ""
+"You can update recurring contribution amount or change the number of "
+"installments for this recurring contribution by <a href=\"%1\">visiting this"
+" web page</a>."
 msgstr ""
 
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
@@ -3931,455 +4146,6 @@ msgstr "Faktura"
 
 #: xml/templates/message_templates/contribution_online_receipt_text.tpl
 msgid ""
-"This is a recurring contribution. You can modify or cancel future "
-"contributions by logging in to your account at:"
-msgstr ""
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid "On Behalf Of"
-msgstr "På uppdrag av"
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid "Dear %1"
-msgstr ""
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid "Thanks for your auto renew membership sign-up."
-msgstr ""
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-msgid ""
-"This membership will be automatically renewed \n"
-"      every %1 %2(s). "
-msgstr ""
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid "Thanks for your recurring contribution sign-up."
-msgstr ""
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-msgid ""
-"This recurring contribution will be\n"
-"     automatically processed every %1 %2(s) for a total of %3 installment(s)."
-msgstr ""
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid ""
-"You have pledged to make this recurring donation. You will be charged "
-"periodically (per frequency listed above), and you will receive an email "
-"receipt from %1 following each charge. These recurring donations will "
-"continue until you explicitly cancel the donation. You may change or cancel "
-"your recurring donation at anytime by logging into your account. If you have"
-" questions about recurring donations please contact us at %2."
-msgstr ""
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid ""
-"Your auto renew membership sign-up has ended and your membership will not be"
-" automatically renewed."
-msgstr ""
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid "Your recurring contribution term has ended."
-msgstr ""
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid ""
-"You have successfully completed %1 recurring contributions. Thank you for "
-"your support."
-msgstr ""
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid "Interval of Subscription for %1 installment(s)"
-msgstr ""
-
-#: xml/templates/message_templates/contribution_recurring_notify_subject.tpl
-msgid "Recurring Contribution Notification"
-msgstr ""
-
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid "This membership will be automatically renewed every %1 %2(s)."
-msgstr ""
-
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid ""
-"This recurring contribution will be automatically processed every %1 %2(s) "
-"for a total of %3 installment(s)."
-msgstr ""
-
-#: xml/templates/message_templates/test_preview_html.tpl
-#: xml/templates/message_templates/test_preview_text.tpl
-msgid "Test-drive Email / Receipt"
-msgstr ""
-
-#: xml/templates/message_templates/test_preview_html.tpl
-#: xml/templates/message_templates/test_preview_text.tpl
-msgid ""
-"This is a test-drive email. No live financial transaction has occurred."
-msgstr ""
-
-#: CRM/Contribute/BAO/ContributionRecur.php
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "Recurring contribution cancelled"
-msgstr ""
-
-#: CRM/Contribute/Form/CancelSubscription.php
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "Notify Contributor?"
-msgstr "Meddela inbetalaren?"
-
-#: CRM/Contribute/BAO/ContributionRecur.php
-msgid "Automatic renewal of %1 membership cancelled."
-msgstr ""
-
-#: CRM/Contribute/BAO/Query.php
-msgid "Batch Name %1 %2"
-msgstr ""
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid ""
-"The auto renewal option for this membership looks to have been cancelled "
-"already."
-msgstr ""
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "The recurring contribution looks to have been cancelled already."
-msgstr ""
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "You do not have permission to cancel this recurring contribution."
-msgstr ""
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "Send cancellation request to %1 ?"
-msgstr ""
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "Cancel Automatic Membership Renewal"
-msgstr ""
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "Auto-renewal membership cancelled"
-msgstr ""
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid ""
-"The automatic renewal of your %1 membership has been cancelled as requested."
-" This does not affect the status of your membership - you will receive a "
-"separate notification when your membership is up for renewal."
-msgstr ""
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid ""
-"Recurring contribution was cancelled successfully by the processor, but "
-"could not be marked as cancelled in the database."
-msgstr ""
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "Recurring contribution could not be cancelled in the database."
-msgstr ""
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "The recurring contribution could not be cancelled."
-msgstr ""
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"An error occurred during form submission. This page requires form data to be"
-" submitted for processing and no form data was submitted or processed. We "
-"are sorry for any inconvience. Please click <a href='%1'>here</a> to visit "
-"the contribution page and re-start the contribution process."
-msgstr ""
-
-#: CRM/Contribute/Form/ContributionPage/Settings.php
-msgid "Use a confirmation page?"
-msgstr ""
-
-#: CRM/Contribute/Form/Task/PDFLetterCommon.php
-msgid "Receipt date has been updated for %1 contributions."
-msgstr ""
-
-#: CRM/Contribute/Form/Task/PDFLetterCommon.php
-msgid "Thank-you date has been updated for %1 contributions."
-msgstr ""
-
-#: CRM/Contribute/Form/Task/PDFLetter.php
-msgid "Record Update Options"
-msgstr ""
-
-#: CRM/Contribute/Form/Task/PDFLetter.php
-msgid "Update receipt dates for these contributions"
-msgstr ""
-
-#: CRM/Contribute/Form/Task/PDFLetter.php
-msgid "Update thank-you dates for these contributions"
-msgstr ""
-
-#: CRM/Contribute/Form/Task/PDFLetter.php
-msgid "Recurring"
-msgstr ""
-
-#: CRM/Contribute/Form/Task/PDFLetter.php
-msgid "Grouping contributions in one letter based on"
-msgstr ""
-
-#: CRM/Contribute/Form/Task/PDFLetter.php
-msgid "Make Thank-you Letters"
-msgstr ""
-
-#: CRM/Contribute/Form/Task/PickProfile.php
-msgid "Batch Update Contributions via Profile"
-msgstr ""
-
-#: CRM/Contribute/Form/UpdateBilling.php
-msgid "%1 processor doesn't support updating subscription billing details."
-msgstr ""
-
-#: CRM/Contribute/Form/UpdateBilling.php
-msgid ""
-"Billing details for your automatically renewed %1 membership have been "
-"updated."
-msgstr ""
-
-#: CRM/Contribute/Form/UpdateBilling.php
-msgid "Recurring Contribution Billing Details Updated"
-msgstr ""
-
-#: CRM/Contribute/Form/UpdateBilling.php
-msgid "There was some problem updating the billing details."
-msgstr ""
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "You cannot update the subscription."
-msgstr ""
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "You do not have permission to update subscription."
-msgstr ""
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid ""
-"WARNING: Updates made using this form will change the recurring contribution"
-" information stored in your CiviCRM database, but will NOT be sent to the "
-"payment processor. You must enter the same changes using the payment "
-"processor web site."
-msgstr ""
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "Recurring Contribution Amount"
-msgstr ""
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "Number of Installments"
-msgstr ""
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "Could not update the Recurring contribution details"
-msgstr ""
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "Recurring Contribution Updated"
-msgstr ""
-
-#: CRM/Contribute/Page/Tab.php
-#: templates/CRM/Contribute/Page/ContributionRecur.tpl
-msgid "View Recurring Payment"
-msgstr ""
-
-#: CRM/Contribute/Page/Tab.php
-msgid "Edit Recurring Payment"
-msgstr ""
-
-#: CRM/Contribute/Task.php
-msgid "Thank-you Letters for Contributions"
-msgstr ""
-
-#: templates/CRM/Contribute/Form/CancelSubscription.tpl
-#: templates/CRM/Contribute/Form/UpdateBilling.tpl
-msgid "Recurring Contribution Details: %1 every %2 %3"
-msgstr ""
-
-#: templates/CRM/Contribute/Form/CancelSubscription.tpl
-#: templates/CRM/Contribute/Form/UpdateBilling.tpl
-msgid "for %1 installments"
-msgstr ""
-
-#: templates/CRM/Contribute/Form/CancelSubscription.tpl
-msgid ""
-"Click the button below to cancel this commitment and stop future "
-"transactions. This does not affect contributions which have already been "
-"completed."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/CancelSubscription.tpl
-msgid ""
-"Automatic cancellation is not supported for this payment processor. You or "
-"the contributor will need to manually cancel this recurring contribution "
-"using the payment processor website."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Your initial membership fee will be processed once you complete the "
-"confirmation step. You will be able to cancel the auto-renwal option by "
-"visiting the web page link that will be included in your receipt."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Your initial contribution will be processed once you complete the "
-"confirmation step. You will be able to cancel the recurring contribution by "
-"visiting the web page link that will be included in your receipt."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/Contribution/Main.tpl
-msgid ""
-"This page requires Javascript. Please enable Javascript in your web browser "
-"preferences and refresh the page."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-" Click <a  id = 'quickconfig' href='#'>here</a> if you want to configure the"
-" Fixed Contribution Options below as part of a Price Set, with the added "
-"flexibility and complexity that entails."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionPage/Custom.hlp
-msgid ""
-"Return to this screen (<strong>Administer CiviCRM &raquo; CiviContribute "
-"&raquo; Manage Contribution Pages &raquo; Configure &raquo; Include "
-"Profiles</strong>) and select your profile."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"If you disable this contributions will be processed immediately after "
-"submitting the contribution form."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"When your page is active, create front-end links to the contribution page "
-"using the Menu Manager. Select <strong>Administer CiviCRM &raquo; "
-"CiviContribute &raquo; Manage Contribution Pages</strong> and select "
-"<strong>%1</strong> for the contribution page."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"You will receive an email receipt which includes information about how to "
-"cancel the auto-renwal option."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"You will receive an email receipt which includes information about how to "
-"update or cancel this recurring contribution."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"Your initial pledge payment has been processed. You will be able to modify "
-"or cancel future pledge payments at any time by contacting us at %1."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "not available"
-msgstr ""
-
-#: templates/CRM/Contribute/Form/Search/Common.tpl
-msgid "Contribution Dates"
-msgstr ""
-
-#: templates/CRM/Contribute/Form/Task/PDFLetter.tpl
-msgid "Thank-you Letter for Contributions (PDF)"
-msgstr ""
-
-#: templates/CRM/Contribute/Form/UpdateBilling.tpl
-msgid ""
-"Use this form to update the credit card and billing name and address used "
-"for this recurring contribution."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
-msgid ""
-"Use this form to change the amount or number of installments for this "
-"recurring contribution. Changes will be automatically sent to the payment "
-"processor. You can not change the contribution frequency."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
-msgid ""
-"Total number of payments to be made. Set this to 0 if this is an open-ended "
-"commitment i.e. no set end date."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
-msgid "Number of time units for recurrence of payment."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
-msgid "Time unit for recurrence of payment. For example, \"month\"."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
-msgid "Day in the period when the payment should be charged."
-msgstr ""
-
-#: templates/CRM/Contribute/Page/ContributionRecur.tpl
-msgid "Processor ID"
-msgstr ""
-
-#: templates/CRM/Contribute/Page/ContributionRecur.tpl
-msgid "Next Contribution"
-msgstr ""
-
-#: templates/CRM/Contribute/Page/ContributionRecur.tpl
-msgid "Auto Renew?"
-msgstr ""
-
-#: templates/CRM/Contribute/Page/Premium.tpl
-msgid ""
-"The premiums listed below are currently offered on this Contribution Page. "
-"If you have other premiums which are not already being offered on this page,"
-" you will see a link below to offer another premium. Use <a "
-"href='%1'>Contributions &raquo; Premiums</a> to create or enable additional "
-"premium choices which can be used on any Contribution page."
-msgstr ""
-
-#: xml/templates/message_templates/contribution_online_receipt_html.tpl
-msgid ""
-"This is a recurring contribution. You can cancel future contributions by <a "
-"href=\"%1\">visiting this web page</a>."
-msgstr ""
-
-#: xml/templates/message_templates/contribution_online_receipt_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid ""
-"You can update billing details for this recurring contribution by <a "
-"href=\"%1\">visiting this web page</a>."
-msgstr ""
-
-#: xml/templates/message_templates/contribution_online_receipt_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid ""
-"You can update recurring contribution amount or change the number of "
-"installments for this recurring contribution by <a href=\"%1\">visiting this"
-" web page</a>."
-msgstr ""
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid ""
 "This is a recurring contribution. You can cancel future contributions at:"
 msgstr ""
 
@@ -4391,6 +4157,21 @@ msgstr ""
 msgid ""
 "You can update recurring contribution amount or change the number of "
 "installments for this recurring contribution at:"
+msgstr ""
+
+#: xml/templates/message_templates/contribution_online_receipt_text.tpl
+msgid "On Behalf Of"
+msgstr "På uppdrag av"
+
+#: xml/templates/message_templates/contribution_recurring_billing_html.tpl
+#: xml/templates/message_templates/contribution_recurring_billing_text.tpl
+#: xml/templates/message_templates/contribution_recurring_cancelled_html.tpl
+#: xml/templates/message_templates/contribution_recurring_cancelled_text.tpl
+#: xml/templates/message_templates/contribution_recurring_edit_html.tpl
+#: xml/templates/message_templates/contribution_recurring_edit_text.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid "Dear %1"
 msgstr ""
 
 #: xml/templates/message_templates/contribution_recurring_billing_html.tpl
@@ -4444,6 +4225,11 @@ msgid "Your recurring contribution has been updated as requested:"
 msgstr ""
 
 #: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid "Thanks for your auto renew membership sign-up."
+msgstr ""
+
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
 msgid "This membership will be automatically renewed every %1 %2(s). "
 msgstr ""
 
@@ -4462,6 +4248,18 @@ msgid ""
 msgstr ""
 
 #: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid "Thanks for your recurring contribution sign-up."
+msgstr ""
+
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid ""
+"This recurring contribution will be automatically processed every %1 %2(s) "
+"for a total of %3 installment(s)."
+msgstr ""
+
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
 msgid ""
 " You can cancel the recurring contribution option by <a href=\"%1\">visiting"
 " this web page</a>."
@@ -4474,15 +4272,66 @@ msgid ""
 "href=\"%1\">visiting this web page</a>."
 msgstr ""
 
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid ""
+"Your auto renew membership sign-up has ended and your membership will not be"
+" automatically renewed."
+msgstr ""
+
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid "Your recurring contribution term has ended."
+msgstr ""
+
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid ""
+"You have successfully completed %1 recurring contributions. Thank you for "
+"your support."
+msgstr ""
+
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid "Interval of Subscription for %1 installment(s)"
+msgstr ""
+
+#: xml/templates/message_templates/contribution_recurring_notify_subject.tpl
+msgid "Recurring Contribution Notification"
+msgstr ""
+
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid "This membership will be automatically renewed every %1 %2(s)."
+msgstr ""
+
 #: xml/templates/message_templates/contribution_recurring_notify_text.tpl
 msgid ""
 "You can cancel the recurring contribution option by <a href=\"%1\">visiting "
 "this web page</a>."
 msgstr ""
 
+#: xml/templates/message_templates/test_preview_html.tpl
+#: xml/templates/message_templates/test_preview_text.tpl
+msgid "Test-drive Email / Receipt"
+msgstr ""
+
+#: xml/templates/message_templates/test_preview_html.tpl
+#: xml/templates/message_templates/test_preview_text.tpl
+msgid ""
+"This is a test-drive email. No live financial transaction has occurred."
+msgstr ""
+
 #: CRM/Contribute/BAO/ContributionRecur.php
 #: CRM/Contribute/Form/CancelSubscription.php
 msgid "The recurring contribution of %1, every %2 %3 has been cancelled."
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Amount.php
+#: CRM/Contribute/Form/ContributionPage/Settings.php
+#: CRM/Contribute/Form/Contribution.php
+msgid ""
+"Financial Account of account relationship of 'Expense Account is' is not "
+"configured for Financial Type : "
 msgstr ""
 
 #: CRM/Contribute/Form/UpdateBilling.php
@@ -4610,6 +4459,10 @@ msgstr ""
 msgid "Pledge Payment for %1 has been updated."
 msgstr ""
 
+#: CRM/Contribute/Form/AdditionalInfo.php
+msgid "receipt"
+msgstr ""
+
 #: CRM/Contribute/Form/ContributionBase.php
 msgid "Membership Invalid"
 msgstr ""
@@ -4676,14 +4529,20 @@ msgstr ""
 msgid "The sum of fee amount and net amount must be equal to total amount"
 msgstr ""
 
-#: CRM/Contribute/Form/Contribution.php
-msgid ""
-"Financial Account of account relationship of 'Expense Account is' is not "
-"configured for this Financial Type"
-msgstr ""
-
 #: CRM/Contribute/Form/ContributionView.php
 msgid "View Contribution from"
+msgstr ""
+
+#: CRM/Contribute/Form/ManagePremiums.php
+msgid "Image URL is Required"
+msgstr ""
+
+#: CRM/Contribute/Form/ManagePremiums.php
+msgid "Thumbnail URL is Required"
+msgstr ""
+
+#: CRM/Contribute/Form/ManagePremiums.php
+msgid "Financial Type is required for product having cost."
 msgstr ""
 
 #: CRM/Contribute/Form/ManagePremiums.php
@@ -4876,6 +4735,15 @@ msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid ""
+"The organization data collected from users is controlled by the Organization"
+" Profile selected below. You can use the default \"On Behalf Of "
+"Organization\" profile, or any other profile with type 'Contact' and/or "
+"'Organization' (<a href=\"%1\">Administer > Customize Data and Screens > "
+"Profiles</a>). The profile must include Organization Name and Email Address."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid ""
 "When enabled, links allowing people to share this online contribution page "
 "with their social network will be displayed (e.g. Facebook \"Like\", "
 "Google+, and Twitter)."
@@ -4909,12 +4777,23 @@ msgid ""
 "page."
 msgstr ""
 
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
+msgid ""
+"To change the organization data collected use the \"On Behalf Of "
+"Organization\" profile (<a href=\"%1\">Administer > Customize Data and "
+"Screens > Profiles</a>)."
+msgstr ""
+
 #: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
 msgid "Contribution Page Configuration"
 msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/PremiumBlock.tpl
-msgid "You must contribute at least $%1 to get this item"
+msgid "You must contribute at least %1 to get this item"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution/PremiumBlock.tpl
+msgid "Contribute %1 Instead"
 msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/PremiumBlock.tpl
@@ -5015,4 +4894,159 @@ msgid ""
 "family member makes a large contribution - it is often useful to record a "
 "Soft Credit for the other family member(s). You can record a soft credit "
 "while adding or editing a contribution record from this tab."
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Cancel Date"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution End Date"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Recurring Contribution Start Date"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Next Scheduled Recurring Contribution"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Failed Recurring Contribution Retry Date"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution ID"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Interval (number of units)"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Started Date"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Created Date"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Modified Date"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Number of Cycle Day"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Next Scheduled Contribution Date"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Number of Failures"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Retry Failed Attempt Date"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Send email Receipt?"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Amount.php
+msgid "Contribution Amounts Label"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Amount.php
+msgid "Please enter the contribution amount label."
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Premium.php
+msgid "No Thank-you Label is a required field."
+msgstr ""
+
+#: CRM/Contribute/Form/SoftCredit.php
+msgid "You cannot enter multiple soft credits for the same contact."
+msgstr ""
+
+#: CRM/Contribute/Form/SoftCredit.php
+msgid "Soft credit amount cannot be more than the total amount."
+msgstr ""
+
+#: CRM/Contribute/Form/SoftCredit.php
+msgid "Please enter the soft credit amount."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/AdditionalInfo/Honoree.tpl
+#: templates/CRM/Contribute/Form/Contribution/Main.tpl
+msgid "Select an option to reveal honoree information fields."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
+msgid ""
+"Edit\n"
+"    <strong>Premiums Settings</strong>\n"
+"    to customize the title and introductory message (e.g ...in appreciation of your support, you will be able to select\n"
+"    from a number of exciting thank-you gifts...). You can optionally provide a contact email address and/or\n"
+"    phone number for inquiries."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
+msgid ""
+"Enter content for the introductory message. This will be displayed below the Premiums section title.\n"
+"                You may include HTML formatting tags. You can also include images, as long as they are already\n"
+"                uploaded to a server - reference them using complete URLs."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
+msgid ""
+"This email address is included in automated contribution receipts if the contributor has selected\n"
+"                a premium. It should be an appropriate contact mailbox for inquiries about premium\n"
+"                fulfillment/shipping."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
+msgid ""
+"This phone number is included in automated contribution receipts if the contributor has selected\n"
+"                a premium. It should be an appropriate phone number for inquiries about premium\n"
+"                fulfillment/shipping."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
+msgid "unlink from personal campaign page"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
+msgid ""
+"Search for the Personal Campaign Page by the fund-raiser's last name or\n"
+"                 email address."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
+msgid ""
+"Name or nickname contributor wants to be displayed in the Honor\n"
+"                      Roll. Enter \"Anonymous\" for anonymous contributions."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Search/ContributionRecur.tpl
+msgid "Next Scheduled"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Search/ContributionRecur.tpl
+msgid "Retry Date"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/SoftCredit.tpl
+msgid "add another soft credit"
+msgstr ""
+
+#: xml/templates/message_templates/contribution_dupalert_html.tpl
+#: xml/templates/message_templates/contribution_dupalert_text.tpl
+msgid ""
+"If you think this may be a duplicate contact which should be merged with an existing record -\n"
+"Go to \"Contacts >> Find and Merge Duplicate Contacts\". Use the strict\n"
+"rule for Organizations to find the potential duplicates and merge them if appropriate."
 msgstr ""

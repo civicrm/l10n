@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
 "Report-Msgid-Bugs-To: http://issues.civicrm.org/\n"
-"POT-Creation-Date: 2013-01-24 14:47-0500\n"
-"PO-Revision-Date: 2013-04-29 08:38+0000\n"
-"Last-Translator: Piotr Szotkowski <shot@hot.pl>\n"
+"POT-Creation-Date: 2013-10-08 08:14-0400\n"
+"PO-Revision-Date: 2013-10-08 12:41+0000\n"
+"Last-Translator: Mathieu Lutfy <mathieu@bidon.ca>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/civicrm/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,6 +27,17 @@ msgstr "料金水準"
 #: CRM/Event/BAO/Query.php CRM/Event/DAO/Participant.php
 msgid "Participant Source"
 msgstr "参加者ソース"
+
+#: CRM/Event/Cart/Form/Checkout/Payment.php CRM/Event/Form/Registration.php
+msgid ""
+"A payment processor must be selected for this event registration page, or "
+"the event must be configured to give users the option to pay later (contact "
+"the site administrator for assistance)."
+msgstr "このイベント登録のページでは決済サービスが選択されなければいけません。またはこのイベントではユーザに対して後払いオプションが設定されていなければなりません(サイト管理者にお問い合わせください)。"
+
+#: CRM/Event/Cart/Page/AddToCart.php CRM/Event/Form/Registration.php
+msgid "You do not have permission to register for this event"
+msgstr "イベントを登録する権限がありません。"
 
 #: CRM/Event/DAO/Event.php CRM/Event/Form/ManageEvent/Registration.php
 msgid "Registration Start Date"
@@ -48,6 +59,14 @@ msgstr "差出人のメールを確認"
 #: CRM/Event/Form/Registration/Register.php
 msgid "Event Fee(s)"
 msgstr "イベント料金"
+
+#: CRM/Event/Form/ManageEvent/Conference.php
+#: CRM/Event/Form/ManageEvent/TabHeader.php
+#: templates/CRM/Event/Page/DashBoard.tpl
+#: templates/CRM/Event/Page/EventInfo.tpl
+#: templates/CRM/Event/Page/ManageEvent.tpl
+msgid "Conference Slots"
+msgstr "会議スロット"
 
 #: CRM/Event/Form/ManageEvent/Delete.php CRM/Event/Page/ManageEvent.php
 msgid "Delete Event"
@@ -73,6 +92,7 @@ msgstr "登録する"
 #: CRM/Event/Form/ManageEvent/TabHeader.php
 #: templates/CRM/Event/Form/ManageEvent/Tab.hlp
 #: templates/CRM/Event/Page/DashBoard.tpl
+#: templates/CRM/Event/Page/EventInfo.tpl
 #: templates/CRM/Event/Page/ManageEvent.tpl
 msgid "Online Registration"
 msgstr "オンライン登録"
@@ -127,22 +147,10 @@ msgstr "- 参加者フィールド -"
 
 #: CRM/Event/BAO/Participant.php
 msgid ""
-"Participant status has been updated to '%1'. An email has been sent to %2."
-msgstr "参加者状態は更新され、'%1'になりました。%2にメールを送信しました。"
-
-#: CRM/Event/BAO/Participant.php
-msgid ""
 "This event currently has the maximum number of participants registered (%1)."
 " However, you can still override this limit and register additional "
 "participants using this form."
 msgstr "このイベントは登録された定員数 ( %1 )に達しています。このフォームでは、制限を強制的に書き換えて参加者を追加することができます。"
-
-#: CRM/Event/BAO/Participant.php
-msgid ""
-"There are %2 people currently on the waiting list for this event. You can <a"
-" href='%1'>view waitlisted registrations here</a>, or you can continue and "
-"register additional participants using this form."
-msgstr "現在、このイベントに %2 人がキャンセル待ちをしています。<a href='%1'>キャンセル待ちの登録者を表示</a>することができます。またこのフォームを使ってさらに参加者を登録することができます。"
 
 #: CRM/Event/BAO/Query.php
 msgid "Event Type - %1"
@@ -165,16 +173,103 @@ msgid "Participant Role %1"
 msgstr "参加者ロール %1"
 
 #: CRM/Event/BAO/Query.php
-msgid "Event Dates - From"
-msgstr "イベント日 - From"
-
-#: CRM/Event/BAO/Query.php
 msgid "Find Test Participants?"
 msgstr "テスト参加者を検索?"
 
 #: CRM/Event/BAO/Query.php
 msgid "Find Pay Later Participants?"
 msgstr "後払い参加者を検索?"
+
+#: CRM/Event/Cart/BAO/Cart.php
+msgid "There was an error creating an event cart"
+msgstr "イベントのカート作成でエラーが発生しました"
+
+#: CRM/Event/Cart/BAO/Cart.php
+msgid "Could not find cart matching %1"
+msgstr "%1 にマッチするカートがありません"
+
+#: CRM/Event/Cart/BAO/EventInCart.php
+msgid "There was an error creating an event_in_cart"
+msgstr "event_in_cartの作成に失敗しました"
+
+#: CRM/Event/Cart/BAO/MerParticipant.php
+msgid "There was an error creating a cart participant"
+msgstr "カート参加者の作成に失敗しました"
+
+#: CRM/Event/Cart/Form/Cart.php
+msgid "Online Registration for %1"
+msgstr "%1 のオンライン登録"
+
+#: CRM/Event/Cart/Form/Checkout/ParticipantsAndPrices.php
+msgid "If you have a discount code, enter it here"
+msgstr "割引コードがあれば、ここに入力してください"
+
+#: CRM/Event/Cart/Form/Checkout/ParticipantsAndPrices.php
+msgid "Select at least one option from Price Levels."
+msgstr "料金レベルのオプションを選んでください。"
+
+#: CRM/Event/Cart/Form/Checkout/ParticipantsAndPrices.php
+msgid ""
+"Price Levels can not be less than zero. Please select the options "
+"accordingly"
+msgstr "マイナスの料金レベルは設定できません。オプションを選択してください"
+
+#: CRM/Event/Cart/Form/Checkout/ParticipantsAndPrices.php
+msgid "The participant %1 is already registered for %2 (%3)."
+msgstr "参加者 %1 はすでに %2 (%3) に登録されています。"
+
+#: CRM/Event/Cart/Form/Checkout/Payment.php
+msgid ""
+"When registering for multiple events all events must use the same payment "
+"processor. "
+msgstr "複数のイベントを登録する時は、すべてのイベントは同じ支払プロセッサを使用しなければなりません。"
+
+#: CRM/Event/Cart/Form/Checkout/Payment.php
+msgid "Payment Completed"
+msgstr "支払い完了"
+
+#: CRM/Event/Cart/Form/Checkout/Payment.php
+msgid "Complete Transaction >>"
+msgstr "取引完了 >>"
+
+#: CRM/Event/Cart/Form/Checkout/Payment.php
+msgid "Alternative Payment Type"
+msgstr "その他の支払タイプ"
+
+#: CRM/Event/Cart/Form/Checkout/Payment.php
+msgid "Check No."
+msgstr "小切手番号"
+
+#: CRM/Event/Cart/Form/Checkout/Payment.php
+msgid "Create a pending registration"
+msgstr "保留登録を作成"
+
+#: CRM/Event/Cart/Form/Checkout/Payment.php
+msgid "Financial institution didn't return a transaction id."
+msgstr "金融会社が取引IDを返しませんでした。"
+
+#: CRM/Event/Cart/Form/Checkout/Payment.php
+msgid ""
+"There was an error creating a contribution record for your event. Please "
+"report this error to the webmaster. Details: %1\n"
+msgstr "イベントの支援レコード作成でエラーが発生しました。Webmaster宛にこのエラーを通知してください。詳細: %1\n"
+
+#: CRM/Event/Cart/Page/AddToCart.php
+msgid "You cannot register for an event you do not have permission to view"
+msgstr "表示の権限がないため、イベントの登録ができません。"
+
+#: CRM/Event/Cart/Page/AddToCart.php
+msgid ""
+"<b>%1</b> has been added to your cart. <a href='%2'>View your cart.</a>"
+msgstr "<b>%1</b> をカートに入れました。 <a href='%2'>カートの中を見る</a>。"
+
+#: CRM/Event/Cart/Page/RemoveFromCart.php
+msgid "<b>%1</b> has been removed from your cart."
+msgstr "<b>%1</b>をカートから削除しました。"
+
+#: CRM/Event/Cart/StateMachine/Checkout.php
+msgid "You don't have any events in you cart. Please add some events."
+msgstr "カートにはイベントがありません。イベントを追加してください。"
 
 #: CRM/Event/DAO/Event.php
 msgid "Event Type ID"
@@ -269,6 +364,10 @@ msgstr "イベントテンプレートのタイトル"
 msgid "Event Created Date"
 msgstr "イベント作成日"
 
+#: CRM/Event/DAO/Event.php
+msgid "Subevent Slot Label ID"
+msgstr "サブイベントのスロットラベルID"
+
 #: CRM/Event/DAO/Participant.php
 msgid "Participant Status Id"
 msgstr "参加者状態ID"
@@ -290,8 +389,12 @@ msgid "Discount ID"
 msgstr "割引ID"
 
 #: CRM/Event/DAO/Participant.php
-msgid "Fee Currency"
-msgstr "通貨"
+msgid "Discount Amount"
+msgstr "割引額"
+
+#: CRM/Event/DAO/Participant.php
+msgid "Must Wait"
+msgstr ""
 
 #: CRM/Event/DAO/ParticipantStatusType.php
 msgid "Positive"
@@ -305,8 +408,7 @@ msgstr "キャンセル待ち"
 msgid "Negative"
 msgstr "ネガティブ"
 
-#: CRM/Event/Form/EventFees.php templates/CRM/Event/Form/EventFees.tpl
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
+#: CRM/Event/Form/EventFees.php templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid "Discount Set"
 msgstr "割引セット"
 
@@ -321,6 +423,10 @@ msgstr "確認を送信?"
 #: CRM/Event/Form/EventFees.php
 msgid "Confirmation Message"
 msgstr "確認メッセージ"
+
+#: CRM/Event/Form/ManageEvent/Conference.php
+msgid "Parent Event"
+msgstr "親イベント"
 
 #: CRM/Event/Form/ManageEvent/Delete.php
 msgid ""
@@ -410,10 +516,6 @@ msgstr "後払いオプションを使用?"
 #: CRM/Event/Form/ManageEvent/Fee.php
 msgid "Pay Later Label"
 msgstr "後払いラベル"
-
-#: CRM/Event/Form/ManageEvent/Fee.php
-msgid "Pay Later Instructions"
-msgstr "後払い説明"
 
 #: CRM/Event/Form/ManageEvent/Fee.php
 msgid "Please enter a valid money value for this field (e.g. %1)."
@@ -591,10 +693,6 @@ msgid "- same as for main contact -"
 msgstr "- メイン連絡先と同じ -"
 
 #: CRM/Event/Form/ManageEvent/Registration.php
-msgid "- no profile -"
-msgstr "- プロファイルなし -"
-
-#: CRM/Event/Form/ManageEvent/Registration.php
 msgid "Send Confirmation Email?"
 msgstr "確認メールを送信?"
 
@@ -624,12 +722,43 @@ msgstr "確認メールの発信アドレスを入力してください。"
 
 #: CRM/Event/Form/ManageEvent/Registration.php
 msgid ""
+"Please add a profile with an email address if 'Send Confirmation Email?' is "
+"selected"
+msgstr "「確認メール送信?」を選択した場合、メールアドレスが入ったプロファイルを追加してください。"
+
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid ""
 "Allow multiple registrations from the same email address requires a profile "
 "of type 'Individual'"
 msgstr "同じメールアドレスで複数の登録を認める場合、「個人」タイプのプロファイルが必要"
 
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid ""
+"Please include a Profile for online registration that contains an Email "
+"Address field and / or First Name + Last Name fields."
+msgstr "メールアドレスのフィールドとファーストネーム+ラストネームのフィールドを持つオンライン登録用プロファイルを使用してください。"
+
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid ""
+"Please include a Profile for online registration of additional participants "
+"that contains an Email Address field and / or First Name + Last Name fields."
+msgstr "メールアドレスのフィールドとファーストネーム+ラストネームのフィールドを持つ追加参加者オンライン登録用プロファイルを使用してください。"
+
+#: CRM/Event/Form/ManageEvent/ScheduleReminders.php
+msgid "Reminder Name"
+msgstr "通知名"
+
+#: CRM/Event/Form/ManageEvent/ScheduleReminders.php
+msgid "Additional Recipient(s)"
+msgstr "追加の宛先"
+
+#: CRM/Event/Form/ManageEvent/ScheduleReminders.php
+msgid "Event Schedule Reminder"
+msgstr "イベントスケジュール通知"
+
 #: CRM/Event/Form/ManageEvent/TabHeader.php
 #: templates/CRM/Event/Page/DashBoard.tpl
+#: templates/CRM/Event/Page/EventInfo.tpl
 #: templates/CRM/Event/Page/ManageEvent.tpl
 msgid "Info and Settings"
 msgstr "情報と設定"
@@ -637,9 +766,17 @@ msgstr "情報と設定"
 #: CRM/Event/Form/ManageEvent/TabHeader.php
 #: templates/CRM/Event/Form/ManageEvent/Tab.hlp
 #: templates/CRM/Event/Page/DashBoard.tpl
+#: templates/CRM/Event/Page/EventInfo.tpl
 #: templates/CRM/Event/Page/ManageEvent.tpl
 msgid "Fees"
 msgstr "料金"
+
+#: CRM/Event/Form/ManageEvent/TabHeader.php
+#: templates/CRM/Event/Page/DashBoard.tpl
+#: templates/CRM/Event/Page/EventInfo.tpl
+#: templates/CRM/Event/Page/ManageEvent.tpl
+msgid "Schedule Reminders"
+msgstr "スケジュール通知"
 
 #: CRM/Event/Form/Participant.php
 msgid "CiviEvent Dashboard"
@@ -662,8 +799,8 @@ msgid "Please enter the associated Contribution Type"
 msgstr "関連する支援タイプを入力してください"
 
 #: CRM/Event/Form/Participant.php
-msgid "Selected Participants was deleted sucessfully."
-msgstr "選択した参加者を削除しました。"
+msgid "Selected participant was deleted successfully."
+msgstr "選択した参加者を削除しました"
 
 #: CRM/Event/Form/Participant.php
 msgid "Selected Event is not Paid Event "
@@ -759,30 +896,29 @@ msgstr "この参加者を登録しなければグループに十分な空席が
 
 #: CRM/Event/Form/Registration/AdditionalParticipant.php
 msgid ""
-"This event is currently full. You are registering in a waiting list. You "
+"This event is currently full. You are registering for the waiting list. You "
 "will be notified if spaces become available."
-msgstr "このイベントは満員なので、キャンセル待ちに登録しました。空席ができたら通知します。"
+msgstr "現在、このイベントは満席です。キャンセル待ちに登録を追加します。空席ができ次第、通知をお送りします。"
 
 #: CRM/Event/Form/Registration/AdditionalParticipant.php
 msgid ""
-"It looks like you are now registering a group participants which are "
-"extending the event availability. All participant will be listed in the "
-"waiting list and you will be notified if spaces become available."
-msgstr "イベントの空席を超えるグループ参加者の登録です。すべての参加者はキャンセル待ちに入り、空席ができた時に通知されます。"
+"It looks like you are registering more participants then there are spaces "
+"available. All participants will be added to the waiting list. You will be "
+"notified if spaces become available."
+msgstr "空席以上の参加者を登録しようとしています。参加者は全員キャンセル待ちに登録しました。空席ができ次第、通知をお送りします。"
 
 #: CRM/Event/Form/Registration/AdditionalParticipant.php
 msgid ""
-"It look like that total participant recoreded will fit in the event "
-"availability (you will not be wait listed)."
-msgstr "記録されたすべての参加者についてイベントの空席があります(キャンセル待ちではありません)。"
+"It looks like there are enough spaces in this event for your group (you will"
+" not be wait listed)."
+msgstr "登録しようとしているグループ全員の座席がありません(キャンセル待ちへの登録はありません)。"
 
 #: CRM/Event/Form/Registration/AdditionalParticipant.php
 msgid ""
-"It look like that total participant recoreded will fit in the event "
-"availability (you will not be wait listed). Registration for this event "
-"requires approval. You will receive an email once your registration has been"
-" reviewed."
-msgstr "記録されたすべての参加者についてイベントの空席があります(キャンセル待ちではありません)。このイベントへの登録は承認が必要です。登録が確認されれば、メールが送られます。"
+"It looks there are enough spaces in this event for your group (you will not "
+"be wait listed). Registration for this event requires approval. You will "
+"receive an email once your registration has been reviewed."
+msgstr "登録しようとしているグループ全員の座席がありません(キャンセル待ちへの登録はありません)。このイベントの登録には承認が必要です。登録内容が受け付けられ次第、通知をお送りします。"
 
 #: CRM/Event/Form/Registration/AdditionalParticipant.php
 msgid ""
@@ -825,16 +961,16 @@ msgstr "イベントの残席は %2 席ですが、 %1 人登録しようとし�
 
 #: CRM/Event/Form/Registration/AdditionalParticipant.php
 msgid ""
-"You are goinng to skip the last participant, your event registration will be"
-" confirmed. Please go back to the main registration page, to complete "
-"payment information."
+"You are going to skip the last participant, your event registration will be "
+"confirmed. Please go back to the main registration page, to complete payment"
+" information."
 msgstr ""
 
 #: CRM/Event/Form/Registration/AdditionalParticipant.php
 msgid ""
-"Your payement information looks incomplete. Please go back to the main "
+"Your payment information looks incomplete. Please go back to the main "
 "registration page, to complete payment information."
-msgstr "支払情報が不完全です。元の登録ページに戻って支払情報の入力を完了してください。"
+msgstr "お支払いに関する情報が不完全です。登録ページに戻ってお支払いに関する情報入力を完了させてください。"
 
 #: CRM/Event/Form/Registration/AdditionalParticipant.php
 msgid ""
@@ -926,8 +1062,29 @@ msgid "Email has been sent to : %1"
 msgstr "メールを送信しました : %1"
 
 #: CRM/Event/Form/Registration.php
-msgid "You do not have permission to register for this event"
-msgstr "イベントを登録する権限がありません。"
+msgid ""
+"The site administrator must set a Payment Processor for this event in order "
+"to use online registration."
+msgstr "オンライン登録を利用するためには、サイト管理者がこのイベントを支払いプロセッサに設定しなければなりません。"
+
+#: CRM/Event/Form/Registration.php
+msgid ""
+"No Fee Level(s) or Price Set is configured for this event.<br />Click <a "
+"href='%1'>CiviEvent >> Manage Event >> Configure >> Event Fees</a> to "
+"configure the Fee Level(s) or Price Set for this event."
+msgstr "このイベントには料金レベルまたは料金セットが設定されていません。<br /><a href='%1'>CiviEvent >> イベント管理 >> 設定 >> イベント料金</a>でこのイベントの料金レベルか料金セットを設定してください。"
+
+#: CRM/Event/Form/Registration.php
+msgid "Sorry, currently only a single seat is available for this option."
+msgstr "現在、このオプションでは1席しかありません。"
+
+#: CRM/Event/Form/Registration.php
+msgid "Sorry, currently only %1 seats are available for this option."
+msgstr "現在、このオプションでは %1 席しかありません。"
+
+#: CRM/Event/Form/Registration.php
+msgid "Select at least one option from Event Fee(s)."
+msgstr "イベント料金から最低1つのオプションを選択してください。"
 
 #: CRM/Event/Form/Registration.php
 msgid ""
@@ -953,37 +1110,25 @@ msgstr "このイベントの登録は %1 から始まります。"
 msgid "Registration for this event ended on %1"
 msgstr "このイベントの登録は %1 に締め切られました。"
 
-#: CRM/Event/Form/Registration.php
-msgid ""
-"A payment processor must be selected for this event registration page, or "
-"the event must be configured to give users the option to pay later (contact "
-"the site administrator for assistance)."
-msgstr "このイベント登録のページでは決済サービスが選択されなければいけません。またはこのイベントではユーザに対して後払いオプションが設定されていなければなりません(サイト管理者にお問い合わせください)。"
+#: CRM/Event/Form/Registration/Register.php
+msgid "6"
+msgstr ""
 
-#: CRM/Event/Form/Registration.php
-msgid ""
-"The site administrator must set a Payment Processor for this event in order "
-"to use online registration."
-msgstr "オンライン登録を利用するためには、サイト管理者がこのイベントを支払いプロセッサに設定しなければなりません。"
+#: CRM/Event/Form/Registration/Register.php
+msgid "7"
+msgstr ""
 
-#: CRM/Event/Form/Registration.php
-msgid ""
-"No Fee Level(s) or Price Set is configured for this event.<br />Click <a "
-"href='%1'>CiviEvent >> Manage Event >> Configure >> Event Fees</a> to "
-"configure the Fee Level(s) or Price Set for this event."
-msgstr "このイベントには料金レベルまたは料金セットが設定されていません。<br /><a href='%1'>CiviEvent >> イベント管理 >> 設定 >> イベント料金</a>でこのイベントの料金レベルか料金セットを設定してください。"
+#: CRM/Event/Form/Registration/Register.php
+msgid "8"
+msgstr ""
 
-#: CRM/Event/Form/Registration.php
-msgid "Sorry, currently only a single seat is available for this option."
-msgstr "現在、このオプションでは1席しかありません。"
+#: CRM/Event/Form/Registration/Register.php
+msgid "9"
+msgstr ""
 
-#: CRM/Event/Form/Registration.php
-msgid "Sorry, currently only %1 seats are available for this option."
-msgstr "現在、このオプションでは %1 席しかありません。"
-
-#: CRM/Event/Form/Registration.php
-msgid "Select at least one option from Event Fee(s)."
-msgstr "イベント料金から最低1つのオプションを選択してください。"
+#: CRM/Event/Form/Registration/Register.php
+msgid "10"
+msgstr ""
 
 #: CRM/Event/Form/Registration/Register.php
 msgid "How many people are you registering?"
@@ -1047,6 +1192,12 @@ msgid ""
 msgstr "イベント料金を負の値にすることはできません。それぞれのオプションを選択してください。"
 
 #: CRM/Event/Form/Registration/Register.php
+msgid ""
+"Mandatory fields (first name and last name, OR email address) are missing "
+"from this form."
+msgstr "このフォームには必須入力フィールド(姓名やメールアドレスなど)がありません。"
+
+#: CRM/Event/Form/Registration/Register.php
 msgid "Registration information for participant 1 has been saved."
 msgstr "参加者 1 の登録情報は保存されました。"
 
@@ -1099,10 +1250,6 @@ msgstr "参加者の検索"
 #: CRM/Event/Form/Task/Badge.php
 msgid "Make Name Badges"
 msgstr "名札を作成"
-
-#: CRM/Event/Form/Task/Badge.php
-msgid "Name Badge Format"
-msgstr "名札フォーマットを作成"
 
 #: CRM/Event/Form/Task/Batch.php
 msgid "Batch Update for Events"
@@ -1202,6 +1349,12 @@ msgstr "このイベントを閲覧する権限がありません"
 
 #: CRM/Event/Page/EventInfo.php
 msgid ""
+"It looks like you are already registered for this event.  You may proceed if"
+" you want to create an additional registration."
+msgstr "すでにこのイベントに登録されています。追加の登録をする場合は、続けてください。"
+
+#: CRM/Event/Page/EventInfo.php
+msgid ""
 "It looks like you are already registered for this event. If you want to "
 "change your registration, or you feel that you've gotten this message in "
 "error, please contact the site administrator."
@@ -1288,6 +1441,112 @@ msgstr "参加者状態を変更"
 msgid "Print Event Name Badges"
 msgstr "イベントの名札を印刷"
 
+#: templates/CRM/Event/Cart/Form/Checkout/ConferenceEvents.tpl
+msgid "Choose Events For %1 (%2)"
+msgstr "%1 (%2) のイベントを選択"
+
+#: templates/CRM/Event/Cart/Form/Checkout/ConferenceEvents.tpl
+msgid "Session is Full"
+msgstr "セッションが一杯"
+
+#: templates/CRM/Event/Cart/Form/Checkout/ConferenceEvents.tpl
+msgid "more info"
+msgstr "追加情報"
+
+#: templates/CRM/Event/Cart/Form/Checkout/ConferenceEvents.tpl
+msgid "No description available for this event"
+msgstr "このイベントには説明がありません"
+
+#: templates/CRM/Event/Cart/Form/Checkout/ParticipantsAndPrices.tpl
+#: templates/CRM/Event/Form/Registration/Register.tpl
+msgid "Welcome %1"
+msgstr "ようこそ、%1 さん"
+
+#: templates/CRM/Event/Cart/Form/Checkout/ParticipantsAndPrices.tpl
+#: templates/CRM/Event/Form/Registration/Register.tpl
+msgid "Click here to register a different person for this event."
+msgstr "ここをクリックしてこのイベントに別の参加者を登録する。"
+
+#: templates/CRM/Event/Cart/Form/Checkout/ParticipantsAndPrices.tpl
+#: templates/CRM/Event/Form/Registration/Register.tpl
+msgid "Not %1, or want to register a different person"
+msgstr ""
+
+#: templates/CRM/Event/Cart/Form/Checkout/ParticipantsAndPrices.tpl
+msgid "Add Another Participant"
+msgstr "さらに参加者を追加"
+
+#: templates/CRM/Event/Cart/Form/Checkout/ParticipantsAndPrices.tpl
+msgid "There is no charge for this event."
+msgstr "このイベントに変更はありません。"
+
+#: templates/CRM/Event/Cart/Form/Checkout/ParticipantsAndPrices.tpl
+msgid "Error adding a participant at"
+msgstr "参加者追加エラー "
+
+#: templates/CRM/Event/Cart/Form/Checkout/Payment.tpl
+#: templates/CRM/Event/Cart/Form/Checkout/ThankYou.tpl
+msgid "Waitlisted:"
+msgstr "順番待ち:"
+
+#: templates/CRM/Event/Cart/Form/Checkout/Payment.tpl
+msgid "Subtotal:"
+msgstr "小計:"
+
+#: templates/CRM/Event/Cart/Form/Checkout/Payment.tpl
+msgid "Total:"
+msgstr "合計:"
+
+#: templates/CRM/Event/Cart/Form/Checkout/Payment.tpl
+msgid "Staff use only"
+msgstr "スタッフ専用"
+
+#: templates/CRM/Event/Cart/Form/Checkout/Payment.tpl
+msgid "Note that will be sent to the billing customer."
+msgstr "課金する顧客に送るメモ"
+
+#: templates/CRM/Event/Cart/Form/Checkout/Payment.tpl
+msgid "Description of this transaction."
+msgstr "この取引の説明"
+
+#: templates/CRM/Event/Cart/Form/Checkout/ThankYou.tpl
+msgid ""
+"This is your receipt of payment made for the following event registration."
+msgstr "次のイベント登録の受領証です。"
+
+#: templates/CRM/Event/Cart/Form/Checkout/ThankYou.tpl
+msgid ""
+"Your order number is <strong>#%1</strong>. Please print this confirmation "
+"for your records. You will receieve a confirmation email with the "
+"information below.  Information about the workshops will be sent separately "
+"to each participant. Here's a summary of your transaction placed on %2:"
+msgstr "注文番号は<strong>#%1</strong>です。この画面を記録のために印刷しておいてください。なお、以下の情報がメールで送信されます。このワークショップの情報は各参加者ごとに別々に送信されます。%2 の取引の概要は次の通りです:"
+
+#: templates/CRM/Event/Cart/Form/Checkout/ThankYou.tpl
+msgid "Subtotal"
+msgstr "小計"
+
+#: templates/CRM/Event/Cart/Form/Checkout/ThankYou.tpl
+msgid ""
+"If you have questions about the status of your registration or purchase "
+"please contact us."
+msgstr "登録や支払についてのご質問があればご連絡ください。"
+
+#: templates/CRM/Event/Cart/Form/viewCartLink.tpl
+msgid "<a href='%1'>Return to Cart</a>"
+msgstr "<a href='%1'>カートに戻る</a>"
+
+#: templates/CRM/Event/Cart/Page/ViewCart.tpl
+#: templates/CRM/Event/Form/Selector.tpl
+#: templates/CRM/Event/Page/DashBoard.tpl
+#: templates/CRM/Event/Page/ManageEvent.tpl
+msgid "View event info page"
+msgstr "イベント情報ページの表示"
+
+#: templates/CRM/Event/Cart/Page/ViewCart.tpl
+msgid "Check Out"
+msgstr "チェックアウト"
+
 #: templates/CRM/Event/Form/EventFees.tpl
 #: templates/CRM/Event/Form/ParticipantView.tpl
 msgid "Event Level"
@@ -1298,10 +1557,7 @@ msgid "No any active price fields found for this event!"
 msgstr "このイベントにはアクティブな料金表がありません。"
 
 #: templates/CRM/Event/Form/EventFees.tpl
-msgid "Event Fee Level (if applicable)."
-msgstr "イベント料金レベル(あれば)"
-
-#: templates/CRM/Event/Form/EventFees.tpl
+#: xml/templates/message_templates/event_registration_receipt_text.tpl
 msgid "Payment Information"
 msgstr "支払いの情報"
 
@@ -1483,6 +1739,19 @@ msgid ""
 "Mapping</a>)"
 msgstr "このイベント情報ページで地図を表示? (<a href='%1'>全般設定 &raquo; マッピング</a>でマッププロバイダを設定しておかなければなりません)"
 
+#: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
+#: templates/CRM/Event/Form/ManageEvent/EventInfo.tpl
+msgid ""
+"When enabled, links allowing people to share this event with their social "
+"network will be displayed (e.g. Facebook \"Like\", Google+, and Twitter)."
+msgstr "有効にするとこのイベントをソーシャル・ネットワークで共有するためのリンク(Facebook \"いいね\", Google+, Twitter)が表示されます。"
+
+#: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
+msgid ""
+"Social media links will be included on the Event Info page, Thank-you page, "
+"Tell-a-Friend page (if enabled), and in event confirmation emails."
+msgstr "イベント情報ページ、お礼ページ、Tell-a-Friendページ(有効にした場合)、イベント確認メールにソーシャルメディアのリンクが表示されます。"
+
 #: templates/CRM/Event/Form/ManageEvent/EventInfo.tpl
 msgid ""
 "If you find that you are creating multiple events with similar settings, you"
@@ -1547,20 +1816,22 @@ msgstr "注意: 決済サービスを設定せず、以下の<strong>後払い</
 
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid ""
+"Instructions added to Confirmation and Thank-you pages when the user selects"
+" the 'pay later' option (e.g. 'Mail your check to ... within 3 business "
+"days.')."
+msgstr "「後払い」オプションが選択されたときに確認とお礼のページに表示する指示(たとえば「3営業日以内に振り込んでください」など)。"
+
+#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
+msgid ""
 "This contribution type will be assigned to payments made by participants "
 "when they register online."
 msgstr "この支援タイプは、オンラインで登録した参加者による支払いに割り当てられます。"
 
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid "This label is displayed with the list of event fees."
-msgstr "このラベルはイベント料金のリストで表示されます。"
-
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid ""
-"Instructions added to Confirmation and Thank-you pages when the user selects"
-" the 'pay later' option (e.g. 'Mail your check to ... within 3 business "
-"days.')."
-msgstr "「後払い」オプションが選択されたときに確認とお礼のページに表示する指示(たとえば「3営業日以内に振り込んでください」など)。"
+"This label is displayed with the list of event fees. When using a Price Set,"
+" this label is the title for the section containing the price fields."
+msgstr "このラベルはイベント料金一覧で表示されます。料金セットでは、このラベルは料金フィールド内のセクションのタイトルになります。"
 
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid ""
@@ -1590,6 +1861,13 @@ msgid ""
 "one or more sets of discounted fees by checking \"Discounts by Signup Date\""
 " below."
 msgstr "下のテーブルに10件までのイベント料金レベルについて、わかりやすいラベルと金額を入力してください。これらはラジオボタンのオプションとして表示されます。ラベルと金額の両方が表示されます。「登録日による割引」をチェックして割引料金のセットを設定することができます。"
+
+#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
+msgid ""
+"Click <a id = 'quickconfig' href='#'>here</a> if you want to configure the "
+"Regular Fees below as part of a Price Set, with the added flexibility and "
+"complexity that entails."
+msgstr "料金セットの一部に標準料金を設定する時、さらに柔軟な設定ができるようにするには、<a id = 'quickconfig' href='#'>ここをクリック</a>してください。"
 
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid ""
@@ -1658,12 +1936,13 @@ msgstr "参加者が登録手続きを完了する前に、管理者の承認を
 #: templates/CRM/Event/Form/ManageEvent/Registration.hlp
 msgid ""
 "If you want collect additional information during event registration, you "
-"will need to configure one or two CiviCRM Profiles - which are collections "
-"of standard or custom fields. For event registration, you may need to "
-"collect additional information specific to a person's "
+"will need to configure one or more CiviCRM Profiles - which are collections "
+"of standard or custom fields. For event registration, you often want to "
+"collect an email address and / or participants' first and last names. You "
+"may also need to collect additional information specific to a person's "
 "<strong>participation</strong> in an Event. Examples include meal and/or "
 "volunteer preferences."
-msgstr "イベントの登録でさらに追加の情報を集めたい場合、CiviCRMプロファイルを設定します。プロファイルは標準またはカスタムフィールドをまとめます。イベント登録のときに、そのイベントでの個人の<strong>参加</strong>に関する、たとえば食事やボランティアなどの情報が必要になるかもしれません。"
+msgstr "イベント登録で追加の情報を集めたい場合、CiviCRMプロファイルを設定します。CiviCRMプロファイルは、標準またはカスタムフィールドをまとめるためのものです。イベント登録では、メールアドレスや姓名が必要になるでしょう。これに加えて<strong>参加</strong>に関する情報が必要になるかもしれません。たとえば、食事に関する情報や、ボランティアに関する情報などです。"
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.hlp
 msgid ""
@@ -1685,10 +1964,10 @@ msgstr "プロファイルを作成(たとえば'参加者情報')"
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.hlp
 msgid ""
-"Return to this screen (<strong>Administer CiviCRM &raquo; Manage Events "
-"&raquo; Configure &raquo; Online Registration</strong>) and select your "
-"profile."
-msgstr "この画面 (<strong>CiviCRM管理 &raquo; イベント管理 &raquo; 設定 &raquo; オンライン登録</strong>) に戻り、プロファイルを選択。"
+"Return to this screen (<strong>Administer CiviCRM &raquo; CiviEvent &raquo; "
+"Manage Events &raquo; Configure &raquo; Online Registration</strong>) and "
+"select your profile."
+msgstr "この画面に戻り (<strong>CiviCRM管理 &raquo; CiviEvent &raquo; イベント管理 &raquo; 設定 &raquo; オンライン登録</strong>)、プロファイルを選択してください。"
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.hlp
 msgid ""
@@ -1709,6 +1988,14 @@ msgstr "イベントにユーザが自分自身で登録し、さらに参加者
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.hlp
 msgid ""
+"You can use different profile for the person who is registering than for "
+"\"Additional Participants\". For example, you may want to require an email "
+"address from the person entering the registration while not requiring (or "
+"even requesting) emails for additional participants (i.e. their \"guests\")."
+msgstr "登録者と追加参加者で、異なるプロファイルを使うことができます。たとえば登録者のメールは必要でも、追加参加者のメールアドレスは不要というような場合です。"
+
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
+msgid ""
 "Check this box to allow a user to register multiple participants using the "
 "same email address. If you want additional participants to be registered "
 "<strong>without requiring an email address to be entered for each "
@@ -1720,9 +2007,9 @@ msgstr "同じメールアドレスで複数の参加者の登録を認める場
 #: templates/CRM/Event/Form/ManageEvent/Registration.hlp
 msgid ""
 "You will also need to update the default strict duplicate contact matching "
-"rule for Individuals to include First Name and Last Name fields (Administer "
-"&raquo; Manage &raquo; Find and Merge Duplicate Contacts)."
-msgstr "ファーストネームとラストネームのフィールドに対する個人のデフォルトの厳密な重複連絡先マッチング規則を更新してください。"
+"rule for Individuals to include First Name and Last Name fields (Contacts "
+"&raquo; Find and Merge Duplicate Contacts)."
+msgstr "ファーストネームとラストネームのフィールドでデフォルトの厳密な重複マッチ規則を使うようにすることもできます (連絡先&raquo; 重複連絡先の発見とマージ)。"
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.hlp
 msgid ""
@@ -1743,8 +2030,24 @@ msgid ""
 msgstr "保留状態の参加者による登録の確認・完了までの<strong>時間単位の</strong>時間制限。この機能を使わない場合は 0 (または空欄のまま)を入力してください。"
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
+msgid "remove profile"
+msgstr "プロファイル削除"
+
+#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid "add profile"
 msgstr "プロファイル追加"
+
+#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
+msgid ""
+"Change this if you want to use a different profile for additional "
+"participants."
+msgstr "追加の参加者に異なるプロファイルを使いたい場合はこれを変更。"
+
+#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
+msgid ""
+"Include additional fields on this registration form by configuring and "
+"selecting a CiviCRM Profile to be included at the bottom of the page."
+msgstr "このページの末尾にインクルードするフィールド。CiviCRMプロファイルを設定・選択してこの登録ページに追加する。"
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid ""
@@ -1776,18 +2079,6 @@ msgid ""
 "selecting a CiviCRM Profile to be included at the top of the page "
 "(immediately after the introductory message)."
 msgstr "このページの先頭(紹介文の直後)にインクルードするフィールド。CiviCRMプロファイルを設定・選択してこの登録ページに追加する。"
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"Include additional fields on this registration form by configuring and "
-"selecting a CiviCRM Profile to be included at the bottom of the page."
-msgstr "このページの末尾にインクルードするフィールド。CiviCRMプロファイルを設定・選択してこの登録ページに追加する。"
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"Change this if you want to use a different profile for additional "
-"participants."
-msgstr "追加の参加者に異なるプロファイルを使いたい場合はこれを変更。"
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid "Confirmation Screen"
@@ -1867,12 +2158,23 @@ msgstr "BCCで確認メールのコピーを受け取るメールアドレスを
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid ""
-"In order to allow multiple registrations with the same email address, the "
-"default \"Fuzzy\" Dedupe Rule will be used to check for matching contact "
-"records and prevent duplicate registrations. This rule currently uses the "
-"following fields: %1. First and Last Name will be used to check for matches "
-"among the multiple participants being registered."
-msgstr "同じメールアドレスを持つ複数の登録を許可するには、連絡先レコードを調べて登録の重複を防ぐためのデフォルトの「あいまい」重複排除規則を使います。この規則は次のフィールドを使います: %1 複数の参加者を登録する時に、ファーストネームとラストネームがチェックに使われます。"
+"Primary participants will be able to register additional participants using "
+"the same e-email address.  The default \"Fuzzy\" Dedupe Rule will use the "
+"following fields to prevent duplicate registrations: %1.  First and Last "
+"Name will be used to check for matches among multiple participants."
+msgstr "主参加者は同じメールアドレスで追加の参加者を登録することができます。重複登録をしないように、次のフィールドではデフォルトの「あいまい」重複排除ルールが利用されます: %1 。ファーストネームとラストネームは複数の参加者のチェックに使われます。"
+
+#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
+msgid ""
+"Primary participants will be allowed to register for this event multiple "
+"times.  No duplicate registration checking will be performed."
+msgstr "主参加者は複数回、このイベントに登録することができます。重複登録のチェックは行われません。"
+
+#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
+msgid ""
+"Primary participants will be able to register additional participants during"
+" registration."
+msgstr "主参加者は登録中に追加の参加者を登録することができます。"
 
 #: templates/CRM/Event/Form/ManageEvent/Tab.hlp
 msgid "Info &amp; Settings"
@@ -1981,6 +2283,7 @@ msgid "Online Registration (Live)"
 msgstr "オンライン登録 (ライブ)"
 
 #: templates/CRM/Event/Form/ManageEvent/Tab.tpl
+#: templates/CRM/Event/Page/EventInfo.tpl
 #: templates/CRM/Event/Page/ManageEvent.tpl
 msgid "Public Participant Listing"
 msgstr "公開参加者一覧"
@@ -2098,9 +2401,9 @@ msgstr "以下の情報を確認してください。その後、「継続」を
 
 #: templates/CRM/Event/Form/Registration/Confirm.tpl
 msgid ""
-"Please verify the information below. Click <strong>Go Back</strong> if you "
-"need to make changes."
-msgstr "以下の情報を確認してください。変更したいときは、「戻る」で前のページに戻り修正できます。"
+"Please verify the information below. Click the <strong>Go Back</strong> "
+"button below if you need to make changes."
+msgstr "以下の情報を確認してください。 <strong>戻る</strong> ボタンをクリックして元に戻り、内容を変更することができます。"
 
 #: templates/CRM/Event/Form/Registration/Confirm.tpl
 msgid ""
@@ -2126,29 +2429,16 @@ msgstr "または、<strong>継続</strong>をクリックして登録を完了�
 #: xml/templates/message_templates/event_offline_receipt_text.tpl
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
-#: xml/templates/message_templates/participant_cancelled_html.tpl
-#: xml/templates/message_templates/participant_cancelled_text.tpl
-#: xml/templates/message_templates/participant_confirm_html.tpl
-#: xml/templates/message_templates/participant_confirm_text.tpl
-#: xml/templates/message_templates/participant_expired_html.tpl
-#: xml/templates/message_templates/participant_expired_text.tpl
-msgid "Registered Email"
-msgstr "登録されたメール"
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-#: templates/CRM/Event/Form/Registration/ThankYou.tpl
-#: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
-#: xml/templates/message_templates/event_online_receipt_html.tpl
-#: xml/templates/message_templates/event_online_receipt_text.tpl
-msgid "Participant Information - Participant %1"
-msgstr "参加者情報 - 参加者 %1"
+msgid "Participant %1"
+msgstr "参加者 %1"
 
 #: templates/CRM/Event/Form/Registration/Confirm.tpl
 msgid ""
 "Your registration will not be submitted until you click the "
-"<strong>Continue</strong> button. Please click the button one time only."
-msgstr "<strong>継続</strong>ボタンをクリックするまで、登録は完了しません。このボタンは1回だけクリックしてください。"
+"<strong>Continue</strong> button. Please click the button one time only. If "
+"you need to change any details, click the Go Back button below to return to "
+"the previous screen."
+msgstr "<strong>次へ</strong> ボタンをクリックするまで、登録は実行されません。ボタンのクリックは1回だけにしてください。内容を変更したい場合は、下の戻るボタンをクリックして前の画面に戻ってください。"
 
 #: templates/CRM/Event/Form/Registration/EventInfoBlock.tpl
 msgid "View complete event information."
@@ -2177,18 +2467,6 @@ msgid ""
 " to your payment processor's documentation for information on values to use "
 "for test credit card number, security code, postal code, etc."
 msgstr "このページは現在<strong>テストドライブ・モード</strong>で実行しています。これが有料イベントであれば、取引内容は決済サービスのテストサーバに送られます。<strong>実際の取引は発生しません。ただし、連絡先レコードは作成または更新され、テスト支援のレコードはデータベースに残ります。明らかにテスト支援とわかる名前をつけて、必要があれば削除できるようにしておいてください。テスト支援は支援タブには表示されませんが、CiviContribute検索フォームから「テスト支援」を検索することで閲覧できます。</strong> テスト用のクレジットカード番号、セキュリティ・コード、郵便番号などの値については、使用する決済サービスのドキュメントを参照してください。"
-
-#: templates/CRM/Event/Form/Registration/Register.tpl
-msgid "Welcome %1"
-msgstr "ようこそ、%1 さん"
-
-#: templates/CRM/Event/Form/Registration/Register.tpl
-msgid "Click here to register a different person for this event."
-msgstr "ここをクリックしてこのイベントに別の参加者を登録する。"
-
-#: templates/CRM/Event/Form/Registration/Register.tpl
-msgid "Not %1, or want to register a different person"
-msgstr ""
 
 #: templates/CRM/Event/Form/Registration/Register.tpl
 msgid "including yourself"
@@ -2263,6 +2541,10 @@ msgstr "追加参加者のメール"
 msgid "Back to \"%1\" event information"
 msgstr "\"%1\" のイベントの情報に戻る"
 
+#: templates/CRM/Event/Form/Search/Common.tpl
+msgid "Event Dates"
+msgstr "イベント日付"
+
 #: templates/CRM/Event/Form/Search/EmptyResults.tpl
 msgid "if you are searching by participant name, check your spelling"
 msgstr "参加者名の検索であれば、スペルをチェックしてください。"
@@ -2284,11 +2566,6 @@ msgid ""
 "the 'actual participant count' by 8, even though only one participant record"
 " is displayed in search results."
 msgstr "料金セットフィールドを使って上限を超えないように参加者をカウントするイベントでは「実際の参加者数」が表示されます。たとえば、資金調達ディナーの登録で「8人テーブル」を設定すると、検索結果が1人しかなくても「実際の参加者数」は8の倍数で増えます。"
-
-#: templates/CRM/Event/Form/Selector.tpl
-#: templates/CRM/Event/Page/ManageEvent.tpl
-msgid "View event info page"
-msgstr "イベント情報ページの表示"
 
 #: templates/CRM/Event/Form/Selector.tpl
 msgid "List participants for this event (all statuses)"
@@ -2497,8 +2774,10 @@ msgid ""
 "If you've stored a unique <strong>External Identifier</strong> for each "
 "contact in CiviCRM, you can include that value as a column in your import "
 "file. Participant data will then be matched to contact records using their "
-"External ID."
-msgstr "もしCiviCRMのそれぞれの連絡先に固有の<strong>外部識別子(外部ID)</strong>を保存しているのであれば、その値をインポートファイルのコラムの値にすることができます。この場合、参加者のデータはこの外部IDを使って連絡先レコードとマッチングします。"
+"External ID. Please note that you must use an \"On Duplicate Entries\" "
+"setting of \"Skip\" or \"No Duplicate Checking\" to be able to upload using "
+"the External ID field."
+msgstr "CiviCRM内の各連絡先について、それぞれ<strong>外部ID</strong>を保存している場合、その値をインポートするファイルの列から取り込むことができます。その外部IDを使って参加者のデータを連絡先のデータとマッチさせます。外部IDを使ってアップロードする場合、「重複項目」で「スキップ」または「重複チェックをしない」のどちらかを使ってください。"
 
 #: templates/CRM/Event/Import/Form/UploadFile.hlp
 msgid ""
@@ -2514,8 +2793,12 @@ msgid ""
 "records (to update participant status after an event, for example), you will"
 " need to include a column containing the unique CiviCRM-assigned participant"
 " ID to match to the existing record. This value is included whenever you "
-"Export participant records from Find Participants."
-msgstr "それぞれのインポートで、新しい参加者レコードを追加することも、既存のレコードを更新することもできます。既存のレコード(たとえばイベントの後で参加者状態を更新するなど)を更新する場合、既存のレコードとのマッチのためにCiviCRMが割り当てた固有の参加者IDを含むものでなければなりません。このIDの値は、参加者検索で参加者のレコードをエクスポートすればその中に含まれています。"
+"Export participant records from Find Participants. Please note that you "
+"cannot use UPDATE if you wish to use the External ID field to match to "
+"existing contacts because the External ID links the incoming record to "
+"contact, and that contact may have more than one participant registration "
+"record."
+msgstr "インポートごとに新規参加者レコードをINSERTしたり、既存のレコードをUPDATE (たとえばあるイベントの後で参加者状態を更新したい場合など)することができます。この時、既存のレコードとマッチさせるためにCiviCRMが割り当てた固有の参加者IDを含む列をインクルードしなければなりません。この値は、参加者検索で参加者レコードをエクスポートする時に必ず含まれます。既存の連絡先とマッチさせるために外部IDフィールドを使いたい場合、UPDATEは使用しないでください。外部IDはインポートされる連絡先のレコードにリンクしているため、その連絡先は複数の登録レコードを生成してしまうからです。"
 
 #: templates/CRM/Event/Import/Form/UploadFile.tpl
 msgid ""
@@ -2602,10 +2885,6 @@ msgid "Get iCalendar feed for current and future public events."
 msgstr "現在および将来の公開イベントのiCalendarを取得。"
 
 #: templates/CRM/Event/Page/DashBoard.tpl
-msgid "View event info page\""
-msgstr "イベント情報ページを表示\""
-
-#: templates/CRM/Event/Page/DashBoard.tpl
 msgid "List %1 participants"
 msgstr "%1 人の参加者を表示"
 
@@ -2650,6 +2929,14 @@ msgid "Registration is closed for this event"
 msgstr "このイベントの登録は締め切られました"
 
 #: templates/CRM/Event/Page/EventInfo.tpl
+msgid "Configure this event."
+msgstr "このイベントを設定"
+
+#: templates/CRM/Event/Page/EventInfo.tpl
+msgid "Participant listing links."
+msgstr "参加者一覧リンク。"
+
+#: templates/CRM/Event/Page/EventInfo.tpl
 msgid "Show large map"
 msgstr "大きな地図を表示"
 
@@ -2658,8 +2945,8 @@ msgid "Category"
 msgstr "カテゴリー"
 
 #: templates/CRM/Event/Page/ICalendar.tpl
-msgid "read more"
-msgstr "続きを読む"
+msgid "Register"
+msgstr "登録"
 
 #: templates/CRM/Event/Page/ICalendar.tpl
 msgid "details..."
@@ -2725,8 +3012,8 @@ msgstr "start=YYYYMMDD - 一覧表示するイベントの日付範囲の開始�
 msgid ""
 "type=N - Specify a particular Event Type using the event_type_id value. (You"
 " can find these values by browsing the listing at Administer CiviCRM &raquo;"
-" Event Types.)"
-msgstr "type=N - event_type_id の値を用いて特定のイベントタイプを指示します。(CiviCRM管理 &raquo; イベントタイプ)の一覧で値を参照することができます。)"
+" CiviEvent &raquo; Event Types.)"
+msgstr ""
 
 #: templates/CRM/Event/Page/ManageEvent.hlp
 msgid ""
@@ -2911,10 +3198,14 @@ msgstr "iCalendarファイルのダウンロード"
 
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
 #: xml/templates/message_templates/event_offline_receipt_text.tpl
-#: xml/templates/message_templates/event_online_receipt_html.tpl
-#: xml/templates/message_templates/event_online_receipt_text.tpl
-msgid "Participant %1"
-msgstr "参加者 %1"
+#: xml/templates/message_templates/participant_cancelled_html.tpl
+#: xml/templates/message_templates/participant_cancelled_text.tpl
+#: xml/templates/message_templates/participant_confirm_html.tpl
+#: xml/templates/message_templates/participant_confirm_text.tpl
+#: xml/templates/message_templates/participant_expired_html.tpl
+#: xml/templates/message_templates/participant_expired_text.tpl
+msgid "Registered Email"
+msgstr "登録されたメール"
 
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
 #: xml/templates/message_templates/event_offline_receipt_text.tpl
@@ -2922,6 +3213,12 @@ msgstr "参加者 %1"
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 msgid "Each"
 msgstr ""
+
+#: xml/templates/message_templates/event_offline_receipt_html.tpl
+#: xml/templates/message_templates/event_offline_receipt_text.tpl
+#: xml/templates/message_templates/event_online_receipt_text.tpl
+msgid "Participant Information - Participant %1"
+msgstr "参加者情報 - 参加者 %1"
 
 #: xml/templates/message_templates/event_offline_receipt_subject.tpl
 msgid "Event Confirmation"
@@ -2931,6 +3228,17 @@ msgstr "イベント確認"
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 msgid "Download iCalendar File:"
 msgstr "iCalendarファイルのダウンロード:"
+
+#: xml/templates/message_templates/event_online_receipt_html.tpl
+#: xml/templates/message_templates/event_online_receipt_text.tpl
+#: xml/templates/message_templates/participant_confirm_html.tpl
+#: xml/templates/message_templates/participant_confirm_text.tpl
+msgid "Your schedule:"
+msgstr "自分のスケジュール:"
+
+#: xml/templates/message_templates/event_online_receipt_html.tpl
+msgid "You were registered by:"
+msgstr "登録者:"
 
 #: xml/templates/message_templates/event_online_receipt_subject.tpl
 msgid "Wait List Confirmation"
@@ -2990,479 +3298,353 @@ msgstr "このイベントの登録やり直しについての問い合わせや
 msgid "Event registration has expired for %1"
 msgstr "%1のイベント登録が期限切れになりました"
 
-#: CRM/Event/Form/ManageEvent/Conference.php
-#: CRM/Event/Form/ManageEvent/TabHeader.php
-#: templates/CRM/Event/Page/DashBoard.tpl
-#: templates/CRM/Event/Page/EventInfo.tpl
-#: templates/CRM/Event/Page/ManageEvent.tpl
-msgid "Conference Slots"
-msgstr "会議スロット"
+#: CRM/Event/BAO/Participant.php
+msgid "This event is full!!!"
+msgstr ""
 
-#: CRM/Event/Cart/BAO/Cart.php
-msgid "There was an error creating an event cart"
-msgstr "イベントのカート作成でエラーが発生しました"
+#: CRM/Event/BAO/Query.php
+msgid "Participant is a Test"
+msgstr ""
 
-#: CRM/Event/Cart/BAO/Cart.php
-msgid "Could not find cart matching %1"
-msgstr "%1 にマッチするカートがありません"
+#: CRM/Event/BAO/Query.php
+msgid "Participant is Pay Later"
+msgstr ""
 
-#: CRM/Event/Cart/BAO/EventInCart.php
-msgid "There was an error creating an event_in_cart"
-msgstr "event_in_cartの作成に失敗しました"
+#: CRM/Event/BAO/Query.php
+msgid "Participant is not Pay Later"
+msgstr ""
 
-#: CRM/Event/Cart/BAO/MerParticipant.php
-msgid "There was an error creating a cart participant"
-msgstr "カート参加者の作成に失敗しました"
+#: CRM/Event/BAO/Query.php
+msgid "Participant is a Test?"
+msgstr ""
 
-#: CRM/Event/Cart/Form/Checkout/ParticipantsAndPrices.php
-msgid "If you have a discount code, enter it here"
-msgstr "割引コードがあれば、ここに入力してください"
-
-#: CRM/Event/Cart/Form/Checkout/ParticipantsAndPrices.php
-msgid "Select at least one option from Price Levels"
-msgstr "料金レベルのオプションを選んでください"
-
-#: CRM/Event/Cart/Form/Checkout/ParticipantsAndPrices.php
-msgid "Select at least one option from Price Levels."
-msgstr "料金レベルのオプションを選んでください。"
-
-#: CRM/Event/Cart/Form/Checkout/ParticipantsAndPrices.php
-msgid ""
-"Price Levels can not be less than zero. Please select the options "
-"accordingly"
-msgstr "マイナスの料金レベルは設定できません。オプションを選択してください"
-
-#: CRM/Event/Cart/Form/Checkout/ParticipantsAndPrices.php
-msgid "The participant %1 is already registered for %2 (%3)."
-msgstr "参加者 %1 はすでに %2 (%3) に登録されています。"
-
-#: CRM/Event/Cart/Form/Checkout/Payment.php
-msgid "Bill me"
-msgstr "自分に課金"
-
-#: CRM/Event/Cart/Form/Checkout/Payment.php
-msgid "This is an invoice. Payment due before registration is finalized."
-msgstr "送り状です。支払期日は、登録締め切り日までです。"
-
-#: CRM/Event/Cart/Form/Checkout/Payment.php
-msgid ""
-"When registering for multiple events all events must use the same payment "
-"processor. "
-msgstr "複数のイベントを登録する時は、すべてのイベントは同じ支払プロセッサを使用しなければなりません。"
-
-#: CRM/Event/Cart/Form/Checkout/Payment.php
-msgid "Complete Transaction >>"
-msgstr "取引完了 >>"
-
-#: CRM/Event/Cart/Form/Checkout/Payment.php
-msgid "Alternative Payment Type"
-msgstr "その他の支払タイプ"
-
-#: CRM/Event/Cart/Form/Checkout/Payment.php
-msgid "Check No."
-msgstr "小切手番号"
-
-#: CRM/Event/Cart/Form/Checkout/Payment.php
-msgid "Create a pending registration"
-msgstr "保留登録を作成"
-
-#: CRM/Event/Cart/Form/Checkout/Payment.php
-msgid ""
-"There was an error creating a contribution record for your event. Please "
-"report this error to the webmaster. Details: %1\n"
-msgstr "イベントの支援レコード作成でエラーが発生しました。Webmaster宛にこのエラーを通知してください。詳細: %1\n"
-
-#: CRM/Event/Cart/Page/AddToCart.php
-msgid "You cannot register for an event you do not have permission to view"
-msgstr "表示の権限がないため、イベントの登録ができません。"
-
-#: CRM/Event/Cart/Page/AddToCart.php
-msgid ""
-"<b>%1</b> has been added to your cart. <a "
-"href='/civicrm/event/view_cart'>View your cart.</a>"
-msgstr "<b>%1</b> をカートに入れました。 <a href='/civicrm/event/view_cart'>カートの中を見る</a>。"
-
-#: CRM/Event/Cart/Page/RemoveFromCart.php
-msgid "<b>%1</b> has been removed from your cart."
-msgstr "<b>%1</b>をカートから削除しました。"
-
-#: CRM/Event/Cart/StateMachine/Checkout.php
-msgid "You don't have any events in you cart. Please add some events."
-msgstr "カートにはイベントがありません。イベントを追加してください。"
+#: CRM/Event/BAO/Query.php
+msgid "Participant is Pay Later?"
+msgstr ""
 
 #: CRM/Event/DAO/Event.php
-msgid "Subevent Slot Label ID"
-msgstr "サブイベントのスロットラベルID"
-
-#: CRM/Event/DAO/Participant.php
-msgid "Discount Amount"
-msgstr "割引額"
-
-#: CRM/Event/DAO/Participant.php
-msgid "Must Wait"
+msgid "Is this a PAID event?"
 msgstr ""
 
-#: CRM/Event/Form/ManageEvent/Conference.php
-msgid "Parent Event"
-msgstr "親イベント"
+#: CRM/Event/DAO/Event.php
+msgid "Financial Type ID"
+msgstr ""
 
-#: CRM/Event/Form/ManageEvent/ScheduleReminders.php
-msgid "Reminder Name"
-msgstr "通知名"
+#: CRM/Event/DAO/Event.php
+msgid "Map Enabled"
+msgstr ""
 
-#: CRM/Event/Form/ManageEvent/ScheduleReminders.php
-msgid "Additional Recipient(s)"
-msgstr "追加の宛先"
+#: CRM/Event/DAO/Event.php
+msgid "Location Block ID"
+msgstr ""
 
-#: CRM/Event/Form/ManageEvent/ScheduleReminders.php
-msgid "Event Schedule Reminder"
-msgstr "イベントスケジュール通知"
+#: CRM/Event/DAO/Event.php
+msgid "Default Fee ID"
+msgstr ""
 
-#: CRM/Event/Form/ManageEvent/TabHeader.php
-#: templates/CRM/Event/Page/EventInfo.tpl
-#: templates/CRM/Event/Page/ManageEvent.tpl
-msgid "Schedule Reminders"
-msgstr "スケジュール通知"
+#: CRM/Event/DAO/Event.php
+msgid "Default Discount Fee ID"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "Pay Later Allowed"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "Pay Later Receipt Text"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "Partial Payments Enabled"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "Minimum Initial Amount"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "Allow Multiple Registrations"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "Waitlist Enabled"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "Is an Event Template"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "Parent Event ID"
+msgstr ""
+
+#: CRM/Event/DAO/Participant.php
+msgid "Event Cart ID"
+msgstr ""
+
+#: CRM/Event/DAO/Participant.php
+msgid "Must Wait on List"
+msgstr ""
+
+#: CRM/Event/Form/ManageEvent/Delete.php
+msgid "'%1' has been deleted."
+msgstr ""
+
+#: CRM/Event/Form/ManageEvent/Delete.php
+msgid "Template Deleted"
+msgstr ""
+
+#: CRM/Event/Form/ManageEvent/Delete.php
+msgid "Event Deleted"
+msgstr ""
+
+#: CRM/Event/Form/ManageEvent/EventInfo.php
+msgid ""
+"If you find that you are creating multiple events with similar settings, you"
+" may want to use the <a href=\"%1\">Event Templates</a> feature to "
+"streamline your workflow."
+msgstr ""
+
+#: CRM/Event/Form/ManageEvent/Fee.php
+msgid "Please select financial type."
+msgstr ""
+
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid "- no profile -"
+msgstr "- プロファイルなし -"
+
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid "Registration end date should be after Registration start date"
+msgstr ""
 
 #: CRM/Event/Form/Participant.php
-msgid "Selected participant was deleted successfully."
-msgstr "選択した参加者を削除しました"
+msgid "Event Registration for"
+msgstr ""
 
-#: templates/CRM/Event/Cart/Form/Checkout/ConferenceEvents.tpl
-msgid "Choose Events For %1 (%2)"
-msgstr "%1 (%2) のイベントを選択"
-
-#: templates/CRM/Event/Cart/Form/Checkout/ConferenceEvents.tpl
-msgid "Session is Full"
-msgstr "セッションが一杯"
-
-#: templates/CRM/Event/Cart/Form/Checkout/ConferenceEvents.tpl
-msgid "more info"
-msgstr "追加情報"
-
-#: templates/CRM/Event/Cart/Form/Checkout/ParticipantsAndPrices.tpl
-msgid "Add Another Participant"
-msgstr "さらに参加者を追加"
-
-#: templates/CRM/Event/Cart/Form/Checkout/ParticipantsAndPrices.tpl
-msgid "There is no charge for this event."
-msgstr "このイベントに変更はありません。"
-
-#: templates/CRM/Event/Cart/Form/Checkout/ParticipantsAndPrices.tpl
-msgid "Error adding a participant at"
-msgstr "参加者追加エラー "
-
-#: templates/CRM/Event/Cart/Form/Checkout/Payment.tpl
-#: templates/CRM/Event/Cart/Form/Checkout/ThankYou.tpl
-msgid "Waitlisted:"
-msgstr "順番待ち:"
-
-#: templates/CRM/Event/Cart/Form/Checkout/Payment.tpl
-msgid "Subtotal:"
-msgstr "小計:"
-
-#: templates/CRM/Event/Cart/Form/Checkout/Payment.tpl
-msgid "Total:"
-msgstr "合計:"
-
-#: templates/CRM/Event/Cart/Form/Checkout/Payment.tpl
-msgid "Staff use only"
-msgstr "スタッフ専用"
-
-#: templates/CRM/Event/Cart/Form/Checkout/Payment.tpl
-msgid "Note that will be sent to the billing customer."
-msgstr "課金する顧客に送るメモ"
-
-#: templates/CRM/Event/Cart/Form/Checkout/Payment.tpl
-msgid "Description of this transaction."
-msgstr "この取引の説明"
-
-#: templates/CRM/Event/Cart/Form/Checkout/ThankYou.tpl
+#: CRM/Event/Form/Participant.php
 msgid ""
-"This is your receipt of payment made for the following event registration "
-"made at %1."
-msgstr "%1 で行ったイベント登録の受領証です。"
+"This Participant is linked to a contribution. You must have 'delete in "
+"CiviContribute' permission in order to delete this record."
+msgstr ""
 
-#: templates/CRM/Event/Cart/Form/Checkout/ThankYou.tpl
-msgid ""
-"Your order number is <strong>#%1</strong>. Please print this confirmation "
-"for your records. You will receieve a confirmation email with the "
-"information below.  Information about the workshops will be sent separately "
-"to each participant. Here's a summary of your transaction placed on %2:"
-msgstr "注文番号は<strong>#%1</strong>です。この画面を記録のために印刷しておいてください。なお、以下の情報がメールで送信されます。このワークショップの情報は各参加者ごとに別々に送信されます。%2 の取引の概要は次の通りです:"
+#: CRM/Event/Form/Participant.php
+msgid "Please enter the associated Financial Type"
+msgstr ""
 
-#: templates/CRM/Event/Cart/Form/Checkout/ThankYou.tpl
-msgid "Subtotal"
-msgstr "小計"
+#: CRM/Event/Form/Participant.php
+msgid "Group Payment Deleted"
+msgstr ""
 
-#: templates/CRM/Event/Cart/Form/Checkout/ThankYou.tpl
-msgid ""
-"If you have questions about the status of your registration or purchase "
-"please contact us at %1."
-msgstr "登録や支払についてのご質問は %1 宛にご連絡ください。"
+#: CRM/Event/Form/Participant.php
+msgid "Offline Registration for Event: %2 by: %1"
+msgstr ""
 
-#: templates/CRM/Event/Cart/Form/viewCartLink.tpl
-msgid "<a href='%1'>Return to Cart</a>"
-msgstr "<a href='%1'>カートに戻る</a>"
+#: CRM/Event/Form/Participant.php
+msgid "confirmation"
+msgstr ""
 
-#: templates/CRM/Event/Cart/Page/ViewCart.tpl
-msgid "Check Out"
-msgstr "チェックアウト"
-
-#: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
-#: templates/CRM/Event/Form/ManageEvent/EventInfo.tpl
-msgid ""
-"When enabled, links allowing people to share this event with their social "
-"network will be displayed (e.g. Facebook \"Like\", Google+, and Twitter)."
-msgstr "有効にするとこのイベントをソーシャル・ネットワークで共有するためのリンク(Facebook \"いいね\", Google+, Twitter)が表示されます。"
-
-#: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
-msgid ""
-"Social media links will be included on the Event Info page, Thank-you page, "
-"Tell-a-Friend page (if enabled), and in event confirmation emails."
-msgstr "イベント情報ページ、お礼ページ、Tell-a-Friendページ(有効にした場合)、イベント確認メールにソーシャルメディアのリンクが表示されます。"
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid "remove profile"
-msgstr "プロファイル削除"
-
-#: templates/CRM/Event/Form/ManageEvent/ScheduleReminders.tpl
-msgid "You can manually sent out the reminders to these recipients."
-msgstr "次の宛先に備忘通知を手動で送信することができます。"
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid ""
-"Please verify the information below. Click the <strong>Go Back</strong> "
-"button below if you need to make changes."
-msgstr "以下の情報を確認してください。 <strong>戻る</strong> ボタンをクリックして元に戻り、内容を変更することができます。"
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid ""
-"Your registration will not be submitted until you click the "
-"<strong>Continue</strong> button. Please click the button one time only. If "
-"you need to change any details, click the Go Back button below to return to "
-"the previous screen."
-msgstr "<strong>次へ</strong> ボタンをクリックするまで、登録は実行されません。ボタンのクリックは1回だけにしてください。内容を変更したい場合は、下の戻るボタンをクリックして前の画面に戻ってください。"
-
-#: templates/CRM/Event/Page/EventInfo.tpl
-msgid "Configure this event."
-msgstr "このイベントを設定"
-
-#: templates/CRM/Event/Page/EventInfo.tpl
-msgid "Participant listing links."
-msgstr "参加者一覧リンク。"
-
-#: templates/CRM/Event/Page/ICalendar.tpl
-msgid "Register"
-msgstr "登録"
-
-#: xml/templates/message_templates/event_online_receipt_html.tpl
-#: xml/templates/message_templates/event_online_receipt_text.tpl
-msgid "Your schedule:"
-msgstr "自分のスケジュール:"
-
-#: xml/templates/message_templates/event_online_receipt_html.tpl
-msgid "You were registered by:"
-msgstr "登録者:"
-
-#: CRM/Event/Cart/Form/Cart.php
-msgid "Online Registration for %1"
-msgstr "%1 のオンライン登録"
-
-#: CRM/Event/Cart/Form/Checkout/Payment.php
-msgid "Payment Completed"
-msgstr "支払い完了"
-
-#: CRM/Event/Cart/Form/Checkout/Payment.php
-msgid "Financial institution didn't return a transaction id."
-msgstr "金融会社が取引IDを返しませんでした。"
-
-#: CRM/Event/Cart/Page/AddToCart.php
-msgid ""
-"<b>%1</b> has been added to your cart. <a href='%2'>View your cart.</a>"
-msgstr "<b>%1</b> をカートに入れました。 <a href='%2'>カートの中を見る</a>。"
-
-#: CRM/Event/Form/ManageEvent/Registration.php
-msgid ""
-"Please add a profile with an email address if 'Send Confirmation Email?' is "
-"selected"
-msgstr "「確認メール送信?」を選択した場合、メールアドレスが入ったプロファイルを追加してください。"
-
-#: CRM/Event/Form/ManageEvent/Registration.php
-msgid ""
-"Please include a Profile for online registration that contains an Email "
-"Address field and / or First Name + Last Name fields."
-msgstr "メールアドレスのフィールドとファーストネーム+ラストネームのフィールドを持つオンライン登録用プロファイルを使用してください。"
-
-#: CRM/Event/Form/ManageEvent/Registration.php
-msgid ""
-"Please include a Profile for online registration of additional participants "
-"that contains an Email Address field and / or First Name + Last Name fields."
-msgstr "メールアドレスのフィールドとファーストネーム+ラストネームのフィールドを持つ追加参加者オンライン登録用プロファイルを使用してください。"
-
-#: CRM/Event/Form/Registration/AdditionalParticipant.php
-msgid ""
-"This event is currently full. You are registering for the waiting list. You "
-"will be notified if spaces become available."
-msgstr "現在、このイベントは満席です。キャンセル待ちに登録を追加します。空席ができ次第、通知をお送りします。"
-
-#: CRM/Event/Form/Registration/AdditionalParticipant.php
-msgid ""
-"It looks like you are registering more participants then there are spaces "
-"available. All participants will be added to the waiting list. You will be "
-"notified if spaces become available."
-msgstr "空席以上の参加者を登録しようとしています。参加者は全員キャンセル待ちに登録しました。空席ができ次第、通知をお送りします。"
-
-#: CRM/Event/Form/Registration/AdditionalParticipant.php
-msgid ""
-"It looks like there are enough spaces in this event for your group (you will"
-" not be wait listed)."
-msgstr "登録しようとしているグループ全員の座席がありません(キャンセル待ちへの登録はありません)。"
-
-#: CRM/Event/Form/Registration/AdditionalParticipant.php
-msgid ""
-"It looks there are enough spaces in this event for your group (you will not "
-"be wait listed). Registration for this event requires approval. You will "
-"receive an email once your registration has been reviewed."
-msgstr "登録しようとしているグループ全員の座席がありません(キャンセル待ちへの登録はありません)。このイベントの登録には承認が必要です。登録内容が受け付けられ次第、通知をお送りします。"
-
-#: CRM/Event/Form/Registration/AdditionalParticipant.php
-msgid ""
-"You are going to skip the last participant, your event registration will be "
-"confirmed. Please go back to the main registration page, to complete payment"
-" information."
+#: CRM/Event/Form/ParticipantView.php
+msgid "View Event Registration for"
 msgstr ""
 
 #: CRM/Event/Form/Registration/AdditionalParticipant.php
-msgid ""
-"Your payment information looks incomplete. Please go back to the main "
-"registration page, to complete payment information."
-msgstr "お支払いに関する情報が不完全です。登録ページに戻ってお支払いに関する情報入力を完了させてください。"
+msgid "Registration Error"
+msgstr ""
+
+#: CRM/Event/Form/Registration/AdditionalParticipant.php
+msgid "Registration Saved"
+msgstr ""
+
+#: CRM/Event/Form/Registration/Register.php
+msgid "Oops."
+msgstr ""
 
 #: CRM/Event/Form/Registration/Register.php
 msgid ""
-"Mandatory fields (first name and last name, OR email address) are missing "
-"from this form."
-msgstr "このフォームには必須入力フィールド(姓名やメールアドレスなど)がありません。"
+"It looks like this participant is already registered for this event. If you "
+"want to change your registration, or you feel that you've gotten this "
+"message in error, please contact the site administrator."
+msgstr ""
 
-#: CRM/Event/Page/EventInfo.php
+#: templates/CRM/Event/Form/EventFees.tpl
+msgid "No active price fields found for this event!"
+msgstr ""
+
+#: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
 msgid ""
-"It looks like you are already registered for this event.  You may proceed if"
-" you want to create an additional registration."
-msgstr "すでにこのイベントに登録されています。追加の登録をする場合は、続けてください。"
+"This is the title that users will see when they are selecting an event "
+"template to clone for a new event. It is <em>not</em> the title of the event"
+" itself."
+msgstr ""
 
-#: templates/CRM/Event/Cart/Form/Checkout/ConferenceEvents.tpl
-msgid "No description available for this event"
-msgstr "このイベントには説明がありません"
+#: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
+msgid "Template"
+msgstr ""
 
-#: templates/CRM/Event/Cart/Form/Checkout/ThankYou.tpl
+#: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
 msgid ""
-"This is your receipt of payment made for the following event registration."
-msgstr "次のイベント登録の受領証です。"
+"You will need to set Access Control permissions to include 'view event "
+"participants' for any Roles you want to access this listing."
+msgstr ""
 
-#: templates/CRM/Event/Cart/Form/Checkout/ThankYou.tpl
+#: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
+msgid "Maximum Participants"
+msgstr ""
+
+#: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
+msgid "Event-Full Message"
+msgstr ""
+
+#: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
+msgid "Waitlist"
+msgstr ""
+
+#: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
+msgid "Public Events"
+msgstr ""
+
+#: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
 msgid ""
-"If you have questions about the status of your registration or purchase "
-"please contact us."
-msgstr "登録や支払についてのご質問があればご連絡ください。"
+"When enabled, this event will be included in iCalendar feeds and displayed "
+"on your site's \"Upcoming Events\" block."
+msgstr ""
 
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid ""
-"This label is displayed with the list of event fees. When using a Price Set,"
-" this label is the title for the section containing the price fields."
-msgstr "このラベルはイベント料金一覧で表示されます。料金セットでは、このラベルは料金フィールド内のセクションのタイトルになります。"
+"This financial type will be assigned to payments made by participants when "
+"they register online."
+msgstr ""
 
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid ""
-"Click <a id = 'quickconfig' href='#'>here</a> if you want to configure the "
+"Click <a id='quickconfig' href='#'>here</a> if you want to configure the "
 "Regular Fees below as part of a Price Set, with the added flexibility and "
 "complexity that entails."
-msgstr "料金セットの一部に標準料金を設定する時、さらに柔軟な設定ができるようにするには、<a id = 'quickconfig' href='#'>ここをクリック</a>してください。"
+msgstr ""
+
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
+msgid "Registration Link"
+msgstr ""
+
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
+msgid "Multiple Participants"
+msgstr ""
+
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
+msgid "Allow Shared Email"
+msgstr ""
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.hlp
 msgid ""
-"If you want collect additional information during event registration, you "
-"will need to configure one or more CiviCRM Profiles - which are collections "
-"of standard or custom fields. For event registration, you often want to "
-"collect an email address and / or participants' first and last names. You "
-"may also need to collect additional information specific to a person's "
-"<strong>participation</strong> in an Event. Examples include meal and/or "
-"volunteer preferences."
-msgstr "イベント登録で追加の情報を集めたい場合、CiviCRMプロファイルを設定します。CiviCRMプロファイルは、標準またはカスタムフィールドをまとめるためのものです。イベント登録では、メールアドレスや姓名が必要になるでしょう。これに加えて<strong>参加</strong>に関する情報が必要になるかもしれません。たとえば、食事に関する情報や、ボランティアに関する情報などです。"
+"You will also need to set the default supervised duplicate contact matching "
+"rule for Individuals to one that includes First Name and Last Name fields "
+"(Contacts &raquo; Find and Merge Duplicate Contacts)."
+msgstr ""
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.hlp
-msgid ""
-"Return to this screen (<strong>Administer CiviCRM &raquo; CiviEvent &raquo; "
-"Manage Events &raquo; Configure &raquo; Online Registration</strong>) and "
-"select your profile."
-msgstr "この画面に戻り (<strong>CiviCRM管理 &raquo; CiviEvent &raquo; イベント管理 &raquo; 設定 &raquo; オンライン登録</strong>)、プロファイルを選択してください。"
+msgid "Require Approval"
+msgstr ""
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.hlp
-msgid ""
-"You can use different profile for the person who is registering than for "
-"\"Additional Participants\". For example, you may want to require an email "
-"address from the person entering the registration while not requiring (or "
-"even requesting) emails for additional participants (i.e. their \"guests\")."
-msgstr "登録者と追加参加者で、異なるプロファイルを使うことができます。たとえば登録者のメールは必要でも、追加参加者のメールアドレスは不要というような場合です。"
+msgid "Time Limit"
+msgstr ""
 
-#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
-msgid ""
-"You will also need to update the default strict duplicate contact matching "
-"rule for Individuals to include First Name and Last Name fields (Contacts "
-"&raquo; Find and Merge Duplicate Contacts)."
-msgstr "ファーストネームとラストネームのフィールドでデフォルトの厳密な重複マッチ規則を使うようにすることもできます (連絡先&raquo; 重複連絡先の発見とマージ)。"
+#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
+msgid "Click here to create a new profile"
+msgstr ""
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid ""
 "Primary participants will be able to register additional participants using "
-"the same e-email address.  The default \"Fuzzy\" Dedupe Rule will use the "
-"following fields to prevent duplicate registrations: %1.  First and Last "
-"Name will be used to check for matches among multiple participants."
-msgstr "主参加者は同じメールアドレスで追加の参加者を登録することができます。重複登録をしないように、次のフィールドではデフォルトの「あいまい」重複排除ルールが利用されます: %1 。ファーストネームとラストネームは複数の参加者のチェックに使われます。"
+"the same email address.  The configured \"Supervised\" Dedupe Rule will use "
+"the following fields to prevent duplicate registrations: %1.  First and Last"
+" Name will be used to check for matches among multiple participants."
+msgstr ""
 
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
+#: templates/CRM/Event/Form/ManageEvent/Tab.hlp
+msgid "Event Configuration"
+msgstr ""
+
+#: templates/CRM/Event/Form/Registration/DisplayProfile.tpl
+msgid "Participant 1"
+msgstr ""
+
+#: templates/CRM/Event/Form/Registration/DisplayProfile.tpl
+msgid "Participant Information"
+msgstr ""
+
+#: templates/CRM/Event/Form/Search/Results.hlp
+msgid "Actual Participant Count"
+msgstr ""
+
+#: templates/CRM/Event/Form/Search/Results.hlp
 msgid ""
-"Primary participants will be allowed to register for this event multiple "
-"times.  No duplicate registration checking will be performed."
-msgstr "主参加者は複数回、このイベントに登録することができます。重複登録のチェックは行われません。"
+"This is displayed for events which use Price Set field(s) to increment the "
+"number of participants counted against the event's maximum participant "
+"level. For example, someone may select a 'Table for 8' when registering for "
+"a fundraising dinner. This registration will increment the 'actual "
+"participant count' by 8, even though only one participant record is "
+"displayed in search results."
+msgstr ""
 
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
+#: templates/CRM/Event/Form/Task/Batch.tpl
 msgid ""
-"Primary participants will be able to register additional participants during"
-" registration."
-msgstr "主参加者は登録中に追加の参加者を登録することができます。"
+"Participants whose status is changed FROM Pending Pay Later TO Registered or"
+" Attended will receive a confirmation email and their payment status will be"
+" set to completed. If this is not what you want to do, you can change their "
+"participant status by editing their event registration record directly."
+msgstr ""
 
-#: templates/CRM/Event/Form/Search/Common.tpl
-msgid "Event Dates"
-msgstr "イベント日付"
-
-#: templates/CRM/Event/Import/Form/UploadFile.hlp
-msgid ""
-"If you've stored a unique <strong>External Identifier</strong> for each "
-"contact in CiviCRM, you can include that value as a column in your import "
-"file. Participant data will then be matched to contact records using their "
-"External ID. Please note that you must use an \"On Duplicate Entries\" "
-"setting of \"Skip\" or \"No Duplicate Checking\" to be able to upload using "
-"the External ID field."
-msgstr "CiviCRM内の各連絡先について、それぞれ<strong>外部ID</strong>を保存している場合、その値をインポートするファイルの列から取り込むことができます。その外部IDを使って参加者のデータを連絡先のデータとマッチさせます。外部IDを使ってアップロードする場合、「重複項目」で「スキップ」または「重複チェックをしない」のどちらかを使ってください。"
-
-#: templates/CRM/Event/Import/Form/UploadFile.hlp
-msgid ""
-"For each import, you can either INSERT new participant records, or UPDATE "
-"existing records during the import session. If you are UPDATING existing "
-"records (to update participant status after an event, for example), you will"
-" need to include a column containing the unique CiviCRM-assigned participant"
-" ID to match to the existing record. This value is included whenever you "
-"Export participant records from Find Participants. Please note that you "
-"cannot use UPDATE if you wish to use the External ID field to match to "
-"existing contacts because the External ID links the incoming record to "
-"contact, and that contact may have more than one participant registration "
-"record."
-msgstr "インポートごとに新規参加者レコードをINSERTしたり、既存のレコードをUPDATE (たとえばあるイベントの後で参加者状態を更新したい場合など)することができます。この時、既存のレコードとマッチさせるためにCiviCRMが割り当てた固有の参加者IDを含む列をインクルードしなければなりません。この値は、参加者検索で参加者レコードをエクスポートする時に必ず含まれます。既存の連絡先とマッチさせるために外部IDフィールドを使いたい場合、UPDATEは使用しないでください。外部IDはインポートされる連絡先のレコードにリンクしているため、その連絡先は複数の登録レコードを生成してしまうからです。"
+#: templates/CRM/Event/Page/DashBoard.hlp
+msgid "Event Dashboard"
+msgstr ""
 
 #: templates/CRM/Event/Page/ManageEvent.hlp
 msgid ""
 "type=N - Specify a particular Event Type using the event_type_id value. (You"
-" can find these values by browsing the listing at Administer CiviCRM &raquo;"
-" CiviEvent &raquo; Event Types.)"
+" can find these values by browsing the listing at Administer &raquo; "
+"CiviEvent &raquo; Event Types.)"
+msgstr ""
+
+#: CRM/Event/Form/Registration/Register.php
+msgid "Please select a Payment Method"
+msgstr ""
+
+#: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
+msgid ""
+"Include map presenting event location on event information page? (A map "
+"provider must be configured under <a href='%1'>Administer > System Settings "
+"> Mapping and Geocoding</a>)"
+msgstr ""
+
+#: templates/CRM/Event/Form/Participant.tpl
+msgid "Showing all events: show"
+msgstr ""
+
+#: templates/CRM/Event/Form/Participant.tpl
+msgid "current and future"
+msgstr ""
+
+#: templates/CRM/Event/Form/Participant.tpl
+msgid "past three months"
+msgstr ""
+
+#: templates/CRM/Event/Form/Participant.tpl
+msgid "Showing events since three months ago: show"
+msgstr ""
+
+#: templates/CRM/Event/Form/Participant.tpl
+msgid "all"
+msgstr ""
+
+#: templates/CRM/Event/Form/Participant.tpl
+msgid "Showing current and future events: show"
+msgstr ""
+
+#: templates/CRM/Event/Page/ManageEvent.tpl
+msgid "Don't see your event listed? Try \"Search All or by Date Range\" above."
+msgstr ""
+
+#: templates/CRM/Event/Page/ManageEvent.tpl
+msgid "Try \"Search All or by Date Range\"."
 msgstr ""
