@@ -1,12 +1,40 @@
 #!/bin/bash
 
-[ "$1" == "" ] && echo 'source dir missing'     && exit 1
-test ! -e "$1" && echo 'source does not exist'  && exit 1
-test ! -d "$1" && echo 'source not a directory' && exit 1
+function usage() {
+  cat <<EOT
+create-pot-files.sh - builds .pot files for CiviCRM.
 
-[ "$2" == "" ] && echo 'target dir missing'     && exit 1
-test ! -e "$2" && echo 'target does not exist'  && exit 1
-test ! -d "$2" && echo 'target not a directory' && exit 1
+Usage:
+  ./bin/create-pot-files.sh [src dir] [dest dir]
+
+Example:
+  ./bin/create-pot-files.sh ~/repository/civicrm/  ~/repository/org.example.hello/pots/
+
+NB: this program uses the "sponge" command, which you can get by installing the
+"moreutils" package under Debian/Ubuntu.
+
+EOT
+
+  exit 1;
+}
+
+[ "$1" == "--help" ] && usage
+[ "$1" == "-h" ] && usage
+
+[ "$1" == "" ] && echo 'source dir missing'     && usage
+test ! -e "$1" && echo 'source does not exist'  && usage
+test ! -d "$1" && echo 'source not a directory' && usage
+
+[ "$2" == "" ] && echo 'target dir missing'     && usage
+test ! -e "$2" && echo 'target does not exist'  && usage
+test ! -d "$2" && echo 'target not a directory' && usage
+
+# Test whether the sponge command is installed
+which sponge
+if [ $? -ne 0 ]; then
+  echo "Could not find the sponge command."
+  usage
+fi
 
 root="$1"
 potdir="$2"
