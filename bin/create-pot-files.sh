@@ -8,7 +8,11 @@ Usage:
   ./bin/create-pot-files.sh [src dir] [dest dir]
 
 Example:
-  ./bin/create-pot-files.sh ~/repository/civicrm/  ~/repository/org.example.hello/pots/
+  ./bin/create-pot-files.sh ~/repository/civicrm/  ~/repository/l10n/po/pots/
+
+Although you should probably not call this directly. Use build-unified-pots.sh
+if you are exporting the strings to Transifex.
+http://wiki.civicrm.org/confluence/display/CRMDOC/Pushing+new+strings+to+Transifex
 
 NB: this program uses the "sponge" command, which you can get by installing the
 "moreutils" package under Debian/Ubuntu.
