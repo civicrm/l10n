@@ -14,15 +14,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
 "Report-Msgid-Bugs-To: http://issues.civicrm.org/\n"
-"POT-Creation-Date: 2013-05-31 09:03-0400\n"
-"PO-Revision-Date: 2013-09-27 17:13+0000\n"
-"Last-Translator: Flying <steinar@maf.no>\n"
+"POT-Creation-Date: 2013-10-08 08:14-0400\n"
+"PO-Revision-Date: 2013-10-08 12:39+0000\n"
+"Last-Translator: Mathieu Lutfy <mathieu@bidon.ca>\n"
 "Language-Team: Norwegian Bokmål <norskbokmalCiviCRM@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: CRM/Contribute/BAO/ContributionRecur.php
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Recurring contribution cancelled"
+msgstr "Gjentagende gave kansellert"
 
 #: CRM/Contribute/DAO/ContributionPage.php
 #: CRM/Contribute/Form/ContributionPage/ThankYou.php
@@ -79,6 +84,11 @@ msgstr "Takk er sendt"
 #: CRM/Contribute/Form/ContributionPage/Amount.php
 msgid "Send up to"
 msgstr "Send opp til"
+
+#: CRM/Contribute/Form/CancelSubscription.php
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Notify Contributor?"
+msgstr "Gi beskjed til giver?"
 
 #: CRM/Contribute/Form/ContributionPage/Amount.php
 #: CRM/Contribute/Form/ContributionPage.php
@@ -150,6 +160,10 @@ msgstr "- Gavefelter-"
 #: CRM/Contribute/BAO/Contribution.php
 msgid "Recurring Contributions ID"
 msgstr "Gjentagende gavers ID"
+
+#: CRM/Contribute/BAO/ContributionRecur.php
+msgid "Automatic renewal of %1 membership cancelled."
+msgstr "Automatisk fornyelse av %1 medlemskap kansellert."
 
 #: CRM/Contribute/BAO/ContributionType.php
 msgid ""
@@ -246,8 +260,8 @@ msgid "Currency Type - %1"
 msgstr "Valutatype - %1"
 
 #: CRM/Contribute/BAO/Query.php
-msgid "Contribution Dates - From"
-msgstr "Gavedatoer - Fra"
+msgid "Batch Name %1 %2"
+msgstr "Bunke-navn %1 %2"
 
 #: CRM/Contribute/BAO/Query.php
 msgid "Currency Type"
@@ -386,6 +400,7 @@ msgid "Recurring Contribution Status"
 msgstr "Gjentagende gavestatus"
 
 #: CRM/Contribute/DAO/ContributionRecur.php
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
 msgid "Cycle Day"
 msgstr "Syklusdag"
 
@@ -394,10 +409,12 @@ msgid "Next Sched Contribution"
 msgstr "Neste planlagte gave"
 
 #: CRM/Contribute/DAO/ContributionRecur.php
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
 msgid "Failure Count"
 msgstr "Antall feil"
 
 #: CRM/Contribute/DAO/ContributionRecur.php
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
 msgid "Failure Retry Date"
 msgstr "Feil gjenta dato"
 
@@ -539,39 +556,63 @@ msgid "Please enter a valid additional reminder day."
 msgstr "Vennligst angi en gyldig ekstra påminnelsesdato"
 
 #: CRM/Contribute/Form/CancelSubscription.php
-msgid "You do not have permission to cancel subscription."
-msgstr "Du har ikke rettigheter til å annullere abonnement."
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "The auto renew membership looks to have been cancelled already."
-msgstr "Den automatiske fornyelsen av medlemskap ser allerede ut til å være kansellert."
-
-#: CRM/Contribute/Form/CancelSubscription.php
 msgid ""
-"Could not detect payment processor OR the processor does not support "
-"cancellation of auto renew."
-msgstr "Kunne ikke oppdage betalingsformidler ELLER formidleren støtter ikke kansellering av automatisk fornyelse."
+"The auto renewal option for this membership looks to have been cancelled "
+"already."
+msgstr "Valget for automatisk fornyelse for dette medlemskapet ser ut til allerede å være kansellert."
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "The recurring contribution looks to have been cancelled already."
+msgstr "Den gjentagende gaven ser ut til allerede å være annulleret."
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "You do not have permission to cancel this recurring contribution."
+msgstr "Du har ikke rettigheter til å kansellere denne gjentagende gaven."
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Send cancellation request to %1 ?"
+msgstr "Send forespørsel om kansellering til %1?"
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Cancel Automatic Membership Renewal"
+msgstr "Kanseller automatisk fornyelse av medlemskap"
 
 #: CRM/Contribute/Form/CancelSubscription.php
 msgid "Not Now"
 msgstr "Ikke nå"
 
 #: CRM/Contribute/Form/CancelSubscription.php
-msgid ""
-"The auto-renewal option for your membership has been successfully cancelled."
-" Your membership has not been cancelled. However you will need to arrange "
-"payment for renewal when your membership expires."
-msgstr "Valget \"automatisk fornyelse\" for medlemskapet ditt er blitt kansellert. Medlemskapet er ikke kansellert. Du må imidlertid ordne betaling for fornyelse, når medlemskapet ditt utløper."
+msgid "Auto-renewal membership cancelled"
+msgstr "Automatisk fornyelse av medlemskap kansellert"
 
 #: CRM/Contribute/Form/CancelSubscription.php
-msgid "Auto renew could not be cancelled."
-msgstr "\"Automatisk fornyelse\" kunne ikke kanselleres."
+msgid ""
+"The automatic renewal of your %1 membership has been cancelled as requested."
+" This does not affect the status of your membership - you will receive a "
+"separate notification when your membership is up for renewal."
+msgstr "Den automatiske fornyelsen av %1-medlemskapet ditt er blitt kansellert, slik du ønsket. Dette vil ikke påvirke statusen for medlemskapet ditt - du vil motta en egen melding når medlemskapet ditt må fornyes."
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid ""
+"Recurring contribution was cancelled successfully by the processor, but "
+"could not be marked as cancelled in the database."
+msgstr "Gjentagende gaver ble vellykket kansellert av formidleren, men kunne ikke bli markert som kansellert i databasen."
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Recurring contribution could not be cancelled in the database."
+msgstr "Gjentagende gaver kunne ikke kanselleres i databasen."
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "The recurring contribution could not be cancelled."
+msgstr "Den gjentagende gaven kunne ikke kanselleres."
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid ""
-"This contribution has already been submitted. Click <a href='%1'>here</a> if"
-" you want to make another contribution."
-msgstr "Denne gaven er allerede innsendt. Klikk <a href='%1'>her</a>, hvis du ønsker å gi en gave til."
+"An error occurred during form submission. This page requires form data to be"
+" submitted for processing and no form data was submitted or processed. We "
+"are sorry for any inconvience. Please click <a href='%1'>here</a> to visit "
+"the contribution page and re-start the contribution process."
+msgstr "En feil skjedde under innsendelse. Denne siden krever skjemadata til å bli innsendt for behandling, og ingen skjemadata ble innsendt eller behandlet. Vi beklager det inntrufne. Vennligst klikk <a href='%1'>her</a> for å besøke gavesiden og start gaveprosessen på nytt."
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid ""
@@ -674,12 +715,24 @@ msgid "Number of installments must be a whole number."
 msgstr "Antall terminer må være et helt tall."
 
 #: CRM/Contribute/Form/Contribution/Main.php
+msgid "Contribution amount must be at least %1"
+msgstr "Gavebeløpet må være minst %1"
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Contribution amount cannot be more than %1."
+msgstr "Gavebeløpet kan ikke være mer enn %1."
+
+#: CRM/Contribute/Form/Contribution/Main.php
 msgid "Select at least one option from Membership Type(s)."
 msgstr "Velg minst en valgmulighet fra medlemskapstyper."
 
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid "Select at least one option from Contribution(s)."
 msgstr "Velg minst et valg fra gave(r)."
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Amount is required field."
+msgstr "Beløp er et obligatorisk felt."
 
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid ""
@@ -697,6 +750,10 @@ msgstr "Du har valgt flere medlemskaper for samme organisasjon eller enhet. Venn
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid "Please select at least one membership option."
 msgstr "Vennligst velg minst et medlemskapsvalg."
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "The Membership you have selected requires a minimum contribution of %1"
+msgstr "Medlemsskapet som du har valgt krever en minimumsgave på %1"
 
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid ""
@@ -742,22 +799,6 @@ msgstr "Vennligst angi organisasjonens navn."
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid "Organization email is required."
 msgstr "Organisasjonens e-post er påkrævd."
-
-#: CRM/Contribute/Form/Contribution/Main.php
-msgid "The Membership you have selected requires a minimum contribution of %1"
-msgstr "Medlemsskapet som du har valgt krever en minimumsgave på %1"
-
-#: CRM/Contribute/Form/Contribution/Main.php
-msgid "Amount is required field."
-msgstr "Beløp er et obligatorisk felt."
-
-#: CRM/Contribute/Form/Contribution/Main.php
-msgid "Contribution amount must be at least %1"
-msgstr "Gavebeløpet må være minst %1"
-
-#: CRM/Contribute/Form/Contribution/Main.php
-msgid "Contribution amount cannot be more than %1."
-msgstr "Gavebeløpet kan ikke være mer enn %1."
 
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid ""
@@ -1044,6 +1085,10 @@ msgid "On behalf of Label"
 msgstr "\"På vegne av\"-tekstetikett"
 
 #: CRM/Contribute/Form/ContributionPage/Settings.php
+msgid "Use a confirmation page?"
+msgstr "Bruk bekreftelsesside?"
+
+#: CRM/Contribute/Form/ContributionPage/Settings.php
 msgid "Is this Online Contribution Page Active?"
 msgstr "Er denne online gavesiden aktiv?"
 
@@ -1155,10 +1200,6 @@ msgstr "Hjemmeside link farge"
 #: CRM/Contribute/Form/ContributionPage/Widget.php
 msgid "Enable Widget?"
 msgstr "Aktiver småprogram?"
-
-#: CRM/Contribute/Form/ContributionPage/Widget.php
-msgid "Save and Preview"
-msgstr "Lagre og forhåndsvis"
 
 #: CRM/Contribute/Form/ContributionPage/Widget.php
 msgid "Title is a required field."
@@ -1438,6 +1479,38 @@ msgstr "Slett gave(r): %1"
 msgid "Total Selected Contribution(s): %1"
 msgstr "Totalt antall valgte gaver: %1"
 
+#: CRM/Contribute/Form/Task/PDFLetterCommon.php
+msgid "Receipt date has been updated for %1 contributions."
+msgstr "Kvitteringsdato har blitt oppdatert for %1 gaver."
+
+#: CRM/Contribute/Form/Task/PDFLetterCommon.php
+msgid "Thank-you date has been updated for %1 contributions."
+msgstr "Takkedato har blitt oppdatert for %1 gaver."
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "Record Update Options"
+msgstr "Registreringsoppdatering valg"
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "Update receipt dates for these contributions"
+msgstr "Oppdater kvitteringsdatoer for disse gavene"
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "Update thank-you dates for these contributions"
+msgstr "Oppdater takkedatoer for disse gavene"
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "Recurring"
+msgstr "Gjentagende"
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "Grouping contributions in one letter based on"
+msgstr "Gruppering av gaver i et brev basert på"
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "Make Thank-you Letters"
+msgstr "Lag takkebrev"
+
 #: CRM/Contribute/Form/Task/PDF.php
 msgid "Print Contribution Receipts"
 msgstr "Skriv ut gavekvitteringer"
@@ -1469,8 +1542,8 @@ msgid "Your mail has been sent."
 msgstr "Din e-post er sendt."
 
 #: CRM/Contribute/Form/Task/PickProfile.php
-msgid "Batch Profile Update for Contribution"
-msgstr "Bunke-profiloppdatering for gave"
+msgid "Batch Update Contributions via Profile"
+msgstr "Bunkeoppdater gaver via profil"
 
 #: CRM/Contribute/Form/Task/Status.php
 msgid "Please select only online contributions with Pending status."
@@ -1493,6 +1566,60 @@ msgstr "\"Betalt med\" bør være Sjekk, når et sjekknummer er skrevet inn for 
 #: CRM/Contribute/Form/Task/Status.php
 msgid "Contribution status has been updated for selected record(s)."
 msgstr "Gavestatus har blitt oppdateret for de valgte poster."
+
+#: CRM/Contribute/Form/UpdateBilling.php
+msgid "You do not have permission to cancel subscription."
+msgstr "Du har ikke rettigheter til å annullere abonnement."
+
+#: CRM/Contribute/Form/UpdateBilling.php
+msgid "%1 processor doesn't support updating subscription billing details."
+msgstr "%1-formidleren støtter ikke oppdatering av faktureringsdetaljer for abonnement."
+
+#: CRM/Contribute/Form/UpdateBilling.php
+msgid ""
+"Billing details for your automatically renewed %1 membership have been "
+"updated."
+msgstr "Faktureringsdetaljer for ditt automatisk fornyende %1-medlemskap har blitt oppdatert."
+
+#: CRM/Contribute/Form/UpdateBilling.php
+msgid "Recurring Contribution Billing Details Updated"
+msgstr "Faktureringsdetaljer for gjentagende gaver oppdatert"
+
+#: CRM/Contribute/Form/UpdateBilling.php
+msgid "There was some problem updating the billing details."
+msgstr "Det opstod et problem under oppdatering av faktureringsdetaljene."
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "You cannot update the subscription."
+msgstr "Du kan ikke oppdatere dette abonnementet."
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "You do not have permission to update subscription."
+msgstr "Du har ikke rettigheter til å oppdatere abonnment."
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid ""
+"WARNING: Updates made using this form will change the recurring contribution"
+" information stored in your CiviCRM database, but will NOT be sent to the "
+"payment processor. You must enter the same changes using the payment "
+"processor web site."
+msgstr "ADVARSEL: Oppdateringer foretatt ved hjelp av dette skjemaet vil endre informasjonen om gjentagende gaver lagret i din CiviCRM-database, men vil IKKE bli sendt til betalingsformidleren. Du må angi de samme endringene på betalingsformidlerens nettside."
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Recurring Contribution Amount"
+msgstr "Gjentagende gave beløp"
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Number of Installments"
+msgstr "Antallet terminer"
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Could not update the Recurring contribution details"
+msgstr "Kunne ikke oppdatere detaljene for gjentagende gaver"
+
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Recurring Contribution Updated"
+msgstr "Gjentagende gave oppdatert"
 
 #: CRM/Contribute/Import/Form/MapField.php
 msgid ""
@@ -1651,6 +1778,27 @@ msgstr "Slett premie"
 msgid "Are you sure you want to remove this product form this page?"
 msgstr "Er du sikker på at du vil slette dette produktet fra denne siden?"
 
+#: CRM/Contribute/Page/Tab.php
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "View Recurring Payment"
+msgstr "Vis gjentagende betaling"
+
+#: CRM/Contribute/Page/Tab.php
+msgid "Edit Recurring Payment"
+msgstr "Rediger gjentagende betaling"
+
+#: CRM/Contribute/Selector/Search.php
+#: templates/CRM/Contribute/Form/Contribution.tpl
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+msgid "Pay Later"
+msgstr "Betal senere"
+
+#: CRM/Contribute/Selector/Search.php
+#: templates/CRM/Contribute/Form/Contribution.tpl
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+msgid "Incomplete Transaction"
+msgstr "Uavsluttet transaksjon"
+
 #: CRM/Contribute/Task.php
 msgid "Export Contributions"
 msgstr "Eksporter gaver"
@@ -1666,6 +1814,10 @@ msgstr "Oppdater avventende gavestatus"
 #: CRM/Contribute/Task.php
 msgid "Print or Email Contribution Receipts"
 msgstr "Skriv ut gavekvitteringer eller send e-post"
+
+#: CRM/Contribute/Task.php
+msgid "Thank-you Letters for Contributions"
+msgstr "Takkebrev for gaver"
 
 #: templates/CRM/Contribute/Form/AcceptCreditCard.tpl
 msgid "New Credit Card"
@@ -1736,6 +1888,30 @@ msgstr "Påminnelser for hver planlagte betaling."
 msgid "Days after the last one sent, up to the maximum number of reminders."
 msgstr "Antall dager etter den forrige er sendt, opp til maksimalt antall påminnelser."
 
+#: templates/CRM/Contribute/Form/CancelSubscription.tpl
+#: templates/CRM/Contribute/Form/UpdateBilling.tpl
+msgid "Recurring Contribution Details: %1 every %2 %3"
+msgstr "Detaljer for gjentagende gaver: %1 hver %2 %3"
+
+#: templates/CRM/Contribute/Form/CancelSubscription.tpl
+#: templates/CRM/Contribute/Form/UpdateBilling.tpl
+msgid "for %1 installments"
+msgstr "for %1 terminer"
+
+#: templates/CRM/Contribute/Form/CancelSubscription.tpl
+msgid ""
+"Click the button below to cancel this commitment and stop future "
+"transactions. This does not affect contributions which have already been "
+"completed."
+msgstr "Klikk knappen nedenfor for å kansellere denne forpliktelsen og stoppe fremtidige transaksjoner. Dette påvirker ikke gaver som allerede er gjennomført."
+
+#: templates/CRM/Contribute/Form/CancelSubscription.tpl
+msgid ""
+"Automatic cancellation is not supported for this payment processor. You or "
+"the contributor will need to manually cancel this recurring contribution "
+"using the payment processor website."
+msgstr "Automatisk kansellering støttes ikke av denne betalingsformidleren. Du eller giveren må manuelt kansellere denne gjentagende gaven, ved hjelp av betalingsformidlerens nettside."
+
 #: templates/CRM/Contribute/Form/ContributionCharts.tpl
 msgid "There were no contributions during the selected year."
 msgstr "Det var ingen gaver i det valgte år."
@@ -1779,9 +1955,9 @@ msgstr "Jeg ønsker dette medlemskapet automatisk fornyet hver %1 %2."
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 msgid ""
 "Your initial membership fee will be processed once you complete the "
-"confirmation step. You will be able to modify or cancel the auto-renwal "
-"option by visiting the web page link that will be included in your receipt."
-msgstr "Din første medlemskapspris vil bli behandlet med en gang du fullfører bekreftelses-trinnet. Du vil ha mulighet til å endre eller kansellere auto-fornyelses-valget ved å besøke nettsiden via linken som blir inkluder i kvitteringen din."
+"confirmation step. You will be able to cancel the auto-renwal option by "
+"visiting the web page link that will be included in your receipt."
+msgstr "Din første medlemspris vil bli behandlet når du fullfører bekreftelsestrinnet. Du vil få mulighet til å kansellere autofornyelsesvalget ved å besøke nettsidelinken som vil bli inkludert i kvitteringen din."
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 msgid "I want to contribute this amount every %1 %2(s) for %3 installments."
@@ -1794,9 +1970,9 @@ msgstr "Jeg vil gjerne gi dette beløp hver %1 %2."
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 msgid ""
 "Your initial contribution will be processed once you complete the "
-"confirmation step. You will be able to modify or cancel future contributions"
-" at any time by logging in to your account."
-msgstr "Din første gave vil bli behandlet så fort du har fullført bekreftelsestrinnet. Du kan alltid endre eller kansellere fremtidige gaver ved å logge inn på kontoen din."
+"confirmation step. You will be able to cancel the recurring contribution by "
+"visiting the web page link that will be included in your receipt."
+msgstr "Din første gave vil bli behandlet når du fullfører bekreftelsestrinnet. Du vil få mulighet til å kansellere den gjentagende gaven ved å besøke nettsidelinken som vil bli inkludert i kvitteringen din."
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
@@ -1853,6 +2029,12 @@ msgid ""
 "Your contribution will not be completed until you click the "
 "<strong>%1</strong> button. Please click the button one time only."
 msgstr "Din gave vil ikke bli gjennomført før du klikker på knappen <strong>%1</strong>. Vennligst klikk på knappen kun en gang."
+
+#: templates/CRM/Contribute/Form/Contribution/Main.tpl
+msgid ""
+"This page requires Javascript. Please enable Javascript in your web browser "
+"preferences and refresh the page."
+msgstr "Denne siden krever Javascript. Vennligst aktiver Javascript i nettleseren din, og oppfrisk siden."
 
 #: templates/CRM/Contribute/Form/Contribution/Main.tpl
 #: templates/CRM/Contribute/Form/Contribution.tpl
@@ -2008,17 +2190,17 @@ msgstr "Velg betalingsformidleren som skal brukes for gaver gitt fra denne gaves
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid ""
-"Uncheck this box if you are using this contribution page for membership "
-"signup and renewal only - and you do NOT want users to select or enter any "
-"additional contribution amounts."
-msgstr "Fjern valget for dette feltet, hvis du kun bruker denne gavesiden for  medlemskapspåmelding og fornyelse, og du IKKE vil at brukere kan velge eller skrive inn ytterligere gavebeløp."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
 "Instructions added to Confirmation and Thank-you pages, as well as the "
 "confirmation email, when the user selects the 'pay later' option (e.g. 'Mail"
 " your check to ... within 3 business days.')."
 msgstr "Instruksjoner lagt til bekreftelse og takke-sider, samt e-post-bekreftelsen, når brukeren velger \"betal senere\" (f. eks. »Send din sjekk til ... innen 3 arbeidsdager.')."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
+msgid ""
+"Uncheck this box if you are using this contribution page for membership "
+"signup and renewal only - and you do NOT want users to select or enter any "
+"additional contribution amounts."
+msgstr "Fjern valget for dette feltet, hvis du kun bruker denne gavesiden for  medlemskapspåmelding og fornyelse, og du IKKE vil at brukere kan velge eller skrive inn ytterligere gavebeløp."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid ""
@@ -2035,6 +2217,21 @@ msgid ""
 "\"Contribute $25 more to receive our monthly magazine.\"). Click <a "
 "href='%1'>here</a> if you want to configure price sets for your site."
 msgstr "Ingen gaveprissett har blitt konfigurert/aktivert for siden din. Prissett gir deg muligheten til å konfigurere mer komplekse gavevalg (f.eks. \"Gi kr. 150 mer for å motta vårt månedlige magasin.\").  Klikk <a href='%1'>her</a> hvis du vil konfigurere prissett for siden din."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
+msgid ""
+"Check this box if you want to give users the option to make recurring "
+"contributions. This feature requires that you use a payment processor which "
+"supports recurring billing / subscriptions functionality."
+msgstr "Velg denne boksen hvis du ønsker å gi brukere muligheten for å gi gjentagende gaver. Denne funksjonen krever at du bruker en betalingsformidler som støtter gjentagende innkrevinger / abonnements-funksjonalitet."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
+msgid "Select recurring units supported for recurring payments."
+msgstr "Velg hvilke gjentagende enheter som er støttet for gjentagende betalinger."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
+msgid "Can users also set an interval (e.g. every '3' months)?"
+msgstr "Kan brukerne også bestemme et intervall (f.eks. hver '3' måned)?"
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid ""
@@ -2066,21 +2263,6 @@ msgstr "dager etter siste sendt, opp til det maksimale antall påminnelser."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid ""
-"Check this box if you want to give users the option to make recurring "
-"contributions. This feature requires that you use a payment processor which "
-"supports recurring billing / subscriptions functionality."
-msgstr "Velg denne boksen hvis du ønsker å gi brukere muligheten for å gi gjentagende gaver. Denne funksjonen krever at du bruker en betalingsformidler som støtter gjentagende innkrevinger / abonnements-funksjonalitet."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid "Select recurring units supported for recurring payments."
-msgstr "Velg hvilke gjentagende enheter som er støttet for gjentagende betalinger."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid "Can users also set an interval (e.g. every '3' months)?"
-msgstr "Kan brukerne også bestemme et intervall (f.eks. hver '3' måned)?"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
 "Check this box if you want to give users the option to enter their own "
 "contribution amount. Your page will then include a text field labeled "
 "<strong>Other Amount</strong>."
@@ -2103,6 +2285,13 @@ msgid ""
 "will be presented as a list of radio button options. Both the label and "
 "dollar amount will be displayed."
 msgstr "Bruk tabellen nedenfor til å skrive inn opp til ti låste gavebeløp. Disse vil bli presentert som en valgliste. Både etikett og beløp vil bl vist."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
+msgid ""
+" Click <a  id = 'quickconfig' href='#'>here</a> if you want to configure the"
+" Fixed Contribution Options below as part of a Price Set, with the added "
+"flexibility and complexity that entails."
+msgstr "Klikk <a id = 'quickconfig' href='#'>her</a> hvis du vil konfigurere det faste gavevalget nedenfor, som en del av et prissett, med den økte fleksibiliteten og kompleksibiteten det innebærer."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid "Contribution Label"
@@ -2140,10 +2329,10 @@ msgstr "Opprett en profil (f. eks. 'Gave-informasjon')."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.hlp
 msgid ""
-"Return to this screen (<strong>Administer CiviCRM &raquo; Manage "
-"Contribution Page &raquo; Configure &raquo; Custom Elements</strong>) and "
-"select your profile."
-msgstr "Gå tilbake til dette skjermbildet <strong>(Administrer CiviCRM &raquo; Administrer gaveside &raquo; Konfigurer  &raquo; Tilpassede elementer),</strong> og velg din profil."
+"Return to this screen (<strong>Administer CiviCRM &raquo; CiviContribute "
+"&raquo; Manage Contribution Pages &raquo; Configure &raquo; Include "
+"Profiles</strong>) and select your profile."
+msgstr "Gå tilbake til dette skjembildet (<strong>Administrer CiviCRM &raquo; CiviGave &raquo; Håndter gavesider &raquo; Konfigurer &raquo; Inkluder profiler</strong>) og velg din profil."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.tpl
 msgid ""
@@ -2404,6 +2593,12 @@ msgstr "Valgfri, forklarende tekst til hedersseksjonen (vises ovenfor hedersfelt
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
+"If you disable this contributions will be processed immediately after "
+"submitting the contribution form."
+msgstr "Hvis du deaktiverer dette, så vil gaver bli behandlet straks etter innsendelse av gaveskjemaet."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
+msgid ""
 "When enabled, links will appear allowing people to share this event through "
 "social media."
 msgstr "Når aktivert, vil linker vises lar personer dele dette arrangementet gjennom sosiale medier."
@@ -2417,9 +2612,10 @@ msgstr "Når din side er aktiv kan du henvise personer til siden. Dette gjøres 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
 "When your page is active, create front-end links to the contribution page "
-"using the Menu Manager. Select <strong>CiviCRM &raquo; Contribution "
-"Pages</strong> and select <strong>%1</strong> for the contribution page."
-msgstr "Når siden din er aktiv, så kan du opprette front-end-linker til gavesiden ved å bruke menyhåndteringen. Velg <strong>CiviCRM &raquo; Gavesider</strong> og velg <strong>%1</strong> for gavesiden."
+"using the Menu Manager. Select <strong>Administer CiviCRM &raquo; "
+"CiviContribute &raquo; Manage Contribution Pages</strong> and select "
+"<strong>%1</strong> for the contribution page."
+msgstr "Når siden din er aktiv, oppret front-end-linker til gavesiden ved hjelp av Meny-håndteringen. Velg <strong>Administrer CiviCRM &raquo; CiviGave &raquo; Håndter gavesider</strong> og velg <strong>%1</strong> for gavesiden."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
 msgid ""
@@ -2767,9 +2963,9 @@ msgstr "Dette medlemskapet vil bli automatisk fornyet hver %1 %2."
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
-"You will be able to cancel automatic renewals at any time by logging in to "
-"your account or contacting us."
-msgstr "Du vil når som helst kunne kansellere automatiske fornyelser ved å logge inn på din konto eller ved å kontakte oss."
+"You will receive an email receipt which includes information about how to "
+"cancel the auto-renwal option."
+msgstr "Du vil motta en e-post-kvittering med informasjon om hvordan kansellere valget for auto-fornyelse."
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
@@ -2784,23 +2980,9 @@ msgstr "Denne gjentagende gaven vil automatisk bli behandlet hver %1 %2('er)."
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
-"You can modify or cancel future contributions at any time by <a "
-"href='%1'>logging in to your account</a>."
-msgstr "Du kan når som helst endre eller annullere fremtidige gaver, ved å <a href='%1'>logge deg inn på din konto</a>."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid "To modify or cancel future contributions please contact us at %1."
-msgstr "For å endre eller annullere fremtidige gaver, kontakt oss på %1."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid "You will receive an email receipt for each recurring contribution."
-msgstr "Du vil motta en e-post-kvittering for hver gjentagende gave."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"The receipts will also include a link you can use if you decide to modify or"
-" cancel your future contributions."
-msgstr "Kvitteringene vil også inneholde en link du kan bruke hvis du bestemmer deg for å endre eller annullere dine fremtidige gaver."
+"You will receive an email receipt which includes information about how to "
+"update or cancel this recurring contribution."
+msgstr "Du vil motta en e-post-kvittering med informasjon om hvordan oppdatere eller kansellere denne gjentagende gaven."
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
@@ -2812,9 +2994,8 @@ msgstr "Vi vil registrere din første avtalte betaling når vi mottar den fra de
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
 "Your initial pledge payment has been processed. You will be able to modify "
-"or cancel future pledge payments at any time by logging in to your account "
-"or contacting us at %1."
-msgstr "Din første avtalte betaling er blitt behandlet. Du vil når som helst ha muligheten til å endre eller annullere fremtidige avtalte betalinger ved å logge deg inn på din konto eller kontakte oss på %1."
+"or cancel future pledge payments at any time by contacting us at %1."
+msgstr "Din første avtalebetaling har blitt behandlet. Du vil få mulighet til når som helst å endre eller kansellere fremtidige avtalebetalinger ved å kontakte oss på %1."
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
@@ -2896,16 +3077,6 @@ msgstr "Datoen da denne gaven ble mottatt."
 #: templates/CRM/Contribute/Form/Contribution.tpl
 msgid "Leave blank for non-monetary contributions."
 msgstr "La stå tom for gaver som ikke er penger."
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "Pay Later"
-msgstr "Betal senere"
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "Incomplete Transaction"
-msgstr "Uavsluttet transaksjon"
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
 msgid "Cancellation Information"
@@ -2991,8 +3162,8 @@ msgid "Interval"
 msgstr "Intervall"
 
 #: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "pending"
-msgstr "avventer"
+msgid "not available"
+msgstr "ikke tilgjengelig"
 
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 #: templates/CRM/Contribute/Page/UserDashboard.tpl
@@ -3184,6 +3355,10 @@ msgid ""
 " be listed.)"
 msgstr "Hvis dette  er valgt, så vil en \"hedersliste\" bli vist med navnene (eller kallenavnene) på de personene som gav gjennom innsamlingssiden din. (Givere vil få mulighet for å være anonyme. Deres navn vil IKKE bli vist.)"
 
+#: templates/CRM/Contribute/Form/Search/Common.tpl
+msgid "Contribution Dates"
+msgstr "Gavedatoer"
+
 #: templates/CRM/Contribute/Form/SearchContribution.tpl
 msgid "Find Contribution Pages"
 msgstr "Finn gavesider"
@@ -3228,6 +3403,10 @@ msgid ""
 "associated with these contributions."
 msgstr "Er du sikker på at du vil slette de valgte gavene? Denne slette-handling kan ikke angres og vil slette alle transaksjoner og aktiviteter knyttet til disse gaver."
 
+#: templates/CRM/Contribute/Form/Task/PDFLetter.tpl
+msgid "Thank-you Letter for Contributions (PDF)"
+msgstr "Takkebrev for gaver (pdf)"
+
 #: templates/CRM/Contribute/Form/Task/PDF.tpl
 msgid ""
 "You may choose to email receipts to contributors OR download a PDF file "
@@ -3236,10 +3415,6 @@ msgid ""
 "you automatically, or you may need to open it for printing using any PDF "
 "reader (such as Adobe&reg; Reader)."
 msgstr "Du kan velge å sende kvitteringer per e-post ELLER laste ned en PDF-fil som inneholder en kvittering per side til din lokale datamaskin, ved å klikke <strong>Behandl kvitteringer</a>. Din nettleser kan vise deg filen automatisk, eller så må du åpne den for utskrift ved å bruke en hvilken som helst PDF-leser (slik som Adobe&reg; Reader)."
-
-#: templates/CRM/Contribute/Form/Task/PickProfile.tpl
-msgid "Batch Update Contribution via Profile"
-msgstr "Bunke-oppdatering av gaver via profil"
 
 #: templates/CRM/Contribute/Form/Task/Status.tpl
 msgid ""
@@ -3260,6 +3435,37 @@ msgstr "Tildel den valgte status til alle gaver som vises nedenfor."
 #: templates/CRM/Contribute/Form/Task.tpl
 msgid "Number of selected contributions: %1"
 msgstr "Antall valgte gaver: %1"
+
+#: templates/CRM/Contribute/Form/UpdateBilling.tpl
+msgid ""
+"Use this form to update the credit card and billing name and address used "
+"for this recurring contribution."
+msgstr "Bruk dette skjemaet til å oppdatere kreditkort, samt faktura-navn og adresse, som brukes for denne gjentagende gaven."
+
+#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
+msgid ""
+"Use this form to change the amount or number of installments for this "
+"recurring contribution. Changes will be automatically sent to the payment "
+"processor. You can not change the contribution frequency."
+msgstr "Bruk dette skjemaet til å endre beløpet eller antallet terminer for denne gjentagende gaven. Endringer vil automatisk bli sendt til betalingsformidleren. Du kan ikke endre gavefrekvensen."
+
+#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
+msgid ""
+"Total number of payments to be made. Set this to 0 if this is an open-ended "
+"commitment i.e. no set end date."
+msgstr "Det samlede antall betalinger som skal foretas. Angi dette til 0 hvis dette er en tidsubestemt forpliktelse, dvs. ingen angitt sluttdato."
+
+#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
+msgid "Number of time units for recurrence of payment."
+msgstr "Antall tidsenheter for gjentagelse av betaling."
+
+#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
+msgid "Time unit for recurrence of payment. For example, \"month\"."
+msgstr "Tidsenhet for gjentagelse for betaling. For eksempel, \"måned\"."
+
+#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
+msgid "Day in the period when the payment should be charged."
+msgstr "Dag i perioden som betalingen skal trekkes."
 
 #: templates/CRM/Contribute/Import/Form/Preview.tpl
 #: templates/CRM/Contribute/Import/Form/Summary.tpl
@@ -3319,10 +3525,6 @@ msgid ""
 "Rows with invalid data in one or more fields. These rows have been skipped "
 "(not imported)."
 msgstr "Rader med ugyldige data i en eller flere felter. Disse rader er hoppet over (ikke importert)."
-
-#: templates/CRM/Contribute/Import/Form/Summary.tpl
-msgid "Soft Credits"
-msgstr "\"Myke kreditter\""
 
 #: templates/CRM/Contribute/Import/Form/Summary.tpl
 msgid "Rows where a soft credit was successfully assigned to a contact."
@@ -3525,9 +3727,17 @@ msgid ""
 "href='%1'>here</a> to create a new contribution page."
 msgstr "Ingen gavesider er opprettet enda. Klikk <a accesskey=\"N\" href='%1'>her</a> for å opprette en ny gaveside."
 
-#: templates/CRM/Contribute/Page/ContributionSoft.tpl
-msgid "Total Soft Credits"
-msgstr "Totalt \"myk kreditt\""
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "Processor ID"
+msgstr "Formidler-ID"
+
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "Next Contribution"
+msgstr "Neste gave"
+
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "Auto Renew?"
+msgstr "Auto-forny?"
 
 #: templates/CRM/Contribute/Page/ContributionSoft.tpl
 msgid "Avg Soft Credits"
@@ -3702,9 +3912,9 @@ msgid ""
 "The premiums listed below are currently offered on this Contribution Page. "
 "If you have other premiums which are not already being offered on this page,"
 " you will see a link below to offer another premium. Use <a "
-"href='%1'>Administer CiviCRM &raquo; Manage Premiums</a> to create or enable"
-" additional premium choices which can be used on any Contribution page."
-msgstr "Premiene som er vist nedenfor tilbys for øyeblikket på denne gavesiden. Hvis du har andre premier som ikke allerede tilbys på denne siden, så vil du se en linke under som tilbyr en annen premie. Bruk <a href='%1'>Administrer CiviCRM &raquo; Håndter premier</a> for å opprette eller aktivere ytterligere premievalg som kan benyttes på hvilken som helst gaveside."
+"href='%1'>Contributions &raquo; Premiums</a> to create or enable additional "
+"premium choices which can be used on any Contribution page."
+msgstr "Premiene vist nedenfor tilbys for øyeblikket på gavesiden. Hvis du har andre premier som ikke allerede tilbys på denne siden, så vil du se en link nedenfor for å legge til enda en premie. Bruk <a href='%1'>Gaver &raquo; Premier</a> til å opprette eller aktivere ytterligere premievalg, som kan benyttes på en hvilken som helst gaveside."
 
 #: templates/CRM/Contribute/Page/Premium.tpl
 msgid "Offer Another Premium on this Contribution Page"
@@ -3828,10 +4038,6 @@ msgstr "Gjentagende gave(r)"
 msgid "Terms:"
 msgstr "Betingelser:"
 
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Change Recurring Contribution"
-msgstr "Endre gjentagende gave"
-
 #: xml/templates/message_templates/contribution_dupalert_html.tpl
 #: xml/templates/message_templates/contribution_dupalert_text.tpl
 msgid ""
@@ -3903,16 +4109,25 @@ msgstr "Vennligst skriv ut denne bekreftelsen til ditt arkiv."
 
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
 msgid ""
-"This is a recurring contribution. You can modify or cancel future "
-"contributions by <a href=\"%1\">logging in to your account</a>."
-msgstr "Dette er en gjentagende gave. Du kan endre eller kansellere fremtidige gaver ved å <a href=\"%1\">logge inn på kontoen din</a>."
+"This is a recurring contribution. You can cancel future contributions by <a "
+"href=\"%1\">visiting this web page</a>."
+msgstr "Dette er en gjentagende gave. Du kan kansellere fremtidige gaver ved å <a href=\"%1\">besøke denne nettsiden</a>."
 
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
 msgid ""
-"This is a recurring contribution. To modify or cancel future contributions "
-"please contact us at %1."
-msgstr "Dette er en gjentagende gave. For å endre eller kansellere fremtidige gaver, vennligst kontakt oss på %1."
+"You can update billing details for this recurring contribution by <a "
+"href=\"%1\">visiting this web page</a>."
+msgstr "Du kan oppdatere faktureringsdetaljer for denne gjentagende gaven ved å <a href=\"%1\">besøke denne nettsiden</a>."
+
+#: xml/templates/message_templates/contribution_online_receipt_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid ""
+"You can update recurring contribution amount or change the number of "
+"installments for this recurring contribution by <a href=\"%1\">visiting this"
+" web page</a>."
+msgstr "Du kan oppdatere beløpet for gjentagende gave eller endre antall terminder for denne gjentagende gaven ved å <a href=\"%1\">besøke denne nettsiden</a>."
 
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
 #: xml/templates/message_templates/contribution_online_receipt_text.tpl
@@ -3935,455 +4150,6 @@ msgstr "Faktura"
 
 #: xml/templates/message_templates/contribution_online_receipt_text.tpl
 msgid ""
-"This is a recurring contribution. You can modify or cancel future "
-"contributions by logging in to your account at:"
-msgstr "Dette er en gjentagende gave. Du kan endre eller kansellere fremtidige gaver ved å logge inn på kontoen din:"
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid "On Behalf Of"
-msgstr "På vegne av"
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid "Dear %1"
-msgstr "Kjære %1"
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid "Thanks for your auto renew membership sign-up."
-msgstr "Takk for din påmelding til automatisk fornyelse av medlemskap."
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-msgid ""
-"This membership will be automatically renewed \n"
-"      every %1 %2(s). "
-msgstr "Dette medlemskapet vil automatisk bli fornyet ⏎       hver %1 %2. "
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid "Thanks for your recurring contribution sign-up."
-msgstr "Takk for din påmelding til gjentagende gaver."
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-msgid ""
-"This recurring contribution will be\n"
-"     automatically processed every %1 %2(s) for a total of %3 installment(s)."
-msgstr "Denne gjentagende gaven vil bli ⏎ automatisk behandlet hver %1 %2 for totalt %3 termin(er)."
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid ""
-"You have pledged to make this recurring donation. You will be charged "
-"periodically (per frequency listed above), and you will receive an email "
-"receipt from %1 following each charge. These recurring donations will "
-"continue until you explicitly cancel the donation. You may change or cancel "
-"your recurring donation at anytime by logging into your account. If you have"
-" questions about recurring donations please contact us at %2."
-msgstr "Du har avtalt å foreta denne gjentagende gaven. Du vil bli trukket periodisk (etter frekvensen vist ovenfor), og du vil motta en e-post-kvittering fra %1 etter hvert trekk. Disse gjentagende gavene vil fortsette inntil du eksplisitt kansellerer gaven. Du kan når som helst endre eller kansellere din gjentagende gave ved å logge inn på kontoen din. Hvis du har spørsmål om gjentagende gaver, vennligst kontakt oss på %2."
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid ""
-"Your auto renew membership sign-up has ended and your membership will not be"
-" automatically renewed."
-msgstr "Din automatiske fornyelse av medlemskap har sluttet, og medlemskapet ditt vil ikke bli automatisk fornyet."
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid "Your recurring contribution term has ended."
-msgstr "Din termin for gjentagende gaver er slutt."
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid ""
-"You have successfully completed %1 recurring contributions. Thank you for "
-"your support."
-msgstr "Du har vellykket gjennomført %1 gjentagende gave. Takk for støtten din."
-
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid "Interval of Subscription for %1 installment(s)"
-msgstr "Intervall av abonnement for %1 terminer."
-
-#: xml/templates/message_templates/contribution_recurring_notify_subject.tpl
-msgid "Recurring Contribution Notification"
-msgstr "Melding om gjentagende gave"
-
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid "This membership will be automatically renewed every %1 %2(s)."
-msgstr "Dette medlemskapet vil bli automatisk fornyet hver %1 %2."
-
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid ""
-"This recurring contribution will be automatically processed every %1 %2(s) "
-"for a total of %3 installment(s)."
-msgstr "Denne gjentagende gaven vil automatisk bli behandlet hver %1 %2 i totalt %3 termin(er)."
-
-#: xml/templates/message_templates/test_preview_html.tpl
-#: xml/templates/message_templates/test_preview_text.tpl
-msgid "Test-drive Email / Receipt"
-msgstr "Testkjøring E-post/kvittering"
-
-#: xml/templates/message_templates/test_preview_html.tpl
-#: xml/templates/message_templates/test_preview_text.tpl
-msgid ""
-"This is a test-drive email. No live financial transaction has occurred."
-msgstr "Dette er en testkjøring e-post. Ingen reelle finansielle transaksjoner er forekommet."
-
-#: CRM/Contribute/BAO/ContributionRecur.php
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "Recurring contribution cancelled"
-msgstr "Gjentagende gave kansellert"
-
-#: CRM/Contribute/Form/CancelSubscription.php
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "Notify Contributor?"
-msgstr "Gi beskjed til giver?"
-
-#: CRM/Contribute/BAO/ContributionRecur.php
-msgid "Automatic renewal of %1 membership cancelled."
-msgstr "Automatisk fornyelse av %1 medlemskap kansellert."
-
-#: CRM/Contribute/BAO/Query.php
-msgid "Batch Name %1 %2"
-msgstr "Bunke-navn %1 %2"
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid ""
-"The auto renewal option for this membership looks to have been cancelled "
-"already."
-msgstr "Valget for automatisk fornyelse for dette medlemskapet ser ut til allerede å være kansellert."
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "The recurring contribution looks to have been cancelled already."
-msgstr "Den gjentagende gaven ser ut til allerede å være annulleret."
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "You do not have permission to cancel this recurring contribution."
-msgstr "Du har ikke rettigheter til å kansellere denne gjentagende gaven."
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "Send cancellation request to %1 ?"
-msgstr "Send forespørsel om kansellering til %1?"
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "Cancel Automatic Membership Renewal"
-msgstr "Kanseller automatisk fornyelse av medlemskap"
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "Auto-renewal membership cancelled"
-msgstr "Automatisk fornyelse av medlemskap kansellert"
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid ""
-"The automatic renewal of your %1 membership has been cancelled as requested."
-" This does not affect the status of your membership - you will receive a "
-"separate notification when your membership is up for renewal."
-msgstr "Den automatiske fornyelsen av %1-medlemskapet ditt er blitt kansellert, slik du ønsket. Dette vil ikke påvirke statusen for medlemskapet ditt - du vil motta en egen melding når medlemskapet ditt må fornyes."
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid ""
-"Recurring contribution was cancelled successfully by the processor, but "
-"could not be marked as cancelled in the database."
-msgstr "Gjentagende gaver ble vellykket kansellert av formidleren, men kunne ikke bli markert som kansellert i databasen."
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "Recurring contribution could not be cancelled in the database."
-msgstr "Gjentagende gaver kunne ikke kanselleres i databasen."
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "The recurring contribution could not be cancelled."
-msgstr "Den gjentagende gaven kunne ikke kanselleres."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"An error occurred during form submission. This page requires form data to be"
-" submitted for processing and no form data was submitted or processed. We "
-"are sorry for any inconvience. Please click <a href='%1'>here</a> to visit "
-"the contribution page and re-start the contribution process."
-msgstr "En feil skjedde under innsendelse. Denne siden krever skjemadata til å bli innsendt for behandling, og ingen skjemadata ble innsendt eller behandlet. Vi beklager det inntrufne. Vennligst klikk <a href='%1'>her</a> for å besøke gavesiden og start gaveprosessen på nytt."
-
-#: CRM/Contribute/Form/ContributionPage/Settings.php
-msgid "Use a confirmation page?"
-msgstr "Bruk bekreftelsesside?"
-
-#: CRM/Contribute/Form/Task/PDFLetterCommon.php
-msgid "Receipt date has been updated for %1 contributions."
-msgstr "Kvitteringsdato har blitt oppdatert for %1 gaver."
-
-#: CRM/Contribute/Form/Task/PDFLetterCommon.php
-msgid "Thank-you date has been updated for %1 contributions."
-msgstr "Takkedato har blitt oppdatert for %1 gaver."
-
-#: CRM/Contribute/Form/Task/PDFLetter.php
-msgid "Record Update Options"
-msgstr "Registreringsoppdatering valg"
-
-#: CRM/Contribute/Form/Task/PDFLetter.php
-msgid "Update receipt dates for these contributions"
-msgstr "Oppdater kvitteringsdatoer for disse gavene"
-
-#: CRM/Contribute/Form/Task/PDFLetter.php
-msgid "Update thank-you dates for these contributions"
-msgstr "Oppdater takkedatoer for disse gavene"
-
-#: CRM/Contribute/Form/Task/PDFLetter.php
-msgid "Recurring"
-msgstr "Gjentagende"
-
-#: CRM/Contribute/Form/Task/PDFLetter.php
-msgid "Grouping contributions in one letter based on"
-msgstr "Gruppering av gaver i et brev basert på"
-
-#: CRM/Contribute/Form/Task/PDFLetter.php
-msgid "Make Thank-you Letters"
-msgstr "Lag takkebrev"
-
-#: CRM/Contribute/Form/Task/PickProfile.php
-msgid "Batch Update Contributions via Profile"
-msgstr "Bunkeoppdater gaver via profil"
-
-#: CRM/Contribute/Form/UpdateBilling.php
-msgid "%1 processor doesn't support updating subscription billing details."
-msgstr "%1-formidleren støtter ikke oppdatering av faktureringsdetaljer for abonnement."
-
-#: CRM/Contribute/Form/UpdateBilling.php
-msgid ""
-"Billing details for your automatically renewed %1 membership have been "
-"updated."
-msgstr "Faktureringsdetaljer for ditt automatisk fornyende %1-medlemskap har blitt oppdatert."
-
-#: CRM/Contribute/Form/UpdateBilling.php
-msgid "Recurring Contribution Billing Details Updated"
-msgstr "Faktureringsdetaljer for gjentagende gaver oppdatert"
-
-#: CRM/Contribute/Form/UpdateBilling.php
-msgid "There was some problem updating the billing details."
-msgstr "Det opstod et problem under oppdatering av faktureringsdetaljene."
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "You cannot update the subscription."
-msgstr "Du kan ikke oppdatere dette abonnementet."
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "You do not have permission to update subscription."
-msgstr "Du har ikke rettigheter til å oppdatere abonnment."
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid ""
-"WARNING: Updates made using this form will change the recurring contribution"
-" information stored in your CiviCRM database, but will NOT be sent to the "
-"payment processor. You must enter the same changes using the payment "
-"processor web site."
-msgstr "ADVARSEL: Oppdateringer foretatt ved hjelp av dette skjemaet vil endre informasjonen om gjentagende gaver lagret i din CiviCRM-database, men vil IKKE bli sendt til betalingsformidleren. Du må angi de samme endringene på betalingsformidlerens nettside."
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "Recurring Contribution Amount"
-msgstr "Gjentagende gave beløp"
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "Number of Installments"
-msgstr "Antallet terminer"
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "Could not update the Recurring contribution details"
-msgstr "Kunne ikke oppdatere detaljene for gjentagende gaver"
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "Recurring Contribution Updated"
-msgstr "Gjentagende gave oppdatert"
-
-#: CRM/Contribute/Page/Tab.php
-#: templates/CRM/Contribute/Page/ContributionRecur.tpl
-msgid "View Recurring Payment"
-msgstr "Vis gjentagende betaling"
-
-#: CRM/Contribute/Page/Tab.php
-msgid "Edit Recurring Payment"
-msgstr "Rediger gjentagende betaling"
-
-#: CRM/Contribute/Task.php
-msgid "Thank-you Letters for Contributions"
-msgstr "Takkebrev for gaver"
-
-#: templates/CRM/Contribute/Form/CancelSubscription.tpl
-#: templates/CRM/Contribute/Form/UpdateBilling.tpl
-msgid "Recurring Contribution Details: %1 every %2 %3"
-msgstr "Detaljer for gjentagende gaver: %1 hver %2 %3"
-
-#: templates/CRM/Contribute/Form/CancelSubscription.tpl
-#: templates/CRM/Contribute/Form/UpdateBilling.tpl
-msgid "for %1 installments"
-msgstr "for %1 terminer"
-
-#: templates/CRM/Contribute/Form/CancelSubscription.tpl
-msgid ""
-"Click the button below to cancel this commitment and stop future "
-"transactions. This does not affect contributions which have already been "
-"completed."
-msgstr "Klikk knappen nedenfor for å kansellere denne forpliktelsen og stoppe fremtidige transaksjoner. Dette påvirker ikke gaver som allerede er gjennomført."
-
-#: templates/CRM/Contribute/Form/CancelSubscription.tpl
-msgid ""
-"Automatic cancellation is not supported for this payment processor. You or "
-"the contributor will need to manually cancel this recurring contribution "
-"using the payment processor website."
-msgstr "Automatisk kansellering støttes ikke av denne betalingsformidleren. Du eller giveren må manuelt kansellere denne gjentagende gaven, ved hjelp av betalingsformidlerens nettside."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Your initial membership fee will be processed once you complete the "
-"confirmation step. You will be able to cancel the auto-renwal option by "
-"visiting the web page link that will be included in your receipt."
-msgstr "Din første medlemspris vil bli behandlet når du fullfører bekreftelsestrinnet. Du vil få mulighet til å kansellere autofornyelsesvalget ved å besøke nettsidelinken som vil bli inkludert i kvitteringen din."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Your initial contribution will be processed once you complete the "
-"confirmation step. You will be able to cancel the recurring contribution by "
-"visiting the web page link that will be included in your receipt."
-msgstr "Din første gave vil bli behandlet når du fullfører bekreftelsestrinnet. Du vil få mulighet til å kansellere den gjentagende gaven ved å besøke nettsidelinken som vil bli inkludert i kvitteringen din."
-
-#: templates/CRM/Contribute/Form/Contribution/Main.tpl
-msgid ""
-"This page requires Javascript. Please enable Javascript in your web browser "
-"preferences and refresh the page."
-msgstr "Denne siden krever Javascript. Vennligst aktiver Javascript i nettleseren din, og oppfrisk siden."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-" Click <a  id = 'quickconfig' href='#'>here</a> if you want to configure the"
-" Fixed Contribution Options below as part of a Price Set, with the added "
-"flexibility and complexity that entails."
-msgstr "Klikk <a id = 'quickconfig' href='#'>her</a> hvis du vil konfigurere det faste gavevalget nedenfor, som en del av et prissett, med den økte fleksibiliteten og kompleksibiteten det innebærer."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Custom.hlp
-msgid ""
-"Return to this screen (<strong>Administer CiviCRM &raquo; CiviContribute "
-"&raquo; Manage Contribution Pages &raquo; Configure &raquo; Include "
-"Profiles</strong>) and select your profile."
-msgstr "Gå tilbake til dette skjembildet (<strong>Administrer CiviCRM &raquo; CiviGave &raquo; Håndter gavesider &raquo; Konfigurer &raquo; Inkluder profiler</strong>) og velg din profil."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"If you disable this contributions will be processed immediately after "
-"submitting the contribution form."
-msgstr "Hvis du deaktiverer dette, så vil gaver bli behandlet straks etter innsendelse av gaveskjemaet."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"When your page is active, create front-end links to the contribution page "
-"using the Menu Manager. Select <strong>Administer CiviCRM &raquo; "
-"CiviContribute &raquo; Manage Contribution Pages</strong> and select "
-"<strong>%1</strong> for the contribution page."
-msgstr "Når siden din er aktiv, oppret front-end-linker til gavesiden ved hjelp av Meny-håndteringen. Velg <strong>Administrer CiviCRM &raquo; CiviGave &raquo; Håndter gavesider</strong> og velg <strong>%1</strong> for gavesiden."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"You will receive an email receipt which includes information about how to "
-"cancel the auto-renwal option."
-msgstr "Du vil motta en e-post-kvittering med informasjon om hvordan kansellere valget for auto-fornyelse."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"You will receive an email receipt which includes information about how to "
-"update or cancel this recurring contribution."
-msgstr "Du vil motta en e-post-kvittering med informasjon om hvordan oppdatere eller kansellere denne gjentagende gaven."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"Your initial pledge payment has been processed. You will be able to modify "
-"or cancel future pledge payments at any time by contacting us at %1."
-msgstr "Din første avtalebetaling har blitt behandlet. Du vil få mulighet til når som helst å endre eller kansellere fremtidige avtalebetalinger ved å kontakte oss på %1."
-
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "not available"
-msgstr "ikke tilgjengelig"
-
-#: templates/CRM/Contribute/Form/Search/Common.tpl
-msgid "Contribution Dates"
-msgstr "Gavedatoer"
-
-#: templates/CRM/Contribute/Form/Task/PDFLetter.tpl
-msgid "Thank-you Letter for Contributions (PDF)"
-msgstr "Takkebrev for gaver (pdf)"
-
-#: templates/CRM/Contribute/Form/UpdateBilling.tpl
-msgid ""
-"Use this form to update the credit card and billing name and address used "
-"for this recurring contribution."
-msgstr "Bruk dette skjemaet til å oppdatere kreditkort, samt faktura-navn og adresse, som brukes for denne gjentagende gaven."
-
-#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
-msgid ""
-"Use this form to change the amount or number of installments for this "
-"recurring contribution. Changes will be automatically sent to the payment "
-"processor. You can not change the contribution frequency."
-msgstr "Bruk dette skjemaet til å endre beløpet eller antallet terminer for denne gjentagende gaven. Endringer vil automatisk bli sendt til betalingsformidleren. Du kan ikke endre gavefrekvensen."
-
-#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
-msgid ""
-"Total number of payments to be made. Set this to 0 if this is an open-ended "
-"commitment i.e. no set end date."
-msgstr "Det samlede antall betalinger som skal foretas. Angi dette til 0 hvis dette er en tidsubestemt forpliktelse, dvs. ingen angitt sluttdato."
-
-#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
-msgid "Number of time units for recurrence of payment."
-msgstr "Antall tidsenheter for gjentagelse av betaling."
-
-#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
-msgid "Time unit for recurrence of payment. For example, \"month\"."
-msgstr "Tidsenhet for gjentagelse for betaling. For eksempel, \"måned\"."
-
-#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
-msgid "Day in the period when the payment should be charged."
-msgstr "Dag i perioden som betalingen skal trekkes."
-
-#: templates/CRM/Contribute/Page/ContributionRecur.tpl
-msgid "Processor ID"
-msgstr "Formidler-ID"
-
-#: templates/CRM/Contribute/Page/ContributionRecur.tpl
-msgid "Next Contribution"
-msgstr "Neste gave"
-
-#: templates/CRM/Contribute/Page/ContributionRecur.tpl
-msgid "Auto Renew?"
-msgstr "Auto-forny?"
-
-#: templates/CRM/Contribute/Page/Premium.tpl
-msgid ""
-"The premiums listed below are currently offered on this Contribution Page. "
-"If you have other premiums which are not already being offered on this page,"
-" you will see a link below to offer another premium. Use <a "
-"href='%1'>Contributions &raquo; Premiums</a> to create or enable additional "
-"premium choices which can be used on any Contribution page."
-msgstr "Premiene vist nedenfor tilbys for øyeblikket på gavesiden. Hvis du har andre premier som ikke allerede tilbys på denne siden, så vil du se en link nedenfor for å legge til enda en premie. Bruk <a href='%1'>Gaver &raquo; Premier</a> til å opprette eller aktivere ytterligere premievalg, som kan benyttes på en hvilken som helst gaveside."
-
-#: xml/templates/message_templates/contribution_online_receipt_html.tpl
-msgid ""
-"This is a recurring contribution. You can cancel future contributions by <a "
-"href=\"%1\">visiting this web page</a>."
-msgstr "Dette er en gjentagende gave. Du kan kansellere fremtidige gaver ved å <a href=\"%1\">besøke denne nettsiden</a>."
-
-#: xml/templates/message_templates/contribution_online_receipt_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid ""
-"You can update billing details for this recurring contribution by <a "
-"href=\"%1\">visiting this web page</a>."
-msgstr "Du kan oppdatere faktureringsdetaljer for denne gjentagende gaven ved å <a href=\"%1\">besøke denne nettsiden</a>."
-
-#: xml/templates/message_templates/contribution_online_receipt_html.tpl
-#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid ""
-"You can update recurring contribution amount or change the number of "
-"installments for this recurring contribution by <a href=\"%1\">visiting this"
-" web page</a>."
-msgstr "Du kan oppdatere beløpet for gjentagende gave eller endre antall terminder for denne gjentagende gaven ved å <a href=\"%1\">besøke denne nettsiden</a>."
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid ""
 "This is a recurring contribution. You can cancel future contributions at:"
 msgstr "Dette er en gjentagende gave. Du kan kansellere fremtidige gaver på:"
 
@@ -4396,6 +4162,21 @@ msgid ""
 "You can update recurring contribution amount or change the number of "
 "installments for this recurring contribution at:"
 msgstr "Du kan oppdatere beløp for gjentagende gaver eller endre antall terminer for denne gjentagende gaven på:"
+
+#: xml/templates/message_templates/contribution_online_receipt_text.tpl
+msgid "On Behalf Of"
+msgstr "På vegne av"
+
+#: xml/templates/message_templates/contribution_recurring_billing_html.tpl
+#: xml/templates/message_templates/contribution_recurring_billing_text.tpl
+#: xml/templates/message_templates/contribution_recurring_cancelled_html.tpl
+#: xml/templates/message_templates/contribution_recurring_cancelled_text.tpl
+#: xml/templates/message_templates/contribution_recurring_edit_html.tpl
+#: xml/templates/message_templates/contribution_recurring_edit_text.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid "Dear %1"
+msgstr "Kjære %1"
 
 #: xml/templates/message_templates/contribution_recurring_billing_html.tpl
 #: xml/templates/message_templates/contribution_recurring_billing_text.tpl
@@ -4448,6 +4229,11 @@ msgid "Your recurring contribution has been updated as requested:"
 msgstr "Din gjentagende gave er blitt oppdatert slik du som du ønsket det:"
 
 #: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid "Thanks for your auto renew membership sign-up."
+msgstr "Takk for din påmelding til automatisk fornyelse av medlemskap."
+
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
 msgid "This membership will be automatically renewed every %1 %2(s). "
 msgstr "Dette medlemskapet vil automatisk bli fornyet hver %1 %2(s)."
 
@@ -4466,6 +4252,18 @@ msgid ""
 msgstr "Du kan oppdatere faktureringsdetaljer for dette automatisk fornyede medlemskap ved å <a href=\"%1\">besøke denne nettsiden</a>."
 
 #: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid "Thanks for your recurring contribution sign-up."
+msgstr "Takk for din påmelding til gjentagende gaver."
+
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid ""
+"This recurring contribution will be automatically processed every %1 %2(s) "
+"for a total of %3 installment(s)."
+msgstr "Denne gjentagende gaven vil automatisk bli behandlet hver %1 %2 i totalt %3 termin(er)."
+
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
 msgid ""
 " You can cancel the recurring contribution option by <a href=\"%1\">visiting"
 " this web page</a>."
@@ -4478,16 +4276,67 @@ msgid ""
 "href=\"%1\">visiting this web page</a>."
 msgstr "Du kan oppdatere beløp for gjentagende gave eller endre antall terminer for denne gjentagende gaven ved å <a href=\"%1\">besøke denne nettsiden</a>."
 
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid ""
+"Your auto renew membership sign-up has ended and your membership will not be"
+" automatically renewed."
+msgstr "Din automatiske fornyelse av medlemskap har sluttet, og medlemskapet ditt vil ikke bli automatisk fornyet."
+
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid "Your recurring contribution term has ended."
+msgstr "Din termin for gjentagende gaver er slutt."
+
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid ""
+"You have successfully completed %1 recurring contributions. Thank you for "
+"your support."
+msgstr "Du har vellykket gjennomført %1 gjentagende gave. Takk for støtten din."
+
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid "Interval of Subscription for %1 installment(s)"
+msgstr "Intervall av abonnement for %1 terminer."
+
+#: xml/templates/message_templates/contribution_recurring_notify_subject.tpl
+msgid "Recurring Contribution Notification"
+msgstr "Melding om gjentagende gave"
+
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+msgid "This membership will be automatically renewed every %1 %2(s)."
+msgstr "Dette medlemskapet vil bli automatisk fornyet hver %1 %2."
+
 #: xml/templates/message_templates/contribution_recurring_notify_text.tpl
 msgid ""
 "You can cancel the recurring contribution option by <a href=\"%1\">visiting "
 "this web page</a>."
 msgstr "Du kan kansellere valget om gjentagende gave ved å <a href=\"%1\">besøke denne nettsiden</a>."
 
+#: xml/templates/message_templates/test_preview_html.tpl
+#: xml/templates/message_templates/test_preview_text.tpl
+msgid "Test-drive Email / Receipt"
+msgstr "Testkjøring E-post/kvittering"
+
+#: xml/templates/message_templates/test_preview_html.tpl
+#: xml/templates/message_templates/test_preview_text.tpl
+msgid ""
+"This is a test-drive email. No live financial transaction has occurred."
+msgstr "Dette er en testkjøring e-post. Ingen reelle finansielle transaksjoner er forekommet."
+
 #: CRM/Contribute/BAO/ContributionRecur.php
 #: CRM/Contribute/Form/CancelSubscription.php
 msgid "The recurring contribution of %1, every %2 %3 has been cancelled."
 msgstr "Den gjentagende gaven på %1, hver %2 %3 er kansellert."
+
+#: CRM/Contribute/Form/ContributionPage/Amount.php
+#: CRM/Contribute/Form/ContributionPage/Settings.php
+#: CRM/Contribute/Form/Contribution.php
+msgid ""
+"Financial Account of account relationship of 'Expense Account is' is not "
+"configured for Financial Type : "
+msgstr ""
 
 #: CRM/Contribute/Form/UpdateBilling.php
 #: CRM/Contribute/Form/UpdateSubscription.php
@@ -4614,6 +4463,10 @@ msgstr "Avtalebetaling for %1 har mislykkes."
 msgid "Pledge Payment for %1 has been updated."
 msgstr "Avtalebetaling  for %1 har blitt oppdatert."
 
+#: CRM/Contribute/Form/AdditionalInfo.php
+msgid "receipt"
+msgstr ""
+
 #: CRM/Contribute/Form/ContributionBase.php
 msgid "Membership Invalid"
 msgstr "Medlemskap ugyldig"
@@ -4680,14 +4533,20 @@ msgstr ""
 msgid "The sum of fee amount and net amount must be equal to total amount"
 msgstr ""
 
-#: CRM/Contribute/Form/Contribution.php
-msgid ""
-"Financial Account of account relationship of 'Expense Account is' is not "
-"configured for this Financial Type"
-msgstr ""
-
 #: CRM/Contribute/Form/ContributionView.php
 msgid "View Contribution from"
+msgstr ""
+
+#: CRM/Contribute/Form/ManagePremiums.php
+msgid "Image URL is Required"
+msgstr ""
+
+#: CRM/Contribute/Form/ManagePremiums.php
+msgid "Thumbnail URL is Required"
+msgstr ""
+
+#: CRM/Contribute/Form/ManagePremiums.php
+msgid "Financial Type is required for product having cost."
 msgstr ""
 
 #: CRM/Contribute/Form/ManagePremiums.php
@@ -4880,6 +4739,15 @@ msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid ""
+"The organization data collected from users is controlled by the Organization"
+" Profile selected below. You can use the default \"On Behalf Of "
+"Organization\" profile, or any other profile with type 'Contact' and/or "
+"'Organization' (<a href=\"%1\">Administer > Customize Data and Screens > "
+"Profiles</a>). The profile must include Organization Name and Email Address."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid ""
 "When enabled, links allowing people to share this online contribution page "
 "with their social network will be displayed (e.g. Facebook \"Like\", "
 "Google+, and Twitter)."
@@ -4913,12 +4781,23 @@ msgid ""
 "page."
 msgstr ""
 
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
+msgid ""
+"To change the organization data collected use the \"On Behalf Of "
+"Organization\" profile (<a href=\"%1\">Administer > Customize Data and "
+"Screens > Profiles</a>)."
+msgstr ""
+
 #: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
 msgid "Contribution Page Configuration"
 msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/PremiumBlock.tpl
-msgid "You must contribute at least $%1 to get this item"
+msgid "You must contribute at least %1 to get this item"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution/PremiumBlock.tpl
+msgid "Contribute %1 Instead"
 msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/PremiumBlock.tpl
@@ -5019,4 +4898,159 @@ msgid ""
 "family member makes a large contribution - it is often useful to record a "
 "Soft Credit for the other family member(s). You can record a soft credit "
 "while adding or editing a contribution record from this tab."
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Cancel Date"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution End Date"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Recurring Contribution Start Date"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Next Scheduled Recurring Contribution"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php
+msgid "Failed Recurring Contribution Retry Date"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution ID"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Interval (number of units)"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Started Date"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Created Date"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Modified Date"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Number of Cycle Day"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Next Scheduled Contribution Date"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Number of Failures"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Retry Failed Attempt Date"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Send email Receipt?"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Amount.php
+msgid "Contribution Amounts Label"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Amount.php
+msgid "Please enter the contribution amount label."
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionPage/Premium.php
+msgid "No Thank-you Label is a required field."
+msgstr ""
+
+#: CRM/Contribute/Form/SoftCredit.php
+msgid "You cannot enter multiple soft credits for the same contact."
+msgstr ""
+
+#: CRM/Contribute/Form/SoftCredit.php
+msgid "Soft credit amount cannot be more than the total amount."
+msgstr ""
+
+#: CRM/Contribute/Form/SoftCredit.php
+msgid "Please enter the soft credit amount."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/AdditionalInfo/Honoree.tpl
+#: templates/CRM/Contribute/Form/Contribution/Main.tpl
+msgid "Select an option to reveal honoree information fields."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
+msgid ""
+"Edit\n"
+"    <strong>Premiums Settings</strong>\n"
+"    to customize the title and introductory message (e.g ...in appreciation of your support, you will be able to select\n"
+"    from a number of exciting thank-you gifts...). You can optionally provide a contact email address and/or\n"
+"    phone number for inquiries."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
+msgid ""
+"Enter content for the introductory message. This will be displayed below the Premiums section title.\n"
+"                You may include HTML formatting tags. You can also include images, as long as they are already\n"
+"                uploaded to a server - reference them using complete URLs."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
+msgid ""
+"This email address is included in automated contribution receipts if the contributor has selected\n"
+"                a premium. It should be an appropriate contact mailbox for inquiries about premium\n"
+"                fulfillment/shipping."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
+msgid ""
+"This phone number is included in automated contribution receipts if the contributor has selected\n"
+"                a premium. It should be an appropriate phone number for inquiries about premium\n"
+"                fulfillment/shipping."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
+msgid "unlink from personal campaign page"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
+msgid ""
+"Search for the Personal Campaign Page by the fund-raiser's last name or\n"
+"                 email address."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution.tpl
+msgid ""
+"Name or nickname contributor wants to be displayed in the Honor\n"
+"                      Roll. Enter \"Anonymous\" for anonymous contributions."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Search/ContributionRecur.tpl
+msgid "Next Scheduled"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Search/ContributionRecur.tpl
+msgid "Retry Date"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/SoftCredit.tpl
+msgid "add another soft credit"
+msgstr ""
+
+#: xml/templates/message_templates/contribution_dupalert_html.tpl
+#: xml/templates/message_templates/contribution_dupalert_text.tpl
+msgid ""
+"If you think this may be a duplicate contact which should be merged with an existing record -\n"
+"Go to \"Contacts >> Find and Merge Duplicate Contacts\". Use the strict\n"
+"rule for Organizations to find the potential duplicates and merge them if appropriate."
 msgstr ""
