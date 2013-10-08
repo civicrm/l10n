@@ -149,6 +149,13 @@ while ($line = fgets(STDIN)) {
     // remove msgid prefix
     $line = str_replace('msgid ', '', $line);
 
+    // remove msgctxt prefix
+    $line = str_replace('msgctxt "menu"', '', $line);
+
+    // remove the opening or closing quotes
+    $line = preg_replace('/^"/', '', $line);
+    $line = preg_replace('/"$/', '', $line);
+
     $buffer .= $line;
   }
 }
