@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
 "Report-Msgid-Bugs-To: http://issues.civicrm.org/\n"
-"POT-Creation-Date: 2013-05-31 09:03-0400\n"
-"PO-Revision-Date: 2013-06-21 14:10+0000\n"
-"Last-Translator: kadriseeder <kadri@smartwork.ee>\n"
+"POT-Creation-Date: 2013-10-08 08:14-0400\n"
+"PO-Revision-Date: 2013-10-08 12:41+0000\n"
+"Last-Translator: Mathieu Lutfy <mathieu@bidon.ca>\n"
 "Language-Team: Estonian (http://www.transifex.com/projects/p/civicrm/language/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,6 +65,18 @@ msgid "Membership renewed automatically"
 msgstr "Liikmelisus on automaatselt pikendatud"
 
 #: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
+msgid "Record Payment from a Different Contact?"
+msgstr "Registreeri Makse Erinevalt Kontaktilt?"
+
+#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
+msgid "Membership payment is : "
+msgstr "Liikmelisuse Makse on:"
+
+#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
+msgid "-"
+msgstr ""
+
+#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
 msgid "Send Confirmation and Receipt?"
 msgstr "Saada Kinnitus ja Kviitung?"
 
@@ -72,11 +84,13 @@ msgstr "Saada Kinnitus ja Kviitung?"
 msgid "The new membership End Date is %1."
 msgstr "Liikmelisuse uus Lõpu Kuupäev on %1."
 
-#: CRM/Member/Form/MembershipType.php CRM/Member/Page/AJAX.php
+#: CRM/Member/Form/MembershipRenewal.php CRM/Member/Form/MembershipType.php
+#: CRM/Member/Page/AJAX.php
 msgid "No auto-renew option"
 msgstr "Automaatse pikendamise valikut ei ole"
 
-#: CRM/Member/Form/MembershipType.php CRM/Member/Page/AJAX.php
+#: CRM/Member/Form/MembershipRenewal.php CRM/Member/Form/MembershipType.php
+#: CRM/Member/Page/AJAX.php
 msgid "Auto-renew required "
 msgstr "Nõutud automaatne pikendamine"
 
@@ -134,8 +148,9 @@ msgstr "Kehtivat liikmelisuse staatust antud kuupäevadele ei ole."
 
 #: CRM/Member/BAO/Membership.php
 msgid ""
-"The membership cannot be saved. No valid membership status for given dates"
-msgstr "Liikmelisust ei saa salvestada. Kehtivat liikmelisuse staatust antud kuupäevadele pole"
+"The membership cannot be saved. No valid membership status for given dates. "
+"Please provide at least start_date. Optionally end_date and join_date."
+msgstr "Seda liikmelisust ei saa salvestada. Antud kuupäevadele ei vasta ühtegi kehtivat liikmelisuse staatust. Palun märgi vähemalt alguse_kuupäev. Valikuliselt lõpu_kuupäev ja liitumise_kuupäev."
 
 #: CRM/Member/BAO/Membership.php
 msgid "Please select one of the memberships."
@@ -254,18 +269,6 @@ msgstr "Ainult Põhiliikmetega Seotud Liikmed"
 #: CRM/Member/BAO/Query.php
 msgid "All Members"
 msgstr "Kõik Liikmed"
-
-#: CRM/Member/BAO/Query.php
-msgid "Member Since - From"
-msgstr "Liige Alates - "
-
-#: CRM/Member/BAO/Query.php
-msgid "Start Date - From"
-msgstr "Alguse Kuupäev - Alates"
-
-#: CRM/Member/BAO/Query.php
-msgid "End Date - From"
-msgstr "Lõpu Kuupäev - Alates"
 
 #: CRM/Member/BAO/Query.php
 msgid "Find Test Memberships?"
@@ -424,6 +427,7 @@ msgid "Give option"
 msgstr "Anna valik"
 
 #: CRM/Member/Form/MembershipBlock.php
+#: templates/CRM/Member/Form/MembershipBlock.tpl
 #: templates/CRM/Member/Form/MembershipView.tpl
 #: templates/CRM/Member/Form/Selector.tpl templates/CRM/Member/Page/Tab.tpl
 msgid "Auto-renew"
@@ -705,6 +709,7 @@ msgid "Auto-renew Reminder Message"
 msgstr "Uuenda automaatselt Meeldetuletuse Sõnumit"
 
 #: CRM/Member/Form/MembershipType.php
+#: templates/CRM/Member/Page/MembershipType.tpl
 msgid "Auto-renew Option"
 msgstr "Automaatse Pikendamise Valik"
 
@@ -765,14 +770,6 @@ msgstr ""
 #: CRM/Member/Form/MembershipType.php
 msgid "Please enter valid Fixed Period Rollover Day"
 msgstr ""
-
-#: CRM/Member/Form/MembershipType.php
-msgid "Please enter renewal reminder days."
-msgstr "Palun sisesta Meeldetuletuse Uuendamise päevad."
-
-#: CRM/Member/Form/MembershipType.php
-msgid "Please select renewal message."
-msgstr "Palun vali uuendav sõnum."
 
 #: CRM/Member/Form/MembershipType.php
 msgid "Selected membership type has been deleted."
@@ -884,6 +881,13 @@ msgstr "Kustuta Liikmelisuse Tüüp"
 #: CRM/Member/Page/Tab.php
 msgid "Create Membership"
 msgstr "Loo Liikmelisus"
+
+#: CRM/Member/Page/Tab.php
+msgid ""
+"WARNING: If you cancel the recurring contribution associated with this "
+"membership, the membership will no longer be renewed automatically. However,"
+" the current membership status will not be affected."
+msgstr ""
 
 #: CRM/Member/Page/Tab.php
 msgid "Cancel Auto Renew Subscription"
@@ -1012,12 +1016,15 @@ msgid ""
 msgstr ""
 
 #: templates/CRM/Member/Form/MembershipBlock.tpl
-msgid "Include these membership types"
-msgstr "Lisa need liikmelisuse tüübid"
+msgid ""
+"Click <a id = 'memQuickconfig' href='#'>here</a> if you want to configure "
+"the Membership Types below as part of a Price Set, with the added "
+"flexibility and complexity that entails."
+msgstr ""
 
 #: templates/CRM/Member/Form/MembershipBlock.tpl
-msgid "Auto-renew:"
-msgstr "Automaatne pikendamine:"
+msgid "Include these membership types"
+msgstr "Lisa need liikmelisuse tüübid"
 
 #: templates/CRM/Member/Form/MembershipBlock.tpl
 msgid "(Not Available)"
@@ -1410,6 +1417,12 @@ msgstr ""
 
 #: templates/CRM/Member/Form/MembershipType.tpl
 msgid ""
+"Membership signups after this date cover the rest of the month as well as "
+"the specified number of months"
+msgstr ""
+
+#: templates/CRM/Member/Form/MembershipType.tpl
+msgid ""
 "You cannot modify relationship type because there are membership records "
 "associated with this membership type."
 msgstr ""
@@ -1432,9 +1445,18 @@ msgstr ""
 
 #: templates/CRM/Member/Form/MembershipType.tpl
 msgid ""
-"If you would like Membership Renewal Reminder emails sent to members "
-"automatically, you need to create a reminder message template and you need "
-"to configure and periodically run a 'cron' job on your server."
+"WARNING: Membership renewal reminders should now be configured using the <a "
+"href=\"%1\">Schedule Reminders</a> feature, which supports multiple renewal "
+"reminders. The reminders configured on this form will no longer function as "
+"of the 4.3 release."
+msgstr ""
+
+#: templates/CRM/Member/Form/MembershipType.tpl
+msgid ""
+"You can use your existing renewal reminder message template(s) with the "
+"Schedule Reminders feature. Then disable this reminder by un-selecting the "
+"Renewal Reminder Message templates on this form. This will prevent duplicate"
+" reminders being sent."
 msgstr ""
 
 #: templates/CRM/Member/Form/MembershipType.tpl
@@ -1718,7 +1740,7 @@ msgid ""
 msgstr ""
 
 #: templates/CRM/Member/Page/DashBoard.hlp
-msgid "Refer to CiviMember Guide for more information."
+msgid "Refer to the online user guide for more information."
 msgstr ""
 
 #: templates/CRM/Member/Page/DashBoard.tpl
@@ -1879,6 +1901,10 @@ msgid "Fixed Start"
 msgstr ""
 
 #: templates/CRM/Member/Page/MembershipType.tpl
+msgid "Related"
+msgstr ""
+
+#: templates/CRM/Member/Page/MembershipType.tpl
 msgid "Add Membership Type"
 msgstr "Lisa Liikmelisuse Tüüp"
 
@@ -1900,6 +1926,16 @@ msgid ""
 "The status you assign will remain in force, unless it is again modified on "
 "this screen. As long as the Status Override flag is checked, the automated "
 "membership status update script will NOT update this membership record."
+msgstr ""
+
+#: templates/CRM/Member/Page/Tab.hlp
+msgid ""
+"Check this box if someone other than the member is paying for this\n"
+"membership (i.e. a gift membership or gift subscription), and you want to link\n"
+"the payment to the person who is actually paying.  You will be able to select\n"
+"an existing contact or enter a new one. The resulting contribution record will\n"
+"be linked to the payer, and a soft credit for that contribution will be linked to\n"
+"this contact (the member)."
 msgstr ""
 
 #: templates/CRM/Member/Page/Tab.tpl
@@ -1952,6 +1988,48 @@ msgstr "Aegunud / Passiivsed Liikmelisused"
 msgid "There are no memberships on record for you."
 msgstr "Sul ei ole registreeritud ühtegi liikmelisust"
 
+#: xml/templates/message_templates/membership_autorenew_billing_html.tpl
+#: xml/templates/message_templates/membership_autorenew_billing_text.tpl
+msgid "Dear %1"
+msgstr "Lugupeetud %1"
+
+#: xml/templates/message_templates/membership_autorenew_billing_html.tpl
+#: xml/templates/message_templates/membership_autorenew_billing_text.tpl
+msgid ""
+"Billing details for your automatically renewed %1 membership have been "
+"updated."
+msgstr ""
+
+#: xml/templates/message_templates/membership_autorenew_billing_html.tpl
+#: xml/templates/message_templates/membership_autorenew_billing_text.tpl
+msgid "If you have questions please contact us at %1"
+msgstr "Kui sul on küsimusi, palun võta meiega ühendust %1 kaudu"
+
+#: xml/templates/message_templates/membership_autorenew_billing_subject.tpl
+msgid "Membership Autorenewal Billing Updates"
+msgstr ""
+
+#: xml/templates/message_templates/membership_autorenew_cancelled_html.tpl
+#: xml/templates/message_templates/membership_autorenew_cancelled_text.tpl
+msgid ""
+"The automatic renewal of your %1 membership has been cancelled as requested."
+" This does not affect the status of your membership - you will receive a "
+"separate notification when your membership is up for renewal."
+msgstr ""
+
+#: xml/templates/message_templates/membership_autorenew_cancelled_html.tpl
+#: xml/templates/message_templates/membership_autorenew_cancelled_text.tpl
+#: xml/templates/message_templates/membership_offline_receipt_html.tpl
+#: xml/templates/message_templates/membership_offline_receipt_text.tpl
+#: xml/templates/message_templates/membership_online_receipt_html.tpl
+#: xml/templates/message_templates/membership_online_receipt_text.tpl
+msgid "Membership Information"
+msgstr "Liikmelisuse info"
+
+#: xml/templates/message_templates/membership_autorenew_cancelled_subject.tpl
+msgid "Autorenew Membership Cancellation Notification"
+msgstr ""
+
 #: xml/templates/message_templates/membership_offline_receipt_html.tpl
 #: xml/templates/message_templates/membership_offline_receipt_text.tpl
 msgid "Thanks for your support."
@@ -1962,13 +2040,6 @@ msgstr "Täname toetuse eest."
 #: xml/templates/message_templates/membership_online_receipt_text.tpl
 msgid "Please print this receipt for your records."
 msgstr "Palun prindi see kviitung oma andmebaasi jaoks välja."
-
-#: xml/templates/message_templates/membership_offline_receipt_html.tpl
-#: xml/templates/message_templates/membership_offline_receipt_text.tpl
-#: xml/templates/message_templates/membership_online_receipt_html.tpl
-#: xml/templates/message_templates/membership_online_receipt_text.tpl
-msgid "Membership Information"
-msgstr "Liikmelisuse info"
 
 #: xml/templates/message_templates/membership_offline_receipt_subject.tpl
 msgid "Membership Confirmation and Receipt"
@@ -1999,8 +2070,15 @@ msgstr ""
 
 #: xml/templates/message_templates/membership_online_receipt_html.tpl
 msgid ""
-"This membership will be renewed automatically. You can modify or cancel the "
-"auto-renewal option by <a href=\"%1\">visiting this web page</a>."
+"This membership will be renewed automatically. You can cancel the auto-"
+"renewal option by <a href=\"%1\">visiting this web page</a>."
+msgstr ""
+
+#: xml/templates/message_templates/membership_online_receipt_html.tpl
+#: xml/templates/message_templates/membership_online_receipt_text.tpl
+msgid ""
+"You can update billing details for this automatically renewed membership by "
+"<a href=\"%1\">visiting this web page</a>."
 msgstr ""
 
 #: xml/templates/message_templates/membership_online_receipt_html.tpl
@@ -2055,131 +2133,13 @@ msgstr "Kviitung"
 
 #: xml/templates/message_templates/membership_online_receipt_text.tpl
 msgid ""
-"This membership will be renewed automatically. You can modify or cancel the "
-"auto-renewal option by visiting this web page: %1."
-msgstr "Seda liikmelisust pikendatakse automaatselt. Sa saad automaatset pikendamist muuta või tühistada külastades lehekülge: %1."
+"This membership will be renewed automatically. You can cancel the auto-"
+"renewal option by visiting this web page: %1."
+msgstr "Seda liikmelisust ei saa automaatselt uuendada. Sa saad automaatse uuenduse kustutada, kui külastad seda lehekülge: %1."
 
 #: xml/templates/message_templates/membership_online_receipt_text.tpl
 msgid "On Behalf Of"
 msgstr ""
-
-#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
-msgid "Record Payment from a Different Contact?"
-msgstr "Registreeri Makse Erinevalt Kontaktilt?"
-
-#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
-msgid "Membership payment is : "
-msgstr "Liikmelisuse Makse on:"
-
-#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
-msgid "-"
-msgstr ""
-
-#: CRM/Member/BAO/Membership.php
-msgid ""
-"The membership cannot be saved. No valid membership status for given dates. "
-"Please provide at least start_date. Optionally end_date and join_date."
-msgstr "Seda liikmelisust ei saa salvestada. Antud kuupäevadele ei vasta ühtegi kehtivat liikmelisuse staatust. Palun märgi vähemalt alguse_kuupäev. Valikuliselt lõpu_kuupäev ja liitumise_kuupäev."
-
-#: CRM/Member/Page/Tab.php
-msgid ""
-"WARNING: If you cancel the recurring contribution associated with this "
-"membership, the membership will no longer be renewed automatically. However,"
-" the current membership status will not be affected."
-msgstr ""
-
-#: templates/CRM/Member/Form/MembershipBlock.tpl
-msgid ""
-"Click <a id = 'memQuickconfig' href='#'>here</a> if you want to configure "
-"the Membership Types below as part of a Price Set, with the added "
-"flexibility and complexity that entails."
-msgstr ""
-
-#: templates/CRM/Member/Form/MembershipType.tpl
-msgid ""
-"WARNING: Membership renewal reminders should now be configured using the <a "
-"href=\"%1\">Schedule Reminders</a> feature, which supports multiple renewal "
-"reminders. The reminders configured on this form will no longer function as "
-"of the 4.3 release."
-msgstr ""
-
-#: templates/CRM/Member/Form/MembershipType.tpl
-msgid ""
-"You can use your existing renewal reminder message template(s) with the "
-"Schedule Reminders feature. Then disable this reminder by un-selecting the "
-"Renewal Reminder Message templates on this form. This will prevent duplicate"
-" reminders being sent."
-msgstr ""
-
-#: templates/CRM/Member/Page/DashBoard.hlp
-msgid "Refer to the online user guide for more information."
-msgstr ""
-
-#: templates/CRM/Member/Page/MembershipType.tpl
-msgid "Related"
-msgstr ""
-
-#: templates/CRM/Member/Page/Tab.hlp
-msgid ""
-"Check this box if someone other than the member is paying for this\n"
-"membership (i.e. a gift membership or gift subscription), and you want to link\n"
-"the payment to the person who is actually paying.  You will be able to select\n"
-"an existing contact or enter a new one. The resulting contribution record will\n"
-"be linked to the payer, and a soft credit for that contribution will be linked to\n"
-"this contact (the member)."
-msgstr ""
-
-#: xml/templates/message_templates/membership_autorenew_billing_html.tpl
-#: xml/templates/message_templates/membership_autorenew_billing_text.tpl
-msgid "Dear %1"
-msgstr "Lugupeetud %1"
-
-#: xml/templates/message_templates/membership_autorenew_billing_html.tpl
-#: xml/templates/message_templates/membership_autorenew_billing_text.tpl
-msgid ""
-"Billing details for your automatically renewed %1 membership have been "
-"updated."
-msgstr ""
-
-#: xml/templates/message_templates/membership_autorenew_billing_html.tpl
-#: xml/templates/message_templates/membership_autorenew_billing_text.tpl
-msgid "If you have questions please contact us at %1"
-msgstr "Kui sul on küsimusi, palun võta meiega ühendust %1 kaudu"
-
-#: xml/templates/message_templates/membership_autorenew_billing_subject.tpl
-msgid "Membership Autorenewal Billing Updates"
-msgstr ""
-
-#: xml/templates/message_templates/membership_autorenew_cancelled_html.tpl
-#: xml/templates/message_templates/membership_autorenew_cancelled_text.tpl
-msgid ""
-"The automatic renewal of your %1 membership has been cancelled as requested."
-" This does not affect the status of your membership - you will receive a "
-"separate notification when your membership is up for renewal."
-msgstr ""
-
-#: xml/templates/message_templates/membership_autorenew_cancelled_subject.tpl
-msgid "Autorenew Membership Cancellation Notification"
-msgstr ""
-
-#: xml/templates/message_templates/membership_online_receipt_html.tpl
-msgid ""
-"This membership will be renewed automatically. You can cancel the auto-"
-"renewal option by <a href=\"%1\">visiting this web page</a>."
-msgstr ""
-
-#: xml/templates/message_templates/membership_online_receipt_html.tpl
-#: xml/templates/message_templates/membership_online_receipt_text.tpl
-msgid ""
-"You can update billing details for this automatically renewed membership by "
-"<a href=\"%1\">visiting this web page</a>."
-msgstr ""
-
-#: xml/templates/message_templates/membership_online_receipt_text.tpl
-msgid ""
-"This membership will be renewed automatically. You can cancel the auto-"
-"renewal option by visiting this web page: %1."
-msgstr "Seda liikmelisust ei saa automaatselt uuendada. Sa saad automaatse uuenduse kustutada, kui külastad seda lehekülge: %1."
 
 #: CRM/Member/DAO/MembershipLog.php CRM/Member/DAO/Membership.php
 #: CRM/Member/DAO/MembershipType.php
@@ -2540,4 +2500,57 @@ msgstr ""
 
 #: templates/CRM/Member/Page/Tab.hlp
 msgid "Override Status"
+msgstr ""
+
+#: CRM/Member/BAO/Membership.php
+msgid ""
+"The membership cannot be saved because the status cannot be calculated."
+msgstr ""
+
+#: CRM/Member/BAO/Membership.php
+msgid "Invalid date \"%1\" (must have form yyyy-mm-dd)."
+msgstr ""
+
+#: CRM/Member/BAO/MembershipStatus.php
+msgid ""
+"This membership status cannot be deleted as memberships exist with this "
+"status"
+msgstr ""
+
+#: CRM/Member/Form/MembershipBlock.php
+msgid ""
+"You cannot select more than %1 choices. For more complex functionality, "
+"please use a Price Set."
+msgstr ""
+
+#: CRM/Member/Form/Membership.php
+msgid ""
+"There are no configured membership statuses. You cannot add this membership "
+"until your membership statuses are correctly configured"
+msgstr ""
+
+#: CRM/Member/Form/MembershipStatus.php
+msgid "Delete Failed"
+msgstr ""
+
+#: CRM/Member/Form/MembershipType.php
+msgid "Membership Type Not Deleted"
+msgstr ""
+
+#: CRM/Member/Form/Task/Label.php
+msgid "Print one label per Membership (rather than per contact)"
+msgstr ""
+
+#: CRM/Member/Form/Task/Label.php
+msgid ""
+"As you are printing one label per membership your merge settings are being "
+"ignored"
+msgstr ""
+
+#: CRM/Member/Task.php
+msgid "Print PDF Letters for Memberships"
+msgstr ""
+
+#: templates/CRM/Member/Form/Task/PDFLetter.tpl
+msgid "Membership Letter (PDF)"
 msgstr ""
