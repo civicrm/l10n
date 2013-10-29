@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
 "Report-Msgid-Bugs-To: http://issues.civicrm.org/\n"
-"POT-Creation-Date: 2013-01-24 14:47-0500\n"
-"PO-Revision-Date: 2013-04-29 09:21+0000\n"
-"Last-Translator: Piotr Szotkowski <shot@hot.pl>\n"
+"POT-Creation-Date: 2013-10-08 08:14-0400\n"
+"PO-Revision-Date: 2013-10-08 12:40+0000\n"
+"Last-Translator: Mathieu Lutfy <mathieu@bidon.ca>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/civicrm/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,10 +26,6 @@ msgid "Running"
 msgstr "运行中"
 
 #: CRM/Mailing/BAO/Job.php CRM/Mailing/DAO/Job.php
-msgid "Complete"
-msgstr "完成"
-
-#: CRM/Mailing/BAO/Job.php CRM/Mailing/DAO/Job.php
 msgid "Paused"
 msgstr "暂停"
 
@@ -40,6 +36,25 @@ msgstr "已取消"
 #: CRM/Mailing/BAO/Mailing.php CRM/Mailing/Selector/Event.php
 msgid "Opt-Out"
 msgstr "选择退出"
+
+#: CRM/Mailing/BAO/Mailing.php CRM/Mailing/Selector/Browse.php
+msgid "Report"
+msgstr "报告"
+
+#: CRM/Mailing/BAO/Query.php CRM/Mailing/Selector/Event.php
+#: templates/CRM/Mailing/Page/Report.tpl
+msgid "Opt-out Requests"
+msgstr "自愿退出请求"
+
+#: CRM/Mailing/BAO/Query.php CRM/Mailing/Selector/Event.php
+#: templates/CRM/Mailing/Page/Report.tpl
+msgid "Unsubscribe Requests"
+msgstr "退订请求"
+
+#: CRM/Mailing/BAO/Query.php CRM/Mailing/Selector/Event.php
+#: templates/CRM/Mailing/Page/Report.tpl
+msgid "Forwards"
+msgstr "转发"
 
 #: CRM/Mailing/DAO/BounceType.php CRM/Mailing/Event/BAO/Bounce.php
 msgid "Unknown"
@@ -91,6 +106,10 @@ msgid ""
 "on it."
 msgstr "你的邮件已保存。点击“继续”，就可以恢复工作。"
 
+#: CRM/Mailing/Form/Search.php CRM/Mailing/Selector/Browse.php
+msgid "SMS Name"
+msgstr "短消息名"
+
 #: CRM/Mailing/Page/Browse.php CRM/Mailing/Selector/Browse.php
 msgid "Cancel Mailing"
 msgstr "取消邮件"
@@ -122,6 +141,14 @@ msgstr "邮件已被取消。"
 #: CRM/Mailing/BAO/Job.php
 msgid "Not scheduled"
 msgstr "非定时发送"
+
+#: CRM/Mailing/BAO/Mailing.php
+msgid "CiviMail will not send email to a non-existent contact: %1"
+msgstr "CiviMail无法对不存在的联系人%1发送邮件。"
+
+#: CRM/Mailing/BAO/Mailing.php
+msgid "CiviMail will not send an empty mail body, Skipping: %1"
+msgstr "CiviMail无法发送空邮件，跳过%1。"
 
 #: CRM/Mailing/BAO/Mailing.php
 msgid "You do not have permission to access this mailing report"
@@ -159,9 +186,15 @@ msgstr "选择模板"
 msgid "Your Letter"
 msgstr "你的信件"
 
+#: CRM/Mailing/BAO/Mailing.php
+msgid ""
+"The <a href=\"%1\">default mailbox</a> has not been configured. You will "
+"find <a href=\"%2\">more info in the online user and administrator guide</a>"
+msgstr "%1默认邮箱尚未配置。更多%2信息请见用户与管理员在线指南。"
+
 #: CRM/Mailing/BAO/Query.php
-msgid "Mailing Delivery Status"
-msgstr "邮件发送状态"
+msgid "Mailing Delivery"
+msgstr "邮件发送"
 
 #: CRM/Mailing/BAO/Query.php
 msgid "Mailing: Trackable Opens"
@@ -176,8 +209,12 @@ msgid "Mailing: Trackable Replies"
 msgstr "邮件：可追踪的回复"
 
 #: CRM/Mailing/BAO/Query.php
-msgid "Mailing Date - From"
-msgstr "邮件日期 - 自"
+msgid "Mailing: "
+msgstr "邮寄任务："
+
+#: CRM/Mailing/BAO/Query.php
+msgid "Mailing Name(s)"
+msgstr "邮寄任务名(s)"
 
 #: CRM/Mailing/BAO/Query.php
 msgid "Trackable Opens"
@@ -276,10 +313,6 @@ msgid "Job Limit"
 msgstr "任务限制"
 
 #: CRM/Mailing/DAO/Mailing.php
-msgid "From Name"
-msgstr "从名字"
-
-#: CRM/Mailing/DAO/Mailing.php
 msgid "From Email"
 msgstr "从邮件"
 
@@ -322,6 +355,10 @@ msgstr "邮件批准日期"
 #: CRM/Mailing/DAO/Mailing.php
 msgid "Approval Note"
 msgstr "批准注释"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Dedupe Email"
+msgstr "邮件去重"
 
 #: CRM/Mailing/DAO/Spool.php
 msgid "Recipient Email"
@@ -427,12 +464,17 @@ msgstr[0] "单数：邮件已成功转发到%count个email地址。\n复数：�
 #: CRM/Mailing/Form/Group.php
 msgid ""
 "The <a href=\"%1\">default mailbox</a> has not been configured. You will "
-"find <a href=\"%2\">more info in our book</a>"
-msgstr "<a href=\"%1\">默认邮箱</a>尚未设置。您将查找<a href=\"%2\">我们书中的更多信息</a>"
+"find <a href=\"%2\">more info in our online user and administrator "
+"guide.</a>"
+msgstr "%1默认邮箱尚未配置。更多%2信息请见用户与管理员在线指南。"
 
 #: CRM/Mailing/Form/Group.php
 msgid "Name Your Mailing"
 msgstr "命名您的邮件"
+
+#: CRM/Mailing/Form/Group.php
+msgid "Remove duplicate emails?"
+msgstr "是否删除重复邮件？"
 
 #: CRM/Mailing/Form/Group.php
 msgid "Unsubscription Group"
@@ -586,16 +628,32 @@ msgid "Mailing Content"
 msgstr "邮件内容"
 
 #: CRM/Mailing/Page/Browse.php
+msgid "Draft and Unscheduled Mass SMS"
+msgstr "草稿及未计划的大宗短信服务"
+
+#: CRM/Mailing/Page/Browse.php
 msgid "Draft and Unscheduled Mailings"
 msgstr "草稿和未设定发送时间的邮件"
+
+#: CRM/Mailing/Page/Browse.php
+msgid "Archived Mass SMS"
+msgstr "已存档的大宗短信服务"
 
 #: CRM/Mailing/Page/Browse.php
 msgid "Archived Mailings"
 msgstr "已归档邮件"
 
 #: CRM/Mailing/Page/Browse.php
+msgid "Scheduled and Sent Mass SMS"
+msgstr "计划中的及已发送的大宗短信服务"
+
+#: CRM/Mailing/Page/Browse.php
 msgid "Scheduled and Sent Mailings"
 msgstr "已发送的定期邮件"
+
+#: CRM/Mailing/Page/Browse.php
+msgid "Find Mass SMS"
+msgstr "查找大宗短信服务"
 
 #: CRM/Mailing/Page/Browse.php
 msgid "Find Mailings"
@@ -698,10 +756,6 @@ msgid "Approve/Reject"
 msgstr "批准/拒绝"
 
 #: CRM/Mailing/Selector/Browse.php
-msgid "Report"
-msgstr "报告"
-
-#: CRM/Mailing/Selector/Browse.php
 msgid "Re-Use"
 msgstr "再使用"
 
@@ -722,10 +776,6 @@ msgid "CiviMail Mailings"
 msgstr "CiviMail邮件"
 
 #: CRM/Mailing/Selector/Event.php
-msgid "%1 %%StatusMessage%%"
-msgstr "%1%%状态信息%%"
-
-#: CRM/Mailing/Selector/Event.php
 msgid "Forwarded Email"
 msgstr "转发邮件"
 
@@ -737,10 +787,6 @@ msgstr "成功的发送"
 msgid "Bounces"
 msgstr "退信"
 
-#: CRM/Mailing/Selector/Event.php templates/CRM/Mailing/Page/Report.tpl
-msgid "Forwards"
-msgstr "转发"
-
 #: CRM/Mailing/Selector/Event.php
 msgid "Unique Replies"
 msgstr "唯一回复"
@@ -748,10 +794,6 @@ msgstr "唯一回复"
 #: CRM/Mailing/Selector/Event.php templates/CRM/Mailing/Page/Report.tpl
 msgid "Replies"
 msgstr "回复"
-
-#: CRM/Mailing/Selector/Event.php templates/CRM/Mailing/Page/Report.tpl
-msgid "Unsubscribe Requests"
-msgstr "退订请求"
 
 #: CRM/Mailing/Selector/Event.php
 msgid "Unique Click-throughs"
@@ -814,6 +856,64 @@ msgid "General Monthly Newsletter: 200709"
 msgstr "一般月报：200709"
 
 #: templates/CRM/Mailing/Form/Group.hlp
+msgid "Search-based mailings require an \"unsubscribe tracking\" group."
+msgstr "基于搜索的邮件发送需要一个“退订追踪”群组。"
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"Because this mailing is using the results of a search to provide the "
+"recipient list, you need to specify a group to track people who unsubscribe "
+"in response to this mailing."
+msgstr "由于这封邮件的发送将搜索结果用于收件人列表，您需要指定一个群组来对收到邮件后退订的人进行追踪。"
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"If a recipient unsubscribes from this mailing, they will be excluded from "
+"future mailings which use the same \"Unsubscription Group\". This is "
+"achieved through actually marking the contact as \"unsubscribed from the "
+"group\". If a contact in your search results has already been marked as "
+"unsubscribed from that group, they will be excluded from this mailing."
+msgstr "收到邮件后选择退订的收件人，以后将排除在在使用了同一个“退订群组”的邮件发送之外。这是通过将联系人标记为“退订群组”实现的。若是搜索结果中的联系人已经被标记退订，则其将不收到邮件。"
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"If a recipient clicks the unsubscribe link they will see the "
+"\"Unsubscription Group\" title on the unsubscribe page. The selected group "
+"should have a title that corresponds to the content / type of mailing being "
+"sent."
+msgstr "收件人点击退订链接，退订页面上将显示“退订群组”。选定的群组标题将于邮件内容/类型相对应。"
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"NOTE: Contacts who are in the \"Unsubscription Group\" but do not match your"
+" search critera will not be included in the mailing regardless of their "
+"status in that group. This is a change from previous versions which used the"
+" term \"Base Group\"."
+msgstr "请注意：存在于“退订群组”中，但并不符合搜索条件的联系人，无论其在群组中的状态如何，都将不出现在邮寄列表中。这一点有别于使用“基准群组”这个概念的上一版本。"
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"CiviCRM will always dedupe your mailing based on unique contact records. For"
+" example, if a contact is in three of the groups you are including in your "
+"mailing, they will only be sent one copy of the email."
+msgstr "基于联系人记录的唯一性，CiviCRM持续对邮寄列表去重复。例如，若是一个联系人同时存在于您的邮寄列表所包括的三个群组中，他将只收到一次邮件。"
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"However, if the same email is used by multiple contacts, that email address "
+"will receive multiple copies of the email -- one for each contact using that"
+" address."
+msgstr "但是，如果多个联系人使用同一个email地址，那么这个地址将收到多次邮件 - 每个使用该地址的联系人都收到一次。"
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"Selecting this option will ensure only one email is sent to each address. "
+"Note that when using this option and including contact tokens in your email "
+"content, the email with it's respective tokens will only be created for one "
+"of the matching contacts."
+msgstr "选择这一选项，将确保对每个地址只发送一份邮件。请注意，使用这一选项并在邮件内容中包含联系人标志时，带有各自标志的邮件将只为一个匹配的联系人创建。"
+
+#: templates/CRM/Mailing/Form/Group.hlp
 msgid ""
 "Determine the contacts in your database who should receive this mailing by "
 "first selecting one or more <strong>Included Groups</strong>. (Groups must "
@@ -842,10 +942,10 @@ msgstr "如果您还发送了其他邮件 - 您还可以包括(或排除)已经�
 #: templates/CRM/Mailing/Form/Group.hlp
 msgid ""
 "You also have the option to <strong>Exclude</strong> some contacts in your "
-"included groups by selecting on or more <strong>Excluded Groups</strong>. "
+"included groups by selecting one or more <strong>Excluded Groups</strong>. "
 "Contacts who are in both groups will NOT receive the mailing (they are "
 "'excluded')."
-msgstr "您也可以通过选择一个或多个<strong>排除群组</strong>，以从您要包括的群组中<strong>排除</strong>一些联系人。同时属于两种群组的联系人将不会收到邮件(他们被“排除”了)。"
+msgstr "选择一个或多个“排除组”，您就可以从选定的群组中排除某些联系人。同时属于两个群组的联系人，将不会受到邮件(被“排除”)。"
 
 #: templates/CRM/Mailing/Form/Group.tpl
 msgid ""
@@ -906,14 +1006,44 @@ msgid ""
 "Set a date and time when you want CiviMail to start sending this mailing."
 msgstr "设定您希望CiviMail开始发送此邮件的日期和时间。"
 
+#: templates/CRM/Mailing/Form/Search/Common.tpl
+#: templates/CRM/Mailing/Form/Search.tpl
+msgid "Mailing Date"
+msgstr "邮寄日期"
+
+#: templates/CRM/Mailing/Form/Search.tpl
+msgid "SMS Date"
+msgstr "短消息日期"
+
+#: templates/CRM/Mailing/Form/Search.tpl
+msgid "SMS Status"
+msgstr "短消息状态"
+
 #: templates/CRM/Mailing/Form/Settings.hlp
 msgid ""
-"Choose <strong>public pages</strong> if you want the content of this mailing"
-" to be viewable by everyone who has the permission of <strong>\"view public "
-"CiviMail content\"</strong>, <strong>user and user admin only</strong> means"
-" that only users that received the mailing or administrators can view the "
-"content of this email"
-msgstr "如果您希望此邮件内容对全体拥有<strong>\"查看公共CiviMail内容\"</strong>权限的人可见，请选择<strong>公共页面</strong>，<strong>仅限于用户和用户管理员</strong>是指只有收到邮件的用户或管理员可以查看邮件内容。"
+"This option makes it possible to make the contents of the email accessible "
+"to users as a web page. This option is only relevant if you insert the "
+"Mailing permalink token %1 in your message in the next step. This token "
+"generates a URL on which the message can be viewed (remember to insert the "
+"code in the appropriate HTML tags)."
+msgstr "这一选项使email内容能以网页形式呈现给用户。只有在下一步中将永久占位符邮件固定链接标识%1插入信息内容中，这一选项才有效。这个标识将生成供查看信息内容的URL(请记得在适当的HTML标签中插入代码)。"
+
+#: templates/CRM/Mailing/Form/Settings.hlp
+msgid "You have two options to specify the visibility of the mailing"
+msgstr "您有两个选项可供指定邮件的可见性。"
+
+#: templates/CRM/Mailing/Form/Settings.hlp
+msgid ""
+"\"public pages\" will make the content of this mailing be viewable as a web "
+"page by everyone who has the permission of \"view public CiviMail content\""
+msgstr "\"公开页面\"使邮件内容能以网页方式对任何具有\"查看公开CiviMail内容\"权限的人可见。"
+
+#: templates/CRM/Mailing/Form/Settings.hlp
+msgid ""
+"\"user and user admin\" only means that only users that received the mailing"
+" or administrators can view the content of this email as a web page; the "
+"recipients will have to log in to be able to view the message"
+msgstr "\"用户和用户管理员\"表示只有收到邮件的用户或是管理员能以网页方式查看此邮件内容；收件人需要登录，才能查看信息。"
 
 #: templates/CRM/Mailing/Form/Settings.tpl
 msgid ""
@@ -997,19 +1127,18 @@ msgstr "输入您的email地址并选定每个您要加入的邮件列表旁的�
 msgid "Group Listings."
 msgstr "群组列表。"
 
-#: templates/CRM/Mailing/Form/Test.hlp templates/CRM/Mailing/Form/Test.tpl
+#: templates/CRM/Mailing/Form/Test.hlp
 msgid ""
 "It's a good idea to test your mailing by sending it to yourself and/or a "
 "selected group of people in your organization. You can also view your "
-"content by clicking (+) Preview Mailing."
-msgstr "最好通过发送邮件给您自己及/或给您的机构中选定的一组人来测试您的邮件。您也可以点击(+)查看邮件，来查看您的邮件内容。"
+"content in the preview panel below."
+msgstr "最好发送给自己及/或您的组织中一组指定的人选，来测试邮件发送。也可以在一下的预览栏目中查看内容。"
 
 #: templates/CRM/Mailing/Form/Test.hlp
 msgid ""
-"Verify the test email address and/or test recipient group. Then click "
-"<strong>Next</strong> with 'Send Test Mailing' checked to generate the test "
-"mailing. Once you receive the test mailing:"
-msgstr "验证测试email地址和/或测试收件人群组。然后在“发送测试邮件”选定时点击<strong>下一个</strong>，来生成测试邮件。一旦您收到测试邮件："
+"Enter a single email address or select an existing group and click \"Send a "
+"Test Mailing.\" Once you receive the test mailing:"
+msgstr "输入单个邮件地址，或选中一个已有的群组，并点击“发送测试邮件”。一旦收到测试邮件:"
 
 #: templates/CRM/Mailing/Form/Test.hlp
 msgid "Verify the content and formattting."
@@ -1028,10 +1157,16 @@ msgstr "点击每一个包括的链接，以确认它们指向预期的网页。
 
 #: templates/CRM/Mailing/Form/Test.hlp
 msgid ""
-"If you need to make changes, you can click <strong>Previous</strong> from "
-"the next screen, and again from this screen to return to step 3. After "
-"making your changes, you can send another test and repeat as needed."
-msgstr "如果您需要作改动，可以从下一个屏幕点击<strong>前一个</strong>，并再从此屏返回到步骤3。改动完成后，你就可以发送另一个测试，并且如果需要还可以重复这些操作。"
+"If you need to make changes, you can click <strong>Previous</strong> to "
+"return to the content step, make your changes, and send another test."
+msgstr "若是需要修改，点击“上一步”返回内容步骤，完成修改，并再发送一个测试邮件。"
+
+#: templates/CRM/Mailing/Form/Test.tpl
+msgid ""
+"It's a good idea to test your mailing by sending it to yourself and/or a "
+"selected group of people in your organization. You can also view your "
+"content by clicking (+) Preview Mailing."
+msgstr "最好通过发送邮件给您自己及/或给您的机构中选定的一组人来测试您的邮件。您也可以点击(+)查看邮件，来查看您的邮件内容。"
 
 #: templates/CRM/Mailing/Form/Test.tpl
 msgid "(filled with your contact's token values)"
@@ -1062,10 +1197,10 @@ msgstr "从下拉列表中选择这封邮件的“发件人”email地址。可�
 
 #: templates/CRM/Mailing/Form/Upload.hlp
 msgid ""
-"Go to <a href='%1'>Administer CiviCRM &raquo; Configure &raquo; FROM Email "
-"Addresses</a> to add or edit email addresses. Make sure these email "
+"Go to <a href='%1'>Administer CiviCRM &raquo; Communications &raquo; FROM "
+"Email Addresses</a> to add or edit email addresses. Make sure these email "
 "addresses are valid email accounts with your email service provider."
-msgstr "Go to <a href='%1'>管理CiviCRM &raquo; 配置 &raquo; 发件人Email地址</a>，添加或编辑email地址。请确定这些email地址是对您的email服务提供商的有效账号。"
+msgstr "前往 <a href='%1'>管理CiviCRM > Communications > 来邮件地址</a>，添加或编辑email地址。请确定这些邮件地址是您的email服务提供者提供的有效账户。"
 
 #: templates/CRM/Mailing/Form/Upload.hlp
 msgid ""
@@ -1173,42 +1308,38 @@ msgid ""
 msgstr "按照创建或发送邮件的人名查找邮件。您可以输入完整或部分名字(按照 姓，名 的格式)"
 
 #: templates/CRM/Mailing/Page/Browse.tpl
-msgid "New Mailing"
-msgstr "新邮件"
+msgid "No %1 match your search criteria. Suggestions:"
+msgstr "无 %1 满足您的搜索条件。建议："
 
 #: templates/CRM/Mailing/Page/Browse.tpl
-msgid "No Mailings match your search criteria. Suggestions:"
-msgstr "未发现符合条件的邮件。建议："
+msgid "Or you can <a href='%1'>browse all %2 %3</a>."
+msgstr "或 <a href='%1'>浏览全部 %2 %3</a> 。"
 
 #: templates/CRM/Mailing/Page/Browse.tpl
-msgid "Or you can <a href='%1'>browse all %2 mailings</a>."
-msgstr "或者您可以<a href='%1'>浏览所有 %2 邮件</a>。"
+msgid "There are no Unscheduled %1."
+msgstr "没有发现未列入发送计划的 %1 。"
 
 #: templates/CRM/Mailing/Page/Browse.tpl
-msgid "There are no Unscheduled Mailings."
-msgstr "没有未安排发送的邮件。"
-
-#: templates/CRM/Mailing/Page/Browse.tpl
-msgid " You can <a href='%1'>create and send one</a>."
-msgstr "您可以<a href='%1'>创建并发送一个</a>。"
+msgid "You can <a href='%1'>create and send one</a>."
+msgstr "可以%1创建并发送。"
 
 #: templates/CRM/Mailing/Page/Browse.tpl
 msgid ""
-"There are no Archived Mailings. You can archive mailings from <a "
-"href='%1'>Scheduled or Sent Mailings</a>."
-msgstr "没有存档邮件。您可以从<a href='%1'>已安排发送或已发送的邮件</a>中将邮件存档。"
+"There are no Archived %2. You can archive %2 from <a href='%1'>Scheduled or "
+"Sent %2</a>."
+msgstr "无已存档的 %2 。您可以从 <a href='%1'> 已列入发送计划或已发送 %2</a>中将%2存档。"
 
 #: templates/CRM/Mailing/Page/Browse.tpl
-msgid "There are no Scheduled or Sent Mailings."
-msgstr "没有安排好发送或已发送的邮件。"
+msgid "There are no Scheduled or Sent %1."
+msgstr "没有已列入发送计划或已发送的 %1 。"
 
 #: templates/CRM/Mailing/Page/Browse.tpl
-msgid " You can <a href='%1'>create and send one</a>"
-msgstr "您可以<a href='%1'>创建并发送一个</a>。"
+msgid "You can <a href='%1'>create and send one</a>"
+msgstr "可以%1创建并发送"
 
 #: templates/CRM/Mailing/Page/Browse.tpl
-msgid " OR you can search the <a href='%1'>Archived Mailings</a>"
-msgstr "或者您可以查找<a href='%1'>存档邮件</a>"
+msgid " OR you can search the <a href='%1'>Archived %2</a>"
+msgstr "您也可以搜索 <a href='%1'> 已存档的 %2</a>"
 
 #: templates/CRM/Mailing/Page/Component.tpl
 msgid "Body HTML"
@@ -1261,10 +1392,6 @@ msgid ""
 "technical support contact for your site to verify that the automated mailer "
 "task ('cron job') is running - and how frequently."
 msgstr "<strong>此邮件的发送尚未开始。</strong>如果安排好的发送日期和时间已过，请联系您站点的系统管理员或技术支持，验证自动邮件任务('cron 任务') 在运行 - 及其频率。"
-
-#: templates/CRM/Mailing/Page/Report.tpl
-msgid "Recipients"
-msgstr "收件人"
 
 #: templates/CRM/Mailing/Page/Report.tpl
 msgid "Included"
@@ -1339,140 +1466,12 @@ msgid "Are you sure you want to resubscribe: %1 (%2)"
 msgstr "是否确定要重新订阅：%1 (%2)"
 
 #: templates/CRM/Mailing/Page/Unsubscribe.tpl
-msgid "has been successfully unsubscribed."
-msgstr "已成功退订。"
+msgid "has been successfully removed from the specified mailing list(s)."
+msgstr "已从指定的邮寄列表(s)中移除。"
 
 #: templates/CRM/Mailing/Page/Unsubscribe.tpl
 msgid " %1 (%2)"
 msgstr "%1 (%2)"
-
-#: templates/CRM/Mailing/Page/Unsubscribe.tpl
-msgid "Are you sure you want to be unsubscribed from mailing lists:"
-msgstr "是否确定要退订邮件列表："
-
-#: templates/CRM/Mailing/Page/Unsubscribe.tpl
-msgid ""
-"Sorry you are not on the mailing list. Probably you are already "
-"unsubscribed."
-msgstr "抱歉，您不在邮件列表中。可能您已退订。"
-
-#: CRM/Mailing/BAO/Mailing.php
-msgid ""
-"The <a href=\"%1\">default mailbox</a> has not been configured. You will "
-"find <a href=\"%2\">more info in the online user and administrator guide</a>"
-msgstr "%1默认邮箱尚未配置。更多%2信息请见用户与管理员在线指南。"
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Dedupe Email"
-msgstr "邮件去重"
-
-#: CRM/Mailing/Form/Group.php
-msgid ""
-"The <a href=\"%1\">default mailbox</a> has not been configured. You will "
-"find <a href=\"%2\">more info in our online user and administrator "
-"guide.</a>"
-msgstr "%1默认邮箱尚未配置。更多%2信息请见用户与管理员在线指南。"
-
-#: CRM/Mailing/Form/Group.php
-msgid "Remove duplicate emails?"
-msgstr "是否删除重复邮件？"
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid "Search-based mailings require an \"unsubscribe tracking\" group."
-msgstr "基于搜索的邮件发送需要一个“退订追踪”群组。"
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"Because this mailing is using the results of a search to provide the "
-"recipient list, you need to specify a group to track people who unsubscribe "
-"in response to this mailing."
-msgstr "由于这封邮件的发送将搜索结果用于收件人列表，您需要指定一个群组来对收到邮件后退订的人进行追踪。"
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"If a recipient unsubscribes from this mailing, they will be excluded from "
-"future mailings which use the same \"Unsubscription Group\". This is "
-"achieved through actually marking the contact as \"unsubscribed from the "
-"group\". If a contact in your search results has already been marked as "
-"unsubscribed from that group, they will be excluded from this mailing."
-msgstr "收到邮件后选择退订的收件人，以后将排除在在使用了同一个“退订群组”的邮件发送之外。这是通过将联系人标记为“退订群组”实现的。若是搜索结果中的联系人已经被标记退订，则其将不收到邮件。"
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"If a recipient clicks the unsubscribe link they will see the "
-"\"Unsubscription Group\" title on the unsubscribe page. The selected group "
-"should have a title that corresponds to the content / type of mailing being "
-"sent."
-msgstr "收件人点击退订链接，退订页面上将显示“退订群组”。选定的群组标题将于邮件内容/类型相对应。"
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"NOTE: Contacts who are in the \"Unsubscription Group\" but do not match your"
-" search critera will not be included in the mailing regardless of their "
-"status in that group. This is a change from previous versions which used the"
-" term \"Base Group\"."
-msgstr "请注意：存在于“退订群组”中，但并不符合搜索条件的联系人，无论其在群组中的状态如何，都将不出现在邮寄列表中。这一点有别于使用“基准群组”这个概念的上一版本。"
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"CiviCRM will always dedupe your mailing based on unique contact records. For"
-" example, if a contact is in three of the groups you are including in your "
-"mailing, they will only be sent one copy of the email."
-msgstr "基于联系人记录的唯一性，CiviCRM持续对邮寄列表去重复。例如，若是一个联系人同时存在于您的邮寄列表所包括的三个群组中，他将只收到一次邮件。"
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"However, if the same email is used by multiple contacts, that email address "
-"will receive multiple copies of the email -- one for each contact using that"
-" address."
-msgstr "但是，如果多个联系人使用同一个email地址，那么这个地址将收到多次邮件 - 每个使用该地址的联系人都收到一次。"
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"Selecting this option will ensure only one email is sent to each address. "
-"Note that when using this option and including contact tokens in your email "
-"content, the email with it's respective tokens will only be created for one "
-"of the matching contacts."
-msgstr "选择这一选项，将确保对每个地址只发送一份邮件。请注意，使用这一选项并在邮件内容中包含联系人标志时，带有各自标志的邮件将只为一个匹配的联系人创建。"
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"You also have the option to <strong>Exclude</strong> some contacts in your "
-"included groups by selecting one or more <strong>Excluded Groups</strong>. "
-"Contacts who are in both groups will NOT receive the mailing (they are "
-"'excluded')."
-msgstr "选择一个或多个“排除组”，您就可以从选定的群组中排除某些联系人。同时属于两个群组的联系人，将不会受到邮件(被“排除”)。"
-
-#: templates/CRM/Mailing/Form/Test.hlp
-msgid ""
-"It's a good idea to test your mailing by sending it to yourself and/or a "
-"selected group of people in your organization. You can also view your "
-"content in the preview panel below."
-msgstr "最好发送给自己及/或您的组织中一组指定的人选，来测试邮件发送。也可以在一下的预览栏目中查看内容。"
-
-#: templates/CRM/Mailing/Form/Test.hlp
-msgid ""
-"Enter a single email address or select an existing group and click \"Send a "
-"Test Mailing.\" Once you receive the test mailing:"
-msgstr "输入单个邮件地址，或选中一个已有的群组，并点击“发送测试邮件”。一旦收到测试邮件:"
-
-#: templates/CRM/Mailing/Form/Test.hlp
-msgid ""
-"If you need to make changes, you can click <strong>Previous</strong> to "
-"return to the content step, make your changes, and send another test."
-msgstr "若是需要修改，点击“上一步”返回内容步骤，完成修改，并再发送一个测试邮件。"
-
-#: templates/CRM/Mailing/Page/Browse.tpl
-msgid "You can <a href='%1'>create and send one</a>."
-msgstr "可以%1创建并发送。"
-
-#: templates/CRM/Mailing/Page/Browse.tpl
-msgid "You can <a href='%1'>create and send one</a>"
-msgstr "可以%1创建并发送"
-
-#: templates/CRM/Mailing/Page/Unsubscribe.tpl
-msgid "has been successfully removed from the specified mailing list(s)."
-msgstr "已从指定的邮寄列表(s)中移除。"
 
 #: templates/CRM/Mailing/Page/Unsubscribe.tpl
 msgid ""
@@ -1485,119 +1484,152 @@ msgid ""
 "unsubscribed."
 msgstr "很抱歉您当前不在本邮寄列表中。您可能已经退订。"
 
-#: CRM/Mailing/BAO/Query.php CRM/Mailing/Selector/Event.php
-#: templates/CRM/Mailing/Page/Report.tpl
-msgid "Opt-out Requests"
-msgstr "自愿退出请求"
+#: CRM/Mailing/Form/Group.php CRM/Mailing/Form/Settings.php
+#: CRM/Mailing/Form/Test.php CRM/Mailing/Form/Upload.php
+msgid ""
+"You can continue later by clicking the 'Continue' action to resume working "
+"on it.<br />From <a href='%1'>Draft and Unscheduled Mailings</a>."
+msgstr ""
 
-#: CRM/Mailing/Form/Search.php CRM/Mailing/Selector/Browse.php
-msgid "SMS Name"
-msgstr "短消息名"
+#: CRM/Mailing/Form/Group.php CRM/Mailing/Form/Schedule.php
+#: CRM/Mailing/Form/Settings.php CRM/Mailing/Form/Test.php
+#: CRM/Mailing/Form/Upload.php
+msgid "Click the 'Continue' action to resume working on it."
+msgstr ""
+
+#: CRM/Mailing/Form/Group.php CRM/Mailing/Form/Schedule.php
+#: CRM/Mailing/Form/Settings.php CRM/Mailing/Form/Test.php
+#: CRM/Mailing/Form/Upload.php
+msgid "Mailing Saved"
+msgstr ""
+
+#: CRM/Mailing/Form/Schedule.php
+msgid ""
+"Your mailing has been saved. You can continue later by clicking the "
+"'Continue' action to resume working on it.<br />From <a href='%1'>Draft and "
+"Unscheduled Mailings</a>."
+msgstr ""
+
+#: CRM/Mailing/Form/Test.php
+msgid "You did not provide an email address or select a group."
+msgstr ""
+
+#: CRM/Mailing/Form/Test.php
+msgid "Test not sent."
+msgstr ""
+
+#: CRM/Mailing/Form/Test.php
+msgid "Please enter a valid email addresses."
+msgstr ""
+
+#: CRM/Mailing/Form/Test.php
+msgid ""
+"You can not schedule or send this mailing because there are currently no "
+"recipients selected. Click 'Previous' to return to the Select Recipients "
+"step, OR click 'Save & Continue Later'."
+msgstr ""
+
+#: CRM/Mailing/Form/Test.php
+msgid ""
+"Click 'Next' when you are ready to Schedule or Send your live mailing (you "
+"will still have a chance to confirm or cancel sending this mailing on the "
+"next page)."
+msgstr ""
+
+#: CRM/Mailing/Form/Test.php
+msgid "Test message sent"
+msgstr ""
+
+#: CRM/Mailing/Selector/Event.php
+msgid "%1 %%StatusMessage%%"
+msgstr "%1%%状态信息%%"
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid "Dedupe"
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid "Include Mailings"
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid "Exclude Mailings"
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Test.hlp
+msgid "Test Message"
+msgstr ""
+
+#: templates/CRM/Mailing/Page/Browse.hlp
+msgid "Mailing Sender"
+msgstr ""
+
+#: CRM/Mailing/Form/Task/Print.php CRM/Mailing/Task.php
+msgid "Print Mailing Recipients"
+msgstr ""
+
+#: CRM/Mailing/Page/Event.php CRM/Mailing/Page/Report.php
+msgid "Back to Mailing"
+msgstr ""
 
 #: CRM/Mailing/BAO/Mailing.php
-msgid "CiviMail will not send email to a non-existent contact: %1"
-msgstr "CiviMail无法对不存在的联系人%1发送邮件。"
+msgid "Opens"
+msgstr ""
 
 #: CRM/Mailing/BAO/Mailing.php
-msgid "CiviMail will not send an empty mail body, Skipping: %1"
-msgstr "CiviMail无法发送空邮件，跳过%1。"
+msgid "View Mailing"
+msgstr ""
 
 #: CRM/Mailing/BAO/Query.php
-msgid "Mailing Delivery"
-msgstr "邮件发送"
+msgid "Bounce type(s)"
+msgstr ""
 
 #: CRM/Mailing/BAO/Query.php
-msgid "Mailing: "
-msgstr "邮寄任务："
+msgid "Mailing Job Status"
+msgstr ""
 
 #: CRM/Mailing/BAO/Query.php
-msgid "Mailing Name(s)"
-msgstr "邮寄任务名(s)"
+msgid "Bounce Types"
+msgstr ""
 
-#: CRM/Mailing/Page/Browse.php
-msgid "Draft and Unscheduled Mass SMS"
-msgstr "草稿及未计划的大宗短信服务"
-
-#: CRM/Mailing/Page/Browse.php
-msgid "Archived Mass SMS"
-msgstr "已存档的大宗短信服务"
-
-#: CRM/Mailing/Page/Browse.php
-msgid "Scheduled and Sent Mass SMS"
-msgstr "计划中的及已发送的大宗短信服务"
-
-#: CRM/Mailing/Page/Browse.php
-msgid "Find Mass SMS"
-msgstr "查找大宗短信服务"
-
-#: templates/CRM/Mailing/Form/Search/Common.tpl
-#: templates/CRM/Mailing/Form/Search.tpl
-msgid "Mailing Date"
-msgstr "邮寄日期"
-
-#: templates/CRM/Mailing/Form/Search.tpl
-msgid "SMS Date"
-msgstr "短消息日期"
-
-#: templates/CRM/Mailing/Form/Search.tpl
-msgid "SMS Status"
-msgstr "短消息状态"
-
-#: templates/CRM/Mailing/Form/Settings.hlp
+#: CRM/Mailing/Event/BAO/Subscribe.php
 msgid ""
-"This option makes it possible to make the contents of the email accessible "
-"to users as a web page. This option is only relevant if you insert the "
-"Mailing permalink token %1 in your message in the next step. This token "
-"generates a URL on which the message can be viewed (remember to insert the "
-"code in the appropriate HTML tags)."
-msgstr "这一选项使email内容能以网页形式呈现给用户。只有在下一步中将永久占位符邮件固定链接标识%1插入信息内容中，这一选项才有效。这个标识将生成供查看信息内容的URL(请记得在适当的HTML标签中插入代码)。"
+"Your subscription request has been submitted for %1. Check your inbox "
+"shortly for the confirmation email(s). If you do not see a confirmation "
+"email, please check your spam/junk mail folder."
+msgstr ""
 
-#: templates/CRM/Mailing/Form/Settings.hlp
-msgid "You have two options to specify the visibility of the mailing"
-msgstr "您有两个选项可供指定邮件的可见性。"
-
-#: templates/CRM/Mailing/Form/Settings.hlp
+#: CRM/Mailing/Event/BAO/Subscribe.php
 msgid ""
-"\"public pages\" will make the content of this mailing be viewable as a web "
-"page by everyone who has the permission of \"view public CiviMail content\""
-msgstr "\"公开页面\"使邮件内容能以网页方式对任何具有\"查看公开CiviMail内容\"权限的人可见。"
+"We had a problem processing your subscription request for %1. You have tried"
+" to subscribe to a private group and/or we encountered a database error. "
+"Please contact the site administrator."
+msgstr ""
 
-#: templates/CRM/Mailing/Form/Settings.hlp
-msgid ""
-"\"user and user admin\" only means that only users that received the mailing"
-" or administrators can view the content of this email as a web page; the "
-"recipients will have to log in to be able to view the message"
-msgstr "\"用户和用户管理员\"表示只有收到邮件的用户或是管理员能以网页方式查看此邮件内容；收件人需要登录，才能查看信息。"
+#: CRM/Mailing/Form/Search.php
+msgid "Mailing is Archived"
+msgstr ""
 
-#: templates/CRM/Mailing/Form/Upload.hlp
-msgid ""
-"Go to <a href='%1'>Administer CiviCRM &raquo; Communications &raquo; FROM "
-"Email Addresses</a> to add or edit email addresses. Make sure these email "
-"addresses are valid email accounts with your email service provider."
-msgstr "前往 <a href='%1'>管理CiviCRM > Communications > 来邮件地址</a>，添加或编辑email地址。请确定这些邮件地址是您的email服务提供者提供的有效账户。"
+#: CRM/Mailing/Page/Tab.php
+msgid "Mailings sent to"
+msgstr ""
 
-#: templates/CRM/Mailing/Page/Browse.tpl
-msgid "No %1 match your search criteria. Suggestions:"
-msgstr "无 %1 满足您的搜索条件。建议："
+#: CRM/Mailing/Selector/Search.php
+msgid "Mailing Recipient"
+msgstr ""
 
-#: templates/CRM/Mailing/Page/Browse.tpl
-msgid "Or you can <a href='%1'>browse all %2 %3</a>."
-msgstr "或 <a href='%1'>浏览全部 %2 %3</a> 。"
+#: CRM/Mailing/Selector/Search.php templates/CRM/Mailing/Form/Task/Print.tpl
+msgid "Completed Date"
+msgstr ""
 
-#: templates/CRM/Mailing/Page/Browse.tpl
-msgid "There are no Unscheduled %1."
-msgstr "没有发现未列入发送计划的 %1 。"
+#: CRM/Mailing/Selector/Search.php
+msgid "CiviCRM Mailing Search"
+msgstr ""
 
-#: templates/CRM/Mailing/Page/Browse.tpl
-msgid ""
-"There are no Archived %2. You can archive %2 from <a href='%1'>Scheduled or "
-"Sent %2</a>."
-msgstr "无已存档的 %2 。您可以从 <a href='%1'> 已列入发送计划或已发送 %2</a>中将%2存档。"
+#: templates/CRM/Mailing/Form/Task.tpl
+msgid "Number of selected Mailing Recipients: %1"
+msgstr ""
 
-#: templates/CRM/Mailing/Page/Browse.tpl
-msgid "There are no Scheduled or Sent %1."
-msgstr "没有已列入发送计划或已发送的 %1 。"
-
-#: templates/CRM/Mailing/Page/Browse.tpl
-msgid " OR you can search the <a href='%1'>Archived %2</a>"
-msgstr "您也可以搜索 <a href='%1'> 已存档的 %2</a>"
+#: templates/CRM/Mailing/Page/Tab.tpl
+msgid "No mailings found"
+msgstr ""
