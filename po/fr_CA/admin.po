@@ -7,6 +7,7 @@
 # lavamind <jerome@riseup.net>, 2011
 # Mathieu Lutfy <mathieu@bidon.ca>, 2011-2012
 # pierremat <pierrem7@gmail.com>, 2013
+# pierremat <pierrem7@gmail.com>, 2013
 # Piotr Szotkowski <chastell@chastell.net>, 2011
 # samuelsov <samuel@koumbit.org>, 2013
 # samuelsov <samuel@koumbit.org>, 2012
@@ -16,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
 "Report-Msgid-Bugs-To: http://issues.civicrm.org/\n"
-"POT-Creation-Date: 2013-05-31 09:03-0400\n"
-"PO-Revision-Date: 2013-09-03 14:15+0000\n"
-"Last-Translator: pierremat <pierrem7@gmail.com>\n"
+"POT-Creation-Date: 2013-10-08 08:14-0400\n"
+"PO-Revision-Date: 2013-10-11 15:54+0000\n"
+"Last-Translator: Mathieu Lutfy <mathieu@bidon.ca>\n"
 "Language-Team: French (Canada) (http://www.transifex.com/projects/p/civicrm/language/fr_CA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,16 +28,24 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: CRM/Admin/Form/Extensions.php CRM/Admin/Page/Extensions.php
-msgid "Uninstall"
-msgstr "Désinstaller"
+msgid "Install"
+msgstr "Installer"
 
 #: CRM/Admin/Form/Extensions.php CRM/Admin/Page/Extensions.php
 msgid "Upgrade"
 msgstr "Mettre à jour"
 
 #: CRM/Admin/Form/Extensions.php CRM/Admin/Page/Extensions.php
-msgid "Install"
-msgstr "Installer"
+msgid "Upgrade Extension"
+msgstr "Mettre à jour l'extension"
+
+#: CRM/Admin/Form/Extensions.php CRM/Admin/Page/Extensions.php
+msgid "Uninstall"
+msgstr "Désinstaller"
+
+#: CRM/Admin/Form/Extensions.php CRM/Admin/Page/Extensions.php
+msgid "Uninstall Extension"
+msgstr "Désinstaller l'extension"
 
 #: CRM/Admin/Form/LabelFormats.php CRM/Admin/Form/PdfFormats.php
 msgid "Weight must be integer"
@@ -68,6 +77,10 @@ msgstr "Veuillez entrer une adresse web (URL) valide"
 msgid "DB Template Strings"
 msgstr "DB Template Strings"
 
+#: CRM/Admin/Form/Preferences.php CRM/Admin/Form/Setting.php
+msgid "Your changes have been saved."
+msgstr "Vos changements ont été enregistrés."
+
 #: CRM/Admin/Page/JobLog.php CRM/Admin/Page/PaymentProcessor.php
 msgid "Administration"
 msgstr "Administration"
@@ -97,12 +110,32 @@ msgid "The Contact Type '%1' has been saved."
 msgstr "Le type de contact «%1» a été enregistré."
 
 #: CRM/Admin/Form/Extensions.php
+msgid "Install Extension"
+msgstr "Installer l'extension"
+
+#: CRM/Admin/Form/Extensions.php
+msgid "Enable Extension"
+msgstr "Activer l'extension"
+
+#: CRM/Admin/Form/Extensions.php
+msgid "Disable Extension"
+msgstr "Désactiver l'extension"
+
+#: CRM/Admin/Form/Extensions.php
 msgid "Extension has been uninstalled."
 msgstr "L'extension a été désinstallée."
 
 #: CRM/Admin/Form/Extensions.php
 msgid "Extension has been installed."
 msgstr "L'extension a été installée."
+
+#: CRM/Admin/Form/Extensions.php
+msgid "Extension has been enabled."
+msgstr "L'extension a été activée."
+
+#: CRM/Admin/Form/Extensions.php
+msgid "Extension has been disabled."
+msgstr "L'extension à été désactivée."
 
 #: CRM/Admin/Form/Extensions.php
 msgid "Extension has been upgraded."
@@ -166,26 +199,6 @@ msgstr "Format de papier"
 #: CRM/Admin/Form/LabelFormats.php
 msgid "Sheet Size (w x h)"
 msgstr "Format de papier (l x h)"
-
-#: CRM/Admin/Form/LabelFormats.php
-msgid "Font Name"
-msgstr "Nom de police"
-
-#: CRM/Admin/Form/LabelFormats.php
-msgid "Font Size"
-msgstr "Taille de la police"
-
-#: CRM/Admin/Form/LabelFormats.php
-msgid "Font Style"
-msgstr "Style de la police"
-
-#: CRM/Admin/Form/LabelFormats.php
-msgid "Bold"
-msgstr "Gras"
-
-#: CRM/Admin/Form/LabelFormats.php
-msgid "Italic"
-msgstr "Italique"
 
 #: CRM/Admin/Form/LabelFormats.php
 msgid "Label Width"
@@ -668,6 +681,13 @@ msgid "Settings - Display Preferences"
 msgstr "Préférences d'affichage"
 
 #: CRM/Admin/Form/Preferences/Display.php
+msgid ""
+"Your civicrm.settings.php file contains CIVICRM_ACTIVITY_ASSIGNEE_MAIL but "
+"this constant is no longer used. Please remove this from your config file "
+"and set your \"Notify Activity Assignees\" preference below."
+msgstr "Votre fichier civicrm.settings.php contient la constante CIVICRM_ACTIVITY_ASSIGNEE_MAIL qui n'est plus utilisée. Veuillez la supprimer de votre fichier de configuration et configurer ci-dessous vos préférences  pour la notification d'assignation d'activité."
+
+#: CRM/Admin/Form/Preferences/Display.php
 msgid "Viewing Contacts"
 msgstr "Affichage de contacts"
 
@@ -718,8 +738,8 @@ msgid ""
 "all at once. Enabling this setting will affect online registration for all "
 "active events. The code is an alpha state, and you will potentially need to "
 "have developer resources to debug and fix sections of the codebase while "
-"testing and deploying it."
-msgstr "Cette fonction permet aux utilisateurs de s'inscrire à plusieurs événements en même temps. Si activée, les utilisateurs vont ajouter les événements dans un « panier » et payer en une seule fois. L'activation de cette fonction va affecter l'inscription en ligne de tous les événements actifs. Le code est dans un état alpha et vous risquez d'avoir besoin de développeurs pour résoudre les bogues pendant que vous testez et déployez cette fonction."
+"testing and deploying it. %1"
+msgstr "Cette fonction permet aux utilisateurs de s'inscrire simultanément à plusieurs événements. Si cette fonction est activée, les utilisateurs pourront mettre un ou des événement(s) dans leur \"panier\" et les payer en une seule fois. L'activation de cette fonction va affecter les inscriptions en ligne de tous les événements actifs. Le code étant dans l'état alpha, vous aurez potentiellement besoin de disposer de développeurs pour déboguer et corriger des parties du code source pendant que vous testez et mettez en service cette fonction. %1"
 
 #: CRM/Admin/Form/Preferences/Mailing.php
 msgid "CiviMail Component Settings"
@@ -767,8 +787,22 @@ msgid ""
 msgstr "Pour Drupal seulement. Le module Rules doit être activé (fonction beta à utiliser avec prudence)."
 
 #: CRM/Admin/Form/Preferences/Mailing.php
+msgid "Enable multiple bulk email address for a contact."
+msgstr "Active les adresses multiples de mailing pour un contact."
+
+#: CRM/Admin/Form/Preferences/Mailing.php
+msgid ""
+"CiviMail will deliver a copy of the email to each bulk email listed for the "
+"contact."
+msgstr "CiviCRM livrera une copie du courriel à chaque adresse électronique de mailing indiquée pour le contact."
+
+#: CRM/Admin/Form/Preferences/Mailing.php
 msgid "Enable global server wide lock for CiviMail"
 msgstr "Activer le verrou global au serveur pour l'envoi massif"
+
+#: CRM/Admin/Form/Preferences/Mailing.php
+msgid "Enable CiviMail to generate Message-ID header"
+msgstr "Activer la génération de l'en-tête Message-ID par CiviMail "
 
 #: CRM/Admin/Form/Preferences/Member.php
 msgid "CiviMember Component Settings"
@@ -832,6 +866,11 @@ msgstr "Ce label existe déjà dans la base de données."
 #: CRM/Admin/Form/RelationshipType.php
 msgid "Relationship Label-B to A"
 msgstr "Type de relation -B vers A"
+
+#: CRM/Admin/Form/RelationshipType.php
+#: templates/CRM/Admin/Page/RelationshipType.tpl
+msgid "All Contacts"
+msgstr "Tous les contacts"
 
 #: CRM/Admin/Form/RelationshipType.php
 msgid "Selected Relationship type has been deleted."
@@ -1022,6 +1061,11 @@ msgid "Thousands Separator and Decimal Delimiter can not be the same."
 msgstr "Les séparateurs des milliers et des décimales ne peuvent être identiques."
 
 #: CRM/Admin/Form/Setting/Localization.php
+msgid ""
+"Thousands Separator can not be empty. You can use a space character instead."
+msgstr "Le séparateur de milliers ne peut être vide. Vous pouvez utiliser un espace."
+
+#: CRM/Admin/Form/Setting/Localization.php
 msgid "Thousands Separator can not have more than 1 character."
 msgstr "Le séparateur des milliers ne peut pas avoir plus d'un caractère."
 
@@ -1049,6 +1093,10 @@ msgstr "Séparateur VERP"
 #: CRM/Admin/Form/Setting/Mail.php
 msgid "Mailer Batch Limit"
 msgstr "Limite des mails automatiques"
+
+#: CRM/Admin/Form/Setting/Mail.php
+msgid "Mailer Throttle Time"
+msgstr "Cadence messagerie"
 
 #: CRM/Admin/Form/Setting/Mail.php
 msgid "Mailer Job Size"
@@ -1107,6 +1155,10 @@ msgid "Attach PDF copy to receipts"
 msgstr "Joindre une copie PDF aux reçus"
 
 #: CRM/Admin/Form/Setting/Miscellaneous.php
+msgid "Path to wkhtmltopdf executable"
+msgstr "Chemin de l'exécutable wkhtmltopdf"
+
+#: CRM/Admin/Form/Setting/Miscellaneous.php
 msgid "Maximum Attachments"
 msgstr "Nombre maximum de pièces jointes"
 
@@ -1133,6 +1185,10 @@ msgstr "Durée de vie du checksum"
 #: CRM/Admin/Form/Setting/Miscellaneous.php
 msgid "Recaptcha Options"
 msgstr "Options reCAPTCHA"
+
+#: CRM/Admin/Form/Setting/Miscellaneous.php
+msgid "The wkhtmltodfPath does not exist or is not valid"
+msgstr ""
 
 #: CRM/Admin/Form/Setting/Path.php
 msgid "Settings - Upload Directories"
@@ -1165,10 +1221,6 @@ msgstr "Répertoire des extensions CiviCRM"
 #: CRM/Admin/Form/Setting/Path.php
 msgid "'%1' directory does not exist"
 msgstr "Le répertoire '%1' n'existe pas."
-
-#: CRM/Admin/Form/Setting.php
-msgid "Your changes have been saved."
-msgstr "Vos changements ont été enregistrés."
 
 #: CRM/Admin/Form/Setting/Search.php
 msgid "Settings - Search Preferences"
@@ -1336,8 +1388,16 @@ msgid "Custom CiviCRM CSS URL"
 msgstr "Url de la feuille de style personnalisée -CSS- CiviCRM "
 
 #: CRM/Admin/Form/Setting/Url.php
+msgid "Extension Resource URL"
+msgstr "URL de ressources des extensions"
+
+#: CRM/Admin/Form/Setting/Url.php
 msgid "Force Secure URLs (SSL)"
 msgstr "Forcer les URL sécurisés (SSL)"
+
+#: CRM/Admin/Form/Setting/Url.php
+msgid "Verify SSL Certs"
+msgstr "Vérifier les certificats SSL"
 
 #: CRM/Admin/Form/Setting/Url.php
 msgid ""
@@ -1383,8 +1443,9 @@ msgstr "Personnaliser les données et écrans"
 msgid "Communications"
 msgstr "Communications"
 
-#: CRM/Admin/Page/Admin.php
-msgid "Localizaton"
+#: CRM/Admin/Page/Admin.php templates/CRM/Admin/Page/ConfigTaskList.tpl
+#: templates/CRM/Admin/Page/Setting.tpl
+msgid "Localization"
 msgstr "Localisation"
 
 #: CRM/Admin/Page/Admin.php
@@ -1548,8 +1609,9 @@ msgid ""
 msgstr "ATTENTION : La désactivation d'une option qui a été assignée à des enregistrements aura pour effet de remettre à zéro cette option dans ces enregistrements lorsqu'ils seront édités."
 
 #: CRM/Admin/Page/AJAX.php
-msgid "Are you sure you want to cancel this recurring contribution?"
-msgstr "Êtes-vous sûr de vouloir supprimer cette contribution périodique ?"
+msgid ""
+"Are you sure you want to mark this recurring contribution as cancelled?"
+msgstr "Êtes-vous sûr de vouloir marquer comme résiliée cette contribution périodique ?"
 
 #: CRM/Admin/Page/AJAX.php
 msgid ""
@@ -1558,6 +1620,13 @@ msgid ""
 "processor. You will need to ensure that this recurring payment "
 "(subscription) is cancelled by the payment processor."
 msgstr "ATTENTION : Cette action change le statut de la contribution à « Annulé » mais n'envoie pas de requête d'annulation au service de paiement. Vous devrez vous assurer que le service de paiement est informé de cette annulation."
+
+#: CRM/Admin/Page/AJAX.php
+msgid ""
+"This recurring contribution is linked to an auto-renew membership. If you "
+"cancel it, the associated membership will no longer renew automatically. "
+"However, the current membership status will not be affected."
+msgstr "Cette contribution périodique est associée à une adhésion à renouvellement automatique. Si vous la résiliez, l'adhésion associée ne sera plus renouvelée automatiquement. Cependant le statut actuel de l'adhésion ne sera pas changé."
 
 #: CRM/Admin/Page/AJAX.php
 msgid "Are you sure you want to disable this record?"
@@ -1583,13 +1652,9 @@ msgstr "Activer le type de contact"
 msgid "Delete Contact Type"
 msgstr "Supprimer le type de contact"
 
-#: CRM/Admin/Page/Extensions.php templates/CRM/Admin/Form/Extensions.tpl
-msgid "Uninstall Extension"
-msgstr "Désinstaller l'extension"
-
-#: CRM/Admin/Page/Extensions.php templates/CRM/Admin/Form/Extensions.tpl
-msgid "Upgrade Extension"
-msgstr "Mettre à jour l'extension"
+#: CRM/Admin/Page/ExtensionsUpgrade.php
+msgid "Database Upgrades"
+msgstr "Mises à jour base de données"
 
 #: CRM/Admin/Page/JobLog.php
 msgid "Settings - Scheduled Jobs Log"
@@ -1966,10 +2031,6 @@ msgid ""
 msgstr "CiviCRM va créer un fichier SQL avec l'ensemble de vos données existantes vous permmettant de le télécharger sur votre ordinateur. Ce processus peut prendre un peu de temps et généré un grand fichier si vous avez beaucoup d'enregistrements."
 
 #: templates/CRM/Admin/Form/Extensions.tpl
-msgid "Install Extension"
-msgstr "Installer l'extension"
-
-#: templates/CRM/Admin/Form/Extensions.tpl
 msgid ""
 "WARNING: Uninstalling this extension might result in the loss of all records"
 " which use the extension."
@@ -1997,6 +2058,10 @@ msgstr "La mise à jour de cette extension va vous fournir de nouvelles fonction
 #: templates/CRM/Admin/Form/Job.tpl
 msgid "New Scheduled Job"
 msgstr "Nouvelle tâche périodique"
+
+#: templates/CRM/Admin/Form/Job.tpl
+msgid "Execute Scheduled Job"
+msgstr "Exécuter une Tâche Programmée"
 
 #: templates/CRM/Admin/Form/Job.tpl
 msgid ""
@@ -2441,26 +2506,46 @@ msgstr "Le poids contrôle l'ordre dans lequel les formats de page PDF sont affi
 
 #: templates/CRM/Admin/Form/Preferences/Address.hlp
 msgid ""
-"The following tokens are available to format Mailing Labels. Address fields "
-"are taken from the contact's <strong>primary</strong> location."
-msgstr "Les items suivants sont disponibles pour formater les étiquettes des Mailings. Les champs des adresses sont récupérées des localisations <strong>primaires</strong> des contacts."
+"Configure mailing labels for your site using tokens, which are replaced by contact field values when the labels are generated.\n"
+"Place your cursor within the Mailing Labels box where you want to the token to be inserted. Then click the \"Insert Tokens\" link\n"
+"to see a list of available tokens (including custom fields). Insert the token by clicking the desired token name."
+msgstr "Configurez les étiquettes de courrier de votre site en utilisant les champs de fusion qui sont remplacés par les valeurs des champs de la fiche de chaque contact lors de la génération des étiquettes.\nPlacez le curseur à l'endroit où vous voulez insérer le champ de fusion, puis cliquez sur le lien « Insérer un champ de fusion »\npour afficher la liste des champs de fusion disponibles (y compris les champs personnalisés), enfin insérez le champ de fusion en cliquant sur le nom du champ souhaité."
 
 #: templates/CRM/Admin/Form/Preferences/Address.hlp
 msgid ""
-"Used for mailing labels only. Replaced by the Addressee option selected on "
-"contact add/edit screen."
-msgstr "Utilisé uniquement pour les étiquettes d'adresse de publipostage. Est remplacé par l'option Destinataire dans l'écran de création/édition de contact."
+"Address field values are taken from the contact's <strong>primary</strong> "
+"location."
+msgstr "La valeur des champs d'adresse sont extraits de l'adresse <strong>principale</strong> du contact."
 
 #: templates/CRM/Admin/Form/Preferences/Address.hlp
 msgid ""
-"Current employer name as configured in the individual contact edit form. "
-"Note that this field is only available for contacts which are the contact "
-"type individual."
-msgstr "Nom de l'employeur actuel tel que configuré dans le formulaire d'édition d'un contact individuel. Notez que ce champ est seulement disponible pour les contacts du type individu."
+"Use the %1 token for state/province abbreviation or %2 for full "
+"state/province name."
+msgstr "Utilisez le champ de fusion %1 pour l'abréviation de la subdivision du pays (province pour la Belgique et le Canada, département pour la France, canton pour la Suisse, etc.) ou %2 pour le nom complet de cette même subdivision."
 
 #: templates/CRM/Admin/Form/Preferences/Address.hlp
-msgid "Address Name (e.g. Johnson Paviliont)."
-msgstr "Nom de l'adresse (ex. Résidence principale)"
+msgid "Add spaces or punctuation to layout by surrounding them with brackets."
+msgstr "Vous pouvez ajouter des espaces ou de la ponctuation en les entourants de crochets). Par exemple: [  ]."
+
+#: templates/CRM/Admin/Form/Preferences/Address.hlp
+msgid ""
+"If you want to include the county in your mailing labels, the "
+"<strong>County</strong> checkbox must be checked in the Address Editing "
+"section on this screen, and county names must be added to the civicrm_county"
+" table in your database."
+msgstr "Si vous voulez inclure le comté dans vos libellés d'adresse, la case <strong>Comté</strong> doit être cochée dans la section  Édition d'adresse sur cette page et les noms de comté doivent avoir été ajoutés à la table civicrm_county de votre base de données."
+
+#: templates/CRM/Admin/Form/Preferences/Address.hlp
+msgid ""
+"The following tokens are available to format Address display on Contact and "
+"Event screens."
+msgstr "Les jetons suivants sont disponibles pour la mise en page des adresses sur les écrans de Contacts et Événements."
+
+#: templates/CRM/Admin/Form/Preferences/Address.hlp
+msgid ""
+"Descriptive name assigned to a contact or event address. EXAMPLES: 'College "
+"address' for a person. 'Johnson Pavilion' for an event."
+msgstr "Intitulé décrivant un type d'adresse d'un contact ou d'un événement. EXEMPLE: \"Adresse du collège\" pour une personne."
 
 #: templates/CRM/Admin/Form/Preferences/Address.hlp
 msgid "Full street address (e.g. 110 Main Street)."
@@ -2480,10 +2565,11 @@ msgstr "Ville."
 
 #: templates/CRM/Admin/Form/Preferences/Address.hlp
 msgid ""
-"County name. If you want to include the county in your mailing labels, the "
-"<strong>Include Counties</strong> setting must be enabled on this screen, "
-"and county names must be added to the civicrm_county table in your database."
-msgstr "Nom de la Province. Si vous voulez inclure la province dans le libellé de votre mailing, le paramètre <strong>Inclure Provinces</strong> doit être validé sur cette écran, et les noms des provinces doivent être ajoutées dans la table civicrm_county de votre base de données."
+"County name. If you want to include the county in your screen displays, the "
+"<strong>County</strong> checkbox should be set under <strong>Address Editing"
+" &raquo; Address Fields</strong> on this screen, and county names must be "
+"added to the civicrm_county table in your database."
+msgstr "Nom de la région administrative. Si vous voulez inclure la région administrative dans vos affichages, l'option <strong>région administrative</strong> doit être cochée dans la section <strong>édition de l'adresse</strong> sur cette page, et les noms des régions administratives doivent être ajoutés dans la table civicrm_county de votre base de données."
 
 #: templates/CRM/Admin/Form/Preferences/Address.hlp
 msgid "State or province <strong>abbreviation</strong>."
@@ -2500,30 +2586,6 @@ msgstr "Code postal."
 #: templates/CRM/Admin/Form/Preferences/Address.hlp
 msgid "Country name (e.g. Canada)."
 msgstr "Pays (ex: Canada)."
-
-#: templates/CRM/Admin/Form/Preferences/Address.hlp
-msgid "Add spaces or punctuation to layout by surrounding them with brackets."
-msgstr "Vous pouvez ajouter des espaces ou de la ponctuation en les entourants de crochets). Par exemple: [  ]."
-
-#: templates/CRM/Admin/Form/Preferences/Address.hlp
-msgid ""
-"The following tokens are available to format Address display on Contact and "
-"Event screens."
-msgstr "Les jetons suivants sont disponibles pour la mise en page des adresses sur les écrans de Contacts et Événements."
-
-#: templates/CRM/Admin/Form/Preferences/Address.hlp
-msgid ""
-"Descriptive name assigned to a contact or event address. EXAMPLES: 'College "
-"address' for a person. 'Johnson Pavilion' for an event."
-msgstr "Intitulé décrivant un type d'adresse d'un contact ou d'un événement. EXEMPLE: \"Adresse du collège\" pour une personne."
-
-#: templates/CRM/Admin/Form/Preferences/Address.hlp
-msgid ""
-"County name. If you want to include the county in your screen displays, the "
-"<strong>County</strong> checkbox should be set under <strong>Address Editing"
-" &raquo; Address Fields</strong> on this screen, and county names must be "
-"added to the civicrm_county table in your database."
-msgstr "Nom de la région administrative. Si vous voulez inclure la région administrative dans vos affichages, l'option <strong>région administrative</strong> doit être cochée dans la section <strong>édition de l'adresse</strong> sur cette page, et les noms des régions administratives doivent être ajoutés dans la table civicrm_county de votre base de données."
 
 #: templates/CRM/Admin/Form/Preferences/Address.hlp
 msgid ""
@@ -2559,10 +2621,8 @@ msgid ""
 msgstr "Nom de l'employeur actuel tel que configuré dans le formulaire d'édition d'un contact individuel. Pour qu'il apparaisse sur une ligne séparée, saisissez la touche \"Entrer\" pour introduire un saut de ligne après les champs du nom."
 
 #: templates/CRM/Admin/Form/Preferences/Address.tpl
-msgid ""
-"Address format for mailing labels. Use the %1 token for state/province "
-"abbreviation or %2 for full name."
-msgstr "Format pour les étiquettes pour la poste. Utiliser le jeton %1 pour utiliser l'abréviation province/état et %2 pour le nom complet."
+msgid "Content and format for mailing labels."
+msgstr "Contenu et format des libellés de destinataire."
 
 #: templates/CRM/Admin/Form/Preferences/Address.tpl
 msgid "Address Display"
@@ -2665,8 +2725,10 @@ msgid ""
 "contact record. EXAMPLE: If your organization does not keep track of "
 "'Relationships', then un-check this option to simplify the screen display. "
 "Tabs for Contributions, Pledges, Memberships, Events, Grants and Cases are "
-"also hidden if the corresponding component is not enabled."
-msgstr "Sélectionnez les <strong>onglets</strong> à afficher lors de la consultation des données d'un contact. EXEMPLE: Si votre organisation ne garde pas de trace des « Relations », décochez cette option de façon à simplifier l'affichage. Les onglets relatifs aux contributions, promesses de dons, adhésions, événements, subventions et dossiers sont aussi cachés si les composants correspondants ne sont pas activés."
+"also hidden if the corresponding component is not enabled. Go to <a "
+"href=\"%1\">Administer > System Settings > Enable Components</a> to modify "
+"the components which are available for your site."
+msgstr "Sélectionnez les <strong>onglets</strong> qui seront affichés sur une fiche de contact. Par exemple si votre organisation ne conserve pas trace des « Relations », vous pouvez décocher cette option de façon à simplifier la fiche contact. Les onglets pour les contributions, engagements de don, adhésions, événements, subventions et dossiers sont cachés si le composant correspondant n'est pas activé. Allez sur <a href=\"%1\">Administrer > Paramètres Système > Activer des composants CiviCRM</a> pour changer les composants actifs pour votre site."
 
 #: templates/CRM/Admin/Form/Preferences/Display.tpl
 msgid "Other Panes"
@@ -2711,8 +2773,8 @@ msgstr "Sélectionnez les sections qui doivent être incluses dans le tableau de
 #: templates/CRM/Admin/Form/Preferences/Display.tpl
 msgid ""
 "You will need to enable and configure several modules if you want to allow "
-"users to upload images while using a Druapl Default Editor."
-msgstr "Vous aurez besoin d'activer et configurer plusieurs modules si vous voulez permettre à vos utilisateurs d'envoyer des images en utilisant l'éditeur par défaut de Drupal."
+"users to upload images while using a Drupal Default Editor."
+msgstr "Vous devez activer et configurer plusieurs modules si vous voulez que les utilisateurs puissent télécharger des images lorsqu'ils utilisent l'éditeur par défaut de Drupal."
 
 #: templates/CRM/Admin/Form/Preferences/Display.tpl
 msgid "Display name format for individual contact display names."
@@ -2793,10 +2855,23 @@ msgstr "<strong>Événements</strong> - Composant pour l'enregistrement et la ge
 
 #: templates/CRM/Admin/Form/Setting/Component.hlp
 msgid ""
+"<strong>CiviCampaign</strong> - Lets you link together events, mailings, "
+"activities, and contributions under one \"umbrella\" so that you can track "
+"the progress of all your efforts towards one programmatic goal or campaign."
+msgstr "<strong>CiviCampaign</strong> - Permet de grouper événements, mailings, activités et contributions sous une même « ombrelle » de façon à suivre l'avancement vers votre but programmé ou campagne."
+
+#: templates/CRM/Admin/Form/Setting/Component.hlp
+msgid ""
 "<strong>CiviCase</strong> - Integrated case management component, including "
 "a dashboard with \"my cases\", automated case timelines and configurable "
 "audit reports."
 msgstr "<strong>Dossiers</strong> - Composant intégré de gestion de dossiers, incluant un tableau de bord \"mes dossiers\" et permettant la production de rapports configurables."
+
+#: templates/CRM/Admin/Form/Setting/Component.hlp
+msgid ""
+"<strong>CiviGrant</strong> - Designed to be used by organizations that "
+"distribute funds to others, for example foundations, grant givers, etc."
+msgstr "<strong>CiviGrant</strong> - Conçu pour les organisations qui redistribuent les fonds collectés, telles que les fondations, etc."
 
 #: templates/CRM/Admin/Form/Setting/Component.tpl
 msgid ""
@@ -3117,6 +3192,14 @@ msgstr "Temporise la distribution des e-mails en fixant le nombre maximum d'e-ma
 
 #: templates/CRM/Admin/Form/Setting/Mail.tpl
 msgid ""
+"The time to sleep in between each e-mail in micro seconds. Setting this "
+"above 0 allows you to control the rate at which e-mail messages are sent to "
+"the mail server, avoiding filling up the mail queue very quickly. Set to 0 "
+"to disable."
+msgstr "Le temps d'attente entre chaque courriel en micro-secondes. En réglant ce temps à une valeur supérieure à 0, vous contrôlez à quelle cadence les courriels sont envoyés au serveur de messagerie, et évitez ainsi de remplir la file d'attente. Mettez cette valeur à 0 pour désactiver."
+
+#: templates/CRM/Admin/Form/Setting/Mail.tpl
+msgid ""
 "If you want to utilize multi-threading enter the size you want your sub jobs"
 " to be split into. Recommended values are between 1,000 and 10,000. Use a "
 "lower value if your server has multiple cron jobs running simultaneously, "
@@ -3156,9 +3239,12 @@ msgstr "La précision et la couverture, aussi bien que les conditions d'utilisat
 #: templates/CRM/Admin/Form/Setting/Mapping.tpl
 msgid ""
 "CiviCRM includes plugins for several mapping and geocoding web services. "
-"These services allow your users to display contact and event location "
-"addresses on a map."
-msgstr "CiviCRM inclut des modules d'interface avec plusieurs services de géolocalisation et géocodage. Ces services permettent de localiser les adresses des contacts et des événements sur une carte."
+"When your users save a contact or event location address, a geocoding "
+"service will convert the address into geographical coordinates, which are "
+"required for mapping. Yahoo&rsquo;s geocoder will also automatically "
+"populate the postal code field. Mapping services allow your users to display"
+" addresses on a map."
+msgstr "CiviCRM inclut des modules d'interface avec plusieurs services de géolocalisation et géocodage. Quand vos utilisateurs enregistrent l'adresse d'un contact ou d'un événement, le service de géocodage va convertir l'adresse en coordonnées géographiques qui sont ensuite utilisées pour la géolocalisation. Le service de Yahoo va aussi renseigner automatiquement le champ code postal. Ces services permettent de montrer des adresses sur une carte."
 
 #: templates/CRM/Admin/Form/Setting/Mapping.tpl
 msgid ""
@@ -3219,6 +3305,15 @@ msgid ""
 "If enabled, CiviCRM sends PDF receipt as an attachment during event signup "
 "or online contribution."
 msgstr "Si activé, CiviCRM envoie des reçus PDF en pièce jointe suite à inscription à un événement ou une contribution en ligne."
+
+#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
+msgid ""
+"<a href=\"%1\">wkhtmltopdf is an alternative utility for generating "
+"PDF's</a> which may provide better performance especially if you are "
+"generating a large number of PDF letters or receipts. Your system "
+"administrator will need to download and install this utility, and enter the "
+"executable path here."
+msgstr "<a href=\"%1\">wkhtmltopdf</a> est un utilitaire alternatif pour générer des PDF qui peut produire de meilleurs résultats en particulier si vous générez un grand nombre de lettres ou de reçus en PDF. Votre administrateur système devra le télécharger, l'installer et saisir le chemin d'accès à l'exécutable ici."
 
 #: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
 msgid ""
@@ -3529,6 +3624,27 @@ msgstr "Une fois que vous avez installé votre certificat, testez son fonctionne
 
 #: templates/CRM/Admin/Form/Setting/Url.hlp
 msgid ""
+"This setting will verify the SSL certificates received when making secure "
+"HTTPS connections to payment processors."
+msgstr "Ce paramètre permet d'imposer la vérification des certificats SSL reçus lors de connexions sécurisées HTTPS avec une passerelle de paiement."
+
+#: templates/CRM/Admin/Form/Setting/Url.hlp
+msgid ""
+"For example, in order to process a payment through Authorize.net, CiviCRM "
+"must make a request to https://secure.authorize.net/gateway/transact.dll. "
+"Using https to connect to secure.authorize.net insures that the connection "
+"is encrypted, but it's possible that CiviCRM is actually connecting to an "
+"attacker and the attacker is connecting to secure.authorize.net."
+msgstr "Par exemple pour un paiement via Authorize.net, CiviCRM doit émettre une requête vers https://secure.authorize.net/gateway/transact.dll. L'utilisation de https pour la connexion à secure.authorize.net assure une connexion cryptée, mais n'exclut pas que CiviCRM ne se soit en fait connecté à un attaquant (en lieu et place de secure.authorize.net)."
+
+#: templates/CRM/Admin/Form/Setting/Url.hlp
+msgid ""
+"Verifying the SSL certificate helps confirm that CiviCRM is securely "
+"communicating directly to payment processors."
+msgstr "La vérification du certificat SSL permet de s'assurer que CiviCRM communique de façon sûre directement avec les passerelles de paiement."
+
+#: templates/CRM/Admin/Form/Setting/Url.hlp
+msgid ""
 "Absolute URL of the location where the civicrm module or component has been "
 "installed."
 msgstr "Chemin absolu de l'installation du module ou composant CiviCRM."
@@ -3545,6 +3661,16 @@ msgstr "Si l'URL de base de votre site est %1, votre URL CiviCRM sera :"
 #: templates/CRM/Admin/Form/Setting/Url.hlp
 msgid "URL of the location for uploaded image files."
 msgstr "URL du répertoire où les fichiers images sont téléchargés."
+
+#: templates/CRM/Admin/Form/Setting/Url.hlp
+msgid "Base URL for extension resources (images, stylesheets, etc)."
+msgstr "URL pour les ressources des extensions (images, feuille de style, ...)."
+
+#: templates/CRM/Admin/Form/Setting/Url.hlp
+msgid ""
+"This should match the <a href=\"%1\">\"CiviCRM Extensions Directory\"</a> "
+"(\"%2\")."
+msgstr "Cela devrait correspondre au <a href=\"%1\">répertoire des extensions CiviCRM</a> (\"%2\")."
 
 #: templates/CRM/Admin/Form/Setting/Url.hlp
 msgid ""
@@ -3788,19 +3914,16 @@ msgstr "Configuration du site"
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
 #: templates/CRM/Admin/Page/Setting.tpl
-msgid "Localization"
-msgstr "Localisation"
-
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
-#: templates/CRM/Admin/Page/Setting.tpl
 msgid ""
 "Localization settings include user language, default currency and available "
 "countries for address input."
 msgstr "Paramètres de localisation incluant la langue, la devise par défaut et les pays disponibles pour l'adresse."
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid "Domain Information"
-msgstr "Information du domaine"
+msgid ""
+"Organization Address and Contact Info\n"
+"        "
+msgstr "Adresse de l'organisation et informations de contact"
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
 msgid ""
@@ -3813,9 +3936,8 @@ msgid "Viewing and Editing Contacts"
 msgstr "Ajouter et modifier des contacts"
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
-#: templates/CRM/Admin/Page/Setting.tpl
-msgid "Site Preferences"
-msgstr "Préférences du site"
+msgid "Display Preferences"
+msgstr "Préférences d'affichage"
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
 #: templates/CRM/Admin/Page/Setting.tpl
@@ -3858,8 +3980,8 @@ msgid ""
 msgstr "Ajuste le comportement des recherches avec les caractères de remplacement ou les données sur lesquelles portent les recherches simples. La modification de ces paramètres peut améliorer les temps de réponse sur une grande base de données."
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid "Miscellaneous"
-msgstr "Divers"
+msgid "Undelete, Logging and ReCAPTCHA"
+msgstr "Corbeille, journalisation et reCAPTCHA"
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
 msgid "Version reporting and alerts, reCAPTCHA configuration and attachments."
@@ -3943,10 +4065,11 @@ msgstr "Voir et modifier les modèles de courriels générés par le système, t
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
 msgid ""
 "The next set of tasks involve planning and have multiple steps. You may want"
-" to check out the %2 documentation before you begin. You will not be "
-"returned to this page after completing these tasks, but you can always get "
-"back here from the <a href=\"%1\">Administer CiviCRM</a> menu."
-msgstr "Les tâches suivantes comportent plusieurs étapes et ont besoin d'être planifiées. Avant de commencer il est conseillé de lire la documentation %2. Vous ne serez pas ramené sur cette page après exécution de ces tâches, mais pourrez à tout moment y revenir depuis le menu <a href=\"%1\">Administrer CiviCRM</a>"
+" to check out the %2 section in the User and Administrator Guide before you "
+"begin. You will not be returned to this page after completing these tasks, "
+"but you can always get back here from the <a href=\"%1\">Administer "
+"CiviCRM</a> menu."
+msgstr "L'ensemble suivant de tâches consiste en plusieurs étapes qui doivent être programmées. À cet effet il peut être utile de lire la section %2 du guide de l'utilisateur et de l'administrateur avant de commencer. Vous ne serez pas ramené sur cette page après avoir terminé ces tâches mais vous pouvez toujours y revenir à partir du menu a href=\"%1\">Administrer</a>."
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
 msgid "Organize your contacts"
@@ -4017,12 +4140,23 @@ msgid "Personalized email blasts and newsletters."
 msgstr "Envois massifs et infolettres personnalisés."
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid ""
+"Link together events, mailings, activities, and contributions. Create "
+"surveys and online petitions."
+msgstr "Groupe ensemble événements, envois massifs, activités et contributions. Permet de créer des enquêtes / sondages et des pétitions en ligne."
+
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
 msgid "Integrated case management for human service providers"
 msgstr "Gestion intégrée de dossiers pour les fournisseurs de services à la personne"
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid "Getting Started"
-msgstr "Pour démarrer"
+msgid ""
+"Distribute funds to others, for example foundations, grant givers, etc."
+msgstr "Redistribue les dons vers d'autres organismes, exemple des fondations."
+
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid "Organizing Your Data"
+msgstr "Organiser vos Données"
 
 #: templates/CRM/Admin/Page/ContactType.hlp
 msgid ""
@@ -4094,8 +4228,12 @@ msgid ""
 msgstr "Il n'existe aucun modèle d'événement. Vous pouvez <a href='%1'>en ajouter un</a> ."
 
 #: templates/CRM/Admin/Page/ExtensionDetails.tpl
-msgid "Download Location"
-msgstr "Lieu de téléchargement"
+msgid "Name (key)"
+msgstr "Nom (clé)"
+
+#: templates/CRM/Admin/Page/ExtensionDetails.tpl
+msgid "Download location"
+msgstr "Emplacement pour les téléchargements"
 
 #: templates/CRM/Admin/Page/ExtensionDetails.tpl
 msgid "Local path"
@@ -4106,12 +4244,12 @@ msgid "Author"
 msgstr "Auteur"
 
 #: templates/CRM/Admin/Page/ExtensionDetails.tpl
-msgid "License"
-msgstr "Licence"
-
-#: templates/CRM/Admin/Page/ExtensionDetails.tpl
 msgid "Released on"
 msgstr "Publiée le"
+
+#: templates/CRM/Admin/Page/ExtensionDetails.tpl
+msgid "License"
+msgstr "Licence"
 
 #: templates/CRM/Admin/Page/ExtensionDetails.tpl
 msgid "Development stage"
@@ -4124,27 +4262,27 @@ msgstr "Compatible avec"
 #: templates/CRM/Admin/Page/Extensions.tpl
 msgid ""
 "Your extensions directory is not set or is not writable. Click <a "
-"href='%1'>here</a> to set the extension directory."
+"href='%1'>here</a> to set the extensions directory."
 msgstr "Votre dossier d'extensions n'est pas défini ou n'est pas accessible en écriture. Cliquez <a href='%1'>ici</a> pour le définir."
 
 #: templates/CRM/Admin/Page/Extensions.tpl
 msgid ""
-"CiviCRM extensions allow you to install additional features for your site. "
-"They can provide new functionality in three areas: Custom Searches, Report "
-"Templates and Payment Processors. In order to install an extension, you need"
-" to upload it manually to your <a href=\"%1\">Extensions Directory</a>, "
-"reload this page and click Install. Once installed, extensions become "
-"available under the Custom Searches, Report Templates or Payment Processor "
-"Types administrative screens."
-msgstr "Les extensions CiviCRM vous permettent d'ajouter à votre site des fonctions supplémentaires dans ces trois domaines: recherches personnalisées, rapports personnalisés et passerelles de traitement des paiements. Pour installer une etension, vous devez l'installer manuellement dans votre <a href=\"%1\">répertoire d'extensions</a>, recharger cette page et cliquer sur Installer. Une fois installées, les extensions sont disponibles dans les recherches personnalisées, les modèles de rapports ou les pages administratives relatives aux passerelles de paiement."
+"Your extensions require database updates. Please <a href=\"%1\">execute the "
+"updates</a>."
+msgstr "Vos extensions nécessitent une mise à jour de la base de données. Merci de <a href=\"%1\">lancer les mises à jour</a>."
 
 #: templates/CRM/Admin/Page/Extensions.tpl
 msgid ""
-"Please note that extensions are in a testing period during the 4.1 release "
-"cycle. Get in touch with the CiviCRM core team on the <a "
-"href=\"%1\">community forum</a> if you've developed an extension which you "
-"want to share with the community."
-msgstr "Veuillez noter que les extensions sont en phase de test pendant le cycle de la version 4.1. Entrez en contact avec l'équipe CiviCRM sur le <a href=\"%1\">forum de la communauté</a> si vous avez développé une extension que vous voulez partager avec la communauté."
+"CiviCRM extensions allow you to install additional features for your site. "
+"This page will automatically list the available \"native\" extensions from "
+"the <a href=\"%3\" target=\"_blank\">CiviCRM.org extensions directory</a> "
+"which are compatible with this version of CiviCRM. If you install Custom "
+"Searches, Reports or Payment Processor extensions - these will automatically"
+" be available on the corresponding menus and screens. You may also want to "
+"check the <a href=\"%3\" target=\"_blank\">extensions directory</a> for "
+"native %2 modules that may be useful for you (CMS-specific modules are not "
+"listed here)."
+msgstr "Les extensions CiviCRM permettent d'ajouter à votre site de nouvelles fonctions. Cette page liste les extensions disponibles dans le <a href=\"%3\" target=\"_blank\">référentiel des extensions sur CiviCRM.org</a> et qui sont compatibles avec votre version de CiviCRM. Si vous installez des extensions pour ajouter des recherches personnalisées, des comptes rendus ou des passerelles de paiement, ceux-ci seront affichés automatiquement dans les menus et pages correspondants. Vous pouvez aussi consulter le <a href=\"%3\" target=\"_blank\">référentiel des extensions</a> pour y rechercher des modules %2 utiles (les modules spécifiques à un système de gestion de contenu - CMS en anglais - ne sont pas listés ici)."
 
 #: templates/CRM/Admin/Page/Extensions.tpl
 msgid "Extension name (key)"
@@ -4156,10 +4294,9 @@ msgstr "Désuet"
 
 #: templates/CRM/Admin/Page/Extensions.tpl
 msgid ""
-"You have no locally available extensions and didn't download any information"
-" about publically available extensions from our server. Please click "
-"\"Refresh\" to update information about available extensions."
-msgstr "Vous n'avez pas d'extension disponible localement et n'avez pas téléchargé d'information depuis notre serveur sur les extensions disponibles. Veuillez cliquer sur \"Rafraîchir\" pour mettre à jour cette information."
+"There are no local or publicly available extensions to display. Please click"
+" \"Refresh\" to update information about available extensions."
+msgstr "Il n'y a ni extension disponible localement, ni extensions publiques à afficher. Veuillez cliquer sur \"Rafraîchir\" pour mettre à jour cette information."
 
 #: templates/CRM/Admin/Page/JobLog.tpl
 msgid ""
@@ -4234,6 +4371,10 @@ msgstr "Action API :"
 #: templates/CRM/Admin/Page/Job.tpl
 msgid "There are no jobs configured."
 msgstr "Aucune tâche n'est configurée."
+
+#: templates/CRM/Admin/Page/Job.tpl
+msgid "(Job parameters and command line syntax documentation...)"
+msgstr "(documentation sur les paramètres et la syntaxe de commande des tâches périodiques...)"
 
 #: templates/CRM/Admin/Page/LabelFormats.tpl
 msgid ""
@@ -4435,6 +4576,10 @@ msgid ""
 "<a href='%1' title=\"Reload page\"><strong>Click here</strong></a> to reload"
 " the page and see your changes in the menu bar above."
 msgstr "<a href='%1' title=\"Recharger la page\"><strong>Cliquez ici</strong></a>  pour recharger la page et rendre visibles vos changements dans la barre de menu."
+
+#: templates/CRM/Admin/Page/Navigation.tpl
+msgid "You cannot delete this menu item:"
+msgstr "Vous ne pouvez supprimer cette rubrique de menu :"
 
 #: templates/CRM/Admin/Page/Navigation.tpl
 msgid "Are you sure you want to delete this menu item:"
@@ -4675,11 +4820,11 @@ msgstr "Ajouter un statut de participant"
 
 #: templates/CRM/Admin/Page/PaymentProcessor.hlp
 msgid ""
-"Review the %1 first. If you're not sure which processor to use - we "
+"Review the %1 and %2 first. If you're not sure which processor to use - we "
 "recommend reviewing terms, limitations and coverage areas on each "
 "processor's website before proceeding. If your preferred processor is not in"
 " the list, consider partnering with a developer and contributing a plugin."
-msgstr "Renseignez vous d'abord sur la %1. Si vous n'êtes par sûr de quel service utiliser, nous vous conseillons de lire les conditions d'utilisation, les limitations et l'étendue des prestations de chaque passerelle de paiement avant de continuer. Si la passerelle que vous avez choisie n'est pas dans la liste, veuillez considérer une association avec un développeur pour contribuer au développement d'un module spécifique."
+msgstr "Examinez les %1 et %2 d'abord. Si vous n'êtes pas sûr de quelle passerelle choisir, nous vous recommandons d'examiner les conditions, limites et prestations de chaque passerelle sur leur site avant de continuer. Si votre passerelle préférée n'est pas dans la liste, vous pouvez avec un développeur contribuer à un module d'interface pour cette passerelle."
 
 #: templates/CRM/Admin/Page/PaymentProcessor.hlp
 msgid "API Login (LIVE account):"
@@ -5320,6 +5465,10 @@ msgid ""
 msgstr "URL du serveur de paiement de TEST de First Data. Utilisez la valeur par défaut, sauf indication contraire de First Data :"
 
 #: templates/CRM/Admin/Page/PaymentProcessor.hlp
+msgid "payment processor overview"
+msgstr "Synthèse passerelle de paiement"
+
+#: templates/CRM/Admin/Page/PaymentProcessor.hlp
 msgid "configuration procedures for each Payment Processor"
 msgstr "procédure de configuration de chaque service de paiement"
 
@@ -5433,10 +5582,6 @@ msgid "Relationship B to A"
 msgstr "Relation de B vers A"
 
 #: templates/CRM/Admin/Page/RelationshipType.tpl
-msgid "All Contacts"
-msgstr "Tous les contacts"
-
-#: templates/CRM/Admin/Page/RelationshipType.tpl
 msgid ""
 "There are no relationship types present. You can <a href='%1'>add one</a>."
 msgstr "Aucun types de relations. Vous pouvez <a href='%1'> en ajouter un </a>."
@@ -5448,6 +5593,10 @@ msgstr "Rappel pour"
 #: templates/CRM/Admin/Page/Reminders.tpl
 msgid "While"
 msgstr "Pendant"
+
+#: templates/CRM/Admin/Page/Reminders.tpl
+msgid "(s)"
+msgstr "(s)"
 
 #: templates/CRM/Admin/Page/ScheduleReminders.tpl
 msgid ""
@@ -5470,6 +5619,10 @@ msgid ""
 "Enable CiviContribute, CiviPledge, CiviEvent, CiviMember, CiviMail, "
 "CiviCase, CiviReport and/or CiviGrant components."
 msgstr "Activer les composants CiviContribute, CiviPledge, CiviEvent, CiviMember, CiviMail, CiviCase, CiviReport et/ou CiviGrant."
+
+#: templates/CRM/Admin/Page/Setting.tpl
+msgid "Site Preferences"
+msgstr "Préférences du site"
 
 #: templates/CRM/Admin/Page/Setting.tpl
 msgid "Directories"
@@ -5577,314 +5730,6 @@ msgstr "Entrez le nom de l'étiquette avec laquelle fusionner"
 msgid "Select valid tag from the list"
 msgstr "Sélectionnez une étiquette valide dans la liste"
 
-#: CRM/Admin/Form/Extensions.php
-msgid "Enable Extension"
-msgstr "Activer l'extension"
-
-#: CRM/Admin/Form/Extensions.php
-msgid "Disable Extension"
-msgstr "Désactiver l'extension"
-
-#: CRM/Admin/Form/Extensions.php
-msgid "Extension has been enabled."
-msgstr "L'extension a été activée."
-
-#: CRM/Admin/Form/Extensions.php
-msgid "Extension has been disabled."
-msgstr "L'extension à été désactivée."
-
-#: CRM/Admin/Form/Preferences/Display.php
-msgid ""
-"Your civicrm.settings.php file contains CIVICRM_ACTIVITY_ASSIGNEE_MAIL but "
-"this constant is no longer used. Please remove this from your config file "
-"and set your \"Notify Activity Assignees\" preference below."
-msgstr "Votre fichier civicrm.settings.php contient la constante CIVICRM_ACTIVITY_ASSIGNEE_MAIL qui n'est plus utilisée. Veuillez la supprimer de votre fichier de configuration et configurer ci-dessous vos préférences  pour la notification d'assignation d'activité."
-
-#: CRM/Admin/Form/Preferences/Event.php
-msgid ""
-"This feature allows users to register for more than one event at a time. "
-"When enabled, users will add event(s) to a \"cart\" and then pay for them "
-"all at once. Enabling this setting will affect online registration for all "
-"active events. The code is an alpha state, and you will potentially need to "
-"have developer resources to debug and fix sections of the codebase while "
-"testing and deploying it. %1"
-msgstr "Cette fonction permet aux utilisateurs de s'inscrire simultanément à plusieurs événements. Si cette fonction est activée, les utilisateurs pourront mettre un ou des événement(s) dans leur \"panier\" et les payer en une seule fois. L'activation de cette fonction va affecter les inscriptions en ligne de tous les événements actifs. Le code étant dans l'état alpha, vous aurez potentiellement besoin de disposer de développeurs pour déboguer et corriger des parties du code source pendant que vous testez et mettez en service cette fonction. %1"
-
-#: CRM/Admin/Form/Preferences/Mailing.php
-msgid "Enable multiple bulk email address for a contact."
-msgstr "Active les adresses multiples de mailing pour un contact."
-
-#: CRM/Admin/Form/Preferences/Mailing.php
-msgid ""
-"CiviMail will deliver a copy of the email to each bulk email listed for the "
-"contact."
-msgstr "CiviCRM livrera une copie du courriel à chaque adresse électronique de mailing indiquée pour le contact."
-
-#: CRM/Admin/Form/Preferences/Mailing.php
-msgid "Enable CiviMail to generate Message-ID header"
-msgstr "Activer la génération de l'en-tête Message-ID par CiviMail "
-
-#: CRM/Admin/Form/Setting/Localization.php
-msgid ""
-"Thousands Separator can not be empty. You can use a space character instead."
-msgstr "Le séparateur de milliers ne peut être vide. Vous pouvez utiliser un espace."
-
-#: CRM/Admin/Form/Setting/Mail.php
-msgid "Mailer Throttle Time"
-msgstr "Cadence messagerie"
-
-#: CRM/Admin/Form/Setting/Miscellaneous.php
-msgid "Path to wkhtmltopdf executable"
-msgstr "Chemin de l'exécutable wkhtmltopdf"
-
-#: CRM/Admin/Form/Setting/Url.php
-msgid "Extension Resource URL"
-msgstr "URL de ressources des extensions"
-
-#: CRM/Admin/Form/Setting/Url.php
-msgid "Verify SSL Certs"
-msgstr "Vérifier les certificats SSL"
-
-#: CRM/Admin/Page/AJAX.php
-msgid ""
-"Are you sure you want to mark this recurring contribution as cancelled?"
-msgstr "Êtes-vous sûr de vouloir marquer comme résiliée cette contribution périodique ?"
-
-#: CRM/Admin/Page/AJAX.php
-msgid ""
-"This recurring contribution is linked to an auto-renew membership. If you "
-"cancel it, the associated membership will no longer renew automatically. "
-"However, the current membership status will not be affected."
-msgstr "Cette contribution périodique est associée à une adhésion à renouvellement automatique. Si vous la résiliez, l'adhésion associée ne sera plus renouvelée automatiquement. Cependant le statut actuel de l'adhésion ne sera pas changé."
-
-#: CRM/Admin/Page/ExtensionsUpgrade.php
-msgid "Database Upgrades"
-msgstr "Mises à jour base de données"
-
-#: templates/CRM/Admin/Form/Job.tpl
-msgid "Execute Scheduled Job"
-msgstr "Exécuter une Tâche Programmée"
-
-#: templates/CRM/Admin/Form/Preferences/Address.hlp
-msgid ""
-"Configure mailing labels for your site using tokens, which are replaced by contact field values when the labels are generated.\n"
-"Place your cursor within the Mailing Labels box where you want to the token to be inserted. Then click the \"Insert Tokens\" link\n"
-"to see a list of available tokens (including custom fields). Insert the token by clicking the desired token name."
-msgstr "Configurez les étiquettes de courrier de votre site en utilisant les champs de fusion qui sont remplacés par les valeurs des champs de la fiche de chaque contact lors de la génération des étiquettes.\nPlacez le curseur à l'endroit où vous voulez insérer le champ de fusion, puis cliquez sur le lien « Insérer un champ de fusion »\npour afficher la liste des champs de fusion disponibles (y compris les champs personnalisés), enfin insérez le champ de fusion en cliquant sur le nom du champ souhaité."
-
-#: templates/CRM/Admin/Form/Preferences/Address.hlp
-msgid ""
-"Address field values are taken from the contact's <strong>primary</strong> "
-"location."
-msgstr "La valeur des champs d'adresse sont extraits de l'adresse <strong>principale</strong> du contact."
-
-#: templates/CRM/Admin/Form/Preferences/Address.hlp
-msgid ""
-"Use the %1 token for state/province abbreviation or %2 for full "
-"state/province name."
-msgstr "Utilisez le champ de fusion %1 pour l'abréviation de la subdivision du pays (province pour la Belgique et le Canada, département pour la France, canton pour la Suisse, etc.) ou %2 pour le nom complet de cette même subdivision."
-
-#: templates/CRM/Admin/Form/Preferences/Address.hlp
-msgid ""
-"If you want to include the county in your mailing labels, the "
-"<strong>County</strong> checkbox must be checked in the Address Editing "
-"section on this screen, and county names must be added to the civicrm_county"
-" table in your database."
-msgstr "Si vous voulez inclure le comté dans vos libellés d'adresse, la case <strong>Comté</strong> doit être cochée dans la section  Édition d'adresse sur cette page et les noms de comté doivent avoir été ajoutés à la table civicrm_county de votre base de données."
-
-#: templates/CRM/Admin/Form/Preferences/Address.tpl
-msgid "Content and format for mailing labels."
-msgstr "Contenu et format des libellés de destinataire."
-
-#: templates/CRM/Admin/Form/Preferences/Display.tpl
-msgid ""
-"Select the <strong>tabs</strong> that should be displayed when viewing a "
-"contact record. EXAMPLE: If your organization does not keep track of "
-"'Relationships', then un-check this option to simplify the screen display. "
-"Tabs for Contributions, Pledges, Memberships, Events, Grants and Cases are "
-"also hidden if the corresponding component is not enabled. Go to <a "
-"href=\"%1\">Administer > System Settings > Enable Components</a> to modify "
-"the components which are available for your site."
-msgstr "Sélectionnez les <strong>onglets</strong> qui seront affichés sur une fiche de contact. Par exemple si votre organisation ne conserve pas trace des « Relations », vous pouvez décocher cette option de façon à simplifier la fiche contact. Les onglets pour les contributions, engagements de don, adhésions, événements, subventions et dossiers sont cachés si le composant correspondant n'est pas activé. Allez sur <a href=\"%1\">Administrer > Paramètres Système > Activer des composants CiviCRM</a> pour changer les composants actifs pour votre site."
-
-#: templates/CRM/Admin/Form/Preferences/Display.tpl
-msgid ""
-"You will need to enable and configure several modules if you want to allow "
-"users to upload images while using a Drupal Default Editor."
-msgstr "Vous devez activer et configurer plusieurs modules si vous voulez que les utilisateurs puissent télécharger des images lorsqu'ils utilisent l'éditeur par défaut de Drupal."
-
-#: templates/CRM/Admin/Form/Setting/Component.hlp
-msgid ""
-"<strong>CiviCampaign</strong> - Lets you link together events, mailings, "
-"activities, and contributions under one \"umbrella\" so that you can track "
-"the progress of all your efforts towards one programmatic goal or campaign."
-msgstr "<strong>CiviCampaign</strong> - Permet de grouper événements, mailings, activités et contributions sous une même « ombrelle » de façon à suivre l'avancement vers votre but programmé ou campagne."
-
-#: templates/CRM/Admin/Form/Setting/Component.hlp
-msgid ""
-"<strong>CiviGrant</strong> - Designed to be used by organizations that "
-"distribute funds to others, for example foundations, grant givers, etc."
-msgstr "<strong>CiviGrant</strong> - Conçu pour les organisations qui redistribuent les fonds collectés, telles que les fondations, etc."
-
-#: templates/CRM/Admin/Form/Setting/Mail.tpl
-msgid ""
-"The time to sleep in between each e-mail in micro seconds. Setting this "
-"above 0 allows you to control the rate at which e-mail messages are sent to "
-"the mail server, avoiding filling up the mail queue very quickly. Set to 0 "
-"to disable."
-msgstr "Le temps d'attente entre chaque courriel en micro-secondes. En réglant ce temps à une valeur supérieure à 0, vous contrôlez à quelle cadence les courriels sont envoyés au serveur de messagerie, et évitez ainsi de remplir la file d'attente. Mettez cette valeur à 0 pour désactiver."
-
-#: templates/CRM/Admin/Form/Setting/Mapping.tpl
-msgid ""
-"CiviCRM includes plugins for several mapping and geocoding web services. "
-"When your users save a contact or event location address, a geocoding "
-"service will convert the address into geographical coordinates, which are "
-"required for mapping. Yahoo&rsquo;s geocoder will also automatically "
-"populate the postal code field. Mapping services allow your users to display"
-" addresses on a map."
-msgstr "CiviCRM inclut des modules d'interface avec plusieurs services de géolocalisation et géocodage. Quand vos utilisateurs enregistrent l'adresse d'un contact ou d'un événement, le service de géocodage va convertir l'adresse en coordonnées géographiques qui sont ensuite utilisées pour la géolocalisation. Le service de Yahoo va aussi renseigner automatiquement le champ code postal. Ces services permettent de montrer des adresses sur une carte."
-
-#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
-msgid ""
-"<a href=\"%1\">wkhtmltopdf is an alternative utility for generating "
-"PDF's</a> which may provide better performance especially if you are "
-"generating a large number of PDF letters or receipts. Your system "
-"administrator will need to download and install this utility, and enter the "
-"executable path here."
-msgstr "<a href=\"%1\">wkhtmltopdf</a> est un utilitaire alternatif pour générer des PDF qui peut produire de meilleurs résultats en particulier si vous générez un grand nombre de lettres ou de reçus en PDF. Votre administrateur système devra le télécharger, l'installer et saisir le chemin d'accès à l'exécutable ici."
-
-#: templates/CRM/Admin/Form/Setting/Url.hlp
-msgid ""
-"This setting will verify the SSL certificates received when making secure "
-"HTTPS connections to payment processors."
-msgstr "Ce paramètre permet d'imposer la vérification des certificats SSL reçus lors de connexions sécurisées HTTPS avec une passerelle de paiement."
-
-#: templates/CRM/Admin/Form/Setting/Url.hlp
-msgid ""
-"For example, in order to process a payment through Authorize.net, CiviCRM "
-"must make a request to https://secure.authorize.net/gateway/transact.dll. "
-"Using https to connect to secure.authorize.net insures that the connection "
-"is encrypted, but it's possible that CiviCRM is actually connecting to an "
-"attacker and the attacker is connecting to secure.authorize.net."
-msgstr "Par exemple pour un paiement via Authorize.net, CiviCRM doit émettre une requête vers https://secure.authorize.net/gateway/transact.dll. L'utilisation de https pour la connexion à secure.authorize.net assure une connexion cryptée, mais n'exclut pas que CiviCRM ne se soit en fait connecté à un attaquant (en lieu et place de secure.authorize.net)."
-
-#: templates/CRM/Admin/Form/Setting/Url.hlp
-msgid ""
-"Verifying the SSL certificate helps confirm that CiviCRM is securely "
-"communicating directly to payment processors."
-msgstr "La vérification du certificat SSL permet de s'assurer que CiviCRM communique de façon sûre directement avec les passerelles de paiement."
-
-#: templates/CRM/Admin/Form/Setting/Url.hlp
-msgid "Base URL for extension resources (images, stylesheets, etc)."
-msgstr "URL pour les ressources des extensions (images, feuille de style, ...)."
-
-#: templates/CRM/Admin/Form/Setting/Url.hlp
-msgid ""
-"This should match the <a href=\"%1\">\"CiviCRM Extensions Directory\"</a> "
-"(\"%2\")."
-msgstr "Cela devrait correspondre au <a href=\"%1\">répertoire des extensions CiviCRM</a> (\"%2\")."
-
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid ""
-"Organization Address and Contact Info\n"
-"        "
-msgstr "Adresse de l'organisation et informations de contact"
-
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid "Display Preferences"
-msgstr "Préférences d'affichage"
-
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid "Undelete, Logging and ReCAPTCHA"
-msgstr "Corbeille, journalisation et reCAPTCHA"
-
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid ""
-"The next set of tasks involve planning and have multiple steps. You may want"
-" to check out the %2 section in the User and Administrator Guide before you "
-"begin. You will not be returned to this page after completing these tasks, "
-"but you can always get back here from the <a href=\"%1\">Administer "
-"CiviCRM</a> menu."
-msgstr "L'ensemble suivant de tâches consiste en plusieurs étapes qui doivent être programmées. À cet effet il peut être utile de lire la section %2 du guide de l'utilisateur et de l'administrateur avant de commencer. Vous ne serez pas ramené sur cette page après avoir terminé ces tâches mais vous pouvez toujours y revenir à partir du menu a href=\"%1\">Administrer</a>."
-
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid ""
-"Link together events, mailings, activities, and contributions. Create "
-"surveys and online petitions."
-msgstr "Groupe ensemble événements, envois massifs, activités et contributions. Permet de créer des enquêtes / sondages et des pétitions en ligne."
-
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid ""
-"Distribute funds to others, for example foundations, grant givers, etc."
-msgstr "Redistribue les dons vers d'autres organismes, exemple des fondations."
-
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid "Organizing Your Data"
-msgstr "Organiser vos Données"
-
-#: templates/CRM/Admin/Page/ExtensionDetails.tpl
-msgid "Name (key)"
-msgstr "Nom (clé)"
-
-#: templates/CRM/Admin/Page/ExtensionDetails.tpl
-msgid "Download location"
-msgstr "Emplacement pour les téléchargements"
-
-#: templates/CRM/Admin/Page/Extensions.tpl
-msgid ""
-"Your extensions directory is not set or is not writable. Click <a "
-"href='%1'>here</a> to set the extensions directory."
-msgstr "Votre dossier d'extensions n'est pas défini ou n'est pas accessible en écriture. Cliquez <a href='%1'>ici</a> pour le définir."
-
-#: templates/CRM/Admin/Page/Extensions.tpl
-msgid ""
-"Your extensions require database updates. Please <a href=\"%1\">execute the "
-"updates</a>."
-msgstr "Vos extensions nécessitent une mise à jour de la base de données. Merci de <a href=\"%1\">lancer les mises à jour</a>."
-
-#: templates/CRM/Admin/Page/Extensions.tpl
-msgid ""
-"CiviCRM extensions allow you to install additional features for your site. "
-"This page will automatically list the available \"native\" extensions from "
-"the <a href=\"%3\" target=\"_blank\">CiviCRM.org extensions directory</a> "
-"which are compatible with this version of CiviCRM. If you install Custom "
-"Searches, Reports or Payment Processor extensions - these will automatically"
-" be available on the corresponding menus and screens. You may also want to "
-"check the <a href=\"%3\" target=\"_blank\">extensions directory</a> for "
-"native %2 modules that may be useful for you (CMS-specific modules are not "
-"listed here)."
-msgstr "Les extensions CiviCRM permettent d'ajouter à votre site de nouvelles fonctions. Cette page liste les extensions disponibles dans le <a href=\"%3\" target=\"_blank\">référentiel des extensions sur CiviCRM.org</a> et qui sont compatibles avec votre version de CiviCRM. Si vous installez des extensions pour ajouter des recherches personnalisées, des comptes rendus ou des passerelles de paiement, ceux-ci seront affichés automatiquement dans les menus et pages correspondants. Vous pouvez aussi consulter le <a href=\"%3\" target=\"_blank\">référentiel des extensions</a> pour y rechercher des modules %2 utiles (les modules spécifiques à un système de gestion de contenu - CMS en anglais - ne sont pas listés ici)."
-
-#: templates/CRM/Admin/Page/Extensions.tpl
-msgid ""
-"There are no local or publicly available extensions to display. Please click"
-" \"Refresh\" to update information about available extensions."
-msgstr "Il n'y a ni extension disponible localement, ni extensions publiques à afficher. Veuillez cliquer sur \"Rafraîchir\" pour mettre à jour cette information."
-
-#: templates/CRM/Admin/Page/Job.tpl
-msgid "(Job parameters and command line syntax documentation...)"
-msgstr "(documentation sur les paramètres et la syntaxe de commande des tâches périodiques...)"
-
-#: templates/CRM/Admin/Page/Navigation.tpl
-msgid "You cannot delete this menu item:"
-msgstr "Vous ne pouvez supprimer cette rubrique de menu :"
-
-#: templates/CRM/Admin/Page/PaymentProcessor.hlp
-msgid ""
-"Review the %1 and %2 first. If you're not sure which processor to use - we "
-"recommend reviewing terms, limitations and coverage areas on each "
-"processor's website before proceeding. If your preferred processor is not in"
-" the list, consider partnering with a developer and contributing a plugin."
-msgstr "Examinez les %1 et %2 d'abord. Si vous n'êtes pas sûr de quelle passerelle choisir, nous vous recommandons d'examiner les conditions, limites et prestations de chaque passerelle sur leur site avant de continuer. Si votre passerelle préférée n'est pas dans la liste, vous pouvez avec un développeur contribuer à un module d'interface pour cette passerelle."
-
-#: templates/CRM/Admin/Page/PaymentProcessor.hlp
-msgid "payment processor overview"
-msgstr "Synthèse passerelle de paiement"
-
-#: templates/CRM/Admin/Page/Reminders.tpl
-msgid "(s)"
-msgstr "(s)"
-
 #: CRM/Admin/Form/ContactType.php
 msgid "Contact type names should not use reserved keywords."
 msgstr "les noms de type Contact ne devraient pas utiliser des mots clés réservés."
@@ -5951,11 +5796,11 @@ msgid ""
 "greetings on all records. Leaving that option absent, or setting it to "
 "force=0, will only rebuild greetings for contacts that do not currently have"
 " a value stored. %1"
-msgstr ""
+msgstr "La tâche de mise à jour des formules de salutation peut être gourmande en ressources et il n'est pas nécessaire de la faire s'exécuter régulièrement. Si vous choisissez d'activer cette tâche, nous vous conseillons de ne pas la faire s'exécuter avec l'option force=1 qui ferait recalculer la formule de salutation pour tous les enregistrements. En omettant cette option, ou en la mettant à force=0, le calcul des formules de salutation sera limité aux contacts qui n'ont pas de formule de salutation enregistrée. %1"
 
 #: CRM/Admin/Form/Job.php
 msgid "Warning: Update Greeting job enabled"
-msgstr ""
+msgstr "Attention : tâche de mise à jour des salutations activée"
 
 #: CRM/Admin/Form/MailSettings.php
 msgid "Mail Setting Deleted."
@@ -5990,7 +5835,7 @@ msgstr "Visualisation des groupes intelligents"
 
 #: CRM/Admin/Form/Preferences/Display.php
 msgid "Include ICal Invite to Activity Assignees"
-msgstr ""
+msgstr "Inclure invitation ICal pour responsables d'activité"
 
 #: CRM/Admin/Form/ScheduleReminders.php
 msgid "Please select entity value"
@@ -6000,7 +5845,7 @@ msgstr "Merci de sélectionner une valeur de l'entité"
 msgid ""
 "Could not create the MySQL views for CiviCase. Your mysql user needs to have"
 " the 'CREATE VIEW' permission"
-msgstr ""
+msgstr "La création des vues MySQL pour CiviCase est impossible. L'utilisateur MySQL doit avoir la permission « CREATE VIEW »"
 
 #: CRM/Admin/Form/Setting/Localization.php
 msgid "Default State/Province"
@@ -6014,7 +5859,7 @@ msgstr "La taille du travail doit être d'au moins 1000 ou à 0 (illimité)."
 msgid ""
 "A job size smaller than the batch limit will negate the effect of the batch "
 "limit."
-msgstr ""
+msgstr "Une taille de tâche plus petite que la taille maximum de lot va rendre la taille maximum inopérante."
 
 #: CRM/Admin/Form/Setting.php
 msgid "Changes Saved."
@@ -6022,7 +5867,7 @@ msgstr "Vos modifications ont été sauvegardées."
 
 #: CRM/Admin/Form/Setting/Smtp.php
 msgid "Redirect to Database"
-msgstr ""
+msgstr "Redirection vers base de données"
 
 #: CRM/Admin/Form/Setting/Smtp.php
 msgid "Email Disabled"
@@ -6103,7 +5948,7 @@ msgstr "Télécharger l'extension"
 
 #: CRM/Admin/Page/Extensions.php
 msgid "Failed to read extension (%1). Please refresh the extension list."
-msgstr ""
+msgstr "Impossible de lire l'extension (%1). Veuillez rafraîchir la liste des extensions."
 
 #: CRM/Admin/Page/Extensions.php
 msgid "Disabled (Missing)"
@@ -6111,7 +5956,7 @@ msgstr "Désactivé (manquant-e)"
 
 #: CRM/Admin/Page/Extensions.php
 msgid "Enabled (Missing)"
-msgstr ""
+msgstr "Activé (manquant)"
 
 #: CRM/Admin/Page/Job.php
 msgid "Executed"
@@ -6148,7 +5993,7 @@ msgid ""
 "There are no financial accounts configured with Financial Account Type "
 "'Asset' Type. <a href='%1'>Click here</a> if you want to configure financial"
 " accounts for your site."
-msgstr ""
+msgstr "Il n'y a pas de comptes financiers configurés de type « Actif ». Cliquez <a href='%1'>ici</a> si vous voulez configurer des comptes financiers pour votre site."
 
 #: templates/CRM/Admin/Form/Preferences/Address.hlp
 msgid "Mailing Label Tokens"
@@ -6170,13 +6015,13 @@ msgid ""
 "          Memberships, Events, Grants and Cases are also hidden if the corresponding component is not enabled. Go to\n"
 "          <a href=\"%1\">Administer > System Settings > Enable Components</a>\n"
 "          to modify the components which are available for your site."
-msgstr ""
+msgstr "Sélectionnez les <strong>onglets</strong> qui seront affichés sur une fiche de contact. Par exemple si votre organisation ne conserve pas de trace des « Relations », vous pouvez décocher cette option de façon à simplifier la fiche contact. Les onglets pour les contributions, engagements de don, adhésions, événements, subventions et dossiers sont cachés si le composant correspondant n'est pas activé. Allez sur <a href=\"%1\">Administrer > Paramètres Système > Activer des composants CiviCRM</a> pour changer les composants actifs pour votre site."
 
 #: templates/CRM/Admin/Form/Preferences/Display.tpl
 msgid ""
 "Controls display of the smart groups that a contact is part of in each contact's \"Groups\" tab.\n"
 "          \"Show on Demand\" provides the best performance, and is recommended for most sites."
-msgstr ""
+msgstr "Contrôle l'affichage des groupes dynamiques dont chaque contact fait partie dans l'onglet « Groupes ». « Afficher sur demande » assure les meilleures performances et est recommandé pour la plupart des sites."
 
 #: templates/CRM/Admin/Form/Preferences/Display.tpl
 msgid ""
@@ -6184,51 +6029,51 @@ msgid ""
 "          EXAMPLE: If your organization does not record Gender and Birth Date for individuals, then simplify the form\n"
 "          by un-checking this option. Drag interface allows you to change the order of the panes displayed on contact\n"
 "          add/edit screen."
-msgstr ""
+msgstr "Choisissez les sections que vous voulez inclure lors de la création ou l'édition d'un contact. EXEMPLE: si votre organisation n'enregistre pas le genre ou la date de naissance des particuliers, simplifiez le formulaire en décochant cette option. Par déplacement vous pouvez changer l'ordre d'apparition des sections dans la page de création/édition de contacts."
 
 #: templates/CRM/Admin/Form/Preferences/Display.tpl
 msgid ""
 "Select the sections that should be included in the Basic and Advanced Search forms.\n"
 "          EXAMPLE: If you don't track Relationships - then you do not need this section included in the advanced search\n"
 "          form. Simplify the form by un-checking this option."
-msgstr ""
+msgstr "Sélectionnez les sections qui doivent être incluses dans les formulaires de recherche de base et avancée.⏎ Exemple: Si vous ne gardez pas de trace des relations, vous n'avez pas besoin que la section correspondante soit incluse dans le formulaire de recherche avancée.⏎ Simplifiez alors le formulaire en décochant cette option."
 
 #: templates/CRM/Admin/Form/Preferences/Display.tpl
 msgid ""
 "When enabled, checks for contacts with similar names as the user types values into\n"
 "          the contact form name fields."
-msgstr ""
+msgstr "Si activé, recherche les contacts ayant un nom similaire au fur et à mesure⏎ que l'utilisateur saisit des caractères dans les champs de nom des formulaires de contact."
 
 #: templates/CRM/Admin/Form/Preferences/Display.tpl
 msgid ""
 "When enabled, contacts who are assigned activities will automatically receive an email notification\n"
 "          with a copy of the activity."
-msgstr ""
+msgstr "Si activé, les contacts à qui des activités sont assignées recevront automatiquement une notification⏎ par courriel avec copie de l'activité."
 
 #: templates/CRM/Admin/Form/Preferences/Display.tpl
 msgid ""
 "When enabled, the assignee notification sent out above will also include\n"
 "          an ical meeting invite."
-msgstr ""
+msgstr "Si activée, la notification envoyée ci-dessus inclura aussi⏎ une invitation de réunion ical."
 
 #: templates/CRM/Admin/Form/Preferences/Display.tpl
 msgid ""
 "Select the sections that should be included in the Contact Dashboard. EXAMPLE: If you don't want\n"
 "          constituents to view their own contribution history, un-check that option."
-msgstr ""
+msgstr "Sélectionnez les sections qui doivent être incluses dans le tableau de bord Contact. Exemple : ⏎si vous ne voulez pas que les personnes voient l'historique de leurs propres contributions, décochez cette option."
 
 #: templates/CRM/Admin/Form/Preferences/Display.tpl
 msgid ""
 "You will need to enable and configure several modules if you want to allow users to upload images\n"
 "              while using a Drupal Default Editor."
-msgstr ""
+msgstr "Vous devez activer et configurer plusieurs modules si vous voulez que les utilisateurs puissent ⏎télécharger des images lorsqu'ils utilisent l'éditeur par défaut de Drupal."
 
 #: templates/CRM/Admin/Form/Preferences/Display.tpl
 msgid ""
 "Select the HTML WYSIWYG Editor provided for fields that allow HTML formatting. Select 'Textarea'\n"
 "          if you don't want to provide a WYSIWYG Editor (users will type text and / or HTML code into plain text\n"
 "          fields)."
-msgstr ""
+msgstr "Sélectionnez l'éditeur HTML WYSIWYG pour les champs permettant le format HTML. Sélectionnez « Zone de texte » ⏎si vous ne souhaitez pas d'éditeur WYSIWYG (les utilisateurs saisiront du texte et / ou du code HTML⏎ dans les champs texte)."
 
 #: templates/CRM/Admin/Form/Setting/Date.hlp
 msgid "Date Display Formats"
@@ -6236,64 +6081,64 @@ msgstr "Format d'affichage des dates"
 
 #: templates/CRM/Admin/Form/Setting/Date.hlp
 msgid "abbreviated month name ('Jan'..'Dec')"
-msgstr ""
+msgstr "abréviation de mois (« Jan » ... « Déc »)"
 
 #: templates/CRM/Admin/Form/Setting/Date.hlp
 msgid "full month name ('January'..'December')"
-msgstr ""
+msgstr "nom complet du mois (« Janvier » ... « Décembre »)"
 
 #: templates/CRM/Admin/Form/Setting/Date.hlp
 msgid "day of the month as a decimal number, 0-padded ('01'..'31')"
-msgstr ""
+msgstr "jour du mois comme un nombre entier aligné avec un zéro (« 01 » .. « 31 »)"
 
 #: templates/CRM/Admin/Form/Setting/Date.hlp
 msgid "day of the month as a decimal number, blank-padded (' 1'..'31')"
-msgstr ""
+msgstr "jour du mois comme un nombre entier aligné avec un espace («  1 » .. « 31 »)"
 
 #: templates/CRM/Admin/Form/Setting/Date.hlp
 msgid "day of the month as a decimal number ('1'..'31')"
-msgstr ""
+msgstr "jour du mois comme un nombre entier (« 1 » .. « 31 »)"
 
 #: templates/CRM/Admin/Form/Setting/Date.hlp
 msgid ""
 "English ordinal suffix for the day of the month ('st', 'nd', 'rd', 'th')"
-msgstr ""
+msgstr "Suffixe ordinal anglais pour le jour du mois (« st », « nd », « rd », « th »)"
 
 #: templates/CRM/Admin/Form/Setting/Date.hlp
 msgid "hour in 24-hour format, 0-padded ('00'..'23')"
-msgstr ""
+msgstr "heure au format sur 24 heures, aligné avec un zéro (« 00 » .. « 23 »)"
 
 #: templates/CRM/Admin/Form/Setting/Date.hlp
 msgid "hour in 12-hour format, 0-padded ('01'..'12')"
-msgstr ""
+msgstr "heure au format sur 12 heures, aligné avec un zéro (« 00 » .. « 12 »)"
 
 #: templates/CRM/Admin/Form/Setting/Date.hlp
 msgid "hour in 24-hour format, blank-padded (' 0'..'23')"
-msgstr ""
+msgstr "heure au format sur 24 heures, aligné avec un espace («  0 » .. « 23 »)"
 
 #: templates/CRM/Admin/Form/Setting/Date.hlp
 msgid "hour in 12-hour format, blank-padded (' 1'..'12')"
-msgstr ""
+msgstr "heure au format sur 12 heures, aligné avec un espace («  1 » .. « 12 »)"
 
 #: templates/CRM/Admin/Form/Setting/Date.hlp
 msgid "month as a decimal number, 0-padded ('01'..'12')"
-msgstr ""
+msgstr "mois comme un nombre entier aligné avec un zéro (« 01 » .. « 12 »)"
 
 #: templates/CRM/Admin/Form/Setting/Date.hlp
 msgid "minute, 0-padded ('00'..'60')"
-msgstr ""
+msgstr "minute alignée avec un zéro (« 00 » .. « 60 »)"
 
 #: templates/CRM/Admin/Form/Setting/Date.hlp
 msgid "lowercase ante/post meridiem ('am', 'pm')"
-msgstr ""
+msgstr "matin / après-midi en minuscules (« am », « pm »)"
 
 #: templates/CRM/Admin/Form/Setting/Date.hlp
 msgid "uppercase ante/post meridiem ('AM', 'PM')"
-msgstr ""
+msgstr "matin / après-midi en majuscules (« AM », « PM »)"
 
 #: templates/CRM/Admin/Form/Setting/Date.hlp
 msgid "year as a decimal number including the century ('2015')"
-msgstr ""
+msgstr "année comme entier incluant le siècle (« 2015 »)"
 
 #: templates/CRM/Admin/Form/Setting/Mapping.tpl
 msgid ""
@@ -6301,14 +6146,14 @@ msgid ""
 "Google Maps API, but may be helpful diagnosing any problems and required for"
 " higher volumes of requests. Refer to developers.google.com for the latest "
 "information."
-msgstr ""
+msgstr "Entrez votre clé API ou Application ID. La clé API est actuellement facultative pour l'API de Google Maps, elle peut cependant être utile pour diagnostiquer les problèmes et est requise en cas de grand volume de requêtes. Veuillez vous référer à developers.google.com pour obtenir les dernières informations."
 
 #: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
 msgid ""
 "Displays an on-screen alert to users with \"Administer CiviCRM\" permissions"
 " when a new version of CiviCRM is available. This setting will only work if "
 "the \"Version Check &amp; Statistics Reporting\" setting is enabled."
-msgstr ""
+msgstr "Affiche une alerte aux utilisateurs disposant de la permission « Administrer CiviCRM » lorsqu'une nouvelle version de CiviCRM est disponible. Cette fonction ne fonctionnera que si l'option « Vérification de nouvelle version & Statistiques » est activée."
 
 #: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
 msgid ""
@@ -6317,20 +6162,20 @@ msgid ""
 "\"target=_blank\">Google's reCaptcha site</a>; enter the provided public and"
 " private reCAPTCHA keys here; then enable reCAPTCHA under Advanced Settings "
 "in any Profile."
-msgstr ""
+msgstr "reCAPTCHA est un service gratuit pour prévenir les abus de votre site par les robots. Pour utiliser reCAPTCHA sur des pages CiviCRM publiques, allez sur le <a href=\"%1\" \"target=_blank\">site reCaptcha de Google</a>, entrez ensuite ici les clés reCAPTCHA publiques et privées et enfin activez reCAPTCHA dans la section Paramètres avancés de chaque formulaire concerné."
 
 #: templates/CRM/Admin/Form/Setting/Search.tpl
 msgid ""
 "The number of minutes to cache smart group contacts. This value needs to be "
 "greater than zero. If your contact data changes frequently, you may want to "
 "try setting this to a value of 5 minutes or more."
-msgstr ""
+msgstr "Le nombre de minutes pendant lequel les contacts d'un groupe dynamique sont maintenus dans le cache. Cette valeur doit être supérieure à zéro. Si vos données de contacts changent fréquemment, vous pouvez mettre cette valeur à 5 minutes ou plus."
 
 #: templates/CRM/Admin/Form/Setting/Search.tpl
 msgid ""
 "The maximum number of contacts to show at a time when typing in an "
 "autocomplete field."
-msgstr ""
+msgstr "Le nombre maximum de contacts à afficher en même temps dans un champ à auto-complètement."
 
 #: templates/CRM/Admin/Form/Setting/Smtp.tpl
 msgid ""
@@ -6339,53 +6184,53 @@ msgid ""
 "    <p>If you do not want users to send outbound mail from CiviCRM, select \"Disable Outbound Email\". NOTE: If you disable outbound email, and you are using Online Contribution pages or online Event Registration - you will need to disable automated receipts and registration confirmations.</p>\n"
 "\n"
 "    <p>If you choose Redirect to Database, all emails will be recorded as archived mailings instead of being sent out.</p>"
-msgstr ""
+msgstr "<p>CiviCRM offre plusieurs options pour envoyer les courriels. L'option par défaut fonctionne bien sur les systèmes d'exploitation Linux. Si vous êtes sous Windows, entrez les paramètres de votre serveur SMTP/Sendmail. Vous pouvez vérifier que votre configuration fonctionne en cliquant sur \"Sauvegarder et envoyer le courriel de test\". Si vous n'êtes pas sûr de ce que vous devez saisir, vérifiez auprès de votre administrateur système, de votre fournisseur d'accès Internet ou de votre hébergeur.</p> ⏎\n⏎\n<p> Si vous ne voulez pas que vos utilisateurs envoient des courriels depuis CiviCRM, sélectionnez \"Désactiver l'envoi de courriels\". NOTE: Si vous désactivez l'envoi de courriels et que vous utilisez des pages de contribution ou d'inscription à des événements en ligne, vous devrez alors désactiver l'envoi automatique d'accusé de réception et de confirmation d'inscription.</p>⏎\n⏎\n<p>Si vous choisissez la redirection vers la base de données, tous les courriels seront archivés au lieu d'être envoyés.</p>"
 
 #: templates/CRM/Admin/Form/Setting/UF.tpl
 msgid ""
 "By default, CiviCRM will generate front-facing pages using the home page at "
 "%1 as its base. If you want to use a different template for CiviCRM pages, "
 "set the path here."
-msgstr ""
+msgstr "Par défaut CiviCRM va générer les pages en utilisant la page racine %1 comme base. Si vous voulez utiliser un autre modèle pour les pages CiviCRM, indiquez son chemin d'accès ici."
 
 #: templates/CRM/Admin/Form/Setting/UpdateConfigBackend.tpl
 msgid ""
 "For Drupal and WordPress installs, this is the absolute path to the location"
 " of the 'files' directory. For Joomla installs this is the absolute path to "
 "the location of the 'media' directory."
-msgstr ""
+msgstr "Pour les installations Drupal et WordPress, ceci est le chemin absolu du répertoire « files ». Pour les installations Joomla ceci est le chemin absolu du répertoire « media »."
 
 #: templates/CRM/Admin/Form/Setting/UpdateConfigBackend.tpl
 msgid ""
 "This is the URL for your Drupal, Joomla or WordPress site (e.g. "
 "http://www.mysite.com/drupal/)."
-msgstr ""
+msgstr "Ceci est l'URL de votre site Drupal,  Joomla ou WordPress (par exemple http://www.mysite.com/drupal/)."
 
 #: templates/CRM/Admin/Form/Setting/Url.hlp
 msgid "Force SSL"
-msgstr ""
+msgstr "Forcer SSL"
 
 #: templates/CRM/Admin/Form/Setting/Url.hlp
 msgid "Verify SSL Certificates"
-msgstr ""
+msgstr "Vérifier les certificats SSL"
 
 #: templates/CRM/Admin/Form/Setting/Url.hlp
 msgid "Resource URL"
-msgstr ""
+msgstr "URL des ressources"
 
 #: templates/CRM/Admin/Form/Setting/Url.hlp
 msgid "Extensions URL"
-msgstr ""
+msgstr "URL des extensions"
 
 #: templates/CRM/Admin/Form/Setting/Url.hlp
 msgid "Custom CSS"
-msgstr ""
+msgstr "Feuilles de style CSS personnalisée"
 
 #: templates/CRM/Admin/Form/WordReplacements.hlp
 msgid ""
 "Change all occurrences of a word or phrase in CiviCRM screens (e.g. replace "
 "all occurences of 'Contribution' with 'Donation')."
-msgstr ""
+msgstr "Substitue un mot ou phrase dans tous les affichages de CiviCRM par un mot ou phrase que vous aurez choisi (ex. remplace toutes les occurrences de \"Contribution\" par \"Don\")."
 
 #: templates/CRM/Admin/Page/Access.tpl
 msgid ""
@@ -6393,15 +6238,15 @@ msgid ""
 "CiviCRM components and menu items. Use CiviCRM ACLs to control access to "
 "specific CiviCRM contact groups. You can also configure ACLs to grant or "
 "deny access to specific Profiles, and/or Custom Data Fields."
-msgstr ""
+msgstr "<a href='%1'>Le contrôle d'accès WordPress</a> est utilisé pour gérer les accès aux menus et aux composants de CiviCRM. Les ACL de CiviCRM sont utilisés pour contrôler l'accès à des groupes de contacts spécifiques. Vous pouvez aussi configurer les ACL pour permettre ou interdire l'accès à des profils spécifiques ou à des données personnalisées."
 
 #: templates/CRM/Admin/Page/Access.tpl
 msgid "WordPress Access Control"
-msgstr ""
+msgstr "Contrôle d'accès WordPress"
 
 #: templates/CRM/Admin/Page/ContactType.hlp
 msgid "Contact Type Icon"
-msgstr ""
+msgstr "Icône de type de contact"
 
 #: templates/CRM/Admin/Page/Extensions/About.tpl
 msgid ""
@@ -6411,20 +6256,20 @@ msgid ""
 "which are compatible with this version of CiviCRM. If you install Custom "
 "Searches, Reports or Payment Processor extensions - these will automatically"
 " be available on the corresponding menus and screens."
-msgstr ""
+msgstr "Les extensions CiviCRM permettent d'ajouter à votre site de nouvelles fonctions. Cette page liste les extensions disponibles dans le <a href=\"%2\" target=\"_blank\">référentiel des extensions sur CiviCRM.org</a> et qui sont compatibles avec votre version de CiviCRM. Si vous installez des extensions pour ajouter des recherches personnalisées, des comptes rendus ou des passerelles de paiement, ceux-ci seront affichés automatiquement dans les menus et pages correspondants."
 
 #: templates/CRM/Admin/Page/Extensions/About.tpl
 msgid ""
 "<p>You may also want to check the directory for <a href=\"%2/%1\" "
 "target=\"_blank\">native %1 modules</a> that may be useful for you (CMS-"
 "specific modules are not listed here)."
-msgstr ""
+msgstr "<p>Vous pouvez aussi consulter le référentiel des <a href=\"%2/%1\" target=\"_blank\">modules %1 natifs</a> (les modules spécifiques à chaque CMS ne sont pas listés ici). "
 
 #: templates/CRM/Admin/Page/Extensions/AddNew.tpl
 msgid ""
 "There are no extensions to display. Please click \"Refresh\" to update "
 "information about available extensions."
-msgstr ""
+msgstr "Il n'y a pas d'extensions à afficher. Veuillez cliquer sur « Rafraîchir » pour actualiser les informations sur les extensions disponibles."
 
 #: templates/CRM/Admin/Page/Extensions/Main.tpl
 msgid ""
@@ -6432,23 +6277,23 @@ msgid ""
 "install extensions posted on the <a href=\"%1\">public CiviCRM Extensions "
 "Directory</a>. If you have downloaded extensions manually and don't see them"
 " here, try clicking the \"Refresh\" button."
-msgstr ""
+msgstr "Il n'y a pas d'extension à afficher. Cliquez sur l'onglet « Ajouter » pour naviguer et installer des extensions depuis le <a href=\"%1\">référentiel CiviCRM des extensions publiques</a>. Si vous avez téléchargé des extensions manuellement et elles n'apparaissent pas ici, essayez de cliquer sur le bouton « Rafraîchir »."
 
 #: templates/CRM/Admin/Page/Extensions.tpl
 msgid "Extensions"
-msgstr ""
+msgstr "Extensions"
 
 #: templates/CRM/Admin/Page/Extensions.tpl
 msgid "Add New"
-msgstr ""
+msgstr "Ajouter"
 
 #: templates/CRM/Admin/Page/Extensions.tpl
 msgid "Refreshing..."
-msgstr ""
+msgstr "Mise à jour en cours..."
 
 #: templates/CRM/Admin/Page/Extensions.tpl
 msgid "Refresh Error"
-msgstr ""
+msgstr "Erreur de mise à jour"
 
 #: templates/CRM/Admin/Page/MessageTemplates.hlp
 msgid ""
@@ -6456,7 +6301,7 @@ msgid ""
 "them when sending email or letters to one or more contacts. If you are using"
 " CiviMail for enewsletters, newsletter templates take care of the layout so "
 "authors can focus on content.</p>"
-msgstr ""
+msgstr "Les modèles vous permettent de sauvegarder des messages formatés pour réutilisation ultérieure. Vous pouvez les utiliser pour envoyer un courriel ou une lettre à un ou plusieurs contacts. Si vous utilisez CiviMail pour des infolettres, les modèles prennent en charge la mise en page ce qui permet aux auteurs de se concentrer sur le contenu.</p>"
 
 #: templates/CRM/Admin/Page/MessageTemplates.hlp
 msgid ""
@@ -6464,7 +6309,7 @@ msgid ""
 " in the message subject and body. These will be replaced with the actual "
 "value of the corresponding field in the outgoing message. Click \"Insert "
 "Tokens\" for a searchable list of available tokens."
-msgstr ""
+msgstr "Vous pouvez utiliser des champs de fusion (tels que le prénom du contact) dans le sujet du message et dans le contenu. Ces champs seront remplacés par la valeur personnalisée appropriée pour chaque message à envoyer. Cliquez sur « Insérer champ de fusion » pour obtenir la liste des champs disponibles."
 
 #: templates/CRM/Admin/Page/MessageTemplates.hlp
 msgid ""
@@ -6474,11 +6319,11 @@ msgid ""
 "may include the membership type and end date tokens. The <a "
 "href=\"%1\">Scheduled Reminders</a> screen includes these tokens in the "
 "\"Insert Tokens\" tool, so it is best to create reminder templates there."
-msgstr ""
+msgstr "Les messages utilisés pour des rappels de cotisation ou des rappels pour des événements ou activités utilisent en général des champs de fusion spécifiques aux types d'enregistrement adhésion, participant ou activité. Par exemple un rappel de cotisation pourra inclure le type d'adhésion et la date de fin d'adhésion. La page <a href=\"%1\">Rappels d'adhésion</a> inclut un outil pour insérer des champs de fusion, il est donc préférable de créer les modèles de rappel depuis cette page."
 
 #: templates/CRM/Admin/Page/MessageTemplates.hlp
 msgid "System Workflow"
-msgstr ""
+msgstr "Processus système"
 
 #: templates/CRM/Admin/Page/MessageTemplates.tpl
 msgid ""
@@ -6488,7 +6333,7 @@ msgid ""
 "Messages used for membership renewal reminders, as well as event and "
 "activity related reminders should be created via <a href=\"%1\">Scheduled "
 "Reminders</a>."
-msgstr ""
+msgstr "Les modèles de messages sont des messages qui peuvent être sauvegardés pour réutilisation ultérieure. Ils sont utiles si vous envoyez régulièrement des messages similaires à vos contacts. Vous pouvez aussi les utiliser dans la fonction Mailings. Les messages envoyés pour les rappels de cotisation ou les rappels pour événement ou activité doivent être créés via la fonction <a href=\"%1\">Programmer un rappel</a>."
 
 #: templates/CRM/Admin/Page/MessageTemplates.tpl
 msgid ""
@@ -6496,19 +6341,19 @@ msgid ""
 "constituents and administrators for contribution receipts, event "
 "confirmations and many other workflows. You can customize the style and "
 "wording of these messages here."
-msgstr ""
+msgstr "Les modèles de message prédéfinis sont utilisés par le système pour élaborer les courriels envoyés aux contacts ou administrateurs tels que accusés de réception de dons, confirmations d'inscription à un événement et pour les autres procédures de votre organisation. Ces modèles peuvent être personnalisés ici."
 
 #: templates/CRM/Admin/Page/Navigation.hlp
 msgid "Navigation Menu"
-msgstr ""
+msgstr "Menu de navigation"
 
 #: templates/CRM/Admin/Page/Navigation.tpl
 msgid "Cannot Delete"
-msgstr ""
+msgstr "Suppression impossible"
 
 #: templates/CRM/Admin/Page/Options.hlp
 msgid "Activity Types"
-msgstr ""
+msgstr "Types d'activité"
 
 #: templates/CRM/Admin/Page/Options.hlp
 msgid ""
@@ -6517,7 +6362,7 @@ msgid ""
 "(meetings, phone calls, emails sent). Create additional 'activity types' "
 "here if you need to record other types of activities. For example, you might"
 " want to add 'Job Interview', or 'Site Audit', etc."
-msgstr ""
+msgstr "Les activités sont des interactions avec vos contacts que vous voulez enregistrer et suivre. CiviCRM a plusieurs types d'activité prédéfinies (réunions, appels téléphoniques, courriels envoyés). Vous pouvez créer de nouveaux types ici, par exemple \"Entretien d'embauche\" ou \"Audit du site\", etc."
 
 #: templates/CRM/Admin/Page/Options.tpl
 msgid ""
@@ -6527,22 +6372,22 @@ msgid ""
 " requires additional payment methods, you can add them here. You can "
 "associate each payment method with a Financial Account which specifies where"
 " the payment is going (e.g. a bank account for checks and cash)."
-msgstr ""
+msgstr "Vous pouvez choisir d'enregistrer le moyen de paiement utilisé pour chaque contribution et inscription. Les moyens de paiement pré-définis sont obligatoires, vous pouvez modifier leur libellé mais pas les supprimer (ex: chèque, carte de crédit, etc.). Si votre site a besoin de moyens de paiement additionnels, vous pouvez les ajouter ici. Vous pouvez associer à chaque moyen de paiement un compte financier qui définit où le paiement va aller (par exemple sur un compte bancaire pour les chèques et les espèces)."
 
 #: templates/CRM/Admin/Page/ParticipantStatus.hlp
 msgid "Disabled Statuses"
-msgstr ""
+msgstr "Statuts désactivés"
 
 #: templates/CRM/Admin/Page/PaymentProcessor.hlp
 msgid "Refer to the following documentation:"
-msgstr ""
+msgstr "Se référer à la documentation suivante :"
 
 #: templates/CRM/Admin/Page/PaymentProcessor.hlp
 msgid ""
 "If you're not sure which processor to use - we recommend reviewing terms, "
 "limitations and coverage areas on each processor's website before "
 "proceeding."
-msgstr ""
+msgstr "Si vous n'êtes par sûr de quel service utiliser, nous vous conseillons de lire les conditions d'utilisation, les limitations et l'étendue des prestations de chaque passerelle de paiement avant de continuer."
 
 #: templates/CRM/Admin/Page/PaymentProcessor.hlp
 msgid ""
@@ -6550,25 +6395,25 @@ msgid ""
 "href=\"%1\">Extensions Directory</a> for more payment processors you can "
 "download. If you still can't find it, consider partnering with a developer "
 "and contributing a new extension."
-msgstr ""
+msgstr "Si la passerelle que vous avez choisie n'est pas dans la liste, vérifiez dans le <a href=\"%1\">référentiel des extensions</a> si elle existe et si oui téléchargez-la. Si vous ne l'avez pas trouvée, veuillez considérer une association avec un développeur pour contribuer au développement d'un module spécifique."
 
 #: templates/CRM/Admin/Page/PaymentProcessor.hlp
 msgid "Payment processor overview"
-msgstr ""
+msgstr "Synthèse passerelle de paiement"
 
 #: templates/CRM/Admin/Page/PaymentProcessor.hlp
 msgid "Processor comparison and setup guide"
-msgstr ""
+msgstr "Comparaison passerelles et guide d'installation"
 
 #: templates/CRM/Admin/Page/RelationshipType.hlp
 msgid "Special Relationships"
-msgstr ""
+msgstr "Relations spécifiques"
 
 #: templates/CRM/Admin/Page/RelationshipType.hlp
 msgid ""
 "Employee <-> Employer and Household relationships both have special "
 "characteristics."
-msgstr ""
+msgstr "Les relations Employé <-> Employeur et celles relatives aux foyers ont des caractéristiques spécifiques."
 
 #: templates/CRM/Admin/Page/RelationshipType.hlp
 msgid ""
@@ -6576,7 +6421,7 @@ msgid ""
 "'Current Employer' field is filled in, either in the Contact Summary form or"
 " via a Profile. When filled in, it will create an Organisation if one does "
 "not already exist with that name."
-msgstr ""
+msgstr "Une <strong>relation Employé <-> Employeur</strong> est créée chaque fois que le champ « Employeur actuel » est rempli soit dans la fiche résumé de contact ou via un profil. Une organisation est aussi créée s'il n'en existe pas déjà ayant ce nom."
 
 #: templates/CRM/Admin/Page/RelationshipType.hlp
 msgid ""
@@ -6584,7 +6429,7 @@ msgid ""
 "the 'household address' applied to their record. Again, if a Household "
 "already exists then the individual will have a relationship created with it,"
 " if none exists then a new household will be created."
-msgstr ""
+msgstr "La relation <strong>Foyer</strong> permet aux membres du foyer de partager une même adresse. Si le foyer existe déjà, le particulier aura une relation créée avec ce foyer, sinon un nouveau foyer sera créé."
 
 #: templates/CRM/Admin/Page/ScheduleReminders.hlp
 msgid ""
@@ -6592,14 +6437,173 @@ msgid ""
 "who match this criteria. If you select Manual Recipients - only those people"
 " will receive the reminder (AND only if they are ALSO participants with the "
 "selected status)."
-msgstr ""
+msgstr "Envoie seulement les rappels aux participants ayant les statuts sélectionnés ci-dessus ET qui correspondent à ce critère. Si vous sélectionnez Destinataires manuels, seules ces personnes recevront ce rappel (ET seulement si elles sont aussi participantes avec les statuts sélectionnés)."
 
 #: templates/CRM/Admin/Page/ScheduleReminders.tpl
 msgid ""
 "Scheduled reminders allow you to automatically send messages to contacts "
 "regarding their memberships, participation in events, or other activities."
-msgstr ""
+msgstr "Les rappels programmés permettent d'envoyer automatiquement aux contacts des messages  concernant leurs adhésions, participations à des événements ou autres activités."
 
 #: templates/CRM/Admin/Page/Tag.tpl
 msgid "Parent (ID)"
+msgstr "Parent (ID)"
+
+#: CRM/Admin/Form/Options.php
+msgid "Contacts OR Cases"
+msgstr ""
+
+#: CRM/Admin/Form/Options.php
+msgid "Cases Only"
+msgstr ""
+
+#: CRM/Admin/Form/Preferences/Mailing.php
+msgid "Enable CiviMail to create activities on delivery"
+msgstr ""
+
+#: CRM/Admin/Form/Preferences/Mailing.php
+msgid "Disable check for mandatory tokens"
+msgstr ""
+
+#: CRM/Admin/Form/Preferences/Mailing.php
+msgid ""
+"Don't check for presence of mandatory tokens (domain address; unsubscribe"
+"/opt-out) before sending mailings. WARNING: Mandatory tokens are a safe-"
+"guard which facilitate compliance with the US CAN-SPAM Act. They should only"
+" be disabled if your organization adopts other mechanisms for compliance or "
+"if your organization is not subject to CAN-SPAM."
+msgstr ""
+
+#: CRM/Admin/Form/Preferences/Mailing.php
+msgid ""
+"We have automatically enabled the Mailings tab for the Contact Summary screens\n"
+"        so that you can view mailings sent to each contact."
+msgstr ""
+
+#: CRM/Admin/Form/Setting/Miscellaneous.php
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid "Misc (Undelete, PDFs, Limits, Logging, Captcha, etc.)"
+msgstr ""
+
+#: CRM/Admin/Page/LabelFormats.php
+msgid "Mailing Label"
+msgstr ""
+
+#: CRM/Admin/Page/LabelFormats.php
+msgid "Name Badge"
+msgstr ""
+
+#: templates/CRM/Admin/Form/LabelFormats.tpl
+msgid ""
+"WARNING: You are about to delete the Label Format titled\n"
+"        <strong>%1</strong>\n"
+"        ."
+msgstr ""
+
+#: templates/CRM/Admin/Form/LabelFormats.tpl
+msgid ""
+"Are you sure you would like to make a copy of the Label Format "
+"titled<strong>%1</strong>?"
+msgstr ""
+
+#: templates/CRM/Admin/Form/LabelFormats.tpl
+msgid ""
+"Weight controls the order in which Label Formats are displayed\n"
+"              <br/>\n"
+"              in selection lists. Enter a positive or negative integer. Lower numbers\n"
+"              <br/>\n"
+"              are displayed ahead of higher numbers."
+msgstr ""
+
+#: templates/CRM/Admin/Form/Preferences/Display.hlp
+msgid ""
+"<strong>NOTE:</strong> If you are modifying config.js you should first have "
+"configured a Custom PHP Path under Administer > System Settings > "
+"Directories, and place your modified version in the custom path."
+msgstr ""
+
+#: templates/CRM/Admin/Form/Setting/Mapping.tpl
+msgid ""
+"Enter the API key or Application ID associated with your geocoding provider "
+"(not required for Yahoo)."
+msgstr ""
+
+#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
+msgid ""
+"If enabled, contacts with the permission to edit a related contact will "
+"inherit that contact's permission to edit other related contacts."
+msgstr ""
+
+#: templates/CRM/Admin/Form/Setting/Smtp.tpl
+msgid ""
+"<p>CiviCRM offers several options to send emails. The default option should work fine on linux systems. If you are using windows, you probably need to enter settings for your SMTP/Sendmail server. You can send a test email to check your settings by clicking \"Save and Send Test Email\". If you're unsure of the correct values, check with your system administrator, ISP or hosting provider.</p>\n"
+"\n"
+"    <p>If you do not want users to send outbound mail from CiviCRM, select \"Disable Outbound Email\". NOTE: If you disable outbound email, and you are using Online Contribution pages or online Event Registration - you will need to disable automated receipts and registration confirmations.</p>"
+msgstr ""
+
+#: templates/CRM/Admin/Page/Access.tpl
+msgid ""
+"Use <a href='%1'>Drupal Access Control</a> to manage basic access to CiviCRM"
+" components and menu items. Use CiviCRM ACLs to control access to specific "
+"CiviCRM contact groups. You can also configure ACLs to grant or deny access "
+"to specific Events Profiles, and/or Custom Data Fields."
+msgstr ""
+
+#: templates/CRM/Admin/Page/Access.tpl
+msgid ""
+"Use <a href='%1' %2>Joomla Access Control</a> to manage basic access to "
+"CiviCRM components and menu items. Use CiviCRM ACLs to control access to "
+"specific CiviCRM contact groups. You can also configure ACLs to grant or "
+"deny access to specific Events, Profiles, and/or Custom Data Fields."
+msgstr ""
+
+#: templates/CRM/Admin/Page/Access.tpl
+msgid ""
+"Use <a href='%1'>WordPress Access Control</a> to manage basic access to "
+"CiviCRM components and menu items. Use CiviCRM ACLs to control access to "
+"specific CiviCRM contact groups. You can also configure ACLs to grant or "
+"deny access to specific Events, Profiles, and/or Custom Data Fields."
+msgstr ""
+
+#: templates/CRM/Admin/Page/Access.tpl
+msgid ""
+"Note that %1 Access Control permissions take precedence over CiviCRM ACLs. "
+"If you wish to use CiviCRM ACLs, first disable the related permission in %1 "
+"Access control for a user role, and then gradually add ACLs to replace that "
+"permission for certain groups of contacts."
+msgstr ""
+
+#: templates/CRM/Admin/Page/LabelFormats.tpl
+msgid "Used for"
+msgstr ""
+
+#: templates/CRM/Admin/Page/LabelFormats.tpl
+msgid ""
+"There are no Label Formats configured. You can<a href='%1'>add one</a>."
+msgstr ""
+
+#: templates/CRM/Admin/Page/PaymentProcessor.hlp
+msgid ""
+"The URL for PayJunction's Payment server. This is the same for TEST and LIVE"
+" transactions. Use the default value unless otherwise advised by "
+"PayJunction."
+msgstr ""
+
+#: templates/CRM/Admin/Page/PaymentProcessor.hlp
+msgid ""
+"This is the URL for accessing the DPS/Payment Express payment site.\n"
+"If you have been given a MAC key please fill in the Mac Key field, and use https://sec.paymentexpress.com/pxpay/pxpay.aspx for the Site URL.\n"
+"Otherwise use https://sec.paymentexpress.com/pxpay/pxaccess.aspx for the Site URL."
+msgstr ""
+
+#: templates/CRM/Admin/Page/PaymentProcessor.hlp
+msgid ""
+"Use 'https://www.myvirtualmerchant.com/VirtualMerchant/processxml.do' unless"
+" otherwise advised by Elavon."
+msgstr ""
+
+#: templates/CRM/Admin/Page/PaymentProcessorType.tpl
+msgid ""
+"Payment Processor configurations for all payment processors that can be used"
+" in this installation of CiviCRM."
 msgstr ""
