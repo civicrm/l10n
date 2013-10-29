@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
 "Report-Msgid-Bugs-To: http://issues.civicrm.org/\n"
-"POT-Creation-Date: 2013-01-24 14:47-0500\n"
-"PO-Revision-Date: 2013-04-29 08:38+0000\n"
-"Last-Translator: Piotr Szotkowski <shot@hot.pl>\n"
+"POT-Creation-Date: 2013-10-08 08:14-0400\n"
+"PO-Revision-Date: 2013-10-08 12:41+0000\n"
+"Last-Translator: Mathieu Lutfy <mathieu@bidon.ca>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/civicrm/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,6 +65,18 @@ msgid "Membership renewed automatically"
 msgstr "自動更新された会員権"
 
 #: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
+msgid "Record Payment from a Different Contact?"
+msgstr "異なる連絡先からの支払いを記録しますか?"
+
+#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
+msgid "Membership payment is : "
+msgstr "会員権支払いは: "
+
+#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
+msgid "-"
+msgstr "-"
+
+#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
 msgid "Send Confirmation and Receipt?"
 msgstr "確認と受領証を送信しますか?"
 
@@ -72,11 +84,13 @@ msgstr "確認と受領証を送信しますか?"
 msgid "The new membership End Date is %1."
 msgstr "新しい会員権の終了日は %1 です。"
 
-#: CRM/Member/Form/MembershipType.php CRM/Member/Page/AJAX.php
+#: CRM/Member/Form/MembershipRenewal.php CRM/Member/Form/MembershipType.php
+#: CRM/Member/Page/AJAX.php
 msgid "No auto-renew option"
 msgstr "自動更新オプション無し"
 
-#: CRM/Member/Form/MembershipType.php CRM/Member/Page/AJAX.php
+#: CRM/Member/Form/MembershipRenewal.php CRM/Member/Form/MembershipType.php
+#: CRM/Member/Page/AJAX.php
 msgid "Auto-renew required "
 msgstr "自動更新オプション必須"
 
@@ -134,8 +148,9 @@ msgstr "指定された日付に対する会員権状態がありません。"
 
 #: CRM/Member/BAO/Membership.php
 msgid ""
-"The membership cannot be saved. No valid membership status for given dates"
-msgstr "会員権が保存できません。指定された日付に対する会員権状態がありません。"
+"The membership cannot be saved. No valid membership status for given dates. "
+"Please provide at least start_date. Optionally end_date and join_date."
+msgstr "会員権が保存できません。指定された日付には有効な会員権の状態がありません。少なくともstart_dateを指定してください。end_dataとjoin_dateを指定することもできます。"
 
 #: CRM/Member/BAO/Membership.php
 msgid "Please select one of the memberships."
@@ -175,6 +190,18 @@ msgid ""
 " membership start and end dates for this membership. Contact the site "
 "administrator for assistance."
 msgstr "この会員権の開始日と終了日に対応する会員権状態が見つかりません。サイト管理者に連絡してください。"
+
+#: CRM/Member/BAO/Membership.php
+msgid ""
+"Deceased Membership status is missing or not active. <a href='%1'>Click here"
+" to check</a>."
+msgstr "死亡者会員権状態は存在しないか、またはアクティブではありません。<a href='%1'>状態をチェック</a>。"
+
+#: CRM/Member/BAO/Membership.php
+msgid ""
+"Processed %1 membership records. Updated %2 records. Sent %3 renewal "
+"reminders."
+msgstr "%1 件の会員権レコードを処理しました。%2 件のレコードを更新しました。%3 件の更新通知を送信しました。"
 
 #: CRM/Member/BAO/MembershipStatus.php
 msgid "This membership status cannot be deleted"
@@ -242,18 +269,6 @@ msgstr "関連メンバーのみ"
 #: CRM/Member/BAO/Query.php
 msgid "All Members"
 msgstr "すべてのメンバー"
-
-#: CRM/Member/BAO/Query.php
-msgid "Member Since - From"
-msgstr "会員入会 - From"
-
-#: CRM/Member/BAO/Query.php
-msgid "Start Date - From"
-msgstr "開始日 - From"
-
-#: CRM/Member/BAO/Query.php
-msgid "End Date - From"
-msgstr "終了日 - From"
 
 #: CRM/Member/BAO/Query.php
 msgid "Find Test Memberships?"
@@ -412,6 +427,7 @@ msgid "Give option"
 msgstr "オプション追加"
 
 #: CRM/Member/Form/MembershipBlock.php
+#: templates/CRM/Member/Form/MembershipBlock.tpl
 #: templates/CRM/Member/Form/MembershipView.tpl
 #: templates/CRM/Member/Form/Selector.tpl templates/CRM/Member/Page/Tab.tpl
 msgid "Auto-renew"
@@ -608,6 +624,14 @@ msgid "Record Renewal Payment?"
 msgstr "更新の支払いを記録?"
 
 #: CRM/Member/Form/MembershipRenewal.php
+msgid "Extend Membership by"
+msgstr "会員権延長"
+
+#: CRM/Member/Form/MembershipRenewal.php
+msgid "Please enter a whole number for how many periods to renew."
+msgstr "更新の周期を整数で入力してください。"
+
+#: CRM/Member/Form/MembershipRenewal.php
 msgid "Renewal Message"
 msgstr "更新メッセージ"
 
@@ -685,6 +709,7 @@ msgid "Auto-renew Reminder Message"
 msgstr "自動更新備忘通知のメッセージ"
 
 #: CRM/Member/Form/MembershipType.php
+#: templates/CRM/Member/Page/MembershipType.tpl
 msgid "Auto-renew Option"
 msgstr "自動更新オプション"
 
@@ -747,14 +772,6 @@ msgid "Please enter valid Fixed Period Rollover Day"
 msgstr "固定期間切替日を正しく入力してください。"
 
 #: CRM/Member/Form/MembershipType.php
-msgid "Please enter renewal reminder days."
-msgstr "更新備忘通知の日付を入力してください。"
-
-#: CRM/Member/Form/MembershipType.php
-msgid "Please select renewal message."
-msgstr "更新メッセージを選択してください。"
-
-#: CRM/Member/Form/MembershipType.php
 msgid "Selected membership type has been deleted."
 msgstr "選択した会員権タイプを削除しました。"
 
@@ -771,8 +788,8 @@ msgid "Member Name or Email"
 msgstr "メンバー名またはメール"
 
 #: CRM/Member/Form/Search.php
-msgid "Find Members"
-msgstr "会員の検索"
+msgid "Find Memberships"
+msgstr "会員権検索"
 
 #: CRM/Member/Form/Task/Batch.php
 msgid "Batch Update for Members"
@@ -864,6 +881,13 @@ msgstr "会員権タイプを削除"
 #: CRM/Member/Page/Tab.php
 msgid "Create Membership"
 msgstr "会員権を作成"
+
+#: CRM/Member/Page/Tab.php
+msgid ""
+"WARNING: If you cancel the recurring contribution associated with this "
+"membership, the membership will no longer be renewed automatically. However,"
+" the current membership status will not be affected."
+msgstr "警告: この会員権に関連付けられている繰返し支援をキャンセルすると、今後、会員権は自動的に更新されなくなります。ただし、現在の会員権状態は変更されません。"
 
 #: CRM/Member/Page/Tab.php
 msgid "Cancel Auto Renew Subscription"
@@ -992,12 +1016,15 @@ msgid ""
 msgstr "会員権料金セットが設定、または有効化されていません。料金セットでは、たとえば複数の会員権を同時に申し込むなど、加入や更新などのさまざまなオプションを設定することができます。料金セットは、<a href='%1'>ここで設定</a>することができます。"
 
 #: templates/CRM/Member/Form/MembershipBlock.tpl
-msgid "Include these membership types"
-msgstr "これらの会員権タイプを追加"
+msgid ""
+"Click <a id = 'memQuickconfig' href='#'>here</a> if you want to configure "
+"the Membership Types below as part of a Price Set, with the added "
+"flexibility and complexity that entails."
+msgstr "料金セットの一部として以下の会員権タイプを設定することで、さらに柔軟で複雑な内容を設定できるようになります。<a id = 'memQuickconfig' href='#'>設定ページ</a>を使ってください。"
 
 #: templates/CRM/Member/Form/MembershipBlock.tpl
-msgid "Auto-renew:"
-msgstr "自動更新:"
+msgid "Include these membership types"
+msgstr "これらの会員権タイプを追加"
 
 #: templates/CRM/Member/Form/MembershipBlock.tpl
 msgid "(Not Available)"
@@ -1024,9 +1051,27 @@ msgstr "会員権の名前とそれぞれの会員権オプションと共に会
 
 #: templates/CRM/Member/Form/MembershipBlock.tpl
 msgid ""
-"You need to have at least one <a href=\"%1\">Membership Type</a> to enable "
-"Member Signup."
-msgstr "会員加入のためには、少なくとも1つ <a href=\"%1\">会員権タイプ</a>を有効化しなければなりません。"
+"You need to have at least one <a href=\"%1\">Membership Type</a> with "
+"'Public' visibility in order to enable self-service Membership Signup and "
+"Renewal."
+msgstr "自分で会員権の登録と更新ができるようにするには、少なくとも1つ、誰にでも見ることができる <a href=\"%1\">会員権タイプ</a> が必要です。"
+
+#: templates/CRM/Member/Form/Membership.hlp
+msgid ""
+"If you check Auto-renew, a recurring payment (subscription) request will be submitted to the selected payment processor. If the request is\n"
+"successful, this membership will be automatically renewed on the last day of the membership period until the recurring payment is\n"
+"cancelled. Membership payment receipt emails will include a link for the member to cancel the auto-renewal."
+msgstr "自動更新をチェックすると繰り返し支払い(加入)の要求が選択した支払いプロセッサに送信されます。この要求が成功すれば、その会員権は、起源の末日に自動更新され、キャンセルされるまで繰り返し支払いが続きます。支払った会員権の受領メールには、自動更新をキャンセルするページヘのリンクが含まれます。"
+
+#: templates/CRM/Member/Form/Membership.hlp
+msgid ""
+"To cancel automatic renewal ...\n"
+"    <ul><li>If this recurring payment uses a processor which has support for integrated cancellation, click \"Cancel\" on this form, and use the\n"
+"    \"Cancel Auto-renew Subscription\" action (click \"more\" in the membership listing row).</li>\n"
+"    <li>If you do not see the \"Cancel Auto-renew Subscription\" action, you will need to cancel the associated Recurring Contribution record from the\n"
+"    Contributions tab. <strong>In this case you must also manually cancel the recurring payment from the payment processor website</strong>.</li>\n"
+"    </ul>"
+msgstr "自動更新を中止するには...    <ul><li>この自動更新支払いが使っている支払いプロセッサで統合キャンセル機能が利用できる場合、このフォームの「キャンセル」をクリックし、「自動更新加入のキャンセル」を使用してください。(会員権一覧の行の「more」をクリック)</li>    <li>「自動更新加入のキャンセル」の操作が表示されない場合、支援タブから、反復支援の関連付けられたレコードをキャンセルしてください。<strong>この場合、支払いプロセッサのサイトで反復支払もキャンセルしてください</strong>。</li>    </ul>"
 
 #: templates/CRM/Member/Form/MembershipRenewal.tpl
 msgid ""
@@ -1068,6 +1113,24 @@ msgstr "この会員権の状態"
 #: templates/CRM/Member/Form/MembershipRenewal.tpl
 msgid "Renewal Payment and Receipt"
 msgstr "更新の支払いと受領証"
+
+#: templates/CRM/Member/Form/MembershipRenewal.tpl
+msgid "Renewal extends membership end date by one membership period"
+msgstr "更新すると、会員権の終了日が1期間延長されます。"
+
+#: templates/CRM/Member/Form/MembershipRenewal.tpl
+msgid "change"
+msgstr "変更"
+
+#: templates/CRM/Member/Form/MembershipRenewal.tpl
+msgid "membership periods"
+msgstr "会員権有効期間"
+
+#: templates/CRM/Member/Form/MembershipRenewal.tpl
+msgid ""
+"Extend the membership end date by this many membership periods. Make sure "
+"the appropriate corresponding fee is entered below."
+msgstr "この会員権継続期間分だけ会員権の終了日を延長します。以下に継続に必要な料金を入力してください。"
 
 #: templates/CRM/Member/Form/MembershipRenewal.tpl
 #: templates/CRM/Member/Form/Membership.tpl
@@ -1354,6 +1417,18 @@ msgstr "この日付の後の会員権の加入は、翌年を含みます。例
 
 #: templates/CRM/Member/Form/MembershipType.tpl
 msgid ""
+"Membership signups after this date cover the rest of the month as well as "
+"the specified number of months"
+msgstr ""
+
+#: templates/CRM/Member/Form/MembershipType.tpl
+msgid ""
+"You cannot modify relationship type because there are membership records "
+"associated with this membership type."
+msgstr "この会員権タイプに関連付けられた会員権レコードが存在するため、関係タイプを変更することはできません。"
+
+#: templates/CRM/Member/Form/MembershipType.tpl
+msgid ""
 "Memberships can be automatically granted to related contacts by selecting a "
 "Relationship Type."
 msgstr "関係タイプを選択することで会員権は自動的に関連連絡先とみなされます。"
@@ -1370,10 +1445,19 @@ msgstr "更新のお知らせ"
 
 #: templates/CRM/Member/Form/MembershipType.tpl
 msgid ""
-"If you would like Membership Renewal Reminder emails sent to members "
-"automatically, you need to create a reminder message template and you need "
-"to configure and periodically run a 'cron' job on your server."
-msgstr "会員に対して自動で会員権更新備忘通知を送るには、備忘通知のメッセージテンプレートを作成し、サーバのcronを設定して定期的に起動させる必要があります。"
+"WARNING: Membership renewal reminders should now be configured using the <a "
+"href=\"%1\">Schedule Reminders</a> feature, which supports multiple renewal "
+"reminders. The reminders configured on this form will no longer function as "
+"of the 4.3 release."
+msgstr "警告: 会員権更新通知の設定は、複数の更新通知を設定することができる<a href=\"%1\">通知のスケジュール</a> 機能を使うようにしてください。このフォームで設定する通知は、バージョン4.3では利用できなくなります。"
+
+#: templates/CRM/Member/Form/MembershipType.tpl
+msgid ""
+"You can use your existing renewal reminder message template(s) with the "
+"Schedule Reminders feature. Then disable this reminder by un-selecting the "
+"Renewal Reminder Message templates on this form. This will prevent duplicate"
+" reminders being sent."
+msgstr "通知スケジュール機能では既存の更新通知メッセージテンプレートを使うことができます。通知を無効にするには、このフォームの 更新通知メッセージのテンプレートの選択を外してください。何通も通知が送信されないようにします。"
 
 #: templates/CRM/Member/Form/MembershipType.tpl
 msgid ""
@@ -1653,8 +1737,8 @@ msgid ""
 msgstr "オフラインの会員権加入を入力し、追跡することができます。手動で個人の連絡先についての会員権を記録するには、<a href=\"%1\">連絡先を検索</a>して連絡先を見つけます。続いて<strong>表示</strong>をクリックして概要ページを表示し、<strong>新規会員権</strong>リンクをクリックします。また、他のソースから<a href=\"%2\">会員権レコードの一括インポート</a>を行うこともできます。"
 
 #: templates/CRM/Member/Page/DashBoard.hlp
-msgid "Refer to CiviMember Guide for more information."
-msgstr "詳しくはCiviMemberガイドを参照してください。"
+msgid "Refer to the online user guide for more information."
+msgstr "詳しくは、オンラインのユーザーガイドを参照してください。"
 
 #: templates/CRM/Member/Page/DashBoard.tpl
 msgid "Membership Summary"
@@ -1814,6 +1898,10 @@ msgid "Fixed Start"
 msgstr "会員権開始日"
 
 #: templates/CRM/Member/Page/MembershipType.tpl
+msgid "Related"
+msgstr ""
+
+#: templates/CRM/Member/Page/MembershipType.tpl
 msgid "Add Membership Type"
 msgstr "会員権タイプを追加"
 
@@ -1836,6 +1924,16 @@ msgid ""
 "this screen. As long as the Status Override flag is checked, the automated "
 "membership status update script will NOT update this membership record."
 msgstr "ここで割り当てた状態は、この画面で再度変更しなければ、そのままで残ります。状態を強制設定のフラグがチェックされている限り、自動で会員権の状態を更新するスクリプトは、この会員権レコードを更新の対象からはずします。"
+
+#: templates/CRM/Member/Page/Tab.hlp
+msgid ""
+"Check this box if someone other than the member is paying for this\n"
+"membership (i.e. a gift membership or gift subscription), and you want to link\n"
+"the payment to the person who is actually paying.  You will be able to select\n"
+"an existing contact or enter a new one. The resulting contribution record will\n"
+"be linked to the payer, and a soft credit for that contribution will be linked to\n"
+"this contact (the member)."
+msgstr "メンバー以外の誰かがこの会員権(たとえば贈られた会員権や購読)の支払いをしていて、実際に支払っている人への支払いにリンクしたい場合は、このチェックボックスをオンにしてください。すると既存の連絡先を選択するか、新規の入力とができるようになります。これにより、支援レコードが支払人にリンクされ、その支援のソフトクレジットがこの連絡先(メンバー)にリンクされます。"
 
 #: templates/CRM/Member/Page/Tab.tpl
 msgid "Click <a href='%1'>Add Membership</a> to record a new membership."
@@ -1887,6 +1985,48 @@ msgstr "失効/非アクティブな会員権"
 msgid "There are no memberships on record for you."
 msgstr "記録にはあなたの会員権はありません。"
 
+#: xml/templates/message_templates/membership_autorenew_billing_html.tpl
+#: xml/templates/message_templates/membership_autorenew_billing_text.tpl
+msgid "Dear %1"
+msgstr "%1様"
+
+#: xml/templates/message_templates/membership_autorenew_billing_html.tpl
+#: xml/templates/message_templates/membership_autorenew_billing_text.tpl
+msgid ""
+"Billing details for your automatically renewed %1 membership have been "
+"updated."
+msgstr "%1 の会員権自動更新についての課金詳細情報を更新しました。"
+
+#: xml/templates/message_templates/membership_autorenew_billing_html.tpl
+#: xml/templates/message_templates/membership_autorenew_billing_text.tpl
+msgid "If you have questions please contact us at %1"
+msgstr "ご質問があれば %1 宛にご連絡ください。"
+
+#: xml/templates/message_templates/membership_autorenew_billing_subject.tpl
+msgid "Membership Autorenewal Billing Updates"
+msgstr "会員権自動更新の課金の更新"
+
+#: xml/templates/message_templates/membership_autorenew_cancelled_html.tpl
+#: xml/templates/message_templates/membership_autorenew_cancelled_text.tpl
+msgid ""
+"The automatic renewal of your %1 membership has been cancelled as requested."
+" This does not affect the status of your membership - you will receive a "
+"separate notification when your membership is up for renewal."
+msgstr "あなたの %1 の会員権の自動更新は、要請によりキャンセルされました。 これは会員権の現在の状態には影響しません。 会員権の更新時期になれば、別途通知を送信します。"
+
+#: xml/templates/message_templates/membership_autorenew_cancelled_html.tpl
+#: xml/templates/message_templates/membership_autorenew_cancelled_text.tpl
+#: xml/templates/message_templates/membership_offline_receipt_html.tpl
+#: xml/templates/message_templates/membership_offline_receipt_text.tpl
+#: xml/templates/message_templates/membership_online_receipt_html.tpl
+#: xml/templates/message_templates/membership_online_receipt_text.tpl
+msgid "Membership Information"
+msgstr "会員権情報"
+
+#: xml/templates/message_templates/membership_autorenew_cancelled_subject.tpl
+msgid "Autorenew Membership Cancellation Notification"
+msgstr "自動更新会員権のキャンセル通知"
+
 #: xml/templates/message_templates/membership_offline_receipt_html.tpl
 #: xml/templates/message_templates/membership_offline_receipt_text.tpl
 msgid "Thanks for your support."
@@ -1897,13 +2037,6 @@ msgstr "ご支援に感謝します。"
 #: xml/templates/message_templates/membership_online_receipt_text.tpl
 msgid "Please print this receipt for your records."
 msgstr "記録のために、この通知を印刷して保管しておいてください。"
-
-#: xml/templates/message_templates/membership_offline_receipt_html.tpl
-#: xml/templates/message_templates/membership_offline_receipt_text.tpl
-#: xml/templates/message_templates/membership_online_receipt_html.tpl
-#: xml/templates/message_templates/membership_online_receipt_text.tpl
-msgid "Membership Information"
-msgstr "会員権情報"
 
 #: xml/templates/message_templates/membership_offline_receipt_subject.tpl
 msgid "Membership Confirmation and Receipt"
@@ -1934,9 +2067,16 @@ msgstr "会員権取引 #"
 
 #: xml/templates/message_templates/membership_online_receipt_html.tpl
 msgid ""
-"This membership will be renewed automatically. You can modify or cancel the "
-"auto-renewal option by <a href=\"%1\">visiting this web page</a>."
-msgstr "この会員権は自動更新になります。自動更新オプションは<a href=\"%1\">このページ</a>.で変更または中止することができます。"
+"This membership will be renewed automatically. You can cancel the auto-"
+"renewal option by <a href=\"%1\">visiting this web page</a>."
+msgstr "この会員権は自動的に更新されます。自動更新オプションは<a href=\"%1\">このページ</a>.で中止することができます。"
+
+#: xml/templates/message_templates/membership_online_receipt_html.tpl
+#: xml/templates/message_templates/membership_online_receipt_text.tpl
+msgid ""
+"You can update billing details for this automatically renewed membership by "
+"<a href=\"%1\">visiting this web page</a>."
+msgstr "自動更新会員権についての課金の詳細は<a href=\"%1\">このページ</a>で更新することができます。"
 
 #: xml/templates/message_templates/membership_online_receipt_html.tpl
 #: xml/templates/message_templates/membership_online_receipt_text.tpl
@@ -1990,200 +2130,424 @@ msgstr "受領証"
 
 #: xml/templates/message_templates/membership_online_receipt_text.tpl
 msgid ""
-"This membership will be renewed automatically. You can modify or cancel the "
-"auto-renewal option by visiting this web page: %1."
-msgstr "この会員権は自動更新になります。自動更新オプションは次のページで変更または中止することができます: %1."
+"This membership will be renewed automatically. You can cancel the auto-"
+"renewal option by visiting this web page: %1."
+msgstr "この会員権は自動的に更新されます。自動更新オプションは次のページでキャンセルできます: %1"
 
 #: xml/templates/message_templates/membership_online_receipt_text.tpl
 msgid "On Behalf Of"
 msgstr "名義"
 
-#: CRM/Member/BAO/Membership.php
-msgid ""
-"Deceased Membership status is missing or not active. <a href='%1'>Click here"
-" to check</a>."
-msgstr "死亡者会員権状態は存在しないか、またはアクティブではありません。<a href='%1'>状態をチェック</a>。"
+#: CRM/Member/DAO/MembershipLog.php CRM/Member/DAO/Membership.php
+#: CRM/Member/DAO/MembershipType.php
+msgid "Max Related"
+msgstr ""
+
+#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipType.php
+#: templates/CRM/Member/Form/MembershipView.tpl
+msgid "Max related"
+msgstr ""
 
 #: CRM/Member/BAO/Membership.php
+msgid "Save Error"
+msgstr ""
+
+#: CRM/Member/BAO/Membership.php
+msgid "Invalid Membership"
+msgstr ""
+
+#: CRM/Member/BAO/Membership.php
+msgid "Processed %1 membership records. Updated %2 records."
+msgstr ""
+
+#: CRM/Member/BAO/MembershipType.php
 msgid ""
-"Processed %1 membership records. Updated %2 records. Sent %3 renewal "
-"reminders."
-msgstr "%1 件の会員権レコードを処理しました。%2 件のレコードを更新しました。%3 件の更新通知を送信しました。"
+"%3. There are some contacts who have this membership type assigned to them. "
+"Search for contacts with this membership type from <a href='%1'>Find "
+"Members</a>. If you are still getting this message after deleting these "
+"memberships, there may be contacts in the Trash (deleted) with this "
+"membership type. Try using <a href=\"%2\">Advanced Search</a> and checking "
+"\"Search in Trash\"."
+msgstr ""
+
+#: CRM/Member/BAO/MembershipType.php
+msgid ""
+"%2. This Membership Type is used in an <a href='%1'>Online Contribution "
+"page</a>. Uncheck this membership type in the Memberships tab."
+msgstr ""
+
+#: CRM/Member/BAO/MembershipType.php
+msgid "Membership Not Deleted"
+msgstr ""
+
+#: CRM/Member/BAO/Query.php
+msgid "Membership is a Test"
+msgstr ""
+
+#: CRM/Member/BAO/Query.php
+msgid "Membership is Auto-Renew"
+msgstr ""
+
+#: CRM/Member/BAO/Query.php
+msgid "Membership is NOT Auto-Renew"
+msgstr ""
+
+#: CRM/Member/BAO/Query.php
+msgid "Membership is Pay Later"
+msgstr ""
+
+#: CRM/Member/BAO/Query.php
+msgid "Membership is NOT Pay Later"
+msgstr ""
+
+#: CRM/Member/BAO/Query.php
+msgid "Primary Member?"
+msgstr ""
+
+#: CRM/Member/BAO/Query.php
+msgid "Pay Later?"
+msgstr ""
+
+#: CRM/Member/BAO/Query.php
+msgid "Auto-Renew?"
+msgstr ""
+
+#: CRM/Member/BAO/Query.php
+msgid "Membership is a Test?"
+msgstr ""
+
+#: CRM/Member/Form/MembershipBlock.php
+msgid ""
+"The membership price set associated with this online contribution allows a "
+"user to select BOTH an auto-renew AND a non-auto-renew membership. This "
+"requires submitting multiple processor transactions, and is not supported "
+"for one or more of the payment processors enabled under the Fees tab."
+msgstr ""
+
+#: CRM/Member/Form/Membership.php
+msgid ""
+"This Membership is linked to a contribution. You must have 'delete in "
+"CiviContribute' permission in order to delete this record."
+msgstr ""
+
+#: CRM/Member/Form/Membership.php
+msgid "Membership for"
+msgstr ""
+
+#: CRM/Member/Form/Membership.php
+msgid "Please enter an integer for the number of terms."
+msgstr ""
+
+#: CRM/Member/Form/Membership.php
+msgid "Please enter the financial Type."
+msgstr ""
+
+#: CRM/Member/Form/Membership.php
+msgid "Membership Status Error"
+msgstr ""
 
 #: CRM/Member/Form/MembershipRenewal.php
-msgid "Extend Membership by"
-msgstr "会員権延長"
+msgid "Please select a Financial Type."
+msgstr ""
 
-#: CRM/Member/Form/MembershipRenewal.php
-msgid "Please enter a whole number for how many periods to renew."
-msgstr "更新の周期を整数で入力してください。"
+#: CRM/Member/Form/MembershipType.php
+msgid "Please select valid organization contact."
+msgstr ""
 
-#: CRM/Member/Form/Search.php
-msgid "Find Memberships"
-msgstr "会員権検索"
+#: CRM/Member/Form/MembershipType.php
+msgid "Please enter a financial type."
+msgstr ""
 
-#: templates/CRM/Member/Form/MembershipBlock.tpl
+#: CRM/Member/Form/MembershipType.php
+msgid "Please enter the financial type."
+msgstr ""
+
+#: CRM/Member/Form/MembershipView.php
+msgid "Cancel Related Membership"
+msgstr ""
+
+#: CRM/Member/Form/MembershipView.php
+msgid "Create Related Membership"
+msgstr ""
+
+#: CRM/Member/Form/MembershipView.php
+msgid "Related membership for %1 has been deleted."
+msgstr ""
+
+#: CRM/Member/Form/MembershipView.php
+msgid "Membership Deleted"
+msgstr ""
+
+#: CRM/Member/Form/MembershipView.php
+msgid "Manual Assignment of Related Membership"
+msgstr ""
+
+#: CRM/Member/Form/MembershipView.php
+msgid "Related membership for %1 has been created."
+msgstr ""
+
+#: CRM/Member/Form/MembershipView.php
+msgid "Membership Added"
+msgstr ""
+
+#: CRM/Member/Form/MembershipView.php
+msgid "Invalid action specified in URL"
+msgstr ""
+
+#: CRM/Member/Form/MembershipView.php
+msgid "Unlimited"
+msgstr ""
+
+#: CRM/Member/Form/MembershipView.php
+msgid "None available"
+msgstr ""
+
+#: CRM/Member/Form/MembershipView.php
+msgid "%1 available"
+msgstr ""
+
+#: CRM/Member/Form/MembershipView.php
+msgid "View Membership for"
+msgstr ""
+
+#: CRM/Member/Form/Task/Batch.php
+msgid "Unsupport Field Type"
+msgstr ""
+
+#: CRM/Member/Form/Task/Delete.php
+msgid "Deleted Member(s)"
+msgstr ""
+
+#: CRM/Member/Form/Task/PickProfile.php
 msgid ""
-"You need to have at least one <a href=\"%1\">Membership Type</a> with "
-"'Public' visibility in order to enable self-service Membership Signup and "
-"Renewal."
-msgstr "自分で会員権の登録と更新ができるようにするには、少なくとも1つ、誰にでも見ることができる <a href=\"%1\">会員権タイプ</a> が必要です。"
-
-#: templates/CRM/Member/Form/Membership.hlp
-msgid ""
-"If you check Auto-renew, a recurring payment (subscription) request will be submitted to the selected payment processor. If the request is\n"
-"successful, this membership will be automatically renewed on the last day of the membership period until the recurring payment is\n"
-"cancelled. Membership payment receipt emails will include a link for the member to cancel the auto-renewal."
-msgstr "自動更新をチェックすると繰り返し支払い(加入)の要求が選択した支払いプロセッサに送信されます。この要求が成功すれば、その会員権は、起源の末日に自動更新され、キャンセルされるまで繰り返し支払いが続きます。支払った会員権の受領メールには、自動更新をキャンセルするページヘのリンクが含まれます。"
-
-#: templates/CRM/Member/Form/Membership.hlp
-msgid ""
-"To cancel automatic renewal ...\n"
-"    <ul><li>If this recurring payment uses a processor which has support for integrated cancellation, click \"Cancel\" on this form, and use the\n"
-"    \"Cancel Auto-renew Subscription\" action (click \"more\" in the membership listing row).</li>\n"
-"    <li>If you do not see the \"Cancel Auto-renew Subscription\" action, you will need to cancel the associated Recurring Contribution record from the\n"
-"    Contributions tab. <strong>In this case you must also manually cancel the recurring payment from the payment processor website</strong>.</li>\n"
-"    </ul>"
-msgstr "自動更新を中止するには...    <ul><li>この自動更新支払いが使っている支払いプロセッサで統合キャンセル機能が利用できる場合、このフォームの「キャンセル」をクリックし、「自動更新加入のキャンセル」を使用してください。(会員権一覧の行の「more」をクリック)</li>    <li>「自動更新加入のキャンセル」の操作が表示されない場合、支援タブから、反復支援の関連付けられたレコードをキャンセルしてください。<strong>この場合、支払いプロセッサのサイトで反復支払もキャンセルしてください</strong>。</li>    </ul>"
-
-#: templates/CRM/Member/Form/MembershipRenewal.tpl
-msgid "Renewal extends membership end date by one membership period"
-msgstr "更新すると、会員権の終了日が1期間延長されます。"
-
-#: templates/CRM/Member/Form/MembershipRenewal.tpl
-msgid "change"
-msgstr "変更"
-
-#: templates/CRM/Member/Form/MembershipRenewal.tpl
-msgid "membership periods"
-msgstr "会員権有効期間"
-
-#: templates/CRM/Member/Form/MembershipRenewal.tpl
-msgid ""
-"Extend the membership end date by this many membership periods. Make sure "
-"the appropriate corresponding fee is entered below."
-msgstr "この会員権継続期間分だけ会員権の終了日を延長します。以下に継続に必要な料金を入力してください。"
-
-#: templates/CRM/Member/Form/MembershipType.tpl
-msgid ""
-"You cannot modify relationship type because there are membership records "
-"associated with this membership type."
-msgstr "この会員権タイプに関連付けられた会員権レコードが存在するため、関係タイプを変更することはできません。"
-
-#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
-msgid "Record Payment from a Different Contact?"
-msgstr "異なる連絡先からの支払いを記録しますか?"
-
-#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
-msgid "Membership payment is : "
-msgstr "会員権支払いは: "
-
-#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
-msgid "-"
-msgstr "-"
-
-#: CRM/Member/BAO/Membership.php
-msgid ""
-"The membership cannot be saved. No valid membership status for given dates. "
-"Please provide at least start_date. Optionally end_date and join_date."
-msgstr "会員権が保存できません。指定された日付には有効な会員権の状態がありません。少なくともstart_dateを指定してください。end_dataとjoin_dateを指定することもできます。"
+"The maximum number of members you can select for Batch Update is %1. You "
+"have selected %2. Please select fewer members from your search results and "
+"try again."
+msgstr ""
 
 #: CRM/Member/Page/Tab.php
+msgid "%1 created"
+msgstr ""
+
+#: CRM/Member/Page/Tab.php
+msgid "%1 out of %2"
+msgstr ""
+
+#: CRM/Member/Page/Tab.php
+msgid "N/A"
+msgstr ""
+
+#: templates/CRM/Member/Form/Membership.js
+#: templates/CRM/Member/Form/MembershipStandalone.js
+msgid "and end date of %1"
+msgstr ""
+
+#: templates/CRM/Member/Form/Membership.js
+#: templates/CRM/Member/Form/MembershipStandalone.js
 msgid ""
-"WARNING: If you cancel the recurring contribution associated with this "
-"membership, the membership will no longer be renewed automatically. However,"
-" the current membership status will not be affected."
-msgstr "警告: この会員権に関連付けられている繰返し支援をキャンセルすると、今後、会員権は自動的に更新されなくなります。ただし、現在の会員権状態は変更されません。"
+"This contact has an existing %1 membership record with %2 "
+"status%3.<ul><li><a href=\"%4\">Renew the existing membership "
+"instead</a></li><li><a href=\"%5\">View all existing and / or expired "
+"memberships for this contact</a></li></ul>"
+msgstr ""
+
+#: templates/CRM/Member/Form/Membership.js
+#: templates/CRM/Member/Form/MembershipStandalone.js
+msgid "Duplicate Membership?"
+msgstr ""
+
+#: templates/CRM/Member/Form/MembershipBlock.hlp
+msgid "Separate Payment"
+msgstr ""
+
+#: templates/CRM/Member/Form/MembershipBlock.hlp
+msgid ""
+"The contribution amount covering the membership fee will use the financial "
+"type configured with the selected membership type (see the membership types "
+"configuration tool to review those settings). Any additional contribution "
+"will use the financial type configured for this online contribution page."
+msgstr ""
+
+#: templates/CRM/Member/Form/MembershipBlock.hlp
+msgid "Display Fee"
+msgstr ""
 
 #: templates/CRM/Member/Form/MembershipBlock.tpl
 msgid ""
-"Click <a id = 'memQuickconfig' href='#'>here</a> if you want to configure "
-"the Membership Types below as part of a Price Set, with the added "
-"flexibility and complexity that entails."
-msgstr "料金セットの一部として以下の会員権タイプを設定することで、さらに柔軟で複雑な内容を設定できるようになります。<a id = 'memQuickconfig' href='#'>設定ページ</a>を使ってください。"
+"Click <a id='memQuickconfig' href='#'>here</a> if you want to configure the "
+"Membership Types below as part of a Price Set, with the added flexibility "
+"and complexity that entails."
+msgstr ""
+
+#: templates/CRM/Member/Form/Membership.hlp
+msgid ""
+"A recurring payment (subscription) request will be submitted to the selected payment processor. If the request is\n"
+"successful, this membership will be automatically renewed on the last day of the membership period until the recurring payment is\n"
+"cancelled. Membership payment receipt emails will include a link for the member to cancel the auto-renewal."
+msgstr ""
+
+#: templates/CRM/Member/Form/MembershipRelated.tpl
+msgid "Related Contacts/Memberships"
+msgstr ""
+
+#: templates/CRM/Member/Form/MembershipRelated.tpl
+msgid "Relationship Start"
+msgstr ""
+
+#: templates/CRM/Member/Form/MembershipRelated.tpl
+msgid "Relationship End"
+msgstr ""
+
+#: templates/CRM/Member/Form/MembershipRenewal.tpl
+msgid ""
+"Use this form to Renew Membership Record on behalf of %1.\n"
+"        <strong>A %2 transaction will be submitted</strong>\n"
+"        using the selected payment processor."
+msgstr ""
+
+#: templates/CRM/Member/Form/Membership.tpl
+#: templates/CRM/Member/Form/MembershipType.tpl
+msgid "Maximum number of related memberships (leave blank for unlimited)."
+msgstr ""
+
+#: templates/CRM/Member/Form/Membership.tpl
+msgid ""
+"Set the membership end date this many membership periods from now. Make sure"
+" the appropriate corresponding fee is entered below."
+msgstr ""
+
+#: templates/CRM/Member/Form/Membership.tpl
+msgid "Manual membership and price"
+msgstr ""
 
 #: templates/CRM/Member/Form/MembershipType.tpl
 msgid ""
-"WARNING: Membership renewal reminders should now be configured using the <a "
-"href=\"%1\">Schedule Reminders</a> feature, which supports multiple renewal "
-"reminders. The reminders configured on this form will no longer function as "
-"of the 4.3 release."
-msgstr "警告: 会員権更新通知の設定は、複数の更新通知を設定することができる<a href=\"%1\">通知のスケジュール</a> 機能を使うようにしてください。このフォームで設定する通知は、バージョン4.3では利用できなくなります。"
+"Description of this membership type for internal use. May include "
+"eligibility, benefits, terms, etc."
+msgstr ""
 
 #: templates/CRM/Member/Form/MembershipType.tpl
 msgid ""
-"You can use your existing renewal reminder message template(s) with the "
-"Schedule Reminders feature. Then disable this reminder by un-selecting the "
-"Renewal Reminder Message templates on this form. This will prevent duplicate"
-" reminders being sent."
-msgstr "通知スケジュール機能では既存の更新通知メッセージテンプレートを使うことができます。通知を無効にするには、このフォームの 更新通知メッセージのテンプレートの選択を外してください。何通も通知が送信されないようにします。"
+"Select the financial type assigned to fees for this membership type (for "
+"example 'Membership Fees'). This is required for all membership types - "
+"including free or complimentary memberships."
+msgstr ""
+
+#: templates/CRM/Member/Form/MembershipType.tpl
+msgid ""
+"Membership signups on or after this date cover the following calendar year "
+"as well. Example: If the rollover day is November 30, membership period for "
+"signups during December will cover the following year."
+msgstr ""
+
+#: templates/CRM/Member/Form/MembershipType.tpl
+msgid ""
+"Membership signups on or after this day of the month cover the rest of the "
+"month plus the specified number of months."
+msgstr ""
+
+#: templates/CRM/Member/Form/MembershipType.tpl
+msgid ""
+"Configure membership renewal reminders using <a href=\"%1\">Schedule "
+"Reminders</a>. If you have previously configured renewal reminder templates,"
+" you can re-use them with your new scheduled reminders."
+msgstr ""
+
+#: templates/CRM/Member/Form/Search.hlp
+msgid "Primary Members"
+msgstr ""
+
+#: templates/CRM/Member/Form/Search.hlp
+msgid ""
+"Select \"Yes\" to display only primary members (those contacts who have a "
+"membership directly attached to their record)"
+msgstr ""
+
+#: templates/CRM/Member/Form/Search.hlp
+msgid ""
+"Select \"No\" to display only related records (those who inherit membership "
+"through a relationship as defined in the membership type configuration)."
+msgstr ""
+
+#: templates/CRM/Member/Form/Search.hlp
+msgid ""
+"Select neither to show all members, regardless of whether they are the "
+"direct member or inherit it through a relationship,"
+msgstr ""
 
 #: templates/CRM/Member/Page/DashBoard.hlp
-msgid "Refer to the online user guide for more information."
-msgstr "詳しくは、オンラインのユーザーガイドを参照してください。"
+msgid "Member Dashboard"
+msgstr ""
+
+#: templates/CRM/Member/Page/MembershipType.hlp
+msgid ""
+"Use this field to configure Membership Types where memberships are "
+"automatically granted to related contacts. Examples:"
+msgstr ""
+
+#: templates/CRM/Member/Page/MembershipType.hlp
+msgid "Membership Period"
+msgstr ""
 
 #: templates/CRM/Member/Page/MembershipType.tpl
-msgid "Related"
+msgid ""
+"Configure membership renewal reminders using <a href=\"%1\">Schedule "
+"Reminders</a>."
 msgstr ""
 
 #: templates/CRM/Member/Page/Tab.hlp
+msgid "Override Status"
+msgstr ""
+
+#: CRM/Member/BAO/Membership.php
 msgid ""
-"Check this box if someone other than the member is paying for this\n"
-"membership (i.e. a gift membership or gift subscription), and you want to link\n"
-"the payment to the person who is actually paying.  You will be able to select\n"
-"an existing contact or enter a new one. The resulting contribution record will\n"
-"be linked to the payer, and a soft credit for that contribution will be linked to\n"
-"this contact (the member)."
-msgstr "メンバー以外の誰かがこの会員権(たとえば贈られた会員権や購読)の支払いをしていて、実際に支払っている人への支払いにリンクしたい場合は、このチェックボックスをオンにしてください。すると既存の連絡先を選択するか、新規の入力とができるようになります。これにより、支援レコードが支払人にリンクされ、その支援のソフトクレジットがこの連絡先(メンバー)にリンクされます。"
+"The membership cannot be saved because the status cannot be calculated."
+msgstr ""
 
-#: xml/templates/message_templates/membership_autorenew_billing_html.tpl
-#: xml/templates/message_templates/membership_autorenew_billing_text.tpl
-msgid "Dear %1"
-msgstr "%1様"
+#: CRM/Member/BAO/Membership.php
+msgid "Invalid date \"%1\" (must have form yyyy-mm-dd)."
+msgstr ""
 
-#: xml/templates/message_templates/membership_autorenew_billing_html.tpl
-#: xml/templates/message_templates/membership_autorenew_billing_text.tpl
+#: CRM/Member/BAO/MembershipStatus.php
 msgid ""
-"Billing details for your automatically renewed %1 membership have been "
-"updated."
-msgstr "%1 の会員権自動更新についての課金詳細情報を更新しました。"
+"This membership status cannot be deleted as memberships exist with this "
+"status"
+msgstr ""
 
-#: xml/templates/message_templates/membership_autorenew_billing_html.tpl
-#: xml/templates/message_templates/membership_autorenew_billing_text.tpl
-msgid "If you have questions please contact us at %1"
-msgstr "ご質問があれば %1 宛にご連絡ください。"
-
-#: xml/templates/message_templates/membership_autorenew_billing_subject.tpl
-msgid "Membership Autorenewal Billing Updates"
-msgstr "会員権自動更新の課金の更新"
-
-#: xml/templates/message_templates/membership_autorenew_cancelled_html.tpl
-#: xml/templates/message_templates/membership_autorenew_cancelled_text.tpl
+#: CRM/Member/Form/MembershipBlock.php
 msgid ""
-"The automatic renewal of your %1 membership has been cancelled as requested."
-" This does not affect the status of your membership - you will receive a "
-"separate notification when your membership is up for renewal."
-msgstr "あなたの %1 の会員権の自動更新は、要請によりキャンセルされました。 これは会員権の現在の状態には影響しません。 会員権の更新時期になれば、別途通知を送信します。"
+"You cannot select more than %1 choices. For more complex functionality, "
+"please use a Price Set."
+msgstr ""
 
-#: xml/templates/message_templates/membership_autorenew_cancelled_subject.tpl
-msgid "Autorenew Membership Cancellation Notification"
-msgstr "自動更新会員権のキャンセル通知"
-
-#: xml/templates/message_templates/membership_online_receipt_html.tpl
+#: CRM/Member/Form/Membership.php
 msgid ""
-"This membership will be renewed automatically. You can cancel the auto-"
-"renewal option by <a href=\"%1\">visiting this web page</a>."
-msgstr "この会員権は自動的に更新されます。自動更新オプションは<a href=\"%1\">このページ</a>.で中止することができます。"
+"There are no configured membership statuses. You cannot add this membership "
+"until your membership statuses are correctly configured"
+msgstr ""
 
-#: xml/templates/message_templates/membership_online_receipt_html.tpl
-#: xml/templates/message_templates/membership_online_receipt_text.tpl
-msgid ""
-"You can update billing details for this automatically renewed membership by "
-"<a href=\"%1\">visiting this web page</a>."
-msgstr "自動更新会員権についての課金の詳細は<a href=\"%1\">このページ</a>で更新することができます。"
+#: CRM/Member/Form/MembershipStatus.php
+msgid "Delete Failed"
+msgstr ""
 
-#: xml/templates/message_templates/membership_online_receipt_text.tpl
+#: CRM/Member/Form/MembershipType.php
+msgid "Membership Type Not Deleted"
+msgstr ""
+
+#: CRM/Member/Form/Task/Label.php
+msgid "Print one label per Membership (rather than per contact)"
+msgstr ""
+
+#: CRM/Member/Form/Task/Label.php
 msgid ""
-"This membership will be renewed automatically. You can cancel the auto-"
-"renewal option by visiting this web page: %1."
-msgstr "この会員権は自動的に更新されます。自動更新オプションは次のページでキャンセルできます: %1"
+"As you are printing one label per membership your merge settings are being "
+"ignored"
+msgstr ""
+
+#: CRM/Member/Task.php
+msgid "Print PDF Letters for Memberships"
+msgstr ""
+
+#: templates/CRM/Member/Form/Task/PDFLetter.tpl
+msgid "Membership Letter (PDF)"
+msgstr ""
