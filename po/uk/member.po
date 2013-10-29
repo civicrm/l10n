@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
 "Report-Msgid-Bugs-To: http://issues.civicrm.org/\n"
-"POT-Creation-Date: 2013-05-31 09:03-0400\n"
-"PO-Revision-Date: 2013-09-19 06:21+0000\n"
-"Last-Translator: Shemet <shemet.s@ua.fm>\n"
+"POT-Creation-Date: 2013-10-08 08:14-0400\n"
+"PO-Revision-Date: 2013-10-08 12:41+0000\n"
+"Last-Translator: Mathieu Lutfy <mathieu@bidon.ca>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/civicrm/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,6 +65,18 @@ msgid "Membership renewed automatically"
 msgstr "Членство оновлене автоматично"
 
 #: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
+msgid "Record Payment from a Different Contact?"
+msgstr "Записати до обліку платіж Іншого контакту?"
+
+#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
+msgid "Membership payment is : "
+msgstr "Членський платіж становить:"
+
+#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
+msgid "-"
+msgstr "-"
+
+#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
 msgid "Send Confirmation and Receipt?"
 msgstr "Відправити підтвердження та чек?"
 
@@ -72,11 +84,13 @@ msgstr "Відправити підтвердження та чек?"
 msgid "The new membership End Date is %1."
 msgstr "Нова дата закінчення членства становить %1."
 
-#: CRM/Member/Form/MembershipType.php CRM/Member/Page/AJAX.php
+#: CRM/Member/Form/MembershipRenewal.php CRM/Member/Form/MembershipType.php
+#: CRM/Member/Page/AJAX.php
 msgid "No auto-renew option"
 msgstr "Відсутня опція автоматичного подовження"
 
-#: CRM/Member/Form/MembershipType.php CRM/Member/Page/AJAX.php
+#: CRM/Member/Form/MembershipRenewal.php CRM/Member/Form/MembershipType.php
+#: CRM/Member/Page/AJAX.php
 msgid "Auto-renew required "
 msgstr "Автоматичне подовження є необхідним"
 
@@ -134,8 +148,9 @@ msgstr "Відсутній дійсний статус членства для �
 
 #: CRM/Member/BAO/Membership.php
 msgid ""
-"The membership cannot be saved. No valid membership status for given dates"
-msgstr "Членство не може бути збережене. Відсутній дійсний статус членства на задані дати."
+"The membership cannot be saved. No valid membership status for given dates. "
+"Please provide at least start_date. Optionally end_date and join_date."
+msgstr "Членство не може бути збережене. Відсутній дійсний статус членства на задані дати. Будь ласка, надайте принаймні значення start_date. Опціонально - end_date та join_date."
 
 #: CRM/Member/BAO/Membership.php
 msgid "Please select one of the memberships."
@@ -254,18 +269,6 @@ msgstr "Лише Пов'язані члени"
 #: CRM/Member/BAO/Query.php
 msgid "All Members"
 msgstr "Усі Члени"
-
-#: CRM/Member/BAO/Query.php
-msgid "Member Since - From"
-msgstr "Член з"
-
-#: CRM/Member/BAO/Query.php
-msgid "Start Date - From"
-msgstr "Дата початку - Від"
-
-#: CRM/Member/BAO/Query.php
-msgid "End Date - From"
-msgstr "Дата Закінчення - Від"
 
 #: CRM/Member/BAO/Query.php
 msgid "Find Test Memberships?"
@@ -424,6 +427,7 @@ msgid "Give option"
 msgstr "Надати опцію"
 
 #: CRM/Member/Form/MembershipBlock.php
+#: templates/CRM/Member/Form/MembershipBlock.tpl
 #: templates/CRM/Member/Form/MembershipView.tpl
 #: templates/CRM/Member/Form/Selector.tpl templates/CRM/Member/Page/Tab.tpl
 msgid "Auto-renew"
@@ -705,6 +709,7 @@ msgid "Auto-renew Reminder Message"
 msgstr "Повідомлення нагадування про автоматичне подовження"
 
 #: CRM/Member/Form/MembershipType.php
+#: templates/CRM/Member/Page/MembershipType.tpl
 msgid "Auto-renew Option"
 msgstr "Опція автоматичного подовження"
 
@@ -765,14 +770,6 @@ msgstr "Будь ласка, зазначте дійсний день почат
 #: CRM/Member/Form/MembershipType.php
 msgid "Please enter valid Fixed Period Rollover Day"
 msgstr "Будь ласка, зазначте дійсний день повтору фіксованого періоду"
-
-#: CRM/Member/Form/MembershipType.php
-msgid "Please enter renewal reminder days."
-msgstr "Будь ласка, зазначте дні нагадування про подовження."
-
-#: CRM/Member/Form/MembershipType.php
-msgid "Please select renewal message."
-msgstr "Будь ласка, оберіть повідомлення подовження."
 
 #: CRM/Member/Form/MembershipType.php
 msgid "Selected membership type has been deleted."
@@ -884,6 +881,13 @@ msgstr "Видалити тип членства"
 #: CRM/Member/Page/Tab.php
 msgid "Create Membership"
 msgstr "Створити членство"
+
+#: CRM/Member/Page/Tab.php
+msgid ""
+"WARNING: If you cancel the recurring contribution associated with this "
+"membership, the membership will no longer be renewed automatically. However,"
+" the current membership status will not be affected."
+msgstr "ПОПЕРЕДЖЕННЯ: Якщо Ви відміните повторюваний внесок, пов'язаний з цим членством, членство більше не буде подовжуватися автоматично. Однак, це не вплине на поточний статус членства."
 
 #: CRM/Member/Page/Tab.php
 msgid "Cancel Auto Renew Subscription"
@@ -1012,12 +1016,15 @@ msgid ""
 msgstr "Не було налаштовано/активовано жодного Набору Цін Членства для Вашого сайту. Набори цін дозволяють Вам налаштувати більш складні опції реєстрації та подовження членства, включаючи можливість одночасно реєструвати кілька типів членства. Натисніть <a href='%1'>тут</a> якщо Ви хочете налаштувати набори цін для Вашого сайту."
 
 #: templates/CRM/Member/Form/MembershipBlock.tpl
-msgid "Include these membership types"
-msgstr "Включити ці типи членства"
+msgid ""
+"Click <a id = 'memQuickconfig' href='#'>here</a> if you want to configure "
+"the Membership Types below as part of a Price Set, with the added "
+"flexibility and complexity that entails."
+msgstr "Натисніть <a id = 'memQuickconfig' href='#'>тут</a>, якщо Ви хочете налаштувати Типи Членства нижче як частину Набору Цін з відповідним збільшенням гнучкості та складності."
 
 #: templates/CRM/Member/Form/MembershipBlock.tpl
-msgid "Auto-renew:"
-msgstr "Автоматичне подовження:"
+msgid "Include these membership types"
+msgstr "Включити ці типи членства"
 
 #: templates/CRM/Member/Form/MembershipBlock.tpl
 msgid "(Not Available)"
@@ -1410,6 +1417,12 @@ msgstr "Членства, зареєстровані пізніше цієї д�
 
 #: templates/CRM/Member/Form/MembershipType.tpl
 msgid ""
+"Membership signups after this date cover the rest of the month as well as "
+"the specified number of months"
+msgstr ""
+
+#: templates/CRM/Member/Form/MembershipType.tpl
+msgid ""
 "You cannot modify relationship type because there are membership records "
 "associated with this membership type."
 msgstr "Ви не можете змінити тип відносин тому, що існують записи членства, пов'язані з цим типом членства."
@@ -1432,10 +1445,19 @@ msgstr "Нагадування подовження"
 
 #: templates/CRM/Member/Form/MembershipType.tpl
 msgid ""
-"If you would like Membership Renewal Reminder emails sent to members "
-"automatically, you need to create a reminder message template and you need "
-"to configure and periodically run a 'cron' job on your server."
-msgstr "Якщо Ви бажаєте, щоб Нагадування про подовження членства надсилалися користувачам автоматично, Вам необхідно створити шаблон повідомлення про нагадування, а також налаштувати і періодично запускати \"крон\"-службу на Вашому сервері."
+"WARNING: Membership renewal reminders should now be configured using the <a "
+"href=\"%1\">Schedule Reminders</a> feature, which supports multiple renewal "
+"reminders. The reminders configured on this form will no longer function as "
+"of the 4.3 release."
+msgstr "ПОПЕРЕДЖЕННЯ: Нагадування про подовження членства повинні налаштовуватися через опцію <a href=\"%1\">Запланувати Нагадування</a>, яка підтримує численні нагадування про подовження. Нагадування, налаштовані на даній формі, більше не будуть працювати з версії 4.3."
+
+#: templates/CRM/Member/Form/MembershipType.tpl
+msgid ""
+"You can use your existing renewal reminder message template(s) with the "
+"Schedule Reminders feature. Then disable this reminder by un-selecting the "
+"Renewal Reminder Message templates on this form. This will prevent duplicate"
+" reminders being sent."
+msgstr "Ви можете використати свій існуючий шаблон (шаблони) нагадування про подовження з функцією Запланувати Нагадування. Потім вимкніть це нагадування, вимкнувши шаблони Повідомлень нагадувань про подовження на цій формі. Це попередить надсилання повторних нагадувань."
 
 #: templates/CRM/Member/Form/MembershipType.tpl
 msgid ""
@@ -1721,8 +1743,8 @@ msgid ""
 msgstr "Ви можете також ввести та відслідковувати офлайн реєстрацію членів. Для того, щоб ввести членство вручну для індивідуалних контактів, використовуйте <a href='%1'> Знайти Контакти</a> для того, щоб знайти контакт. Потім клікніть <strong>Переглянути</strong>, щоб перейти до його сторінки з інформацією та натисніть посилання <strong>Нове Членство</strong>. Ви також можете <a href='%2'> імпортувати пакети записів про членство</a> з інших джерел."
 
 #: templates/CRM/Member/Page/DashBoard.hlp
-msgid "Refer to CiviMember Guide for more information."
-msgstr "За більш детальною інформацією зверніться до Довідника по CiviMember."
+msgid "Refer to the online user guide for more information."
+msgstr "За більш детальною інформацією зверніться до он-лайн довідки."
 
 #: templates/CRM/Member/Page/DashBoard.tpl
 msgid "Membership Summary"
@@ -1882,6 +1904,10 @@ msgid "Fixed Start"
 msgstr "Фіксований початок"
 
 #: templates/CRM/Member/Page/MembershipType.tpl
+msgid "Related"
+msgstr "Пов'язано"
+
+#: templates/CRM/Member/Page/MembershipType.tpl
 msgid "Add Membership Type"
 msgstr "Додати Тип Членства"
 
@@ -1904,6 +1930,16 @@ msgid ""
 "this screen. As long as the Status Override flag is checked, the automated "
 "membership status update script will NOT update this membership record."
 msgstr "Статус, який Ви призначите, буде мати дію доки не буде змінений на цій сторінці. Поки перемикач Змінити Статус увімкнений, автоматичне оновлення статусів членства НЕ буде оновлювати цей запис щодо членства."
+
+#: templates/CRM/Member/Page/Tab.hlp
+msgid ""
+"Check this box if someone other than the member is paying for this\n"
+"membership (i.e. a gift membership or gift subscription), and you want to link\n"
+"the payment to the person who is actually paying.  You will be able to select\n"
+"an existing contact or enter a new one. The resulting contribution record will\n"
+"be linked to the payer, and a soft credit for that contribution will be linked to\n"
+"this contact (the member)."
+msgstr "Увімкніть цей перемикач, якщо за дане членство сплачує не член, а хтось інший (напр., членство або підписка у подарунок), і Ви бажаєте прив'язати платіж до особи, яка платить в дійсності. Ви зможете обрати існуючий контакт або ввести новий. Підсумковий запис внеску буде пов'язано з платником, а м'який кредит для цього внеску буде пов'язано з цим контактом (членом)."
 
 #: templates/CRM/Member/Page/Tab.tpl
 msgid "Click <a href='%1'>Add Membership</a> to record a new membership."
@@ -1955,6 +1991,48 @@ msgstr "Завершені / Неактивні членства"
 msgid "There are no memberships on record for you."
 msgstr "За вашим запитом членство відсутні."
 
+#: xml/templates/message_templates/membership_autorenew_billing_html.tpl
+#: xml/templates/message_templates/membership_autorenew_billing_text.tpl
+msgid "Dear %1"
+msgstr "Шавновний (а) %1"
+
+#: xml/templates/message_templates/membership_autorenew_billing_html.tpl
+#: xml/templates/message_templates/membership_autorenew_billing_text.tpl
+msgid ""
+"Billing details for your automatically renewed %1 membership have been "
+"updated."
+msgstr "Платіжна інформація про Ваше автоматично подовження членства %1 була оновлена."
+
+#: xml/templates/message_templates/membership_autorenew_billing_html.tpl
+#: xml/templates/message_templates/membership_autorenew_billing_text.tpl
+msgid "If you have questions please contact us at %1"
+msgstr "Якщо у Вас є питання, будь ласка, зв'яжіться з нами за %1"
+
+#: xml/templates/message_templates/membership_autorenew_billing_subject.tpl
+msgid "Membership Autorenewal Billing Updates"
+msgstr "Автоматично оновити платіжну інформацію Членства"
+
+#: xml/templates/message_templates/membership_autorenew_cancelled_html.tpl
+#: xml/templates/message_templates/membership_autorenew_cancelled_text.tpl
+msgid ""
+"The automatic renewal of your %1 membership has been cancelled as requested."
+" This does not affect the status of your membership - you will receive a "
+"separate notification when your membership is up for renewal."
+msgstr "Функція автоматичного подовження Вашого членства %1 успішно відмінена, згідно запиту. Це не впливає на статус Вашого членства - Ви отримаєте окреме повідомлення, коли Вам буде потрібно поновити Ваше членство."
+
+#: xml/templates/message_templates/membership_autorenew_cancelled_html.tpl
+#: xml/templates/message_templates/membership_autorenew_cancelled_text.tpl
+#: xml/templates/message_templates/membership_offline_receipt_html.tpl
+#: xml/templates/message_templates/membership_offline_receipt_text.tpl
+#: xml/templates/message_templates/membership_online_receipt_html.tpl
+#: xml/templates/message_templates/membership_online_receipt_text.tpl
+msgid "Membership Information"
+msgstr "Інформація щодо членства"
+
+#: xml/templates/message_templates/membership_autorenew_cancelled_subject.tpl
+msgid "Autorenew Membership Cancellation Notification"
+msgstr "Повідомлення про відміну автоматичного подовження членства"
+
 #: xml/templates/message_templates/membership_offline_receipt_html.tpl
 #: xml/templates/message_templates/membership_offline_receipt_text.tpl
 msgid "Thanks for your support."
@@ -1965,13 +2043,6 @@ msgstr "Дякуємо Вам за підтримку."
 #: xml/templates/message_templates/membership_online_receipt_text.tpl
 msgid "Please print this receipt for your records."
 msgstr "Будь ласка, роздрукуйте цю квитанцію для Ваших облікових записів."
-
-#: xml/templates/message_templates/membership_offline_receipt_html.tpl
-#: xml/templates/message_templates/membership_offline_receipt_text.tpl
-#: xml/templates/message_templates/membership_online_receipt_html.tpl
-#: xml/templates/message_templates/membership_online_receipt_text.tpl
-msgid "Membership Information"
-msgstr "Інформація щодо членства"
 
 #: xml/templates/message_templates/membership_offline_receipt_subject.tpl
 msgid "Membership Confirmation and Receipt"
@@ -2002,9 +2073,16 @@ msgstr "Транзакція членства №"
 
 #: xml/templates/message_templates/membership_online_receipt_html.tpl
 msgid ""
-"This membership will be renewed automatically. You can modify or cancel the "
-"auto-renewal option by <a href=\"%1\">visiting this web page</a>."
-msgstr "Це членство буде оновлено автоматично. Ви можете змінити чи скасувати опцію автоматичного оновлення <a href=\"%1\">, відвідавши цю веб-сторінку</a>."
+"This membership will be renewed automatically. You can cancel the auto-"
+"renewal option by <a href=\"%1\">visiting this web page</a>."
+msgstr "Це членство буде оновлено автоматично. Ви можете скасувати опцію автоматичного оновлення <a href=\"%1\">, відвідавши цю веб-сторінку</a>."
+
+#: xml/templates/message_templates/membership_online_receipt_html.tpl
+#: xml/templates/message_templates/membership_online_receipt_text.tpl
+msgid ""
+"You can update billing details for this automatically renewed membership by "
+"<a href=\"%1\">visiting this web page</a>."
+msgstr "Ви можете коректувати платіжну інформацію для цього автоматично подовженого членства <a href=\"%1\">, відвідавши цю веб-сторінку</a>."
 
 #: xml/templates/message_templates/membership_online_receipt_html.tpl
 #: xml/templates/message_templates/membership_online_receipt_text.tpl
@@ -2058,131 +2136,13 @@ msgstr "Квитанція"
 
 #: xml/templates/message_templates/membership_online_receipt_text.tpl
 msgid ""
-"This membership will be renewed automatically. You can modify or cancel the "
-"auto-renewal option by visiting this web page: %1."
-msgstr "Це членство буде подовжено автоматично. Ви можете змінити або скасувати опцію автоматичного подовження<a href=\"%1\">, відвідавши цю веб-сторінку: %1</a>."
+"This membership will be renewed automatically. You can cancel the auto-"
+"renewal option by visiting this web page: %1."
+msgstr "Це членство буде подовжено автоматично. Ви можете змінити або скасувати опцію автоматичного подовження, відвідавши цю веб-сторінку: %1."
 
 #: xml/templates/message_templates/membership_online_receipt_text.tpl
 msgid "On Behalf Of"
 msgstr "Від імені"
-
-#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
-msgid "Record Payment from a Different Contact?"
-msgstr "Записати до обліку платіж Іншого контакту?"
-
-#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
-msgid "Membership payment is : "
-msgstr "Членський платіж становить:"
-
-#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
-msgid "-"
-msgstr "-"
-
-#: CRM/Member/BAO/Membership.php
-msgid ""
-"The membership cannot be saved. No valid membership status for given dates. "
-"Please provide at least start_date. Optionally end_date and join_date."
-msgstr "Членство не може бути збережене. Відсутній дійсний статус членства на задані дати. Будь ласка, надайте принаймні значення start_date. Опціонально - end_date та join_date."
-
-#: CRM/Member/Page/Tab.php
-msgid ""
-"WARNING: If you cancel the recurring contribution associated with this "
-"membership, the membership will no longer be renewed automatically. However,"
-" the current membership status will not be affected."
-msgstr "ПОПЕРЕДЖЕННЯ: Якщо Ви відміните повторюваний внесок, пов'язаний з цим членством, членство більше не буде подовжуватися автоматично. Однак, це не вплине на поточний статус членства."
-
-#: templates/CRM/Member/Form/MembershipBlock.tpl
-msgid ""
-"Click <a id = 'memQuickconfig' href='#'>here</a> if you want to configure "
-"the Membership Types below as part of a Price Set, with the added "
-"flexibility and complexity that entails."
-msgstr "Натисніть <a id = 'memQuickconfig' href='#'>тут</a>, якщо Ви хочете налаштувати Типи Членства нижче як частину Набору Цін з відповідним збільшенням гнучкості та складності."
-
-#: templates/CRM/Member/Form/MembershipType.tpl
-msgid ""
-"WARNING: Membership renewal reminders should now be configured using the <a "
-"href=\"%1\">Schedule Reminders</a> feature, which supports multiple renewal "
-"reminders. The reminders configured on this form will no longer function as "
-"of the 4.3 release."
-msgstr "ПОПЕРЕДЖЕННЯ: Нагадування про подовження членства повинні налаштовуватися через опцію <a href=\"%1\">Запланувати Нагадування</a>, яка підтримує численні нагадування про подовження. Нагадування, налаштовані на даній формі, більше не будуть працювати з версії 4.3."
-
-#: templates/CRM/Member/Form/MembershipType.tpl
-msgid ""
-"You can use your existing renewal reminder message template(s) with the "
-"Schedule Reminders feature. Then disable this reminder by un-selecting the "
-"Renewal Reminder Message templates on this form. This will prevent duplicate"
-" reminders being sent."
-msgstr "Ви можете використати свій існуючий шаблон (шаблони) нагадування про подовження з функцією Запланувати Нагадування. Потім вимкніть це нагадування, вимкнувши шаблони Повідомлень нагадувань про подовження на цій формі. Це попередить надсилання повторних нагадувань."
-
-#: templates/CRM/Member/Page/DashBoard.hlp
-msgid "Refer to the online user guide for more information."
-msgstr "За більш детальною інформацією зверніться до он-лайн довідки."
-
-#: templates/CRM/Member/Page/MembershipType.tpl
-msgid "Related"
-msgstr "Пов'язано"
-
-#: templates/CRM/Member/Page/Tab.hlp
-msgid ""
-"Check this box if someone other than the member is paying for this\n"
-"membership (i.e. a gift membership or gift subscription), and you want to link\n"
-"the payment to the person who is actually paying.  You will be able to select\n"
-"an existing contact or enter a new one. The resulting contribution record will\n"
-"be linked to the payer, and a soft credit for that contribution will be linked to\n"
-"this contact (the member)."
-msgstr "Увімкніть цей перемикач, якщо за дане членство сплачує не член, а хтось інший (напр., членство або підписка у подарунок), і Ви бажаєте прив'язати платіж до особи, яка платить в дійсності. Ви зможете обрати існуючий контакт або ввести новий. Підсумковий запис внеску буде пов'язано з платником, а м'який кредит для цього внеску буде пов'язано з цим контактом (членом)."
-
-#: xml/templates/message_templates/membership_autorenew_billing_html.tpl
-#: xml/templates/message_templates/membership_autorenew_billing_text.tpl
-msgid "Dear %1"
-msgstr "Шавновний (а) %1"
-
-#: xml/templates/message_templates/membership_autorenew_billing_html.tpl
-#: xml/templates/message_templates/membership_autorenew_billing_text.tpl
-msgid ""
-"Billing details for your automatically renewed %1 membership have been "
-"updated."
-msgstr "Платіжна інформація про Ваше автоматично подовження членства %1 була оновлена."
-
-#: xml/templates/message_templates/membership_autorenew_billing_html.tpl
-#: xml/templates/message_templates/membership_autorenew_billing_text.tpl
-msgid "If you have questions please contact us at %1"
-msgstr "Якщо у Вас є питання, будь ласка, зв'яжіться з нами за %1"
-
-#: xml/templates/message_templates/membership_autorenew_billing_subject.tpl
-msgid "Membership Autorenewal Billing Updates"
-msgstr "Автоматично оновити платіжну інформацію Членства"
-
-#: xml/templates/message_templates/membership_autorenew_cancelled_html.tpl
-#: xml/templates/message_templates/membership_autorenew_cancelled_text.tpl
-msgid ""
-"The automatic renewal of your %1 membership has been cancelled as requested."
-" This does not affect the status of your membership - you will receive a "
-"separate notification when your membership is up for renewal."
-msgstr "Функція автоматичного подовження Вашого членства %1 успішно відмінена, згідно запиту. Це не впливає на статус Вашого членства - Ви отримаєте окреме повідомлення, коли Вам буде потрібно поновити Ваше членство."
-
-#: xml/templates/message_templates/membership_autorenew_cancelled_subject.tpl
-msgid "Autorenew Membership Cancellation Notification"
-msgstr "Повідомлення про відміну автоматичного подовження членства"
-
-#: xml/templates/message_templates/membership_online_receipt_html.tpl
-msgid ""
-"This membership will be renewed automatically. You can cancel the auto-"
-"renewal option by <a href=\"%1\">visiting this web page</a>."
-msgstr "Це членство буде оновлено автоматично. Ви можете скасувати опцію автоматичного оновлення <a href=\"%1\">, відвідавши цю веб-сторінку</a>."
-
-#: xml/templates/message_templates/membership_online_receipt_html.tpl
-#: xml/templates/message_templates/membership_online_receipt_text.tpl
-msgid ""
-"You can update billing details for this automatically renewed membership by "
-"<a href=\"%1\">visiting this web page</a>."
-msgstr "Ви можете коректувати платіжну інформацію для цього автоматично подовженого членства <a href=\"%1\">, відвідавши цю веб-сторінку</a>."
-
-#: xml/templates/message_templates/membership_online_receipt_text.tpl
-msgid ""
-"This membership will be renewed automatically. You can cancel the auto-"
-"renewal option by visiting this web page: %1."
-msgstr "Це членство буде подовжено автоматично. Ви можете змінити або скасувати опцію автоматичного подовження, відвідавши цю веб-сторінку: %1."
 
 #: CRM/Member/DAO/MembershipLog.php CRM/Member/DAO/Membership.php
 #: CRM/Member/DAO/MembershipType.php
@@ -2544,3 +2504,56 @@ msgstr "Налаштовуйте нагадування про подовжен�
 #: templates/CRM/Member/Page/Tab.hlp
 msgid "Override Status"
 msgstr "Змінити Статус"
+
+#: CRM/Member/BAO/Membership.php
+msgid ""
+"The membership cannot be saved because the status cannot be calculated."
+msgstr ""
+
+#: CRM/Member/BAO/Membership.php
+msgid "Invalid date \"%1\" (must have form yyyy-mm-dd)."
+msgstr ""
+
+#: CRM/Member/BAO/MembershipStatus.php
+msgid ""
+"This membership status cannot be deleted as memberships exist with this "
+"status"
+msgstr ""
+
+#: CRM/Member/Form/MembershipBlock.php
+msgid ""
+"You cannot select more than %1 choices. For more complex functionality, "
+"please use a Price Set."
+msgstr ""
+
+#: CRM/Member/Form/Membership.php
+msgid ""
+"There are no configured membership statuses. You cannot add this membership "
+"until your membership statuses are correctly configured"
+msgstr ""
+
+#: CRM/Member/Form/MembershipStatus.php
+msgid "Delete Failed"
+msgstr ""
+
+#: CRM/Member/Form/MembershipType.php
+msgid "Membership Type Not Deleted"
+msgstr ""
+
+#: CRM/Member/Form/Task/Label.php
+msgid "Print one label per Membership (rather than per contact)"
+msgstr ""
+
+#: CRM/Member/Form/Task/Label.php
+msgid ""
+"As you are printing one label per membership your merge settings are being "
+"ignored"
+msgstr ""
+
+#: CRM/Member/Task.php
+msgid "Print PDF Letters for Memberships"
+msgstr ""
+
+#: templates/CRM/Member/Form/Task/PDFLetter.tpl
+msgid "Membership Letter (PDF)"
+msgstr ""
