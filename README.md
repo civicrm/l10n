@@ -6,32 +6,27 @@ How to localise your CiviCRM installation
 aka "using CiviCRM in another language than US-English"
 
 Documentation on how to localise your installation of CiviCRM:
-http://book.civicrm.org/user/civicrm-community/localising-civicrm
-http://wiki.civicrm.org/confluence/display/CRMDOC/CiviCRM+Localisation
+http://wiki.civicrm.org/confluence/pages/viewpage.action?pageId=88408149
+http://wiki.civicrm.org/confluence/display/CRMDOC/i18n+Administrator%27s+Guide
 
 How to participate in a translation team
 ========================================
 
 Internationalisation and localisation documentation:
-http://wiki.civicrm.org/confluence/display/CRMDOC/Internationalization+and+localization
+http://wiki.civicrm.org/confluence/pages/viewpage.action?pageId=88408149
 
-Code of ethics:
-http://wiki.civicrm.org/confluence/display/CRM/Localisation+code+of+ethics
+Translators resources:
+http://wiki.civicrm.org/confluence/display/CRMDOC/Resources+for+Translators
 
-Localisation community building howto:
-http://wiki.civicrm.org/confluence/display/CRM/Localisation+community+building+howto
+Transifex how-to:
+http://wiki.civicrm.org/confluence/display/CRMDOC/Transifex+howto
 
-Transifex command-line guide for Linux:
-http://wiki.civicrm.org/confluence/display/CRM/Transifex+howto
+Localisation community building how-to:
+http://wiki.civicrm.org/confluence/display/CRMDOC/Localisation+community+building+howto
 
 Translation guide for Windows:
 http://forum.civicrm.org/index.php/topic,19068.0.html
 
-Release process
-===============
-
-For details on the release process:
-http://wiki.civicrm.org/confluence/display/CRM/Localisation+stack
 
 Forums, help, community
 =======================
