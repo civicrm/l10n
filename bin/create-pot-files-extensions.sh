@@ -50,7 +50,7 @@ if [ "$1" == "" ]; then
 
   # The automatic string extractor passes an environment variable to set the potdir.
   if [ -d "$POTDIR" ]; then
-    potdir=$POTDIR
+    potdir="$POTDIR/$extname/pot"
   else
     potdir="l10n/pot/"
   fi
