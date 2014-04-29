@@ -84,7 +84,7 @@ $dir = $argv[2];
 $command = "find $dir/CRM $dir/packages/HTML/QuickForm $phpModifier -not -wholename '*/CRM/Core/I18n.php' -not -wholename '*/CRM/Core/Smarty/plugins/block.ts.php' | grep -v '/\.svn/' | sort | xargs $phpExtractor $dir";
 
 if ($argv[1] == 'extension') {
-    $command = "find ./ | grep -vE '\.(git|svn)/' | sort | xargs $phpExtractor $dir";
+    $command = "find ./ | grep -E '\.(php|inc)/' | sort | xargs $phpExtractor $dir";
 }
 
 fwrite(STDERR, "Running: $command\n");
