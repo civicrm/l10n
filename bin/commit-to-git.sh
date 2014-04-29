@@ -38,14 +38,11 @@
 # GNU General Public License for more details.
 #
 
-# PO_NEW=$(git ls-files -o | gawk '/po\/[[:alpha:]_\-]*\.po/ { sub("po/", ""); print $0; }' | sort)
-# PO_MOD=$(git ls-files -m | gawk '/po\/[[:alpha:]_\-]*\.po/ { sub("po/", ""); print $0; }' | sort)
-
 PO_NEW=$(git ls-files -o | grep -v '\.mo' | sort)
 PO_MOD=$(git ls-files -m | grep -v '\.mo' | sort)
 
 function get_author {
-	echo $(gawk 'BEGIN { FS=": " } /Last-Translator/ { sub("\\\\n\"", ""); print $2 }' "$1")
+	echo $(awk 'BEGIN { FS=": " } /Last-Translator/ { sub("\\\\n\"", ""); print $2 }' "$1")
 }
 
 function do_commit {
@@ -64,4 +61,3 @@ for f in $PO_NEW; do
 	git add "$f"
 	do_commit "$f" "po: add $f (pulled from Transifex.net by CiviCRM l10n maintainer)"
 done
-
