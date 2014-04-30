@@ -39,3 +39,24 @@ French: http://forum.civicrm.org/index.php/board,58.0.html
 German: http://forum.civicrm.org/index.php/board,62.0.html
 Spanish: http://forum.civicrm.org/index.php/board,69.0.html
 UK: http://forum.civicrm.org/index.php/board,34.0.html
+
+
+Note about language/country ISO codes
+=====================================
+
+CiviCRM uses ISO 3166-1 to determine the language/country codes,
+such as fr_FR, fr_CA, es_ES, etc.
+
+Initially, Transifex used mainly ISO 639 (fr, es, ...) to codify
+languages. It later became possible to use ISO 3166-1.
+
+The recommended method, when possible in Transifex, is to use the
+ISO 3166-1 language code, since this is what uses gettext, the
+underlying translation tool.
+
+We map ISO 639 to ISO 3166 codes in the .tx/config file.
+
+For more information:
+http://en.wikipedia.org/wiki/ISO_639-1
+http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+http://en.wikipedia.org/wiki/ISO_3166-1
