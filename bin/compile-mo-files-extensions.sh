@@ -39,7 +39,7 @@ function compile_po () {
   ext=$1
   lang=$2
 
-  if [ ! -d "mo/$ext/$lang/$ext.mo" ]; then
+  if [ ! -d "mo/$ext/$lang/" ]; then
     mkdir -p mo/$ext/$lang/
   fi
 
@@ -94,7 +94,13 @@ else
     compile_po_for_ext $e
   done
 
-  echo -n "Rsync to download.civicrm.org ... "
-  rsync --delete -ra mo l10n@sushi.civicrm.org:/var/www/download.civicrm.org/public/civicrm-l10n-extensions/
-  echo "done!"
+  # To avoid annoying people who may be using this script,
+  # check that we are running as the l10n user.
+  user=`whoami`
+
+  if [ "$user" = "l10n" ]; then
+    echo -n "Rsync to download.civicrm.org ... "
+    rsync --delete -ra mo l10n@sushi.civicrm.org:/var/www/download.civicrm.org/public/civicrm-l10n-extensions/
+    echo "done!"
+  fi
 fi
