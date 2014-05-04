@@ -8,7 +8,7 @@ Usage:
   ./bin/create-pot-files.sh [src dir] [dest dir]
 
 Example:
-  ./bin/create-pot-files.sh ~/repository/civicrm/  ~/repository/l10n/po/pots/
+  ./bin/create-pot-files.sh ~/repository/civicrm/  ~/repository/l10n/po/pot/
 
 Although you should probably not call this directly. Use build-unified-pots.sh
 if you are exporting the strings to Transifex.
@@ -91,6 +91,17 @@ cp $header $potdir/common-base.pot
 `dirname $0`/extractor.php base $root >> $potdir/common-base.pot
 `dirname $0`/js-extractor.php $root $root/js >> $potdir/common-base.pot
 msguniq $potdir/common-base.pot | sponge $potdir/common-base.pot
+
+# create the install POT file
+echo ' * building install.pot'
+cp $header $potdir/install.pot
+`dirname $0`/extractor.php 'install' $root/install >> $potdir/install.pot
+
+# drop install strings already present in common-base.pot
+common=`tempfile`
+msgcomm $potdir/install.pot $potdir/common-base.pot > $common
+msgcomm --unique $potdir/install.pot $common | sponge $potdir/install.pot
+rm $common
 
 # create component POT files
 for comp in $components; do

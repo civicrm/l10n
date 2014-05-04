@@ -65,8 +65,9 @@ if ($argv[1] == 'base') {
     $jsModifier    .= "\( " . implode(' -or ', $jsDir) . " \)";
     $smartyModifier .= "\( " . implode(' -or ', $tplDir) . " \)";
 }
-elseif ($argv[1] == 'extension') {
+elseif ($argv[1] == 'extension' || $argv[1] == 'install') {
     // nothing to do
+    // see special handling of $command below.
 }
 else {
     $phpModifier    .= "-iwholename '*/CRM/{$argv[1]}/*'";
@@ -85,6 +86,9 @@ $command = "find $dir/CRM $dir/packages/HTML/QuickForm $phpModifier -not -wholen
 
 if ($argv[1] == 'extension') {
     $command = "find ./ | grep -vE '\.(git|svn)/' | sort | xargs $phpExtractor $dir";
+}
+elseif ($argv[1] == 'install') {
+    $command = "find $dir/*.php $dir/*.html | sort | xargs $phpExtractor $dir";
 }
 
 fwrite(STDERR, "Running: $command\n");
