@@ -5,7 +5,7 @@ function usage() {
 create-pot-files-extensions.sh - builds .pot files for CiviCRM extensions.
 
 Usage:
-  ./bin/create-pot-files-extensions.sh [short name] [src dir] [dest dir]
+  ./bin/create-pot-files-extensions.sh [short name] [src dir] [dest dir]
 
 Example:
   ./bin/create-pot-files-extensions.sh
@@ -47,7 +47,13 @@ if [ "$1" == "" ]; then
   test "$extname" == "" && echo 'Error: could not find the file tag from info.xml' && usage
 
   root="."
-  potdir="l10n/pot/"
+
+  # The automatic string extractor passes an environment variable to set the potdir.
+  if [ -d "$POTDIR" ]; then
+    potdir="$POTDIR/$extname/pot"
+  else
+    potdir="l10n/pot/"
+  fi
 
   # At this point we can assume that we are in the right place, and can create
   # the pot target directory if necessary.
@@ -89,13 +95,19 @@ msguniq $potdir/${extname}.pot | sponge $potdir/${extname}.pot
 rm $header
 
 echo " * All done"
-echo ""
-echo "Generated file: $potdir/${extname}.pot"
-echo "Feel free to commit it to your git repository."
-echo ""
-echo "You can also request on the CiviCRM Extensions forum to add it to Transifex:"
-echo "[URL here]"
-echo ""
-echo "For more information:"
-echo "[wiki URL here]"
 
+if [ "$CIVI_KEEP_IT_QUIET" = "" ]; then
+  echo ""
+  echo "Generated file: $potdir/${extname}.pot"
+  echo "Feel free to commit it to your git repository if your extension is not"
+  echo "managed by the CiviCRM automatic extension distribution system."
+  echo ""
+  echo "To be included in the automatic distribution, post a request for review"
+  echo "on the internationalisation forum:"
+  echo "http://forum.civicrm.org/index.php/board,10.0.html"
+  echo ""
+  echo "For more information:"
+  echo "http://wiki.civicrm.org/confluence/display/CRMDOC/Extension+translation"
+  echo "http://wiki.civicrm.org/confluence/display/CRMDOC/Extension+Reference"
+  echo "http://wiki.civicrm.org/confluence/display/CRMDOC/Create+an+Extension"
+fi
