@@ -56,6 +56,9 @@ if ($argv[1] == 'base') {
     $phpDir = array();
     $jsDir = array();
     $tplDir = array();
+
+    $phpDir[] = "-iwholename '*/packages/HTML/QuickForm/*'";
+
     foreach (explode("\n", file_get_contents('bin/basedirs')) as $dir) {
         $phpDir[] = "-iwholename '*/CRM/$dir/*'";
         $jsDir[] = "-iwholename '*/templates/CRM/$dir/*'";
