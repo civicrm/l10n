@@ -56,6 +56,9 @@ if ($argv[1] == 'base') {
     $phpDir = array();
     $jsDir = array();
     $tplDir = array();
+
+    $phpDir[] = "-iwholename '*/packages/HTML/QuickForm/*'";
+
     foreach (explode("\n", file_get_contents('bin/basedirs')) as $dir) {
         $phpDir[] = "-iwholename '*/CRM/$dir/*'";
         $jsDir[] = "-iwholename '*/templates/CRM/$dir/*'";
@@ -75,46 +78,66 @@ else {
     $smartyModifier .= "-iwholename '*/templates/CRM/{$argv[1]}/*'";
 }
 
-$phpExtractor    = dirname(__FILE__) . '/php-extractor.php';
-$jsExtractor = dirname(__FILE__) . '/js-extractor.php';
-$smartyExtractor = dirname(__FILE__) . '/smarty-extractor.php';
-
+$component = $argv[1];
 $dir = $argv[2];
 
-# PHP extraction
-$command = "find $dir/CRM $dir/packages/HTML/QuickForm $phpModifier -not -wholename '*/CRM/Core/I18n.php' -not -wholename '*/CRM/Core/Smarty/plugins/block.ts.php' | grep -v '/\.svn/' | sort | xargs $phpExtractor $dir";
+/**
+ * PHP extraction
+ */
+function phpExtraction($dir, $component, $phpModifier) {
+  $phpExtractor = dirname(__FILE__) . '/php-extractor.php';
+  $command = "find $dir/CRM $dir/packages/HTML/QuickForm $phpModifier -not -wholename '*/CRM/Core/I18n.php' -not -wholename '*/CRM/Core/Smarty/plugins/block.ts.php' | grep -v '/\.svn/' | sort | xargs $phpExtractor $dir";
 
-if ($argv[1] == 'extension') {
+  if ($component == 'extension') {
     $command = "find ./ | grep -E '\.(php|inc)/' | sort | xargs $phpExtractor $dir";
-}
-elseif ($argv[1] == 'install') {
+  }
+  elseif ($component == 'install') {
     $command = "find $dir/*.php $dir/*.html | sort | xargs $phpExtractor $dir";
+  }
+
+  fwrite(STDERR, "Running: $command\n");
+  $phpPot = `$command`;
+
+  return $phpPot;
 }
 
-fwrite(STDERR, "Running: $command\n");
-$phpPot = `$command`;
+/**
+ * JS extraction
+ */
+function jsExtraction($dir, $component, $jsModifier) {
+  $jsExtractor = dirname(__FILE__) . '/js-extractor.php';
+  $command = "find $dir/js $dir/templates $dir/xml $jsModifier | grep -v '/\.svn/' | sort | xargs $jsExtractor $dir";
 
-# JS extraction
-$command = "find $dir/js $dir/templates $dir/xml $jsModifier | grep -v '/\.svn/' | sort | xargs $jsExtractor $dir";
-
-if ($argv[1] == 'extension') {
+  if ($argv[1] == 'extension') {
     $command = "find ./ | grep -vE '\.(git|svn)/' | sort | xargs $jsExtractor $dir";
+  }
+
+  fwrite(STDERR, "Running: $command\n");
+  $jsPot = `$command`;
+
+  return $jsPot;
 }
 
-fwrite(STDERR, "Running: $command\n");
-$jsPot = `$command`;
+/**
+ * Smarty/tpl extraction
+ */
+function smartyExtraction($dir, $component, $smartyModifier) {
+  $smartyExtractor = dirname(__FILE__) . '/smarty-extractor.php';
+  $command = "find $dir/templates $dir/xml $smartyModifier | grep -v '/\.svn/' | sort | xargs $smartyExtractor $dir";
 
-# Smarty/tpl extraction
-$command = "find $dir/templates $dir/xml $smartyModifier | grep -v '/\.svn/' | sort | xargs $smartyExtractor $dir";
-
-if ($argv[1] == 'extension') {
+  if ($argv[1] == 'extension') {
     $command = "find $dir/templates $dir/xml $smartyModifier | grep -vE '\.(svn|git)/' | sort | xargs $smartyExtractor $dir";
+  }
+
+  fwrite(STDERR, "Running: $command\n");
+  $smartyPot = `$command`;
+
+  return $smartyPot;
 }
 
-fwrite(STDERR, "Running: $command\n");
-$smartyPot = `$command`;
-
-$originalArray = explode("\n", $phpPot . $jsPot . $smartyPot);
+$phpPot = phpExtraction($dir, $component, $phpModifier);
+$jsPot = jsExtraction($dir, $component, $jsModifier);
+$smartyPot = smartyExtraction($dir, $component, $smartyModifier);
 
 $block = array();
 $blocks = array();
@@ -122,6 +145,8 @@ $msgidArray = array();
 $resultArray = array();
 
 // rewrite the header to resultArray, removing it from the original
+$originalArray = explode("\n", $phpPot . $jsPot . $smartyPot);
+
 while ($originalArray[0] != '') {
     $resultArray[] = array_shift($originalArray);
 }
@@ -129,16 +154,12 @@ $resultArray[] = array_shift($originalArray);
 
 // break the POT contents into separate comments/msgid blocks
 foreach ($originalArray as $line) {
-
     // if it's the end of a block, put the $block in $blocks and start a new one
     if ($line == '' and $block != array()) {
-
         $blocks[] = $block;
         $block = array();
-
-    // else add the line to the proper $block part
     } else {
-
+        // else add the line to the proper $block part
         // the lines in the POT file are either comments, single- and multiline
         // msgids or empty msgstrs; we ignore the msgstrs
         if (substr($line, 0, 1) == '#') {
@@ -146,9 +167,7 @@ foreach ($originalArray as $line) {
         } elseif (substr($line, 0, 6) != 'msgstr') {
             $block['msgid'][] = $line;
         }
-
     }
-
 }
 
 // combine the msgid parts into single strings and build a new array with msgid
