@@ -89,7 +89,7 @@ function phpExtraction($dir, $component, $phpModifier) {
   $command = "find $dir/CRM $dir/packages/HTML/QuickForm $phpModifier -not -wholename '*/CRM/Core/I18n.php' -not -wholename '*/CRM/Core/Smarty/plugins/block.ts.php' | grep -v '/\.svn/' | sort | xargs $phpExtractor $dir";
 
   if ($component == 'extension') {
-    $command = "find ./ | grep -E '\.(php|inc)/' | sort | xargs $phpExtractor $dir";
+    $command = "find ./ | grep -E '\.(php|inc)' | sort | xargs $phpExtractor $dir";
   }
   elseif ($component == 'install') {
     $command = "find $dir/*.php $dir/*.html | sort | xargs $phpExtractor $dir";
