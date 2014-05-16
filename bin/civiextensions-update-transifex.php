@@ -27,8 +27,7 @@ if (empty($_SERVER['HOME'])) {
 }
 
 // civicrm.org URL that lists us the git repos for extensions
-// FIXME: use the production URL when ready.
-define('CIVIEXTENSIONS_REPO_LIST', 'https://www.bidon.ca/files/ext-repo-list.json');
+define('CIVIEXTENSIONS_REPO_LIST', 'https://civicrm.org/extdir/git-urls.json');
 
 // cache directory on this server where we clone git repos
 // no need for a trailing slash
@@ -78,14 +77,19 @@ function main() {
 
   $gitrepos = json_decode($gitrepos_raw);
 
-  foreach ($gitrepos as $urlrepo) {
-    // Risky security
-    if (! preg_match('/^[-_0-9-a-zA-Z\.:\/]+$/', $urlrepo)) {
-      echo "Skipping suspicious repo URL: $urlrepo\n";
+  foreach ($gitrepos as $gitinfo) {
+    // Only extract extensions that are ready for automatic distribution
+    if ($gitinfo->ready != 'ready') {
       continue;
     }
 
-    $reponame = basename($urlrepo);
+    // Risky security
+    if (! preg_match('/^[-_0-9-a-zA-Z\.:\/]+$/', $gitinfo->git_url)) {
+      echo "Skipping suspicious repo URL: {$gitinfo->git_url}\n";
+      continue;
+    }
+
+    $reponame = basename($gitinfo->git_url);
     $reponame = preg_replace('/\.git$/', '', $reponame);
 
     $extdir = escapeshellarg("$download_dir/$reponame");
@@ -99,7 +103,7 @@ function main() {
     else {
       // Runs: git clone git://example.org/foo.git ~/repositories/foo-hash
       echo "* New repo (or not in cache), cloning it...\n";
-      system('git clone ' . escapeshellarg($urlrepo) . ' ' . $extdir);
+      system('git clone ' . escapeshellarg($gitinfo->git_url) . ' ' . $extdir);
     }
 
     // Get the short name from the info.xml
