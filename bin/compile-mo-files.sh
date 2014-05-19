@@ -22,12 +22,12 @@ EOT
 function compile_po () {
   lang=$1
 
-  if [ ! -d "mo/$lang" ]; then
-    mkdir -p mo/$lang
+  if [ ! -d "workdir/mo/$lang" ]; then
+    mkdir -p workdir/mo/$lang
   fi
 
   echo -n "compiling $lang ... "
-  msgcat --use-first po/$lang/*.po | msgfmt -o mo/$lang/civicrm.mo -
+  msgcat --use-first po/$lang/*.po | msgfmt -o workdir/mo/$lang/civicrm.mo -
   echo "done"
 }
 
@@ -68,19 +68,22 @@ else
   if [ "$user" = "l10n" ]; then
     for i in $(cat conf/distributed_languages.txt); do
       mkdir -p workdir/l10n/$i/LC_MESSAGES
-      cp mo/$i/civicrm.mo workdir/l10n/$i/LC_MESSAGES/
+      cp workdir/mo/$i/civicrm.mo workdir/l10n/$i/LC_MESSAGES/
     done
 
     pushd workdir
     tar cfvz civicrm-l10n-daily.tar.gz l10n
     md5sum civicrm-l10n-daily.tar.gz > civicrm-l10n-daily.tar.gz.MD5SUMS
-    scp civicrm-l10n-daily.tar.gz l10n@download.civicrm.org:/var/www/download.civicrm.org/public/civicrm-l10n-core/archives/
-    scp civicrm-l10n-daily.tar.gz.MD5SUMS l10n@download.civicrm.org:/var/www/download.civicrm.org/public/civicrm-l10n-core/archives/
-    rm civicrm-l10n-daily.tar.gz*
-    popd
 
-    echo -n "Rsync to download.civicrm.org ... "
+    echo -n "Rsync civicrm-l10n-daily.tar.gz to download.civicrm.org ... "
+    rsync civicrm-l10n-daily.tar.gz l10n@download.civicrm.org:/var/www/download.civicrm.org/public/civicrm-l10n-core/archives/
+    rsync civicrm-l10n-daily.tar.gz.MD5SUMS l10n@download.civicrm.org:/var/www/download.civicrm.org/public/civicrm-l10n-core/archives/
+
+    echo -n "Rsync all .mo files to download.civicrm.org ... "
     rsync --delete -ra mo l10n@download.civicrm.org:/var/www/download.civicrm.org/public/civicrm-l10n-core/
     echo "done!"
+
+    rm civicrm-l10n-daily.tar.gz*
+    popd
   fi
 fi
