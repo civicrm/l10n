@@ -38,8 +38,8 @@
 # GNU General Public License for more details.
 #
 
-PO_NEW=$(git ls-files -o | grep -v '\.mo' | sort)
-PO_MOD=$(git ls-files -m | grep -v '\.mo' | sort)
+PO_NEW=$(git ls-files -o | grep '\.po' | sort)
+PO_MOD=$(git ls-files -m | grep '\.po' | sort)
 
 function get_author {
 	echo $(awk 'BEGIN { FS=": " } /Last-Translator/ { sub("\\\\n\"", ""); print $2 }' "$1")
