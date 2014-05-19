@@ -39,7 +39,7 @@ fi
 # while still making it possible to use this script in other places.
 if [ ! -d "po" ]; then
   if [ -d "$HOME/repositories/civicrm-l10n-core/po" ]; then
-    cd $HOME/repositories/civicrm-l10n
+    cd $HOME/repositories/civicrm-l10n-core
   else
     echo "ERROR: Could not find the location of the civicrm-l10n repository."
     echo ""
