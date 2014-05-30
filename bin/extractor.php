@@ -108,7 +108,7 @@ function jsExtraction($dir, $component, $jsModifier) {
   $jsExtractor = dirname(__FILE__) . '/js-extractor.php';
   $command = "find $dir/js $dir/templates $dir/xml $jsModifier | grep -v '/\.svn/' | sort | xargs $jsExtractor $dir";
 
-  if ($argv[1] == 'extension') {
+  if ($component == 'extension') {
     $command = "find ./ | grep -vE '\.(git|svn)/' | sort | xargs $jsExtractor $dir";
   }
 
@@ -125,7 +125,7 @@ function smartyExtraction($dir, $component, $smartyModifier) {
   $smartyExtractor = dirname(__FILE__) . '/smarty-extractor.php';
   $command = "find $dir/templates $dir/xml $smartyModifier | grep -v '/\.svn/' | sort | xargs $smartyExtractor $dir";
 
-  if ($argv[1] == 'extension') {
+  if ($component == 'extension') {
     $command = "find $dir/templates $dir/xml $smartyModifier | grep -vE '\.(svn|git)/' | sort | xargs $smartyExtractor $dir";
   }
 
