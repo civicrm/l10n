@@ -53,106 +53,112 @@ $cmd = preg_quote('ts');
 // extensions of smarty files, used when going through a directory
 $extensions = array('tpl', 'hlp');
 
-// "fix" string - strip slashes, escape and convert new lines to \n
-function fs($str)
-{
-    $str = stripslashes($str);
-    $str = str_replace('"', '\"', $str);
-    $str = str_replace("\n", '\n', $str);
-    return $str;
+/**
+ * "fix" string - strip slashes, escape and convert new lines to \n
+ */
+function fs($str) {
+  $str = stripslashes($str);
+  $str = str_replace('"', '\"', $str);
+  $str = str_replace("\n", '\n', $str);
+  return $str;
 }
 
-// rips gettext strings from $file and prints them in C format
-function do_file($file)
-{
-    $content = @file_get_contents($file);
+/**
+ * Rips gettext strings from $file and prints them in C format.
+ */
+function do_file($file) {
+  $content = @file_get_contents($file);
 
-    if (empty($content)) {
-        return;
+  if (empty($content)) {
+    return;
+  }
+
+  global $ldq, $rdq, $cmd, $root;
+
+  // if there’s a {php} tag, fetch its contents into a file and parse it with php-extractor.php
+  $phpTagMatches = array();
+  preg_match_all("/{$ldq}\s*(php)\s*([^{$rdq}]*){$rdq}([^{$ldq}]*){$ldq}\/\\1{$rdq}/", $content, $phpTagMatches);
+  $phpCode = $phpTagMatches[3][0];
+  if ($phpCode) {
+    // we want to create a file with the same path and name, but under the
+    // tempdir; this allows the php-extractor.php to add the right comment
+    $tempdir = sys_get_temp_dir();
+    $filedir = substr(dirname($file), strlen($root) + 1);
+    $filename = basename($file);
+    @mkdir("$tempdir/$filedir", 0777, TRUE);
+    file_put_contents("$tempdir/$filedir/$filename", "<?php $phpCode ?>");
+    passthru("bin/php-extractor.php $tempdir $tempdir/$filedir/$filename");
+  }
+
+  preg_match_all("/{$ldq}\s*({$cmd})\s*([^{$rdq}]*){$rdq}([^{$ldq}]*){$ldq}\/\\1{$rdq}/", $content, $matches);
+
+  for ($i = 0; $i < count($matches[0]); $i++) {
+    $output = array();
+    $output[] = '#: ' . substr($file, strlen($root) + 1);
+    if (preg_match('/plural\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i], $match)) {
+      $output[] = 'msgid "' . fs($matches[3][$i]) . '"';
+      $output[] = 'msgid_plural "' . fs($match[1]) . '"';
+      $output[] = 'msgstr[0] ""';
+      $output[] = 'msgstr[1] ""';
     }
-
-    global $ldq, $rdq, $cmd, $root;
-
-    // if there’s a {php} tag, fetch its contents into a file and parse it with php-extractor.php
-    $phpTagMatches = array();
-    preg_match_all("/{$ldq}\s*(php)\s*([^{$rdq}]*){$rdq}([^{$ldq}]*){$ldq}\/\\1{$rdq}/", $content, $phpTagMatches);
-    $phpCode = $phpTagMatches[3][0];
-    if ($phpCode) {
-        // we want to create a file with the same path and name, but under the
-        // tempdir; this allows the php-extractor.php to add the right comment
-        $tempdir  = sys_get_temp_dir();
-        $filedir  = substr(dirname($file), strlen($root) + 1);
-        $filename = basename($file);
-        @mkdir("$tempdir/$filedir", 0777, true);
-        file_put_contents("$tempdir/$filedir/$filename", "<?php $phpCode ?>");
-        passthru("bin/php-extractor.php $tempdir $tempdir/$filedir/$filename");
+    else {
+      $output[] = 'msgid "' . fs($matches[3][$i]) . '"';
+      $output[] = 'msgstr ""';
     }
+    print implode("\n", $output) . "\n\n";
+  }
 
-    preg_match_all("/{$ldq}\s*({$cmd})\s*([^{$rdq}]*){$rdq}([^{$ldq}]*){$ldq}\/\\1{$rdq}/", $content, $matches);
+  preg_match_all("/{$ldq}\s*(docURL)\s*([^{$rdq}]*){$rdq}/", $content, $matches);
 
-    for ($i=0; $i < count($matches[0]); $i++) {
-        $output = array();
-        $output[] = '#: ' . substr($file, strlen($root) + 1);
-        if (preg_match('/plural\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i], $match)) {
-            $output[] = 'msgid "' . fs($matches[3][$i]) . '"';
-            $output[] = 'msgid_plural "' . fs($match[1]) . '"';
-            $output[] = 'msgstr[0] ""';
-            $output[] = 'msgstr[1] ""';
-        } else {
-            $output[] = 'msgid "' . fs($matches[3][$i]) . '"';
-            $output[] = 'msgstr ""';
-        }
-        print implode("\n", $output) . "\n\n";
+  for ($i = 0; $i < count($matches[0]); $i++) {
+    if (preg_match('/text\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i], $match)) {
+      print '#: ' . substr($file, strlen($root) + 1) . "\n";
+      print 'msgid "' . fs($match[1]) . "\"\n";
+      print "msgstr \"\"\n\n";
     }
-
-    preg_match_all("/{$ldq}\s*(docURL)\s*([^{$rdq}]*){$rdq}/", $content, $matches);
-
-    for ($i=0; $i < count($matches[0]); $i++) {
-        if (preg_match('/text\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i], $match)) {
-            print '#: ' . substr($file, strlen($root) + 1) . "\n";
-            print 'msgid "' . fs($match[1]) . "\"\n";
-            print "msgstr \"\"\n\n";
-        }
-        if (preg_match('/title\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i], $match)) {
-            print '#: ' . substr($file, strlen($root) + 1) . "\n";
-            print 'msgid "' . fs($match[1]) . "\"\n";
-            print "msgstr \"\"\n\n";
-        }
+    if (preg_match('/title\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i], $match)) {
+      print '#: ' . substr($file, strlen($root) + 1) . "\n";
+      print 'msgid "' . fs($match[1]) . "\"\n";
+      print "msgstr \"\"\n\n";
     }
+  }
 }
 
-// go through a directory
-function do_dir($dir)
-{
-    $d = dir($dir);
+/**
+ * Go through a directory.
+ */
+function do_dir($dir) {
+  $d = dir($dir);
 
-    while (false !== ($entry = $d->read())) {
-        if ($entry == '.' || $entry == '..') {
-            continue;
-        }
-
-        $entry = $dir.'/'.$entry;
-
-        if (is_dir($entry)) {
-            // if a directory, go through it
-            do_dir($entry);
-        } else {
-            // if file, parse only if extension is matched
-            $pi = pathinfo($entry);
-
-            if (isset($pi['extension']) && in_array($pi['extension'], $GLOBALS['extensions'])) {
-                do_file($entry);
-            }
-        }
+  while (FALSE !== ($entry = $d->read())) {
+    if ($entry == '.' || $entry == '..') {
+      continue;
     }
 
-    $d->close();
+    $entry = $dir . '/' . $entry;
+
+    if (is_dir($entry)) {
+      // if a directory, go through it
+      do_dir($entry);
+    }
+    else {
+      // if file, parse only if extension is matched
+      $pi = pathinfo($entry);
+
+      if (isset($pi['extension']) && in_array($pi['extension'], $GLOBALS['extensions'])) {
+        do_file($entry);
+      }
+    }
+  }
+
+  $d->close();
 }
 
-for ($ac=1; $ac < $_SERVER['argc']; $ac++) {
-    if (is_dir($_SERVER['argv'][$ac])) {
-        do_dir($_SERVER['argv'][$ac]);
-    } else {
-        do_file($_SERVER['argv'][$ac]);
-    }
+for ($ac = 1; $ac < $_SERVER['argc']; $ac++) {
+  if (is_dir($_SERVER['argv'][$ac])) {
+    do_dir($_SERVER['argv'][$ac]);
+  }
+  else {
+    do_file($_SERVER['argv'][$ac]);
+  }
 }

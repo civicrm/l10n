@@ -41,8 +41,10 @@ array_splice($_SERVER['argv'], 1, 1);
 // extensions of js files, used when going through a directory
 $extensions = array('js');
 
-// "fix" string - strip slashes, escape and convert new lines to \n
-// see: http://issues.civicrm.org/jira/browse/CRM-10833
+/**
+ * "fix" string - strip slashes, escape and convert new lines to \n
+ * @link http://issues.civicrm.org/jira/browse/CRM-10833
+ */
 function fs($text) {
   $quote = $text[0];
   // Remove newlines
@@ -56,66 +58,71 @@ function fs($text) {
   return $text;
 }
 
-// rips gettext strings from $file and prints them in C format
+/**
+ * Rips gettext strings from $file and prints them in C format.
+ */
 function do_file($file) {
-    $content = @file_get_contents($file);
-    $strings = array();
+  $content = @file_get_contents($file);
+  $strings = array();
 
-    if (empty($content)) {
-      return;
-    }
+  if (empty($content)) {
+    return;
+  }
 
-    global $root;
+  global $root;
 
-    // Match all calls to ts()
-    // Note: \s also matches newlines with the 's' modifier.
-    preg_match_all('~
+  // Match all calls to ts()
+  // Note: \s also matches newlines with the 's' modifier.
+  preg_match_all('~
       [^\w]ts\s*                                    # match "ts" with whitespace
       \(\s*                                         # match "(" argument list start
       ((?:(?:\'(?:\\\\\'|[^\'])*\'|"(?:\\\\"|[^"])*")(?:\s*\+\s*)?)+)\s*
       [,\)]                                         # match ")" or "," to finish
       ~sx', $content, $matches);
-    foreach($matches[1] as $text) {
-      if ($text = fs($text)) {
-        print '#: ' . substr($file, strlen($root) + 1) . "\n";
-        print 'msgid "' . $text . "\"\n";
-        print "msgstr \"\"\n\n";
+  foreach ($matches[1] as $text) {
+    if ($text = fs($text)) {
+      print '#: ' . substr($file, strlen($root) + 1) . "\n";
+      print 'msgid "' . $text . "\"\n";
+      print "msgstr \"\"\n\n";
+    }
+  }
+}
+
+/**
+ * Go through a directory.
+ */
+function do_dir($dir) {
+  $d = dir($dir);
+
+  while (FALSE !== ($entry = $d->read())) {
+    if ($entry == '.' || $entry == '..') {
+      continue;
+    }
+
+    $entry = $dir . '/' . $entry;
+
+    if (is_dir($entry)) {
+      // if a directory, go through it
+      do_dir($entry);
+    }
+    else {
+      // if file, parse only if extension is matched
+      $pi = pathinfo($entry);
+
+      if (isset($pi['extension']) && in_array($pi['extension'], $GLOBALS['extensions'])) {
+        do_file($entry);
       }
     }
+  }
+
+  $d->close();
 }
 
-// go through a directory
-function do_dir($dir)
-{
-    $d = dir($dir);
-
-    while (false !== ($entry = $d->read())) {
-        if ($entry == '.' || $entry == '..') {
-            continue;
-        }
-
-        $entry = $dir.'/'.$entry;
-
-        if (is_dir($entry)) {
-            // if a directory, go through it
-            do_dir($entry);
-        } else {
-            // if file, parse only if extension is matched
-            $pi = pathinfo($entry);
-
-            if (isset($pi['extension']) && in_array($pi['extension'], $GLOBALS['extensions'])) {
-                do_file($entry);
-            }
-        }
-    }
-
-    $d->close();
-}
-
-for ($ac=1; $ac < $_SERVER['argc']; $ac++) {
-    if (is_dir($_SERVER['argv'][$ac])) {
-        do_dir($_SERVER['argv'][$ac]);
-    } else {
-        do_file($_SERVER['argv'][$ac]);
-    }
+for ($ac = 1; $ac < $_SERVER['argc']; $ac++) {
+  if (is_dir($_SERVER['argv'][$ac])) {
+    do_dir($_SERVER['argv'][$ac]);
+  }
+  else {
+    do_file($_SERVER['argv'][$ac]);
+  }
 }
