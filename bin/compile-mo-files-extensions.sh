@@ -50,12 +50,28 @@ function compile_po () {
 
 function compile_po_for_ext () {
   ext=$1
-  langs=`ls -1d po/$ext/??_??`
 
-  for lang in $langs; do
-    l=`basename $lang`
-    compile_po $ext $l
-  done
+  # Skip empty source .pot files
+  # Ex: check if "po/example/pot/example.pot" has a non-zero size.
+  # This can happen when extensions do not have any ts() strings in them.
+  if [ ! -s "po/$ext/pot/$ext.pot" ]; then
+    echo "skipping $ext, po/$ext/pot/$ext.pot is empty."
+    return
+  fi
+
+  # Check if there are translations for the extensions.
+  # This can happen if the extension has no strings, or was not sent to Transifex.
+  # http://stackoverflow.com/questions/6363441/check-if-a-file-exists-with-wildcard-in-shell-script
+  if ls po/$ext/??_?? &> /dev/null ; then
+    langs=`ls -1d po/$ext/??_??`
+
+    for lang in $langs; do
+      l=`basename $lang`
+      compile_po $ext $l
+    done
+  else
+    echo "** $ext has no translations (probably no strings in the ext)."
+  fi
 }
 
 if [ "$1" = "--help" -o "$1" = "-h" ]; then
