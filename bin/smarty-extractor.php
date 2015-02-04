@@ -1,8 +1,6 @@
 #!/usr/bin/php
 <?php
 
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
-
 /**
  * smarty-extractor.php - rips gettext strings from Smarty {ts} calls
  *
@@ -38,20 +36,38 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
  * @license   http://www.gnu.org/licenses/lgpl.html  GNU Lesser General Public License
  */
 
-$root = $_SERVER['argv'][1];
-array_splice($_SERVER['argv'], 1, 1);
+/**
+ * Bootstrap, process command line arguments, and kick off the real work.
+ */
+function main($argc, $argv) {
+  global $ldq, $rdq, $cmd, $root, $extensions;
 
-// smarty open tag
-$ldq = preg_quote('{');
+  error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 
-// smarty close tag
-$rdq = preg_quote('}');
+  $root = $argv[1];
+  array_splice($argv, 1, 1);
 
-// smarty command
-$cmd = preg_quote('ts');
+  // smarty open tag
+  $ldq = preg_quote('{');
 
-// extensions of smarty files, used when going through a directory
-$extensions = array('tpl', 'hlp');
+  // smarty close tag
+  $rdq = preg_quote('}');
+
+  // smarty command
+  $cmd = preg_quote('ts');
+
+  // extensions of smarty files, used when going through a directory
+  $extensions = array('tpl', 'hlp');
+
+  for ($ac = 1; $ac < $argc; $ac++) {
+    if (is_dir($argv[$ac])) {
+      do_dir($argv[$ac]);
+    }
+    else {
+      do_file($argv[$ac]);
+    }
+  }
+}
 
 /**
  * "fix" string - strip slashes, escape and convert new lines to \n
@@ -154,11 +170,4 @@ function do_dir($dir) {
   $d->close();
 }
 
-for ($ac = 1; $ac < $_SERVER['argc']; $ac++) {
-  if (is_dir($_SERVER['argv'][$ac])) {
-    do_dir($_SERVER['argv'][$ac]);
-  }
-  else {
-    do_file($_SERVER['argv'][$ac]);
-  }
-}
+main($_SERVER['argc'], $_SERVER['argv']);

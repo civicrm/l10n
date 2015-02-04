@@ -1,8 +1,6 @@
 #!/usr/bin/php
 <?php
 
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
-
 /**
  * js-extractor.php - rips gettext strings from Javascript ts() calls
  *
@@ -35,11 +33,29 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
  * @license   http://www.gnu.org/licenses/lgpl.html  GNU Lesser General Public License
  */
 
-$root = $_SERVER['argv'][1];
-array_splice($_SERVER['argv'], 1, 1);
+/**
+ * Bootstrap, process command line arguments, and kick off the real work.
+ */
+function main($argc, $argv) {
+  error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 
-// extensions of js files, used when going through a directory
-$extensions = array('js');
+  global $root, $extensions;
+
+  $root = $argv[1];
+  array_splice($argv, 1, 1);
+
+  // extensions of js files, used when going through a directory
+  $extensions = array('js');
+
+  for ($ac = 1; $ac < $argc; $ac++) {
+    if (is_dir($argv[$ac])) {
+      do_dir($argv[$ac]);
+    }
+    else {
+      do_file($argv[$ac]);
+    }
+  }
+}
 
 /**
  * "fix" string - strip slashes, escape and convert new lines to \n
@@ -118,11 +134,4 @@ function do_dir($dir) {
   $d->close();
 }
 
-for ($ac = 1; $ac < $_SERVER['argc']; $ac++) {
-  if (is_dir($_SERVER['argv'][$ac])) {
-    do_dir($_SERVER['argv'][$ac]);
-  }
-  else {
-    do_file($_SERVER['argv'][$ac]);
-  }
-}
+main($_SERVER['argc'], $_SERVER['argv']);
