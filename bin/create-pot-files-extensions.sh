@@ -89,7 +89,7 @@ sed -e "s/NOW/$now/" \
 # create base POT file
 echo " * Building ${extname}.pot"
 cp $header $potdir/${extname}.pot
-`dirname $0`/extractor.php extension $root >> $potdir/${extname}.pot
+civistrings -ao "$potdir/${extname}.pot" "$root"
 msguniq $potdir/${extname}.pot | sponge $potdir/${extname}.pot
 
 rm $header
