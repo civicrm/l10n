@@ -124,6 +124,7 @@ function build_raw_pot() {
         xml/templates/civicrm_msg_template.tpl \
         xml/templates/message_templates/friend_* \
         xml/templates/message_templates/uf_notify_* \
+        partials/ \
         js/
 
       ## The CRM/Upgrade folder includes *.tpl files which, for some reason,
