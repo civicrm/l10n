@@ -1,29 +1,366 @@
 #!/bin/bash
+set -e
 
+#####################################################################
+## Variables
+
+## Source code path
+SRC=
+
+## Output path
+POTDIR=
+
+## The component *.pot files are based roughly on CRM/Foo templates/CRM/Foo.
+COMPONENT_POTS="Admin Badge Batch Campaign Case Contribute Event Extension Financial Grant Mailing Member PCP Pledge Project Queue Report"
+
+## The adhoc *.pot files are based on clear file list (but may have some special/less predictable rules).
+ADHOC_POTS="common-base countries drupal-civicrm install menu provinces"
+
+## The magic *.pot files are derived from other *.pot files.
+MAGIC_POTS="common-components"
+
+## List of chosen *.pot files
+POTS=
+
+## Header file to prepend to any *.pot
+HEADER=bin/header
+
+## Flags to control which actions are performed
+DO_SCAN=
+DO_DIGEST=
+DO_CLEANUP=
+FORCE=
+
+#####################################################################
 function usage() {
   cat <<EOT
 create-pot-files.sh - builds .pot files for CiviCRM.
 
 Usage:
-  ./bin/create-pot-files.sh [src dir] [dest dir]
+  ./bin/create-pot-files.sh [options] [srcdir] [destdir] [pot1...]
 
-Example:
-  ./bin/create-pot-files.sh ~/repository/civicrm/  ~/repository/l10n/po/pot/
+Examples:
+  ./bin/create-pot-files.sh ~/repository/civicrm/ ~/repository/l10n/po/pot/
+  ./bin/create-pot-files.sh -sd ~/repository/civicrm/ ~/repository/l10n/po/pot/ common-base Admin Contribute
+
+Options:
+  -s    Scan targets for strings (Pass #1)
+  -d    Digest/dedupe scanned strings (Pass #2)
+  -c    Cleanup temp files
+  -a    All (scan+digest+cleanup; default)
+  -f    Force (Ignore cached results from previous scan)
+  -h    Help
+
+Targets:
+  $COMPONENT_POTS
+  $ADHOC_POTS $MAGIC_POTS
 
 Although you should probably not call this directly. Use build-unified-pots.sh
 if you are exporting the strings to Transifex.
 http://wiki.civicrm.org/confluence/display/CRMDOC/Pushing+new+strings+to+Transifex
-
-NB: this program uses the "sponge" command, which you can get by installing the
-"moreutils" package under Debian/Ubuntu.
 
 EOT
 
   exit 1;
 }
 
+#####################################################################
+## Assert that CLI dependencies are met
+function check_deps() {
+  for cmd in sponge civistrings msgcomm msguniq tempfile tr grep cut ; do
+    if ! which $cmd > /dev/null ; then
+      echo "Missing required command: $cmd"
+      echo
+      case "$cmd" in
+        sponge)
+          echo 'This program uses the "sponge" command which you can get by installing the'
+          echo '"moreutils" package under Debian/Ubuntu or by visting'
+          echo 'https://joeyh.name/code/moreutils/'
+          ;;
+        civistrings)
+          echo 'This program uses the "civistrings" command which is bundled with buildkit.'
+          echo 'You can download it separately from https://github.com/civicrm/civistrings'
+      esac
+      exit 1
+    fi
+  done
+}
+
+#####################################################################
+## civistrings wrapper with some default options
+function _civistrings() {
+  civistrings --header="$HEADER" "$@"
+}
+
+#####################################################################
+## Build an individual POT file
+## usage: build_raw_pot <name>
+## example: build_raw_pot Mailing
+## example: build_raw_pot install
+function build_raw_pot() {
+  local name="$1"
+  local filepath="$POTDIR/.raw-"$(echo $name | tr '[:upper:]' '[:lower:]').pot
+
+  if [ -f "$filepath" -a -z "$FORCE" ]; then
+    echo "[[ Found raw strings for ${name} from previous scan. ]]"
+    return
+  fi
+
+  echo "[[ Building raw strings for ${name} ]]"
+
+  case "$name" in
+
+    ## Adhoc targets, sorted alphabetically
+
+    common-base)
+      _civistrings -o "$filepath" \
+        {CRM,templates/CRM}/{ACL,Activity,Block,common,Contact,Core} \
+        {CRM,templates/CRM}/{Custom,Dashlet,Dedupe,Export,Form,Friend} \
+        {CRM,templates/CRM}/{Group,Import,Logging,Note,Price,Profile} \
+        {CRM,templates/CRM}/{Relationship,SMS,Standalone,Tag,UF,Utils} \
+        xml/templates/civicrm_acl.tpl \
+        xml/templates/civicrm_data.tpl \
+        xml/templates/languages.tpl \
+        xml/templates/civicrm_msg_template.tpl \
+        xml/templates/message_templates/friend_* \
+        xml/templates/message_templates/uf_notify_* \
+        js/
+
+      ## The CRM/Upgrade folder includes *.tpl files which, for some reason,
+      ## have been omitted from past pot's. Omitting these requires more
+      ## precise file selection.
+      find CRM/Upgrade -name '*.php' | _civistrings -ao "$filepath" -
+      _civistrings -ao "$filepath" templates/CRM/Upgrade
+      ;;
+
+    common-components)
+      ## Not yet; handled in the digest phase. That why it's in MAGIC_POTS
+      return
+      ;;
+
+    countries)
+      cat "$HEADER" > "$filepath"
+      grep ^INSERT xml/templates/civicrm_country.tpl \
+        | cut -d\" -f4 \
+        | while read entry; do
+          echo -e "msgctxt \"country\"\nmsgid \"$entry\"\nmsgstr \"\"\n"
+        done \
+        >> "$filepath"
+      ## Hmm, if civicrm_country.tpl used {ts}, then we could just call "civistrings --msgctxt=country"
+      ;;
+
+    drupal-civicrm)
+      _civistrings -o "$filepath" \
+        drupal \
+        CRM/Core/Permission.php
+      ;;
+
+    install)
+      _civistrings -o "$filepath" \
+        install/
+      ;;
+
+    menu)
+      cat "$HEADER" > "$filepath"
+      grep -h '<title>' CRM/*/xml/Menu/*.xml \
+        | sed 's/^.*<title>\(.*\)<\/title>.*$/\1/' \
+        | while read entry; do
+          echo -e "msgctxt \"menu\"\nmsgid \"$entry\"\nmsgstr \"\"\n"
+        done \
+        >> "$filepath"
+      _civistrings --msgctxt=menu xml/templates/civicrm_navigation.tpl -ao "$filepath"
+      ;;
+
+    provinces)
+      cat "$HEADER" > "$filepath"
+      grep '^(' xml/templates/civicrm_state_province.tpl \
+        | cut -d\" -f4 \
+        | while read entry; do
+          echo -e "msgctxt \"province\"\nmsgid \"$entry\"\nmsgstr \"\"\n"
+        done \
+        >> "$filepath"
+        ## Hmm, if civicrm_country.tpl used {ts}, then we could just call "civistrings --msgctxt=country"
+      ;;
+
+    ## Standard targets, sorted alphabetically
+
+    Campaign)
+      _civistrings -o "$filepath" \
+        {CRM,templates/CRM}/$name \
+        xml/templates/message_templates/petition_*
+      ;;
+
+    Case)
+      _civistrings -o "$filepath" \
+        {CRM,templates/CRM}/$name \
+        xml/templates/message_templates/case_*
+      ;;
+
+    Contribute)
+      _civistrings -o "$filepath" \
+        {CRM,templates/CRM}/$name \
+        xml/templates/message_templates/contribution_* \
+        xml/templates/message_templates/test_*
+      ;;
+
+
+    Event)
+      _civistrings -o "$filepath" \
+        {CRM,templates/CRM}/$name \
+        xml/templates/message_templates/event_* \
+        xml/templates/message_templates/participant_*
+      ;;
+
+    Member)
+      _civistrings -o "$filepath" \
+        {CRM,templates/CRM}/$name \
+        xml/templates/message_templates/membership_*
+      ;;
+
+
+    PCP)
+      _civistrings -o "$filepath" \
+        {CRM,templates/CRM}/$name \
+        xml/templates/message_templates/pcp_*
+      ;;
+
+    Pledge)
+      _civistrings -o "$filepath" \
+        {CRM,templates/CRM}/$name \
+        xml/templates/message_templates/pledge_*
+      ;;
+
+    *)
+      if echo " $COMPONENT_POTS " | grep -q " $name " > /dev/null ; then
+        _civistrings -o "$filepath" {CRM,templates/CRM}/$name
+      else
+        echo "unrecognized pot: $name"
+      fi
+      ;;
+
+  esac
+
+  find "$filepath" ! -empty | while read f; do
+    msguniq "$filepath" | sponge "$filepath"
+  done
+}
+
+#####################################################################
+## usage: make_stat <name>
+## example: make_stat Mailing
+function make_stat() {
+  local name="$1"
+  local filepath="$POTDIR/.raw-"$(echo $name | tr '[:upper:]' '[:lower:]').pot
+  grep ^msgid "$filepath" | sort -u > "$filepath.msgid"
+  grep '^#:' "$filepath" | sed 's/#://' | tr ' ' '\n' | sort -u > "$filepath.files"
+}
+
+#####################################################################
+## Scan .raw-*.pot for common strings and put them in common-components.pot
+## usage: build_common_components
+function build_common_components() {
+  echo "[[ Building common-components.pot ]]"
+  local paths=""
+  local count=0
+  for comp in $COMPONENT_POTS ; do
+    local rawfile=".raw-"$(echo $comp | tr '[:upper:]' '[:lower:]').pot
+    if [ -f "$rawfile" ]; then
+      paths="$paths $rawfile"
+      ((count++))
+    fi
+  done
+  if [ $count -gt 1 ]; then
+    msgcomm $paths > .raw-common-components.pot
+  else
+    cat $HEADER > .raw-common-components.pot
+  fi
+}
+
+#####################################################################
+## example: build_final_pot Mailing
+## example: build_final_pot install
+function build_final_pot() {
+  local name="$1"
+  local rawpath="$POTDIR/.raw-"$(echo $name | tr '[:upper:]' '[:lower:]').pot
+  local finalpath="$POTDIR/"$(echo $name | tr '[:upper:]' '[:lower:]').pot
+  local tmpfile=`tempfile`
+
+  echo "[[ Building final strings for ${name} ]]"
+
+  cp -f "$rawpath" "$finalpath"
+
+  if echo " $COMPONENT_POTS " | grep -q " $name " > /dev/null ; then
+    msgcomm "$finalpath" .raw-common-components.pot > $tmpfile
+    msgcomm --unique "$finalpath" $tmpfile | sponge "$finalpath"
+
+    msgcomm "$finalpath" .raw-common-base.pot | sponge $tmpfile
+    msgcomm --unique "$finalpath" $tmpfile | sponge "$finalpath"
+
+  elif [ "$name" == "install" ]; then
+    msgcomm "$finalpath" .raw-common-base.pot | sponge $tmpfile
+    msgcomm --unique "$finalpath" $tmpfile | sponge "$finalpath"
+  fi
+
+  rm -f "$tmpfile"
+}
+
+#####################################################################
+## Delete temp files
+function do_cleanup() {
+  echo "[[ Cleanup temp files ]]"
+  rm .raw*pot -f
+}
+
+#####################################################################
+## Main
+
 [ "$1" == "--help" ] && usage
 [ "$1" == "-h" ] && usage
+
+check_deps
+
+FOUND_ACTION=
+while getopts "asfdc" opt; do
+  case $opt in
+    a)
+      DO_SCAN=1
+      DO_DIGEST=1
+      DO_CLEANUP=1
+      FOUND_ACTION=1
+      ;;
+    s)
+      DO_SCAN=1
+      FOUND_ACTION=1
+      ;;
+    d)
+      DO_DIGEST=1
+      FOUND_ACTION=1
+      ;;
+    c)
+      DO_CLEANUP=1
+      FOUND_ACTION=1
+      ;;
+    f)
+      FORCE=1
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 1
+      ;;
+  esac
+done
+
+if [ -z "$FOUND_ACTION" ]; then
+  DO_SCAN=1
+  DO_DIGEST=1
+  DO_CLEANUP=1
+fi
+
+shift $((OPTIND-1))
 
 [ "$1" == "" ] && echo 'source dir missing'     && usage
 test ! -e "$1" && echo 'source does not exist'  && usage
@@ -33,129 +370,38 @@ test ! -d "$1" && echo 'source not a directory' && usage
 test ! -e "$2" && echo 'target does not exist'  && usage
 test ! -d "$2" && echo 'target not a directory' && usage
 
-# Test whether the sponge command is installed
-which sponge
-if [ $? -ne 0 ]; then
-  echo "Could not find the sponge command."
-  usage
+# use absolute paths so that we can chdir/pushd
+SRC=$(php -r 'echo realpath($argv[1]);' "$1")
+POTDIR=$(php -r 'echo realpath($argv[1]);' "$2")
+HEADER=$(php -r 'echo realpath($argv[1]);' "$HEADER")
+## TODO: substitute "NOW" in HEADER
+shift 2
+
+if [ -z "$1" ]; then
+  POTS="$COMPONENT_POTS $ADHOC_POTS $MAGIC_POTS"
+else
+  POTS="$@"
 fi
 
-root="$1"
-potdir="$2"
+if [ -n "$DO_SCAN" ]; then
+  pushd "$SRC" >> /dev/null
+    for POT in $POTS ; do
+      build_raw_pot "$POT"
+    done
+  popd >> /dev/null
+fi
 
-header=`tempfile`
-now=`date +'%F %R%z'`
-sed "s/NOW/$now/" bin/header > $header
+if [ -n "$DO_DIGEST" ]; then
+  pushd "$POTDIR" >> /dev/null
+    build_common_components
+    for POT in $POTS ; do
+      build_final_pot "$POT"
+    done
+  popd >> /dev/null
+fi
 
-# $componets are the dirs with strings generating per-component $component.po files
-components=`ls -1 $root/CRM $root/templates/CRM | grep -v :$ | grep -v ^$ | grep -viFf bin/basedirs | sort -u | xargs | tr [A-Z] [a-z]`
-
-# Helper function for extracting strings from xml/templates
-# which are mostly component-specific. We also run a msguniq on
-# them because later msgcomm calls tends to filter out strings
-# that repeat themselves in {component}.po files.
-function smarty_extractor {
-  ME=$1
-  root=$2
-  potdir=$3
-  input=$4
-  component=$5
-
-  `dirname $ME`/smarty-extractor.php $root $root/$input >> ${potdir}/${component}.pot
-  msguniq $potdir/${component}.pot | sponge $potdir/${component}.pot
-}
-
-# build the three XML-originating files
-
-echo ' * building menu.pot'
-cp $header $potdir/menu.pot
-grep -h '<title>' $root/CRM/*/xml/Menu/*.xml | sed 's/^.*<title>\(.*\)<\/title>.*$/\1/'                                             | while read entry; do echo -e "msgctxt \"menu\"\nmsgid \"$entry\"\nmsgstr \"\"\n"; done >> $potdir/menu.pot
-`dirname $0`/smarty-extractor.php $root $root/xml/templates/civicrm_navigation.tpl | grep '^msgid "' | sed 's/^msgid "\(.*\)"$/\1/' | while read entry; do echo -e "msgctxt \"menu\"\nmsgid \"$entry\"\nmsgstr \"\"\n"; done >> $potdir/menu.pot
-msguniq $potdir/menu.pot | sponge $potdir/menu.pot
-
-echo ' * building countries.pot'
-cp $header $potdir/countries.pot
-grep ^INSERT $root/xml/templates/civicrm_country.tpl     | cut -d\" -f4                                  | while read entry; do echo -e "msgctxt \"country\"\nmsgid \"$entry\"\nmsgstr \"\"\n"; done >> $potdir/countries.pot
-
-echo ' * building provinces.pot'
-cp $header $potdir/provinces.pot
-grep '^(' $root/xml/templates/civicrm_state_province.tpl | cut -d\" -f4                                  | while read entry; do echo -e "msgctxt \"province\"\nmsgid \"$entry\"\nmsgstr \"\"\n"; done >> $potdir/provinces.pot
-
-# make sure none of the province names repeat
-# FIXME: add country name to context and skip this to do the Right Thing™
-msguniq $potdir/provinces.pot | sponge $potdir/provinces.pot
-
-# create base POT file
-echo ' * building common-base.pot'
-cp $header $potdir/common-base.pot
-`dirname $0`/extractor.php base $root >> $potdir/common-base.pot
-`dirname $0`/js-extractor.php $root $root/js >> $potdir/common-base.pot
-msguniq $potdir/common-base.pot | sponge $potdir/common-base.pot
-
-# create the install POT file
-echo ' * building install.pot'
-cp $header $potdir/install.pot
-`dirname $0`/extractor.php 'install' $root/install >> $potdir/install.pot
-
-# drop install strings already present in common-base.pot
-common=`tempfile`
-msgcomm $potdir/install.pot $potdir/common-base.pot > $common
-msgcomm --unique $potdir/install.pot $common | sponge $potdir/install.pot
-rm $common
-
-# create component POT files
-for comp in $components; do
-  echo ' * building '$comp'.pot'
-  cp $header $potdir/$comp.pot
-  `dirname $0`/extractor.php $comp $root >> $potdir/$comp.pot
-  # drop strings already present in common-base.pot
-  common=`tempfile`
-  msgcomm $potdir/$comp.pot $potdir/common-base.pot > $common
-  msgcomm --unique $potdir/$comp.pot $common | sponge $potdir/$comp.pot
-  rm $common
-done
-
-# create common-components.pot with strings common to all components (but not base)
-paths=''
-for comp in $components; do
-  paths="$paths $potdir/$comp.pot"
-done
-echo ' * building common-components.pot'
-msgcomm $paths > $potdir/common-components.pot
-
-# Add strings from message templates
-echo ' * adding template strings'
-
-smarty_extractor $0 $root $potdir 'xml/templates/civicrm_acl.tpl' 'common-base'
-smarty_extractor $0 $root $potdir 'xml/templates/civicrm_data.tpl' 'common-base'
-smarty_extractor $0 $root $potdir 'xml/templates/languages.tpl' 'common-base'
-smarty_extractor $0 $root $potdir 'xml/templates/civicrm_msg_template.tpl' 'common-base'
-smarty_extractor $0 $root $potdir 'xml/templates/message_templates/friend_*' 'common-base'
-smarty_extractor $0 $root $potdir 'xml/templates/message_templates/uf_notify_*' 'common-base'
-smarty_extractor $0 $root $potdir 'xml/templates/message_templates/case_*' 'case'
-smarty_extractor $0 $root $potdir 'xml/templates/message_templates/contribution_*' 'contribute'
-smarty_extractor $0 $root $potdir 'xml/templates/message_templates/event_*' 'event'
-smarty_extractor $0 $root $potdir 'xml/templates/message_templates/participant_*' 'event'
-smarty_extractor $0 $root $potdir 'xml/templates/message_templates/membership_*' 'member'
-smarty_extractor $0 $root $potdir 'xml/templates/message_templates/pcp_*' 'pcp'
-smarty_extractor $0 $root $potdir 'xml/templates/message_templates/petition_*' 'campaign'
-smarty_extractor $0 $root $potdir 'xml/templates/message_templates/pledge_*' 'pledge'
-smarty_extractor $0 $root $potdir 'xml/templates/message_templates/test_*' 'contribute'
-
-# drop strings in common-components.pot from component POT files
-for comp in $components; do
-  common=`tempfile`
-  msgcomm $potdir/$comp.pot $potdir/common-components.pot > $common
-  msgcomm --unique $potdir/$comp.pot $common | sponge $potdir/$comp.pot
-  rm $common
-done
-
-# drop empty files
-find $potdir -empty -exec rm {} \;
-
-# create drupal-civicrm.pot
-echo ' * building drupal-civicrm.pot'
-cp $header $potdir/drupal-civicrm.pot
-find $root/drupal -name '*.inc' -or -name '*.install' -or -name '*.module' -or -name '*.php' | xargs `dirname $0`/php-extractor.php $root $root/CRM/Core/Permission.php >> $potdir/drupal-civicrm.pot
-
-rm $header
+if [ -n "$DO_CLEANUP" ]; then
+  pushd "$POTDIR" >> /dev/null
+    do_cleanup
+  popd >> /dev/null
+fi
