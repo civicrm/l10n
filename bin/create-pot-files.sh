@@ -205,7 +205,6 @@ function build_raw_pot() {
         xml/templates/message_templates/test_*
       ;;
 
-
     Event)
       _civistrings -o "$filepath" \
         {CRM,templates/CRM}/$name \
@@ -218,7 +217,6 @@ function build_raw_pot() {
         {CRM,templates/CRM}/$name \
         xml/templates/message_templates/membership_*
       ;;
-
 
     PCP)
       _civistrings -o "$filepath" \
