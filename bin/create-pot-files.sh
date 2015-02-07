@@ -23,7 +23,8 @@ MAGIC_POTS="common-components"
 POTS=
 
 ## Header file to prepend to any *.pot
-HEADER=bin/header
+HEADER_TMPL=bin/header
+HEADER=
 
 ## Flags to control which actions are performed
 DO_SCAN=
@@ -67,7 +68,7 @@ EOT
 #####################################################################
 ## Assert that CLI dependencies are met
 function check_deps() {
-  for cmd in sponge civistrings msgcomm msguniq tempfile tr grep cut ; do
+  for cmd in sponge civistrings msgcomm msguniq tempfile tr grep cut date sed ; do
     if ! which $cmd > /dev/null ; then
       echo "Missing required command: $cmd"
       echo
@@ -90,6 +91,20 @@ function check_deps() {
 ## civistrings wrapper with some default options
 function _civistrings() {
   civistrings --header="$HEADER" "$@"
+}
+
+#####################################################################
+## usage: HEADER=$(build_header "$HEADER_TMPL")
+function build_header() {
+  local tmpl="$1"
+  local out="$POTDIR/.header"
+  local now=`date +'%F %R%z'`
+
+  cat "$tmpl" \
+    | sed "s/NOW/$now/" \
+    > "$out"
+
+  echo "$out"
 }
 
 #####################################################################
@@ -308,7 +323,7 @@ function build_final_pot() {
 ## Delete temp files
 function do_cleanup() {
   echo "[[ Cleanup temp files ]]"
-  rm .raw*pot -f
+  rm .header .raw*pot -f
 }
 
 #####################################################################
@@ -373,7 +388,7 @@ test ! -d "$2" && echo 'target not a directory' && usage
 # use absolute paths so that we can chdir/pushd
 SRC=$(php -r 'echo realpath($argv[1]);' "$1")
 POTDIR=$(php -r 'echo realpath($argv[1]);' "$2")
-HEADER=$(php -r 'echo realpath($argv[1]);' "$HEADER")
+HEADER=$(build_header "$HEADER_TMPL")
 ## TODO: substitute "NOW" in HEADER
 shift 2
 
