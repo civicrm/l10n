@@ -72,7 +72,7 @@ else
     done
 
     pushd workdir
-    tar cfvz civicrm-l10n-daily.tar.gz l10n
+    tar cfz civicrm-l10n-daily.tar.gz l10n
     md5sum civicrm-l10n-daily.tar.gz > civicrm-l10n-daily.tar.gz.MD5SUMS
 
     echo -n "Rsync civicrm-l10n-daily.tar.gz to download.civicrm.org ... "
