@@ -276,15 +276,15 @@ function make_stat() {
 function build_common_components() {
   echo "[[ Building common-components.pot ]]"
   local paths=""
-  local count=0
+  local has_multiple=0
   for comp in $COMPONENT_POTS ; do
     local rawfile=".raw-"$(echo $comp | tr '[:upper:]' '[:lower:]').pot
     if [ -f "$rawfile" ]; then
       paths="$paths $rawfile"
-      ((count++))
+      has_multiple=1
     fi
   done
-  if [ $count -gt 1 ]; then
+  if [ $has_multiple -eq 1 ]; then
     msgcomm $paths > .raw-common-components.pot
   else
     cat $HEADER > .raw-common-components.pot
