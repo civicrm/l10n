@@ -1,20 +1,19 @@
 #!/bin/bash
 
+set -e
+set -x
+
 function usage() {
   cat <<EOT
 build-unified-pots.sh - builds .pot files for the last 3 versions of CiviCRM.
 
 Usage:
 
-- Prepare a directory that has all of the CiviCRM git repositories, ex:
-  /path/to/repositories/civicrm-{core,drupal,joomla,wordpress,packages}
+- Prepare a CiviCRM checkout that also has all of the sub-repositories, ex:
+  /path/to/repositories/civicrm/{drupal,joomla,wordpress,packages}
+  where the 'civicrm' directory corresponds to civicrm-core.git.
 
-  In other words:
-    $ mkdir -p ~/repositories/civicrm
-    $ ./bin/git-clone-all.sh
-
-  WARNING: if you clone yourself, the script assumes you are tracking "origin",
-  the script will "git pull origin $release" for each repo.
+- Make sure your repository is up to date (git fetch --all).
 
 - Run this script:
     $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot '4.2 4.3 4.4' 2>&1 | tee pots.log
@@ -23,17 +22,13 @@ Usage:
     $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot '4.2 4.3 master' 2>&1 | tee pots.log
 
 - Use diff-check.php to see if the changes make sense. For example:
-    $ git diff --patience po/pot/admin.pot | ./bin/diff-check.php
+    $ git diff -U2000 --patience po/pot/admin.pot | ./bin/diff-check.php
 
 - Push the new strings to Transifex.
 
 NB: We usually build the po files that are compatible for the last 3 versions
-of CiviCRM. As of CiviCRM 4.4, we there still fetch 4.2 from the LTS repo.
-When it will be time to release 4.5, we will have only 1 single set of repos.
-
-NB: the git "patience" diff algorithm from generates cleaner diffs.
-You can set it globally:
-    $ git config --global diff.algorithm patience
+of CiviCRM. For example, as of 4.6, this means the po files will be compatible
+with CiviCRM 4.6, 4.5 and 4.4.
 
 For more information:
 http://wiki.civicrm.org/confluence/display/CRMDOC/Pushing+new+strings+to+Transifex
@@ -62,14 +57,6 @@ for rel in $releases; do
   pushd .
 
   # Get fresh codebase
-  # starting 4.3, civicrm is using git
-  # as of 4.4, we will support 4.2 from the LTS repos.
-  # when we drop support for 4.2, we can cleanup this code.
-  if [ "$rel" = "4.2" ]; then
-    lts="42"
-  else
-    lts=""
-  fi
 
   # we use ${rel:1} so that v4.3 => 4.3, except for "master".
   # r=${rel:1}
@@ -77,43 +64,54 @@ for rel in $releases; do
   #  r="master"
   # fi
 
-  echo "Copying $root/civicrm${lts}-core ($rel) to $temp/$rel ..."
-  cd $root/civicrm${lts}-core
-  git checkout -t origin/$rel
-  git pull
+  echo "Copying $root ($rel) to $temp/$rel ..."
+  cd $root
+  git checkout $rel
   git archive $rel | tar -xC $temp/$rel
 
-  echo "Copying $root/civicrm${lts}-drupal (7x-$rel) to $temp/$rel/drupal ..."
+  echo "Copying $root/drupal (7x-$rel) to $temp/$rel/drupal ..."
   mkdir -p $temp/$rel/drupal
-  cd $root/civicrm${lts}-drupal
-  git checkout -t origin/7.x-$rel
-  git pull
+  cd $root/drupal
+  git checkout 7.x-$rel
   git archive 7.x-$rel | tar -xC $temp/$rel/drupal
 
-  echo "Copying $root/civicrm${lts}-joomla ($rel) to $temp/$rel/joomla ..."
-  mkdir -p $temp/$rel/joomla
-  cd $root/civicrm${lts}-joomla
-  git checkout -t origin/$rel
-  git pull
-  git archive $rel | tar -xC $temp/$rel/joomla
+  if [ -d $root/joomla ]; then
+    echo "Copying $root/joomla ($rel) to $temp/$rel/joomla ..."
+    mkdir -p $temp/$rel/joomla
+    cd $root/joomla
+    git checkout $rel
+    git archive $rel | tar -xC $temp/$rel/joomla
+  else
+    echo "Skipping missing $root/joomla."
+    echo "As of CiviCRM 4.6 there aren't any strings in it, but that could change in the future?"
+  fi
 
-  echo "Copying $root/civicrm${lts}-wordpress ($rel) to $temp/$rel/wordpress ..."
-  mkdir -p $temp/$rel/wordpress
-  cd $root/civicrm${lts}-wordpress
-  git checkout -t origin/$rel
-  git pull
-  git archive $rel | tar -xC $temp/$rel/wordpress
+  if [ -d $root/wordpress ]; then
+    echo "Copying $root/wordpress ($rel) to $temp/$rel/wordpress ..."
+    mkdir -p $temp/$rel/wordpress
+    cd $root/wordpress
+    git checkout $rel
+    git archive $rel | tar -xC $temp/$rel/wordpress
+  else
+    echo "Skipping missing $root/wordpress."
+    echo "As of CiviCRM 4.6 there aren't any strings in it, but that could change in the future?"
+  fi
 
-  echo "Copying $root/civicrm${lts}-packages ($rel) to $temp/$rel/packages ..."
+  echo "Copying $root/packages ($rel) to $temp/$rel/packages ..."
   mkdir -p $temp/$rel/packages
-  cd $root/civicrm${lts}-packages
-  git checkout -t origin/$rel
-  git pull
+  cd $root/packages
+  git checkout $rel
   git archive $rel | tar -xC $temp/$rel/packages
 
   mkdir $temp/$rel/xml/default
   echo '<?php define("CIVICRM_CONFDIR", ".");' > $temp/$rel/settings_location.php
   echo '<?php define("CIVICRM_UF", "Drupal");' > $temp/$rel/xml/default/civicrm.settings.php
+
+  if [ -f $temp/$rel/composer.json ]; then
+    echo "Running composer install ..."
+    cd $temp/$rel
+    composer install
+  fi
 
   echo "Running GenCode.php ..."
   cd $temp/$rel/xml
@@ -121,8 +119,13 @@ for rel in $releases; do
 
   popd
 
-  echo "Executing: create-pot-files.sh $temp/$rel $temp/pot/$rel"
-  bin/create-pot-files.sh $temp/$rel $temp/pot/$rel
+  if [ -f $temp/tools/bin/scripts/create-pot-files.sh ]; then
+    echo "Executing: $temp/tools/bin/scripts/create-pot-files.sh $temp/$rel $temp/pot/$rel"
+    $temp/tools/bin/scripts/create-pot-files.sh $temp/$rel $temp/pot/$rel
+  else
+    echo "Executing: create-pot-files.sh $temp/$rel $temp/pot/$rel"
+    bin/create-pot-files.sh $temp/$rel $temp/pot/$rel
+  fi
 done
 
 pots=`for pot in $temp/pot/*/*.pot; do basename $pot .pot; done | sort -u | grep -v ^drupal-civicrm$`
