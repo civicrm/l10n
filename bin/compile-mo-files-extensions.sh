@@ -116,7 +116,7 @@ else
 
   if [ "$user" = "l10n" ]; then
     echo -n "Rsync to download.civicrm.org ... "
-    rsync --delete -ra mo l10n@sushi.civicrm.org:/var/www/download.civicrm.org/public/civicrm-l10n-extensions/
+    rsync --delete -ra mo /var/www/download.civicrm.org/public/civicrm-l10n-extensions/
     echo "done!"
   fi
 fi
