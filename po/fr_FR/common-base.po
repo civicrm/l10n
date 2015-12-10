@@ -8,7 +8,7 @@
 # SR71 <ben.alard@gmail.com>, 2012
 # Brice Lacomette <brice.lacomette@laposte.net>, 2015
 # Bronner Matthieu <mat.bronner@hotmail.fr>, 2013
-# Bruno Caranton <caranton.paul@gmail.com>, 2013
+# Paul Caranton <caranton.paul@gmail.com>, 2013
 # Camille Baldock <mademoisellegeek42@gmail.com>, 2011-2012
 # Christophe BENZ <christophe.benz@gmail.com>, 2011
 # Christophe BENZ <christophe.benz@gmail.com>, 2012
@@ -38,9 +38,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2015-04-25 16:54-0400\n"
-"PO-Revision-Date: 2015-10-31 09:28+0000\n"
-"Last-Translator: e2f <projects@e2f.com>\n"
+"POT-Creation-Date: 2015-12-09 21:23-0500\n"
+"PO-Revision-Date: 2015-12-10 02:30+0000\n"
+"Last-Translator: Mathieu Lutfy <mathieu@bidon.ca>\n"
 "Language-Team: French (http://www.transifex.com/civicrm/civicrm/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -141,6 +141,7 @@ msgstr "Supprimer"
 #: CRM/ACL/BAO/ACL.php CRM/ACL/DAO/ACL.php CRM/Activity/Form/Search.php
 #: CRM/Contact/Form/Relationship.php
 #: CRM/Contact/Form/Search/Custom/ActivitySearch.php
+#: CRM/Contact/Form/Search/Custom/Base.php
 #: CRM/Contact/Form/Search/Custom/ContribSYBNT.php
 #: CRM/Contact/Form/Search/Custom/ContributionAggregate.php
 #: CRM/Contact/Form/Search/Custom/DateAdded.php
@@ -3346,6 +3347,10 @@ msgid "Contact Information"
 msgstr "Fiche contact"
 
 #: CRM/Contact/Form/Relationship.php
+msgid "You do not have permission to edit relationships for this contact."
+msgstr ""
+
+#: CRM/Contact/Form/Relationship.php
 msgid "Relationships for"
 msgstr "Relations pour"
 
@@ -5836,6 +5841,10 @@ msgid "%1 must be valid Website."
 msgstr "%1 doit être un site web valide."
 
 #: CRM/Core/BAO/CustomGroup.php
+msgid "Cannot create custom table because %1 is already a core table."
+msgstr ""
+
+#: CRM/Core/BAO/CustomGroup.php
 msgid "%1 Questions"
 msgstr "%1 questions"
 
@@ -7842,6 +7851,20 @@ msgstr "APILogin n'est pas installé pour cette passerelle de paiement"
 msgid "Key is not set for this payment processor"
 msgstr "La clé n'est pas indiquée pour cette passerelle de paiement"
 
+#: CRM/Core/Payment/AuthorizeNetIPN.php
+msgid "Subscription payment failed - %1"
+msgstr ""
+
+#: CRM/Core/Payment/AuthorizeNetIPN.php
+msgid ""
+"Recurring contribution appears to have been re-assigned from id %1 to %2, "
+"continuing with %2."
+msgstr ""
+
+#: CRM/Core/Payment/AuthorizeNetIPN.php
+msgid "Could not find contributionRecur id: %1"
+msgstr ""
+
 #: CRM/Core/Payment/BaseIPN.php CRM/Core/Payment/GoogleIPN.php
 msgid "Online Contribution"
 msgstr "Contribution en ligne"
@@ -8229,6 +8252,14 @@ msgstr "eWAY CustomerID non indiqué pour cette passerelle de paiement"
 #: CRM/Core/Payment/eWAY.php
 msgid "eWAY Gateway URL is not set for this payment processor"
 msgstr "eWAY Gateway URL non indiquée pour cette passerelle de paiement"
+
+#: CRM/Core/Payment.php
+msgid "No active instances of payment processor %1 were found."
+msgstr ""
+
+#: CRM/Core/Payment.php
+msgid "No active instances of payment processor '%1' were found."
+msgstr ""
 
 #: CRM/Core/Permission.php CRM/Logging/ReportDetail.php
 #: templates/CRM/common/joomla.tpl templates/CRM/common/print.tpl
@@ -11260,6 +11291,12 @@ msgstr "L'adresse n'a pas été trouvée dans la base de donnée USPS"
 #: CRM/Utils/Cache.php
 msgid "this is just an interface and should not be called directly"
 msgstr "ceci est une interface, elle ne devrait pas être appelée directement."
+
+#: CRM/Utils/Check/Env.php
+msgid ""
+"Timestamps reported by MySQL (eg \"%2\") and PHP (eg \"%3\" ) are "
+"mismatched.<br /><a href=\"%1\">Read more about this warning</a>"
+msgstr ""
 
 #: CRM/Utils/Check/Env.php
 msgid "Environment Settings"
@@ -23384,6 +23421,10 @@ msgstr "Modifier la relation pour %1"
 msgid "Delete Relationship for %1"
 msgstr "Supprimer la relation pour %1"
 
+#: CRM/Contact/Form/Relationship.php CRM/Core/Form.php
+msgid "- select %1 -"
+msgstr "- sélectionner %1 -"
+
 #: CRM/Contact/Form/Relationship.php
 #: templates/CRM/Custom/Form/ContactReference.tpl
 msgid "- select contact -"
@@ -24520,10 +24561,6 @@ msgid "Clear"
 msgstr "Effacer"
 
 #: CRM/Core/Form.php
-msgid "- select %1 -"
-msgstr "- sélectionner %1 -"
-
-#: CRM/Core/Form.php
 msgid "Select someone else ..."
 msgstr "Sélectionner quelqu'un d'autre ..."
 
@@ -24900,13 +24937,29 @@ msgstr "EXCLURE les destinaitres de ce(s) message(s)"
 msgid "Profile Field"
 msgstr "Champ du profil"
 
+#: CRM/UF/Form/Field.php
+msgid "You have already added a primary location field of this type: %1"
+msgstr ""
+
 #: CRM/UF/Page/Group.php
 msgid "Use Profile-Listings Mode"
 msgstr "Utiliser le mode de listes de profils"
 
 #: CRM/Utils/Check/Case.php
+msgid ""
+"Case type \"%2\" has duplicate XML files (\"%3\" and \"%4\").<br /><a "
+"href=\"%1\">Read more about this warning</a>"
+msgstr ""
+
+#: CRM/Utils/Check/Case.php
 msgid "CiviCase"
 msgstr "CiviCase"
+
+#: CRM/Utils/Check/Case.php
+msgid ""
+"Case type \"%2\" corresponds to XML file (\"%3\") The XML file should be "
+"named \"%4\".<br /><a href=\"%1\">Read more about this warning</a>"
+msgstr ""
 
 #: CRM/Utils/Check/Env.php
 msgid ""
@@ -25760,7 +25813,8 @@ msgstr "Félicitations ! La mise à jour a été réalisée avec succès ! (... 
 msgid "Deny ACL?"
 msgstr "Interdire l'ACL ?"
 
-#: CRM/Activity/BAO/Query.php
+#: CRM/Activity/BAO/Query.php CRM/Contact/BAO/Query.php
+#: CRM/Core/BAO/CustomQuery.php
 msgid "%1 %2 %3"
 msgstr "%1 %2 %3"
 
@@ -25788,9 +25842,25 @@ msgid_plural "%count activities deleted."
 msgstr[0] "%count activité supprimée."
 msgstr[1] "%count activités supprimées."
 
+#: CRM/Activity/Form/Task/Delete.php
+msgid "1 could not be deleted."
+msgid_plural "%count could not be deleted."
+msgstr[0] ""
+msgstr[1] ""
+
+#: CRM/Activity/Form/Task/RemoveFromTag.php
+msgid "%count activity un-tagged"
+msgid_plural "%count activities un-tagged"
+msgstr[0] ""
+msgstr[1] ""
+
 #: CRM/Activity/Page/AJAX.php CRM/Activity/Selector/Search.php
 msgid "Repeating (%1 of %2)"
 msgstr "Répétition (%1 sur %2)"
+
+#: CRM/Contact/BAO/Query.php
+msgid "%1 is not a valid operator"
+msgstr ""
 
 #: CRM/Contact/BAO/Query.php CRM/Core/SelectValues.php
 msgid "Not Like"
@@ -25799,6 +25869,14 @@ msgstr "Différent"
 #: CRM/Contact/BAO/Query.php
 msgid "Contact Subtype %1 "
 msgstr "Sous-type de contact %1"
+
+#: CRM/Contact/BAO/Query.php
+msgid "Group(s) %1 %2"
+msgstr ""
+
+#: CRM/Contact/BAO/Query.php
+msgid "Group Status %1"
+msgstr ""
 
 #: CRM/Contact/BAO/Query.php
 msgid "Greeting %1 %2"
@@ -25820,10 +25898,6 @@ msgstr "Fusionner %1 contacts"
 msgid "Contact ID %1 has been merged and deleted."
 msgstr "Le contact ID %1 a été fusionné et supprimé."
 
-#: CRM/Contact/Form/Relationship.php
-msgid "The relationship has been updated"
-msgstr "La relation a été mise à jour"
-
 #: CRM/Contact/Form/Search/Criteria.php
 msgid "Inactive"
 msgstr "Inactif"
@@ -25842,6 +25916,12 @@ msgstr "Montant de la contribution"
 msgid "Participant ID"
 msgstr "ID du participant"
 
+#: CRM/Contact/Form/Task/Batch.php
+msgid "Contact Subtype field of 1 contact has not been updated."
+msgid_plural "Contact Subtype field of %count contacts has not been updated."
+msgstr[0] ""
+msgstr[1] ""
+
 #: CRM/Contact/Form/Task/Map.php
 msgid ""
 "You need to configure a Mapping Provider before using this feature "
@@ -25855,6 +25935,10 @@ msgstr "Importer maintenant >>"
 #: CRM/Contact/Import/Parser/Contact.php
 msgid "ID: %1"
 msgstr "ID: %1"
+
+#: CRM/Core/BAO/Address.php
+msgid "You seem to have deleted the relationship type 'Household Member of'"
+msgstr ""
 
 #: CRM/Core/BAO/Navigation.php
 msgid "Log out"
@@ -25875,6 +25959,18 @@ msgstr "Date de référence"
 #: CRM/Core/DAO/CustomField.php
 msgid "Custom Field HTML Type"
 msgstr "Type d'HTML du champ personnalisé"
+
+#: CRM/Core/DAO/JobLog.php
+msgid "Job Log ID"
+msgstr ""
+
+#: CRM/Core/DAO/JobLog.php
+msgid "Timestamp"
+msgstr ""
+
+#: CRM/Core/DAO/JobLog.php
+msgid "Extended Data"
+msgstr ""
 
 #: CRM/Core/DAO/RecurringEntity.php
 msgid "Parent ID"
@@ -26034,6 +26130,10 @@ msgstr "La configuration de la répétition a été enregistrée"
 msgid "Repeat Entity"
 msgstr "Répéter l'entité"
 
+#: CRM/Core/Payment/AuthorizeNetIPN.php
+msgid "Could not find contributionRecur id"
+msgstr ""
+
 #: CRM/Core/Permission.php
 msgid "Create a new contact record in CiviCRM"
 msgstr "Créer un nouvel enregistrement de contact dans CiviCRM"
@@ -26191,6 +26291,14 @@ msgstr "Ajouter, mettre à jour ou désactiver les passerelles de paiement"
 msgid "edit message templates"
 msgstr "modifier les modèles de message"
 
+#: CRM/Core/Permission.php
+msgid "view my invoices"
+msgstr ""
+
+#: CRM/Core/Permission.php
+msgid "Allow users to view/ download their own invoices"
+msgstr ""
+
 #: CRM/Core/Resources.php
 msgid "Upcoming"
 msgstr "À venir"
@@ -26264,6 +26372,26 @@ msgstr "Montant de la taxe"
 msgid "Price Field Post Text"
 msgstr "Texte après le champ tarif"
 
+#: CRM/UF/Form/Field.php
+msgid ""
+"Cannot add or update profile field \"%1\" with combination of Household or "
+"Organization or any subtypes of Household or Organization."
+msgstr ""
+
+#: CRM/UF/Page/ProfileEditor.php
+msgid "Free HTML"
+msgstr ""
+
+#: CRM/UF/Page/ProfileEditor.php
+msgid "Formatting"
+msgstr ""
+
+#: CRM/Utils/Check/Security.php
+msgid ""
+"The system administrator has disabled security settings (%1). Connections to"
+" remote applications are insecure."
+msgstr ""
+
 #: CRM/Utils/DeprecatedUtils.php
 msgid "Event templates are not meant to be registered."
 msgstr "Les modèles d'événement ne sont pas conçus pour recevoir des inscriptions."
@@ -26288,74 +26416,6 @@ msgstr "Supprimer ce message"
 msgid "Security Alert"
 msgstr "Alerte de sécurité"
 
-#: ang/crmApp.js
-msgid "Unknown path"
-msgstr "Chemin inconnu"
-
-#: ang/crmAttachment/attachments.html
-msgid "Deleting an attachment will completely remove it from server."
-msgstr "Supprimer une pièce jointe revient à la supprimer complètement du serveur."
-
-#: ang/crmAttachment/attachments.html
-msgid "Delete attachment"
-msgstr "Supprimer la pièce jointe"
-
-#: ang/crmAttachment/attachments.html
-msgid "Remove unsaved attachment"
-msgstr "Supprimer une pièce jointe non enregistrée"
-
-#: ang/crmAttachment/attachments.html
-msgid "Add file:"
-msgstr "Ajouter un fichier : "
-
-#: ang/crmAttachment/attachments.html
-msgid "Alternatively, you may add new files using drag/drop."
-msgstr "Vous pouvez aussi ajouter des nouveaux fichiers par glisser/déposer."
-
-#: ang/crmAttachment.js
-msgid "Attachment failed"
-msgstr "Échec de la pièce jointe"
-
-#: ang/crmAttachment.js
-msgid "Deletion failed"
-msgstr "Échec de la suppression"
-
-#: ang/crmAttachment.js
-msgid "Deleting..."
-msgstr "Suppression en cours..."
-
-#: ang/crmExample/example.html
-msgid "Send immediately"
-msgstr "Envoyer immédiatement"
-
-#: ang/crmExample/example.html
-msgid "Send at:"
-msgstr "Envoyer à :"
-
-#: ang/crmUi.js
-msgid "My Title"
-msgstr "Mon titre"
-
-#: ang/crmUi.js
-msgid "Debug (%1)"
-msgstr "Débogage (%1)"
-
-#: ang/crmUi.js
-msgid "My Field"
-msgstr "Mon champ"
-
-#: ang/crmUi.js
-msgid "Help"
-msgstr "Aide"
-
-#: ang/crmUi.js
-msgid "Step 1"
-msgstr "1re étape"
-
-#: ang/crmUi.js
-msgid "Step 2"
-msgstr "2e étape"
-
 #: js/Common.js
 msgid "Refine search..."
 msgstr "Affiner la recherche..."
@@ -26369,12 +26429,24 @@ msgid ""
 "Ensure you are still logged in and have permission to access this feature."
 msgstr "Assurez-vous que vous êtes toujours connecté et que vous avez le droit d'accéder à cette fonction."
 
+#: js/crm.ajax.js
+msgid "Print window"
+msgstr ""
+
 #: js/jquery/jquery.crmeditable.js packages/HTML/QuickForm/ckeditor.php
 #: packages/HTML/QuickForm/tinymce.php
 #: templates/CRM/Contact/Form/Edit/CommunicationPreferences.tpl
 #: templates/CRM/Contact/Form/Inline/CommunicationPreferences.tpl
 msgid "Click to edit"
 msgstr "Cliquez pour modifier"
+
+#: js/model/crm.uf.js
+msgid "Markup"
+msgstr ""
+
+#: templates/CRM/Activity/Form/Activity.tpl
+msgid "Are you sure you want to delete "
+msgstr ""
 
 #: templates/CRM/Activity/Form/ActivityLinks.tpl
 msgid "New Activity"
@@ -26396,6 +26468,18 @@ msgstr "Paramètres de recherche"
 #: templates/CRM/Contact/Form/Task/AddToOrganization.tpl
 msgid "Contact Type: %1"
 msgstr "Type de contact : %1"
+
+#: templates/CRM/Contact/Form/Task/SaveSearch.tpl
+msgid ""
+"This smart group will stay up-to-date with all contacts who meet the search "
+"criteria."
+msgstr ""
+
+#: templates/CRM/Contact/Form/Task/SaveSearch.tpl
+msgid ""
+"NOTE: Even if only a few contacts have been selected from the search "
+"results, all contacts that meet the following criteria will be in the group."
+msgstr ""
 
 #: templates/CRM/Contact/Import/Form/DataSource.hlp
 msgid ""
@@ -26522,8 +26606,8 @@ msgid ""
 msgstr "Des participants sont inscrits à des événements récurrents qui seront supprimés de cet ensemble. Les événements avec des participants seront convertis en événements autonomes, tandis que les événements sans participants seront supprimés."
 
 #: templates/CRM/Core/Page/RecurringEntityPreview.tpl
-msgid "A recurring set will be created with the following dates."
-msgstr "Un ensemble récurrent sera créé avec les dates suivantes."
+msgid "A repeating set will be created with the following dates."
+msgstr ""
 
 #: templates/CRM/Core/Page/RecurringEntityPreview.tpl
 msgid "Start date"
@@ -26649,9 +26733,9 @@ msgid ""
 "funding from organizations like yours, future releases are at risk of never "
 "being realized. We invite you to enjoy the improvements in 4.6 and ask that "
 "you <a href=\"%1\" target=\"_blank\">support CiviCRM by becoming a "
-"member</a> or by <a href=\"%1\" target=\"_blank\">making a donation</a>. ~ "
+"member</a> or by <a href=\"%2\" target=\"_blank\">making a donation</a>. ~ "
 "Dave Greenberg, Co-Founder"
-msgstr "L'équipe principale de CiviCRM a travaillé dur et est fière de vous présenter la version 4.6, qui constitue la première mise à jour majeure de 2015. Si celle-ci apporte de nombreuses améliorations et continue à perfectionner le meilleur CRM en open source pour les organisations à but non lucratif du monde entier, sa production, son entretien et son optimisation ont un coût conséquent. Sans le financement des organisations comme la vôtre, les futures versions risquent de ne jamais voir le jour. Nous vous invitons à profiter des améliorations de la version 4.6 et vous demandons de <a href=\"%1\" target=\"_blank\">soutenir CiviCRM en vous inscrivant</a> ou en <a href=\"%1\" target=\"_blank\">faisant un don</a>. ~ Dave Greenberg, cofondateur."
+msgstr ""
 
 #: xml/templates/civicrm_data.tpl
 msgid "PCP owner notifications"
