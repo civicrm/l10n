@@ -15,19 +15,22 @@ How to participate in a translation team
 Translations are managed on Transifex.com. Please do not open a pull-request on the github l10n project.
 
 Internationalisation and localisation documentation:  
-http://wiki.civicrm.org/confluence/pages/viewpage.action?pageId=88408149
+https://wiki.civicrm.org/confluence/pages/viewpage.action?pageId=88408149
+
+Refreshing the translation strings on Transifex:  
+https://wiki.civicrm.org/confluence/display/CRMDOC/Pushing+new+strings+to+Transifex
 
 Translators resources:  
-http://wiki.civicrm.org/confluence/display/CRMDOC/Resources+for+Translators
+https://wiki.civicrm.org/confluence/display/CRMDOC/Resources+for+Translators
 
 Transifex how-to:  
-http://wiki.civicrm.org/confluence/display/CRMDOC/Transifex+howto
+https://wiki.civicrm.org/confluence/display/CRMDOC/Transifex+howto
 
 Localisation community building how-to:  
-http://wiki.civicrm.org/confluence/display/CRMDOC/Localisation+community+building+howto
+https://wiki.civicrm.org/confluence/display/CRMDOC/Localisation+community+building+howto
 
 Translation guide for Windows:  
-http://forum.civicrm.org/index.php/topic,19068.0.html
+https://forum.civicrm.org/index.php/topic,19068.0.html
 
 
 Forums, help, community
