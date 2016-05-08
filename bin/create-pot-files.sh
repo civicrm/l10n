@@ -227,6 +227,12 @@ function build_raw_pot() {
         xml/templates/message_templates/participant_*
       ;;
 
+    Mailing)
+      _civistrings -o "$filepath" \
+        {CRM,templates/CRM}/$name \
+        ang/crmMailing*
+      ;;
+
     Member)
       _civistrings -o "$filepath" \
         {CRM,templates/CRM}/$name \
