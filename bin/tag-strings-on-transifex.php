@@ -65,13 +65,16 @@ foreach ($msgids as $key => $msgid) {
     $msgid = preg_replace('/^ /', '', $msgid);
   }
 
+  // Unescape quotes: \" => "
+  $msgid = stripcslashes($msgid);
+
   $hash = md5($msgid . ':');
 
   echo "$cpt: $msgid ($hash)\n";
 
   $data = array();
   $data[] = array(
-    'tags' => array('v46'),
+    'tags' => array($tag), // FIXME
     'source_entity_hash' => $hash,
   );
 
