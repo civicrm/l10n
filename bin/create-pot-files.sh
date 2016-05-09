@@ -133,6 +133,9 @@ function build_raw_pot() {
         {CRM,templates/CRM}/{Custom,Dashlet,Dedupe,Export,Form,Friend} \
         {CRM,templates/CRM}/{Group,Import,Logging,Note,Price,Profile} \
         {CRM,templates/CRM}/{Relationship,SMS,Standalone,Tag,UF,Utils} \
+        ang/crmApp* \
+        ang/crmAttachment* \
+        ang/crmUi* \
         xml/templates/civicrm_acl.tpl \
         xml/templates/civicrm_data.tpl \
         xml/templates/languages.tpl \
@@ -201,6 +204,13 @@ function build_raw_pot() {
 
     ## Standard targets, sorted alphabetically
 
+    Admin)
+      _civistrings -o "$filepath" \
+        {CRM,templates/CRM}/$name \
+        ang/crmCxn* \
+        ang/crmStatusPage*
+      ;;
+
     Campaign)
       _civistrings -o "$filepath" \
         {CRM,templates/CRM}/$name \
@@ -210,6 +220,7 @@ function build_raw_pot() {
     Case)
       _civistrings -o "$filepath" \
         {CRM,templates/CRM}/$name \
+        ang/crmCase* \
         xml/templates/message_templates/case_*
       ;;
 
