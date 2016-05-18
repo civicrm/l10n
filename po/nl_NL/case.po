@@ -16,9 +16,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2015-12-09 21:23-0500\n"
-"PO-Revision-Date: 2016-04-11 03:10+0000\n"
-"Last-Translator: Kevin Levie <kevin@levity.nl>\n"
+"POT-Creation-Date: 2016-05-09 13:33-0400\n"
+"PO-Revision-Date: 2016-05-09 17:36+0000\n"
+"Last-Translator: Mathieu Lutfy <mathieu@bidon.ca>\n"
 "Language-Team: Dutch (http://www.transifex.com/civicrm/civicrm/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,12 +27,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: CRM/Case/BAO/Case.php templates/CRM/Case/Page/DashboardSelector.tpl
-msgid "View this activity."
-msgstr "Deze activiteit weergeven."
-
-#: CRM/Case/BAO/Case.php
-msgid "Edit status"
-msgstr "Bewerk status"
+#: xml/templates/message_templates/case_activity_html.tpl
+#: xml/templates/message_templates/case_activity_text.tpl
+msgid "View activity"
+msgstr "Activiteit bekijken"
 
 #: CRM/Case/BAO/Case.php
 msgid "no subject"
@@ -49,10 +47,6 @@ msgstr "Naar dossier verplaatsen"
 #: CRM/Case/BAO/Case.php
 msgid "Copy To Case"
 msgstr "Naar dossier kopiëren"
-
-#: CRM/Case/BAO/Case.php
-msgid "View Attachment"
-msgstr "Bekijk bijlage"
 
 #: CRM/Case/BAO/Case.php
 msgid "File %1 does not exist or is not readable"
@@ -89,13 +83,12 @@ msgstr "Dossier %1 is door samenvoegen gekopieerd van contactnummer %2 naar cont
 msgid "Case %1 merged into case %2"
 msgstr "Dossier %1 is samengevoegd met dossier %2"
 
-#: CRM/Case/BAO/Query.php
-msgid "Case Status is %1"
-msgstr "Status is %1"
-
-#: CRM/Case/BAO/Query.php
-msgid "Case Type is %1"
-msgstr "Type is %1"
+#: CRM/Case/BAO/CaseType.php
+msgid ""
+"You can not delete this case type -- it is assigned to %1 existing case "
+"record(s). If you do not want this case type to be used going forward, "
+"consider disabling it instead."
+msgstr "U kunt dit dossiertype niet verwijderen, want het wordt gebruikt in %1 bestaande dossier(s). Als u het in de toekomst niet meer wilt gebruiken bij nieuwe dossiers dan kunt u het uitschakelen."
 
 #: CRM/Case/BAO/Query.php
 msgid "Case %1 My Cases"
@@ -165,21 +158,41 @@ msgstr "Alle dossiers doorzoeken"
 msgid "Only My Cases"
 msgstr "Alleen mijn dossiers"
 
-#: CRM/Case/BAO/Query.php CRM/Case/Form/Task/Delete.php
+#: CRM/Case/BAO/Query.php
 msgid "Deleted Cases"
 msgstr "Verwijderde dossiers"
 
 #: CRM/Case/DAO/Case.php
-msgid "Case Type Id"
-msgstr "Dossiertypenummer"
-
-#: CRM/Case/DAO/Case.php
-msgid "Case Status Id"
-msgstr "Dossierstatusnummer"
-
-#: CRM/Case/DAO/Case.php
 msgid "Case is in the Trash"
 msgstr "Dossier staat in de prullenbak"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type ID"
+msgstr "Dossiertype ID"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Name"
+msgstr "Dossiertype naam"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Title"
+msgstr "Dossiertype titel "
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Description"
+msgstr "Dossiertype beschrijving"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Is Active"
+msgstr "Dossiertype is actief"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Is Reserved"
+msgstr "Dossiertype is gereserveerd"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Definition"
+msgstr "Definitie dossiertype"
 
 #: CRM/Case/Form/Activity/ChangeCaseStartDate.php
 #: CRM/Case/Form/Activity/ChangeCaseStatus.php
@@ -187,6 +200,11 @@ msgstr "Dossier staat in de prullenbak"
 #: CRM/Case/Form/Activity/LinkCases.php
 msgid "Case Id not found."
 msgstr "Dossiernummer niet gevonden"
+
+#: CRM/Case/Form/Activity/ChangeCaseStartDate.php
+#: CRM/Case/Form/Activity/LinkCases.php
+msgid "Expected one case-type"
+msgstr "Een dossiertype verwacht"
 
 #: CRM/Case/Form/Activity/ChangeCaseStartDate.php
 msgid "New Start Date"
@@ -204,7 +222,7 @@ msgstr "De dossierstatus is gewijzigd van %1 naar %2."
 msgid "Case Status changed successfully."
 msgstr "De dossierstatus is met succes gewijzigd."
 
-#: CRM/Case/Form/Activity/ChangeCaseType.php
+#: CRM/Case/Form/Activity/ChangeCaseType.php ang/crmCaseType/list.html
 msgid "New Case Type"
 msgstr "Nieuw dossiertype"
 
@@ -229,25 +247,12 @@ msgid "Link To Case"
 msgstr "Aan dossier koppelen"
 
 #: CRM/Case/Form/Activity/LinkCases.php
-msgid "Please select a case to link."
-msgstr "Selecteer een dossier om te koppelen."
-
-#: CRM/Case/Form/Activity/LinkCases.php
 msgid "Please select some other case to link."
 msgstr "Selecteer een ander dossier om te koppelen."
 
 #: CRM/Case/Form/Activity/LinkCases.php
-msgid "It looks like selected case is already linked."
-msgstr "Het lijkt erop dat het geselecteerde dossier al gekoppeld is."
-
-#: CRM/Case/Form/Activity/OpenCase.php CRM/Case/Form/Activity.php
-#: CRM/Case/XMLProcessor/Report.php
-msgid "Medium"
-msgstr "Medium"
-
-#: CRM/Case/Form/Activity/OpenCase.php
-msgid "Please select a valid contact or create new contact"
-msgstr "Selecteer een geldig contact of creëer een nieuw contact"
+msgid "Selected case is already linked."
+msgstr "Geselecteerde dossier is al gekoppeld."
 
 #: CRM/Case/Form/Activity/OpenCase.php
 msgid "Case opened successfully."
@@ -261,9 +266,17 @@ msgstr "U heeft geen actieve dossiertypes"
 msgid "You can not add another '%1' activity to this case. %2"
 msgstr "U kunt niet nog een activiteit van het type '%1' aan dit dossier toevoegen. %2."
 
+#: CRM/Case/Form/Activity.php
+msgid "Do you want to <a %1>edit the existing activity</a>?"
+msgstr "Wil je <a %1> de bestaande activiteit bewerken</a>?"
+
 #: CRM/Case/Form/Activity.php CRM/Case/XMLProcessor/Report.php
 msgid "Reported By"
 msgstr "Gemeld door"
+
+#: CRM/Case/Form/Activity.php CRM/Case/XMLProcessor/Report.php
+msgid "Medium"
+msgstr "Medium"
 
 #: CRM/Case/Form/Activity.php
 msgid ""
@@ -285,12 +298,16 @@ msgid "A copy of the activity has also been sent to selected contacts(s)."
 msgstr "Een kopie van de activiteit is ook naar de geselecteerde contact(en) verzonden."
 
 #: CRM/Case/Form/Activity.php
-msgid "'%1' activity has been %2. %3 %4"
-msgstr "'%1' activiteit is geweest %2. %3 %4"
+msgid "%1 Saved"
+msgstr "%1 Bewaard"
 
-#: CRM/Case/Form/ActivityChangeStatus.php
-msgid "New Status"
-msgstr "Nieuwe status"
+#: CRM/Case/Form/ActivityToCase.php CRM/Case/XMLProcessor/Report.php
+msgid "With Contact(s)"
+msgstr ""
+
+#: CRM/Case/Form/ActivityView.php
+msgid "Activity Revision History"
+msgstr "Overzicht wijzigingen activiteiten"
 
 #: CRM/Case/Form/Case.php
 msgid "You do not have any active %1"
@@ -327,12 +344,22 @@ msgid "The selected case has been restored.<br />"
 msgstr "Het geselecteerde dossier is hersteld.<br />"
 
 #: CRM/Case/Form/CaseView.php
-msgid "Run QA Audit / Redact"
-msgstr "Voer QA Audit uit"
+msgid "Related Cases"
+msgstr "Gerelateerde dossiers"
 
 #: CRM/Case/Form/CaseView.php
-msgid "- select activity set -"
-msgstr "- activiteitenset selecteren -"
+msgid "%1 Related Case"
+msgid_plural "%1 Related Cases"
+msgstr[0] "%1 gerelateerd dossier"
+msgstr[1] "%1 gerelateerde dossiers"
+
+#: CRM/Case/Form/CaseView.php
+msgid "Add Activity"
+msgstr "Activiteit toevoegen"
+
+#: CRM/Case/Form/CaseView.php
+msgid "Activity Audit"
+msgstr "Activiteit Audit"
 
 #: CRM/Case/Form/CaseView.php
 msgid "Add Timeline"
@@ -343,12 +370,20 @@ msgid "Select Case for Merge"
 msgstr "Selecteer dossier om samen te voegen"
 
 #: CRM/Case/Form/CaseView.php
-msgid "Assign to another Client"
-msgstr "Toewijzen aan een andere cliënt"
+msgid "- select type -"
+msgstr "- type selecteren -"
 
-#: CRM/Case/Form/CaseView.php CRM/Case/Form/EditClient.php
-msgid "Reassign Case"
-msgstr "Dossier opnieuw toewijzen"
+#: CRM/Case/Form/CaseView.php
+msgid "Activities from the %1 activity set have been added to this case."
+msgstr "Activiteiten uit activiteitenset %1 zijn aan dit dossier toegevoegd."
+
+#: CRM/Case/Form/CaseView.php
+msgid " - any reporter - "
+msgstr "- elke melder -"
+
+#: CRM/Case/Form/CaseView.php templates/CRM/Case/Form/ActivityTab.tpl
+msgid "Reporter/Role"
+msgstr "Melder/rol"
 
 #: CRM/Case/Form/CaseView.php
 msgid " - any status - "
@@ -359,28 +394,28 @@ msgid "Activity Dates - From"
 msgstr "Datum activiteiten - vanaf"
 
 #: CRM/Case/Form/CaseView.php
-msgid " - any reporter - "
-msgstr "- elke melder -"
+msgid "Deleted Activities"
+msgstr ""
 
-#: CRM/Case/Form/CaseView.php templates/CRM/Case/Form/CaseView.tpl
-msgid "Reporter/Role"
-msgstr "Melder/rol"
+#: CRM/Case/Form/EditClient.php
+msgid "Select Contact"
+msgstr ""
 
-#: CRM/Case/Form/CaseView.php
-msgid "- select type -"
-msgstr "- type selecteren -"
+#: CRM/Case/Form/EditClient.php
+msgid "Reassign Case"
+msgstr "Dossier opnieuw toewijzen"
 
-#: CRM/Case/Form/CaseView.php
-msgid "Activities from the %1 activity set have been added to this case."
-msgstr "Activiteiten uit activiteitenset %1 zijn aan dit dossier toegevoegd."
-
-#: CRM/Case/Form/Report.php
-msgid "Include All Activities"
-msgstr "Alle activiteiten opnemen"
+#: CRM/Case/Form/EditClient.php
+msgid "Please select a different contact."
+msgstr "Selecteer a.u.b. een ander contact."
 
 #: CRM/Case/Form/Report.php
-msgid "Include Missing Activities Only"
-msgstr "Alleen missende activiteiten opnemen"
+msgid "All Activities"
+msgstr "Alle activiteiten"
+
+#: CRM/Case/Form/Report.php
+msgid "Exclude Completed Activities"
+msgstr "Exclusief afgeronde activiteiten"
 
 #: CRM/Case/Form/Report.php
 msgid "Redact (hide) Client and Service Provider Data"
@@ -398,13 +433,21 @@ msgstr "Naam of e-mailadres cliënt"
 msgid "Find Cases"
 msgstr "Dossiers zoeken"
 
-#: CRM/Case/Form/Task/Delete.php CRM/Case/Task.php
+#: CRM/Case/Form/Task/Delete.php CRM/Case/Info.php CRM/Case/Task.php
 msgid "Delete Cases"
 msgstr "Dossiers verwijderen"
 
-#: CRM/Case/Form/Task/Delete.php CRM/Case/Form/Task/Restore.php
-msgid "Total Selected Case(s): %1"
-msgstr "Aantal geselecteerde dossiers: %1"
+#: CRM/Case/Form/Task/Delete.php
+msgid "%count case moved to trash."
+msgid_plural "%count cases moved to trash."
+msgstr[0] "%count dossier verplaatst naar prullenbak."
+msgstr[1] "%count dossiers verplaatst naar prullenbak."
+
+#: CRM/Case/Form/Task/Delete.php
+msgid "%count case permanently deleted."
+msgid_plural "%count cases permanently deleted."
+msgstr[0] "%count dossier definitief verwijderd."
+msgstr[1] "%count dossiers definitief verwijderd."
 
 #: CRM/Case/Form/Task/Print.php
 msgid "Print Case List"
@@ -415,12 +458,40 @@ msgid "Restore Cases"
 msgstr "Dossiers herstellen"
 
 #: CRM/Case/Form/Task/Restore.php
-msgid "Restored Cases"
-msgstr "Herstelde Dossiers"
+msgid "%count case restored from trash."
+msgid_plural "%count cases restored from trash."
+msgstr[0] "%count dossier teruggezet uit de prullenbak."
+msgstr[1] "%count dossiers teruggezet uit de prullenbak."
+
+#: CRM/Case/Form/Task/Restore.php
+msgid "1 could not be restored."
+msgid_plural "%count could not be restored."
+msgstr[0] "%count kon niet worden teruggezet."
+msgstr[1] "%count konden niet worden teruggezet."
 
 #: CRM/Case/Info.php
 msgid "CiviCase Engine"
 msgstr "CiviCase-engine"
+
+#: CRM/Case/Info.php
+msgid "delete in CiviCase"
+msgstr "verwijderen in CiviCase"
+
+#: CRM/Case/Info.php
+msgid "administer CiviCase"
+msgstr "beheren CiviCase"
+
+#: CRM/Case/Info.php
+msgid "access my cases and activities"
+msgstr "toegang tot mijn dossiers en activiteiten"
+
+#: CRM/Case/Info.php
+msgid "access all cases and activities"
+msgstr "toegang tot alle dossiers en activiteiten"
+
+#: CRM/Case/Info.php
+msgid "add cases"
+msgstr "aanmaken dossier"
 
 #: CRM/Case/Info.php
 msgid ""
@@ -429,8 +500,8 @@ msgid ""
 msgstr "Het is niet mogelijk om MySQL views voor CiviCase aan te maken. Uw MySQL gebruiker moet het recht  'CREATE VIEW' hebben"
 
 #: CRM/Case/Page/AJAX.php
-msgid "Could not find valid Case!"
-msgstr "Kan geen geldig dossier vinden!"
+msgid "closed"
+msgstr "gesloten"
 
 #: CRM/Case/Page/DashBoard.php
 msgid "CiviCase Dashboard"
@@ -449,7 +520,7 @@ msgstr "Wilt u dit dossier verwijderen?"
 msgid "Delete Case"
 msgstr "Dossier verwijderen"
 
-#: CRM/Case/Selector/Search.php
+#: CRM/Case/Selector/Search.php templates/CRM/Case/Form/CaseView.tpl
 msgid "Assign to Another Client"
 msgstr "Toewijzen aan een andere cliënt."
 
@@ -469,10 +540,6 @@ msgstr "Volgend schema"
 #: CRM/Case/Selector/Search.php
 msgid "Case Search"
 msgstr "Dossier zoeken"
-
-#: CRM/Case/Task.php
-msgid "Print Cases"
-msgstr "Dossiers afdrukken"
 
 #: CRM/Case/Task.php
 msgid "Export Cases"
@@ -498,6 +565,120 @@ msgid ""
 "Activity type %1, found in case configuration file, is not present in the "
 "database %2"
 msgstr "Het activiteitentype %1, dat voorkomt in het dossierconfiguratiebestand, is niet aanwezig in de database %2."
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Housing Support"
+msgstr "Ondersteunen huisvesting"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Help homeless individuals obtain temporary and long-term housing"
+msgstr "Help daklozen aan tijdelijke/langdurige huisvesting"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Adult Day Care Referral"
+msgstr "Ouderenzorg verwijzing"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Arranging adult day care for senior individuals"
+msgstr "Regelen ouderenzorg voor oudere personen"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Medical evaluation"
+msgstr "Medische evaluatie"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Mental health evaluation"
+msgstr "Geestelijke gezondheid evaluatie"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Secure temporary housing"
+msgstr "Zeker stellen tijdelijke huisvesting"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Income and benefits stabilization"
+msgstr "Inkomen en baten stabilisatie"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Long-term housing plan"
+msgstr "Plan langdurige huisvesting"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "ADC referral"
+msgstr "Ouderenzorg verwijzing"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Case Resources"
+msgstr "Dossier bronnen"
+
+#: ang/crmCaseType/activityTypesTable.html
+msgid "Max Instances"
+msgstr ""
+
+#: ang/crmCaseType/activityTypesTable.html
+msgid "Add activity type"
+msgstr ""
+
+#: ang/crmCaseType/caseTypeDetails.html
+msgid "WARNING: The case type name includes deprecated characters."
+msgstr ""
+
+#: ang/crmCaseType/caseTypeDetails.html
+msgid ""
+"WARNING: If any external files or programs reference the old \"Name\", then "
+"they must be updated manually."
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid ""
+"Use this screen to define or update the Case Roles, Activity Types, and "
+"Timelines for a case type."
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid "Learn more..."
+msgstr ""
+
+#: ang/crmCaseType/edit.html templates/CRM/Case/Form/CaseView.tpl
+msgid "Roles"
+msgstr "Rollen"
+
+#: ang/crmCaseType/edit.html
+msgid "Add..."
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid "Timeline"
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid "Sequence"
+msgstr ""
+
+#: ang/crmCaseType/list.html
+msgid ""
+"A Case Type describes a group of related tasks, interactions, or processes."
+msgstr ""
+
+#: ang/crmCaseType/rolesTable.html
+msgid "Assign to Creator"
+msgstr ""
+
+#: ang/crmCaseType/rolesTable.html
+msgid "Is Manager"
+msgstr ""
+
+#: ang/crmCaseType/rolesTable.html
+msgid "Add role"
+msgstr ""
+
+#: ang/crmCaseType/timelineTable.html
+msgid "Reference"
+msgstr ""
+
+#: ang/crmCaseType.js
+msgid ""
+"The CiviCase XML file for this case-type prohibits editing the definition."
+msgstr ""
 
 #: templates/CRM/Case/Audit/Audit.tpl
 msgid "Incomplete"
@@ -532,9 +713,9 @@ msgstr "Dossieractiviteiten"
 msgid "Current Start Date"
 msgstr "Actuele begindatum"
 
-#: templates/CRM/Case/Form/Activity.tpl
-msgid "Restore %1"
-msgstr "Herstel %1"
+#: templates/CRM/Case/Form/Activity/LinkCases.tpl
+msgid "Create link between %1 - %2 (CaseID: %3) and %4 - %5 (CaseID: %6)"
+msgstr "Koppeling maken tussen %1 - %2 (Dossier: %3) en %4 - %5 (Dossier: %6)"
 
 #: templates/CRM/Case/Form/Activity.tpl
 msgid "Click Delete to move this &quot;%1&quot; activity to the Trash."
@@ -557,10 +738,6 @@ msgid "With client(s)"
 msgstr "Met cliënt(en)"
 
 #: templates/CRM/Case/Form/Activity.tpl
-msgid "You can optionally assign this activity to someone."
-msgstr "Als u wilt kunt deze activiteit aan iemand toewijzen."
-
-#: templates/CRM/Case/Form/Activity.tpl
 msgid "Send a Copy"
 msgstr "Kopie verzenden"
 
@@ -570,33 +747,38 @@ msgid ""
 "the case. Click the top left box to select all."
 msgstr "E-mail een volledige kopie van dit activiteitenregister naar andere mensen die bij dit dossier betrokken zijn. Klik op het selectievakje linksboven om alles te selecteren."
 
-#: templates/CRM/Case/Form/ActivityChangeStatus.js
-msgid "Unable to change status"
-msgstr "Niet mogelijk status aan te passen"
+#: templates/CRM/Case/Form/ActivityTab.tpl
+msgid "Search Filters"
+msgstr "Zoekfilters"
 
-#: templates/CRM/Case/Form/ActivityChangeStatus.js
-msgid "Change Activity Status"
-msgstr "Wijzig activiteitsstatus"
+#: templates/CRM/Case/Form/ActivityTab.tpl
+#: templates/CRM/Case/Page/CaseDetails.tpl
+msgid "Reporter / Assignee"
+msgstr "Melder / toegewezene"
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
 msgid "You can modify the activity subject before filing."
 msgstr "U kunt het onderwerp van de activiteit aanpassen voordat u het opslaat."
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
+msgid "Move to Case"
+msgstr "Verplaats naar dossier"
+
+#: templates/CRM/Case/Form/ActivityToCase.tpl
+msgid "Copy to Case"
+msgstr "Kopieer naar dossier"
+
+#: templates/CRM/Case/Form/ActivityToCase.tpl
 msgid "Please select a case from the list"
 msgstr "Selecteer a.u.b. een dossier uit de lijst"
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Unable to file on case"
-msgstr "Kon niet opslaan in dossier"
+msgid "Unable to file on case."
+msgstr "Koppelen aan dossier is niet mogelijk."
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Activity Filed"
-msgstr "Activiteit vastgelegd"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "all revisions"
-msgstr "alle revisies"
+msgid "Activity has been filed to %1 case."
+msgstr "Activiteit is gekoppeld aan %1 dossier."
 
 #: templates/CRM/Case/Form/ActivityView.tpl
 msgid "Created On"
@@ -625,10 +807,6 @@ msgstr "(dit is niet de huidige revisie)"
 #: templates/CRM/Case/Form/ActivityView.tpl
 msgid "Prompted by"
 msgstr "Ingegeven door"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "This activity might not be attached to any case. Please investigate."
-msgstr "Deze activiteit kan mogelijk niet worden toegekend aan een dossier. A.u.b. nader onderzoeken."
 
 #: templates/CRM/Case/Form/Case.hlp
 msgid "Introduce yourself and your role within our organization."
@@ -684,21 +862,21 @@ msgid ""
 "Trash."
 msgstr "Klik op Herstellen om dit dossier en alle gerelateerde activiteiten terug te halen uit de prullenbak."
 
+#: templates/CRM/Case/Form/CaseView.js
+msgid "Add the %1 set of scheduled activities to this case?"
+msgstr "De %1 geplande activiteiten toevoegen aan dit dossier?"
+
+#: templates/CRM/Case/Form/CaseView.js
+msgid "Please select a value"
+msgstr "Selecteer een waarde"
+
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Clients:"
 msgstr "Cliënten:"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "view contact record"
-msgstr "toon contact"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "add new client to the case"
-msgstr "nieuwe cliënt aan het dossier toevoegen"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Related Cases"
-msgstr "Gerelateerde dossiers"
+msgid "Add Client"
+msgstr "Cliënt toevoegen"
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "DOB"
@@ -721,32 +899,20 @@ msgid "Change case start date (creates activity record)"
 msgstr "Wijzig begindatum (maakt een activiteit aan)"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Assign to Another Contact"
-msgstr "Toekennen aan ander contact"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Roles"
-msgstr "Rollen"
-
-#: templates/CRM/Case/Form/CaseView.tpl
 msgid "Add new role"
 msgstr "Nieuwe rol toevoegen"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Delete case role"
-msgstr "Verwijder dossierrol"
+msgid "Assign To"
+msgstr "Toekennen aan"
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Change To"
+msgstr "Wijzigen naar"
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Are you sure you want to delete this case role?"
 msgstr "Weet u zeker dat u deze dossierrol wilt verwijderen?"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Begin typing last name of contact."
-msgstr "Begin de achternaam van het contact in te typen."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Select valid contact from the list"
-msgstr "Selecteer een geldig contact uit de lijst"
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Other Relationships"
@@ -757,29 +923,16 @@ msgid "Add client relationship"
 msgstr "Cliëntrelatie toevoegen"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"There are no Relationships entered for this client. You can <a "
-"accesskey=\"N\" href='%1'>add one</a>."
-msgstr "Er zijn nog geen relaties ingevoerd voor deze cliënt. U kunt er <a accesskey=\"N\" href='%1'>een toevoegen</a>."
-
-#: templates/CRM/Case/Form/CaseView.tpl
 msgid "Add members to %1"
 msgstr "Leden toevoegen aan %1"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "The group %2 has no members. You can <a href='%1'>add one</a>."
-msgstr "Groep %2 heeft geen leden. U kunt er <a href='%1'>een toevoegen</a>."
+msgid "- select contacts -"
+msgstr "- contacten kiezen -"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Select valid type from the list"
-msgstr "Selecteer een geldig type uit de lijst"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"The relationship type definition for the %1 case role is not valid for the "
-"client and / or staff contact types. You can review and edit relationship "
-"types at <a href=\"%2\">Administer >> Option Lists >> Relationship Types</a>"
-msgstr "Het relatie type voor de %1 dossier rol past niet bij het klant en/of medewerker contact type. U kunt relatie types <a href=\"%2\">Beheren>>Optielijsten>>Relatie types</a> tonen en/of bewerken"
+msgid "The group %1 has no members."
+msgstr "De groep %1 heeft geen leden."
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Case Tags"
@@ -793,63 +946,9 @@ msgstr "Er zijn momenteel geen kenmerken aan dit dossier toegewezen."
 msgid "Add Tags"
 msgstr "Kenmerken toevoegen"
 
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Search Filters"
-msgstr "Zoekfilters"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-#: templates/CRM/Case/Page/CaseDetails.tpl
-msgid "Reporter / Assignee"
-msgstr "Melder / toegewezene"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select an activity set from the list."
-msgstr "Kies a.u.b. een activiteitenset uit de lijst."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"Are you sure you want to add a set of scheduled activities to this case?"
-msgstr "Weet u zeker dat u een set geplande activiteiten wilt toevoegen aan dit dossier?"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select an activity type from the list."
-msgstr "Selecteer a.u.b. een activiteitentype uit de lijst."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select a report from the list."
-msgstr "Selecteer a.u.b. een rapport uit de lijst."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select a case from the list to merge with."
-msgstr "Selecteer a.u.b. een dossier uit de lijst waarmee u wilt samenvoegen."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select a client for this case."
-msgstr "Selecteer a.u.b. een cliënt voor dit dossier."
-
-#: templates/CRM/Case/Form/CaseView.tpl templates/CRM/Case/Form/EditClient.tpl
-msgid ""
-"%1 is already assigned to this case. Please select some other client for "
-"this case."
-msgstr "%1 is al toegewezen aan dit dossier. Kies een andere cliënt voor dit dossier."
-
-#: templates/CRM/Case/Form/CaseView.tpl templates/CRM/Case/Form/EditClient.tpl
-msgid ""
-"Are you sure you want to reassign this case and all related activities and "
-"relationships to %1?"
-msgstr "Weet u zeker dat u dit dossier en alle activiteiten en relaties opnieuw wilt toewijzen aan %1?"
-
 #: templates/CRM/Case/Form/EditClient.tpl
 msgid "This is case is currently assigned to %1."
 msgstr "Dit dossier is momenteel toegekend aan %1."
-
-#: templates/CRM/Case/Form/EditClient.tpl
-msgid "Please select another client for this case."
-msgstr "Selecteer a.u.b. een andere cliënt voor dit dossier."
-
-#: templates/CRM/Case/Form/EditClient.tpl
-msgid "Client Selection"
-msgstr "Cliënt Selectie"
 
 #: templates/CRM/Case/Form/Report.tpl
 msgid "Report Parameters"
@@ -860,16 +959,16 @@ msgid "Case Tag(s)"
 msgstr "Dossierkenmerk(en)"
 
 #: templates/CRM/Case/Form/Search/EmptyResults.tpl
-msgid "No matching cases found."
-msgstr "Geen overeenkomende dossiers gevonden."
-
-#: templates/CRM/Case/Form/Search/EmptyResults.tpl
 msgid "if you are searching by client name, check your spelling"
 msgstr "als u op cliëntnaam zoekt, controleer dan de spelling"
 
 #: templates/CRM/Case/Form/Selector.tpl
-msgid "view contact details"
-msgstr "contactdetails weergeven"
+msgid "Show recent activities"
+msgstr "Recente activiteiten tonen"
+
+#: templates/CRM/Case/Form/Selector.tpl
+msgid "Hide activities"
+msgstr "Activiteiten verbergen"
 
 #: templates/CRM/Case/Form/Selector.tpl
 #: templates/CRM/Case/Page/DashboardSelector.tpl
@@ -917,10 +1016,6 @@ msgstr "Raadpleeg de %1 voor uitleg over dit proces."
 #: templates/CRM/Case/Page/ConfigureError.tpl
 msgid "CiviCase Setup documentation"
 msgstr "CiviCase Setup documentatie"
-
-#: templates/CRM/Case/Page/CustomDataView.tpl
-msgid "Update Case Information"
-msgstr "Wijzig Dossier Informatie"
 
 #: templates/CRM/Case/Page/DashBoard.tpl
 msgid "Find My Cases"
@@ -971,8 +1066,10 @@ msgid "Manager"
 msgstr "Manager"
 
 #: templates/CRM/Case/Page/DashboardSelector.tpl
-msgid "Edit this activity."
-msgstr "Deze activiteit bewerken."
+#: xml/templates/message_templates/case_activity_html.tpl
+#: xml/templates/message_templates/case_activity_text.tpl
+msgid "Edit activity"
+msgstr "Activiteit wijzigen"
 
 #: templates/CRM/Case/Page/Tab.tpl
 msgid "Oops, It looks like there are no active case types."
@@ -987,8 +1084,8 @@ msgid "This page lists all case records for %1."
 msgstr "Dit scherm toont alle dossiers van %1."
 
 #: templates/CRM/Case/Page/Tab.tpl
-msgid "Click <a href='%1'>Add Case</a> to add a case record for this contact."
-msgstr "Klik op <a href='%1'>Dossier toevoegen</a> om een dossier voor deze cliënt toe te voegen."
+msgid "Click <a %1>Add Case</a> to add a case record for this contact."
+msgstr "Klik op <a %1>Dossier toevoegen</a> om een dossier van deze cliënt toe te voegen."
 
 #: templates/CRM/Case/Page/Tab.tpl
 msgid "There are no case records for this contact."
@@ -1004,274 +1101,90 @@ msgstr "Overzicht van activiteiten"
 msgid "Your Case Role(s)"
 msgstr "Mijn dossier rol(len)"
 
-#: xml/templates/message_templates/case_activity_html.tpl
-msgid "Edit this activity"
-msgstr "Bewerk deze activiteit"
+#: CRM/Case/DAO/CaseActivity.php
+msgid "Case Activity ID"
+msgstr ""
 
-#: xml/templates/message_templates/case_activity_html.tpl
-msgid "View this activity"
-msgstr "Toon deze activiteit"
-
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "Edit this Activity"
-msgstr "Bewerk deze activiteit"
-
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "View this Activity"
-msgstr "Toon deze activiteit"
-
-#: CRM/Case/BAO/CaseType.php
-msgid ""
-"You can not delete this case type -- it is assigned to %1 existing case "
-"record(s). If you do not want this case type to be used going forward, "
-"consider disabling it instead."
-msgstr "U kunt dit dossiertype niet verwijderen, want het wordt gebruikt in %1 bestaande dossier(s). Als u het in de toekomst niet meer wilt gebruiken bij nieuwe dossiers dan kunt u het uitschakelen."
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type ID"
-msgstr "Dossiertype ID"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Name"
-msgstr "Dossiertype naam"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Title"
-msgstr "Dossiertype titel "
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Description"
-msgstr "Dossiertype beschrijving"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Is Active"
-msgstr "Dossiertype is actief"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Is Reserved"
-msgstr "Dossiertype is gereserveerd"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Weight"
-msgstr "Dossiertype gewicht"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Definition"
-msgstr "Definitie dossiertype"
-
-#: CRM/Case/Form/Activity/ChangeCaseStartDate.php
-#: CRM/Case/Form/Activity/LinkCases.php
-msgid "Expected one case-type"
-msgstr "Een dossiertype verwacht"
-
-#: CRM/Case/Form/Activity/LinkCases.php
-msgid "Selected case is already linked."
-msgstr "Geselecteerde dossier is al gekoppeld."
-
-#: CRM/Case/Form/ActivityView.php
-msgid "Activity Revision History"
-msgstr "Overzicht wijzigingen activiteiten"
+#: CRM/Case/DAO/CaseContact.php
+msgid "Case Contact ID"
+msgstr ""
 
 #: CRM/Case/Form/CaseView.php
-msgid "%1 Related Case"
-msgid_plural "%1 Related Cases"
-msgstr[0] "%1 gerelateerd dossier"
-msgstr[1] "%1 gerelateerde dossiers"
+msgid "(opened %1)"
+msgstr ""
 
-#: CRM/Case/Form/CaseView.php
-msgid "Add Activity"
-msgstr "Activiteit toevoegen"
-
-#: CRM/Case/Form/CaseView.php
-msgid "Activity Audit"
-msgstr "Activiteit Audit"
-
-#: CRM/Case/Form/EditClient.php
-msgid "Please select a different contact."
-msgstr "Selecteer a.u.b. een ander contact."
-
-#: CRM/Case/Form/Report.php
-msgid "All Activities"
-msgstr "Alle activiteiten"
-
-#: CRM/Case/Form/Report.php
-msgid "Exclude Completed Activities"
-msgstr "Exclusief afgeronde activiteiten"
-
-#: CRM/Case/Page/AJAX.php
-msgid "closed"
-msgstr "gesloten"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Housing Support"
-msgstr "Ondersteunen huisvesting"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Help homeless individuals obtain temporary and long-term housing"
-msgstr "Help daklozen aan tijdelijke/langdurige huisvesting"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Adult Day Care Referral"
-msgstr "Ouderenzorg verwijzing"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Arranging adult day care for senior individuals"
-msgstr "Regelen ouderenzorg voor oudere personen"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Medical evaluation"
-msgstr "Medische evaluatie"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Mental health evaluation"
-msgstr "Geestelijke gezondheid evaluatie"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Secure temporary housing"
-msgstr "Zeker stellen tijdelijke huisvesting"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Income and benefits stabilization"
-msgstr "Inkomen en baten stabilisatie"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Long-term housing plan"
-msgstr "Plan langdurige huisvesting"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "ADC referral"
-msgstr "Ouderenzorg verwijzing"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Case Resources"
-msgstr "Dossier bronnen"
-
-#: templates/CRM/Case/Form/Activity/LinkCases.tpl
-msgid "Create link between %1 - %2 (CaseID: %3) and %4 - %5 (CaseID: %6)"
-msgstr "Koppeling maken tussen %1 - %2 (Dossier: %3) en %4 - %5 (Dossier: %6)"
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Move to Case"
-msgstr "Verplaats naar dossier"
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Copy to Case"
-msgstr "Kopieer naar dossier"
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Unable to file on case."
-msgstr "Koppelen aan dossier is niet mogelijk."
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Activity has been filed to %1 case."
-msgstr "Activiteit is gekoppeld aan %1 dossier."
-
-#: templates/CRM/Case/Form/CaseView.js
-msgid "Add the %1 set of scheduled activities to this case?"
-msgstr "De %1 geplande activiteiten toevoegen aan dit dossier?"
-
-#: templates/CRM/Case/Form/CaseView.js
-msgid "Please select a value"
-msgstr "Selecteer een waarde"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Add Client"
-msgstr "Cliënt toevoegen"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Assign To"
-msgstr "Toekennen aan"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Change To"
-msgstr "Wijzigen naar"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"There are no Relationships entered for this client. You can <a %1>add "
-"one</a>."
-msgstr "Er zijn nog geen relaties ingevoerd van deze cliënt. U kunt er <a %1>een toevoegen</a>."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "- select contacts -"
-msgstr "- contacten kiezen -"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "The group %1 has no members."
-msgstr "De groep %1 heeft geen leden."
-
-#: templates/CRM/Case/Form/Selector.tpl
-msgid "Show recent activities"
-msgstr "Recente activiteiten tonen"
-
-#: templates/CRM/Case/Form/Selector.tpl
-msgid "Hide activities"
-msgstr "Activiteiten verbergen"
-
-#: templates/CRM/Case/Page/Tab.tpl
-msgid "Click <a %1>Add Case</a> to add a case record for this contact."
-msgstr "Klik op <a %1>Dossier toevoegen</a> om een dossier van deze cliënt toe te voegen."
-
-#: CRM/Case/BAO/Case.php templates/CRM/Case/Page/DashboardSelector.tpl
-#: xml/templates/message_templates/case_activity_html.tpl
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "View activity"
-msgstr "Activiteit bekijken"
-
-#: CRM/Case/Form/Activity.php
-msgid "Do you want to <a %1>edit the existing activity</a>?"
-msgstr "Wil je <a %1> de bestaande activiteit bewerken</a>?"
-
-#: CRM/Case/Form/Activity.php
-msgid "%1 Saved"
-msgstr "%1 Bewaard"
-
-#: CRM/Case/Form/Task/Delete.php
-msgid "%count case moved to trash."
-msgid_plural "%count cases moved to trash."
-msgstr[0] "%count dossier verplaatst naar prullenbak."
-msgstr[1] "%count dossiers verplaatst naar prullenbak."
-
-#: CRM/Case/Form/Task/Delete.php
-msgid "%count case permanently deleted."
-msgid_plural "%count cases permanently deleted."
-msgstr[0] "%count dossier definitief verwijderd."
-msgstr[1] "%count dossiers definitief verwijderd."
-
-#: CRM/Case/Form/Task/Restore.php
-msgid "%count case restored from trash."
-msgid_plural "%count cases restored from trash."
-msgstr[0] "%count dossier teruggezet uit de prullenbak."
-msgstr[1] "%count dossiers teruggezet uit de prullenbak."
-
-#: CRM/Case/Form/Task/Restore.php
-msgid "1 could not be restored."
-msgid_plural "%count could not be restored."
-msgstr[0] "%count kon niet worden teruggezet."
-msgstr[1] "%count konden niet worden teruggezet."
+#: CRM/Case/Form/Task/Delete.php CRM/Case/Info.php CRM/Case/Task.php
+msgid "Delete cases"
+msgstr ""
 
 #: CRM/Case/Info.php
-msgid "delete in CiviCase"
-msgstr "verwijderen in CiviCase"
+msgid "Define case types, access deleted cases"
+msgstr ""
 
 #: CRM/Case/Info.php
-msgid "administer CiviCase"
-msgstr "beheren CiviCase"
+msgid "View and edit only those cases managed by this user"
+msgstr ""
 
 #: CRM/Case/Info.php
-msgid "access my cases and activities"
-msgstr "toegang tot mijn dossiers en activiteiten"
+msgid "View and edit all cases (for visible contacts)"
+msgstr ""
 
 #: CRM/Case/Info.php
-msgid "access all cases and activities"
-msgstr "toegang tot alle dossiers en activiteiten"
+msgid "Open a new case"
+msgstr ""
 
-#: CRM/Case/Info.php
-msgid "add cases"
-msgstr "aanmaken dossier"
+#: CRM/Case/Task.php
+msgid "Export cases"
+msgstr ""
 
-#: templates/CRM/Case/Page/DashboardSelector.tpl
-#: xml/templates/message_templates/case_activity_html.tpl
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "Edit activity"
-msgstr "Activiteit wijzigen"
+#: CRM/Case/Task.php
+msgid "Restore cases"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Homeless Services Coordinator is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Homeless Services Coordinator"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Health Services Coordinator is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Health Services Coordinator"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Senior Services Coordinator is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Senior Services Coordinator"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Benefits Specialist is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Benefits Specialist"
+msgstr ""
+
+#: ang/crmCaseType/list.html
+msgid "Case Types"
+msgstr ""
+
+#: templates/CRM/Case/Form/ActivityTab.tpl
+msgid "Reporter"
+msgstr ""
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Export Document"
+msgstr ""
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Are you sure you want to end this relationship?"
+msgstr ""
