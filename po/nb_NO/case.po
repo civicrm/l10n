@@ -6,6 +6,7 @@
 # Aputsiaĸ Niels Janussen <aj@isit.gl>, 2012
 # Aputsiaĸ Niels Janussen <aj@isit.gl>, 2012
 # Lars Åge Kamfjord <lars-transifex@kamfjord.org>, 2011
+# Lars Åge Kamfjord <lars-transifex@kamfjord.org>, 2016
 # Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2011
 # Piotr Szotkowski <chastell@chastell.net>, 2011
 # Stein-Aksel Basma <stabasm@hotmail.com>, 2014
@@ -14,9 +15,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2015-12-09 21:23-0500\n"
-"PO-Revision-Date: 2015-12-10 02:30+0000\n"
-"Last-Translator: Mathieu Lutfy <mathieu@bidon.ca>\n"
+"POT-Creation-Date: 2016-05-09 13:33-0400\n"
+"PO-Revision-Date: 2016-05-13 15:51+0000\n"
+"Last-Translator: Lars Åge Kamfjord <lars-transifex@kamfjord.org>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/civicrm/civicrm/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,12 +26,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: CRM/Case/BAO/Case.php templates/CRM/Case/Page/DashboardSelector.tpl
-msgid "View this activity."
-msgstr "Vis denne aktiviteten."
-
-#: CRM/Case/BAO/Case.php
-msgid "Edit status"
-msgstr "Rediger status"
+#: xml/templates/message_templates/case_activity_html.tpl
+#: xml/templates/message_templates/case_activity_text.tpl
+msgid "View activity"
+msgstr "Vis aktivitet"
 
 #: CRM/Case/BAO/Case.php
 msgid "no subject"
@@ -47,10 +46,6 @@ msgstr "Flytt til sak"
 #: CRM/Case/BAO/Case.php
 msgid "Copy To Case"
 msgstr "Kopier til sak"
-
-#: CRM/Case/BAO/Case.php
-msgid "View Attachment"
-msgstr "Se vedlegg"
 
 #: CRM/Case/BAO/Case.php
 msgid "File %1 does not exist or is not readable"
@@ -87,13 +82,12 @@ msgstr "Sak %1 kopiert fra kontakt-id %2 til kontakt-id %3 via fletting. Ny saks
 msgid "Case %1 merged into case %2"
 msgstr "Sak %1 flettet med sak %2"
 
-#: CRM/Case/BAO/Query.php
-msgid "Case Status is %1"
-msgstr "Saksstatus er %1"
-
-#: CRM/Case/BAO/Query.php
-msgid "Case Type is %1"
-msgstr "Sakstype er %1"
+#: CRM/Case/BAO/CaseType.php
+msgid ""
+"You can not delete this case type -- it is assigned to %1 existing case "
+"record(s). If you do not want this case type to be used going forward, "
+"consider disabling it instead."
+msgstr "Du kan ikke slette denne sakstypen -- den er tildelt til %1 eksisterende saksoppføring(er). Hvis du ikke ønsker å bruke denne sakstypen framover, vurder å deaktivere den istedenfor."
 
 #: CRM/Case/BAO/Query.php
 msgid "Case %1 My Cases"
@@ -163,21 +157,41 @@ msgstr "Søk alle saker"
 msgid "Only My Cases"
 msgstr "Kun mine saker"
 
-#: CRM/Case/BAO/Query.php CRM/Case/Form/Task/Delete.php
+#: CRM/Case/BAO/Query.php
 msgid "Deleted Cases"
 msgstr "Slettede saker"
 
 #: CRM/Case/DAO/Case.php
-msgid "Case Type Id"
-msgstr "Sakstype ID"
-
-#: CRM/Case/DAO/Case.php
-msgid "Case Status Id"
-msgstr "Saksstatus ID"
-
-#: CRM/Case/DAO/Case.php
 msgid "Case is in the Trash"
 msgstr "Sak er flyttet til papirkurven"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type ID"
+msgstr "Sakstype ID"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Name"
+msgstr "Sakstypenavn"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Title"
+msgstr "Sakstypetittel"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Description"
+msgstr "Sakstypebeskrivelse"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Is Active"
+msgstr "Sakstype er aktivt"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Is Reserved"
+msgstr "Sakstype er reservert"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Definition"
+msgstr "Sakstype definisjon"
 
 #: CRM/Case/Form/Activity/ChangeCaseStartDate.php
 #: CRM/Case/Form/Activity/ChangeCaseStatus.php
@@ -185,6 +199,11 @@ msgstr "Sak er flyttet til papirkurven"
 #: CRM/Case/Form/Activity/LinkCases.php
 msgid "Case Id not found."
 msgstr "Saks-ID ikke funnet"
+
+#: CRM/Case/Form/Activity/ChangeCaseStartDate.php
+#: CRM/Case/Form/Activity/LinkCases.php
+msgid "Expected one case-type"
+msgstr "Forventet en sakstype"
 
 #: CRM/Case/Form/Activity/ChangeCaseStartDate.php
 msgid "New Start Date"
@@ -202,7 +221,7 @@ msgstr "Saksstatus endret fra %1 til %2"
 msgid "Case Status changed successfully."
 msgstr "Saksstatus ble endret."
 
-#: CRM/Case/Form/Activity/ChangeCaseType.php
+#: CRM/Case/Form/Activity/ChangeCaseType.php ang/crmCaseType/list.html
 msgid "New Case Type"
 msgstr "Ny sakstype"
 
@@ -227,25 +246,12 @@ msgid "Link To Case"
 msgstr "Link til sak"
 
 #: CRM/Case/Form/Activity/LinkCases.php
-msgid "Please select a case to link."
-msgstr "Vennligst velg en sak som skal linkes."
-
-#: CRM/Case/Form/Activity/LinkCases.php
 msgid "Please select some other case to link."
 msgstr "Vennligst velg en annen sak som skal linkes."
 
 #: CRM/Case/Form/Activity/LinkCases.php
-msgid "It looks like selected case is already linked."
-msgstr "Det ser ut som at den valgte sak allerede er linket."
-
-#: CRM/Case/Form/Activity/OpenCase.php CRM/Case/Form/Activity.php
-#: CRM/Case/XMLProcessor/Report.php
-msgid "Medium"
-msgstr "Medium"
-
-#: CRM/Case/Form/Activity/OpenCase.php
-msgid "Please select a valid contact or create new contact"
-msgstr "Vennligst velg en gyldig kontakt eller opprett en ny kontakt"
+msgid "Selected case is already linked."
+msgstr "Valgte sak er allerede linket."
 
 #: CRM/Case/Form/Activity/OpenCase.php
 msgid "Case opened successfully."
@@ -259,9 +265,17 @@ msgstr "Du har ingen aktive sakstyper"
 msgid "You can not add another '%1' activity to this case. %2"
 msgstr "Du kan ikke legge til enda en '%1' aktivitet til denne saken. %2"
 
+#: CRM/Case/Form/Activity.php
+msgid "Do you want to <a %1>edit the existing activity</a>?"
+msgstr "Vil du  <a %1>redigere eksisterende aktivitet</a>?"
+
 #: CRM/Case/Form/Activity.php CRM/Case/XMLProcessor/Report.php
 msgid "Reported By"
 msgstr "Rapportert av"
+
+#: CRM/Case/Form/Activity.php CRM/Case/XMLProcessor/Report.php
+msgid "Medium"
+msgstr "Medium"
 
 #: CRM/Case/Form/Activity.php
 msgid ""
@@ -283,12 +297,16 @@ msgid "A copy of the activity has also been sent to selected contacts(s)."
 msgstr "En kopi av aktiviteten er også blitt sendt til de(n) valgte kontakt(er)."
 
 #: CRM/Case/Form/Activity.php
-msgid "'%1' activity has been %2. %3 %4"
-msgstr "'%1' aktivitet har blitt %2. %3 %4"
+msgid "%1 Saved"
+msgstr "%1 lagret"
 
-#: CRM/Case/Form/ActivityChangeStatus.php
-msgid "New Status"
-msgstr "Ny status"
+#: CRM/Case/Form/ActivityToCase.php CRM/Case/XMLProcessor/Report.php
+msgid "With Contact(s)"
+msgstr "Med kontakt(er)"
+
+#: CRM/Case/Form/ActivityView.php
+msgid "Activity Revision History"
+msgstr "Aktivitet revisjonshistorie"
 
 #: CRM/Case/Form/Case.php
 msgid "You do not have any active %1"
@@ -325,12 +343,22 @@ msgid "The selected case has been restored.<br />"
 msgstr "Den valgte sak er gjenoprettet.<br />"
 
 #: CRM/Case/Form/CaseView.php
-msgid "Run QA Audit / Redact"
-msgstr "Kjør revisjon/tilpasning av OSS"
+msgid "Related Cases"
+msgstr "Relaterte saker"
 
 #: CRM/Case/Form/CaseView.php
-msgid "- select activity set -"
-msgstr " - velg aktivitetssett -"
+msgid "%1 Related Case"
+msgid_plural "%1 Related Cases"
+msgstr[0] "%1 relatert sak"
+msgstr[1] "%1 relaterte saker"
+
+#: CRM/Case/Form/CaseView.php
+msgid "Add Activity"
+msgstr "Legg til aktivitet"
+
+#: CRM/Case/Form/CaseView.php
+msgid "Activity Audit"
+msgstr "Aktivitetsgodkjenning"
 
 #: CRM/Case/Form/CaseView.php
 msgid "Add Timeline"
@@ -341,12 +369,20 @@ msgid "Select Case for Merge"
 msgstr "Velg sak som skal flettes"
 
 #: CRM/Case/Form/CaseView.php
-msgid "Assign to another Client"
-msgstr "Tildel til en annen klient"
+msgid "- select type -"
+msgstr "- velg type -"
 
-#: CRM/Case/Form/CaseView.php CRM/Case/Form/EditClient.php
-msgid "Reassign Case"
-msgstr "Tildel sak på nytt"
+#: CRM/Case/Form/CaseView.php
+msgid "Activities from the %1 activity set have been added to this case."
+msgstr "Aktiviteter fra %1-aktivitetssettet er lagt til denne saken."
+
+#: CRM/Case/Form/CaseView.php
+msgid " - any reporter - "
+msgstr " - enhver innberetter - "
+
+#: CRM/Case/Form/CaseView.php templates/CRM/Case/Form/ActivityTab.tpl
+msgid "Reporter/Role"
+msgstr "Innberetter/rolle"
 
 #: CRM/Case/Form/CaseView.php
 msgid " - any status - "
@@ -357,28 +393,28 @@ msgid "Activity Dates - From"
 msgstr "Aktivitetsdatoer - Fra"
 
 #: CRM/Case/Form/CaseView.php
-msgid " - any reporter - "
-msgstr " - enhver innberetter - "
+msgid "Deleted Activities"
+msgstr "Slettede aktiviteter"
 
-#: CRM/Case/Form/CaseView.php templates/CRM/Case/Form/CaseView.tpl
-msgid "Reporter/Role"
-msgstr "Innberetter/rolle"
+#: CRM/Case/Form/EditClient.php
+msgid "Select Contact"
+msgstr "Velg kontakt"
 
-#: CRM/Case/Form/CaseView.php
-msgid "- select type -"
-msgstr "- velg type -"
+#: CRM/Case/Form/EditClient.php
+msgid "Reassign Case"
+msgstr "Tildel sak på nytt"
 
-#: CRM/Case/Form/CaseView.php
-msgid "Activities from the %1 activity set have been added to this case."
-msgstr "Aktiviteter fra %1-aktivitetssettet er lagt til denne saken."
-
-#: CRM/Case/Form/Report.php
-msgid "Include All Activities"
-msgstr "Inkluder alle aktiviteter"
+#: CRM/Case/Form/EditClient.php
+msgid "Please select a different contact."
+msgstr "Vennligst velg en annen kontakt."
 
 #: CRM/Case/Form/Report.php
-msgid "Include Missing Activities Only"
-msgstr "Inkluder kun manglende aktiviteter"
+msgid "All Activities"
+msgstr "Alle aktiviteter"
+
+#: CRM/Case/Form/Report.php
+msgid "Exclude Completed Activities"
+msgstr "Ekskluder fullførte aktiviteter"
 
 #: CRM/Case/Form/Report.php
 msgid "Redact (hide) Client and Service Provider Data"
@@ -396,13 +432,21 @@ msgstr "Klient navn eller e-post"
 msgid "Find Cases"
 msgstr "Søk saker"
 
-#: CRM/Case/Form/Task/Delete.php CRM/Case/Task.php
+#: CRM/Case/Form/Task/Delete.php CRM/Case/Info.php CRM/Case/Task.php
 msgid "Delete Cases"
 msgstr "Slett saker"
 
-#: CRM/Case/Form/Task/Delete.php CRM/Case/Form/Task/Restore.php
-msgid "Total Selected Case(s): %1"
-msgstr "Antall valgt(e) sak(er): %1"
+#: CRM/Case/Form/Task/Delete.php
+msgid "%count case moved to trash."
+msgid_plural "%count cases moved to trash."
+msgstr[0] "%count sak flyttet til søppelkurven."
+msgstr[1] "%count saker flyttet til søppelkurven."
+
+#: CRM/Case/Form/Task/Delete.php
+msgid "%count case permanently deleted."
+msgid_plural "%count cases permanently deleted."
+msgstr[0] "%count sak permament slettet."
+msgstr[1] "%count saker permanent slettet."
 
 #: CRM/Case/Form/Task/Print.php
 msgid "Print Case List"
@@ -413,12 +457,40 @@ msgid "Restore Cases"
 msgstr "Gjenopprett saker"
 
 #: CRM/Case/Form/Task/Restore.php
-msgid "Restored Cases"
-msgstr "Gjenopprede saker"
+msgid "%count case restored from trash."
+msgid_plural "%count cases restored from trash."
+msgstr[0] "%count sak gjenopprettet fra søppelkurven."
+msgstr[1] "%count saker gjenopprettet fra søppelkurven."
+
+#: CRM/Case/Form/Task/Restore.php
+msgid "1 could not be restored."
+msgid_plural "%count could not be restored."
+msgstr[0] "%count sak kunne ikke bli gjenopprettet fra søppelkurven."
+msgstr[1] "%count saker kunne ikke bli gjenopprettet fra søppelkurven."
 
 #: CRM/Case/Info.php
 msgid "CiviCase Engine"
 msgstr "CiviSak Motor"
+
+#: CRM/Case/Info.php
+msgid "delete in CiviCase"
+msgstr "slette i CiviCase"
+
+#: CRM/Case/Info.php
+msgid "administer CiviCase"
+msgstr "administrer CiviCase"
+
+#: CRM/Case/Info.php
+msgid "access my cases and activities"
+msgstr "få tilgang til mine saker og aktiviteter"
+
+#: CRM/Case/Info.php
+msgid "access all cases and activities"
+msgstr "få tilgang til alle saker og aktiviteter"
+
+#: CRM/Case/Info.php
+msgid "add cases"
+msgstr "legg til saker"
 
 #: CRM/Case/Info.php
 msgid ""
@@ -427,8 +499,8 @@ msgid ""
 msgstr "Kunne ikke opprette MySQL-views for CiviCase. Din MySQL-bruker må ha tilgangsrettighetene 'CREATE VIEW'."
 
 #: CRM/Case/Page/AJAX.php
-msgid "Could not find valid Case!"
-msgstr "Fant ikke gyldig sak!"
+msgid "closed"
+msgstr "lukket"
 
 #: CRM/Case/Page/DashBoard.php
 msgid "CiviCase Dashboard"
@@ -447,7 +519,7 @@ msgstr "Er du sikker på at du vil slette denne saken?"
 msgid "Delete Case"
 msgstr "Slett sak"
 
-#: CRM/Case/Selector/Search.php
+#: CRM/Case/Selector/Search.php templates/CRM/Case/Form/CaseView.tpl
 msgid "Assign to Another Client"
 msgstr "Tildel til en annen klient"
 
@@ -467,10 +539,6 @@ msgstr "Neste planl."
 #: CRM/Case/Selector/Search.php
 msgid "Case Search"
 msgstr "Sakssøk"
-
-#: CRM/Case/Task.php
-msgid "Print Cases"
-msgstr "Skriv ut saker"
 
 #: CRM/Case/Task.php
 msgid "Export Cases"
@@ -496,6 +564,120 @@ msgid ""
 "Activity type %1, found in case configuration file, is not present in the "
 "database %2"
 msgstr "Aktivitetstype %1, funnet i konfigurasjonsfilen, finnes ikke i databasen %2"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Housing Support"
+msgstr "Husstøtte"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Help homeless individuals obtain temporary and long-term housing"
+msgstr "Hjelp hjemløse individer å skaffe seg midlertidig og langsiktig husly"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Adult Day Care Referral"
+msgstr "sykehjemshenvisning"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Arranging adult day care for senior individuals"
+msgstr "Organisere sykehjem for pensjonister"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Medical evaluation"
+msgstr "Medisinsk evaluering"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Mental health evaluation"
+msgstr "Mentalhelseevaluering"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Secure temporary housing"
+msgstr "Sikre midlertidig husly"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Income and benefits stabilization"
+msgstr "Inntekts- og fordels-stabilisering"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Long-term housing plan"
+msgstr "Langsiktig bosettingsplan"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "ADC referral"
+msgstr "Sykehjemshenvisning"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Case Resources"
+msgstr "Saksressurser"
+
+#: ang/crmCaseType/activityTypesTable.html
+msgid "Max Instances"
+msgstr ""
+
+#: ang/crmCaseType/activityTypesTable.html
+msgid "Add activity type"
+msgstr ""
+
+#: ang/crmCaseType/caseTypeDetails.html
+msgid "WARNING: The case type name includes deprecated characters."
+msgstr ""
+
+#: ang/crmCaseType/caseTypeDetails.html
+msgid ""
+"WARNING: If any external files or programs reference the old \"Name\", then "
+"they must be updated manually."
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid ""
+"Use this screen to define or update the Case Roles, Activity Types, and "
+"Timelines for a case type."
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid "Learn more..."
+msgstr ""
+
+#: ang/crmCaseType/edit.html templates/CRM/Case/Form/CaseView.tpl
+msgid "Roles"
+msgstr "Roller"
+
+#: ang/crmCaseType/edit.html
+msgid "Add..."
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid "Timeline"
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid "Sequence"
+msgstr ""
+
+#: ang/crmCaseType/list.html
+msgid ""
+"A Case Type describes a group of related tasks, interactions, or processes."
+msgstr ""
+
+#: ang/crmCaseType/rolesTable.html
+msgid "Assign to Creator"
+msgstr ""
+
+#: ang/crmCaseType/rolesTable.html
+msgid "Is Manager"
+msgstr ""
+
+#: ang/crmCaseType/rolesTable.html
+msgid "Add role"
+msgstr ""
+
+#: ang/crmCaseType/timelineTable.html
+msgid "Reference"
+msgstr ""
+
+#: ang/crmCaseType.js
+msgid ""
+"The CiviCase XML file for this case-type prohibits editing the definition."
+msgstr ""
 
 #: templates/CRM/Case/Audit/Audit.tpl
 msgid "Incomplete"
@@ -530,9 +712,9 @@ msgstr "Saksaktiviteter"
 msgid "Current Start Date"
 msgstr "Aktuell startdato"
 
-#: templates/CRM/Case/Form/Activity.tpl
-msgid "Restore %1"
-msgstr "Gjenopprett %1"
+#: templates/CRM/Case/Form/Activity/LinkCases.tpl
+msgid "Create link between %1 - %2 (CaseID: %3) and %4 - %5 (CaseID: %6)"
+msgstr "Opprette linker mellom %1 - %2 (SaksID: %3) og %4 - %5 (SaksID: %6)"
 
 #: templates/CRM/Case/Form/Activity.tpl
 msgid "Click Delete to move this &quot;%1&quot; activity to the Trash."
@@ -555,10 +737,6 @@ msgid "With client(s)"
 msgstr "Med klient(er)"
 
 #: templates/CRM/Case/Form/Activity.tpl
-msgid "You can optionally assign this activity to someone."
-msgstr "Du har mulighet for å tildele denne aktiviteten til noen."
-
-#: templates/CRM/Case/Form/Activity.tpl
 msgid "Send a Copy"
 msgstr "Send en kopi"
 
@@ -568,33 +746,38 @@ msgid ""
 "the case. Click the top left box to select all."
 msgstr "Send en e-post, med en komplett kopi av denne aktivitetsposten til andre personer som er involvert i saken. Klikk boksen øverst til venstre for å velge alle."
 
-#: templates/CRM/Case/Form/ActivityChangeStatus.js
-msgid "Unable to change status"
-msgstr "Kan ikke endre status"
+#: templates/CRM/Case/Form/ActivityTab.tpl
+msgid "Search Filters"
+msgstr "Søkefiltre"
 
-#: templates/CRM/Case/Form/ActivityChangeStatus.js
-msgid "Change Activity Status"
-msgstr "Endre aktivitetsstatus"
+#: templates/CRM/Case/Form/ActivityTab.tpl
+#: templates/CRM/Case/Page/CaseDetails.tpl
+msgid "Reporter / Assignee"
+msgstr "Innberetter / Tildelt"
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
 msgid "You can modify the activity subject before filing."
 msgstr "Du kan endre emnet for aktiviteten for utfylling."
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
+msgid "Move to Case"
+msgstr "Flytt til sak"
+
+#: templates/CRM/Case/Form/ActivityToCase.tpl
+msgid "Copy to Case"
+msgstr "Kopier til sak"
+
+#: templates/CRM/Case/Form/ActivityToCase.tpl
 msgid "Please select a case from the list"
 msgstr "Vennligst velg en sak fra listen"
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Unable to file on case"
+msgid "Unable to file on case."
 msgstr "Kan ikke arkivere sak"
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Activity Filed"
-msgstr "Aktivitet arkivert"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "all revisions"
-msgstr "alle revisjoner"
+msgid "Activity has been filed to %1 case."
+msgstr "Aktivitet er lagret til %1 sak."
 
 #: templates/CRM/Case/Form/ActivityView.tpl
 msgid "Created On"
@@ -623,10 +806,6 @@ msgstr "(dette er ikke den nåværende revisjon)"
 #: templates/CRM/Case/Form/ActivityView.tpl
 msgid "Prompted by"
 msgstr "Forespurt av"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "This activity might not be attached to any case. Please investigate."
-msgstr "Denne aktiviteten er kanskje ikke knyttet til noen saker i det hele tatt. Vennligst undersøk nærmere."
 
 #: templates/CRM/Case/Form/Case.hlp
 msgid "Introduce yourself and your role within our organization."
@@ -682,21 +861,21 @@ msgid ""
 "Trash."
 msgstr "Klik gjenopprett for å hente denne saken og alle tilknyttede aktiviteter fra papirkurven."
 
+#: templates/CRM/Case/Form/CaseView.js
+msgid "Add the %1 set of scheduled activities to this case?"
+msgstr "Legg til %1 sett av planlagte aktiviteter til denne saken?"
+
+#: templates/CRM/Case/Form/CaseView.js
+msgid "Please select a value"
+msgstr "Vennligst velg en verdi"
+
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Clients:"
 msgstr "Klienter:"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "view contact record"
-msgstr "vis kontaktpost"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "add new client to the case"
-msgstr "legg til ny klient til saken"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Related Cases"
-msgstr "Relaterte saker"
+msgid "Add Client"
+msgstr "Legg til klient"
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "DOB"
@@ -719,32 +898,20 @@ msgid "Change case start date (creates activity record)"
 msgstr "Endre startdato for sak (oppretter aktivitetspost)"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Assign to Another Contact"
-msgstr "Tildel til en annen kontakt"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Roles"
-msgstr "Roller"
-
-#: templates/CRM/Case/Form/CaseView.tpl
 msgid "Add new role"
 msgstr "Legg til ny rolle"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Delete case role"
-msgstr "Slett saksrolle"
+msgid "Assign To"
+msgstr "Tildel til"
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Change To"
+msgstr "Endre til"
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Are you sure you want to delete this case role?"
 msgstr "Er du sikker på at du ønsker å slette denne saksrollen?"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Begin typing last name of contact."
-msgstr "Start med å skrive kontaktens etternavn."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Select valid contact from the list"
-msgstr "Velg så en gyldig kontakt fra listen"
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Other Relationships"
@@ -755,29 +922,16 @@ msgid "Add client relationship"
 msgstr "Legg til en klient-relasjon"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"There are no Relationships entered for this client. You can <a "
-"accesskey=\"N\" href='%1'>add one</a>."
-msgstr "Der er ikke fylt inn noen relasjoner for denne klienten. Du kan <a accesskey=\"N\" href='%1'>legge til en</a>"
-
-#: templates/CRM/Case/Form/CaseView.tpl
 msgid "Add members to %1"
 msgstr "Legg til medlemmer til %1"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "The group %2 has no members. You can <a href='%1'>add one</a>."
-msgstr "Gruppen %2 har ingen medlemmer. Du kan <a href='%1'>legge til en</a>."
+msgid "- select contacts -"
+msgstr "- velg kontakter -"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Select valid type from the list"
-msgstr "Velg en gyldig type fra listen"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"The relationship type definition for the %1 case role is not valid for the "
-"client and / or staff contact types. You can review and edit relationship "
-"types at <a href=\"%2\">Administer >> Option Lists >> Relationship Types</a>"
-msgstr "Definisjonen for relasjonstypen til saksrollen %1 er ikke gyldig for klienten og/eller kontakttypen for personalet. Du kan gå gjennom og redigere relasjonstypen ved å velge <a href=\"%2\">Administrer >> Liste med valg >> Relasjonstyper</a>"
+msgid "The group %1 has no members."
+msgstr "Gruppen '%1' har ingen medlemmer."
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Case Tags"
@@ -791,63 +945,9 @@ msgstr "Det er for øyeblikket ingen tagger knyttet til denne saken."
 msgid "Add Tags"
 msgstr "Legg til tagger"
 
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Search Filters"
-msgstr "Søkefiltre"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-#: templates/CRM/Case/Page/CaseDetails.tpl
-msgid "Reporter / Assignee"
-msgstr "Innberetter / Tildelt"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select an activity set from the list."
-msgstr "Vennligst velg et aktivitetssett fra listen."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"Are you sure you want to add a set of scheduled activities to this case?"
-msgstr "Er du sikker på at du vil legge til et sett av planlagte aktiviteter til denne sak?"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select an activity type from the list."
-msgstr "Vennligst velg en aktivitetstype fra listen."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select a report from the list."
-msgstr "Vennligst velg en innberetter fra listen."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select a case from the list to merge with."
-msgstr "Vennligst velg en sak fra listen som det skal flettes med."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select a client for this case."
-msgstr "Vennligst velg en klient til denne saken."
-
-#: templates/CRM/Case/Form/CaseView.tpl templates/CRM/Case/Form/EditClient.tpl
-msgid ""
-"%1 is already assigned to this case. Please select some other client for "
-"this case."
-msgstr "%1 er allerede knyttet til denne saken. Vennligst velg en annen klient til denne sak."
-
-#: templates/CRM/Case/Form/CaseView.tpl templates/CRM/Case/Form/EditClient.tpl
-msgid ""
-"Are you sure you want to reassign this case and all related activities and "
-"relationships to %1?"
-msgstr "Er du sikker på at du vil overdra denne saken og alle relaterte aktiviteter og relasjoner til %1?"
-
 #: templates/CRM/Case/Form/EditClient.tpl
 msgid "This is case is currently assigned to %1."
 msgstr "Denne saken er for øyeblikket tildelt til %1."
-
-#: templates/CRM/Case/Form/EditClient.tpl
-msgid "Please select another client for this case."
-msgstr "Vennligst velg en annen klient for denne sak."
-
-#: templates/CRM/Case/Form/EditClient.tpl
-msgid "Client Selection"
-msgstr "Klien valg"
 
 #: templates/CRM/Case/Form/Report.tpl
 msgid "Report Parameters"
@@ -858,16 +958,16 @@ msgid "Case Tag(s)"
 msgstr "Sakstag(ger)"
 
 #: templates/CRM/Case/Form/Search/EmptyResults.tpl
-msgid "No matching cases found."
-msgstr "Ingen saker ble funnet."
-
-#: templates/CRM/Case/Form/Search/EmptyResults.tpl
 msgid "if you are searching by client name, check your spelling"
 msgstr "hvis du søker etter klientnavn, sjekk stavemåten"
 
 #: templates/CRM/Case/Form/Selector.tpl
-msgid "view contact details"
-msgstr "vis kontaktdetaljer"
+msgid "Show recent activities"
+msgstr "Vis nylige aktiviteter"
+
+#: templates/CRM/Case/Form/Selector.tpl
+msgid "Hide activities"
+msgstr "Skjul aktiviteter"
 
 #: templates/CRM/Case/Form/Selector.tpl
 #: templates/CRM/Case/Page/DashboardSelector.tpl
@@ -915,10 +1015,6 @@ msgstr "Gå til %1 for å lære om denne prosessen."
 #: templates/CRM/Case/Page/ConfigureError.tpl
 msgid "CiviCase Setup documentation"
 msgstr "Dokumentasjon af CiviSak-oppsett"
-
-#: templates/CRM/Case/Page/CustomDataView.tpl
-msgid "Update Case Information"
-msgstr "Oppdater saksinformasjon"
 
 #: templates/CRM/Case/Page/DashBoard.tpl
 msgid "Find My Cases"
@@ -969,8 +1065,10 @@ msgid "Manager"
 msgstr "Administrator"
 
 #: templates/CRM/Case/Page/DashboardSelector.tpl
-msgid "Edit this activity."
-msgstr "Rediger denne aktiviteten."
+#: xml/templates/message_templates/case_activity_html.tpl
+#: xml/templates/message_templates/case_activity_text.tpl
+msgid "Edit activity"
+msgstr "Rediger aktivitet"
 
 #: templates/CRM/Case/Page/Tab.tpl
 msgid "Oops, It looks like there are no active case types."
@@ -985,8 +1083,8 @@ msgid "This page lists all case records for %1."
 msgstr "Denne siden viser alle saksposter for %1."
 
 #: templates/CRM/Case/Page/Tab.tpl
-msgid "Click <a href='%1'>Add Case</a> to add a case record for this contact."
-msgstr "Klikk <a href='%1'>Legg til sak</a> for å legge til en sakspost for denne kontakten."
+msgid "Click <a %1>Add Case</a> to add a case record for this contact."
+msgstr "Klikk <a %1>Legg til sak</a> for å legge til en sakspost for denne kontakten."
 
 #: templates/CRM/Case/Page/Tab.tpl
 msgid "There are no case records for this contact."
@@ -1002,274 +1100,90 @@ msgstr "Aktivitetsoppsumering"
 msgid "Your Case Role(s)"
 msgstr "Din(e) saksrolle(r)"
 
-#: xml/templates/message_templates/case_activity_html.tpl
-msgid "Edit this activity"
-msgstr "Rediger denne aktiviteten"
-
-#: xml/templates/message_templates/case_activity_html.tpl
-msgid "View this activity"
-msgstr "Vis denne aktiviteten"
-
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "Edit this Activity"
-msgstr "Rediger denne aktiviteten"
-
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "View this Activity"
-msgstr "Vis denne aktivitetn"
-
-#: CRM/Case/BAO/CaseType.php
-msgid ""
-"You can not delete this case type -- it is assigned to %1 existing case "
-"record(s). If you do not want this case type to be used going forward, "
-"consider disabling it instead."
-msgstr "Du kan ikke slette denne sakstypen -- den er tildelt til %1 eksisterende saksoppføring(er). Hvis du ikke ønsker å bruke denne sakstypen framover, vurder å deaktivere den istedenfor."
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type ID"
-msgstr "Sakstype ID"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Name"
-msgstr "Sakstypenavn"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Title"
-msgstr "Sakstypetittel"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Description"
-msgstr "Sakstypebeskrivelse"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Is Active"
-msgstr "Sakstype er aktivt"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Is Reserved"
-msgstr "Sakstype er reservert"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Weight"
-msgstr "Sakstype vekt"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Definition"
-msgstr "Sakstype definisjon"
-
-#: CRM/Case/Form/Activity/ChangeCaseStartDate.php
-#: CRM/Case/Form/Activity/LinkCases.php
-msgid "Expected one case-type"
-msgstr "Forventet en sakstype"
-
-#: CRM/Case/Form/Activity/LinkCases.php
-msgid "Selected case is already linked."
-msgstr "Valgte sak er allerede linket."
-
-#: CRM/Case/Form/ActivityView.php
-msgid "Activity Revision History"
-msgstr "Aktivitet revisjonshistorie"
-
-#: CRM/Case/Form/CaseView.php
-msgid "%1 Related Case"
-msgid_plural "%1 Related Cases"
-msgstr[0] "%1 relatert sak"
-msgstr[1] "%1 relaterte saker"
-
-#: CRM/Case/Form/CaseView.php
-msgid "Add Activity"
-msgstr "Legg til aktivitet"
-
-#: CRM/Case/Form/CaseView.php
-msgid "Activity Audit"
-msgstr "Aktivitetsgodkjenning"
-
-#: CRM/Case/Form/EditClient.php
-msgid "Please select a different contact."
-msgstr "Vennligst velg en annen kontakt."
-
-#: CRM/Case/Form/Report.php
-msgid "All Activities"
-msgstr "Alle aktiviteter"
-
-#: CRM/Case/Form/Report.php
-msgid "Exclude Completed Activities"
-msgstr "Ekskluder fullførte aktiviteter"
-
-#: CRM/Case/Page/AJAX.php
-msgid "closed"
-msgstr "lukket"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Housing Support"
-msgstr "Husstøtte"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Help homeless individuals obtain temporary and long-term housing"
-msgstr "Hjelp hjemløse individer å skaffe seg midlertidig og langsiktig husly"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Adult Day Care Referral"
-msgstr "sykehjemshenvisning"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Arranging adult day care for senior individuals"
-msgstr "Organisere sykehjem for pensjonister"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Medical evaluation"
-msgstr "Medisinsk evaluering"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Mental health evaluation"
-msgstr "Mentalhelseevaluering"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Secure temporary housing"
-msgstr "Sikre midlertidig husly"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Income and benefits stabilization"
-msgstr "Inntekts- og fordels-stabilisering"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Long-term housing plan"
-msgstr "Langsiktig bosettingsplan"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "ADC referral"
-msgstr "Sykehjemshenvisning"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Case Resources"
-msgstr "Saksressurser"
-
-#: templates/CRM/Case/Form/Activity/LinkCases.tpl
-msgid "Create link between %1 - %2 (CaseID: %3) and %4 - %5 (CaseID: %6)"
-msgstr "Opprette linker mellom %1 - %2 (SaksID: %3) og %4 - %5 (SaksID: %6)"
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Move to Case"
-msgstr "Flytt til sak"
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Copy to Case"
-msgstr "Kopier til sak"
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Unable to file on case."
-msgstr "Kan ikke arkivere sak"
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Activity has been filed to %1 case."
-msgstr "Aktivitet er lagret til %1 sak."
-
-#: templates/CRM/Case/Form/CaseView.js
-msgid "Add the %1 set of scheduled activities to this case?"
-msgstr "Legg til %1 sett av planlagte aktiviteter til denne saken?"
-
-#: templates/CRM/Case/Form/CaseView.js
-msgid "Please select a value"
-msgstr "Vennligst velg en verdi"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Add Client"
-msgstr "Legg til klient"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Assign To"
-msgstr "Tildel til"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Change To"
-msgstr "Endre til"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"There are no Relationships entered for this client. You can <a %1>add "
-"one</a>."
-msgstr "Der er ikke fylt inn noen relasjoner for denne klienten. Du kan <a %1'>legge til en</a>."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "- select contacts -"
-msgstr "- velg kontakter -"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "The group %1 has no members."
-msgstr "Gruppen '%1' har ingen medlemmer."
-
-#: templates/CRM/Case/Form/Selector.tpl
-msgid "Show recent activities"
-msgstr "Vis nylige aktiviteter"
-
-#: templates/CRM/Case/Form/Selector.tpl
-msgid "Hide activities"
-msgstr "Skjul aktiviteter"
-
-#: templates/CRM/Case/Page/Tab.tpl
-msgid "Click <a %1>Add Case</a> to add a case record for this contact."
-msgstr "Klikk <a %1>Legg til sak</a> for å legge til en sakspost for denne kontakten."
-
-#: CRM/Case/BAO/Case.php templates/CRM/Case/Page/DashboardSelector.tpl
-#: xml/templates/message_templates/case_activity_html.tpl
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "View activity"
-msgstr "Vis aktivitet"
-
-#: CRM/Case/Form/Activity.php
-msgid "Do you want to <a %1>edit the existing activity</a>?"
+#: CRM/Case/DAO/CaseActivity.php
+msgid "Case Activity ID"
 msgstr ""
 
-#: CRM/Case/Form/Activity.php
-msgid "%1 Saved"
+#: CRM/Case/DAO/CaseContact.php
+msgid "Case Contact ID"
 msgstr ""
 
-#: CRM/Case/Form/Task/Delete.php
-msgid "%count case moved to trash."
-msgid_plural "%count cases moved to trash."
-msgstr[0] "%count sak flyttet til søppelkurven."
-msgstr[1] "%count saker flyttet til søppelkurven."
+#: CRM/Case/Form/CaseView.php
+msgid "(opened %1)"
+msgstr ""
 
-#: CRM/Case/Form/Task/Delete.php
-msgid "%count case permanently deleted."
-msgid_plural "%count cases permanently deleted."
-msgstr[0] "%count sak permament slettet."
-msgstr[1] "%count saker permanent slettet."
-
-#: CRM/Case/Form/Task/Restore.php
-msgid "%count case restored from trash."
-msgid_plural "%count cases restored from trash."
-msgstr[0] "%count sak gjenopprettet fra søppelkurven."
-msgstr[1] "%count saker gjenopprettet fra søppelkurven."
-
-#: CRM/Case/Form/Task/Restore.php
-msgid "1 could not be restored."
-msgid_plural "%count could not be restored."
-msgstr[0] "%count sak kunne ikke bli gjenopprettet fra søppelkurven."
-msgstr[1] "%count saker kunne ikke bli gjenopprettet fra søppelkurven."
+#: CRM/Case/Form/Task/Delete.php CRM/Case/Info.php CRM/Case/Task.php
+msgid "Delete cases"
+msgstr "Slett saker"
 
 #: CRM/Case/Info.php
-msgid "delete in CiviCase"
-msgstr "slette i CiviCase"
+msgid "Define case types, access deleted cases"
+msgstr ""
 
 #: CRM/Case/Info.php
-msgid "administer CiviCase"
-msgstr "administrer CiviCase"
+msgid "View and edit only those cases managed by this user"
+msgstr "Vis og rediger kun de sakene som saksbehandles av denne brukeren"
 
 #: CRM/Case/Info.php
-msgid "access my cases and activities"
-msgstr "få tilgang til mine saker og aktiviteter"
+msgid "View and edit all cases (for visible contacts)"
+msgstr "Vis og rediger alle saker (for synlige kontakter)"
 
 #: CRM/Case/Info.php
-msgid "access all cases and activities"
-msgstr "få tilgang til alle saker og aktiviteter"
+msgid "Open a new case"
+msgstr "Åpne en ny sak"
 
-#: CRM/Case/Info.php
-msgid "add cases"
-msgstr "legg til saker"
+#: CRM/Case/Task.php
+msgid "Export cases"
+msgstr "Eksporter saker"
 
-#: templates/CRM/Case/Page/DashboardSelector.tpl
-#: xml/templates/message_templates/case_activity_html.tpl
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "Edit activity"
-msgstr "Rediger aktivitet"
+#: CRM/Case/Task.php
+msgid "Restore cases"
+msgstr "Gjenopprett saker"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Homeless Services Coordinator is"
+msgstr "Koordinator for tjenester for hjemløse er"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Homeless Services Coordinator"
+msgstr "Koordinater for tjenester for hjemløse"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Health Services Coordinator is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Health Services Coordinator"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Senior Services Coordinator is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Senior Services Coordinator"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Benefits Specialist is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Benefits Specialist"
+msgstr ""
+
+#: ang/crmCaseType/list.html
+msgid "Case Types"
+msgstr "Sakstyper"
+
+#: templates/CRM/Case/Form/ActivityTab.tpl
+msgid "Reporter"
+msgstr ""
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Export Document"
+msgstr "Eksporter dokument"
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Are you sure you want to end this relationship?"
+msgstr "Er du sikker på at du vil avslutte dette forholdet?"
