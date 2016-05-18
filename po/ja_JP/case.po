@@ -10,9 +10,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2015-12-09 21:23-0500\n"
-"PO-Revision-Date: 2015-12-10 03:19+0000\n"
-"Last-Translator: Satomi Sato <puritira2015@gmail.com>\n"
+"POT-Creation-Date: 2016-05-09 13:33-0400\n"
+"PO-Revision-Date: 2016-05-09 17:36+0000\n"
+"Last-Translator: Mathieu Lutfy <mathieu@bidon.ca>\n"
 "Language-Team: Japanese (http://www.transifex.com/civicrm/civicrm/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,12 +21,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: CRM/Case/BAO/Case.php templates/CRM/Case/Page/DashboardSelector.tpl
-msgid "View this activity."
-msgstr "このアクティビティを表示します。"
-
-#: CRM/Case/BAO/Case.php
-msgid "Edit status"
-msgstr "ステータスの編集"
+#: xml/templates/message_templates/case_activity_html.tpl
+#: xml/templates/message_templates/case_activity_text.tpl
+msgid "View activity"
+msgstr "アクティビティの表示"
 
 #: CRM/Case/BAO/Case.php
 msgid "no subject"
@@ -43,10 +41,6 @@ msgstr "事例に移動"
 #: CRM/Case/BAO/Case.php
 msgid "Copy To Case"
 msgstr "事例にコピー"
-
-#: CRM/Case/BAO/Case.php
-msgid "View Attachment"
-msgstr "添付ファイルの表示"
 
 #: CRM/Case/BAO/Case.php
 msgid "File %1 does not exist or is not readable"
@@ -83,13 +77,12 @@ msgstr "マージにより、事例 %1 は、連絡先ID %2 から連絡先ID %3
 msgid "Case %1 merged into case %2"
 msgstr "事例 %1 は、事例 %2 にマージされました"
 
-#: CRM/Case/BAO/Query.php
-msgid "Case Status is %1"
-msgstr "事例のステータスは %1 です"
-
-#: CRM/Case/BAO/Query.php
-msgid "Case Type is %1"
-msgstr "事例タイプは %1 です"
+#: CRM/Case/BAO/CaseType.php
+msgid ""
+"You can not delete this case type -- it is assigned to %1 existing case "
+"record(s). If you do not want this case type to be used going forward, "
+"consider disabling it instead."
+msgstr "この事例タイプを削除することはできません -- それは、既存の事例レコード %1 に割り当てられています。今後、この事例タイプ使用しない場合は、代わりにそれを無効にすることを検討してください。"
 
 #: CRM/Case/BAO/Query.php
 msgid "Case %1 My Cases"
@@ -159,21 +152,41 @@ msgstr "すべての事例を検索"
 msgid "Only My Cases"
 msgstr "自分の事例のみ"
 
-#: CRM/Case/BAO/Query.php CRM/Case/Form/Task/Delete.php
+#: CRM/Case/BAO/Query.php
 msgid "Deleted Cases"
 msgstr "削除された事例"
 
 #: CRM/Case/DAO/Case.php
-msgid "Case Type Id"
-msgstr "事例タイプID"
-
-#: CRM/Case/DAO/Case.php
-msgid "Case Status Id"
-msgstr "事例のステータスID"
-
-#: CRM/Case/DAO/Case.php
 msgid "Case is in the Trash"
 msgstr "事例はゴミ箱にあります"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type ID"
+msgstr "事例タイプID"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Name"
+msgstr "事例タイプ名"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Title"
+msgstr "事例タイプのタイトル"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Description"
+msgstr "事例タイプの説明"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Is Active"
+msgstr "有効な事例タイプ"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Is Reserved"
+msgstr "予約された事例タイプ"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Definition"
+msgstr "事例タイプの定義"
 
 #: CRM/Case/Form/Activity/ChangeCaseStartDate.php
 #: CRM/Case/Form/Activity/ChangeCaseStatus.php
@@ -181,6 +194,11 @@ msgstr "事例はゴミ箱にあります"
 #: CRM/Case/Form/Activity/LinkCases.php
 msgid "Case Id not found."
 msgstr "事例ID がみつかりません"
+
+#: CRM/Case/Form/Activity/ChangeCaseStartDate.php
+#: CRM/Case/Form/Activity/LinkCases.php
+msgid "Expected one case-type"
+msgstr "事例タイプ 予想 1"
 
 #: CRM/Case/Form/Activity/ChangeCaseStartDate.php
 msgid "New Start Date"
@@ -198,7 +216,7 @@ msgstr "事例のステータスは %1 から %2 に変更されました"
 msgid "Case Status changed successfully."
 msgstr "事例のステータスを変更しました。"
 
-#: CRM/Case/Form/Activity/ChangeCaseType.php
+#: CRM/Case/Form/Activity/ChangeCaseType.php ang/crmCaseType/list.html
 msgid "New Case Type"
 msgstr "新しい事例タイプ"
 
@@ -223,25 +241,12 @@ msgid "Link To Case"
 msgstr "事例へのリンク"
 
 #: CRM/Case/Form/Activity/LinkCases.php
-msgid "Please select a case to link."
-msgstr "リンクする事例を選んでください。"
-
-#: CRM/Case/Form/Activity/LinkCases.php
 msgid "Please select some other case to link."
 msgstr "リンクするその他の事例を選んでください。"
 
 #: CRM/Case/Form/Activity/LinkCases.php
-msgid "It looks like selected case is already linked."
-msgstr "選択した事例は、既にリンクされています。"
-
-#: CRM/Case/Form/Activity/OpenCase.php CRM/Case/Form/Activity.php
-#: CRM/Case/XMLProcessor/Report.php
-msgid "Medium"
-msgstr "連絡方法"
-
-#: CRM/Case/Form/Activity/OpenCase.php
-msgid "Please select a valid contact or create new contact"
-msgstr "正しい連絡先を選択、または新しい連絡先を作成してください。"
+msgid "Selected case is already linked."
+msgstr "選択した事例は、既ににリンクされています。"
 
 #: CRM/Case/Form/Activity/OpenCase.php
 msgid "Case opened successfully."
@@ -255,9 +260,17 @@ msgstr "現在有効な事例タイプがありません"
 msgid "You can not add another '%1' activity to this case. %2"
 msgstr "他の「%1」アクティビティをこの事例に追加することはできません。%2"
 
+#: CRM/Case/Form/Activity.php
+msgid "Do you want to <a %1>edit the existing activity</a>?"
+msgstr " <a %1>既存のアクティビティを編集</a> しますか？"
+
 #: CRM/Case/Form/Activity.php CRM/Case/XMLProcessor/Report.php
 msgid "Reported By"
 msgstr "レポート"
+
+#: CRM/Case/Form/Activity.php CRM/Case/XMLProcessor/Report.php
+msgid "Medium"
+msgstr "連絡方法"
 
 #: CRM/Case/Form/Activity.php
 msgid ""
@@ -279,12 +292,16 @@ msgid "A copy of the activity has also been sent to selected contacts(s)."
 msgstr "アクティビティのコピーは選択した連絡先に送信されました。"
 
 #: CRM/Case/Form/Activity.php
-msgid "'%1' activity has been %2. %3 %4"
-msgstr "「%1」アクティビティは %2。 %3 %4"
+msgid "%1 Saved"
+msgstr "%1 を保存"
 
-#: CRM/Case/Form/ActivityChangeStatus.php
-msgid "New Status"
-msgstr "新しいステータス"
+#: CRM/Case/Form/ActivityToCase.php CRM/Case/XMLProcessor/Report.php
+msgid "With Contact(s)"
+msgstr ""
+
+#: CRM/Case/Form/ActivityView.php
+msgid "Activity Revision History"
+msgstr "アクティビティの改訂履歴"
 
 #: CRM/Case/Form/Case.php
 msgid "You do not have any active %1"
@@ -321,12 +338,21 @@ msgid "The selected case has been restored.<br />"
 msgstr "選択された事例を復元しました。<br />"
 
 #: CRM/Case/Form/CaseView.php
-msgid "Run QA Audit / Redact"
-msgstr "QA監査 / 改訂を実行"
+msgid "Related Cases"
+msgstr "関連する事例"
 
 #: CRM/Case/Form/CaseView.php
-msgid "- select activity set -"
-msgstr "- アクティビティセットを選択 -"
+msgid "%1 Related Case"
+msgid_plural "%1 Related Cases"
+msgstr[0] "%1 の関連事例"
+
+#: CRM/Case/Form/CaseView.php
+msgid "Add Activity"
+msgstr "アクティビティの追加"
+
+#: CRM/Case/Form/CaseView.php
+msgid "Activity Audit"
+msgstr "アクティビティの監査"
 
 #: CRM/Case/Form/CaseView.php
 msgid "Add Timeline"
@@ -337,12 +363,20 @@ msgid "Select Case for Merge"
 msgstr "この事例のステータスを選択"
 
 #: CRM/Case/Form/CaseView.php
-msgid "Assign to another Client"
-msgstr "他のクライアントに割り当て"
+msgid "- select type -"
+msgstr "- タイプを選択 -"
 
-#: CRM/Case/Form/CaseView.php CRM/Case/Form/EditClient.php
-msgid "Reassign Case"
-msgstr "事例再割当て"
+#: CRM/Case/Form/CaseView.php
+msgid "Activities from the %1 activity set have been added to this case."
+msgstr "アクティビティ %1 セットのアクティビティをこの事例に追加しました。"
+
+#: CRM/Case/Form/CaseView.php
+msgid " - any reporter - "
+msgstr "- 任意のレポート者 -"
+
+#: CRM/Case/Form/CaseView.php templates/CRM/Case/Form/ActivityTab.tpl
+msgid "Reporter/Role"
+msgstr "レポート者 / 役割"
 
 #: CRM/Case/Form/CaseView.php
 msgid " - any status - "
@@ -353,28 +387,28 @@ msgid "Activity Dates - From"
 msgstr "アクティビティ日 - 差出人"
 
 #: CRM/Case/Form/CaseView.php
-msgid " - any reporter - "
-msgstr "- 任意のレポート者 -"
+msgid "Deleted Activities"
+msgstr ""
 
-#: CRM/Case/Form/CaseView.php templates/CRM/Case/Form/CaseView.tpl
-msgid "Reporter/Role"
-msgstr "レポート者 / 役割"
+#: CRM/Case/Form/EditClient.php
+msgid "Select Contact"
+msgstr ""
 
-#: CRM/Case/Form/CaseView.php
-msgid "- select type -"
-msgstr "- タイプを選択 -"
+#: CRM/Case/Form/EditClient.php
+msgid "Reassign Case"
+msgstr "事例再割当て"
 
-#: CRM/Case/Form/CaseView.php
-msgid "Activities from the %1 activity set have been added to this case."
-msgstr "アクティビティ %1 セットのアクティビティをこの事例に追加しました。"
-
-#: CRM/Case/Form/Report.php
-msgid "Include All Activities"
-msgstr "すべてのアクティビティを追加"
+#: CRM/Case/Form/EditClient.php
+msgid "Please select a different contact."
+msgstr "別の連絡先を選択してください。"
 
 #: CRM/Case/Form/Report.php
-msgid "Include Missing Activities Only"
-msgstr "不足しているアクティビティのみを追加"
+msgid "All Activities"
+msgstr "すべてのアクティビティ"
+
+#: CRM/Case/Form/Report.php
+msgid "Exclude Completed Activities"
+msgstr "完了したアクティビティを除外"
 
 #: CRM/Case/Form/Report.php
 msgid "Redact (hide) Client and Service Provider Data"
@@ -392,13 +426,19 @@ msgstr "クライアントの名前またはメール"
 msgid "Find Cases"
 msgstr "事例の検索"
 
-#: CRM/Case/Form/Task/Delete.php CRM/Case/Task.php
+#: CRM/Case/Form/Task/Delete.php CRM/Case/Info.php CRM/Case/Task.php
 msgid "Delete Cases"
 msgstr "事例の削除"
 
-#: CRM/Case/Form/Task/Delete.php CRM/Case/Form/Task/Restore.php
-msgid "Total Selected Case(s): %1"
-msgstr "選択された事例の数 : %1"
+#: CRM/Case/Form/Task/Delete.php
+msgid "%count case moved to trash."
+msgid_plural "%count cases moved to trash."
+msgstr[0] "%count の事例をゴミ箱に移動しました。"
+
+#: CRM/Case/Form/Task/Delete.php
+msgid "%count case permanently deleted."
+msgid_plural "%count cases permanently deleted."
+msgstr[0] "%count の事例を完全に削除しました。"
 
 #: CRM/Case/Form/Task/Print.php
 msgid "Print Case List"
@@ -409,12 +449,38 @@ msgid "Restore Cases"
 msgstr "事例を復元"
 
 #: CRM/Case/Form/Task/Restore.php
-msgid "Restored Cases"
-msgstr "復元された事例"
+msgid "%count case restored from trash."
+msgid_plural "%count cases restored from trash."
+msgstr[0] "%count の事例をゴミ箱から復元しました。"
+
+#: CRM/Case/Form/Task/Restore.php
+msgid "1 could not be restored."
+msgid_plural "%count could not be restored."
+msgstr[0] "%count を復元することができませんでした。"
 
 #: CRM/Case/Info.php
 msgid "CiviCase Engine"
 msgstr "CiviCase エンジン"
+
+#: CRM/Case/Info.php
+msgid "delete in CiviCase"
+msgstr "CiviCase で削除"
+
+#: CRM/Case/Info.php
+msgid "administer CiviCase"
+msgstr "CiviCase の管理"
+
+#: CRM/Case/Info.php
+msgid "access my cases and activities"
+msgstr "私の事例やアクティビティにアクセス"
+
+#: CRM/Case/Info.php
+msgid "access all cases and activities"
+msgstr "すべての事例やアクティビティにアクセス"
+
+#: CRM/Case/Info.php
+msgid "add cases"
+msgstr "事例の追加"
 
 #: CRM/Case/Info.php
 msgid ""
@@ -423,8 +489,8 @@ msgid ""
 msgstr "CiviCase の MySQL ビューを作成できませんでした。MySQL のユーザに「CREATE VIEW」の権限が必要です。"
 
 #: CRM/Case/Page/AJAX.php
-msgid "Could not find valid Case!"
-msgstr "有効な事例がありません！"
+msgid "closed"
+msgstr "閉じる"
 
 #: CRM/Case/Page/DashBoard.php
 msgid "CiviCase Dashboard"
@@ -443,7 +509,7 @@ msgstr "この事例を削除してもよろしいですか？"
 msgid "Delete Case"
 msgstr "事例を削除"
 
-#: CRM/Case/Selector/Search.php
+#: CRM/Case/Selector/Search.php templates/CRM/Case/Form/CaseView.tpl
 msgid "Assign to Another Client"
 msgstr "他のクライアントに割り当て"
 
@@ -463,10 +529,6 @@ msgstr "次の予定"
 #: CRM/Case/Selector/Search.php
 msgid "Case Search"
 msgstr "事例検索"
-
-#: CRM/Case/Task.php
-msgid "Print Cases"
-msgstr "事例を印刷"
 
 #: CRM/Case/Task.php
 msgid "Export Cases"
@@ -492,6 +554,120 @@ msgid ""
 "Activity type %1, found in case configuration file, is not present in the "
 "database %2"
 msgstr "事例の設定ファイル内のアクティビティタイプ %1 はデータベース %2 にありません。"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Housing Support"
+msgstr "住宅サポート"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Help homeless individuals obtain temporary and long-term housing"
+msgstr "ホームレスの個人が一時的、および長期住宅を取得するためのヘルプ"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Adult Day Care Referral"
+msgstr "大人のデイケア紹介"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Arranging adult day care for senior individuals"
+msgstr "シニア個人のために、成人デイケアの配置"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Medical evaluation"
+msgstr "医学的評価"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Mental health evaluation"
+msgstr "メンタルヘルス評価"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Secure temporary housing"
+msgstr "安全な仮設住宅"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Income and benefits stabilization"
+msgstr "収入と利益の安定化"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Long-term housing plan"
+msgstr "長期住宅計画"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "ADC referral"
+msgstr "ADC の紹介"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Case Resources"
+msgstr "事例リソース"
+
+#: ang/crmCaseType/activityTypesTable.html
+msgid "Max Instances"
+msgstr ""
+
+#: ang/crmCaseType/activityTypesTable.html
+msgid "Add activity type"
+msgstr ""
+
+#: ang/crmCaseType/caseTypeDetails.html
+msgid "WARNING: The case type name includes deprecated characters."
+msgstr ""
+
+#: ang/crmCaseType/caseTypeDetails.html
+msgid ""
+"WARNING: If any external files or programs reference the old \"Name\", then "
+"they must be updated manually."
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid ""
+"Use this screen to define or update the Case Roles, Activity Types, and "
+"Timelines for a case type."
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid "Learn more..."
+msgstr ""
+
+#: ang/crmCaseType/edit.html templates/CRM/Case/Form/CaseView.tpl
+msgid "Roles"
+msgstr "役割"
+
+#: ang/crmCaseType/edit.html
+msgid "Add..."
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid "Timeline"
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid "Sequence"
+msgstr ""
+
+#: ang/crmCaseType/list.html
+msgid ""
+"A Case Type describes a group of related tasks, interactions, or processes."
+msgstr ""
+
+#: ang/crmCaseType/rolesTable.html
+msgid "Assign to Creator"
+msgstr ""
+
+#: ang/crmCaseType/rolesTable.html
+msgid "Is Manager"
+msgstr ""
+
+#: ang/crmCaseType/rolesTable.html
+msgid "Add role"
+msgstr ""
+
+#: ang/crmCaseType/timelineTable.html
+msgid "Reference"
+msgstr ""
+
+#: ang/crmCaseType.js
+msgid ""
+"The CiviCase XML file for this case-type prohibits editing the definition."
+msgstr ""
 
 #: templates/CRM/Case/Audit/Audit.tpl
 msgid "Incomplete"
@@ -526,9 +702,9 @@ msgstr "事例のアクティビティ"
 msgid "Current Start Date"
 msgstr "現在の開始日"
 
-#: templates/CRM/Case/Form/Activity.tpl
-msgid "Restore %1"
-msgstr "%1 を復元"
+#: templates/CRM/Case/Form/Activity/LinkCases.tpl
+msgid "Create link between %1 - %2 (CaseID: %3) and %4 - %5 (CaseID: %6)"
+msgstr " %1 - %2 (事例ID : %3) と %4 - %5 (事例ID : %6) 間のリンクを作成"
 
 #: templates/CRM/Case/Form/Activity.tpl
 msgid "Click Delete to move this &quot;%1&quot; activity to the Trash."
@@ -551,10 +727,6 @@ msgid "With client(s)"
 msgstr "他のクライアント"
 
 #: templates/CRM/Case/Form/Activity.tpl
-msgid "You can optionally assign this activity to someone."
-msgstr "このアクティビティを任意で他人に割り当てることができます。"
-
-#: templates/CRM/Case/Form/Activity.tpl
 msgid "Send a Copy"
 msgstr "コピーを送信"
 
@@ -564,33 +736,38 @@ msgid ""
 "the case. Click the top left box to select all."
 msgstr "この事例に関係のある他の人々にこのアクティビティレコードの完全なコピーをメールで送信。左上のボックスをクリックすると、すべてを選択。"
 
-#: templates/CRM/Case/Form/ActivityChangeStatus.js
-msgid "Unable to change status"
-msgstr "ステータスを変更できません"
+#: templates/CRM/Case/Form/ActivityTab.tpl
+msgid "Search Filters"
+msgstr "検索フィルタ"
 
-#: templates/CRM/Case/Form/ActivityChangeStatus.js
-msgid "Change Activity Status"
-msgstr "アクティビティのステータス変更"
+#: templates/CRM/Case/Form/ActivityTab.tpl
+#: templates/CRM/Case/Page/CaseDetails.tpl
+msgid "Reporter / Assignee"
+msgstr "レポート者 / 担当者"
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
 msgid "You can modify the activity subject before filing."
 msgstr "ファイルする前にアクティビティの件名を変更できます。"
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
+msgid "Move to Case"
+msgstr "事例に移動"
+
+#: templates/CRM/Case/Form/ActivityToCase.tpl
+msgid "Copy to Case"
+msgstr "事例にコピー"
+
+#: templates/CRM/Case/Form/ActivityToCase.tpl
 msgid "Please select a case from the list"
 msgstr "リストから事例を選択してください"
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Unable to file on case"
-msgstr "事例にファイルできません"
+msgid "Unable to file on case."
+msgstr "事例にファイルをすることができません。"
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Activity Filed"
-msgstr "アクティビティフィールド"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "all revisions"
-msgstr "すべてのリビジョン"
+msgid "Activity has been filed to %1 case."
+msgstr "アクティビティは %1 の事例に提出されています。"
 
 #: templates/CRM/Case/Form/ActivityView.tpl
 msgid "Created On"
@@ -619,10 +796,6 @@ msgstr "(これは現在の改訂ではありません)"
 #: templates/CRM/Case/Form/ActivityView.tpl
 msgid "Prompted by"
 msgstr "プロンプト"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "This activity might not be attached to any case. Please investigate."
-msgstr "このアクティビティはどの事例にも属していません。調べてください。"
 
 #: templates/CRM/Case/Form/Case.hlp
 msgid "Introduce yourself and your role within our organization."
@@ -678,21 +851,21 @@ msgid ""
 "Trash."
 msgstr "復元をクリックすると、ゴミ箱の中からこの事例とこれに付属するすべてのアクティビティを元に戻すことができます。"
 
+#: templates/CRM/Case/Form/CaseView.js
+msgid "Add the %1 set of scheduled activities to this case?"
+msgstr "この予定された事例にアクティビティ %1 の設定を追加しますか？"
+
+#: templates/CRM/Case/Form/CaseView.js
+msgid "Please select a value"
+msgstr "値を選択してください"
+
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Clients:"
 msgstr "クライアント :"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "view contact record"
-msgstr "連絡先レコードの表示"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "add new client to the case"
-msgstr "新しいクライアントをこの事例に追加"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Related Cases"
-msgstr "関連する事例"
+msgid "Add Client"
+msgstr "クライアントの追加"
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "DOB"
@@ -715,32 +888,20 @@ msgid "Change case start date (creates activity record)"
 msgstr "事例ステータスデータ (アクティビティレコードを作成) の変更"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Assign to Another Contact"
-msgstr "別の連絡先へ割り当て"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Roles"
-msgstr "役割"
-
-#: templates/CRM/Case/Form/CaseView.tpl
 msgid "Add new role"
 msgstr "新しい役割を追加"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Delete case role"
-msgstr "事例の役割を削除"
+msgid "Assign To"
+msgstr "割り当て"
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Change To"
+msgstr "変更"
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Are you sure you want to delete this case role?"
 msgstr "この事例の役割を削除してもよろしいですか？"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Begin typing last name of contact."
-msgstr "連絡先のラストネームのタイプを開始します。"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Select valid contact from the list"
-msgstr "有効な連絡先をリストから選択してください。"
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Other Relationships"
@@ -751,29 +912,16 @@ msgid "Add client relationship"
 msgstr "クライアントの関係を追加"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"There are no Relationships entered for this client. You can <a "
-"accesskey=\"N\" href='%1'>add one</a>."
-msgstr "このクライアントにはまだ関係が入力されていません。<a accesskey=\"N\" href=\"%1\">関係を追加</a>することができます。"
-
-#: templates/CRM/Case/Form/CaseView.tpl
 msgid "Add members to %1"
 msgstr "%1 にメンバーを追加"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "The group %2 has no members. You can <a href='%1'>add one</a>."
-msgstr "グループ %2 にはメンバーがありません。<a href=\"%1\">メンバーを追加</a>することができます。"
+msgid "- select contacts -"
+msgstr "- 連絡先の選択 -"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Select valid type from the list"
-msgstr "リストから有効なタイプを選択してください。"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"The relationship type definition for the %1 case role is not valid for the "
-"client and / or staff contact types. You can review and edit relationship "
-"types at <a href=\"%2\">Administer >> Option Lists >> Relationship Types</a>"
-msgstr "クライアントかスタッフの連絡先タイプに関する %1 事例の役割で関係タイプの定義が正しくありません。 <a href=\"%2\">管理 >> オプションリスト >> 関係タイプ</a>で関係タイプを修正してください。"
+msgid "The group %1 has no members."
+msgstr "グループ %1 にはメンバーがいません。"
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Case Tags"
@@ -787,63 +935,9 @@ msgstr "この事例には現在タグが付けられていません。"
 msgid "Add Tags"
 msgstr "タグを追加"
 
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Search Filters"
-msgstr "検索フィルタ"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-#: templates/CRM/Case/Page/CaseDetails.tpl
-msgid "Reporter / Assignee"
-msgstr "レポート者 / 担当者"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select an activity set from the list."
-msgstr "リストからアクティビティセットを選択してください。"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"Are you sure you want to add a set of scheduled activities to this case?"
-msgstr "この事例に予定されたアクティビティのセットを追加してもよろしいですか？"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select an activity type from the list."
-msgstr "リストからアクティビティタイプを選択してください。"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select a report from the list."
-msgstr "リストからレポートを選択してください。"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select a case from the list to merge with."
-msgstr "リストからマージする事例を選択してください。"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select a client for this case."
-msgstr "この事例のクライアントを選んでください。"
-
-#: templates/CRM/Case/Form/CaseView.tpl templates/CRM/Case/Form/EditClient.tpl
-msgid ""
-"%1 is already assigned to this case. Please select some other client for "
-"this case."
-msgstr "%1 はこの事例に割り当て済みです。他のクライアントを選択してください。"
-
-#: templates/CRM/Case/Form/CaseView.tpl templates/CRM/Case/Form/EditClient.tpl
-msgid ""
-"Are you sure you want to reassign this case and all related activities and "
-"relationships to %1?"
-msgstr "この事例と、これに関連するすべてのアクティビティおよび関係を %1 に再割り当てしますか？"
-
 #: templates/CRM/Case/Form/EditClient.tpl
 msgid "This is case is currently assigned to %1."
 msgstr "この事例は現在 %1 に割り当てられています。"
-
-#: templates/CRM/Case/Form/EditClient.tpl
-msgid "Please select another client for this case."
-msgstr "この事例の他のクライアントを選んでください。"
-
-#: templates/CRM/Case/Form/EditClient.tpl
-msgid "Client Selection"
-msgstr "クライアントの選択"
 
 #: templates/CRM/Case/Form/Report.tpl
 msgid "Report Parameters"
@@ -854,16 +948,16 @@ msgid "Case Tag(s)"
 msgstr "事例タグ"
 
 #: templates/CRM/Case/Form/Search/EmptyResults.tpl
-msgid "No matching cases found."
-msgstr "条件に一致した事例がありません。"
-
-#: templates/CRM/Case/Form/Search/EmptyResults.tpl
 msgid "if you are searching by client name, check your spelling"
 msgstr "クライアントの名前を探すのであれば、スペルを確認してください"
 
 #: templates/CRM/Case/Form/Selector.tpl
-msgid "view contact details"
-msgstr "連絡先の詳細を表示"
+msgid "Show recent activities"
+msgstr "最近のアクティビティを表示"
+
+#: templates/CRM/Case/Form/Selector.tpl
+msgid "Hide activities"
+msgstr "アクティビティの非表示"
 
 #: templates/CRM/Case/Form/Selector.tpl
 #: templates/CRM/Case/Page/DashboardSelector.tpl
@@ -911,10 +1005,6 @@ msgstr "この処理の詳細は %1 を参照してください。"
 #: templates/CRM/Case/Page/ConfigureError.tpl
 msgid "CiviCase Setup documentation"
 msgstr "CiviCase セットアップ マニュアル"
-
-#: templates/CRM/Case/Page/CustomDataView.tpl
-msgid "Update Case Information"
-msgstr "事例情報の更新"
 
 #: templates/CRM/Case/Page/DashBoard.tpl
 msgid "Find My Cases"
@@ -965,8 +1055,10 @@ msgid "Manager"
 msgstr "管理"
 
 #: templates/CRM/Case/Page/DashboardSelector.tpl
-msgid "Edit this activity."
-msgstr "このアクティビティを編集"
+#: xml/templates/message_templates/case_activity_html.tpl
+#: xml/templates/message_templates/case_activity_text.tpl
+msgid "Edit activity"
+msgstr "アクティビティの編集"
 
 #: templates/CRM/Case/Page/Tab.tpl
 msgid "Oops, It looks like there are no active case types."
@@ -981,8 +1073,8 @@ msgid "This page lists all case records for %1."
 msgstr "このページで %1 についてのすべての事例レコードを表示します。"
 
 #: templates/CRM/Case/Page/Tab.tpl
-msgid "Click <a href='%1'>Add Case</a> to add a case record for this contact."
-msgstr "<a href='%1'>事例を追加</a>をクリックしてこの連絡先に事例レコードを追加します。"
+msgid "Click <a %1>Add Case</a> to add a case record for this contact."
+msgstr "<a %1>事例を追加</a>をクリックしてこの連絡先に事例レコードを追加します。"
 
 #: templates/CRM/Case/Page/Tab.tpl
 msgid "There are no case records for this contact."
@@ -998,269 +1090,90 @@ msgstr "アクティビティ概要"
 msgid "Your Case Role(s)"
 msgstr "あなたの事例ロール"
 
-#: xml/templates/message_templates/case_activity_html.tpl
-msgid "Edit this activity"
-msgstr "このアクティビティを編集"
+#: CRM/Case/DAO/CaseActivity.php
+msgid "Case Activity ID"
+msgstr ""
 
-#: xml/templates/message_templates/case_activity_html.tpl
-msgid "View this activity"
-msgstr "このアクティビティを表示"
-
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "Edit this Activity"
-msgstr "このアクティビティを編集"
-
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "View this Activity"
-msgstr "このアクティビティを表示"
-
-#: CRM/Case/BAO/CaseType.php
-msgid ""
-"You can not delete this case type -- it is assigned to %1 existing case "
-"record(s). If you do not want this case type to be used going forward, "
-"consider disabling it instead."
-msgstr "この事例タイプを削除することはできません -- それは、既存の事例レコード %1 に割り当てられています。今後、この事例タイプ使用しない場合は、代わりにそれを無効にすることを検討してください。"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type ID"
-msgstr "事例タイプID"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Name"
-msgstr "事例タイプ名"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Title"
-msgstr "事例タイプのタイトル"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Description"
-msgstr "事例タイプの説明"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Is Active"
-msgstr "有効な事例タイプ"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Is Reserved"
-msgstr "予約された事例タイプ"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Weight"
-msgstr "事例タイプの優先度"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Definition"
-msgstr "事例タイプの定義"
-
-#: CRM/Case/Form/Activity/ChangeCaseStartDate.php
-#: CRM/Case/Form/Activity/LinkCases.php
-msgid "Expected one case-type"
-msgstr "事例タイプ 予想 1"
-
-#: CRM/Case/Form/Activity/LinkCases.php
-msgid "Selected case is already linked."
-msgstr "選択した事例は、既ににリンクされています。"
-
-#: CRM/Case/Form/ActivityView.php
-msgid "Activity Revision History"
-msgstr "アクティビティの改訂履歴"
+#: CRM/Case/DAO/CaseContact.php
+msgid "Case Contact ID"
+msgstr ""
 
 #: CRM/Case/Form/CaseView.php
-msgid "%1 Related Case"
-msgid_plural "%1 Related Cases"
-msgstr[0] "%1 の関連事例"
+msgid "(opened %1)"
+msgstr ""
 
-#: CRM/Case/Form/CaseView.php
-msgid "Add Activity"
-msgstr "アクティビティの追加"
-
-#: CRM/Case/Form/CaseView.php
-msgid "Activity Audit"
-msgstr "アクティビティの監査"
-
-#: CRM/Case/Form/EditClient.php
-msgid "Please select a different contact."
-msgstr "別の連絡先を選択してください。"
-
-#: CRM/Case/Form/Report.php
-msgid "All Activities"
-msgstr "すべてのアクティビティ"
-
-#: CRM/Case/Form/Report.php
-msgid "Exclude Completed Activities"
-msgstr "完了したアクティビティを除外"
-
-#: CRM/Case/Page/AJAX.php
-msgid "closed"
-msgstr "閉じる"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Housing Support"
-msgstr "住宅サポート"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Help homeless individuals obtain temporary and long-term housing"
-msgstr "ホームレスの個人が一時的、および長期住宅を取得するためのヘルプ"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Adult Day Care Referral"
-msgstr "大人のデイケア紹介"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Arranging adult day care for senior individuals"
-msgstr "シニア個人のために、成人デイケアの配置"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Medical evaluation"
-msgstr "医学的評価"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Mental health evaluation"
-msgstr "メンタルヘルス評価"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Secure temporary housing"
-msgstr "安全な仮設住宅"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Income and benefits stabilization"
-msgstr "収入と利益の安定化"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Long-term housing plan"
-msgstr "長期住宅計画"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "ADC referral"
-msgstr "ADC の紹介"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Case Resources"
-msgstr "事例リソース"
-
-#: templates/CRM/Case/Form/Activity/LinkCases.tpl
-msgid "Create link between %1 - %2 (CaseID: %3) and %4 - %5 (CaseID: %6)"
-msgstr " %1 - %2 (事例ID : %3) と %4 - %5 (事例ID : %6) 間のリンクを作成"
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Move to Case"
-msgstr "事例に移動"
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Copy to Case"
-msgstr "事例にコピー"
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Unable to file on case."
-msgstr "事例にファイルをすることができません。"
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Activity has been filed to %1 case."
-msgstr "アクティビティは %1 の事例に提出されています。"
-
-#: templates/CRM/Case/Form/CaseView.js
-msgid "Add the %1 set of scheduled activities to this case?"
-msgstr "この予定された事例にアクティビティ %1 の設定を追加しますか？"
-
-#: templates/CRM/Case/Form/CaseView.js
-msgid "Please select a value"
-msgstr "値を選択してください"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Add Client"
-msgstr "クライアントの追加"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Assign To"
-msgstr "割り当て"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Change To"
-msgstr "変更"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"There are no Relationships entered for this client. You can <a %1>add "
-"one</a>."
-msgstr "このクライアントに入力された関係はありません。あなたは<a %1>これを追加</a>できます。"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "- select contacts -"
-msgstr "- 連絡先の選択 -"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "The group %1 has no members."
-msgstr "グループ %1 にはメンバーがいません。"
-
-#: templates/CRM/Case/Form/Selector.tpl
-msgid "Show recent activities"
-msgstr "最近のアクティビティを表示"
-
-#: templates/CRM/Case/Form/Selector.tpl
-msgid "Hide activities"
-msgstr "アクティビティの非表示"
-
-#: templates/CRM/Case/Page/Tab.tpl
-msgid "Click <a %1>Add Case</a> to add a case record for this contact."
-msgstr "<a %1>事例を追加</a>をクリックしてこの連絡先に事例レコードを追加します。"
-
-#: CRM/Case/BAO/Case.php templates/CRM/Case/Page/DashboardSelector.tpl
-#: xml/templates/message_templates/case_activity_html.tpl
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "View activity"
-msgstr "アクティビティの表示"
-
-#: CRM/Case/Form/Activity.php
-msgid "Do you want to <a %1>edit the existing activity</a>?"
-msgstr " <a %1>既存のアクティビティを編集</a> しますか？"
-
-#: CRM/Case/Form/Activity.php
-msgid "%1 Saved"
-msgstr "%1 を保存"
-
-#: CRM/Case/Form/Task/Delete.php
-msgid "%count case moved to trash."
-msgid_plural "%count cases moved to trash."
-msgstr[0] "%count の事例をゴミ箱に移動しました。"
-
-#: CRM/Case/Form/Task/Delete.php
-msgid "%count case permanently deleted."
-msgid_plural "%count cases permanently deleted."
-msgstr[0] "%count の事例を完全に削除しました。"
-
-#: CRM/Case/Form/Task/Restore.php
-msgid "%count case restored from trash."
-msgid_plural "%count cases restored from trash."
-msgstr[0] "%count の事例をゴミ箱から復元しました。"
-
-#: CRM/Case/Form/Task/Restore.php
-msgid "1 could not be restored."
-msgid_plural "%count could not be restored."
-msgstr[0] "%count を復元することができませんでした。"
+#: CRM/Case/Form/Task/Delete.php CRM/Case/Info.php CRM/Case/Task.php
+msgid "Delete cases"
+msgstr ""
 
 #: CRM/Case/Info.php
-msgid "delete in CiviCase"
-msgstr "CiviCase で削除"
+msgid "Define case types, access deleted cases"
+msgstr ""
 
 #: CRM/Case/Info.php
-msgid "administer CiviCase"
-msgstr "CiviCase の管理"
+msgid "View and edit only those cases managed by this user"
+msgstr ""
 
 #: CRM/Case/Info.php
-msgid "access my cases and activities"
-msgstr "私の事例やアクティビティにアクセス"
+msgid "View and edit all cases (for visible contacts)"
+msgstr ""
 
 #: CRM/Case/Info.php
-msgid "access all cases and activities"
-msgstr "すべての事例やアクティビティにアクセス"
+msgid "Open a new case"
+msgstr ""
 
-#: CRM/Case/Info.php
-msgid "add cases"
-msgstr "事例の追加"
+#: CRM/Case/Task.php
+msgid "Export cases"
+msgstr ""
 
-#: templates/CRM/Case/Page/DashboardSelector.tpl
-#: xml/templates/message_templates/case_activity_html.tpl
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "Edit activity"
-msgstr "アクティビティの編集"
+#: CRM/Case/Task.php
+msgid "Restore cases"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Homeless Services Coordinator is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Homeless Services Coordinator"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Health Services Coordinator is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Health Services Coordinator"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Senior Services Coordinator is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Senior Services Coordinator"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Benefits Specialist is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Benefits Specialist"
+msgstr ""
+
+#: ang/crmCaseType/list.html
+msgid "Case Types"
+msgstr ""
+
+#: templates/CRM/Case/Form/ActivityTab.tpl
+msgid "Reporter"
+msgstr ""
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Export Document"
+msgstr ""
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Are you sure you want to end this relationship?"
+msgstr ""
