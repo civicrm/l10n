@@ -8,9 +8,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2015-12-09 21:23-0500\n"
-"PO-Revision-Date: 2015-12-10 13:49+0000\n"
-"Last-Translator: Fery Setiawan <gembelweb@gmail.com>\n"
+"POT-Creation-Date: 2016-05-09 13:33-0400\n"
+"PO-Revision-Date: 2016-05-09 17:36+0000\n"
+"Last-Translator: Mathieu Lutfy <mathieu@bidon.ca>\n"
 "Language-Team: Indonesian (http://www.transifex.com/civicrm/civicrm/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,12 +19,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: CRM/Case/BAO/Case.php templates/CRM/Case/Page/DashboardSelector.tpl
-msgid "View this activity."
-msgstr "Lihat aktivitas ini."
-
-#: CRM/Case/BAO/Case.php
-msgid "Edit status"
-msgstr "Sunting keadaan"
+#: xml/templates/message_templates/case_activity_html.tpl
+#: xml/templates/message_templates/case_activity_text.tpl
+msgid "View activity"
+msgstr "Lihat aktifitas"
 
 #: CRM/Case/BAO/Case.php
 msgid "no subject"
@@ -41,10 +39,6 @@ msgstr "Pindahkan Ke Kasus"
 #: CRM/Case/BAO/Case.php
 msgid "Copy To Case"
 msgstr "Salin Ke Kasus"
-
-#: CRM/Case/BAO/Case.php
-msgid "View Attachment"
-msgstr "Lihat Lampiran"
 
 #: CRM/Case/BAO/Case.php
 msgid "File %1 does not exist or is not readable"
@@ -81,13 +75,12 @@ msgstr "Kasis %1 disalin dari id kontak %2 ke id kontak %3 melalui penggabungan.
 msgid "Case %1 merged into case %2"
 msgstr "Kasus %1 digabungkan ke kasus %2"
 
-#: CRM/Case/BAO/Query.php
-msgid "Case Status is %1"
-msgstr "Keadaan Kasus adalah %1"
-
-#: CRM/Case/BAO/Query.php
-msgid "Case Type is %1"
-msgstr "Jenis Kasus adalah %1"
+#: CRM/Case/BAO/CaseType.php
+msgid ""
+"You can not delete this case type -- it is assigned to %1 existing case "
+"record(s). If you do not want this case type to be used going forward, "
+"consider disabling it instead."
+msgstr "Anda tidak dapat menghapus jenis kasus ini -- kasus ini diberikan ke %1 rekaman kasus yang ada. Jika anda tidak ingin jenis kasus ini digunakan ke depannya, pertimbangkan untuk meniadakannya."
 
 #: CRM/Case/BAO/Query.php
 msgid "Case %1 My Cases"
@@ -157,21 +150,41 @@ msgstr "Cari Semua Kasus"
 msgid "Only My Cases"
 msgstr "Hanya Kasus Saya"
 
-#: CRM/Case/BAO/Query.php CRM/Case/Form/Task/Delete.php
+#: CRM/Case/BAO/Query.php
 msgid "Deleted Cases"
 msgstr "Kasus Dihapus"
 
 #: CRM/Case/DAO/Case.php
-msgid "Case Type Id"
-msgstr "Id Jenis Kasus"
-
-#: CRM/Case/DAO/Case.php
-msgid "Case Status Id"
-msgstr "Id Keadaan kasus"
-
-#: CRM/Case/DAO/Case.php
 msgid "Case is in the Trash"
 msgstr "Kasus di Tempat Sampah"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type ID"
+msgstr "ID Jenis Kasus"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Name"
+msgstr "Nama Jenis Kasus"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Title"
+msgstr "Judul Jenis Kasus"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Description"
+msgstr "Gambaran Jenis Kasus"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Is Active"
+msgstr "Apakah Jenis Kasus Aktif"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Is Reserved"
+msgstr "Jenis Kasus Dipesan"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Definition"
+msgstr "Pengertian Jenis Kasus"
 
 #: CRM/Case/Form/Activity/ChangeCaseStartDate.php
 #: CRM/Case/Form/Activity/ChangeCaseStatus.php
@@ -179,6 +192,11 @@ msgstr "Kasus di Tempat Sampah"
 #: CRM/Case/Form/Activity/LinkCases.php
 msgid "Case Id not found."
 msgstr "Id Kasus tidak ditemukan"
+
+#: CRM/Case/Form/Activity/ChangeCaseStartDate.php
+#: CRM/Case/Form/Activity/LinkCases.php
+msgid "Expected one case-type"
+msgstr "Diharapkan satu jenis-kasus"
 
 #: CRM/Case/Form/Activity/ChangeCaseStartDate.php
 msgid "New Start Date"
@@ -196,7 +214,7 @@ msgstr "Keadaan status berubah dari %1 ke %2"
 msgid "Case Status changed successfully."
 msgstr "Keadaan Kasus berhasil berubah."
 
-#: CRM/Case/Form/Activity/ChangeCaseType.php
+#: CRM/Case/Form/Activity/ChangeCaseType.php ang/crmCaseType/list.html
 msgid "New Case Type"
 msgstr "Jenis Kasus Baru"
 
@@ -221,25 +239,12 @@ msgid "Link To Case"
 msgstr "Tautan ke ke Kasus"
 
 #: CRM/Case/Form/Activity/LinkCases.php
-msgid "Please select a case to link."
-msgstr "Silahkan pilih kasus untuk ditautkan."
-
-#: CRM/Case/Form/Activity/LinkCases.php
 msgid "Please select some other case to link."
 msgstr "Silahkan pilih beberapa kasus lain untuk ditautkan."
 
 #: CRM/Case/Form/Activity/LinkCases.php
-msgid "It looks like selected case is already linked."
-msgstr "Sepertinya kasus terpilih sudah tertaut."
-
-#: CRM/Case/Form/Activity/OpenCase.php CRM/Case/Form/Activity.php
-#: CRM/Case/XMLProcessor/Report.php
-msgid "Medium"
-msgstr "Medium"
-
-#: CRM/Case/Form/Activity/OpenCase.php
-msgid "Please select a valid contact or create new contact"
-msgstr "Silahkan pilih kontak sah atau buat kontak baru"
+msgid "Selected case is already linked."
+msgstr "Kasus terpilih sudah ditautkan."
 
 #: CRM/Case/Form/Activity/OpenCase.php
 msgid "Case opened successfully."
@@ -253,9 +258,17 @@ msgstr "Anda tidak mempunyai Jenis Kasus aktif"
 msgid "You can not add another '%1' activity to this case. %2"
 msgstr "Anda tidak dapat menambahkan '%1' aktifitas ke kasus. %2"
 
+#: CRM/Case/Form/Activity.php
+msgid "Do you want to <a %1>edit the existing activity</a>?"
+msgstr "Apakah anda ingin  <a %1>sunting aktivitas yang ada</a>?"
+
 #: CRM/Case/Form/Activity.php CRM/Case/XMLProcessor/Report.php
 msgid "Reported By"
 msgstr "Dilaporkan Oleh"
+
+#: CRM/Case/Form/Activity.php CRM/Case/XMLProcessor/Report.php
+msgid "Medium"
+msgstr "Medium"
 
 #: CRM/Case/Form/Activity.php
 msgid ""
@@ -277,12 +290,16 @@ msgid "A copy of the activity has also been sent to selected contacts(s)."
 msgstr "Salinan dari aktifitas juga telah dikirim ke kontak terpilih."
 
 #: CRM/Case/Form/Activity.php
-msgid "'%1' activity has been %2. %3 %4"
-msgstr "'%1' aktifitas telah %2. %3 %4"
+msgid "%1 Saved"
+msgstr "%1 Tersimpan"
 
-#: CRM/Case/Form/ActivityChangeStatus.php
-msgid "New Status"
-msgstr "Keadaan Baru"
+#: CRM/Case/Form/ActivityToCase.php CRM/Case/XMLProcessor/Report.php
+msgid "With Contact(s)"
+msgstr ""
+
+#: CRM/Case/Form/ActivityView.php
+msgid "Activity Revision History"
+msgstr "Sejarah Perubahan Aktifitas"
 
 #: CRM/Case/Form/Case.php
 msgid "You do not have any active %1"
@@ -319,12 +336,21 @@ msgid "The selected case has been restored.<br />"
 msgstr "Kasus terpilih telah disimpan ulang.<br /> "
 
 #: CRM/Case/Form/CaseView.php
-msgid "Run QA Audit / Redact"
-msgstr "Jalankan Pemeriksaan QA / Menyusun"
+msgid "Related Cases"
+msgstr "Kasus yang Berhubungan"
 
 #: CRM/Case/Form/CaseView.php
-msgid "- select activity set -"
-msgstr "- pilih kumpulan aktifitas -"
+msgid "%1 Related Case"
+msgid_plural "%1 Related Cases"
+msgstr[0] "%1 Kasus Terhubung"
+
+#: CRM/Case/Form/CaseView.php
+msgid "Add Activity"
+msgstr "Tambah Aktitifas"
+
+#: CRM/Case/Form/CaseView.php
+msgid "Activity Audit"
+msgstr "Pemeriksaan Aktifitas"
 
 #: CRM/Case/Form/CaseView.php
 msgid "Add Timeline"
@@ -335,12 +361,20 @@ msgid "Select Case for Merge"
 msgstr "Pilih Kasus untuk Digabung"
 
 #: CRM/Case/Form/CaseView.php
-msgid "Assign to another Client"
-msgstr "Menetapkan ke Klien lain"
+msgid "- select type -"
+msgstr "- pilih jenis -"
 
-#: CRM/Case/Form/CaseView.php CRM/Case/Form/EditClient.php
-msgid "Reassign Case"
-msgstr "Menetapkan-ulang Kasus"
+#: CRM/Case/Form/CaseView.php
+msgid "Activities from the %1 activity set have been added to this case."
+msgstr "Aktitifast dari kumpulan aktitifas %1 telah ditambah ke kasus ini."
+
+#: CRM/Case/Form/CaseView.php
+msgid " - any reporter - "
+msgstr "- pewarta -"
+
+#: CRM/Case/Form/CaseView.php templates/CRM/Case/Form/ActivityTab.tpl
+msgid "Reporter/Role"
+msgstr "Pewarta/Peran"
 
 #: CRM/Case/Form/CaseView.php
 msgid " - any status - "
@@ -351,28 +385,28 @@ msgid "Activity Dates - From"
 msgstr "Tanggal Aktifitas - Dari"
 
 #: CRM/Case/Form/CaseView.php
-msgid " - any reporter - "
-msgstr "- pewarta -"
+msgid "Deleted Activities"
+msgstr ""
 
-#: CRM/Case/Form/CaseView.php templates/CRM/Case/Form/CaseView.tpl
-msgid "Reporter/Role"
-msgstr "Pewarta/Peran"
+#: CRM/Case/Form/EditClient.php
+msgid "Select Contact"
+msgstr ""
 
-#: CRM/Case/Form/CaseView.php
-msgid "- select type -"
-msgstr "- pilih jenis -"
+#: CRM/Case/Form/EditClient.php
+msgid "Reassign Case"
+msgstr "Menetapkan-ulang Kasus"
 
-#: CRM/Case/Form/CaseView.php
-msgid "Activities from the %1 activity set have been added to this case."
-msgstr "Aktitifast dari kumpulan aktitifas %1 telah ditambah ke kasus ini."
-
-#: CRM/Case/Form/Report.php
-msgid "Include All Activities"
-msgstr "Sertakan Semua Aktifitas"
+#: CRM/Case/Form/EditClient.php
+msgid "Please select a different contact."
+msgstr "Silahkan pilih kontak berbeda."
 
 #: CRM/Case/Form/Report.php
-msgid "Include Missing Activities Only"
-msgstr "Sertakan Hanya Aktifitas yang Hilang"
+msgid "All Activities"
+msgstr "Semua Aktifitas"
+
+#: CRM/Case/Form/Report.php
+msgid "Exclude Completed Activities"
+msgstr "Jangan sertakan Aktifitas Lengkap"
 
 #: CRM/Case/Form/Report.php
 msgid "Redact (hide) Client and Service Provider Data"
@@ -390,13 +424,19 @@ msgstr "Nama atau Email Klien"
 msgid "Find Cases"
 msgstr "Cari Tempat"
 
-#: CRM/Case/Form/Task/Delete.php CRM/Case/Task.php
+#: CRM/Case/Form/Task/Delete.php CRM/Case/Info.php CRM/Case/Task.php
 msgid "Delete Cases"
 msgstr "Hapus Kasus"
 
-#: CRM/Case/Form/Task/Delete.php CRM/Case/Form/Task/Restore.php
-msgid "Total Selected Case(s): %1"
-msgstr "Jumlah Kasus Terpilih: %1"
+#: CRM/Case/Form/Task/Delete.php
+msgid "%count case moved to trash."
+msgid_plural "%count cases moved to trash."
+msgstr[0] "%count kasus dipindahkan ke tempat sampah."
+
+#: CRM/Case/Form/Task/Delete.php
+msgid "%count case permanently deleted."
+msgid_plural "%count cases permanently deleted."
+msgstr[0] "%count kasus dihapus permanen."
 
 #: CRM/Case/Form/Task/Print.php
 msgid "Print Case List"
@@ -407,12 +447,38 @@ msgid "Restore Cases"
 msgstr "Pulihkan Kasus"
 
 #: CRM/Case/Form/Task/Restore.php
-msgid "Restored Cases"
-msgstr "Pulihkan Kasus"
+msgid "%count case restored from trash."
+msgid_plural "%count cases restored from trash."
+msgstr[0] "%count kasus dipulihkan dari tempat sampah."
+
+#: CRM/Case/Form/Task/Restore.php
+msgid "1 could not be restored."
+msgid_plural "%count could not be restored."
+msgstr[0] "%count tidak dapat dipulihkan."
 
 #: CRM/Case/Info.php
 msgid "CiviCase Engine"
 msgstr "Mesin CiviCase"
+
+#: CRM/Case/Info.php
+msgid "delete in CiviCase"
+msgstr "hapus di CiviCase"
+
+#: CRM/Case/Info.php
+msgid "administer CiviCase"
+msgstr "atur CiviCase"
+
+#: CRM/Case/Info.php
+msgid "access my cases and activities"
+msgstr "akses kasus saya dan aktifitas"
+
+#: CRM/Case/Info.php
+msgid "access all cases and activities"
+msgstr "akses semua kasus dan aktifitas"
+
+#: CRM/Case/Info.php
+msgid "add cases"
+msgstr "tambah kasus"
 
 #: CRM/Case/Info.php
 msgid ""
@@ -421,8 +487,8 @@ msgid ""
 msgstr "Tidak dapat memuat pandangan MySQL untuk CiviCase. Pengguna MySQL anda butuh izin 'CREATE view'"
 
 #: CRM/Case/Page/AJAX.php
-msgid "Could not find valid Case!"
-msgstr "Tidak dapat menemukan Kasus sah!"
+msgid "closed"
+msgstr "tutup"
 
 #: CRM/Case/Page/DashBoard.php
 msgid "CiviCase Dashboard"
@@ -441,7 +507,7 @@ msgstr "Apakah anda yakin ingin menghapus kasus ini?"
 msgid "Delete Case"
 msgstr "Hapus Kasus"
 
-#: CRM/Case/Selector/Search.php
+#: CRM/Case/Selector/Search.php templates/CRM/Case/Form/CaseView.tpl
 msgid "Assign to Another Client"
 msgstr "Menetapkan ke Klien Lain"
 
@@ -461,10 +527,6 @@ msgstr "Jadwal Selanjutnya"
 #: CRM/Case/Selector/Search.php
 msgid "Case Search"
 msgstr "Pencarian kasus"
-
-#: CRM/Case/Task.php
-msgid "Print Cases"
-msgstr "Cetak Kasus"
 
 #: CRM/Case/Task.php
 msgid "Export Cases"
@@ -490,6 +552,120 @@ msgid ""
 "Activity type %1, found in case configuration file, is not present in the "
 "database %2"
 msgstr "Jenis aktifitas %1, ditemukan di berkas konfgurasi kasus, tidak ada di basisdata %2."
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Housing Support"
+msgstr "Dukungan Rumah"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Help homeless individuals obtain temporary and long-term housing"
+msgstr "Bantu individu tanpa rumah mendapatkan perumahan sementara atau jangka-panjang"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Adult Day Care Referral"
+msgstr "Rujukan Peduli  Hari Orang Dewasa"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Arranging adult day care for senior individuals"
+msgstr "Menyusun peduli hari orang dewasa untuk individu yang lebih tua"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Medical evaluation"
+msgstr "Avaluasi Medis"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Mental health evaluation"
+msgstr "Evaluasi kesehatan mental"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Secure temporary housing"
+msgstr "Perumahan sementara aman"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Income and benefits stabilization"
+msgstr "Stabilisasi pendapatan dan keuntungan"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Long-term housing plan"
+msgstr "Rencana perumahan jangka-panjang"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "ADC referral"
+msgstr "Rujukan ADC"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Case Resources"
+msgstr "Sumber Daya Kasus"
+
+#: ang/crmCaseType/activityTypesTable.html
+msgid "Max Instances"
+msgstr ""
+
+#: ang/crmCaseType/activityTypesTable.html
+msgid "Add activity type"
+msgstr ""
+
+#: ang/crmCaseType/caseTypeDetails.html
+msgid "WARNING: The case type name includes deprecated characters."
+msgstr ""
+
+#: ang/crmCaseType/caseTypeDetails.html
+msgid ""
+"WARNING: If any external files or programs reference the old \"Name\", then "
+"they must be updated manually."
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid ""
+"Use this screen to define or update the Case Roles, Activity Types, and "
+"Timelines for a case type."
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid "Learn more..."
+msgstr ""
+
+#: ang/crmCaseType/edit.html templates/CRM/Case/Form/CaseView.tpl
+msgid "Roles"
+msgstr "Peran"
+
+#: ang/crmCaseType/edit.html
+msgid "Add..."
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid "Timeline"
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid "Sequence"
+msgstr ""
+
+#: ang/crmCaseType/list.html
+msgid ""
+"A Case Type describes a group of related tasks, interactions, or processes."
+msgstr ""
+
+#: ang/crmCaseType/rolesTable.html
+msgid "Assign to Creator"
+msgstr ""
+
+#: ang/crmCaseType/rolesTable.html
+msgid "Is Manager"
+msgstr ""
+
+#: ang/crmCaseType/rolesTable.html
+msgid "Add role"
+msgstr ""
+
+#: ang/crmCaseType/timelineTable.html
+msgid "Reference"
+msgstr ""
+
+#: ang/crmCaseType.js
+msgid ""
+"The CiviCase XML file for this case-type prohibits editing the definition."
+msgstr ""
 
 #: templates/CRM/Case/Audit/Audit.tpl
 msgid "Incomplete"
@@ -524,9 +700,9 @@ msgstr "Aktifitas Kasus"
 msgid "Current Start Date"
 msgstr "Tanggal Mulai Sekarang"
 
-#: templates/CRM/Case/Form/Activity.tpl
-msgid "Restore %1"
-msgstr "Pulihkan %1"
+#: templates/CRM/Case/Form/Activity/LinkCases.tpl
+msgid "Create link between %1 - %2 (CaseID: %3) and %4 - %5 (CaseID: %6)"
+msgstr "Buat tautan antara %1 - %2 (ID Kasus: %3) dan %4 - %5 (ID Kasus: %6)"
 
 #: templates/CRM/Case/Form/Activity.tpl
 msgid "Click Delete to move this &quot;%1&quot; activity to the Trash."
@@ -549,10 +725,6 @@ msgid "With client(s)"
 msgstr "Dengan klien"
 
 #: templates/CRM/Case/Form/Activity.tpl
-msgid "You can optionally assign this activity to someone."
-msgstr "Anda pilihan dapat menugaskan aktifitas ini ke seseorang."
-
-#: templates/CRM/Case/Form/Activity.tpl
 msgid "Send a Copy"
 msgstr "Kirim Salinan"
 
@@ -562,33 +734,38 @@ msgid ""
 "the case. Click the top left box to select all."
 msgstr "Email salinan lengkap dari rekaman aktifitas ini ke orang lain yang terlibat dengan kasus. Klik kiri atas kotak untuk memilih semua."
 
-#: templates/CRM/Case/Form/ActivityChangeStatus.js
-msgid "Unable to change status"
-msgstr "Tidak dapat merubah keadaan"
+#: templates/CRM/Case/Form/ActivityTab.tpl
+msgid "Search Filters"
+msgstr "Saringan Pencarian"
 
-#: templates/CRM/Case/Form/ActivityChangeStatus.js
-msgid "Change Activity Status"
-msgstr "Rubah Keadaan Aktifitas"
+#: templates/CRM/Case/Form/ActivityTab.tpl
+#: templates/CRM/Case/Page/CaseDetails.tpl
+msgid "Reporter / Assignee"
+msgstr "Pewarta / Penerima"
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
 msgid "You can modify the activity subject before filing."
 msgstr "Anda dapat merubah subyek aktifitas sebelum mengisi."
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
+msgid "Move to Case"
+msgstr "Pindahkan ke Kasus"
+
+#: templates/CRM/Case/Form/ActivityToCase.tpl
+msgid "Copy to Case"
+msgstr "Salin ke Kasus"
+
+#: templates/CRM/Case/Form/ActivityToCase.tpl
 msgid "Please select a case from the list"
 msgstr "Silahkan pilih kasus dari daftar"
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Unable to file on case"
-msgstr "Tidak dapat memberkas pada kasus"
+msgid "Unable to file on case."
+msgstr "Tidak dapat menemukan berkas di kasus."
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Activity Filed"
-msgstr "Bidang Aktifitas"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "all revisions"
-msgstr "semua perbaikan"
+msgid "Activity has been filed to %1 case."
+msgstr "Aktifitas telah diberkaskan ke kasus %1."
 
 #: templates/CRM/Case/Form/ActivityView.tpl
 msgid "Created On"
@@ -617,10 +794,6 @@ msgstr "(ini bukan perbaikan sekarang)"
 #: templates/CRM/Case/Form/ActivityView.tpl
 msgid "Prompted by"
 msgstr "Ditunjuk oleh"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "This activity might not be attached to any case. Please investigate."
-msgstr "Aktifitas ini mungkin tidak dilampirkan pada kasus apapun. Silahkan selidiki."
 
 #: templates/CRM/Case/Form/Case.hlp
 msgid "Introduce yourself and your role within our organization."
@@ -676,21 +849,21 @@ msgid ""
 "Trash."
 msgstr "Klik Pulihkan utnu mengembalikan kasus ini dan semua aktifitas yang berhubungan dari Tempat Sampah."
 
+#: templates/CRM/Case/Form/CaseView.js
+msgid "Add the %1 set of scheduled activities to this case?"
+msgstr "Tambah %1 kumpulan aktivitas terjadwal ke kasus ini?"
+
+#: templates/CRM/Case/Form/CaseView.js
+msgid "Please select a value"
+msgstr "Silahkan pilih nilai"
+
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Clients:"
 msgstr "Klien:"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "view contact record"
-msgstr "lihat rekaman kontak"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "add new client to the case"
-msgstr "tambah klien baru ke kasus"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Related Cases"
-msgstr "Kasus yang Berhubungan"
+msgid "Add Client"
+msgstr "Tambah Klien"
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "DOB"
@@ -713,32 +886,20 @@ msgid "Change case start date (creates activity record)"
 msgstr "Rubah tanggal mulai kasus (buat rekaman aktifitas)"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Assign to Another Contact"
-msgstr "Tugaskan ke Kontak Lain"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Roles"
-msgstr "Peran"
-
-#: templates/CRM/Case/Form/CaseView.tpl
 msgid "Add new role"
 msgstr "Tambah peran baru"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Delete case role"
-msgstr "Hapus peran kasus"
+msgid "Assign To"
+msgstr "Ditugaskan kepada"
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Change To"
+msgstr "Rubah Ke"
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Are you sure you want to delete this case role?"
 msgstr "Apakah anda yakin ingin menghapus peran ini?"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Begin typing last name of contact."
-msgstr "Mulai menulis nama akhir kontak."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Select valid contact from the list"
-msgstr "Pilih kontak sah dari daftar"
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Other Relationships"
@@ -749,29 +910,16 @@ msgid "Add client relationship"
 msgstr "Tambah hubungan klien"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"There are no Relationships entered for this client. You can <a "
-"accesskey=\"N\" href='%1'>add one</a>."
-msgstr "Tidak ada Hubungan dimasukkan untuk klien ini. Anda dapat <a accesskey=\"N\" href='%1'>tambah satu</a>."
-
-#: templates/CRM/Case/Form/CaseView.tpl
 msgid "Add members to %1"
 msgstr "Tambah anggota ke %1"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "The group %2 has no members. You can <a href='%1'>add one</a>."
-msgstr "Kelompok %2 tidak punya anggota. Anda dapat <a href='%1'>tambah satu</a>."
+msgid "- select contacts -"
+msgstr "- pilih kontak -"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Select valid type from the list"
-msgstr "Pilih jenis sah dari daftar"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"The relationship type definition for the %1 case role is not valid for the "
-"client and / or staff contact types. You can review and edit relationship "
-"types at <a href=\"%2\">Administer >> Option Lists >> Relationship Types</a>"
-msgstr "Pengertian jenis hubungan untuk aturan kasus %1 tidak sah untuk jenis kontak klien dan / atau staf. Anda dapat meninjau dan menyunting jenis hubungan pada <a href=\"%2\"> Mengelola >> Daftar Pilihan >>Jenis Hubungan</a>"
+msgid "The group %1 has no members."
+msgstr "Kelompok %1 tidak mempunyai anggota. "
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Case Tags"
@@ -785,63 +933,9 @@ msgstr "Tidak ada label yang diberikan pada kasus ini."
 msgid "Add Tags"
 msgstr "Tambah Label"
 
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Search Filters"
-msgstr "Saringan Pencarian"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-#: templates/CRM/Case/Page/CaseDetails.tpl
-msgid "Reporter / Assignee"
-msgstr "Pewarta / Penerima"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select an activity set from the list."
-msgstr "Silahkan pilih kumpulan aktifitas dari daftar."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"Are you sure you want to add a set of scheduled activities to this case?"
-msgstr "Apakah anda yakin ingin menambah kumpulan aktifitas yang dijadwalkan pada kasus ini?"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select an activity type from the list."
-msgstr "Silahkan pilih jenis aktifitas dari daftar."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select a report from the list."
-msgstr "Silahkan pilih laporan dari daftar."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select a case from the list to merge with."
-msgstr "Silahkan pilih kasus dari daftar untuk di gabungkan."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select a client for this case."
-msgstr "Silahkan pilih klien untuk kasus ini."
-
-#: templates/CRM/Case/Form/CaseView.tpl templates/CRM/Case/Form/EditClient.tpl
-msgid ""
-"%1 is already assigned to this case. Please select some other client for "
-"this case."
-msgstr "%1 sudah ditugaskan ke kasus ini. Silahkan pilih beberapa klien lain untuk kasus ini."
-
-#: templates/CRM/Case/Form/CaseView.tpl templates/CRM/Case/Form/EditClient.tpl
-msgid ""
-"Are you sure you want to reassign this case and all related activities and "
-"relationships to %1?"
-msgstr "Apakah anda yakin ingin menugaskan kembali kasus ini dan semua aktifitas terhubung dan hubungan ke %1?"
-
 #: templates/CRM/Case/Form/EditClient.tpl
 msgid "This is case is currently assigned to %1."
 msgstr "Kasus ini sekarang ditugaskan ke %1."
-
-#: templates/CRM/Case/Form/EditClient.tpl
-msgid "Please select another client for this case."
-msgstr "Silahkan pilih klien lain untuk kasus ini."
-
-#: templates/CRM/Case/Form/EditClient.tpl
-msgid "Client Selection"
-msgstr "Pemilihan Klien"
 
 #: templates/CRM/Case/Form/Report.tpl
 msgid "Report Parameters"
@@ -852,16 +946,16 @@ msgid "Case Tag(s)"
 msgstr "Label Kasus"
 
 #: templates/CRM/Case/Form/Search/EmptyResults.tpl
-msgid "No matching cases found."
-msgstr "Tidak ada kasus yang ditemukan."
-
-#: templates/CRM/Case/Form/Search/EmptyResults.tpl
 msgid "if you are searching by client name, check your spelling"
 msgstr "jika anda mencari berdasarkan nama klien, periksa ejaan anda"
 
 #: templates/CRM/Case/Form/Selector.tpl
-msgid "view contact details"
-msgstr "lihat rincian kontak"
+msgid "Show recent activities"
+msgstr "Tampilkan aktifitas terkini"
+
+#: templates/CRM/Case/Form/Selector.tpl
+msgid "Hide activities"
+msgstr "Sembunyikan aktifitas"
 
 #: templates/CRM/Case/Form/Selector.tpl
 #: templates/CRM/Case/Page/DashboardSelector.tpl
@@ -909,10 +1003,6 @@ msgstr "Mengacu pada %1 untuk belajar tentang pengolahan ini."
 #: templates/CRM/Case/Page/ConfigureError.tpl
 msgid "CiviCase Setup documentation"
 msgstr "Dokumentasi Setelan CiviCase"
-
-#: templates/CRM/Case/Page/CustomDataView.tpl
-msgid "Update Case Information"
-msgstr "Perbaharui Informasi Kasus"
 
 #: templates/CRM/Case/Page/DashBoard.tpl
 msgid "Find My Cases"
@@ -963,8 +1053,10 @@ msgid "Manager"
 msgstr "Pengelola"
 
 #: templates/CRM/Case/Page/DashboardSelector.tpl
-msgid "Edit this activity."
-msgstr "Sunting aktifitas ini."
+#: xml/templates/message_templates/case_activity_html.tpl
+#: xml/templates/message_templates/case_activity_text.tpl
+msgid "Edit activity"
+msgstr "Sunting aktifitas"
 
 #: templates/CRM/Case/Page/Tab.tpl
 msgid "Oops, It looks like there are no active case types."
@@ -979,8 +1071,8 @@ msgid "This page lists all case records for %1."
 msgstr "Halaman ini menampilkan semua rekaman kasus untuk %1."
 
 #: templates/CRM/Case/Page/Tab.tpl
-msgid "Click <a href='%1'>Add Case</a> to add a case record for this contact."
-msgstr "Klik <a href='%1'>Tambah Kasus</a> untuk menambahkan rekaman kasus untuk kontak ini."
+msgid "Click <a %1>Add Case</a> to add a case record for this contact."
+msgstr "Klik <a %1>Tambah Kasus</a> untuk menambahkan rekaman kasus untuk kontak ini."
 
 #: templates/CRM/Case/Page/Tab.tpl
 msgid "There are no case records for this contact."
@@ -996,269 +1088,90 @@ msgstr "Ringkasan Aktifitas"
 msgid "Your Case Role(s)"
 msgstr "Peran Kasus Anda"
 
-#: xml/templates/message_templates/case_activity_html.tpl
-msgid "Edit this activity"
-msgstr "Sunting aktifitas ini"
+#: CRM/Case/DAO/CaseActivity.php
+msgid "Case Activity ID"
+msgstr ""
 
-#: xml/templates/message_templates/case_activity_html.tpl
-msgid "View this activity"
-msgstr "Lihat Aktifitas ini"
-
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "Edit this Activity"
-msgstr "Sunting Aktifitas ini"
-
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "View this Activity"
-msgstr "Lihat Aktifitas ini"
-
-#: CRM/Case/BAO/CaseType.php
-msgid ""
-"You can not delete this case type -- it is assigned to %1 existing case "
-"record(s). If you do not want this case type to be used going forward, "
-"consider disabling it instead."
-msgstr "Anda tidak dapat menghapus jenis kasus ini -- kasus ini diberikan ke %1 rekaman kasus yang ada. Jika anda tidak ingin jenis kasus ini digunakan ke depannya, pertimbangkan untuk meniadakannya."
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type ID"
-msgstr "ID Jenis Kasus"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Name"
-msgstr "Nama Jenis Kasus"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Title"
-msgstr "Judul Jenis Kasus"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Description"
-msgstr "Gambaran Jenis Kasus"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Is Active"
-msgstr "Apakah Jenis Kasus Aktif"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Is Reserved"
-msgstr "Jenis Kasus Dipesan"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Weight"
-msgstr "Bobot Jenis Kasus"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Definition"
-msgstr "Pengertian Jenis Kasus"
-
-#: CRM/Case/Form/Activity/ChangeCaseStartDate.php
-#: CRM/Case/Form/Activity/LinkCases.php
-msgid "Expected one case-type"
-msgstr "Diharapkan satu jenis-kasus"
-
-#: CRM/Case/Form/Activity/LinkCases.php
-msgid "Selected case is already linked."
-msgstr "Kasus terpilih sudah ditautkan."
-
-#: CRM/Case/Form/ActivityView.php
-msgid "Activity Revision History"
-msgstr "Sejarah Perubahan Aktifitas"
+#: CRM/Case/DAO/CaseContact.php
+msgid "Case Contact ID"
+msgstr ""
 
 #: CRM/Case/Form/CaseView.php
-msgid "%1 Related Case"
-msgid_plural "%1 Related Cases"
-msgstr[0] "%1 Kasus Terhubung"
+msgid "(opened %1)"
+msgstr ""
 
-#: CRM/Case/Form/CaseView.php
-msgid "Add Activity"
-msgstr "Tambah Aktitifas"
-
-#: CRM/Case/Form/CaseView.php
-msgid "Activity Audit"
-msgstr "Pemeriksaan Aktifitas"
-
-#: CRM/Case/Form/EditClient.php
-msgid "Please select a different contact."
-msgstr "Silahkan pilih kontak berbeda."
-
-#: CRM/Case/Form/Report.php
-msgid "All Activities"
-msgstr "Semua Aktifitas"
-
-#: CRM/Case/Form/Report.php
-msgid "Exclude Completed Activities"
-msgstr "Jangan sertakan Aktifitas Lengkap"
-
-#: CRM/Case/Page/AJAX.php
-msgid "closed"
-msgstr "tutup"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Housing Support"
-msgstr "Dukungan Rumah"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Help homeless individuals obtain temporary and long-term housing"
-msgstr "Bantu individu tanpa rumah mendapatkan perumahan sementara atau jangka-panjang"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Adult Day Care Referral"
-msgstr "Rujukan Peduli  Hari Orang Dewasa"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Arranging adult day care for senior individuals"
-msgstr "Menyusun peduli hari orang dewasa untuk individu yang lebih tua"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Medical evaluation"
-msgstr "Avaluasi Medis"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Mental health evaluation"
-msgstr "Evaluasi kesehatan mental"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Secure temporary housing"
-msgstr "Perumahan sementara aman"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Income and benefits stabilization"
-msgstr "Stabilisasi pendapatan dan keuntungan"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Long-term housing plan"
-msgstr "Rencana perumahan jangka-panjang"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "ADC referral"
-msgstr "Rujukan ADC"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Case Resources"
-msgstr "Sumber Daya Kasus"
-
-#: templates/CRM/Case/Form/Activity/LinkCases.tpl
-msgid "Create link between %1 - %2 (CaseID: %3) and %4 - %5 (CaseID: %6)"
-msgstr "Buat tautan antara %1 - %2 (ID Kasus: %3) dan %4 - %5 (ID Kasus: %6)"
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Move to Case"
-msgstr "Pindahkan ke Kasus"
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Copy to Case"
-msgstr "Salin ke Kasus"
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Unable to file on case."
-msgstr "Tidak dapat menemukan berkas di kasus."
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Activity has been filed to %1 case."
-msgstr "Aktifitas telah diberkaskan ke kasus %1."
-
-#: templates/CRM/Case/Form/CaseView.js
-msgid "Add the %1 set of scheduled activities to this case?"
-msgstr "Tambah %1 kumpulan aktivitas terjadwal ke kasus ini?"
-
-#: templates/CRM/Case/Form/CaseView.js
-msgid "Please select a value"
-msgstr "Silahkan pilih nilai"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Add Client"
-msgstr "Tambah Klien"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Assign To"
-msgstr "Ditugaskan kepada"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Change To"
-msgstr "Rubah Ke"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"There are no Relationships entered for this client. You can <a %1>add "
-"one</a>."
-msgstr "Tidak ada Hubungan dimasukkan untuk klien ini. Anda dapa <a %1>tambah satu</a>."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "- select contacts -"
-msgstr "- pilih kontak -"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "The group %1 has no members."
-msgstr "Kelompok %1 tidak mempunyai anggota. "
-
-#: templates/CRM/Case/Form/Selector.tpl
-msgid "Show recent activities"
-msgstr "Tampilkan aktifitas terkini"
-
-#: templates/CRM/Case/Form/Selector.tpl
-msgid "Hide activities"
-msgstr "Sembunyikan aktifitas"
-
-#: templates/CRM/Case/Page/Tab.tpl
-msgid "Click <a %1>Add Case</a> to add a case record for this contact."
-msgstr "Klik <a %1>Tambah Kasus</a> untuk menambahkan rekaman kasus untuk kontak ini."
-
-#: CRM/Case/BAO/Case.php templates/CRM/Case/Page/DashboardSelector.tpl
-#: xml/templates/message_templates/case_activity_html.tpl
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "View activity"
-msgstr "Lihat aktifitas"
-
-#: CRM/Case/Form/Activity.php
-msgid "Do you want to <a %1>edit the existing activity</a>?"
-msgstr "Apakah anda ingin  <a %1>sunting aktivitas yang ada</a>?"
-
-#: CRM/Case/Form/Activity.php
-msgid "%1 Saved"
-msgstr "%1 Tersimpan"
-
-#: CRM/Case/Form/Task/Delete.php
-msgid "%count case moved to trash."
-msgid_plural "%count cases moved to trash."
-msgstr[0] "%count kasus dipindahkan ke tempat sampah."
-
-#: CRM/Case/Form/Task/Delete.php
-msgid "%count case permanently deleted."
-msgid_plural "%count cases permanently deleted."
-msgstr[0] "%count kasus dihapus permanen."
-
-#: CRM/Case/Form/Task/Restore.php
-msgid "%count case restored from trash."
-msgid_plural "%count cases restored from trash."
-msgstr[0] "%count kasus dipulihkan dari tempat sampah."
-
-#: CRM/Case/Form/Task/Restore.php
-msgid "1 could not be restored."
-msgid_plural "%count could not be restored."
-msgstr[0] "%count tidak dapat dipulihkan."
+#: CRM/Case/Form/Task/Delete.php CRM/Case/Info.php CRM/Case/Task.php
+msgid "Delete cases"
+msgstr ""
 
 #: CRM/Case/Info.php
-msgid "delete in CiviCase"
-msgstr "hapus di CiviCase"
+msgid "Define case types, access deleted cases"
+msgstr ""
 
 #: CRM/Case/Info.php
-msgid "administer CiviCase"
-msgstr "atur CiviCase"
+msgid "View and edit only those cases managed by this user"
+msgstr ""
 
 #: CRM/Case/Info.php
-msgid "access my cases and activities"
-msgstr "akses kasus saya dan aktifitas"
+msgid "View and edit all cases (for visible contacts)"
+msgstr ""
 
 #: CRM/Case/Info.php
-msgid "access all cases and activities"
-msgstr "akses semua kasus dan aktifitas"
+msgid "Open a new case"
+msgstr ""
 
-#: CRM/Case/Info.php
-msgid "add cases"
-msgstr "tambah kasus"
+#: CRM/Case/Task.php
+msgid "Export cases"
+msgstr ""
 
-#: templates/CRM/Case/Page/DashboardSelector.tpl
-#: xml/templates/message_templates/case_activity_html.tpl
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "Edit activity"
-msgstr "Sunting aktifitas"
+#: CRM/Case/Task.php
+msgid "Restore cases"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Homeless Services Coordinator is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Homeless Services Coordinator"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Health Services Coordinator is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Health Services Coordinator"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Senior Services Coordinator is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Senior Services Coordinator"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Benefits Specialist is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Benefits Specialist"
+msgstr ""
+
+#: ang/crmCaseType/list.html
+msgid "Case Types"
+msgstr ""
+
+#: templates/CRM/Case/Form/ActivityTab.tpl
+msgid "Reporter"
+msgstr ""
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Export Document"
+msgstr ""
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Are you sure you want to end this relationship?"
+msgstr ""
