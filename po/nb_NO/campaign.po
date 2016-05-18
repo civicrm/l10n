@@ -3,14 +3,15 @@
 # If you contribute heavily to a translation and deem your work copyrightable,
 # make sure you license it to CiviCRM LLC under Academic Free License 3.0.
 # Translators:
+# Lars Åge Kamfjord <lars-transifex@kamfjord.org>, 2016
 # Steinar Sødal <steinar@maf.no>, 2012
 # Steinar Sødal <steinar@maf.no>, 2013,2015
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2015-12-09 21:23-0500\n"
-"PO-Revision-Date: 2015-12-10 02:31+0000\n"
-"Last-Translator: Mathieu Lutfy <mathieu@bidon.ca>\n"
+"POT-Creation-Date: 2016-05-09 13:33-0400\n"
+"PO-Revision-Date: 2016-05-12 10:41+0000\n"
+"Last-Translator: Lars Åge Kamfjord <lars-transifex@kamfjord.org>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/civicrm/civicrm/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,6 +30,10 @@ msgstr "Tidligere kampanjer"
 #: CRM/Campaign/BAO/Petition.php
 msgid "No survey sid parameter. Cannot process signature."
 msgstr "Intet sid-parameter for undersøkelse. Kan ikke behandle underskrift."
+
+#: CRM/Campaign/BAO/Petition.php
+msgid "Petition Id and/or Activity Id is not of the type Positive."
+msgstr "OppropsID og/eller aktivitetsID må være positive."
 
 #: CRM/Campaign/BAO/Query.php
 msgid "Survey - %1"
@@ -85,15 +90,7 @@ msgid "Campaign End Date"
 msgstr "Kampanje sluttdato"
 
 #: CRM/Campaign/DAO/Campaign.php
-msgid "Campaign Type ID"
-msgstr "Kampanjetype ID"
-
-#: CRM/Campaign/DAO/Campaign.php
-msgid "Campaign Status ID"
-msgstr "Kampanjestatus ID"
-
-#: CRM/Campaign/DAO/Campaign.php
-msgid "Campaign External Identifier"
+msgid "Campaign External ID"
 msgstr "Kampanje ekstern-ID"
 
 #: CRM/Campaign/DAO/Campaign.php
@@ -128,21 +125,25 @@ msgstr "Kampanjemål"
 msgid "Goal Revenue"
 msgstr "Omsetningsmål"
 
-#: CRM/Campaign/DAO/Survey.php CRM/Campaign/Form/Survey/Results.php
-#: templates/CRM/Campaign/Form/ResultOptions.tpl
-#: templates/CRM/Campaign/Form/Search/Survey.tpl
-msgid "Recontact Interval"
-msgstr "Intervall for å kontakte igjen"
+#: CRM/Campaign/DAO/Survey.php templates/CRM/Campaign/Form/Search/Survey.tpl
+msgid "Survey ID"
+msgstr "Undersøkelse ID"
+
+#: CRM/Campaign/DAO/Survey.php
+msgid "Survey Campaign ID"
+msgstr "Undersøkelse Kampanje-ID"
+
+#: CRM/Campaign/DAO/Survey.php
+msgid "Follow up Interval"
+msgstr "Oppfølgingsintervall"
 
 #: CRM/Campaign/DAO/Survey.php
 msgid "Instructions"
 msgstr "Instruksjoner"
 
-#: CRM/Campaign/DAO/Survey.php templates/CRM/Campaign/Form/Search/Survey.tpl
-#: templates/CRM/Campaign/Page/Petition.tpl
-#: templates/CRM/Campaign/Page/Survey.tpl
-msgid "Release Frequency"
-msgstr "Frekvens for frigivelse"
+#: CRM/Campaign/DAO/Survey.php
+msgid "Survey Hold Duration"
+msgstr "Hvor lenge \"holdes\" undersøkelsen?"
 
 #: CRM/Campaign/DAO/Survey.php
 msgid "Maximum number of contacts"
@@ -153,20 +154,32 @@ msgid "Default number of contacts"
 msgstr "Standard antall kontakter"
 
 #: CRM/Campaign/DAO/Survey.php
-msgid "Last Modified Date"
-msgstr "Sist endret"
+msgid "Survey Is Active"
+msgstr "Undersøkelsen er aktiv"
 
 #: CRM/Campaign/DAO/Survey.php
-msgid "Bypass Confirm"
-msgstr "Gå utenom bekreftelse"
+msgid "Is Default Survey"
+msgstr "Er standard undersøkelse"
+
+#: CRM/Campaign/DAO/Survey.php
+msgid "Survey Created By"
+msgstr "Undersøkelse opprettet av"
+
+#: CRM/Campaign/DAO/Survey.php
+msgid "Survey Modified"
+msgstr "Undersøkelse endret"
+
+#: CRM/Campaign/DAO/Survey.php
+msgid "Survey Modified On"
+msgstr "Undersøkelse endret den"
+
+#: CRM/Campaign/DAO/Survey.php
+msgid "No Email Verification"
+msgstr "Ingen epostbekreftelse"
 
 #: CRM/Campaign/Form/Campaign.php
 msgid "Edit Campaign"
 msgstr "Rediger kampanje"
-
-#: CRM/Campaign/Form/Campaign.php
-msgid "Parent Id"
-msgstr "Forelder-ID"
 
 #: CRM/Campaign/Form/Campaign.php
 msgid "- select Parent -"
@@ -322,8 +335,11 @@ msgid "Instructions for interviewers"
 msgstr "Instruksjoner for intervjuerne"
 
 #: CRM/Campaign/Form/Survey/Main.php
-msgid "Release frequency"
-msgstr "Frekvens for frigivelser"
+#: templates/CRM/Campaign/Form/Search/Survey.tpl
+#: templates/CRM/Campaign/Page/Petition.tpl
+#: templates/CRM/Campaign/Page/Survey.tpl
+msgid "Release Frequency"
+msgstr "Frekvens for frigivelse"
 
 #: CRM/Campaign/Form/Survey/Main.php
 msgid "Release Frequency interval should be a positive number."
@@ -365,16 +381,18 @@ msgid "Create new result set"
 msgstr "Opprett nytt resultatsett"
 
 #: CRM/Campaign/Form/Survey/Results.php
-msgid "Create a new result set"
-msgstr "Opprett et nytt resultatsett"
-
-#: CRM/Campaign/Form/Survey/Results.php
 msgid "Use existing result set"
 msgstr "Bruk eksisterende resultatsett"
 
 #: CRM/Campaign/Form/Survey/Results.php
 msgid "Select Result Set"
 msgstr "Velg resultatsett"
+
+#: CRM/Campaign/Form/Survey/Results.php
+#: templates/CRM/Campaign/Form/ResultOptions.tpl
+#: templates/CRM/Campaign/Form/Search/Survey.tpl
+msgid "Recontact Interval"
+msgstr "Intervall for å kontakte igjen"
 
 #: CRM/Campaign/Form/Survey/Results.php
 msgid "Enter at least one result option."
@@ -391,10 +409,6 @@ msgstr "En detaljrapport for undersøkelse <a href='%1'>%2</a> har blitt opprett
 #: CRM/Campaign/Form/Survey/TabHeader.php
 msgid "Main Information"
 msgstr "Hovedinformasjon"
-
-#: CRM/Campaign/Form/Survey/TabHeader.php
-msgid "Results"
-msgstr ""
 
 #: CRM/Campaign/Form/Survey.php
 msgid "Configure Survey - %1"
@@ -461,12 +475,20 @@ msgid "We could not found respondent for this survey to release."
 msgstr "Vi fant ingen respondenter til denne undersøkelsen, som kunne frigis."
 
 #: CRM/Campaign/Form/Task/Release.php
-msgid "%1 respondent(s) have been released."
-msgstr "%1 respondent(er) ble frigitt."
+msgid "Respondent has been released."
+msgid_plural "%count respondents have been released."
+msgstr[0] "%count respondent har blitt frigitt."
+msgstr[1] "%count respondenter har blitt frigitt."
 
 #: CRM/Campaign/Form/Task/Release.php
-msgid "%1 respondents did not release."
-msgstr "%1 respondent(er) ble ikke frigitt."
+msgid "Released"
+msgstr "Frigitt"
+
+#: CRM/Campaign/Form/Task/Release.php
+msgid "1 respondent did not release."
+msgid_plural "%count respondents did not release."
+msgstr[0] ""
+msgstr[1] ""
 
 #: CRM/Campaign/Form/Task/Reserve.php
 msgid "Could not find Survey Id."
@@ -482,8 +504,11 @@ msgid ""
 msgstr "Det maksimale antall av kontakter er allerede reservert for denne intervjueren."
 
 #: CRM/Campaign/Form/Task/Reserve.php
-msgid "You can reserve a maximum of %1 contact(s) at a time for this survey."
-msgstr "Du kan maksimalt reservere %1 kontakt(er) om gangen i denne undersøkelsen."
+msgid "You can reserve a maximum of %count contact at a time for this survey."
+msgid_plural ""
+"You can reserve a maximum of %count contacts at a time for this survey."
+msgstr[0] "Du kan reservere maksimalt %count kontakt for denne undersøkelsen."
+msgstr[1] "Du kan reservere maksimalt %count kontakter samtidig for denne undersøkelsen."
 
 #: CRM/Campaign/Form/Task/Reserve.php
 #: templates/CRM/Campaign/Form/Task/Reserve.tpl
@@ -504,31 +529,86 @@ msgid "Respondent Reservation"
 msgstr "Respondent-reservasjon"
 
 #: CRM/Campaign/Form/Task/Reserve.php
-msgid "%1 Contact(s) have been reserved."
-msgstr "%1 Kontakt(er) har blitt reservert."
+msgid "%count contact has been reserved."
+msgid_plural "%count contacts have been reserved."
+msgstr[0] "%count kontakt har blitt reservert."
+msgstr[1] "%count kontakter har blitt reservert."
 
 #: CRM/Campaign/Form/Task/Reserve.php
-msgid "Respondent(s) has been added to %1 group(s)."
-msgstr "Respondent(er) har blitt lagt til %1 gruppe(r)."
+msgid "They have been added to %1."
+msgstr "De har blitt lagt til %1."
 
 #: CRM/Campaign/Form/Task/Reserve.php
 msgid "Reservation Added"
 msgstr "Reservasjon lagt til"
 
 #: CRM/Campaign/Form/Task/Reserve.php
-msgid "Reservation did not add for %1 contact(s)."
-msgstr "Reservasjon ble ikke lagt til for %1 kontakt(er)."
+msgid "Reservation did not add for %count contact."
+msgid_plural "Reservation did not add for %count contacts."
+msgstr[0] "Reservasjoner ble ikke lagt til for %count kontakt."
+msgstr[1] "Reservasjoner ble ikke lagt til for %count kontakter."
+
+#: CRM/Campaign/Info.php
+msgid "administer CiviCampaign"
+msgstr "administrer CiviKampanje"
+
+#: CRM/Campaign/Info.php
+msgid "Create new campaign, survey and petition types and their status"
+msgstr "Opprett ny kampanje, undersøkelse og oppropstyper og deres statuser"
+
+#: CRM/Campaign/Info.php
+msgid "manage campaign"
+msgstr "administrer kampanje"
+
+#: CRM/Campaign/Info.php
+msgid "Create new campaigns, surveys and petitions, reserve respondents"
+msgstr "Opprett nye kampanjer, undersøkelser og opprop, reserver respondenter"
+
+#: CRM/Campaign/Info.php
+msgid "reserve campaign contacts"
+msgstr "reserver kampanjekontakter"
+
+#: CRM/Campaign/Info.php
+msgid "Reserve campaign contacts for surveys and petitions"
+msgstr "Reserver kampanjekontakter for undersøkelser og opprop"
+
+#: CRM/Campaign/Info.php
+msgid "release campaign contacts"
+msgstr "frigi kampanjekontakter"
+
+#: CRM/Campaign/Info.php
+msgid "Release reserved campaign contacts for surveys and petitions"
+msgstr "Frigi reserverte kampanjekontakter for undersøkelser og opprop"
+
+#: CRM/Campaign/Info.php
+msgid "interview campaign contacts"
+msgstr "intervju kampanjekontakter"
+
+#: CRM/Campaign/Info.php
+msgid "Record survey and petition responses from their reserved contacts"
+msgstr "Registrer undersøkelser og oppropssvar fra deres reserverte kontakter"
+
+#: CRM/Campaign/Info.php
+msgid "GOTV campaign contacts"
+msgstr "GOTV kampanjekontakter"
+
+#: CRM/Campaign/Info.php
+msgid "Record that contacts voted"
+msgstr "Register at kontaktene stemte"
+
+#: CRM/Campaign/Info.php
+msgid "sign CiviCRM Petition"
+msgstr "underskriv CiviCRM opprop"
 
 #: CRM/Campaign/Page/AJAX.php
 msgid "Respondent Reserved."
 msgstr "Respondent er reservert."
 
-#: CRM/Campaign/Page/AJAX.php
-msgid "Vote Recorded"
-msgstr "Stemme er registrert"
+#: CRM/Campaign/Page/AJAX.php templates/CRM/Campaign/Form/Gotv.tpl
+msgid "Vote Recorded."
+msgstr "Stemme er registrert."
 
-#: CRM/Campaign/Page/Campaign.php CRM/Campaign/Page/DashBoard.php
-#: templates/CRM/Campaign/Form/Campaign.tpl
+#: CRM/Campaign/Page/Campaign.php templates/CRM/Campaign/Form/Campaign.tpl
 msgid "Are you sure you want to delete this Campaign?"
 msgstr "Er du sikker på at du ønsker å slette denne kampanjen?"
 
@@ -594,6 +674,12 @@ msgid "Search Survey"
 msgstr "Søk undersøkelser"
 
 #: CRM/Campaign/Page/DashBoard.php
+msgid "1 Day"
+msgid_plural "%count Days"
+msgstr[0] "%count dag"
+msgstr[1] "%count dager"
+
+#: CRM/Campaign/Page/DashBoard.php
 msgid "view result set"
 msgstr "Vis resultatsett"
 
@@ -646,10 +732,6 @@ msgid "Save as non voted."
 msgstr "Lagre som \"har ikke stemt\"."
 
 #: templates/CRM/Campaign/Form/Gotv.tpl
-msgid "Vote Recorded."
-msgstr "Stemme er registrert."
-
-#: templates/CRM/Campaign/Form/Gotv.tpl
 msgid "Vote Cancelled."
 msgstr "Stemme er annullert."
 
@@ -669,9 +751,15 @@ msgstr "Du har allerede skrevet under på dette oppropet."
 
 #: templates/CRM/Campaign/Form/Petition/Signature.tpl
 msgid ""
-"You have already signed this petition but you still <b>need to verify your email address</b>.</br>\n"
-"Please check your email inbox for the confirmation email. If you don't find it, verify if it isn't in your spam folder."
-msgstr "Du har allerede skrevet under på dette oppropet, men du må fortsatt <strong>bekrefte din e-post-adresse</strong>.<br />\nVennligst sjekk e-post-innboksen din for bekreftelsesmailen. Hvis du ikke finner den, sjekk at den ikke er i spam-mappen din."
+"You have already signed this petition but you still <b>need to verify your "
+"email address</b>."
+msgstr "Du har allerede signert dette oppropet, men du <strong>trenger fortsatt å bekrefte e-post-adressen din</strong>."
+
+#: templates/CRM/Campaign/Form/Petition/Signature.tpl
+msgid ""
+"Please check your email inbox for the confirmation email. If you don't find "
+"it, verify if it isn't in your spam folder."
+msgstr "Vennligst sjekk innboksen i eposten din for å finne bekreftelsesmailen. Hvis du ikke finner den, sjekk at den ikke er i spam-mappa."
 
 #: templates/CRM/Campaign/Form/Petition.tpl
 msgid "Are you sure you want to delete this Petition?"
@@ -691,6 +779,10 @@ msgstr "Felter om kontakten som du ønsker å samle inn."
 #: templates/CRM/Campaign/Form/Petition.tpl
 msgid "Fields about the petition."
 msgstr "Felter om oppropet."
+
+#: templates/CRM/Campaign/Form/Petition.tpl
+msgid "Click here for new profile"
+msgstr "Klikk her for en ny profil"
 
 #: templates/CRM/Campaign/Form/Petition.tpl
 msgid "This title will be displayed at the top of the thank-you page."
@@ -732,10 +824,6 @@ msgid ""
 msgstr "Skriv inn opp til ti (10) spørsmål med flere svaralternativer i denne tabellen (klikk 'et alternativ til' for hvert ekstra svaralternativ). Du kan bruke eksisterende svaralternativsett ved å velge undersøkelsessvarsett."
 
 #: templates/CRM/Campaign/Form/Search/Campaign.tpl
-msgid "No campaigns found."
-msgstr "Ingen kampanjer funnet."
-
-#: templates/CRM/Campaign/Form/Search/Campaign.tpl
 #: templates/CRM/Campaign/Page/Campaign.tpl
 msgid "Add Campaign"
 msgstr "Legg til kampanje"
@@ -749,16 +837,8 @@ msgid "Status ID"
 msgstr "Status ID"
 
 #: templates/CRM/Campaign/Form/Search/EmptyResults.tpl
-msgid "No matching respondent found."
-msgstr "Ingen samsvarende respondent funnet."
-
-#: templates/CRM/Campaign/Form/Search/EmptyResults.tpl
 msgid "if you are searching by respondent name, check your spelling"
 msgstr "Hvis du søker etter navn på respondent, sjekk stavemåten"
-
-#: templates/CRM/Campaign/Form/Search/Petition.tpl
-msgid "No petitions found."
-msgstr "Ingen opprop funnet."
 
 #: templates/CRM/Campaign/Form/Search/Petition.tpl
 msgid "Add Petition"
@@ -781,18 +861,10 @@ msgid "Search Petitions"
 msgstr "Søk i opprop"
 
 #: templates/CRM/Campaign/Form/Search/Survey.tpl
-msgid "No surveys found."
-msgstr "Ingen undersøkelser funnet"
-
-#: templates/CRM/Campaign/Form/Search/Survey.tpl
 #: templates/CRM/Campaign/Page/Petition.tpl
 #: templates/CRM/Campaign/Page/Survey.tpl
 msgid "Add Survey"
 msgstr "Ny undersøkelse"
-
-#: templates/CRM/Campaign/Form/Search/Survey.tpl
-msgid "Survey ID"
-msgstr "Undersøkelse ID"
 
 #: templates/CRM/Campaign/Form/Search/Survey.tpl
 msgid "Survey Type ID"
@@ -944,8 +1016,10 @@ msgstr "Legg til respondent(er) til en ny gruppe"
 
 #: templates/CRM/Campaign/Form/addCampaignToComponent.hlp
 msgid ""
-"Your organization can use Campaigns to track all constituent interactions related to a particular fund-raising or engagement effort. You can link\n"
-"activities, contributions, event participation, mailings, membership signups, and pledges to a particular campaign."
+"Your organization can use Campaigns to track all constituent interactions "
+"related to a particular fund-raising or engagement effort. You can link "
+"activities, contributions, event participation, mailings, membership "
+"signups, and pledges to a particular campaign."
 msgstr "Din organisasjon kan bruke kampanjer til å følge alle kontakters interaksjoner, som knytter seg til et særlig engasjement eller innsamlinginnsats. Du kan linke\naktiviteter, gaver, arrangementsdeltagelse, utsendelser, medlemskapspåmeldinger og lovnader til en bestemt kampanje."
 
 #: templates/CRM/Campaign/Form/addCampaignToComponent.tpl
@@ -958,13 +1032,9 @@ msgstr "Det er for øyeblikket ingen aktive kampanjer."
 
 #: templates/CRM/Campaign/Form/addCampaignToComponent.tpl
 msgid ""
-"If you want to associate this record with a campaign, you can <a "
-"href=\"%1\">create a campaign here</a>."
-msgstr "Hvis du vil knytte denne posten til en kampanje, så kan du <a href=\"%1\">opprette en kampanje her</a>."
-
-#: templates/CRM/Campaign/Page/Campaign.tpl
-msgid "No Campaigns found."
-msgstr "Ingen kampanjer funnet"
+"If you want to associate this record with a campaign, you can <a %1>create a"
+" campaign here</a>."
+msgstr "Hvis du ønsker å knytte denne oppførigenen til en kampanje, kan du <a %1>opprette en kampanje her</a>."
 
 #: templates/CRM/Campaign/Page/Petition/Confirm.tpl
 msgid ""
@@ -1038,178 +1108,18 @@ msgstr "Maks. antall kontakter"
 msgid "Default Number Of Contacts"
 msgstr "Standard antall kontakter"
 
-#: templates/CRM/Campaign/Page/Petition.tpl
-#: templates/CRM/Campaign/Page/Survey.tpl
-msgid "No survey found."
-msgstr "Ingen undersøkelse funnet."
-
 #: templates/CRM/Campaign/Page/SurveyType.tpl
 msgid "There are no survey type entered. You can <a href='%1'>add one</a>."
 msgstr "Der er ikke angitt noen undersøkelsestype. Du kan <a href='%1'>tilføye en</a>."
 
-#: CRM/Campaign/DAO/Campaign.php
-msgid "Campaign External ID"
-msgstr "Kampanje ekstern-ID"
+#: CRM/Campaign/DAO/CampaignGroup.php
+msgid "Campaign Group ID"
+msgstr "Kampanjegruppe ID"
 
-#: CRM/Campaign/DAO/Survey.php
-msgid "Survey Campaign ID"
-msgstr "Undersøkelse Kampanje-ID"
+#: CRM/Campaign/DAO/CampaignGroup.php
+msgid "Campaign Group Type"
+msgstr "Kampanjegruppe type"
 
-#: CRM/Campaign/DAO/Survey.php
-msgid "Follow up Interval"
-msgstr "Oppfølgingsintervall"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "Survey Hold Duration"
-msgstr "Hvor lenge \"holdes\" undersøkelsen?"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "Survey Is Active"
-msgstr "Undersøkelsen er aktiv"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "Is Default Survey"
-msgstr "Er standard undersøkelse"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "Survey Created By"
-msgstr "Undersøkelse opprettet av"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "Survey Modified"
-msgstr "Undersøkelse endret"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "Survey Modified On"
-msgstr "Undersøkelse endret den"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "No Email Verification"
-msgstr "Ingen epostbekreftelse"
-
-#: templates/CRM/Campaign/Form/addCampaignToComponent.tpl
-msgid ""
-"If you want to associate this record with a campaign, you can <a %1>create a"
-" campaign here</a>."
-msgstr "Hvis du ønsker å knytte denne oppførigenen til en kampanje, kan du <a %1>opprette en kampanje her</a>."
-
-#: CRM/Campaign/BAO/Petition.php
-msgid "Petition Id and/or Activity Id is not of the type Positive."
-msgstr ""
-
-#: CRM/Campaign/Form/Task/Release.php
-msgid "Respondent has been released."
-msgid_plural "%count respondents have been released."
-msgstr[0] "%count respondent har blitt frigitt."
-msgstr[1] "%count respondenter har blitt frigitt."
-
-#: CRM/Campaign/Form/Task/Release.php
-msgid "Released"
-msgstr "Frigitt"
-
-#: CRM/Campaign/Form/Task/Release.php
-msgid "1 respondent did not release."
-msgid_plural "%count respondents did not release."
-msgstr[0] ""
-msgstr[1] ""
-
-#: CRM/Campaign/Form/Task/Reserve.php
-msgid "You can reserve a maximum of %count contact at a time for this survey."
-msgid_plural ""
-"You can reserve a maximum of %count contacts at a time for this survey."
-msgstr[0] "Du kan reservere maksimalt %count kontakt for denne undersøkelsen."
-msgstr[1] "Du kan reservere maksimalt %count kontakter samtidig for denne undersøkelsen."
-
-#: CRM/Campaign/Form/Task/Reserve.php
-msgid "%count contact has been reserved."
-msgid_plural "%count contacts have been reserved."
-msgstr[0] "%count kontakt har blitt reservert."
-msgstr[1] "%count kontakter har blitt reservert."
-
-#: CRM/Campaign/Form/Task/Reserve.php
-msgid "They have been added to %1."
-msgstr "De har blitt lagt til %1."
-
-#: CRM/Campaign/Form/Task/Reserve.php
-msgid "Reservation did not add for %count contact."
-msgid_plural "Reservation did not add for %count contacts."
-msgstr[0] "Reservasjoner ble ikke lagt til for %count kontakt."
-msgstr[1] "Reservasjoner ble ikke lagt til for %count kontakter."
-
-#: CRM/Campaign/Info.php
-msgid "administer CiviCampaign"
-msgstr "administrer CiviKampanje"
-
-#: CRM/Campaign/Info.php
-msgid "Create new campaign, survey and petition types and their status"
-msgstr "Opprett ny kampanje, undersøkelse og oppropstyper og deres statuser"
-
-#: CRM/Campaign/Info.php
-msgid "manage campaign"
-msgstr "administrer kampanje"
-
-#: CRM/Campaign/Info.php
-msgid "Create new campaigns, surveys and petitions, reserve respondents"
-msgstr "Opprett nye kampanjer, undersøkelser og opprop, reserver respondenter"
-
-#: CRM/Campaign/Info.php
-msgid "reserve campaign contacts"
-msgstr "reserver kampanjekontakter"
-
-#: CRM/Campaign/Info.php
-msgid "Reserve campaign contacts for surveys and petitions"
-msgstr "Reserver kampanjekontakter for undersøkelser og opprop"
-
-#: CRM/Campaign/Info.php
-msgid "release campaign contacts"
-msgstr "frigi kampanjekontakter"
-
-#: CRM/Campaign/Info.php
-msgid "Release reserved campaign contacts for surveys and petitions"
-msgstr "Frigi reserverte kampanjekontakter for undersøkelser og opprop"
-
-#: CRM/Campaign/Info.php
-msgid "interview campaign contacts"
-msgstr "intervju kampanjekontakter"
-
-#: CRM/Campaign/Info.php
-msgid "Record survey and petition responses from their reserved contacts"
-msgstr "Registrer undersøkelser og oppropssvar fra deres reserverte kontakter"
-
-#: CRM/Campaign/Info.php
-msgid "GOTV campaign contacts"
-msgstr "GOTV kampanjekontakter"
-
-#: CRM/Campaign/Info.php
-msgid "Record that contacts voted"
-msgstr "Register at kontaktene stemte"
-
-#: CRM/Campaign/Info.php
-msgid "sign CiviCRM Petition"
-msgstr "underskriv CiviCRM opprop"
-
-#: CRM/Campaign/Page/DashBoard.php
-msgid "1 Day"
-msgid_plural "%count Days"
-msgstr[0] "%count dag"
-msgstr[1] "%count dager"
-
-#: templates/CRM/Campaign/Form/Petition/Signature.tpl
-msgid ""
-"You have already signed this petition but you still <b>need to verify your "
-"email address</b>."
-msgstr "Du har allerede signert dette oppropet, men du <strong>trenger fortsatt å bekrefte e-post-adressen din</strong>."
-
-#: templates/CRM/Campaign/Form/Petition/Signature.tpl
-msgid ""
-"Please check your email inbox for the confirmation email. If you don't find "
-"it, verify if it isn't in your spam folder."
-msgstr "Vennligst sjekk innboksen i eposten din for å finne bekreftelsesmailen. Hvis du ikke finner den, sjekk at den ikke er i spam-mappa."
-
-#: templates/CRM/Campaign/Form/addCampaignToComponent.hlp
-msgid ""
-"Your organization can use Campaigns to track all constituent interactions "
-"related to a particular fund-raising or engagement effort. You can link "
-"activities, contributions, event participation, mailings, membership "
-"signups, and pledges to a particular campaign."
-msgstr "Din organisasjon kan bruke kampanjer til å følge alle kontakters interaksjoner, som knytter seg til et særlig engasjement eller innsamlinginnsats. Du kan linke\naktiviteter, gaver, arrangementsdeltagelse, utsendelser, medlemskapspåmeldinger og lovnader til en bestemt kampanje."
+#: templates/CRM/Campaign/Page/SurveyType.tpl
+msgid "There are no survey types entered. You can <a href='%1'>add one</a>."
+msgstr "Det er ingen undersøkelsestyper lagt inn. Du kan <a href=\"%1'>legge til en</a>."
