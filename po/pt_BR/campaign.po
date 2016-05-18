@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2015-12-09 21:23-0500\n"
-"PO-Revision-Date: 2015-12-10 02:31+0000\n"
+"POT-Creation-Date: 2016-05-09 13:33-0400\n"
+"PO-Revision-Date: 2016-05-09 17:10+0000\n"
 "Last-Translator: Mathieu Lutfy <mathieu@bidon.ca>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/civicrm/civicrm/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -36,6 +36,10 @@ msgstr "Campanhas antigas"
 #: CRM/Campaign/BAO/Petition.php
 msgid "No survey sid parameter. Cannot process signature."
 msgstr "Nenhum parâmetro sid de pesquisa. Não foi possível processar a assinatura."
+
+#: CRM/Campaign/BAO/Petition.php
+msgid "Petition Id and/or Activity Id is not of the type Positive."
+msgstr ""
 
 #: CRM/Campaign/BAO/Query.php
 msgid "Survey - %1"
@@ -92,16 +96,8 @@ msgid "Campaign End Date"
 msgstr "Data de Fim da Campanha"
 
 #: CRM/Campaign/DAO/Campaign.php
-msgid "Campaign Type ID"
-msgstr "ID do tipo de campanha"
-
-#: CRM/Campaign/DAO/Campaign.php
-msgid "Campaign Status ID"
-msgstr "ID do estado de campanha"
-
-#: CRM/Campaign/DAO/Campaign.php
-msgid "Campaign External Identifier"
-msgstr "Identificador de Campanha Externa"
+msgid "Campaign External ID"
+msgstr "ID Externo da Campanha"
 
 #: CRM/Campaign/DAO/Campaign.php
 msgid "Parent Campaign"
@@ -135,21 +131,25 @@ msgstr "Objetivos da campanha"
 msgid "Goal Revenue"
 msgstr "Objetivo de Receita"
 
-#: CRM/Campaign/DAO/Survey.php CRM/Campaign/Form/Survey/Results.php
-#: templates/CRM/Campaign/Form/ResultOptions.tpl
-#: templates/CRM/Campaign/Form/Search/Survey.tpl
-msgid "Recontact Interval"
-msgstr "Intervalo de Recontato"
+#: CRM/Campaign/DAO/Survey.php templates/CRM/Campaign/Form/Search/Survey.tpl
+msgid "Survey ID"
+msgstr "ID da Pesquisa"
+
+#: CRM/Campaign/DAO/Survey.php
+msgid "Survey Campaign ID"
+msgstr ""
+
+#: CRM/Campaign/DAO/Survey.php
+msgid "Follow up Interval"
+msgstr "Intervalo de Acompanhamento"
 
 #: CRM/Campaign/DAO/Survey.php
 msgid "Instructions"
 msgstr "Instruções"
 
-#: CRM/Campaign/DAO/Survey.php templates/CRM/Campaign/Form/Search/Survey.tpl
-#: templates/CRM/Campaign/Page/Petition.tpl
-#: templates/CRM/Campaign/Page/Survey.tpl
-msgid "Release Frequency"
-msgstr "Frequência de lançamento"
+#: CRM/Campaign/DAO/Survey.php
+msgid "Survey Hold Duration"
+msgstr ""
 
 #: CRM/Campaign/DAO/Survey.php
 msgid "Maximum number of contacts"
@@ -160,20 +160,32 @@ msgid "Default number of contacts"
 msgstr "Número padrão de contatos"
 
 #: CRM/Campaign/DAO/Survey.php
-msgid "Last Modified Date"
-msgstr "Data Última Modificação"
+msgid "Survey Is Active"
+msgstr "A Pesquisa está Ativa?"
 
 #: CRM/Campaign/DAO/Survey.php
-msgid "Bypass Confirm"
-msgstr "Ignorar confirmação"
+msgid "Is Default Survey"
+msgstr "É a Pesquisa Padrão?"
+
+#: CRM/Campaign/DAO/Survey.php
+msgid "Survey Created By"
+msgstr "Criado Por"
+
+#: CRM/Campaign/DAO/Survey.php
+msgid "Survey Modified"
+msgstr "Pesquisa Modificada"
+
+#: CRM/Campaign/DAO/Survey.php
+msgid "Survey Modified On"
+msgstr "Pesquisa Modificada em"
+
+#: CRM/Campaign/DAO/Survey.php
+msgid "No Email Verification"
+msgstr "Sem Verificação por Email"
 
 #: CRM/Campaign/Form/Campaign.php
 msgid "Edit Campaign"
 msgstr "Editar campanha"
-
-#: CRM/Campaign/Form/Campaign.php
-msgid "Parent Id"
-msgstr "ID principal"
 
 #: CRM/Campaign/Form/Campaign.php
 msgid "- select Parent -"
@@ -329,8 +341,11 @@ msgid "Instructions for interviewers"
 msgstr "Instruções para entrevistadores"
 
 #: CRM/Campaign/Form/Survey/Main.php
-msgid "Release frequency"
-msgstr "Frequência de liberação"
+#: templates/CRM/Campaign/Form/Search/Survey.tpl
+#: templates/CRM/Campaign/Page/Petition.tpl
+#: templates/CRM/Campaign/Page/Survey.tpl
+msgid "Release Frequency"
+msgstr "Frequência de lançamento"
 
 #: CRM/Campaign/Form/Survey/Main.php
 msgid "Release Frequency interval should be a positive number."
@@ -372,16 +387,18 @@ msgid "Create new result set"
 msgstr "Criar novo conjunto de resultados"
 
 #: CRM/Campaign/Form/Survey/Results.php
-msgid "Create a new result set"
-msgstr "Criar um novo conjunto de resultados"
-
-#: CRM/Campaign/Form/Survey/Results.php
 msgid "Use existing result set"
 msgstr "Usar o conjunto de resultados existente"
 
 #: CRM/Campaign/Form/Survey/Results.php
 msgid "Select Result Set"
 msgstr "Selecione o conjunto de resultados"
+
+#: CRM/Campaign/Form/Survey/Results.php
+#: templates/CRM/Campaign/Form/ResultOptions.tpl
+#: templates/CRM/Campaign/Form/Search/Survey.tpl
+msgid "Recontact Interval"
+msgstr "Intervalo de Recontato"
 
 #: CRM/Campaign/Form/Survey/Results.php
 msgid "Enter at least one result option."
@@ -398,10 +415,6 @@ msgstr "Um Relatório Detalhado da Pesquisa <a href='%1'>%2</a> foi criado."
 #: CRM/Campaign/Form/Survey/TabHeader.php
 msgid "Main Information"
 msgstr "Informações principais"
-
-#: CRM/Campaign/Form/Survey/TabHeader.php
-msgid "Results"
-msgstr ""
 
 #: CRM/Campaign/Form/Survey.php
 msgid "Configure Survey - %1"
@@ -468,12 +481,20 @@ msgid "We could not found respondent for this survey to release."
 msgstr "Não foi possível localizar um entrevistado a liberar para esta pesquisa."
 
 #: CRM/Campaign/Form/Task/Release.php
-msgid "%1 respondent(s) have been released."
-msgstr "%1 entrevistado(s) liberado(s)."
+msgid "Respondent has been released."
+msgid_plural "%count respondents have been released."
+msgstr[0] "Entrevistado foi liberado"
+msgstr[1] "%contagem de entrevistados liberados."
 
 #: CRM/Campaign/Form/Task/Release.php
-msgid "%1 respondents did not release."
-msgstr "%1 entrevistado(s) não liberado(s)."
+msgid "Released"
+msgstr ""
+
+#: CRM/Campaign/Form/Task/Release.php
+msgid "1 respondent did not release."
+msgid_plural "%count respondents did not release."
+msgstr[0] ""
+msgstr[1] ""
 
 #: CRM/Campaign/Form/Task/Reserve.php
 msgid "Could not find Survey Id."
@@ -489,8 +510,11 @@ msgid ""
 msgstr "Já está reservado o número máximo de contatos para este entrevistador."
 
 #: CRM/Campaign/Form/Task/Reserve.php
-msgid "You can reserve a maximum of %1 contact(s) at a time for this survey."
-msgstr "Você pode reservar um máximo de %1 contato(s) de cada vez para esta pesquisa."
+msgid "You can reserve a maximum of %count contact at a time for this survey."
+msgid_plural ""
+"You can reserve a maximum of %count contacts at a time for this survey."
+msgstr[0] ""
+msgstr[1] ""
 
 #: CRM/Campaign/Form/Task/Reserve.php
 #: templates/CRM/Campaign/Form/Task/Reserve.tpl
@@ -511,31 +535,86 @@ msgid "Respondent Reservation"
 msgstr "Reserva de entrevistado"
 
 #: CRM/Campaign/Form/Task/Reserve.php
-msgid "%1 Contact(s) have been reserved."
-msgstr "%1 Contato(s) foram reservados."
+msgid "%count contact has been reserved."
+msgid_plural "%count contacts have been reserved."
+msgstr[0] ""
+msgstr[1] ""
 
 #: CRM/Campaign/Form/Task/Reserve.php
-msgid "Respondent(s) has been added to %1 group(s)."
-msgstr "Entrevistado(s) adicionado(s) ao grupo(s) %1."
+msgid "They have been added to %1."
+msgstr ""
 
 #: CRM/Campaign/Form/Task/Reserve.php
 msgid "Reservation Added"
 msgstr "Reserva adicionada"
 
 #: CRM/Campaign/Form/Task/Reserve.php
-msgid "Reservation did not add for %1 contact(s)."
-msgstr "A reserva não foi adicionada para %1 contato(s)."
+msgid "Reservation did not add for %count contact."
+msgid_plural "Reservation did not add for %count contacts."
+msgstr[0] ""
+msgstr[1] ""
+
+#: CRM/Campaign/Info.php
+msgid "administer CiviCampaign"
+msgstr ""
+
+#: CRM/Campaign/Info.php
+msgid "Create new campaign, survey and petition types and their status"
+msgstr ""
+
+#: CRM/Campaign/Info.php
+msgid "manage campaign"
+msgstr ""
+
+#: CRM/Campaign/Info.php
+msgid "Create new campaigns, surveys and petitions, reserve respondents"
+msgstr ""
+
+#: CRM/Campaign/Info.php
+msgid "reserve campaign contacts"
+msgstr ""
+
+#: CRM/Campaign/Info.php
+msgid "Reserve campaign contacts for surveys and petitions"
+msgstr ""
+
+#: CRM/Campaign/Info.php
+msgid "release campaign contacts"
+msgstr ""
+
+#: CRM/Campaign/Info.php
+msgid "Release reserved campaign contacts for surveys and petitions"
+msgstr ""
+
+#: CRM/Campaign/Info.php
+msgid "interview campaign contacts"
+msgstr ""
+
+#: CRM/Campaign/Info.php
+msgid "Record survey and petition responses from their reserved contacts"
+msgstr ""
+
+#: CRM/Campaign/Info.php
+msgid "GOTV campaign contacts"
+msgstr ""
+
+#: CRM/Campaign/Info.php
+msgid "Record that contacts voted"
+msgstr ""
+
+#: CRM/Campaign/Info.php
+msgid "sign CiviCRM Petition"
+msgstr ""
 
 #: CRM/Campaign/Page/AJAX.php
 msgid "Respondent Reserved."
 msgstr "Entrevistado reservado."
 
-#: CRM/Campaign/Page/AJAX.php
-msgid "Vote Recorded"
-msgstr "Voto registrado"
+#: CRM/Campaign/Page/AJAX.php templates/CRM/Campaign/Form/Gotv.tpl
+msgid "Vote Recorded."
+msgstr "Votação registrada."
 
-#: CRM/Campaign/Page/Campaign.php CRM/Campaign/Page/DashBoard.php
-#: templates/CRM/Campaign/Form/Campaign.tpl
+#: CRM/Campaign/Page/Campaign.php templates/CRM/Campaign/Form/Campaign.tpl
 msgid "Are you sure you want to delete this Campaign?"
 msgstr "Tem certeza que deseja excluir esta Campanha?"
 
@@ -601,6 +680,12 @@ msgid "Search Survey"
 msgstr "Pesquisar Pesquisa"
 
 #: CRM/Campaign/Page/DashBoard.php
+msgid "1 Day"
+msgid_plural "%count Days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: CRM/Campaign/Page/DashBoard.php
 msgid "view result set"
 msgstr "ver conjunto de resultados"
 
@@ -653,10 +738,6 @@ msgid "Save as non voted."
 msgstr "Salvar como não votado."
 
 #: templates/CRM/Campaign/Form/Gotv.tpl
-msgid "Vote Recorded."
-msgstr "Votação registrada."
-
-#: templates/CRM/Campaign/Form/Gotv.tpl
 msgid "Vote Cancelled."
 msgstr "Votação cancelada."
 
@@ -676,9 +757,15 @@ msgstr "Você já assinou esta petição."
 
 #: templates/CRM/Campaign/Form/Petition/Signature.tpl
 msgid ""
-"You have already signed this petition but you still <b>need to verify your email address</b>.</br>\n"
-"Please check your email inbox for the confirmation email. If you don't find it, verify if it isn't in your spam folder."
-msgstr "Você já assintou essa petição, mas ainda <b>precisa confirmar seu endereço de email</b>.</br>\nPor favor verifique sua caixa de entrada pelo email de confirmação. Se não encontrar, veja também na pasta de SPAM."
+"You have already signed this petition but you still <b>need to verify your "
+"email address</b>."
+msgstr ""
+
+#: templates/CRM/Campaign/Form/Petition/Signature.tpl
+msgid ""
+"Please check your email inbox for the confirmation email. If you don't find "
+"it, verify if it isn't in your spam folder."
+msgstr ""
 
 #: templates/CRM/Campaign/Form/Petition.tpl
 msgid "Are you sure you want to delete this Petition?"
@@ -698,6 +785,10 @@ msgstr "Campos do contato que você deseja coletar."
 #: templates/CRM/Campaign/Form/Petition.tpl
 msgid "Fields about the petition."
 msgstr "Campos da petição."
+
+#: templates/CRM/Campaign/Form/Petition.tpl
+msgid "Click here for new profile"
+msgstr ""
 
 #: templates/CRM/Campaign/Form/Petition.tpl
 msgid "This title will be displayed at the top of the thank-you page."
@@ -739,10 +830,6 @@ msgid ""
 msgstr "Digite até dez (10) opções de múltipla escolha nesta tabela (clique em 'outra escolha' para cada escolha adicional). Você pode usar as opções existentes de conjunto de resultados selecionando o conjunto de resultados da pesquisa."
 
 #: templates/CRM/Campaign/Form/Search/Campaign.tpl
-msgid "No campaigns found."
-msgstr "Nenhuma campanha encontrada."
-
-#: templates/CRM/Campaign/Form/Search/Campaign.tpl
 #: templates/CRM/Campaign/Page/Campaign.tpl
 msgid "Add Campaign"
 msgstr "Adicionar campanha"
@@ -756,16 +843,8 @@ msgid "Status ID"
 msgstr "ID do estado"
 
 #: templates/CRM/Campaign/Form/Search/EmptyResults.tpl
-msgid "No matching respondent found."
-msgstr "Nenhum entrevistado correspondente encontrado."
-
-#: templates/CRM/Campaign/Form/Search/EmptyResults.tpl
 msgid "if you are searching by respondent name, check your spelling"
 msgstr "Se você estiver procurando pelo nome do entrevistado, verifique a ortografia"
-
-#: templates/CRM/Campaign/Form/Search/Petition.tpl
-msgid "No petitions found."
-msgstr "Nenhuma petição encontrada."
 
 #: templates/CRM/Campaign/Form/Search/Petition.tpl
 msgid "Add Petition"
@@ -788,18 +867,10 @@ msgid "Search Petitions"
 msgstr "Pesquisar Petições"
 
 #: templates/CRM/Campaign/Form/Search/Survey.tpl
-msgid "No surveys found."
-msgstr "Nenhuma pesquisa localizada."
-
-#: templates/CRM/Campaign/Form/Search/Survey.tpl
 #: templates/CRM/Campaign/Page/Petition.tpl
 #: templates/CRM/Campaign/Page/Survey.tpl
 msgid "Add Survey"
 msgstr "Adicionar Pesquisa"
-
-#: templates/CRM/Campaign/Form/Search/Survey.tpl
-msgid "Survey ID"
-msgstr "ID da Pesquisa"
 
 #: templates/CRM/Campaign/Form/Search/Survey.tpl
 msgid "Survey Type ID"
@@ -951,9 +1022,11 @@ msgstr "Adicionar entrevistado(s) a um novo grupo"
 
 #: templates/CRM/Campaign/Form/addCampaignToComponent.hlp
 msgid ""
-"Your organization can use Campaigns to track all constituent interactions related to a particular fund-raising or engagement effort. You can link\n"
-"activities, contributions, event participation, mailings, membership signups, and pledges to a particular campaign."
-msgstr "Sua organização pode usar campanhas para acompanhar todas as interações que constituem uma angariação de fundos específica ou de um esforço de compromisso. Você pode vincular\natividades, contribuições, participação em eventos, e-mails, cadastros de membros, e comprometimentos para uma campanha em específico."
+"Your organization can use Campaigns to track all constituent interactions "
+"related to a particular fund-raising or engagement effort. You can link "
+"activities, contributions, event participation, mailings, membership "
+"signups, and pledges to a particular campaign."
+msgstr ""
 
 #: templates/CRM/Campaign/Form/addCampaignToComponent.tpl
 msgid "Show past campaign(s) in this select list."
@@ -965,13 +1038,9 @@ msgstr "Atualmente não há campanhas ativas."
 
 #: templates/CRM/Campaign/Form/addCampaignToComponent.tpl
 msgid ""
-"If you want to associate this record with a campaign, you can <a "
-"href=\"%1\">create a campaign here</a>."
-msgstr "Se você deseja associar este registro com uma campanha, você pode <a href=\"%1\">criar uma campanha aqui</a>."
-
-#: templates/CRM/Campaign/Page/Campaign.tpl
-msgid "No Campaigns found."
-msgstr "Nenhuma campanha encontrada."
+"If you want to associate this record with a campaign, you can <a %1>create a"
+" campaign here</a>."
+msgstr "Se você deseja associar este registro com uma campanha, você pode <a %1>criar uma campanha aqui</a>."
 
 #: templates/CRM/Campaign/Page/Petition/Confirm.tpl
 msgid ""
@@ -1045,178 +1114,18 @@ msgstr "Número máximo de contatos"
 msgid "Default Number Of Contacts"
 msgstr "Número padrão de contatos"
 
-#: templates/CRM/Campaign/Page/Petition.tpl
-#: templates/CRM/Campaign/Page/Survey.tpl
-msgid "No survey found."
-msgstr "Nenhuma pesquisa localizada."
-
 #: templates/CRM/Campaign/Page/SurveyType.tpl
 msgid "There are no survey type entered. You can <a href='%1'>add one</a>."
 msgstr "Nenhum tipo de pesquisa foi inserido. Você pode <a href='%1'>adicionar um</a>."
 
-#: CRM/Campaign/DAO/Campaign.php
-msgid "Campaign External ID"
-msgstr "ID Externo da Campanha"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "Survey Campaign ID"
+#: CRM/Campaign/DAO/CampaignGroup.php
+msgid "Campaign Group ID"
 msgstr ""
 
-#: CRM/Campaign/DAO/Survey.php
-msgid "Follow up Interval"
-msgstr "Intervalo de Acompanhamento"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "Survey Hold Duration"
+#: CRM/Campaign/DAO/CampaignGroup.php
+msgid "Campaign Group Type"
 msgstr ""
 
-#: CRM/Campaign/DAO/Survey.php
-msgid "Survey Is Active"
-msgstr "A Pesquisa está Ativa?"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "Is Default Survey"
-msgstr "É a Pesquisa Padrão?"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "Survey Created By"
-msgstr "Criado Por"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "Survey Modified"
-msgstr "Pesquisa Modificada"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "Survey Modified On"
-msgstr "Pesquisa Modificada em"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "No Email Verification"
-msgstr "Sem Verificação por Email"
-
-#: templates/CRM/Campaign/Form/addCampaignToComponent.tpl
-msgid ""
-"If you want to associate this record with a campaign, you can <a %1>create a"
-" campaign here</a>."
-msgstr "Se você deseja associar este registro com uma campanha, você pode <a %1>criar uma campanha aqui</a>."
-
-#: CRM/Campaign/BAO/Petition.php
-msgid "Petition Id and/or Activity Id is not of the type Positive."
-msgstr ""
-
-#: CRM/Campaign/Form/Task/Release.php
-msgid "Respondent has been released."
-msgid_plural "%count respondents have been released."
-msgstr[0] "Entrevistado foi liberado"
-msgstr[1] "%contagem de entrevistados liberados."
-
-#: CRM/Campaign/Form/Task/Release.php
-msgid "Released"
-msgstr ""
-
-#: CRM/Campaign/Form/Task/Release.php
-msgid "1 respondent did not release."
-msgid_plural "%count respondents did not release."
-msgstr[0] ""
-msgstr[1] ""
-
-#: CRM/Campaign/Form/Task/Reserve.php
-msgid "You can reserve a maximum of %count contact at a time for this survey."
-msgid_plural ""
-"You can reserve a maximum of %count contacts at a time for this survey."
-msgstr[0] ""
-msgstr[1] ""
-
-#: CRM/Campaign/Form/Task/Reserve.php
-msgid "%count contact has been reserved."
-msgid_plural "%count contacts have been reserved."
-msgstr[0] ""
-msgstr[1] ""
-
-#: CRM/Campaign/Form/Task/Reserve.php
-msgid "They have been added to %1."
-msgstr ""
-
-#: CRM/Campaign/Form/Task/Reserve.php
-msgid "Reservation did not add for %count contact."
-msgid_plural "Reservation did not add for %count contacts."
-msgstr[0] ""
-msgstr[1] ""
-
-#: CRM/Campaign/Info.php
-msgid "administer CiviCampaign"
-msgstr ""
-
-#: CRM/Campaign/Info.php
-msgid "Create new campaign, survey and petition types and their status"
-msgstr ""
-
-#: CRM/Campaign/Info.php
-msgid "manage campaign"
-msgstr ""
-
-#: CRM/Campaign/Info.php
-msgid "Create new campaigns, surveys and petitions, reserve respondents"
-msgstr ""
-
-#: CRM/Campaign/Info.php
-msgid "reserve campaign contacts"
-msgstr ""
-
-#: CRM/Campaign/Info.php
-msgid "Reserve campaign contacts for surveys and petitions"
-msgstr ""
-
-#: CRM/Campaign/Info.php
-msgid "release campaign contacts"
-msgstr ""
-
-#: CRM/Campaign/Info.php
-msgid "Release reserved campaign contacts for surveys and petitions"
-msgstr ""
-
-#: CRM/Campaign/Info.php
-msgid "interview campaign contacts"
-msgstr ""
-
-#: CRM/Campaign/Info.php
-msgid "Record survey and petition responses from their reserved contacts"
-msgstr ""
-
-#: CRM/Campaign/Info.php
-msgid "GOTV campaign contacts"
-msgstr ""
-
-#: CRM/Campaign/Info.php
-msgid "Record that contacts voted"
-msgstr ""
-
-#: CRM/Campaign/Info.php
-msgid "sign CiviCRM Petition"
-msgstr ""
-
-#: CRM/Campaign/Page/DashBoard.php
-msgid "1 Day"
-msgid_plural "%count Days"
-msgstr[0] ""
-msgstr[1] ""
-
-#: templates/CRM/Campaign/Form/Petition/Signature.tpl
-msgid ""
-"You have already signed this petition but you still <b>need to verify your "
-"email address</b>."
-msgstr ""
-
-#: templates/CRM/Campaign/Form/Petition/Signature.tpl
-msgid ""
-"Please check your email inbox for the confirmation email. If you don't find "
-"it, verify if it isn't in your spam folder."
-msgstr ""
-
-#: templates/CRM/Campaign/Form/addCampaignToComponent.hlp
-msgid ""
-"Your organization can use Campaigns to track all constituent interactions "
-"related to a particular fund-raising or engagement effort. You can link "
-"activities, contributions, event participation, mailings, membership "
-"signups, and pledges to a particular campaign."
+#: templates/CRM/Campaign/Page/SurveyType.tpl
+msgid "There are no survey types entered. You can <a href='%1'>add one</a>."
 msgstr ""
