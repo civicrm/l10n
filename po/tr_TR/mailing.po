@@ -3,25 +3,21 @@
 # If you contribute heavily to a translation and deem your work copyrightable,
 # make sure you license it to CiviCRM LLC under Academic Free License 3.0.
 # Translators:
-# Kaya Zeren <kayazeren@gmail.com>, 2015
+# Kaya Zeren <kayazeren@gmail.com>, 2015-2016
 # Piotr Szotkowski <chastell@chastell.net>, 2011
 # Serkan Kucuk <serkankucuk@outlook.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2015-12-09 21:23-0500\n"
-"PO-Revision-Date: 2015-12-10 02:31+0000\n"
-"Last-Translator: Mathieu Lutfy <mathieu@bidon.ca>\n"
+"POT-Creation-Date: 2016-05-09 13:33-0400\n"
+"PO-Revision-Date: 2016-05-10 05:50+0000\n"
+"Last-Translator: Kaya Zeren <kayazeren@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/civicrm/civicrm/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-
-#: CRM/Mailing/BAO/Component.php
-msgid "The mailing component '%1' has been saved."
-msgstr "'%1' postalama bileşeni kaydedildi."
 
 #: CRM/Mailing/BAO/Mailing.php
 msgid "CiviMail will not send email to a non-existent contact: %1"
@@ -31,6 +27,18 @@ msgstr "CiviMail bulunamayan bir kişiye e-posta göndermeyecek: %1"
 msgid "CiviMail will not send an empty mail body, Skipping: %1"
 msgstr "CiviMail boş bir e-posta iletisini göndermeyecek. Atlanıyor: %1"
 
+#: CRM/Mailing/BAO/Mailing.php
+msgid "Field \"%1\" is required."
+msgstr "\"%\" alanı zorunludur."
+
+#: CRM/Mailing/BAO/Mailing.php
+msgid "Field \"body_html\" or \"body_text\" is required."
+msgstr "\"body_html\" ya da \"body_text\" alanının kullanılması zorunludur."
+
+#: CRM/Mailing/BAO/Mailing.php CRM/Mailing/Form/Upload.php
+msgid "This message is missing a required token - {%1}: %2"
+msgstr "Bu iletideki gerekli kod eksik - {%1}: %2"
+
 #: CRM/Mailing/BAO/Mailing.php CRM/Mailing/Selector/Event.php
 msgid "Opt-Out"
 msgstr "Tüm Aboneliklerden Ayrılın"
@@ -39,9 +47,13 @@ msgstr "Tüm Aboneliklerden Ayrılın"
 msgid "You do not have permission to access this mailing report"
 msgstr "Bu e-posta raporuna erişme izniniz yok"
 
-#: CRM/Mailing/BAO/Mailing.php
+#: CRM/Mailing/BAO/Mailing.php CRM/Mailing/BAO/MailingAB.php
 msgid "Selected mailing has been deleted."
-msgstr "Seçili postalama silindi."
+msgstr "Seçilmiş postalama silindi."
+
+#: CRM/Mailing/BAO/Mailing.php
+msgid "SMS Message"
+msgstr "SMS İletisi"
 
 #: CRM/Mailing/BAO/Mailing.php
 msgid "Use Template"
@@ -56,14 +68,6 @@ msgid "Save As New Template"
 msgstr "Kalıbı Farklı Kaydet"
 
 #: CRM/Mailing/BAO/Mailing.php
-msgid "Plain-text format"
-msgstr "Düz metin biçimi"
-
-#: CRM/Mailing/BAO/Mailing.php
-msgid "HTML format"
-msgstr "HTML biçimi"
-
-#: CRM/Mailing/BAO/Mailing.php
 msgid "Select Template"
 msgstr "Kalıp Seçin"
 
@@ -76,10 +80,6 @@ msgid ""
 "The <a href=\"%1\">default mailbox</a> has not been configured. You will "
 "find <a href=\"%2\">more info in the online user and administrator guide</a>"
 msgstr "<a href=\"%1\">Varsayılan posta kutusu</a> henüz ayarlanmamış. Ayrıntılı bilgi almak için <a href=\"%2\">çevrimiçi kullanıcı ve yönetici belgelerine bakın</a>"
-
-#: CRM/Mailing/BAO/Mailing.php
-msgid "Opens"
-msgstr "Açılma"
 
 #: CRM/Mailing/BAO/Mailing.php
 msgid "View Mailing"
@@ -132,7 +132,7 @@ msgid "Unsubscribe Requests"
 msgstr "Abonelikten Ayrılma İstekleri"
 
 #: CRM/Mailing/BAO/Query.php CRM/Mailing/Selector/Event.php
-#: templates/CRM/Mailing/Page/Report.tpl
+#: ang/crmMailing/services.js templates/CRM/Mailing/Page/Report.tpl
 msgid "Forwards"
 msgstr "İletmeler"
 
@@ -140,7 +140,7 @@ msgstr "İletmeler"
 msgid "Mailing Name(s)"
 msgstr "Postalama Adları"
 
-#: CRM/Mailing/BAO/Query.php
+#: CRM/Mailing/BAO/Query.php CRM/Mailing/DAO/MailingJob.php
 msgid "Mailing Job Status"
 msgstr "Postalama Görevinin Durumu"
 
@@ -168,79 +168,81 @@ msgstr "Örüntü"
 msgid "Hold Threshold"
 msgstr "Tutma Eşiği"
 
-#: CRM/Mailing/DAO/BounceType.php
-msgid "AOL"
-msgstr "AOL"
-
-#: CRM/Mailing/DAO/BounceType.php
-msgid "Away"
-msgstr "Uzakta"
-
-#: CRM/Mailing/DAO/BounceType.php
-msgid "DNS"
-msgstr "DNS"
-
-#: CRM/Mailing/DAO/BounceType.php
-msgid "Invalid"
-msgstr "Geçersiz"
-
-#: CRM/Mailing/DAO/BounceType.php
-msgid "Loop"
-msgstr "Döngü"
-
-#: CRM/Mailing/DAO/BounceType.php
-msgid "Quota"
-msgstr "Kota"
-
-#: CRM/Mailing/DAO/BounceType.php
-msgid "Relay"
-msgstr "Aktarım"
-
-#: CRM/Mailing/DAO/BounceType.php
-msgid "Spam"
-msgstr "Önemsiz Posta"
-
-#: CRM/Mailing/DAO/BounceType.php
-msgid "Syntax"
-msgstr "Söz dizimi"
-
-#: CRM/Mailing/DAO/BounceType.php CRM/Mailing/Event/BAO/Bounce.php
-msgid "Unknown"
-msgstr "Bilinmeyen"
+#: CRM/Mailing/DAO/Component.php
+msgid "Mailing Component ID"
+msgstr "Postalama Bileşeni Kodu"
 
 #: CRM/Mailing/DAO/Component.php
 msgid "Component Name"
 msgstr "Bileşen Adı"
 
-#: CRM/Mailing/DAO/Component.php CRM/Mailing/Form/Component.php
-msgid "Component Type"
-msgstr "Bileşen Tipi"
-
-#: CRM/Mailing/DAO/Component.php CRM/Mailing/Form/Subscribe.php
-msgid "Subscribe"
-msgstr "Abone Olun"
+#: CRM/Mailing/DAO/Component.php
+msgid "Mailing Component Type"
+msgstr "Postalama Bileşeni Tipi"
 
 #: CRM/Mailing/DAO/Component.php
-msgid "OptOut"
-msgstr "Tüm Aboneliklerden Ayrılın"
+msgid "Mailing Component Body HTML"
+msgstr "Postalama Bileşeni Metni HTML Kodu"
 
-#: CRM/Mailing/DAO/Component.php templates/CRM/Mailing/Page/Resubscribe.tpl
-msgid "Resubscribe"
-msgstr "Yeniden Abone Olun"
+#: CRM/Mailing/DAO/Component.php CRM/Mailing/DAO/Mailing.php
+#: templates/CRM/Mailing/Page/Component.tpl
+msgid "Body Text"
+msgstr "İçerik Metni"
+
+#: CRM/Mailing/DAO/Component.php
+msgid "Mailing Component is Default?"
+msgstr "Varsayılan Postalama Bileşeni "
+
+#: CRM/Mailing/DAO/Component.php
+msgid "Mailing Component Is Active?"
+msgstr "Postalama Bileşeni Etkin"
 
 #: CRM/Mailing/DAO/Mailing.php
-msgid "From Email"
-msgstr "Kimden E-posta Adresi"
+msgid "Mailing Domain"
+msgstr "Postalama Etki Alanı"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Mailing Reply"
+msgstr "Postalama Yanıt"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Mailing Unsubscribe"
+msgstr "Postalama Abonelikten Ayrılma"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Mailing Resubscribe"
+msgstr "Postalama Yeniden Abone Olma"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Mailing Opt Out"
+msgstr "Postalama Abonelikten Ayrılma"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Mailing Type"
+msgstr "Postalama Tipi"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Mailing From Name"
+msgstr "Postalama Kimden Adı"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Mailing From Email"
+msgstr "Postalama Kimden E-posta Adresi"
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "Replyto Email"
 msgstr "Yanıt E-posta Adresi"
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "Body Html"
+msgstr "İçerik HTML Kodu"
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "Url Tracking"
 msgstr "İnternet Adresi İzleme"
 
-#: CRM/Mailing/DAO/Mailing.php
+#: CRM/Mailing/DAO/Mailing.php ang/crmMailing/BlockResponses.html
+#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
 msgid "Forward Replies"
 msgstr "Yanıt İletimi"
 
@@ -249,20 +251,36 @@ msgid "Auto Responder"
 msgstr "Otomatik Yanıtlayıcı"
 
 #: CRM/Mailing/DAO/Mailing.php
-msgid "Open Tracking"
-msgstr "Açılma İzleme"
+msgid "Track Mailing?"
+msgstr "Postalama İzleme"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Mailing Completed"
+msgstr "Postalama Tamamlandı"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Mailing Message Template"
+msgstr "Postalama İleti Kalıbı"
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "Override Verp"
 msgstr "Eylem Değiştirilsin"
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "Mailing Creator"
+msgstr "Postalama Oluşturan"
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "Mailing Created Date"
 msgstr "Postalama Oluşturulma Tarihi"
 
-#: CRM/Mailing/DAO/Mailing.php
+#: CRM/Mailing/DAO/Mailing.php CRM/Mailing/DAO/MailingJob.php
 msgid "Mailing Scheduled Date"
 msgstr "Postalama Zamanlanma Tarihi"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Approved By"
+msgstr "Onaylayan"
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "Mailing Approved Date"
@@ -277,28 +295,149 @@ msgid "Approval Note"
 msgstr "Onay Notu"
 
 #: CRM/Mailing/DAO/Mailing.php
-msgid "Dedupe Email"
-msgstr "Çift E-posta Ayıklama"
+msgid "Is Mailing Archived?"
+msgstr "Postalama Arşivlendi"
+
+#: CRM/Mailing/DAO/Mailing.php CRM/Mailing/Form/Settings.php
+#: ang/crmMailing/BlockPublication.html
+msgid "Mailing Visibility"
+msgstr "Postalama Görünürlüğü"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Mailing Campaign"
+msgstr "Postalama Kampanyası"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "No Duplicate emails?"
+msgstr "Çift e-postalar gönderilmesin"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Mailing SMS Provider"
+msgstr "Postalama SMS Hizmeti Sağlayıcısı"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Mailing Hash"
+msgstr "Postalama Karması"
+
+#: CRM/Mailing/DAO/Mailing.php CRM/Mailing/Form/Group.php
+msgid "Email Selection Method"
+msgstr "E-posta Seçim Yöntemi"
+
+#: CRM/Mailing/DAO/MailingAB.php
+msgid "MailingAB ID"
+msgstr "Postalama AB Kod"
+
+#: CRM/Mailing/DAO/MailingAB.php
+msgid "Mailing ID (A)"
+msgstr "Postalama Kod (A)"
+
+#: CRM/Mailing/DAO/MailingAB.php
+msgid "Mailing ID (B)"
+msgstr "Postalama Kod (B)"
+
+#: CRM/Mailing/DAO/MailingAB.php
+msgid "Mailing ID (C)"
+msgstr "Postalama Kod (C)"
+
+#: CRM/Mailing/DAO/MailingAB.php
+msgid "Testing Criteria"
+msgstr "Deneme Ölçütü"
+
+#: CRM/Mailing/DAO/MailingAB.php
+msgid "Winner Criteria"
+msgstr "Kazanma Ölçütü"
+
+#: CRM/Mailing/DAO/MailingAB.php
+msgid "URL for Winner Criteria"
+msgstr "Kazanma Ölçütünün İnternet Adresi"
+
+#: CRM/Mailing/DAO/MailingAB.php
+msgid "Declaration Time"
+msgstr "Bildirim Zamanı"
+
+#: CRM/Mailing/DAO/MailingAB.php
+msgid "Group Percentage"
+msgstr "Grup Yüzdesi"
+
+#: CRM/Mailing/DAO/MailingAB.php
+msgid "AB Test Created By"
+msgstr "AB Denemesini Oluşturan"
+
+#: CRM/Mailing/DAO/MailingAB.php
+msgid "AB Test Created Date"
+msgstr "AB Denemesinin Oluşturulma Tarihi"
 
 #: CRM/Mailing/DAO/MailingGroup.php
-msgid "Search Args"
-msgstr "Arama Değişkenleri"
+msgid "Mailing Group ID"
+msgstr "Postalama Grup Kodu"
+
+#: CRM/Mailing/DAO/MailingGroup.php
+msgid "Mailing Group Type"
+msgstr "Postalama Grup Tipi"
+
+#: CRM/Mailing/DAO/MailingGroup.php
+msgid "Mailing Group Entity Table"
+msgstr "Postalama Grubu Kuruluş Tablosu"
+
+#: CRM/Mailing/DAO/MailingGroup.php
+msgid "Mailing Group Entity"
+msgstr "Postalama Grubu Kuruluşu"
+
+#: CRM/Mailing/DAO/MailingGroup.php
+msgid "Mailing Group Search"
+msgstr "Postalama Grubu Arama"
+
+#: CRM/Mailing/DAO/MailingGroup.php
+msgid "Mailing Group Search Arguments"
+msgstr "Postalama Grubu Arama Ölçütleri"
 
 #: CRM/Mailing/DAO/MailingJob.php
-msgid "Job Type"
-msgstr "Görev Tipi"
+msgid "Mailing Job ID"
+msgstr "Postalama Görevi Kodu"
 
 #: CRM/Mailing/DAO/MailingJob.php
-msgid "Job Offset"
-msgstr "Görev Kayması"
+msgid "Mailing Job Start Date"
+msgstr "Postalama Görevi Başlangıç Tarihi"
 
 #: CRM/Mailing/DAO/MailingJob.php
-msgid "Job Limit"
-msgstr "Görev Sınırı"
+msgid "Mailing Job End Date"
+msgstr "Postalama Görevi Bitiş Tarihi"
 
-#: CRM/Mailing/DAO/Spool.php
+#: CRM/Mailing/DAO/MailingJob.php
+msgid "Mailing Job Is Test?"
+msgstr "Postalama Görevini Deneme"
+
+#: CRM/Mailing/DAO/MailingJob.php
+msgid "Mailing Job Type"
+msgstr "Postalama Görevi Tipi"
+
+#: CRM/Mailing/DAO/MailingJob.php
+msgid "Mailing Job Parent"
+msgstr "Postalama Görevinin Üstü"
+
+#: CRM/Mailing/DAO/MailingJob.php
+msgid "Mailing Job Offset"
+msgstr "Postalama Görevinin Kayması"
+
+#: CRM/Mailing/DAO/MailingJob.php
+msgid "Mailing Job Limit"
+msgstr "Postalama Görevi Sınırı"
+
+#: CRM/Mailing/DAO/Recipients.php
+msgid "Mailing Recipients ID"
+msgstr "Postalama Alıcı Kodu"
+
+#: CRM/Mailing/DAO/Recipients.php CRM/Mailing/Selector/Search.php
+msgid "Mailing Recipient"
+msgstr "Postalama Alıcıları"
+
+#: CRM/Mailing/DAO/Recipients.php CRM/Mailing/DAO/Spool.php
 msgid "Recipient Email"
 msgstr "Alıcının E-posta Adresi"
+
+#: CRM/Mailing/DAO/Recipients.php
+msgid "Recipient Phone"
+msgstr "Alıcı Telefon Numarası"
 
 #: CRM/Mailing/DAO/Spool.php
 msgid "Headers"
@@ -320,6 +459,10 @@ msgstr "Çıkarılma"
 msgid "Unknown bounce type: Could not parse bounce email"
 msgstr "Bilinmeyen geri dönüş tipi: Geri dönen e-posta işlenemiyor"
 
+#: CRM/Mailing/Event/BAO/Bounce.php
+msgid "Unknown"
+msgstr "Bilinmeyen"
+
 #: CRM/Mailing/Event/BAO/Subscribe.php
 msgid "You are already subscribed in %1, your subscription is %2."
 msgstr "Zaten %1 aboneliğiniz var, aboneliğiniz %2."
@@ -338,22 +481,63 @@ msgid ""
 "Please contact the site administrator."
 msgstr "%1 abonelik başvurunuz işlenirken bir sorun çıktı. Kapalı bir gruba üye olmaya çalıştınız ya da bir veritabanı hatası oluştu. Lütfen site yöneticisi ile görüşün."
 
-#: CRM/Mailing/Event/DAO/Bounce.php CRM/Mailing/Event/DAO/Confirm.php
-#: CRM/Mailing/Event/DAO/Delivered.php CRM/Mailing/Event/DAO/Forward.php
-#: CRM/Mailing/Event/DAO/Opened.php CRM/Mailing/Event/DAO/Reply.php
-#: CRM/Mailing/Event/DAO/Subscribe.php
-#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
+#: CRM/Mailing/Event/DAO/Bounce.php CRM/Mailing/Event/DAO/Delivered.php
+#: CRM/Mailing/Event/DAO/Forward.php CRM/Mailing/Event/DAO/Opened.php
+#: CRM/Mailing/Event/DAO/Reply.php CRM/Mailing/Event/DAO/TrackableURLOpen.php
 msgid "Time Stamp"
 msgstr "Zaman Damgası"
 
-#: CRM/Mailing/Event/DAO/Queue.php CRM/Mailing/Event/DAO/Subscribe.php
-msgid "Hash"
-msgstr "Karma"
+#: CRM/Mailing/Event/DAO/Confirm.php
+msgid "Mailing Confirmation ID"
+msgstr "Postalama Onay Kodu"
+
+#: CRM/Mailing/Event/DAO/Confirm.php CRM/Mailing/Event/DAO/Subscribe.php
+msgid "Mailing Subscribe ID"
+msgstr "Postalama Abonelik Kodu"
+
+#: CRM/Mailing/Event/DAO/Confirm.php
+msgid "Confirm Timestamp"
+msgstr "Zaman Damgası Onayı"
+
+#: CRM/Mailing/Event/DAO/Queue.php
+msgid "Mailing Event Queue ID"
+msgstr "Postalama İşlemi Kuyruk Kodu"
+
+#: CRM/Mailing/Event/DAO/Queue.php
+msgid "Security Hash"
+msgstr "Güvenlik Karması"
+
+#: CRM/Mailing/Event/DAO/Subscribe.php
+msgid "Mailing Subscribe Group"
+msgstr "Postalama Grup Aboneliği"
+
+#: CRM/Mailing/Event/DAO/Subscribe.php
+msgid "Mailing Subscribe Contact"
+msgstr "Postalama Kişi Aboneliği"
+
+#: CRM/Mailing/Event/DAO/Subscribe.php
+msgid "Mailing Subscribe Hash"
+msgstr "Postalama Abonelik Karması"
+
+#: CRM/Mailing/Event/DAO/Subscribe.php
+msgid "Mailing Subscribe Timestamp"
+msgstr "Postalama Abonelik Zaman Damgası"
 
 #: CRM/Mailing/Event/DAO/Unsubscribe.php
-msgid "Org Unsubscribe"
-msgstr "Kuruluş Aboneliğinden Ayrılın"
+msgid "Unsubscribe ID"
+msgstr "Abonelikten Ayrılma Kodu"
+
+#: CRM/Mailing/Event/DAO/Unsubscribe.php
+msgid "Mailing Event Queue"
+msgstr "Postalama İşlem Kuyruğu"
+
+#: CRM/Mailing/Event/DAO/Unsubscribe.php
+msgid "Unsubscribe is for Organization?"
+msgstr "Kuruluş için abonelikten ayrılma"
+
+#: CRM/Mailing/Event/DAO/Unsubscribe.php
+msgid "Unsubscribe Timestamp"
+msgstr "Abonelikten Ayrılma Zaman Damgası"
 
 #: CRM/Mailing/Form/Approve.php CRM/Mailing/Selector/Browse.php
 msgid "Approve/Reject Mailing"
@@ -364,12 +548,20 @@ msgid "Approve/Reject Note"
 msgstr "Notu Onaylayın/Reddedin"
 
 #: CRM/Mailing/Form/Component.php
+msgid "Component Type"
+msgstr "Bileşen Tipi"
+
+#: CRM/Mailing/Form/Component.php
 msgid "Body - TEXT Format"
 msgstr "Metin - Metin Biçimi"
 
 #: CRM/Mailing/Form/Component.php
 msgid "Body - HTML Format"
 msgstr "Metin - HTML Biçimi"
+
+#: CRM/Mailing/Form/Component.php
+msgid "The mailing component '%1' has been saved."
+msgstr "'%1' postalama bileşeni kaydedildi."
 
 #: CRM/Mailing/Form/Component.php
 msgid ""
@@ -436,12 +628,12 @@ msgid "Unsubscription Group"
 msgstr "Abonelikten Ayrılma Grubu"
 
 #: CRM/Mailing/Form/Group.php
-msgid "Please select a group to be mailed."
-msgstr "Lütfen postalanacak grubu seçin."
+msgid "INCLUDE Recipients of These Mailing(s)"
+msgstr "Bu postalamaya KATILACAK alıcılar"
 
 #: CRM/Mailing/Form/Group.php
-msgid "CiviCRM Search"
-msgstr "CiviCRM Arama"
+msgid "EXCLUDE Recipients of These Mailing(s)"
+msgstr "Bu postalamaya KATILMAYACAK alıcılar"
 
 #: CRM/Mailing/Form/Group.php CRM/Mailing/Form/Settings.php
 #: CRM/Mailing/Form/Test.php CRM/Mailing/Form/Upload.php
@@ -474,11 +666,55 @@ msgstr "Süzülecek grubu seçmelisiniz"
 msgid "You must select a search to filter"
 msgstr "Süzülecek bir arama seçmelisiniz"
 
+#: CRM/Mailing/Form/Group.php
+msgid ""
+"If 'Email Selection Method' is automatic, you are not allowed to choose any "
+"'Location Type'"
+msgstr "'E-posta Seçimi Yöntemi' otomatik ise, herhangi bir 'Konum Tipi' seçilemez"
+
+#: CRM/Mailing/Form/Group.php
+msgid ""
+"If 'Location Type' is not selected, you must set the 'Email Selection "
+"Method' to automatic as well."
+msgstr "'Konum Tipi' seçilmemiş ise, 'E-posta Seçimi Yöntemi' seçeneği otomatik olarak ayarlanmalıdır"
+
+#: CRM/Mailing/Form/Optout.php CRM/Mailing/Form/Unsubscribe.php
+#: CRM/Mailing/Page/Common.php
+msgid "There was an error in your request"
+msgstr "Başvurunuzda bir sorun çıktı."
+
+#: CRM/Mailing/Form/Optout.php
+msgid "Please Confirm Your Opt Out"
+msgstr "Lütfen Abonelikten Ayrılma İsteğinizi Onaylayın"
+
+#: CRM/Mailing/Form/Optout.php
+msgid "Verify email address to opt out:"
+msgstr "Abonelikten ayırmak istediğiniz e-posta adresini doğrulayın:"
+
+#: CRM/Mailing/Form/Optout.php
+msgid "Email address is required to opt out."
+msgstr "Abonelikten ayrılması istenen e-posta adresi."
+
+#: CRM/Mailing/Form/Optout.php
+msgid "Email: %1 has been successfully opted out"
+msgstr "%1 e-posta adresi abonelikten ayrıldı"
+
+#: CRM/Mailing/Form/Optout.php
+msgid ""
+"The email address: %1 you have entered does not match the email associated "
+"with this opt out request."
+msgstr "Yazığınız %1 e-posta adresi abonelikten ayrılma isteğindeki e-posta adresi ile eşleşmiyor."
+
 #: CRM/Mailing/Form/Schedule.php
 msgid "Schedule Mailing"
 msgstr "Postalamayı Zamanlayın"
 
-#: CRM/Mailing/Form/Schedule.php
+#: CRM/Mailing/Form/Schedule.php ang/crmMailing/EditMailingCtrl/2step.html
+#: ang/crmMailing/EditMailingCtrl/unified.html
+#: ang/crmMailing/EditMailingCtrl/unified2.html
+#: ang/crmMailing/EditMailingCtrl/wizard.html
+#: ang/crmMailing/EditMailingCtrl/workflow.html
+#: ang/crmMailingAB/EditCtrl/edit.html
 msgid "Submit Mailing"
 msgstr "Postalamayı Başlatın"
 
@@ -496,6 +732,10 @@ msgstr "SMS Adı"
 #: CRM/Mailing/Form/Search.php
 msgid "Created or Sent by"
 msgstr "Oluşturan ya da Gönderen"
+
+#: CRM/Mailing/Form/Search.php
+msgid "Draft / Unscheduled"
+msgstr "Taslak ve Zamanlanmamış"
 
 #: CRM/Mailing/Form/Search.php
 msgid "Mailing is Archived"
@@ -522,10 +762,6 @@ msgid "Auto-respond to Replies?"
 msgstr "Yanıtlar otomatik yanıtlansın"
 
 #: CRM/Mailing/Form/Settings.php
-msgid "Mailing Visibility"
-msgstr "Postalama Görünürlüğü"
-
-#: CRM/Mailing/Form/Settings.php
 msgid "Track and Respond"
 msgstr "İzle ve Yanıtla"
 
@@ -538,12 +774,12 @@ msgid "Mailing List Subscription"
 msgstr "Posta Listesi Aboneliği"
 
 #: CRM/Mailing/Form/Subscribe.php
-msgid "Please enter a valid email address (e.g. 'yourname@example.com')."
-msgstr "Lütfen geçerli bir e-posta adresi yazın ('adiniz@websiteniz.org' gibi)."
-
-#: CRM/Mailing/Form/Subscribe.php
 msgid "There are no public mailing list groups to display."
 msgstr "Henüz görüntülenecek herkese açık bir posta listesi grubu yok."
+
+#: CRM/Mailing/Form/Subscribe.php
+msgid "Subscribe"
+msgstr "Abone Olun"
 
 #: CRM/Mailing/Form/Task/Print.php CRM/Mailing/Task.php
 msgid "Print Mailing Recipients"
@@ -574,10 +810,6 @@ msgid "Test not sent."
 msgstr "Yalnız dene, gönderme."
 
 #: CRM/Mailing/Form/Test.php
-msgid "Please enter a valid email addresses."
-msgstr "Lütfen geçerli bir e-posta adresi yazın."
-
-#: CRM/Mailing/Form/Test.php
 msgid ""
 "You can not schedule or send this mailing because there are currently no "
 "recipients selected. Click 'Previous' to return to the Select Recipients "
@@ -595,13 +827,42 @@ msgstr "Postalamayı zamanlamak ya da göndermek için 'Sonraki' üzerine tıkla
 msgid "Test message sent"
 msgstr "Deneme iletisi gönderildi"
 
+#: CRM/Mailing/Form/Unsubscribe.php
+msgid "Missing Parameters"
+msgstr "Parametreler Eksik"
+
+#: CRM/Mailing/Form/Unsubscribe.php
+msgid ""
+"Email: %1 has been successfully unsubscribed from this Mailing List/Group."
+msgstr "%1 e-posta adresi, bu postalama listesi ya da grup aboneliğinden ayrıldı."
+
+#: CRM/Mailing/Form/Unsubscribe.php
+msgid "Please Confirm Your Unsubscribe from this Mailing/Group"
+msgstr "Lütfen bu posta listesi ya da grup aboneliğinden ayrılma isteğinizi onaylayın"
+
+#: CRM/Mailing/Form/Unsubscribe.php
+msgid "Verify email address to unsubscribe:"
+msgstr "Abonelikten ayırmak istediğiniz e-posta adresini doğrulayın:"
+
+#: CRM/Mailing/Form/Unsubscribe.php
+msgid "Email address is required to unsubscribe."
+msgstr "Abonelikten ayrılması istenen e-posta adresi."
+
+#: CRM/Mailing/Form/Unsubscribe.php
+msgid ""
+"The email address: %1 you have entered does not match the email associated "
+"with this unsubscribe request."
+msgstr "Yazığınız %1 e-posta adresi abonelikten ayrılma isteğindeki e-posta adresi ile eşleşmiyor."
+
 #: CRM/Mailing/Form/Upload.php
 msgid ""
 "There is no valid from email address present. You can add here <a "
 "href='%1'>Add From Email Address.</a>"
 msgstr "Henüz geçerli bir kimden e-posta adresi eklenmemiş. <a href='%1'>Buradan ekleyebilirsiniz</a>. "
 
-#: CRM/Mailing/Form/Upload.php templates/CRM/Mailing/Form/Upload.tpl
+#: CRM/Mailing/Form/Upload.php ang/crmMailing/BlockMailing.html
+#: ang/crmMailing/EmailAddrCtrl.js ang/crmMailingAB/BlockMailing.html
+#: templates/CRM/Mailing/Form/Upload.tpl
 msgid "Reply-To"
 msgstr "Yanıt Adresi"
 
@@ -619,10 +880,6 @@ msgid "Please provide either a Text or HTML formatted message - or both."
 msgstr "Lütfen metin ya da HTML biçimini ya da ikisini birden seçin."
 
 #: CRM/Mailing/Form/Upload.php
-msgid "This message is missing a required token - {%1}: %2"
-msgstr "Bu iletideki gerekli kod eksik - {%1}: %2"
-
-#: CRM/Mailing/Form/Upload.php
 msgid "More information on required tokens..."
 msgstr "Gerekli kodlar hakkında ayrıntılı bilgiler..."
 
@@ -630,13 +887,46 @@ msgstr "Gerekli kodlar hakkında ayrıntılı bilgiler..."
 msgid "Mailing Content"
 msgstr "Postalama İçeriği"
 
+#: CRM/Mailing/Info.php
+msgid "access CiviMail"
+msgstr "CiviMail erişimi"
+
+#: CRM/Mailing/Info.php
+msgid "access CiviMail subscribe/unsubscribe pages"
+msgstr "CiviMail abonelik/abonelikten ayrılma sayfalarına erişim"
+
+#: CRM/Mailing/Info.php
+msgid "Subscribe/unsubscribe from mailing list group"
+msgstr "Postalama listesi grubuna abonelik/abonelikten ayrılma"
+
+#: CRM/Mailing/Info.php
+msgid "delete in CiviMail"
+msgstr "CiviMail üzerinden silme"
+
+#: CRM/Mailing/Info.php CRM/Mailing/Page/Browse.php
+#: CRM/Mailing/Selector/Browse.php
+msgid "Delete Mailing"
+msgstr "Postalamayı Silin"
+
+#: CRM/Mailing/Info.php
+msgid "view public CiviMail content"
+msgstr "Herkese açık CiviMail içeriğini görme"
+
+#: CRM/Mailing/Info.php
+msgid "create mailings"
+msgstr "postalama oluşturma"
+
+#: CRM/Mailing/Info.php
+msgid "schedule mailings"
+msgstr "postalama zamanlama"
+
+#: CRM/Mailing/Info.php
+msgid "approve mailings"
+msgstr "postalama onaylama"
+
 #: CRM/Mailing/Page/Browse.php CRM/Mailing/Selector/Browse.php
 msgid "Cancel Mailing"
 msgstr "Postalamayı İptal Edin"
-
-#: CRM/Mailing/Page/Browse.php CRM/Mailing/Selector/Browse.php
-msgid "Delete Mailing"
-msgstr "Postalamayı Silin"
 
 #: CRM/Mailing/Page/Browse.php CRM/Mailing/Selector/Browse.php
 msgid "Archive Mailing"
@@ -649,10 +939,6 @@ msgstr "Toplu SMS Arama"
 #: CRM/Mailing/Page/Browse.php
 msgid "Search Mailings"
 msgstr "Postalama Arama"
-
-#: CRM/Mailing/Page/Common.php
-msgid "There was an error in your request"
-msgstr "Başvurunuzda bir sorun çıktı."
 
 #: CRM/Mailing/Page/Component.php templates/CRM/Mailing/Form/Component.tpl
 msgid "Edit Mailing Component"
@@ -694,6 +980,51 @@ msgstr "CiviMail Raporu: %1"
 msgid "Mailings sent to %1"
 msgstr "Postalama %1 adresine gönderildi"
 
+#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+msgid "Draft"
+msgstr "Taslak"
+
+#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+msgid "Testing"
+msgstr "Deneniyor"
+
+#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/EditCtrl/report.html
+#: ang/crmMailingAB/ReportCtrl.js ang/crmMailingAB/services.js
+msgid "Final"
+msgstr "Son"
+
+#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+msgid "Test different \"Subject\" lines"
+msgstr "Farklı \"Konu\" satırları sınansın"
+
+#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+msgid "Test different \"From\" lines"
+msgstr "Farklı \"Kimden\" satırları sınansın"
+
+#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+msgid "Test entirely different emails"
+msgstr "Tamamen farklı e-postalar sınansın"
+
+#: CRM/Mailing/PseudoConstant.php
+msgid "Total Unique Clicks"
+msgstr "Toplam Tekil Tıklama"
+
+#: CRM/Mailing/PseudoConstant.php
+msgid "Total Clicks on a particular link"
+msgstr "Belirli bir bağlatıya toplam tıklama"
+
+#: CRM/Mailing/PseudoConstant.php
+msgid "Standalone"
+msgstr "Tek Başına"
+
+#: CRM/Mailing/PseudoConstant.php
+msgid "Experimental"
+msgstr "Deneysel"
+
+#: CRM/Mailing/PseudoConstant.php
+msgid "Winner"
+msgstr "Kazanan"
+
 #: CRM/Mailing/PseudoConstant.php
 msgid "Successful "
 msgstr "Tamamlandı"
@@ -733,10 +1064,6 @@ msgstr "Postalamalar %%StatusMessage%%"
 #: CRM/Mailing/Selector/Browse.php
 msgid "Sent By"
 msgstr "Gönderen"
-
-#: CRM/Mailing/Selector/Browse.php
-msgid "Started"
-msgstr "Başlatıldı"
 
 #: CRM/Mailing/Selector/Browse.php
 msgid "Are you sure you want to cancel this mailing?"
@@ -782,11 +1109,13 @@ msgstr "%1 %%StatusMessage%%"
 msgid "Forwarded Email"
 msgstr "İletilen E-posta"
 
-#: CRM/Mailing/Selector/Event.php templates/CRM/Mailing/Page/Report.tpl
+#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: templates/CRM/Mailing/Page/Report.tpl
 msgid "Successful Deliveries"
 msgstr "Başarılı Gönderimler"
 
-#: CRM/Mailing/Selector/Event.php templates/CRM/Mailing/Page/Report.tpl
+#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: templates/CRM/Mailing/Page/Report.tpl
 msgid "Bounces"
 msgstr "Geri Dönüşler"
 
@@ -794,7 +1123,8 @@ msgstr "Geri Dönüşler"
 msgid "Unique Replies"
 msgstr "Eşsiz Yanıtlar"
 
-#: CRM/Mailing/Selector/Event.php templates/CRM/Mailing/Page/Report.tpl
+#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: templates/CRM/Mailing/Page/Report.tpl
 msgid "Replies"
 msgstr "Yanıtlar"
 
@@ -802,7 +1132,8 @@ msgstr "Yanıtlar"
 msgid "Unique Click-throughs"
 msgstr "Eşsiz Tıklayıp Geçmeler"
 
-#: CRM/Mailing/Selector/Event.php templates/CRM/Mailing/Page/Report.tpl
+#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: templates/CRM/Mailing/Page/Report.tpl
 msgid "Click-throughs"
 msgstr "Tıklayıp Geçmeler"
 
@@ -810,13 +1141,10 @@ msgstr "Tıklayıp Geçmeler"
 msgid "Unique Tracked Opens"
 msgstr "Eşsiz İzlenen Açılmalar"
 
-#: CRM/Mailing/Selector/Event.php templates/CRM/Mailing/Page/Report.tpl
+#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: templates/CRM/Mailing/Page/Report.tpl
 msgid "Tracked Opens"
 msgstr "İzlenen Açılmalar"
-
-#: CRM/Mailing/Selector/Search.php
-msgid "Mailing Recipient"
-msgstr "Postalama Alıcıları"
 
 #: CRM/Mailing/Selector/Search.php templates/CRM/Mailing/Form/Task/Print.tpl
 msgid "Completed Date"
@@ -825,6 +1153,638 @@ msgstr "Tamamlanma Tarihi"
 #: CRM/Mailing/Selector/Search.php
 msgid "CiviCRM Mailing Search"
 msgstr "CiviCRM Postalama Arama"
+
+#: ang/crmMailing/BlockApprove.html
+msgid "Unreviewed"
+msgstr "Gözden Geçirilmemiş"
+
+#: ang/crmMailing/BlockMailing.html ang/crmMailingAB/BlockMailing.html
+msgid "Save As"
+msgstr "Farklı Kaydedin"
+
+#: ang/crmMailing/BlockMailing.html ang/crmMailingAB/BlockMailing.html
+msgid "Email address"
+msgstr "E-posta adresi"
+
+#: ang/crmMailing/BlockMailing.html
+msgid "Unsubscribe Group"
+msgstr "Grup Aboneliğinden Ayrılın"
+
+#: ang/crmMailing/BlockPreview.html
+msgid "No content to preview"
+msgstr "Görüntülenecek bir içerik yok"
+
+#: ang/crmMailing/BlockPreview.html
+msgid "Preview as HTML"
+msgstr "HTML Önizlemesi"
+
+#: ang/crmMailing/BlockPreview.html
+msgid "Preview as Plain Text"
+msgstr "Düz Metin Önizlemesi"
+
+#: ang/crmMailing/BlockPreview.html
+msgid "Send test email to:"
+msgstr "Deneme e-postası şuraya gönderilsin:"
+
+#: ang/crmMailing/BlockPreview.html
+msgid "Test Email"
+msgstr "Deneme E-postası"
+
+#: ang/crmMailing/BlockPreview.html
+msgid "Send test message to %1"
+msgstr "Deneme e-postası %1 adresine gönderilsin"
+
+#: ang/crmMailing/BlockPreview.html
+msgid "Send test"
+msgstr "Denemeyi Gönder"
+
+#: ang/crmMailing/BlockPreview.html
+msgid "Send test email to group:"
+msgstr "Deneme e-postası şu gruba gönderilsin:"
+
+#: ang/crmMailing/BlockPreview.html
+msgid "Send test message to group"
+msgstr "Gruba deneme iletisi gönder"
+
+#: ang/crmMailing/BlockPreview.js
+msgid "Send to %1"
+msgstr "%1 alıcısına gönder"
+
+#: ang/crmMailing/BlockPreview.js
+msgid "A test message will be sent to %1 people:"
+msgstr "%1 kişiye deneme iletisi gönderilecek:"
+
+#: ang/crmMailing/BlockPreview.js
+msgid "None of the contacts in this group have an email address."
+msgstr "Bu gruptaki kişilerden hiçbirinin e-posta adresi yok."
+
+#: ang/crmMailing/BlockPreview.js
+msgid "Group is empty."
+msgstr "Grup boş."
+
+#: ang/crmMailing/BlockRecipients.html
+msgid "Preview a List of Recipients"
+msgstr "Alıcı Önizlemesi"
+
+#: ang/crmMailing/BlockRecipients.html
+msgid "Edit Recipient Options"
+msgstr "Alıcı Ayarlarını Düzenleyin"
+
+#: ang/crmMailing/BlockResponses.html ang/crmMailing/BlockReview.html
+#: ang/crmMailing/EmailAddrCtrl.js ang/crmMailingAB/EditCtrl/report.html
+msgid "Track Replies"
+msgstr "Yanıtlar İzlensin"
+
+#: ang/crmMailing/BlockResponses.html
+msgid "Auto-Respond to Replies"
+msgstr "Yanıtlar Otomatik Yanıtlansın"
+
+#: ang/crmMailing/BlockResponses.html
+msgid "Auto-Respond Message"
+msgstr "Otomatik Yanıt İletisi"
+
+#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+msgid "Include:"
+msgstr "Katılsın:"
+
+#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+msgid "Exclude:"
+msgstr "Katılmasın:"
+
+#: ang/crmMailing/BlockReview.html ang/crmMailing/EditMailingCtrl/2step.html
+#: ang/crmMailing/EditMailingCtrl/unified.html
+#: ang/crmMailing/EditMailingCtrl/unified2.html
+#: ang/crmMailing/EditMailingCtrl/wizard.html
+#: ang/crmMailing/EditMailingCtrl/workflow.html
+#: ang/crmMailing/PreviewComponentDialogCtrl.html
+#: ang/crmMailing/PreviewMgr/full.html ang/crmMailingAB/EditCtrl/edit.html
+msgid "Plain Text"
+msgstr "Düz Metin"
+
+#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+msgid "Click Throughs"
+msgstr "Tıklayıp Geçmeler"
+
+#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+msgid "Opens"
+msgstr "Açılma"
+
+#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: templates/CRM/Mailing/Form/Settings.tpl
+msgid "Responding"
+msgstr "Yanıtlanıyor"
+
+#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+msgid "Auto-Respond"
+msgstr "Otomatik Yanıt"
+
+#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: templates/CRM/Mailing/Page/Resubscribe.tpl
+msgid "Resubscribe"
+msgstr "Yeniden Abone Olun"
+
+#: ang/crmMailing/BlockReview.html ang/crmMailing/EditMailingCtrl/2step.html
+#: ang/crmMailing/EditMailingCtrl/unified.html
+#: ang/crmMailing/EditMailingCtrl/unified2.html
+#: ang/crmMailing/EditMailingCtrl/wizard.html
+#: ang/crmMailing/EditMailingCtrl/workflow.html
+#: ang/crmMailingAB/EditCtrl/edit.html ang/crmMailingAB/EditCtrl/report.html
+msgid "Publication"
+msgstr "Yayın"
+
+#: ang/crmMailing/BlockSchedule.html
+msgid "Send immediately"
+msgstr "Hemen gönderilsin"
+
+#: ang/crmMailing/BlockSchedule.html
+msgid "Send at:"
+msgstr "Şu zamanda gönderilsin:"
+
+#: ang/crmMailing/BlockSummary.html ang/crmMailingAB/BlockSetup.html
+msgid "Select Campaign"
+msgstr "Kampanya Seçin"
+
+#: ang/crmMailing/BlockTracking.html
+msgid "Track Click Throughs"
+msgstr "Tıklayıp Geçmeler İzlensin"
+
+#: ang/crmMailing/BlockTracking.html
+msgid "Track Opens"
+msgstr "Açılmalar İzlensin"
+
+#: ang/crmMailing/BodyHtml.html ang/crmMailing/BodyText.html
+msgid "Required tokens are missing."
+msgstr "Zorunlu kodlar eksik."
+
+#: ang/crmMailing/EditMailingCtrl/2step.html
+#: ang/crmMailing/EditMailingCtrl/unified.html
+#: ang/crmMailing/EditMailingCtrl/unified2.html
+#: ang/crmMailing/EditMailingCtrl/wizard.html
+#: ang/crmMailing/EditMailingCtrl/workflow.html
+msgid "This mailing has been submitted."
+msgstr "Bu postalama gönderildi."
+
+#: ang/crmMailing/EditMailingCtrl/2step.html
+msgid "Define Mailing"
+msgstr "Postalama Tanımlayın"
+
+#: ang/crmMailing/EditMailingCtrl/2step.html
+#: ang/crmMailing/EditMailingCtrl/unified.html
+#: ang/crmMailing/EditMailingCtrl/unified2.html
+#: ang/crmMailing/EditMailingCtrl/wizard.html
+#: ang/crmMailing/EditMailingCtrl/workflow.html
+#: ang/crmMailingAB/EditCtrl/edit.html
+msgid "Header and Footer"
+msgstr "Üstbilgi ve Altbilgi"
+
+#: ang/crmMailing/EditMailingCtrl/2step.html
+#: ang/crmMailing/EditMailingCtrl/unified.html
+#: ang/crmMailing/EditMailingCtrl/unified2.html
+#: ang/crmMailing/EditMailingCtrl/wizard.html
+#: ang/crmMailing/EditMailingCtrl/workflow.html
+#: ang/crmMailingAB/EditCtrl/edit.html
+msgid "Responses"
+msgstr "Yanıtlar"
+
+#: ang/crmMailing/EditMailingCtrl/2step.html
+msgid "Review and Schedule"
+msgstr "Gözden Geçirip Zamanlayın"
+
+#: ang/crmMailing/EditMailingCtrl/2step.html
+#: ang/crmMailing/EditMailingCtrl/wizard.html
+#: ang/crmMailing/EditMailingCtrl/workflow.html
+msgid "Review"
+msgstr "Gözden Geçirin"
+
+#: ang/crmMailing/EditMailingCtrl/2step.html
+#: ang/crmMailing/EditMailingCtrl/unified.html
+#: ang/crmMailing/EditMailingCtrl/unified2.html
+#: ang/crmMailing/EditMailingCtrl/wizard.html
+#: ang/crmMailing/EditMailingCtrl/workflow.html
+#: ang/crmMailingAB/EditCtrl/edit.html
+msgid "Delete Draft"
+msgstr "Taslağı Silin"
+
+#: ang/crmMailing/EditMailingCtrl/2step.html
+#: ang/crmMailing/EditMailingCtrl/unified.html
+#: ang/crmMailing/EditMailingCtrl/unified2.html
+#: ang/crmMailing/EditMailingCtrl/wizard.html
+#: ang/crmMailing/EditMailingCtrl/workflow.html
+#: ang/crmMailingAB/EditCtrl/edit.html
+msgid "Are you sure you want to permanently delete this mailing?"
+msgstr "Bu postalamayı kalıcı olarak silmek istediğinize emin misiniz?"
+
+#: ang/crmMailing/EditMailingCtrl/2step.html
+#: ang/crmMailing/EditMailingCtrl/unified.html
+#: ang/crmMailing/EditMailingCtrl/unified2.html
+#: ang/crmMailing/EditMailingCtrl/wizard.html
+#: ang/crmMailing/EditMailingCtrl/workflow.html
+#: ang/crmMailingAB/EditCtrl/edit.html
+msgid "Save Draft"
+msgstr "Taslağı Kaydedin"
+
+#: ang/crmMailing/EditMailingCtrl/workflow.html
+msgid "Submit and Approve Mailing"
+msgstr "Postalamayı Gönderip Onaylayın"
+
+#: ang/crmMailing/EditMailingCtrl.js ang/crmMailingAB/EditCtrl.js
+#: ang/crmMailingAB/WinnerDialogCtrl.js
+msgid "Submitting..."
+msgstr "Gönderiliyor..."
+
+#: ang/crmMailing/EditRecipCtrl.js
+msgid "(Estimating)"
+msgstr "(Hesaplanıyor)"
+
+#: ang/crmMailing/EditRecipCtrl.js ang/crmMailing/PreviewRecipCtrl.html
+msgid "No recipients"
+msgstr "Herhangi bir alıcı yok"
+
+#: ang/crmMailing/EditRecipCtrl.js
+msgid "~1 recipient"
+msgstr "~1 alıcı"
+
+#: ang/crmMailing/EditRecipCtrl.js
+msgid "~%1 recipients"
+msgstr "~%1 alıcı"
+
+#: ang/crmMailing/EditRecipCtrl.js ang/crmMailing/services.js
+msgid "Previewing..."
+msgstr "Önizleniyor..."
+
+#: ang/crmMailing/EditRecipCtrl.js
+msgid "Preview (%1)"
+msgstr "Önizleme (%1)"
+
+#: ang/crmMailing/EditRecipOptionsDialogCtrl.html
+msgid "Dedupe by email"
+msgstr "Çift e-posta ayıklama"
+
+#: ang/crmMailing/EditRecipOptionsDialogCtrl.html
+msgid "Selection Method"
+msgstr "Seçim Yöntemi"
+
+#: ang/crmMailing/EmailAddrCtrl.js
+msgid "Conflict"
+msgstr "Çakışma"
+
+#: ang/crmMailing/EmailAddrCtrl.js
+msgid ""
+"The \"%1\" option conflicts with the \"%2\" option. The \"%2\" option has "
+"been disabled."
+msgstr "\"%1\" seçeneği \"%2\" seçeneği ile çakışıyor. \"%2\" seçeneği devre dışı bırakıldı."
+
+#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+msgid ""
+"The mailing must include the street address of the organization. Please "
+"insert the %1 token."
+msgstr "Postalamada kuruluşunuzun sokak adresi bulunmalıdır. Lütfen %1 kodunu ekleyin."
+
+#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+msgid ""
+"The mailing must allow recipients to (a) unsubscribe from the mailing-list or (b) completely opt-out from all\n"
+"  mailings. Please insert an unsubscribe or opt-out token."
+msgstr "Postalama alıcıları (a) bu posta listesinin aboneliğinden ya da (b) tüm postalama aboneliklerinden ayrılabilmelidir\nLütfen abonelikten ayrılma ya da tüm aboneliklerden ayrılma kodlarını birini ekleyin."
+
+#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+msgid "Via Web"
+msgstr "Web sitesi ile"
+
+#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+msgid "Via Email"
+msgstr "E-posta ile"
+
+#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+msgid ""
+"Alternatively, you may select a header or footer which includes the required"
+" tokens."
+msgstr "Alternatif olarak gerekli kodları içeren bir üstbilgi ya da altbilgi eklemeyi seçebilirsiniz."
+
+#: ang/crmMailing/EmailBodyCtrl.js
+msgid "Required tokens"
+msgstr "Zorunlu Kodlar"
+
+#: ang/crmMailing/MsgTemplateCtrl.js
+msgid "Save Template"
+msgstr "Kalıbı Kaydet"
+
+#: ang/crmMailing/PreviewComponentCtrl.js
+msgid "Invalid component ID (%1)"
+msgstr "Bileşen kodu geçersiz (%1)"
+
+#: ang/crmMailing/PreviewRecipCtrl.html
+msgid ""
+"Based on current data, approximately %1 contacts will receive a copy of the "
+"mailing."
+msgstr "Geçerli veriye göre bu posta yaklaşık %1 kişiye ulaşacak."
+
+#: ang/crmMailing/PreviewRecipCtrl.html
+msgid "Below is a sample of the first %1 recipients."
+msgstr "Aşağıda ilk %1 alıcının örneği görülebilir."
+
+#: ang/crmMailing/PreviewRecipCtrl.html
+msgid ""
+"If individual contacts are separately modified, added, or removed, then the "
+"final list may change."
+msgstr "Bireyler ayrıca değiştirildi, eklendi ya da çıkarıldıysa son liste farklı olabilir."
+
+#: ang/crmMailing/RadioDate.js
+msgid "The scheduled date and time is in the past"
+msgstr "Zamanlanan tarih ve saat geçmiş bir zamanda"
+
+#: ang/crmMailing/Recipients.html
+msgid "Mandatory Group"
+msgstr "Zorunlu Alıcılar Grubu"
+
+#: ang/crmMailing/Recipients.html
+msgid "Include Group"
+msgstr "Katılacak Alıcılar Grubu"
+
+#: ang/crmMailing/Recipients.html
+msgid "Exclude Group"
+msgstr "Katılmayacak Alıcılar Grubu"
+
+#: ang/crmMailing/Recipients.html
+msgid "Include Past Recipients From"
+msgstr "Şuradaki Son Alıcılar Katılsın"
+
+#: ang/crmMailing/Recipients.html
+msgid "Exclude Past Recipients From"
+msgstr "Şuradaki Son Alıcılar Katılmasın"
+
+#: ang/crmMailing/Recipients.js
+msgid ""
+"This mailing was generated based on search results. The search results "
+"cannot be removed."
+msgstr "Bu postalama arama sonuçlarına göre oluşturulduğundan arama sonuçları silinemez."
+
+#: ang/crmMailing/SaveMsgTemplateDialogCtrl.html
+msgid "Save the current mailing as a template."
+msgstr "Geçerli postalamayı bir kalıp olarak kaydedin."
+
+#: ang/crmMailing/SaveMsgTemplateDialogCtrl.html
+msgid "Update \"%1\""
+msgstr "\"%1\" güncelleyin"
+
+#: ang/crmMailing/SaveMsgTemplateDialogCtrl.html
+msgid "Save as:"
+msgstr "Farklı kaydedin:"
+
+#: ang/crmMailing/services.js
+msgid "Subject: %1"
+msgstr "Konu: %1"
+
+#: ang/crmMailing/services.js
+msgid "Could not identify any recipients. Perhaps the group is empty?"
+msgstr "Herhangi bir alıcı bulunamadı. Grup boş olabilir mi?"
+
+#: ang/crmMailing/services.js
+msgid "Sending..."
+msgstr "Gönderiliyor..."
+
+#: ang/crmMailing/services.js
+msgid "Unsubscribes"
+msgstr "Abonelikten Ayrılmalar"
+
+#: ang/crmMailing/services.js
+msgid "Opt-Outs"
+msgstr "Tüm Aboneliklerden Ayrılmalar"
+
+#: ang/crmMailing.js ang/crmMailingAB.js
+msgid "Initializing..."
+msgstr "Hazırlanıyor..."
+
+#: ang/crmMailingAB/BlockMailing.html
+msgid "Template (A)"
+msgstr "Kalıp (A)"
+
+#: ang/crmMailingAB/BlockMailing.html
+msgid "Template (B)"
+msgstr "Kalıp (B)"
+
+#: ang/crmMailingAB/BlockMailing.html
+msgid "From (A)"
+msgstr "Kimden (A)"
+
+#: ang/crmMailingAB/BlockMailing.html
+msgid "From (B)"
+msgstr "Kimden (B)"
+
+#: ang/crmMailingAB/BlockMailing.html
+msgid "Reply-To (A)"
+msgstr "Yanıt (A)"
+
+#: ang/crmMailingAB/BlockMailing.html
+msgid "Reply-To (B)"
+msgstr "Yanıt (B)"
+
+#: ang/crmMailingAB/BlockMailing.html
+msgid "Subject (A)"
+msgstr "Konu (A)"
+
+#: ang/crmMailingAB/BlockMailing.html
+msgid "Subject (B)"
+msgstr "Konu (B)"
+
+#: ang/crmMailingAB/BlockSetup.html
+msgid ""
+"A/B testing allows you to send two test mailings to a random subset of your "
+"recipients. After collecting and comparing metrics, the more successful "
+"mailing will be sent to the remaining recipients."
+msgstr "A/B denemesi rastgele alıcı alt kümelerine iki deneme postalaması yapılmasını sağlar. İstatistiklerin toplanıp karşılaştırılmasından sonra, kalan alıcılara daha sorunsuz bir postalama yapılır."
+
+#: ang/crmMailingAB/BlockSetup.html ang/crmMailingAB/ListCtrl.html
+msgid "Test Type"
+msgstr "Deneme Tipi"
+
+#: ang/crmMailingAB/BlockSetup.html
+msgid "Distribution"
+msgstr "Dağıtım"
+
+#: ang/crmMailingAB/BlockSetup.html
+msgid "Send"
+msgstr "Gönder"
+
+#: ang/crmMailingAB/BlockSetup.html
+msgid "Send A/B test immediately"
+msgstr "A/B denemesi hemen gönderilsin"
+
+#: ang/crmMailingAB/BlockSetup.html
+msgid "Send A/B test at:"
+msgstr "A/B denemesi şu zamanda gönderilsin:"
+
+#: ang/crmMailingAB/BlockSetup.html
+msgid "Assess"
+msgstr "Öngörü"
+
+#: ang/crmMailingAB/BlockSetup.html
+msgid "Assess A/B results on an on-going basis"
+msgstr "A/B sonuçları gönderildikçe öngörülsün"
+
+#: ang/crmMailingAB/BlockSetup.html
+msgid "Assess A/B test at:"
+msgstr "A/B denemesi şu zamanda öngörülsün:"
+
+#: ang/crmMailingAB/EditCtrl/edit.html
+msgid "Setup"
+msgstr "Kurulum"
+
+#: ang/crmMailingAB/EditCtrl/edit.html
+msgid "Target"
+msgstr "Hedef"
+
+#: ang/crmMailingAB/EditCtrl/edit.html
+msgid "Compose"
+msgstr "Oluştur"
+
+#: ang/crmMailingAB/EditCtrl/edit.html
+msgid "Preview (A)"
+msgstr "Önizleme (A)"
+
+#: ang/crmMailingAB/EditCtrl/edit.html
+msgid "Preview (B)"
+msgstr "Önizleme (B)"
+
+#: ang/crmMailingAB/EditCtrl/edit.html
+msgid "Compose (A)"
+msgstr "Oluştur (A)"
+
+#: ang/crmMailingAB/EditCtrl/edit.html
+msgid "Compose (B)"
+msgstr "Oluştur (B)"
+
+#: ang/crmMailingAB/EditCtrl/report.html
+msgid "A/B Test Results"
+msgstr "A/B Deneme Sonuçları"
+
+#: ang/crmMailingAB/EditCtrl/report.html
+msgid ""
+"This report displays the current results for your A/B test. You can return "
+"to this page to view the latest statistics by navigating to \"Manage A/B "
+"Tests\" and clicking \"Results\"."
+msgstr "Bu raporda A/B denemenizin sonuçları görüntülenir. İstediğiniz zaman \"A/B Denemeleri Yönetimi\" bölümünden \"Sonuçlar\" üzerine tıklayarak bu sayfaya dönebilir ve son istatistiklere bakabilirsiniz."
+
+#: ang/crmMailingAB/EditCtrl/report.html
+msgid "Select as Final"
+msgstr "Son Olarak Seçin"
+
+#: ang/crmMailingAB/EditCtrl/report.html
+msgid "Delivery"
+msgstr "Gönderim"
+
+#: ang/crmMailingAB/EditCtrl/report.html
+msgid "Not selected"
+msgstr "Seçilmemiş"
+
+#: ang/crmMailingAB/EditCtrl/report.html
+msgid "Started at"
+msgstr "Başlangıç zamanı"
+
+#: ang/crmMailingAB/EditCtrl/report.html
+msgid "Not started"
+msgstr "Başlatılmamış"
+
+#: ang/crmMailingAB/EditCtrl/report.html
+msgid "Completed at"
+msgstr "Tamamlanma zamanı"
+
+#: ang/crmMailingAB/EditCtrl/report.html
+msgid "Not completed"
+msgstr "Tamamlanmamış"
+
+#: ang/crmMailingAB/EditCtrl/report.html
+msgid "Search for contacts using '%1'"
+msgstr "Kişiler '%1' kullanarak aransın"
+
+#: ang/crmMailingAB/EditCtrl/report.html
+msgid "Browse events of type '%1'"
+msgstr "'%1' tipindeki etkinliklere gözatın"
+
+#: ang/crmMailingAB/EditCtrl/report.html
+msgid "n/a"
+msgstr "kullanılamaz"
+
+#: ang/crmMailingAB/EditCtrl/report.html
+msgid "Reports for  '%1'"
+msgstr "'%1' için raporlar"
+
+#: ang/crmMailingAB/EditCtrl/report.html
+msgid "Opens (WIP)"
+msgstr "Açılma (WIP)"
+
+#: ang/crmMailingAB/EditCtrl/report.html
+msgid "Total Clicks (WIP)"
+msgstr "Toplam Tıklanma (WIP)"
+
+#: ang/crmMailingAB/EditCtrl.js
+msgid "Test A (%1)"
+msgstr "Deneme A (%1)"
+
+#: ang/crmMailingAB/EditCtrl.js
+msgid "Test B (%1)"
+msgstr "Deneme B (%1)"
+
+#: ang/crmMailingAB/EditCtrl.js
+msgid "Final (%1)"
+msgstr "Son (%1)"
+
+#: ang/crmMailingAB/EditCtrl.js
+msgid "Select Final Mailing (Test %1)"
+msgstr "Son Postalamayı Seçin (Deneme %1)"
+
+#: ang/crmMailingAB/ListCtrl.html
+msgid "- Status -"
+msgstr "- Durum -"
+
+#: ang/crmMailingAB/ListCtrl.html
+msgid "- Test Type -"
+msgstr "- Deneme Tipi -"
+
+#: ang/crmMailingAB/ListCtrl.html
+msgid "You have no A/B mailings"
+msgstr "Henüz bir A/B postalamanız yok"
+
+#: ang/crmMailingAB/ListCtrl.html
+msgid "New A/B Test"
+msgstr "A/B Denemesi Ekleyin"
+
+#: ang/crmMailingAB/ReportCtrl.js ang/crmMailingAB/WinnerDialogCtrl.js
+msgid "Mailing A"
+msgstr "Postalama A"
+
+#: ang/crmMailingAB/ReportCtrl.js ang/crmMailingAB/WinnerDialogCtrl.js
+msgid "Mailing B"
+msgstr "Postalama B"
+
+#: ang/crmMailingAB/Slider.html
+msgid "Test Mailing A"
+msgstr "Deneme Postası A"
+
+#: ang/crmMailingAB/Slider.html
+msgid "Test Mailing B"
+msgstr "Deneme Postası B"
+
+#: ang/crmMailingAB/Slider.html
+msgid "Final Mailing"
+msgstr "Son Postalama"
+
+#: ang/crmMailingAB/WinnerDialogCtrl.html
+msgid ""
+"After selecting %1 as the winner, one must schedule the delivery for the "
+"final mailing."
+msgstr "%1 kazanan olarak seçildikten sonra gönderim için son posta zamanlanmalıdır."
+
+#: ang/crmMailingAB/WinnerDialogCtrl.html
+msgid "Send final mailing immediately"
+msgstr "Son postalama şimdi gönderilsin"
+
+#: ang/crmMailingAB/WinnerDialogCtrl.html
+msgid "Send final mailing at:"
+msgstr "Son postalama şu zamanda gönderilsin:"
+
+#: ang/crmMailingAB/WinnerDialogCtrl.js
+msgid "Submit final mailing"
+msgstr "Son postalamayı gönder"
 
 #: templates/CRM/Mailing/Form/Approve.tpl
 #: templates/CRM/Mailing/Form/Schedule.tpl templates/CRM/Mailing/Form/Test.tpl
@@ -858,7 +1818,7 @@ msgstr "Toplam Alıcılar:"
 msgid "Please enter up to 5 email addresses to receive the mailing."
 msgstr "Bu postalamanın gönderileceği en fazla 5 e-posta adresi yazın."
 
-#: templates/CRM/Mailing/Form/Group.hlp
+#: templates/CRM/Mailing/Form/Group.hlp templates/CRM/Mailing/MailingUI.hlp
 msgid ""
 "Assign a unique name to each of your mailings. Select a naming convention "
 "that will help keep your mailings organized and easy to find when you want "
@@ -866,7 +1826,7 @@ msgid ""
 "general-interest newsletter - you might use the following naming convention:"
 msgstr "Her bir postalama için eşsiz bir ad yazın. Postalamalarınızı düzenli tutmanızı ve kolayca bularak, sonuçlarını karşılaştırmanızı sağlayacak bir adlandırma yöntemi belirleyin. Örneğin aylık genel ilgiye açık bir postalama yapıyorsanız şu adlandırma yöntemini kullanabilirsiniz:"
 
-#: templates/CRM/Mailing/Form/Group.hlp
+#: templates/CRM/Mailing/Form/Group.hlp templates/CRM/Mailing/MailingUI.hlp
 msgid "General Monthly Newsletter: 200709"
 msgstr "Aylık Genel Bülten: 200709"
 
@@ -933,6 +1893,50 @@ msgid ""
 msgstr "Bu seçenek etkinleştirildiğinde, her adrese bir e-posta gönderilmesi sağlanır. Uyarı: e-posta içeriğinde kişi kodları kullanıyorsanız, bu seçenek etkinken kişi kodunun eşleşen kişilerden yalnız biri için oluşturulacağını unutmayın."
 
 #: templates/CRM/Mailing/Form/Group.hlp
+msgid "Email selection"
+msgstr "E-posta seçimi"
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"Some of your contacts may have more than one email address. By selecting a "
+"location and a selection method, you can tell CiviCRM which email address to"
+" use for this mailing."
+msgstr "Kişilerinizden bazılarının birden fazla e-posta adresi var. Bir konum ve bir seçim yöntemi seçerek bu postalama için hangi e-posta adresinin kullanılacağını belirleyebilirsiniz."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"Automatic: If you choose automatic for both the location and the selection "
+"method, CiviCRM will choose the best option for each user: If an email is "
+"marked \"Bulk\" then it will be used; otherwise, the email marked "
+"\"Primary\" will be used."
+msgstr "Otomatik: Konum ve seçim yöntemi olarak otomatik seçilirse, her kullanıcı için en iyi seçenek CiviCRM tarafından belirlenir. \"Toplu\" olarak işaretlenmiş bir e*posta adresi varsa o kullanılır yoksa \"Birincil\" olarak işaretlenmiş e-posta adresi kullanılır."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"If \"Only send to email addresses assigned to the specified location\" is "
+"selected, then the recipients will be restricted to only include contacts "
+"that have an email address assigned to the given location. This option may "
+"limit the number of recipients in your mailing."
+msgstr "\"Belirli bir adrese atanmış e-postalar gönderilsin\" seçilmiş ise, posta yalnız belirtilen konuma atanmış e-posta adreslerindeki alıcılara gönderilir. Bu seçenek posta alıcılarınızın sayısını sınırlar."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"If \"Prefer email addresses assigned to the specified location\" is "
+"selected, then recipients that have an email address assigned to the given "
+"location will have that email used. Other recipients will have their email "
+"selected using the automatic method."
+msgstr "\"Belirli bir adrese atanmış e-postalar yeğlensin\" seçilmiş ise, posta yalnız belirtilen konuma atanmış e-posta adreslerindeki alıcılara gönderilir. Diğer alıcıların e-posta adresi otomatik yöntem kullanılarak seçilir."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"If \"Exclude email addresses assigned to the specified location\" is chosen,"
+" then recipients who only have an email address assigned to the given "
+"location will be excluded. Everyone else will have their email chosen from "
+"the list of emails that are not assigned to the given location, using the "
+"automatic method."
+msgstr "\"Belirli bir adrese atanmış e-postalar katılmasın\" seçilmiş ise, posta belirtilen konuma atanmış e-posta adreslerindeki alıcılara gönderilmez. Listeye seçilmiş ve e-posta adresi belirtilen konuma atanmamış alıcıların adresleri otomatik yöntem kullanılarak seçilir."
+
+#: templates/CRM/Mailing/Form/Group.hlp
 msgid ""
 "Determine the contacts in your database who should receive this mailing by "
 "first selecting one or more <strong>Included Groups</strong>. (Groups must "
@@ -978,9 +1982,18 @@ msgstr "Postalamaya Katılmayacaklar"
 msgid "Additional Mailing Recipients"
 msgstr "Ek Postalama Alıcıları"
 
-#: templates/CRM/Mailing/Form/InsertTokens.tpl
-msgid "Select Token"
-msgstr "Kodu Seçin"
+#: templates/CRM/Mailing/Form/Optout.tpl
+msgid ""
+"You are requesting to opt out this email address from all mailing lists:"
+msgstr "Şu e-posta adresinin tüm posta listelerinin aboneliğinden ayrılmasını istediniz:"
+
+#: templates/CRM/Mailing/Form/Optout.tpl
+msgid ""
+"If this is not your email address, there is no need to do anything. You have"
+" <i><b>not</b></i> been added to any mailing lists. If this is your email "
+"address and you <i><b>wish to opt out</b></i> please enter your email "
+"address below for verification purposes:"
+msgstr "Bu e-posta adresi size ait değil ise herhangi bir şey yapmanız gerekmiyor. Herhangi bir posta listesine <i><b>eklenmiş değilsiniz</b></i>. Bu adres size ait ve <i><b>abonelikten ayrılmak istiyorsanız</b></i> lütfen e-posta adresinizi doğrulamak için yeniden yazın:"
 
 #: templates/CRM/Mailing/Form/Schedule.hlp
 msgid "Scheduling and Sending Mailings"
@@ -1074,37 +2087,36 @@ msgid ""
 "<strong>Previous</strong> to review your selection(s)."
 msgstr "Bu seçenekler alıcı işlemlerinin izlenip yanıtlanmasını sağlar. Bu postanın gönderilmesi için seçilmiş alıcı sayısı sağdaki kutuda görüntülenir. Bu sayı öngördüğünüz sayı ile tutarlı değilse <strong>Önceki</strong> üzerine tıklayarak seçimlerinizi gözden geçirin."
 
-#: templates/CRM/Mailing/Form/Settings.tpl
-msgid ""
-"Track the number of times recipients click each link in this mailing. NOTE: "
-"When this feature is enabled, all links in the message body will be "
-"automaticallly re-written to route through your CiviCRM server prior to "
-"redirecting to the target page."
-msgstr "Bu seçenek etkinleştirildiğinde, alıcıların bu e-postadaki bağlantılara kaç kez tıkladığı izlenir. Not: Bu özellik etkinleştirildiğinde, ileti metnindeki tüm bağlantılar kendiliğinden değiştirilir ve doğrudan hedef sayfaya yönlendirilmek yerine CiviCRM sunucusuna yönlendirildikten sonra hedef sayfanın açılması sağlanır."
+#: templates/CRM/Mailing/Form/Settings.tpl templates/CRM/Mailing/MailingUI.hlp
+msgid "Track the number of times recipients click each link in this mailing."
+msgstr "Alıcıların bu postadaki bağlantılara kaç kez tıkladığı izlenir."
 
-#: templates/CRM/Mailing/Form/Settings.tpl
+#: templates/CRM/Mailing/Form/Settings.tpl templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"NOTE: When this feature is enabled, all links in the message body will be "
+"automatically re-written to route through your CiviCRM server prior to "
+"redirecting to the target page."
+msgstr "Not: Bu özellik etkinleştirildiğinde, ileti metnindeki tüm bağlantılar kendiliğinden değiştirilir ve doğrudan hedef sayfaya yönlendirilmek yerine CiviCRM sunucusuna yönlendirildikten sonra hedef sayfanın açılması sağlanır."
+
+#: templates/CRM/Mailing/Form/Settings.tpl templates/CRM/Mailing/MailingUI.hlp
 msgid ""
 "Track the number of times recipients open this mailing in their email "
 "software."
 msgstr "Alıcıların kullandığı e-posta okuma yazılımı ile bu e-postayı kaç kez açtığı izlenir."
 
-#: templates/CRM/Mailing/Form/Settings.tpl
-msgid "Responding"
-msgstr "Yanıtlanıyor"
-
-#: templates/CRM/Mailing/Form/Settings.tpl
+#: templates/CRM/Mailing/Form/Settings.tpl templates/CRM/Mailing/MailingUI.hlp
 msgid ""
 "Recipients' replies are sent to a CiviMail specific address instead of the "
 "sender's address so they can be stored within CiviCRM."
 msgstr "Alıcıların yanıtları göndericinin adresine değil belirli bir CiviMail adresine gönderilecek CiviCRM içine kaydedilebilir."
 
-#: templates/CRM/Mailing/Form/Settings.tpl
+#: templates/CRM/Mailing/Form/Settings.tpl templates/CRM/Mailing/MailingUI.hlp
 msgid ""
 "If a recipient replies to this mailing, forward the reply to the FROM Email "
 "address specified for the mailing."
 msgstr "Bir alıcı bu e-postayı yanıtladığında, yanıt iletisi postalama için kullanılan KİMDEN e-posta adresine iletilir."
 
-#: templates/CRM/Mailing/Form/Settings.tpl
+#: templates/CRM/Mailing/Form/Settings.tpl templates/CRM/Mailing/MailingUI.hlp
 msgid ""
 "If a recipient replies to this mailing, send an automated reply using the "
 "selected message."
@@ -1170,16 +2182,16 @@ msgid ""
 msgstr "Tek bir e-posta adresi yazarak ya da varolan bir grubu seçerek \"Deneme Postasını Gönder\" üzerine tıklayın. Deneme postasını aldıktan sonra:"
 
 #: templates/CRM/Mailing/Form/Test.hlp
-msgid "Verify the content and formattting."
+msgid "Verify the content and formatting."
 msgstr "İçerik ve biçimlendirmeyi gözden geçirin."
 
-#: templates/CRM/Mailing/Form/Test.hlp
+#: templates/CRM/Mailing/Form/Test.hlp templates/CRM/Mailing/MailingUI.hlp
 msgid ""
 "If you are using mail-merge tokens, check that they have been replaced with "
 "expected values."
 msgstr "Posta birleştirme kodlarını kullanıyorsanız, kodların yerinde olması gereken bilgilerin görünüp görünmediğini denetleyin."
 
-#: templates/CRM/Mailing/Form/Test.hlp
+#: templates/CRM/Mailing/Form/Test.hlp templates/CRM/Mailing/MailingUI.hlp
 msgid ""
 "Click on each included link to make sure they go to the expected web pages."
 msgstr "Her bağlantıya tıklayarak, açılması gereken web sitelerini denetleyin."
@@ -1217,6 +2229,23 @@ msgstr "HTML Sürüm:"
 msgid "HTML Version"
 msgstr "HTML Sürüm"
 
+#: templates/CRM/Mailing/Form/Unsubscribe.tpl
+msgid ""
+"Are you sure you want to be removed from the mailing list(s) shown below:"
+msgstr "Aşağıda görüntülenen e-posta listelerinin aboneliğinden ayrılmak istediğinize emin misiniz:"
+
+#: templates/CRM/Mailing/Form/Unsubscribe.tpl
+msgid "You are requesting to unsubscribe this email address:"
+msgstr "Şu e-posta adresinin abonelikten ayrılmasını istediniz:"
+
+#: templates/CRM/Mailing/Form/Unsubscribe.tpl
+msgid ""
+"If this is not your email address, there is no need to do anything. You have"
+" <i><b>not</b></i> been added to any mailing lists. If this is your email "
+"address and you <i><b>wish to unsubscribe</b></i> please enter your email "
+"address below for verification purposes:"
+msgstr "Bu e-posta adresi size ait değil ise herhangi bir şey yapmanız gerekmiyor. Herhangi bir posta listesine <i><b>eklenmiş değilsiniz</b></i>. Bu adres size ait ve <i><b>abonelikten ayrılmak istiyorsanız</b></i> lütfen e-posta adresinizi doğrulamak için yeniden yazın:"
+
 #: templates/CRM/Mailing/Form/Upload.tpl
 msgid ""
 "You can either <strong>upload</strong> the mailing content from your "
@@ -1243,12 +2272,12 @@ msgstr "Bu postalama için önceden hazırlanmış <strong>HTML</strong> içeri�
 msgid "Header / Footer"
 msgstr "Üstbilgi ve Altbilgi"
 
-#: templates/CRM/Mailing/Form/Upload.tpl
+#: templates/CRM/Mailing/Form/Upload.tpl templates/CRM/Mailing/MailingUI.hlp
 msgid ""
 "You may choose to include a pre-configured Header block above your message."
 msgstr "İletinize önceden hazırlanmış bir üstbilgi bölümü ekleyebilirsiniz."
 
-#: templates/CRM/Mailing/Form/Upload.tpl
+#: templates/CRM/Mailing/Form/Upload.tpl templates/CRM/Mailing/MailingUI.hlp
 msgid ""
 "You may choose to include a pre-configured Footer block below your message. "
 "This is a good place to include the required unsubscribe, opt-out and postal"
@@ -1258,6 +2287,65 @@ msgstr "İletinize önceden hazırlanmış bir altbilgi bölümü ekleyebilirsin
 #: templates/CRM/Mailing/Form/Upload.tpl
 msgid "More information and sample messages..."
 msgstr "Ayrıntılı bilgiler ve örnek iletiler..."
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"Multiple people -- such as spouses, parents, or children -- may sometimes "
+"share the same email address."
+msgstr "Bir kaç kişi -- eşler, büyükler ya da çokcuklar gibi -- aynı e-posta adresini paylaşabilir."
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"To send only one message to the shared address, enable this option. Mail-"
+"merge tokens will be filled for only one person."
+msgstr "Bu seçenek etkinleştirildiğinde, paylaşılan adreslere yalnız bir e-posta gönderilir. Posta birleştirme kodları yalnız bir kişi için doldurulur."
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"To send separate messages for each person, disable this option. Mail-merge "
+"tokens will be filled separately for each person."
+msgstr "Bu seçenek devre dışı bırakıldığında, her kişiye ayrı posta gönderilir. Posta birleştirme kodları her kişi için ayrı ayrı doldurulur."
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"This option controls who can view the contents of this email on your "
+"website. The link can be included by inserting the \"Mailing permalink\" "
+"token (place it in a link when composing in HTML mode)."
+msgstr "Bu seçenek web sitenizde bu e-postanın içeriğini görebilecek kişileri belirler. İletiye bağlantı eklemek için \"Kalıcı Postalama Bağlantısı\" kodunu kullanın (HTML kipinde bağlantı içine yerleştirin)."
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid "The options for mailing visibility are:"
+msgstr "Posta görüntüleme seçenekleri:"
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"\"Public Pages\" will make the content of this mailing viewable everyone who"
+" has the permission \"view public CiviMail content\". Note that even people "
+"who did not receive the mailing would be able to find it via search engines."
+msgstr "\"herkese açık sayfalar\" bu postalamanın içeriğinin web sayfası biçiminde \"herkese açık CiviMail içeriğini görebilsin\" iznine sahip herkes tarafından görüntülenebilmesini sağlar. Bu sayfaları postalama yapılmayan kişilerin de arama motorları aracılığı ile görebileceğini unutmayın."
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"\"User and User Admin Only\" means that only users that received the mailing"
+" or administrators can view this email on your website; users must be logged"
+" in to view the message."
+msgstr "\"Kullanıcı ve Yöneticiler\" bu postalamanın içeriğinin web sayfası biçiminde yalnız alıcı listesindeki kullanıcılar ve yöneticiler tarafından görüntülenebilmesini sağlar. Alıcıların iletiyi görebilmesi için oturum açması gerekir."
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"It's a good idea to test your mailing by sending it to yourself and/or a "
+"selected group of people in your organization."
+msgstr "Denemek için postalamayı kendinize ya da kuruluşunuzdan seçilmiş bir grup kişiye yapmanız iyi olabilir."
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid "Things to check in a test mailing:"
+msgstr "Bir deneme postasında denetlenecek konular:"
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"Verify the content and formatting looks consistent across various email "
+"clients."
+msgstr "İçerik ve biçimlendirmenin farklı e-posta programlarında düzgün göründüğünden emin olun."
 
 #: templates/CRM/Mailing/Page/Browse.hlp
 msgid ""
@@ -1273,6 +2361,14 @@ msgid ""
 "Find mailings by the name of the person who created or sent them. You can "
 "enter a complete OR partial name (last name, first name format)."
 msgstr "Postaları oluşturan ya da gönderen kişi adına göre aranabilir. Adın bir kısmı ya da tamamı yazılabilir (soyad, ad biçiminde)."
+
+#: templates/CRM/Mailing/Page/Browse.hlp
+msgid "Archived"
+msgstr "Arşivlenmiş"
+
+#: templates/CRM/Mailing/Page/Browse.hlp
+msgid "This field is disabled when searching for Draft/Unscheduled mailings."
+msgstr "Taslak ve Zamanlanmamış postalamalar aranırken bu alan devre dışı bırakılır."
 
 #: templates/CRM/Mailing/Page/Browse.tpl
 msgid "No %1 match your search criteria. Suggestions:"
@@ -1331,18 +2427,6 @@ msgstr "Malesef, abonelik onayınız işlenirken bir sorun çıktı. Lütfen sit
 #: templates/CRM/Mailing/Page/Event.tpl
 msgid "There are currently no %1."
 msgstr "Henüz bir %1 yok."
-
-#: templates/CRM/Mailing/Page/Optout.tpl
-msgid "has been successfully opted out."
-msgstr "abonelikten ayrıldı."
-
-#: templates/CRM/Mailing/Page/Optout.tpl
-msgid "Are you sure you want to optout: %1 (%2)"
-msgstr "Tüm aboneliklerden ayrılmak istediğinize emin misiniz: %1 (%2)"
-
-#: templates/CRM/Mailing/Page/Optout.tpl
-msgid "Optout"
-msgstr "Tüm Aboneliklerden Ayrılın"
 
 #: templates/CRM/Mailing/Page/Report.tpl
 msgid "Delivery Summary"
@@ -1428,593 +2512,106 @@ msgstr "Yeniden abone olmak istediğinize emin misiniz: %1 (%2)"
 msgid "Opens/ Clicks"
 msgstr "Açılma / Tıklanma"
 
-#: templates/CRM/Mailing/Page/Tab.tpl
-msgid "No mailings found"
-msgstr "Henüz bir postalama bulunamadı"
+#: CRM/Mailing/BAO/Query.php
+msgid "Campaign %1 %2"
+msgstr "Kampanya %1 %2"
 
-#: templates/CRM/Mailing/Page/Unsubscribe.tpl
-msgid "has been successfully removed from the specified mailing list(s)."
-msgstr "belirtilen postalama listelerinden çıkarıldı."
+#: CRM/Mailing/DAO/BouncePattern.php
+msgid "Bounce Pattern ID"
+msgstr "Geri Dönüş Örüntü Kodu"
 
-#: templates/CRM/Mailing/Page/Unsubscribe.tpl
-msgid " %1 (%2)"
-msgstr " %1 (%2)"
+#: CRM/Mailing/DAO/BounceType.php
+msgid "Bounce Type ID"
+msgstr "Geri Dönüş Tip Kodu"
 
-#: templates/CRM/Mailing/Page/Unsubscribe.tpl
+#: CRM/Mailing/DAO/BounceType.php
+msgid "Bounce Type Name"
+msgstr "Geri Dönüş Tip Adı"
+
+#: CRM/Mailing/DAO/BounceType.php
+msgid "Bounce Type Description"
+msgstr "Geri Dönüş Tip Açıklaması"
+
+#: CRM/Mailing/DAO/Spool.php
+msgid "Spool ID"
+msgstr "Kuyruk Kodu"
+
+#: CRM/Mailing/DAO/Spool.php
+msgid "Mailing Job"
+msgstr "Postalama Görevi"
+
+#: CRM/Mailing/DAO/TrackableURL.php
+msgid "Trackable URL ID"
+msgstr "İzlenebilir İnternet Adresi Kodu"
+
+#: CRM/Mailing/Event/DAO/Bounce.php
+msgid "Bounce ID"
+msgstr "Geri Dönüş Kodu"
+
+#: CRM/Mailing/Event/DAO/Bounce.php CRM/Mailing/Event/DAO/Delivered.php
+#: CRM/Mailing/Event/DAO/Opened.php CRM/Mailing/Event/DAO/Reply.php
+#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
+msgid "Event Queue"
+msgstr "İşlem Kuyruğu"
+
+#: CRM/Mailing/Event/DAO/Delivered.php
+msgid "Delivered ID"
+msgstr "Gönderildi Kodu"
+
+#: CRM/Mailing/Event/DAO/Forward.php
+msgid "Forward ID"
+msgstr "İletilim Kodu"
+
+#: CRM/Mailing/Event/DAO/Forward.php
+msgid "Destination Queue"
+msgstr "Hedef Kuyruk"
+
+#: CRM/Mailing/Event/DAO/Opened.php
+msgid "Mailing Opened ID"
+msgstr "Postalama Açılma Kodu"
+
+#: CRM/Mailing/Event/DAO/Reply.php
+msgid "Reply ID"
+msgstr "Yanıt Kodu"
+
+#: CRM/Mailing/Event/DAO/Reply.php
+msgid "Reply Timestamp"
+msgstr "Yanıt Zaman Damgası"
+
+#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
+msgid "Trackable URL Open ID"
+msgstr "İzlenebilir İnternet Adresi Açılma Kodu"
+
+#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
+msgid "Trackable Url"
+msgstr "İzlenebilir İnternet Adresi"
+
+#: CRM/Mailing/Selector/Event.php
+msgid "Total Tracked Opens"
+msgstr "İzlenebilir Açılma Toplamı"
+
+#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+msgid "Click-Throughs"
+msgstr "Tıklayıp Geçmeler"
+
+#: ang/crmMailing/BlockTracking.html
+msgid "Track Click-Throughs"
+msgstr "Tıklayıp Geçmeler İzlensin"
+
+#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid ""
-"Are you sure you want to be removed from the mailing list(s) shown below:"
-msgstr "Aşağıda görüntülenen e-posta listelerinin aboneliğinden ayrılmak istediğinize emin misiniz:"
-
-#: templates/CRM/Mailing/Page/Unsubscribe.tpl
-msgid ""
-"Sorry you are not currently on this mailing list. Perhaps you have already "
-"unsubscribed."
-msgstr "Malesef, şu anda bu e-posta listesinde değilsiniz. Daha önce abonelikten ayrılmış olabilirsiniz."
-
-#: CRM/Mailing/BAO/Mailing.php
-msgid "SMS Message"
-msgstr "SMS İletisi"
-
-#: CRM/Mailing/DAO/Component.php
-msgid "Mailing Component ID"
-msgstr "Postalama Bileşeni Kodu"
-
-#: CRM/Mailing/DAO/Component.php
-msgid "Mailing Component Type"
-msgstr "Postalama Bileşeni Tipi"
-
-#: CRM/Mailing/DAO/Component.php
-msgid "Mailing Component Body HTML"
-msgstr "Postalama Bileşeni Metni HTML Kodu"
-
-#: CRM/Mailing/DAO/Component.php
-msgid "Mailing Component is Default?"
-msgstr "Varsayılan Postalama Bileşeni "
-
-#: CRM/Mailing/DAO/Component.php
-msgid "Mailing Component Is Active?"
-msgstr "Postalama Bileşeni Etkin"
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing ID"
-msgstr "Postalama Kodu"
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing Domain"
-msgstr "Postalama Etki Alanı"
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing Reply"
-msgstr "Postalama Yanıt"
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing Unsubscribe"
-msgstr "Postalama Abonelikten Ayrılma"
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing Resubscribe"
-msgstr "Postalama Yeniden Abone Olma"
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing Opt Out"
-msgstr "Postalama Abonelikten Ayrılma"
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing From Name"
-msgstr "Postalama Kimden Adı"
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing From Email"
-msgstr "Postalama Kimden E-posta Adresi"
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Track Mailing?"
-msgstr "Postalama İzleme"
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing Completed"
-msgstr "Postalama Tamamlandı"
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing Message Template"
-msgstr "Postalama İleti Kalıbı"
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing Creator"
-msgstr "Postalama Oluşturan"
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Approved By"
-msgstr "Onaylayan"
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Is Mailing Archived?"
-msgstr "Postalama Arşivlendi"
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing Campaign"
-msgstr "Postalama Kampanyası"
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "No Duplicate emails?"
-msgstr "Çift e-postalar gönderilmesin"
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing SMS Provider"
-msgstr "Postalama SMS Hizmeti Sağlayıcısı"
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing Hash"
-msgstr "Postalama Karması"
-
-#: CRM/Mailing/DAO/MailingGroup.php
-msgid "Mailing Group ID"
-msgstr "Postalama Grup Kodu"
-
-#: CRM/Mailing/DAO/MailingGroup.php
-msgid "Mailing Group Type"
-msgstr "Postalama Grup Tipi"
-
-#: CRM/Mailing/DAO/MailingGroup.php
-msgid "Mailing Group Entity Table"
-msgstr "Postalama Grubu Kuruluş Tablosu"
-
-#: CRM/Mailing/DAO/MailingGroup.php
-msgid "Mailing Group Entity"
-msgstr "Postalama Grubu Kuruluşu"
-
-#: CRM/Mailing/DAO/MailingGroup.php
-msgid "Mailing Group Search"
-msgstr "Postalama Grubu Arama"
-
-#: CRM/Mailing/DAO/MailingGroup.php
-msgid "Mailing Group Search Arguments"
-msgstr "Postalama Grubu Arama Ölçütleri"
-
-#: CRM/Mailing/DAO/MailingJob.php
-msgid "Mailing JOb ID"
-msgstr "Postalama Görevi Kodu"
-
-#: CRM/Mailing/DAO/MailingJob.php
-msgid "Mailing Job Start Date"
-msgstr "Postalama Görevi Başlangıç Tarihi"
-
-#: CRM/Mailing/DAO/MailingJob.php
-msgid "Mailing Job End Date"
-msgstr "Postalama Görevi Bitiş Tarihi"
-
-#: CRM/Mailing/DAO/MailingJob.php
-msgid "Mailing Job Is Test?"
-msgstr "Postalama Görevini Deneme"
-
-#: CRM/Mailing/DAO/MailingJob.php
-msgid "Mailing Job Type"
-msgstr "Postalama Görevi Tipi"
-
-#: CRM/Mailing/DAO/MailingJob.php
-msgid "Mailing Job Parent"
-msgstr "Postalama Görevinin Üstü"
-
-#: CRM/Mailing/DAO/MailingJob.php
-msgid "Mailing Job Offset"
-msgstr "Postalama Görevinin Kayması"
-
-#: CRM/Mailing/DAO/MailingJob.php
-msgid "Mailing Job Limit"
-msgstr "Postalama Görevi Sınırı"
-
-#: CRM/Mailing/DAO/Recipients.php
-msgid "Mailing Recipients ID"
-msgstr "Postalama Alıcı Kodu"
-
-#: CRM/Mailing/DAO/Recipients.php
-msgid "Recipient Phone"
-msgstr "Alıcı Telefon Numarası"
-
-#: CRM/Mailing/Event/DAO/Confirm.php
-msgid "Mailing Confirmation ID"
-msgstr "Postalama Onay Kodu"
-
-#: CRM/Mailing/Event/DAO/Confirm.php CRM/Mailing/Event/DAO/Subscribe.php
-msgid "Mailing Subscribe ID"
-msgstr "Postalama Abonelik Kodu"
-
-#: CRM/Mailing/Event/DAO/Confirm.php
-msgid "Confirm Timestamp"
-msgstr "Zaman Damgası Onayı"
-
-#: CRM/Mailing/Event/DAO/Subscribe.php
-msgid "Mailing Subscribe Group"
-msgstr "Postalama Grup Aboneliği"
-
-#: CRM/Mailing/Event/DAO/Subscribe.php
-msgid "Mailing Subscribe Contact"
-msgstr "Postalama Kişi Aboneliği"
-
-#: CRM/Mailing/Event/DAO/Subscribe.php
-msgid "Mailing Subscribe Hash"
-msgstr "Postalama Abonelik Karması"
-
-#: CRM/Mailing/Event/DAO/Subscribe.php
-msgid "Mailing Subscribe Timestamp"
-msgstr "Postalama Abonelik Zaman Damgası"
-
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
-msgid "Unsubscribe ID"
-msgstr "Abonelikten Ayrılma Kodu"
-
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
-msgid "Mailing Event Queue"
-msgstr "Postalama İşlem Kuyruğu"
-
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
-msgid "Unsubscribe is for Organization?"
-msgstr "Kuruluş için abonelikten ayrılma"
-
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
-msgid "Unsubscribe Timestamp"
-msgstr "Abonelikten Ayrılma Zaman Damgası"
-
-#: CRM/Mailing/Form/Optout.php
-msgid "Please Confirm Your Opt Out"
-msgstr "Lütfen Abonelikten Ayrılma İsteğinizi Onaylayın"
-
-#: CRM/Mailing/Form/Optout.php
-msgid "Verify email address to opt out:"
-msgstr "Abonelikten ayırmak istediğiniz e-posta adresini doğrulayın:"
-
-#: CRM/Mailing/Form/Optout.php
-msgid "Email address is required to opt out."
-msgstr "Abonelikten ayrılması istenen e-posta adresi."
-
-#: CRM/Mailing/Form/Optout.php
-msgid "Email: %1 has been successfully opted out"
-msgstr "%1 e-posta adresi abonelikten ayrıldı"
-
-#: CRM/Mailing/Form/Optout.php
-msgid ""
-"The email address: %1 you have entered does not match the email associated "
-"with this opt out request."
-msgstr "Yazığınız %1 e-posta adresi abonelikten ayrılma isteğindeki e-posta adresi ile eşleşmiyor."
-
-#: CRM/Mailing/Form/Search.php
-msgid "Draft / Unscheduled"
-msgstr "Taslak ve Zamanlanmamış"
-
-#: CRM/Mailing/Form/Unsubscribe.php
-msgid "Missing Parameters"
-msgstr "Parametreler Eksik"
-
-#: CRM/Mailing/Form/Unsubscribe.php
-msgid ""
-"Email: %1 has been successfully unsubscribed from this Mailing List/Group."
-msgstr "%1 e-posta adresi, bu postalama listesi ya da grup aboneliğinden ayrıldı."
-
-#: CRM/Mailing/Form/Unsubscribe.php
-msgid "Please Confirm Your Unsubscribe from this Mailing/Group"
-msgstr "Lütfen bu posta listesi ya da grup aboneliğinden ayrılma isteğinizi onaylayın"
-
-#: CRM/Mailing/Form/Unsubscribe.php
-msgid "Verify email address to unsubscribe:"
-msgstr "Abonelikten ayırmak istediğiniz e-posta adresini doğrulayın:"
-
-#: CRM/Mailing/Form/Unsubscribe.php
-msgid "Email address is required to unsubscribe."
-msgstr "Abonelikten ayrılması istenen e-posta adresi."
-
-#: CRM/Mailing/Form/Unsubscribe.php
-msgid ""
-"The email address: %1 you have entered does not match the email associated "
-"with this unsubscribe request."
-msgstr "Yazığınız %1 e-posta adresi abonelikten ayrılma isteğindeki e-posta adresi ile eşleşmiyor."
-
-#: templates/CRM/Mailing/Form/Optout.tpl
-msgid ""
-"You are requesting to opt out this email address from all mailing lists:"
-msgstr "Şu e-posta adresinin tüm posta listelerinin aboneliğinden ayrılmasını istediniz:"
-
-#: templates/CRM/Mailing/Form/Optout.tpl
-msgid ""
-"If this is not your email address, there is no need to do anything. You have"
-" <i><b>not</b></i> been added to any mailing lists. If this is your email "
-"address and you <i><b>wish to opt out</b></i> please enter your email "
-"address below for verification purposes:"
-msgstr "Bu e-posta adresi size ait değil ise herhangi bir şey yapmanız gerekmiyor. Herhangi bir posta listesine <i><b>eklenmiş değilsiniz</b></i>. Bu adres size ait ve <i><b>abonelikten ayrılmak istiyorsanız</b></i> lütfen e-posta adresinizi doğrulamak için yeniden yazın:"
-
-#: templates/CRM/Mailing/Form/Unsubscribe.tpl
-msgid "You are requesting to unsubscribe this email address:"
-msgstr "Şu e-posta adresinin abonelikten ayrılmasını istediniz:"
-
-#: templates/CRM/Mailing/Form/Unsubscribe.tpl
-msgid ""
-"If this is not your email address, there is no need to do anything. You have"
-" <i><b>not</b></i> been added to any mailing lists. If this is your email "
-"address and you <i><b>wish to unsubscribe</b></i> please enter your email "
-"address below for verification purposes:"
-msgstr "Bu e-posta adresi size ait değil ise herhangi bir şey yapmanız gerekmiyor. Herhangi bir posta listesine <i><b>eklenmiş değilsiniz</b></i>. Bu adres size ait ve <i><b>abonelikten ayrılmak istiyorsanız</b></i> lütfen e-posta adresinizi doğrulamak için yeniden yazın:"
-
-#: CRM/Mailing/BAO/Mailing.php
-msgid "Field \"%1\" is required."
-msgstr "\"%\" alanı zorunludur."
-
-#: CRM/Mailing/BAO/Mailing.php
-msgid "Field \"body_html\" or \"body_text\" is required."
-msgstr "\"body_html\" ya da \"body_text\" alanının kullanılması zorunludur."
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing Type"
-msgstr "Postalama Tipi"
-
-#: CRM/Mailing/DAO/Mailing.php CRM/Mailing/Form/Group.php
-msgid "Email Selection Method"
-msgstr "E-posta Seçim Yöntemi"
-
-#: CRM/Mailing/DAO/MailingAB.php
-msgid "MailingAB ID"
-msgstr "Postalama AB Kod"
-
-#: CRM/Mailing/DAO/MailingAB.php
-msgid "Mailing ID (A)"
-msgstr "Postalama Kod (A)"
-
-#: CRM/Mailing/DAO/MailingAB.php
-msgid "Mailing ID (B)"
-msgstr "Postalama Kod (B)"
-
-#: CRM/Mailing/DAO/MailingAB.php
-msgid "Mailing ID (C)"
-msgstr "Postalama Kod (C)"
-
-#: CRM/Mailing/DAO/MailingAB.php
-msgid "Testing Criteria"
-msgstr "Deneme Ölçütü"
-
-#: CRM/Mailing/DAO/MailingAB.php
-msgid "Winner Criteria"
-msgstr "Kazanma Ölçütü"
-
-#: CRM/Mailing/DAO/MailingAB.php
-msgid "URL for Winner Criteria"
-msgstr "Kazanma Ölçütünün İnternet Adresi"
-
-#: CRM/Mailing/DAO/MailingAB.php
-msgid "Declaration Time"
-msgstr "Bildirim Zamanı"
-
-#: CRM/Mailing/DAO/MailingAB.php
-msgid "Group Percentage"
-msgstr "Grup Yüzdesi"
-
-#: CRM/Mailing/DAO/MailingAB.php
-msgid "AB Test Created By"
-msgstr "AB Denemesini Oluşturan"
-
-#: CRM/Mailing/DAO/MailingAB.php
-msgid "AB Test Created Date"
-msgstr "AB Denemesinin Oluşturulma Tarihi"
-
-#: CRM/Mailing/DAO/MailingJob.php
-msgid "Mailing Job ID"
-msgstr "Postalama Görevi Kodu"
-
-#: CRM/Mailing/Event/DAO/Queue.php
-msgid "Mailing Event Queue ID"
-msgstr "Postalama İşlemi Kuyruk Kodu"
-
-#: CRM/Mailing/Event/DAO/Queue.php
-msgid "Security Hash"
-msgstr "Güvenlik Karması"
-
-#: CRM/Mailing/Form/Group.php
-msgid ""
-"If 'Email Selection Method' is automatic, you are not allowed to choose any "
-"'Location Type'"
-msgstr "'E-posta Seçimi Yöntemi' otomatik ise, herhangi bir 'Konum Tipi' seçilemez"
-
-#: CRM/Mailing/Form/Group.php
-msgid ""
-"If 'Location Type' is not selected, you must set the 'Email Selection "
-"Method' to automatic as well."
-msgstr "'Konum Tipi' seçilmemiş ise, 'E-posta Seçimi Yöntemi' seçeneği otomatik olarak ayarlanmalıdır"
-
-#: CRM/Mailing/Info.php
-msgid "access CiviMail"
-msgstr "CiviMail erişimi"
-
-#: CRM/Mailing/Info.php
-msgid "access CiviMail subscribe/unsubscribe pages"
-msgstr "CiviMail abonelik/abonelikten ayrılma sayfalarına erişim"
-
-#: CRM/Mailing/Info.php
-msgid "Subscribe/unsubscribe from mailing list group"
-msgstr "Postalama listesi grubuna abonelik/abonelikten ayrılma"
-
-#: CRM/Mailing/Info.php
-msgid "delete in CiviMail"
-msgstr "CiviMail üzerinden silme"
-
-#: CRM/Mailing/Info.php
-msgid "view public CiviMail content"
-msgstr "Herkese açık CiviMail içeriğini görme"
-
-#: CRM/Mailing/Info.php
-msgid "create mailings"
-msgstr "postalama oluşturma"
-
-#: CRM/Mailing/Info.php
-msgid "schedule mailings"
-msgstr "postalama zamanlama"
-
-#: CRM/Mailing/Info.php
-msgid "approve mailings"
-msgstr "postalama onaylama"
-
-#: CRM/Mailing/PseudoConstant.php
-msgid "Draft"
-msgstr "Taslak"
-
-#: CRM/Mailing/PseudoConstant.php
-msgid "Testing"
-msgstr "Deneniyor"
-
-#: CRM/Mailing/PseudoConstant.php
-msgid "Final"
-msgstr "Son"
-
-#: CRM/Mailing/PseudoConstant.php
-msgid "Test different \"Subject\" lines"
-msgstr "Farklı \"Konu\" satırları sınansın"
-
-#: CRM/Mailing/PseudoConstant.php
-msgid "Test different \"From\" lines"
-msgstr "Farklı \"Kimden\" satırları sınansın"
-
-#: CRM/Mailing/PseudoConstant.php
-msgid "Test entirely different emails"
-msgstr "Tamamen farklı e-postalar sınansın"
-
-#: CRM/Mailing/PseudoConstant.php
-msgid "Total Unique Clicks"
-msgstr "Toplam Tekil Tıklama"
-
-#: CRM/Mailing/PseudoConstant.php
-msgid "Total Clicks on a particular link"
-msgstr "Belirli bir bağlatıya toplam tıklama"
-
-#: CRM/Mailing/PseudoConstant.php
-msgid "Standalone"
-msgstr "Tek Başına"
-
-#: CRM/Mailing/PseudoConstant.php
-msgid "Experimental"
-msgstr "Deneysel"
-
-#: CRM/Mailing/PseudoConstant.php
-msgid "Winner"
-msgstr "Kazanan"
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid "Email selection"
-msgstr "E-posta seçimi"
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"Some of your contacts may have more than one email address. By selecting a "
-"location and a selection method, you can tell CiviCRM which email address to"
-" use for this mailing."
-msgstr "Kişilerinizden bazılarının birden fazla e-posta adresi var. Bir konum ve bir seçim yöntemi seçerek bu postalama için hangi e-posta adresinin kullanılacağını belirleyebilirsiniz."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"Automatic: If you choose automatic for both the location and the selection "
-"method, CiviCRM will choose the best option for each user: If an email is "
-"marked \"Bulk\" then it will be used; otherwise, the email marked "
-"\"Primary\" will be used."
-msgstr "Otomatik: Konum ve seçim yöntemi olarak otomatik seçilirse, her kullanıcı için en iyi seçenek CiviCRM tarafından belirlenir. \"Toplu\" olarak işaretlenmiş bir e*posta adresi varsa o kullanılır yoksa \"Birincil\" olarak işaretlenmiş e-posta adresi kullanılır."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"If \"Only send to email addresses assigned to the specified location\" is "
-"selected, then the recipients will be restricted to only include contacts "
-"that have an email address assigned to the given location. This option may "
-"limit the number of recipients in your mailing."
-msgstr "\"Belirli bir adrese atanmış e-postalar gönderilsin\" seçilmiş ise, posta yalnız belirtilen konuma atanmış e-posta adreslerindeki alıcılara gönderilir. Bu seçenek posta alıcılarınızın sayısını sınırlar."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"If \"Prefer email addresses assigned to the specified location\" is "
-"selected, then recipients that have an email address assigned to the given "
-"location will have that email used. Other recipients will have their email "
-"selected using the automatic method."
-msgstr "\"Belirli bir adrese atanmış e-postalar yeğlensin\" seçilmiş ise, posta yalnız belirtilen konuma atanmış e-posta adreslerindeki alıcılara gönderilir. Diğer alıcıların e-posta adresi otomatik yöntem kullanılarak seçilir."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"If \"Exclude email addresses assigned to the specified location\" is chosen,"
-" then recipients who only have an email address assigned to the given "
-"location will be excluded. Everyone else will have their email chosen from "
-"the list of emails that are not assigned to the given location, using the "
-"automatic method."
-msgstr "\"Belirli bir adrese atanmış e-postalar katılmasın\" seçilmiş ise, posta belirtilen konuma atanmış e-posta adreslerindeki alıcılara gönderilmez. Listeye seçilmiş ve e-posta adresi belirtilen konuma atanmamış alıcıların adresleri otomatik yöntem kullanılarak seçilir."
-
-#: templates/CRM/Mailing/Form/Settings.tpl templates/CRM/Mailing/MailingUI.hlp
-msgid "Track the number of times recipients click each link in this mailing."
-msgstr "Alıcıların bu postadaki bağlantılara kaç kez tıkladığı izlenir."
-
-#: templates/CRM/Mailing/Form/Settings.tpl templates/CRM/Mailing/MailingUI.hlp
-msgid ""
-"NOTE: When this feature is enabled, all links in the message body will be "
-"automatically re-written to route through your CiviCRM server prior to "
-"redirecting to the target page."
-msgstr "Not: Bu özellik etkinleştirildiğinde, ileti metnindeki tüm bağlantılar kendiliğinden değiştirilir ve doğrudan hedef sayfaya yönlendirilmek yerine CiviCRM sunucusuna yönlendirildikten sonra hedef sayfanın açılması sağlanır."
-
-#: templates/CRM/Mailing/Form/Test.hlp
-msgid "Verify the content and formatting."
-msgstr "İçerik ve biçimlendirmeyi gözden geçirin."
+"The mailing must allow recipients to (a) unsubscribe from the mailing-list "
+"or (b) completely opt-out from all mailings. Please insert an unsubscribe or"
+" opt-out token."
+msgstr "Postalama alıcıları (a) bu posta listesinin aboneliğinden ya da (b) tüm postalama aboneliklerinden ayrılabilmelidir. Lütfen abonelikten ayrılma ya da tüm aboneliklerden ayrılma kodlarını birini ekleyin."
+
+#: ang/crmMailingAB/EditCtrl/report.html
+msgid "Reports for '%1'"
+msgstr "'%1' için raporlar"
 
 #: templates/CRM/Mailing/MailingUI.hlp
 msgid ""
-"Multiple people -- such as spouses, parents, or children -- may sometimes "
-"share the same email address."
-msgstr "Bir kaç kişi -- eşler, büyükler ya da çokcuklar gibi -- aynı e-posta adresini paylaşabilir."
-
-#: templates/CRM/Mailing/MailingUI.hlp
-msgid ""
-"To send only one message to the shared address, enable this option. Mail-"
-"merge tokens will be filled for only one person."
-msgstr "Bu seçenek etkinleştirildiğinde, paylaşılan adreslere yalnız bir e-posta gönderilir. Posta birleştirme kodları yalnız bir kişi için doldurulur."
-
-#: templates/CRM/Mailing/MailingUI.hlp
-msgid ""
-"To send separate messages for each person, disable this option. Mail-merge "
-"tokens will be filled separately for each person."
-msgstr "Bu seçenek devre dışı bırakıldığında, her kişiye ayrı posta gönderilir. Posta birleştirme kodları her kişi için ayrı ayrı doldurulur."
-
-#: templates/CRM/Mailing/MailingUI.hlp
-msgid ""
-"This option controls who can view the contents of this email on your "
-"website. The link can be included by inserting the \"Mailing permalink\" "
-"token (place it in a link when composing in HTML mode)."
-msgstr "Bu seçenek web sitenizde bu e-postanın içeriğini görebilecek kişileri belirler. İletiye bağlantı eklemek için \"Kalıcı Postalama Bağlantısı\" kodunu kullanın (HTML kipinde bağlantı içine yerleştirin)."
-
-#: templates/CRM/Mailing/MailingUI.hlp
-msgid "The options for mailing visibility are:"
-msgstr "Posta görüntüleme seçenekleri:"
-
-#: templates/CRM/Mailing/MailingUI.hlp
-msgid ""
-"\"Public Pages\" will make the content of this mailing viewable everyone who"
-" has the permission \"view public CiviMail content\". Note that even people "
-"who did not receive the mailing would be able to find it via search engines."
-msgstr "\"herkese açık sayfalar\" bu postalamanın içeriğinin web sayfası biçiminde \"herkese açık CiviMail içeriğini görebilsin\" iznine sahip herkes tarafından görüntülenebilmesini sağlar. Bu sayfaları postalama yapılmayan kişilerin de arama motorları aracılığı ile görebileceğini unutmayın."
-
-#: templates/CRM/Mailing/MailingUI.hlp
-msgid ""
-"\"User and User Admin Only\" means that only users that received the mailing"
-" or administrators can view this email on your website; users must be logged"
-" in to view the message."
-msgstr "\"Kullanıcı ve Yöneticiler\" bu postalamanın içeriğinin web sayfası biçiminde yalnız alıcı listesindeki kullanıcılar ve yöneticiler tarafından görüntülenebilmesini sağlar. Alıcıların iletiyi görebilmesi için oturum açması gerekir."
-
-#: templates/CRM/Mailing/MailingUI.hlp
-msgid ""
-"It's a good idea to test your mailing by sending it to yourself and/or a "
-"selected group of people in your organization."
-msgstr "Denemek için postalamayı kendinize ya da kuruluşunuzdan seçilmiş bir grup kişiye yapmanız iyi olabilir."
-
-#: templates/CRM/Mailing/MailingUI.hlp
-msgid "Things to check in a test mailing:"
-msgstr "Bir deneme postasında denetlenecek konular:"
-
-#: templates/CRM/Mailing/MailingUI.hlp
-msgid ""
-"Verify the content and formatting looks consistent across various email "
-"clients."
-msgstr "İçerik ve biçimlendirmenin farklı e-posta programlarında düzgün göründüğünden emin olun."
-
-#: templates/CRM/Mailing/Page/Browse.hlp
-msgid "Archived"
-msgstr "Arşivlenmiş"
-
-#: templates/CRM/Mailing/Page/Browse.hlp
-msgid "This field is disabled when searching for Draft/Unscheduled mailings."
-msgstr "Taslak ve Zamanlanmamış postalamalar aranırken bu alan devre dışı bırakılır."
+"NOTE: When this feature is enabled, all links in the message body (including"
+" mailtos) will be automatically re-written to route through your CiviCRM "
+"website prior to redirecting to the target page."
+msgstr "Not: Bu özellik etkinleştirildiğinde, ileti metnindeki tüm bağlantılar kendiliğinden değiştirilir (mailto bağlantıları da) ve doğrudan hedef sayfaya yönlendirilmek yerine CiviCRM web sitenize yönlendirildikten sonra hedef sayfanın açılması sağlanır."
