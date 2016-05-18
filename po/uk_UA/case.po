@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2015-12-09 21:23-0500\n"
-"PO-Revision-Date: 2015-12-10 02:30+0000\n"
+"POT-Creation-Date: 2016-05-09 13:33-0400\n"
+"PO-Revision-Date: 2016-05-09 17:36+0000\n"
 "Last-Translator: Mathieu Lutfy <mathieu@bidon.ca>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/civicrm/civicrm/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -20,12 +20,10 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: CRM/Case/BAO/Case.php templates/CRM/Case/Page/DashboardSelector.tpl
-msgid "View this activity."
-msgstr "Переглянути цю діяльність."
-
-#: CRM/Case/BAO/Case.php
-msgid "Edit status"
-msgstr "Редагувати статус"
+#: xml/templates/message_templates/case_activity_html.tpl
+#: xml/templates/message_templates/case_activity_text.tpl
+msgid "View activity"
+msgstr "Переглянути діяльність"
 
 #: CRM/Case/BAO/Case.php
 msgid "no subject"
@@ -42,10 +40,6 @@ msgstr "Перейти до справи"
 #: CRM/Case/BAO/Case.php
 msgid "Copy To Case"
 msgstr "Скопіювати до справи"
-
-#: CRM/Case/BAO/Case.php
-msgid "View Attachment"
-msgstr "Переглянути додаток"
 
 #: CRM/Case/BAO/Case.php
 msgid "File %1 does not exist or is not readable"
@@ -82,13 +76,12 @@ msgstr "Справа %1 скопійована з ID номеру контакт
 msgid "Case %1 merged into case %2"
 msgstr "Справа %1 була з'єднана з справою %2"
 
-#: CRM/Case/BAO/Query.php
-msgid "Case Status is %1"
-msgstr "Статус справи %1"
-
-#: CRM/Case/BAO/Query.php
-msgid "Case Type is %1"
-msgstr "Тип справи %1"
+#: CRM/Case/BAO/CaseType.php
+msgid ""
+"You can not delete this case type -- it is assigned to %1 existing case "
+"record(s). If you do not want this case type to be used going forward, "
+"consider disabling it instead."
+msgstr "Ви не можете видалити цей тип корпусу - він призначений % 1 існуючим матеріалами справи (в). Якщо ви не хочете, щоб цей тип справи, використовувався в майбутньому, рекомендується відключити його замість цього."
 
 #: CRM/Case/BAO/Query.php
 msgid "Case %1 My Cases"
@@ -158,21 +151,41 @@ msgstr "Шукати всі справи"
 msgid "Only My Cases"
 msgstr "Тільки мої справи"
 
-#: CRM/Case/BAO/Query.php CRM/Case/Form/Task/Delete.php
+#: CRM/Case/BAO/Query.php
 msgid "Deleted Cases"
 msgstr "Видалена справа"
 
 #: CRM/Case/DAO/Case.php
-msgid "Case Type Id"
-msgstr "ID Типу справи"
-
-#: CRM/Case/DAO/Case.php
-msgid "Case Status Id"
-msgstr "ID Статусу справи"
-
-#: CRM/Case/DAO/Case.php
 msgid "Case is in the Trash"
 msgstr "Справа в корзині"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type ID"
+msgstr "ID Типу справи"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Name"
+msgstr "Найменування типу справи"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Title"
+msgstr "Титл типу справи"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Description"
+msgstr "Опис типу справи"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Is Active"
+msgstr "Тип справи активний"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Is Reserved"
+msgstr "Тип справи зарезерований"
+
+#: CRM/Case/DAO/CaseType.php
+msgid "Case Type Definition"
+msgstr "Визначення типу справи"
 
 #: CRM/Case/Form/Activity/ChangeCaseStartDate.php
 #: CRM/Case/Form/Activity/ChangeCaseStatus.php
@@ -180,6 +193,11 @@ msgstr "Справа в корзині"
 #: CRM/Case/Form/Activity/LinkCases.php
 msgid "Case Id not found."
 msgstr "ID номер кейсу не був знайдений"
+
+#: CRM/Case/Form/Activity/ChangeCaseStartDate.php
+#: CRM/Case/Form/Activity/LinkCases.php
+msgid "Expected one case-type"
+msgstr "Очікуваний один тип справи"
 
 #: CRM/Case/Form/Activity/ChangeCaseStartDate.php
 msgid "New Start Date"
@@ -197,7 +215,7 @@ msgstr "Статус справи змінився з %1 до %2"
 msgid "Case Status changed successfully."
 msgstr "Статус справи був успішно змінений."
 
-#: CRM/Case/Form/Activity/ChangeCaseType.php
+#: CRM/Case/Form/Activity/ChangeCaseType.php ang/crmCaseType/list.html
 msgid "New Case Type"
 msgstr "Новий тип справи"
 
@@ -222,25 +240,12 @@ msgid "Link To Case"
 msgstr "Лінк на справу"
 
 #: CRM/Case/Form/Activity/LinkCases.php
-msgid "Please select a case to link."
-msgstr "Будь ласка, оберіть справу для того, щоб сторити лінк."
-
-#: CRM/Case/Form/Activity/LinkCases.php
 msgid "Please select some other case to link."
 msgstr "Будь ласка, оберіть хоча б одну справу для створення лінку."
 
 #: CRM/Case/Form/Activity/LinkCases.php
-msgid "It looks like selected case is already linked."
-msgstr "Обрана справа вже має лінк."
-
-#: CRM/Case/Form/Activity/OpenCase.php CRM/Case/Form/Activity.php
-#: CRM/Case/XMLProcessor/Report.php
-msgid "Medium"
-msgstr "Середній"
-
-#: CRM/Case/Form/Activity/OpenCase.php
-msgid "Please select a valid contact or create new contact"
-msgstr "Будь ласка, оберіть існуюючий контакт або створіть новий контакт"
+msgid "Selected case is already linked."
+msgstr "Вибір лінку для справи."
 
 #: CRM/Case/Form/Activity/OpenCase.php
 msgid "Case opened successfully."
@@ -254,9 +259,17 @@ msgstr "Ви не маєте жодних активних типів справ
 msgid "You can not add another '%1' activity to this case. %2"
 msgstr "Ви не можете додати інший %1 діяльність до цієї справи %2."
 
+#: CRM/Case/Form/Activity.php
+msgid "Do you want to <a %1>edit the existing activity</a>?"
+msgstr ""
+
 #: CRM/Case/Form/Activity.php CRM/Case/XMLProcessor/Report.php
 msgid "Reported By"
 msgstr "Повідомлена "
+
+#: CRM/Case/Form/Activity.php CRM/Case/XMLProcessor/Report.php
+msgid "Medium"
+msgstr "Середній"
 
 #: CRM/Case/Form/Activity.php
 msgid ""
@@ -278,12 +291,16 @@ msgid "A copy of the activity has also been sent to selected contacts(s)."
 msgstr "Копія діяльності була також відправлена обраному контакту (ам)."
 
 #: CRM/Case/Form/Activity.php
-msgid "'%1' activity has been %2. %3 %4"
-msgstr "%1 діяльність %2. %3 %4"
+msgid "%1 Saved"
+msgstr ""
 
-#: CRM/Case/Form/ActivityChangeStatus.php
-msgid "New Status"
-msgstr "Новий статус"
+#: CRM/Case/Form/ActivityToCase.php CRM/Case/XMLProcessor/Report.php
+msgid "With Contact(s)"
+msgstr ""
+
+#: CRM/Case/Form/ActivityView.php
+msgid "Activity Revision History"
+msgstr "Діяльність історії змін"
 
 #: CRM/Case/Form/Case.php
 msgid "You do not have any active %1"
@@ -320,12 +337,23 @@ msgid "The selected case has been restored.<br />"
 msgstr "Обрана справа була відновлена."
 
 #: CRM/Case/Form/CaseView.php
-msgid "Run QA Audit / Redact"
-msgstr "Виконати аудит QA/Редагувати"
+msgid "Related Cases"
+msgstr "Пов'язані справи"
 
 #: CRM/Case/Form/CaseView.php
-msgid "- select activity set -"
-msgstr "- обрати набір діяльності -"
+msgid "%1 Related Case"
+msgid_plural "%1 Related Cases"
+msgstr[0] "%1 пов'язана справа"
+msgstr[1] "%1 пов'язаних справ"
+msgstr[2] "%1 пов'язаних справ"
+
+#: CRM/Case/Form/CaseView.php
+msgid "Add Activity"
+msgstr "Додати сферу діяльності"
+
+#: CRM/Case/Form/CaseView.php
+msgid "Activity Audit"
+msgstr "Аудіт діяльності"
 
 #: CRM/Case/Form/CaseView.php
 msgid "Add Timeline"
@@ -336,12 +364,20 @@ msgid "Select Case for Merge"
 msgstr "Обрати справу для злиття"
 
 #: CRM/Case/Form/CaseView.php
-msgid "Assign to another Client"
-msgstr "Закріпити за іншим клієнтом"
+msgid "- select type -"
+msgstr "- обрати тип -"
 
-#: CRM/Case/Form/CaseView.php CRM/Case/Form/EditClient.php
-msgid "Reassign Case"
-msgstr "Перепризначити відповідальну особу за кейс"
+#: CRM/Case/Form/CaseView.php
+msgid "Activities from the %1 activity set have been added to this case."
+msgstr "Діяльність від %1 цього набору діяльності була додана до цієї справи."
+
+#: CRM/Case/Form/CaseView.php
+msgid " - any reporter - "
+msgstr "- будь який доповідач - "
+
+#: CRM/Case/Form/CaseView.php templates/CRM/Case/Form/ActivityTab.tpl
+msgid "Reporter/Role"
+msgstr "Доповідач/Роль"
 
 #: CRM/Case/Form/CaseView.php
 msgid " - any status - "
@@ -352,28 +388,28 @@ msgid "Activity Dates - From"
 msgstr "Дати діяльності - Від"
 
 #: CRM/Case/Form/CaseView.php
-msgid " - any reporter - "
-msgstr "- будь який доповідач - "
+msgid "Deleted Activities"
+msgstr ""
 
-#: CRM/Case/Form/CaseView.php templates/CRM/Case/Form/CaseView.tpl
-msgid "Reporter/Role"
-msgstr "Доповідач/Роль"
+#: CRM/Case/Form/EditClient.php
+msgid "Select Contact"
+msgstr ""
 
-#: CRM/Case/Form/CaseView.php
-msgid "- select type -"
-msgstr "- обрати тип -"
+#: CRM/Case/Form/EditClient.php
+msgid "Reassign Case"
+msgstr "Перепризначити відповідальну особу за кейс"
 
-#: CRM/Case/Form/CaseView.php
-msgid "Activities from the %1 activity set have been added to this case."
-msgstr "Діяльність від %1 цього набору діяльності була додана до цієї справи."
-
-#: CRM/Case/Form/Report.php
-msgid "Include All Activities"
-msgstr "Включити всю діяльність"
+#: CRM/Case/Form/EditClient.php
+msgid "Please select a different contact."
+msgstr "Будь ласка, оберіть інший контакт"
 
 #: CRM/Case/Form/Report.php
-msgid "Include Missing Activities Only"
-msgstr "Включити тільки діяльність, котрої не вистачає"
+msgid "All Activities"
+msgstr "Усі заходи"
+
+#: CRM/Case/Form/Report.php
+msgid "Exclude Completed Activities"
+msgstr "Виключити завершені заходи"
 
 #: CRM/Case/Form/Report.php
 msgid "Redact (hide) Client and Service Provider Data"
@@ -391,13 +427,23 @@ msgstr "Ім'я клієнта або е-мейл"
 msgid "Find Cases"
 msgstr "Знайти справи"
 
-#: CRM/Case/Form/Task/Delete.php CRM/Case/Task.php
+#: CRM/Case/Form/Task/Delete.php CRM/Case/Info.php CRM/Case/Task.php
 msgid "Delete Cases"
 msgstr "Видалити справи"
 
-#: CRM/Case/Form/Task/Delete.php CRM/Case/Form/Task/Restore.php
-msgid "Total Selected Case(s): %1"
-msgstr "Загальна кількість обраних справ: %1"
+#: CRM/Case/Form/Task/Delete.php
+msgid "%count case moved to trash."
+msgid_plural "%count cases moved to trash."
+msgstr[0] "%count справа видалена до кошику."
+msgstr[1] "%count справи видалені до кошику."
+msgstr[2] "%count справ видалені до кошику."
+
+#: CRM/Case/Form/Task/Delete.php
+msgid "%count case permanently deleted."
+msgid_plural "%count cases permanently deleted."
+msgstr[0] "%count справа видалена назавжди."
+msgstr[1] "%count справи видалені назавжди."
+msgstr[2] "%count справ видалені назавжди."
 
 #: CRM/Case/Form/Task/Print.php
 msgid "Print Case List"
@@ -408,12 +454,42 @@ msgid "Restore Cases"
 msgstr "Відновити справи"
 
 #: CRM/Case/Form/Task/Restore.php
-msgid "Restored Cases"
-msgstr "Відновлені справи"
+msgid "%count case restored from trash."
+msgid_plural "%count cases restored from trash."
+msgstr[0] "%count справа відновлена з кошику."
+msgstr[1] "%count справи відновлені з кошику."
+msgstr[2] "%count справ відновлені з кошику."
+
+#: CRM/Case/Form/Task/Restore.php
+msgid "1 could not be restored."
+msgid_plural "%count could not be restored."
+msgstr[0] "1 не може бути відновлена."
+msgstr[1] "%count не можуть бути відновлені."
+msgstr[2] "%count не можуть бути відновлені."
 
 #: CRM/Case/Info.php
 msgid "CiviCase Engine"
 msgstr "Платформа CiviСправа"
+
+#: CRM/Case/Info.php
+msgid "delete in CiviCase"
+msgstr "видалити з модулю CiviСправа"
+
+#: CRM/Case/Info.php
+msgid "administer CiviCase"
+msgstr "адміністрування модулю CiviСправа"
+
+#: CRM/Case/Info.php
+msgid "access my cases and activities"
+msgstr "доступ до моїх справ і діяльностей"
+
+#: CRM/Case/Info.php
+msgid "access all cases and activities"
+msgstr "доступ до усіх справ і діяльностей"
+
+#: CRM/Case/Info.php
+msgid "add cases"
+msgstr "додати справи"
 
 #: CRM/Case/Info.php
 msgid ""
@@ -422,8 +498,8 @@ msgid ""
 msgstr "Не вдалося створити перегляд MySQL для CiviСправа. Ваш користувач MySQL повинен мати дозвіл \"Створювати перегляд\"."
 
 #: CRM/Case/Page/AJAX.php
-msgid "Could not find valid Case!"
-msgstr "Не вдалося знайти дійсної справи."
+msgid "closed"
+msgstr "закриті"
 
 #: CRM/Case/Page/DashBoard.php
 msgid "CiviCase Dashboard"
@@ -442,7 +518,7 @@ msgstr "Ви впевенні, що хочете видалити цю спра�
 msgid "Delete Case"
 msgstr "Видалити справу"
 
-#: CRM/Case/Selector/Search.php
+#: CRM/Case/Selector/Search.php templates/CRM/Case/Form/CaseView.tpl
 msgid "Assign to Another Client"
 msgstr "Призначити справу за іншим клієнтом"
 
@@ -462,10 +538,6 @@ msgstr "Наступна запланована"
 #: CRM/Case/Selector/Search.php
 msgid "Case Search"
 msgstr "Пошук справ"
-
-#: CRM/Case/Task.php
-msgid "Print Cases"
-msgstr "Роздрукувати справи"
 
 #: CRM/Case/Task.php
 msgid "Export Cases"
@@ -491,6 +563,120 @@ msgid ""
 "Activity type %1, found in case configuration file, is not present in the "
 "database %2"
 msgstr "Тип діяльності %1, знайдений у файлі конфігурації справи, не існує в базі даних %2"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Housing Support"
+msgstr "Домашня підтримка"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Help homeless individuals obtain temporary and long-term housing"
+msgstr "Допомога бездомним отримати тимчасове і довгострокове житло"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Adult Day Care Referral"
+msgstr "Реферрал денної допомоги людям похилого віку"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Arranging adult day care for senior individuals"
+msgstr "Організація дорослий дитячий сад для літніх осіб"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Medical evaluation"
+msgstr "Медична оцінка"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Mental health evaluation"
+msgstr "Оцінка психічного здоров'я"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Secure temporary housing"
+msgstr "Безпечне тимчасове житло"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Income and benefits stabilization"
+msgstr "Стабілізація доходів і переваги"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Long-term housing plan"
+msgstr "Довгостроковий план житла"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "ADC referral"
+msgstr "ADC напрямки"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Case Resources"
+msgstr "Ресурс справи"
+
+#: ang/crmCaseType/activityTypesTable.html
+msgid "Max Instances"
+msgstr ""
+
+#: ang/crmCaseType/activityTypesTable.html
+msgid "Add activity type"
+msgstr ""
+
+#: ang/crmCaseType/caseTypeDetails.html
+msgid "WARNING: The case type name includes deprecated characters."
+msgstr ""
+
+#: ang/crmCaseType/caseTypeDetails.html
+msgid ""
+"WARNING: If any external files or programs reference the old \"Name\", then "
+"they must be updated manually."
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid ""
+"Use this screen to define or update the Case Roles, Activity Types, and "
+"Timelines for a case type."
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid "Learn more..."
+msgstr ""
+
+#: ang/crmCaseType/edit.html templates/CRM/Case/Form/CaseView.tpl
+msgid "Roles"
+msgstr "Ролі"
+
+#: ang/crmCaseType/edit.html
+msgid "Add..."
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid "Timeline"
+msgstr ""
+
+#: ang/crmCaseType/edit.html
+msgid "Sequence"
+msgstr ""
+
+#: ang/crmCaseType/list.html
+msgid ""
+"A Case Type describes a group of related tasks, interactions, or processes."
+msgstr ""
+
+#: ang/crmCaseType/rolesTable.html
+msgid "Assign to Creator"
+msgstr ""
+
+#: ang/crmCaseType/rolesTable.html
+msgid "Is Manager"
+msgstr ""
+
+#: ang/crmCaseType/rolesTable.html
+msgid "Add role"
+msgstr ""
+
+#: ang/crmCaseType/timelineTable.html
+msgid "Reference"
+msgstr ""
+
+#: ang/crmCaseType.js
+msgid ""
+"The CiviCase XML file for this case-type prohibits editing the definition."
+msgstr ""
 
 #: templates/CRM/Case/Audit/Audit.tpl
 msgid "Incomplete"
@@ -525,9 +711,9 @@ msgstr "Діяльність справи"
 msgid "Current Start Date"
 msgstr "Дата початку на сьогодні"
 
-#: templates/CRM/Case/Form/Activity.tpl
-msgid "Restore %1"
-msgstr "ВІдновити %1"
+#: templates/CRM/Case/Form/Activity/LinkCases.tpl
+msgid "Create link between %1 - %2 (CaseID: %3) and %4 - %5 (CaseID: %6)"
+msgstr "Створити зв'язок між % 1 -% 2 (CaseID: % 3) і % 4 -% 5 (CaseID: % 6)"
 
 #: templates/CRM/Case/Form/Activity.tpl
 msgid "Click Delete to move this &quot;%1&quot; activity to the Trash."
@@ -550,10 +736,6 @@ msgid "With client(s)"
 msgstr "З клієнтом (ами)"
 
 #: templates/CRM/Case/Form/Activity.tpl
-msgid "You can optionally assign this activity to someone."
-msgstr "Опціонально, Ви можете призначити цю діяльність за кимось."
-
-#: templates/CRM/Case/Form/Activity.tpl
 msgid "Send a Copy"
 msgstr "Відправити копію"
 
@@ -563,33 +745,38 @@ msgid ""
 "the case. Click the top left box to select all."
 msgstr "Надішліть електронною поштою копії запису цієї діяльності для всіх інших людей, що залучені до цієї справи. Натисність лівий верхній перемикач, щоб вибрати всіх."
 
-#: templates/CRM/Case/Form/ActivityChangeStatus.js
-msgid "Unable to change status"
-msgstr "Не можливо змінити статус"
+#: templates/CRM/Case/Form/ActivityTab.tpl
+msgid "Search Filters"
+msgstr "Шукати фільтри"
 
-#: templates/CRM/Case/Form/ActivityChangeStatus.js
-msgid "Change Activity Status"
-msgstr "Змінити статус діяльності "
+#: templates/CRM/Case/Form/ActivityTab.tpl
+#: templates/CRM/Case/Page/CaseDetails.tpl
+msgid "Reporter / Assignee"
+msgstr "Доповідач / Відповідальний"
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
 msgid "You can modify the activity subject before filing."
 msgstr "Ви можете модифікувати тему діяльності перед тим, як вносити дані."
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
+msgid "Move to Case"
+msgstr "Перенести до справи"
+
+#: templates/CRM/Case/Form/ActivityToCase.tpl
+msgid "Copy to Case"
+msgstr "Скопіювати до справи"
+
+#: templates/CRM/Case/Form/ActivityToCase.tpl
 msgid "Please select a case from the list"
 msgstr "Будь ласка, оберіть справу із списку"
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Unable to file on case"
+msgid "Unable to file on case."
 msgstr "Не можливо створити файл на справу"
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Activity Filed"
-msgstr "Внесена діяльність"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "all revisions"
-msgstr "всі перегляди"
+msgid "Activity has been filed to %1 case."
+msgstr "Діяльність була подана у % 1 випадку."
 
 #: templates/CRM/Case/Form/ActivityView.tpl
 msgid "Created On"
@@ -618,10 +805,6 @@ msgstr "(це не поточна версія перегляду)"
 #: templates/CRM/Case/Form/ActivityView.tpl
 msgid "Prompted by"
 msgstr "Заохочувано"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "This activity might not be attached to any case. Please investigate."
-msgstr "Ця діяльність не може бути закріпленою за жодною справою. Будь ласка, перевірте."
 
 #: templates/CRM/Case/Form/Case.hlp
 msgid "Introduce yourself and your role within our organization."
@@ -677,21 +860,21 @@ msgid ""
 "Trash."
 msgstr "Натисність Відновити для відновлення справи для всієї асоційованої діяльності з кошику."
 
+#: templates/CRM/Case/Form/CaseView.js
+msgid "Add the %1 set of scheduled activities to this case?"
+msgstr "Додати % 1 набір запланованих заходів до цієї справи?"
+
+#: templates/CRM/Case/Form/CaseView.js
+msgid "Please select a value"
+msgstr "Будь ласка, виберіть значення"
+
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Clients:"
 msgstr "Клієнти:"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "view contact record"
-msgstr "переглянути запис контакту"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "add new client to the case"
-msgstr "Додати нового клієнта до справи"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Related Cases"
-msgstr "Пов'язані справи"
+msgid "Add Client"
+msgstr "Додати Клієнта"
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "DOB"
@@ -714,32 +897,20 @@ msgid "Change case start date (creates activity record)"
 msgstr "Змінити дату початку справи )(створити запис діяльності)"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Assign to Another Contact"
-msgstr "Приписати до іншого контакту"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Roles"
-msgstr "Ролі"
-
-#: templates/CRM/Case/Form/CaseView.tpl
 msgid "Add new role"
 msgstr "Додати нову роль"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Delete case role"
-msgstr "Видалити роль справи"
+msgid "Assign To"
+msgstr "Призначити"
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Change To"
+msgstr "Змінено на"
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Are you sure you want to delete this case role?"
 msgstr "Ви впевнені, що хочете видалити цю роль справи?"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Begin typing last name of contact."
-msgstr "Почніть з введення прізвища контакту"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Select valid contact from the list"
-msgstr "Оберіть дійсний контакт зі списку"
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Other Relationships"
@@ -750,29 +921,16 @@ msgid "Add client relationship"
 msgstr "Додати відносини клієнта"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"There are no Relationships entered for this client. You can <a "
-"accesskey=\"N\" href='%1'>add one</a>."
-msgstr "Не було введено жодних відносин для цього клієнту. Ви можете додати"
-
-#: templates/CRM/Case/Form/CaseView.tpl
 msgid "Add members to %1"
 msgstr "Додати членів до %1"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "The group %2 has no members. You can <a href='%1'>add one</a>."
-msgstr "Група %2 немає учасників. Ви можете додати одного"
+msgid "- select contacts -"
+msgstr "- вибрати контакти -"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Select valid type from the list"
-msgstr "Оберіть дійсний тип із списку запропонованих"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"The relationship type definition for the %1 case role is not valid for the "
-"client and / or staff contact types. You can review and edit relationship "
-"types at <a href=\"%2\">Administer >> Option Lists >> Relationship Types</a>"
-msgstr "Визначення типу відносин для ролі справи %1 не дійсне для типу контакту клієнта або працівника. Ви можете переглянути та редагувати типи відносин через меню <a href=\"%2\"> Адміністрування - Списки опцій - Типи відносин</a>"
+msgid "The group %1 has no members."
+msgstr "Група% 1 не має членів."
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Case Tags"
@@ -786,63 +944,9 @@ msgstr "Немає тегів, які на даний час закріплен�
 msgid "Add Tags"
 msgstr "Додати  теги"
 
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Search Filters"
-msgstr "Шукати фільтри"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-#: templates/CRM/Case/Page/CaseDetails.tpl
-msgid "Reporter / Assignee"
-msgstr "Доповідач / Відповідальний"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select an activity set from the list."
-msgstr "Будь ласка, оберіть набір діяльності із запропонованих у списку."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"Are you sure you want to add a set of scheduled activities to this case?"
-msgstr "Ви впевнені, що хочете додати набір запланованої діяльності до цієї справи?"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select an activity type from the list."
-msgstr "Будь ласка, оберіть тип діяльності зі списку."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select a report from the list."
-msgstr "Будь ласка, оберіть звіт із списку."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select a case from the list to merge with."
-msgstr "Будь ласка, оберіть справу зі списку, яку треба об'єднати."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Please select a client for this case."
-msgstr "Будь ласка, оберіть клієнта для цієї справи."
-
-#: templates/CRM/Case/Form/CaseView.tpl templates/CRM/Case/Form/EditClient.tpl
-msgid ""
-"%1 is already assigned to this case. Please select some other client for "
-"this case."
-msgstr "%1 вже закріплений за цією справою. Будь ласка, оберіть іншого клієнта для цієї справи."
-
-#: templates/CRM/Case/Form/CaseView.tpl templates/CRM/Case/Form/EditClient.tpl
-msgid ""
-"Are you sure you want to reassign this case and all related activities and "
-"relationships to %1?"
-msgstr "Ви впевнені, що хочете перепризначити цю справу та всю асоційовану з нею діяльність та відносини до %1?"
-
 #: templates/CRM/Case/Form/EditClient.tpl
 msgid "This is case is currently assigned to %1."
 msgstr "Ця справа в даний час призначена за %1."
-
-#: templates/CRM/Case/Form/EditClient.tpl
-msgid "Please select another client for this case."
-msgstr "Будь ласка, оберіть наступного клієнта для справи."
-
-#: templates/CRM/Case/Form/EditClient.tpl
-msgid "Client Selection"
-msgstr "Обрання клієнта"
 
 #: templates/CRM/Case/Form/Report.tpl
 msgid "Report Parameters"
@@ -853,16 +957,16 @@ msgid "Case Tag(s)"
 msgstr "Теги справи"
 
 #: templates/CRM/Case/Form/Search/EmptyResults.tpl
-msgid "No matching cases found."
-msgstr "Не було знайдено відповідних справ"
-
-#: templates/CRM/Case/Form/Search/EmptyResults.tpl
 msgid "if you are searching by client name, check your spelling"
 msgstr "Якщо Ви здійснюєте пошук за іменем клієнта, перевірте правильність написання"
 
 #: templates/CRM/Case/Form/Selector.tpl
-msgid "view contact details"
-msgstr "переглянути деталі контакту"
+msgid "Show recent activities"
+msgstr "Показати останні заходи"
+
+#: templates/CRM/Case/Form/Selector.tpl
+msgid "Hide activities"
+msgstr "Приховати діяльність"
 
 #: templates/CRM/Case/Form/Selector.tpl
 #: templates/CRM/Case/Page/DashboardSelector.tpl
@@ -910,10 +1014,6 @@ msgstr "Зверніться до %1, щоб дізнатися про цей п
 #: templates/CRM/Case/Page/ConfigureError.tpl
 msgid "CiviCase Setup documentation"
 msgstr "Документації для встановлення модулю CiviСправа"
-
-#: templates/CRM/Case/Page/CustomDataView.tpl
-msgid "Update Case Information"
-msgstr "Оновити інформацію про справу"
 
 #: templates/CRM/Case/Page/DashBoard.tpl
 msgid "Find My Cases"
@@ -964,8 +1064,10 @@ msgid "Manager"
 msgstr "Керуючий"
 
 #: templates/CRM/Case/Page/DashboardSelector.tpl
-msgid "Edit this activity."
-msgstr "Редагувати цю діяльність."
+#: xml/templates/message_templates/case_activity_html.tpl
+#: xml/templates/message_templates/case_activity_text.tpl
+msgid "Edit activity"
+msgstr "Редагувати діяльність"
 
 #: templates/CRM/Case/Page/Tab.tpl
 msgid "Oops, It looks like there are no active case types."
@@ -980,8 +1082,8 @@ msgid "This page lists all case records for %1."
 msgstr "На цій сторінці перераховані всі записи справ для %1."
 
 #: templates/CRM/Case/Page/Tab.tpl
-msgid "Click <a href='%1'>Add Case</a> to add a case record for this contact."
-msgstr "Натисніть Додати Справу для того, щоб додати запис справи до цього контакту."
+msgid "Click <a %1>Add Case</a> to add a case record for this contact."
+msgstr "Натисніть  <a %1> Додати Справу </a> для того, щоб додати запис справи до цього контакту."
 
 #: templates/CRM/Case/Page/Tab.tpl
 msgid "There are no case records for this contact."
@@ -997,279 +1099,90 @@ msgstr "Резюме діяльності "
 msgid "Your Case Role(s)"
 msgstr "Ваша роль у справі"
 
-#: xml/templates/message_templates/case_activity_html.tpl
-msgid "Edit this activity"
-msgstr "Редагувати діяльність"
-
-#: xml/templates/message_templates/case_activity_html.tpl
-msgid "View this activity"
-msgstr "Переглянути діяльність"
-
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "Edit this Activity"
-msgstr "Редагувати діяльність"
-
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "View this Activity"
-msgstr "Переглянути діяльність"
-
-#: CRM/Case/BAO/CaseType.php
-msgid ""
-"You can not delete this case type -- it is assigned to %1 existing case "
-"record(s). If you do not want this case type to be used going forward, "
-"consider disabling it instead."
-msgstr "Ви не можете видалити цей тип корпусу - він призначений % 1 існуючим матеріалами справи (в). Якщо ви не хочете, щоб цей тип справи, використовувався в майбутньому, рекомендується відключити його замість цього."
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type ID"
-msgstr "ID Типу справи"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Name"
-msgstr "Найменування типу справи"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Title"
-msgstr "Титл типу справи"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Description"
-msgstr "Опис типу справи"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Is Active"
-msgstr "Тип справи активний"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Is Reserved"
-msgstr "Тип справи зарезерований"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Weight"
-msgstr "Вага типу справи"
-
-#: CRM/Case/DAO/CaseType.php
-msgid "Case Type Definition"
-msgstr "Визначення типу справи"
-
-#: CRM/Case/Form/Activity/ChangeCaseStartDate.php
-#: CRM/Case/Form/Activity/LinkCases.php
-msgid "Expected one case-type"
-msgstr "Очікуваний один тип справи"
-
-#: CRM/Case/Form/Activity/LinkCases.php
-msgid "Selected case is already linked."
-msgstr "Вибір лінку для справи."
-
-#: CRM/Case/Form/ActivityView.php
-msgid "Activity Revision History"
-msgstr "Діяльність історії змін"
-
-#: CRM/Case/Form/CaseView.php
-msgid "%1 Related Case"
-msgid_plural "%1 Related Cases"
-msgstr[0] "%1 пов'язана справа"
-msgstr[1] "%1 пов'язаних справ"
-msgstr[2] "%1 пов'язаних справ"
-
-#: CRM/Case/Form/CaseView.php
-msgid "Add Activity"
-msgstr "Додати сферу діяльності"
-
-#: CRM/Case/Form/CaseView.php
-msgid "Activity Audit"
-msgstr "Аудіт діяльності"
-
-#: CRM/Case/Form/EditClient.php
-msgid "Please select a different contact."
-msgstr "Будь ласка, оберіть інший контакт"
-
-#: CRM/Case/Form/Report.php
-msgid "All Activities"
-msgstr "Усі заходи"
-
-#: CRM/Case/Form/Report.php
-msgid "Exclude Completed Activities"
-msgstr "Виключити завершені заходи"
-
-#: CRM/Case/Page/AJAX.php
-msgid "closed"
-msgstr "закриті"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Housing Support"
-msgstr "Домашня підтримка"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Help homeless individuals obtain temporary and long-term housing"
-msgstr "Допомога бездомним отримати тимчасове і довгострокове житло"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Adult Day Care Referral"
-msgstr "Реферрал денної допомоги людям похилого віку"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Arranging adult day care for senior individuals"
-msgstr "Організація дорослий дитячий сад для літніх осіб"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Medical evaluation"
-msgstr "Медична оцінка"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Mental health evaluation"
-msgstr "Оцінка психічного здоров'я"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Secure temporary housing"
-msgstr "Безпечне тимчасове житло"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Income and benefits stabilization"
-msgstr "Стабілізація доходів і переваги"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Long-term housing plan"
-msgstr "Довгостроковий план житла"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "ADC referral"
-msgstr "ADC напрямки"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Case Resources"
-msgstr "Ресурс справи"
-
-#: templates/CRM/Case/Form/Activity/LinkCases.tpl
-msgid "Create link between %1 - %2 (CaseID: %3) and %4 - %5 (CaseID: %6)"
-msgstr "Створити зв'язок між % 1 -% 2 (CaseID: % 3) і % 4 -% 5 (CaseID: % 6)"
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Move to Case"
-msgstr "Перенести до справи"
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Copy to Case"
-msgstr "Скопіювати до справи"
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Unable to file on case."
-msgstr "Не можливо створити файл на справу"
-
-#: templates/CRM/Case/Form/ActivityToCase.tpl
-msgid "Activity has been filed to %1 case."
-msgstr "Діяльність була подана у % 1 випадку."
-
-#: templates/CRM/Case/Form/CaseView.js
-msgid "Add the %1 set of scheduled activities to this case?"
-msgstr "Додати % 1 набір запланованих заходів до цієї справи?"
-
-#: templates/CRM/Case/Form/CaseView.js
-msgid "Please select a value"
-msgstr "Будь ласка, виберіть значення"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Add Client"
-msgstr "Додати Клієнта"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Assign To"
-msgstr "Призначити"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Change To"
-msgstr "Змінено на"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid ""
-"There are no Relationships entered for this client. You can <a %1>add "
-"one</a>."
-msgstr "Не було введено жодних відносин для цього клієнту. Ви можете <a %1> додати один </a>."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "- select contacts -"
-msgstr "- вибрати контакти -"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "The group %1 has no members."
-msgstr "Група% 1 не має членів."
-
-#: templates/CRM/Case/Form/Selector.tpl
-msgid "Show recent activities"
-msgstr "Показати останні заходи"
-
-#: templates/CRM/Case/Form/Selector.tpl
-msgid "Hide activities"
-msgstr "Приховати діяльність"
-
-#: templates/CRM/Case/Page/Tab.tpl
-msgid "Click <a %1>Add Case</a> to add a case record for this contact."
-msgstr "Натисніть  <a %1> Додати Справу </a> для того, щоб додати запис справи до цього контакту."
-
-#: CRM/Case/BAO/Case.php templates/CRM/Case/Page/DashboardSelector.tpl
-#: xml/templates/message_templates/case_activity_html.tpl
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "View activity"
-msgstr "Переглянути діяльність"
-
-#: CRM/Case/Form/Activity.php
-msgid "Do you want to <a %1>edit the existing activity</a>?"
+#: CRM/Case/DAO/CaseActivity.php
+msgid "Case Activity ID"
 msgstr ""
 
-#: CRM/Case/Form/Activity.php
-msgid "%1 Saved"
+#: CRM/Case/DAO/CaseContact.php
+msgid "Case Contact ID"
 msgstr ""
 
-#: CRM/Case/Form/Task/Delete.php
-msgid "%count case moved to trash."
-msgid_plural "%count cases moved to trash."
-msgstr[0] "%count справа видалена до кошику."
-msgstr[1] "%count справи видалені до кошику."
-msgstr[2] "%count справ видалені до кошику."
+#: CRM/Case/Form/CaseView.php
+msgid "(opened %1)"
+msgstr ""
 
-#: CRM/Case/Form/Task/Delete.php
-msgid "%count case permanently deleted."
-msgid_plural "%count cases permanently deleted."
-msgstr[0] "%count справа видалена назавжди."
-msgstr[1] "%count справи видалені назавжди."
-msgstr[2] "%count справ видалені назавжди."
-
-#: CRM/Case/Form/Task/Restore.php
-msgid "%count case restored from trash."
-msgid_plural "%count cases restored from trash."
-msgstr[0] "%count справа відновлена з кошику."
-msgstr[1] "%count справи відновлені з кошику."
-msgstr[2] "%count справ відновлені з кошику."
-
-#: CRM/Case/Form/Task/Restore.php
-msgid "1 could not be restored."
-msgid_plural "%count could not be restored."
-msgstr[0] "1 не може бути відновлена."
-msgstr[1] "%count не можуть бути відновлені."
-msgstr[2] "%count не можуть бути відновлені."
+#: CRM/Case/Form/Task/Delete.php CRM/Case/Info.php CRM/Case/Task.php
+msgid "Delete cases"
+msgstr ""
 
 #: CRM/Case/Info.php
-msgid "delete in CiviCase"
-msgstr "видалити з модулю CiviСправа"
+msgid "Define case types, access deleted cases"
+msgstr ""
 
 #: CRM/Case/Info.php
-msgid "administer CiviCase"
-msgstr "адміністрування модулю CiviСправа"
+msgid "View and edit only those cases managed by this user"
+msgstr ""
 
 #: CRM/Case/Info.php
-msgid "access my cases and activities"
-msgstr "доступ до моїх справ і діяльностей"
+msgid "View and edit all cases (for visible contacts)"
+msgstr ""
 
 #: CRM/Case/Info.php
-msgid "access all cases and activities"
-msgstr "доступ до усіх справ і діяльностей"
+msgid "Open a new case"
+msgstr ""
 
-#: CRM/Case/Info.php
-msgid "add cases"
-msgstr "додати справи"
+#: CRM/Case/Task.php
+msgid "Export cases"
+msgstr ""
 
-#: templates/CRM/Case/Page/DashboardSelector.tpl
-#: xml/templates/message_templates/case_activity_html.tpl
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "Edit activity"
-msgstr "Редагувати діяльність"
+#: CRM/Case/Task.php
+msgid "Restore cases"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Homeless Services Coordinator is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Homeless Services Coordinator"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Health Services Coordinator is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Health Services Coordinator"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Senior Services Coordinator is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Senior Services Coordinator"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Benefits Specialist is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Benefits Specialist"
+msgstr ""
+
+#: ang/crmCaseType/list.html
+msgid "Case Types"
+msgstr ""
+
+#: templates/CRM/Case/Form/ActivityTab.tpl
+msgid "Reporter"
+msgstr ""
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Export Document"
+msgstr ""
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Are you sure you want to end this relationship?"
+msgstr ""
