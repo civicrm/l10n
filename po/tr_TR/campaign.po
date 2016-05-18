@@ -3,12 +3,12 @@
 # If you contribute heavily to a translation and deem your work copyrightable,
 # make sure you license it to CiviCRM LLC under Academic Free License 3.0.
 # Translators:
-# Kaya Zeren <kayazeren@gmail.com>, 2015
+# Kaya Zeren <kayazeren@gmail.com>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2015-12-09 21:23-0500\n"
-"PO-Revision-Date: 2015-12-11 07:30+0000\n"
+"POT-Creation-Date: 2016-05-09 13:33-0400\n"
+"PO-Revision-Date: 2016-05-10 05:14+0000\n"
 "Last-Translator: Kaya Zeren <kayazeren@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/civicrm/civicrm/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -28,6 +28,10 @@ msgstr "Geçmiş Kampanyalar"
 #: CRM/Campaign/BAO/Petition.php
 msgid "No survey sid parameter. Cannot process signature."
 msgstr "Anket sid parametresi yok. İmza işlenemedi."
+
+#: CRM/Campaign/BAO/Petition.php
+msgid "Petition Id and/or Activity Id is not of the type Positive."
+msgstr "İstek Kodu ya da İşlem Kodu Pozitif tipte değil."
 
 #: CRM/Campaign/BAO/Query.php
 msgid "Survey - %1"
@@ -84,16 +88,8 @@ msgid "Campaign End Date"
 msgstr "Kampanya Bitiş Tarihi"
 
 #: CRM/Campaign/DAO/Campaign.php
-msgid "Campaign Type ID"
-msgstr "Kampanya Tipi Kodu"
-
-#: CRM/Campaign/DAO/Campaign.php
-msgid "Campaign Status ID"
-msgstr "Kampanya Durumu Kodu"
-
-#: CRM/Campaign/DAO/Campaign.php
-msgid "Campaign External Identifier"
-msgstr "Kampanya Dış Kodu"
+msgid "Campaign External ID"
+msgstr "Dış Kampanya Kodu"
 
 #: CRM/Campaign/DAO/Campaign.php
 msgid "Parent Campaign"
@@ -127,21 +123,25 @@ msgstr "Kampanyanın Amaçları"
 msgid "Goal Revenue"
 msgstr "Hedef Tutar"
 
-#: CRM/Campaign/DAO/Survey.php CRM/Campaign/Form/Survey/Results.php
-#: templates/CRM/Campaign/Form/ResultOptions.tpl
-#: templates/CRM/Campaign/Form/Search/Survey.tpl
-msgid "Recontact Interval"
-msgstr "Yeniden Görüşme Aralığı"
+#: CRM/Campaign/DAO/Survey.php templates/CRM/Campaign/Form/Search/Survey.tpl
+msgid "Survey ID"
+msgstr "Anket Kodu"
+
+#: CRM/Campaign/DAO/Survey.php
+msgid "Survey Campaign ID"
+msgstr "Anket Kampanya Kodu"
+
+#: CRM/Campaign/DAO/Survey.php
+msgid "Follow up Interval"
+msgstr "İzleme Sıklığı"
 
 #: CRM/Campaign/DAO/Survey.php
 msgid "Instructions"
 msgstr "Yönergeler"
 
-#: CRM/Campaign/DAO/Survey.php templates/CRM/Campaign/Form/Search/Survey.tpl
-#: templates/CRM/Campaign/Page/Petition.tpl
-#: templates/CRM/Campaign/Page/Survey.tpl
-msgid "Release Frequency"
-msgstr "Serbest Bırakma Sıklığı"
+#: CRM/Campaign/DAO/Survey.php
+msgid "Survey Hold Duration"
+msgstr "Anket Bekletme Süresi"
 
 #: CRM/Campaign/DAO/Survey.php
 msgid "Maximum number of contacts"
@@ -152,20 +152,32 @@ msgid "Default number of contacts"
 msgstr "Varsayılan kişi sayısı"
 
 #: CRM/Campaign/DAO/Survey.php
-msgid "Last Modified Date"
-msgstr "Son Değişiklik Tarihi"
+msgid "Survey Is Active"
+msgstr "Anket Etkin"
 
 #: CRM/Campaign/DAO/Survey.php
-msgid "Bypass Confirm"
-msgstr "Onayı Geç"
+msgid "Is Default Survey"
+msgstr "Anket Varsayılan"
+
+#: CRM/Campaign/DAO/Survey.php
+msgid "Survey Created By"
+msgstr "Anketi Oluşturan"
+
+#: CRM/Campaign/DAO/Survey.php
+msgid "Survey Modified"
+msgstr "Anket Değiştirilmiş"
+
+#: CRM/Campaign/DAO/Survey.php
+msgid "Survey Modified On"
+msgstr "Anketin Değişiklik Zamanı"
+
+#: CRM/Campaign/DAO/Survey.php
+msgid "No Email Verification"
+msgstr "E-posta Onaylanmasın"
 
 #: CRM/Campaign/Form/Campaign.php
 msgid "Edit Campaign"
 msgstr "Kampanyayı Düzenleyin"
-
-#: CRM/Campaign/Form/Campaign.php
-msgid "Parent Id"
-msgstr "Üst Kod"
 
 #: CRM/Campaign/Form/Campaign.php
 msgid "- select Parent -"
@@ -321,8 +333,11 @@ msgid "Instructions for interviewers"
 msgstr "Görüşmeci Yönergeleri"
 
 #: CRM/Campaign/Form/Survey/Main.php
-msgid "Release frequency"
-msgstr "Serbest bırakma sıklığı"
+#: templates/CRM/Campaign/Form/Search/Survey.tpl
+#: templates/CRM/Campaign/Page/Petition.tpl
+#: templates/CRM/Campaign/Page/Survey.tpl
+msgid "Release Frequency"
+msgstr "Serbest Bırakma Sıklığı"
 
 #: CRM/Campaign/Form/Survey/Main.php
 msgid "Release Frequency interval should be a positive number."
@@ -364,16 +379,18 @@ msgid "Create new result set"
 msgstr "Yeni sonuç kümesi ekleyin"
 
 #: CRM/Campaign/Form/Survey/Results.php
-msgid "Create a new result set"
-msgstr "Yeni bir sonuç kümesi ekleyin"
-
-#: CRM/Campaign/Form/Survey/Results.php
 msgid "Use existing result set"
 msgstr "Varolan bir sonuç kümesini kullanın"
 
 #: CRM/Campaign/Form/Survey/Results.php
 msgid "Select Result Set"
 msgstr "Sonuç Kümesini Seçin"
+
+#: CRM/Campaign/Form/Survey/Results.php
+#: templates/CRM/Campaign/Form/ResultOptions.tpl
+#: templates/CRM/Campaign/Form/Search/Survey.tpl
+msgid "Recontact Interval"
+msgstr "Yeniden Görüşme Aralığı"
 
 #: CRM/Campaign/Form/Survey/Results.php
 msgid "Enter at least one result option."
@@ -390,10 +407,6 @@ msgstr "<a href='%1'>%2</a> anket ayrıntıları raporu oluşturuldu."
 #: CRM/Campaign/Form/Survey/TabHeader.php
 msgid "Main Information"
 msgstr "Temel Bilgiler"
-
-#: CRM/Campaign/Form/Survey/TabHeader.php
-msgid "Results"
-msgstr "Sonuçlar"
 
 #: CRM/Campaign/Form/Survey.php
 msgid "Configure Survey - %1"
@@ -460,12 +473,20 @@ msgid "We could not found respondent for this survey to release."
 msgstr "Bu anket için serbest bırakılacak bir yanıtlayan bulunamadı."
 
 #: CRM/Campaign/Form/Task/Release.php
-msgid "%1 respondent(s) have been released."
-msgstr "%1 yanıtlayan serbest bırakıldı."
+msgid "Respondent has been released."
+msgid_plural "%count respondents have been released."
+msgstr[0] "Yanıtlayan serbest bırakıldı."
+msgstr[1] "%count yanıtlayan serbest bırakıldı."
 
 #: CRM/Campaign/Form/Task/Release.php
-msgid "%1 respondents did not release."
-msgstr "%1 yanıtlayan serbest bırakılmadı."
+msgid "Released"
+msgstr "Serbest bırakıldı"
+
+#: CRM/Campaign/Form/Task/Release.php
+msgid "1 respondent did not release."
+msgid_plural "%count respondents did not release."
+msgstr[0] "1 yanıtlayan serbest bırakılmadı."
+msgstr[1] "%count yanıtlayan serbest bırakılmadı."
 
 #: CRM/Campaign/Form/Task/Reserve.php
 msgid "Could not find Survey Id."
@@ -481,8 +502,11 @@ msgid ""
 msgstr "Bu görüşmeci için olabilecek en fazla sayıda yanıtlayan zaten ayrılmış."
 
 #: CRM/Campaign/Form/Task/Reserve.php
-msgid "You can reserve a maximum of %1 contact(s) at a time for this survey."
-msgstr "Bu anket için bir kerede en fazla %1 kişi ayırtılabilir."
+msgid "You can reserve a maximum of %count contact at a time for this survey."
+msgid_plural ""
+"You can reserve a maximum of %count contacts at a time for this survey."
+msgstr[0] "Bu anket için bir kerede en fazla %count kişi ayırtılabilir."
+msgstr[1] "Bu anket için bir kerede en fazla %count kişi ayırtılabilir."
 
 #: CRM/Campaign/Form/Task/Reserve.php
 #: templates/CRM/Campaign/Form/Task/Reserve.tpl
@@ -503,31 +527,86 @@ msgid "Respondent Reservation"
 msgstr "Yanıtlayan Ayırtın"
 
 #: CRM/Campaign/Form/Task/Reserve.php
-msgid "%1 Contact(s) have been reserved."
-msgstr "%1 kişi ayırtıldı."
+msgid "%count contact has been reserved."
+msgid_plural "%count contacts have been reserved."
+msgstr[0] "%count kişi ayırtıldı."
+msgstr[1] "%count kişi ayırtıldı."
 
 #: CRM/Campaign/Form/Task/Reserve.php
-msgid "Respondent(s) has been added to %1 group(s)."
-msgstr "Yanıtlayanlar %1 gruba eklendi."
+msgid "They have been added to %1."
+msgstr "%1 üzerine eklendiler."
 
 #: CRM/Campaign/Form/Task/Reserve.php
 msgid "Reservation Added"
 msgstr "Ayırtma Eklendi"
 
 #: CRM/Campaign/Form/Task/Reserve.php
-msgid "Reservation did not add for %1 contact(s)."
-msgstr "%1 kişi için ayırtma yapılamadı."
+msgid "Reservation did not add for %count contact."
+msgid_plural "Reservation did not add for %count contacts."
+msgstr[0] "%count kişi ayırtılamadı."
+msgstr[1] "%count kişi ayırtılamadı."
+
+#: CRM/Campaign/Info.php
+msgid "administer CiviCampaign"
+msgstr "CiviCampaign Yönetimi"
+
+#: CRM/Campaign/Info.php
+msgid "Create new campaign, survey and petition types and their status"
+msgstr "Yeni bir kampanya, anket ya da imza kampanyası tipi ve durumu ekleyin"
+
+#: CRM/Campaign/Info.php
+msgid "manage campaign"
+msgstr "kampanya yönetimi"
+
+#: CRM/Campaign/Info.php
+msgid "Create new campaigns, surveys and petitions, reserve respondents"
+msgstr "Yeni kampanyalar, anketler ve imza kampanyaları ekleyip yanıtlayanları ayırtın"
+
+#: CRM/Campaign/Info.php
+msgid "reserve campaign contacts"
+msgstr "kampanya kişilerini ayırtın"
+
+#: CRM/Campaign/Info.php
+msgid "Reserve campaign contacts for surveys and petitions"
+msgstr "Anket ve imza kampanyaları için kişileri ayırtın"
+
+#: CRM/Campaign/Info.php
+msgid "release campaign contacts"
+msgstr "kampanya kişilerini serbest bırakın"
+
+#: CRM/Campaign/Info.php
+msgid "Release reserved campaign contacts for surveys and petitions"
+msgstr "Anket ve imza kampanyaları için ayırtılmış kişileri serbest bırakın"
+
+#: CRM/Campaign/Info.php
+msgid "interview campaign contacts"
+msgstr "kampanya kişileri ile görüşün"
+
+#: CRM/Campaign/Info.php
+msgid "Record survey and petition responses from their reserved contacts"
+msgstr "Ayırtılmış kişilerin anket ve imza kampanyası yanıtlarını kaydedin"
+
+#: CRM/Campaign/Info.php
+msgid "GOTV campaign contacts"
+msgstr "GOTV kampanya kişileri"
+
+#: CRM/Campaign/Info.php
+msgid "Record that contacts voted"
+msgstr "Oy veren kişiler kaydedilsin"
+
+#: CRM/Campaign/Info.php
+msgid "sign CiviCRM Petition"
+msgstr "CiviCRM İmza Kampanyasını İmzalayın"
 
 #: CRM/Campaign/Page/AJAX.php
 msgid "Respondent Reserved."
 msgstr "Yanıtlayan Ayırtıldı."
 
-#: CRM/Campaign/Page/AJAX.php
-msgid "Vote Recorded"
-msgstr "Oy Kaydedildi"
+#: CRM/Campaign/Page/AJAX.php templates/CRM/Campaign/Form/Gotv.tpl
+msgid "Vote Recorded."
+msgstr "Oy Kaydedildi."
 
-#: CRM/Campaign/Page/Campaign.php CRM/Campaign/Page/DashBoard.php
-#: templates/CRM/Campaign/Form/Campaign.tpl
+#: CRM/Campaign/Page/Campaign.php templates/CRM/Campaign/Form/Campaign.tpl
 msgid "Are you sure you want to delete this Campaign?"
 msgstr "Bu kampanyayı silmek istediğinize emin misiniz?"
 
@@ -593,6 +672,12 @@ msgid "Search Survey"
 msgstr "Anket Arama"
 
 #: CRM/Campaign/Page/DashBoard.php
+msgid "1 Day"
+msgid_plural "%count Days"
+msgstr[0] "1 Gün"
+msgstr[1] "%count Gün"
+
+#: CRM/Campaign/Page/DashBoard.php
 msgid "view result set"
 msgstr "sonuç kümesine bakın"
 
@@ -645,10 +730,6 @@ msgid "Save as non voted."
 msgstr "Oylanmamış olarak kaydet."
 
 #: templates/CRM/Campaign/Form/Gotv.tpl
-msgid "Vote Recorded."
-msgstr "Oy Kaydedildi."
-
-#: templates/CRM/Campaign/Form/Gotv.tpl
 msgid "Vote Cancelled."
 msgstr "Oy İptal Edildi."
 
@@ -668,9 +749,15 @@ msgstr "Bu kampanyayı daha önce imzalamışsınız."
 
 #: templates/CRM/Campaign/Form/Petition/Signature.tpl
 msgid ""
-"You have already signed this petition but you still <b>need to verify your email address</b>.</br>\n"
-"Please check your email inbox for the confirmation email. If you don't find it, verify if it isn't in your spam folder."
-msgstr "Bu kampanyayı daha önce imzalamışsınız ancak <b>e-posta adresinizi doğrulamanız gerekiyor</b>.<br />\nLütfen gelen kutunuza gelmiş olması gereken onay e-postasına bakın. Göremezseniz önemsiz posta klasörüne de bakın."
+"You have already signed this petition but you still <b>need to verify your "
+"email address</b>."
+msgstr "Bu kampanyayı daha önce imzalamışsınız ancak <b>e-posta adresinizi doğrulamanız gerekiyor</b>."
+
+#: templates/CRM/Campaign/Form/Petition/Signature.tpl
+msgid ""
+"Please check your email inbox for the confirmation email. If you don't find "
+"it, verify if it isn't in your spam folder."
+msgstr "Lütfen gelen kutunuza gelmiş olması gereken onay e-postasına bakın. Göremezseniz önemsiz posta klasörüne de bakın."
 
 #: templates/CRM/Campaign/Form/Petition.tpl
 msgid "Are you sure you want to delete this Petition?"
@@ -690,6 +777,10 @@ msgstr "Topalamak istediğiniz kişi hakkındaki alanlar."
 #: templates/CRM/Campaign/Form/Petition.tpl
 msgid "Fields about the petition."
 msgstr "İmza kampanyası hakkındaki alanlar."
+
+#: templates/CRM/Campaign/Form/Petition.tpl
+msgid "Click here for new profile"
+msgstr "Yeni profil eklemek için buraya tıklayın"
 
 #: templates/CRM/Campaign/Form/Petition.tpl
 msgid "This title will be displayed at the top of the thank-you page."
@@ -731,10 +822,6 @@ msgid ""
 msgstr "Bu tablo için on (10) taneye kadar çoklu seçim seçeneği yazın (her bir ek seçenek için 'başka seçenek' üzerine tıklayın). Bir anket sonuç kümesi seçerek varlan sonuç kümesi seçeneklerini kullanabilirsiniz."
 
 #: templates/CRM/Campaign/Form/Search/Campaign.tpl
-msgid "No campaigns found."
-msgstr "Henüz bir kampanya yok."
-
-#: templates/CRM/Campaign/Form/Search/Campaign.tpl
 #: templates/CRM/Campaign/Page/Campaign.tpl
 msgid "Add Campaign"
 msgstr "Kampanya Ekleyin"
@@ -748,16 +835,8 @@ msgid "Status ID"
 msgstr "Durum Kodu"
 
 #: templates/CRM/Campaign/Form/Search/EmptyResults.tpl
-msgid "No matching respondent found."
-msgstr "Eşleşen bir yanıtlayan bulunamadı."
-
-#: templates/CRM/Campaign/Form/Search/EmptyResults.tpl
 msgid "if you are searching by respondent name, check your spelling"
 msgstr "Yanıtlayan kişi adına göre arama yapıyorsanız, yazımınızı denetleyin"
-
-#: templates/CRM/Campaign/Form/Search/Petition.tpl
-msgid "No petitions found."
-msgstr "Henüz bir imza kampanyası yok."
 
 #: templates/CRM/Campaign/Form/Search/Petition.tpl
 msgid "Add Petition"
@@ -780,18 +859,10 @@ msgid "Search Petitions"
 msgstr "İmza Kampanyası Arama"
 
 #: templates/CRM/Campaign/Form/Search/Survey.tpl
-msgid "No surveys found."
-msgstr "Henüz bir anket yok."
-
-#: templates/CRM/Campaign/Form/Search/Survey.tpl
 #: templates/CRM/Campaign/Page/Petition.tpl
 #: templates/CRM/Campaign/Page/Survey.tpl
 msgid "Add Survey"
 msgstr "Anket Ekleyin"
-
-#: templates/CRM/Campaign/Form/Search/Survey.tpl
-msgid "Survey ID"
-msgstr "Anket Kodu"
 
 #: templates/CRM/Campaign/Form/Search/Survey.tpl
 msgid "Survey Type ID"
@@ -943,9 +1014,11 @@ msgstr "Yanıtlayanları yeni bir gruba ekleyin"
 
 #: templates/CRM/Campaign/Form/addCampaignToComponent.hlp
 msgid ""
-"Your organization can use Campaigns to track all constituent interactions related to a particular fund-raising or engagement effort. You can link\n"
-"activities, contributions, event participation, mailings, membership signups, and pledges to a particular campaign."
-msgstr "Kuruluşunuz için kampanyaları kullanarak özel bir bağış toplama ya da dayanışma etkinliğindeki tüm katılım ve iletişim çalışmalarını yürütebilirsiniz.\nKampanyalarda etkinlik, katkı, etkinlik katılımı, postalama, üyelik kaydı ve söz toplama gibi işlemler yapabilirsiniz."
+"Your organization can use Campaigns to track all constituent interactions "
+"related to a particular fund-raising or engagement effort. You can link "
+"activities, contributions, event participation, mailings, membership "
+"signups, and pledges to a particular campaign."
+msgstr "Kuruluşunuz için kampanyaları kullanarak özel bir bağış toplama ya da dayanışma etkinliğindeki tüm katılım ve iletişim çalışmalarını yürütebilirsiniz. Kampanyalarda etkinlik, katkı, etkinlik katılımı, postalama, üyelik kaydı ve söz toplama gibi işlemler yapabilirsiniz."
 
 #: templates/CRM/Campaign/Form/addCampaignToComponent.tpl
 msgid "Show past campaign(s) in this select list."
@@ -957,13 +1030,9 @@ msgstr "Şu anda etkin bir kampanya yok."
 
 #: templates/CRM/Campaign/Form/addCampaignToComponent.tpl
 msgid ""
-"If you want to associate this record with a campaign, you can <a "
-"href=\"%1\">create a campaign here</a>."
-msgstr "Bu kaydı bir kampanya ile ilişkilendirmek istiyorsanız <a href=\"%1\">buradan bir kampanya oluşturabilirsiniz</a>."
-
-#: templates/CRM/Campaign/Page/Campaign.tpl
-msgid "No Campaigns found."
-msgstr "Henüz bir kampanya yok."
+"If you want to associate this record with a campaign, you can <a %1>create a"
+" campaign here</a>."
+msgstr "Bu kaydı bir kampanya ile ilişkilendirmek istiyorsanız <a %1>buradan bir kampanya oluşturabilirsiniz</a>."
 
 #: templates/CRM/Campaign/Page/Petition/Confirm.tpl
 msgid ""
@@ -1037,178 +1106,18 @@ msgstr "En Fazla Kişi Sayısı"
 msgid "Default Number Of Contacts"
 msgstr "Varsayılan Kişi Sayısı"
 
-#: templates/CRM/Campaign/Page/Petition.tpl
-#: templates/CRM/Campaign/Page/Survey.tpl
-msgid "No survey found."
-msgstr "Henüz bir anket bulunamadı."
-
 #: templates/CRM/Campaign/Page/SurveyType.tpl
 msgid "There are no survey type entered. You can <a href='%1'>add one</a>."
 msgstr "Henüz bir anket tipi eklenmemiş. <a href='%1'>Buradan ekleyebilirsiniz</a>."
 
-#: CRM/Campaign/DAO/Campaign.php
-msgid "Campaign External ID"
-msgstr "Dış Kampanya Kodu"
+#: CRM/Campaign/DAO/CampaignGroup.php
+msgid "Campaign Group ID"
+msgstr "Kampanya Grubu Kodu"
 
-#: CRM/Campaign/DAO/Survey.php
-msgid "Survey Campaign ID"
-msgstr "Anket Kampanya Kodu"
+#: CRM/Campaign/DAO/CampaignGroup.php
+msgid "Campaign Group Type"
+msgstr "Kampanya Grubu Tipi"
 
-#: CRM/Campaign/DAO/Survey.php
-msgid "Follow up Interval"
-msgstr "İzleme Sıklığı"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "Survey Hold Duration"
-msgstr "Anket Bekletme Süresi"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "Survey Is Active"
-msgstr "Anket Etkin"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "Is Default Survey"
-msgstr "Anket Varsayılan"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "Survey Created By"
-msgstr "Anketi Oluşturan"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "Survey Modified"
-msgstr "Anket Değiştirilmiş"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "Survey Modified On"
-msgstr "Anketin Değişiklik Zamanı"
-
-#: CRM/Campaign/DAO/Survey.php
-msgid "No Email Verification"
-msgstr "E-posta Onaylanmasın"
-
-#: templates/CRM/Campaign/Form/addCampaignToComponent.tpl
-msgid ""
-"If you want to associate this record with a campaign, you can <a %1>create a"
-" campaign here</a>."
-msgstr "Bu kaydı bir kampanya ile ilişkilendirmek istiyorsanız <a %1>buradan bir kampanya oluşturabilirsiniz</a>."
-
-#: CRM/Campaign/BAO/Petition.php
-msgid "Petition Id and/or Activity Id is not of the type Positive."
-msgstr "İstek Kodu ya da İşlem Kodu Pozitif tipte değil."
-
-#: CRM/Campaign/Form/Task/Release.php
-msgid "Respondent has been released."
-msgid_plural "%count respondents have been released."
-msgstr[0] "Yanıtlayan serbest bırakıldı."
-msgstr[1] "%count yanıtlayan serbest bırakıldı."
-
-#: CRM/Campaign/Form/Task/Release.php
-msgid "Released"
-msgstr "Serbest bırakıldı"
-
-#: CRM/Campaign/Form/Task/Release.php
-msgid "1 respondent did not release."
-msgid_plural "%count respondents did not release."
-msgstr[0] "1 yanıtlayan serbest bırakılmadı."
-msgstr[1] "%count yanıtlayan serbest bırakılmadı."
-
-#: CRM/Campaign/Form/Task/Reserve.php
-msgid "You can reserve a maximum of %count contact at a time for this survey."
-msgid_plural ""
-"You can reserve a maximum of %count contacts at a time for this survey."
-msgstr[0] "Bu anket için bir kerede en fazla %count kişi ayırtılabilir."
-msgstr[1] "Bu anket için bir kerede en fazla %count kişi ayırtılabilir."
-
-#: CRM/Campaign/Form/Task/Reserve.php
-msgid "%count contact has been reserved."
-msgid_plural "%count contacts have been reserved."
-msgstr[0] "%count kişi ayırtıldı."
-msgstr[1] "%count kişi ayırtıldı."
-
-#: CRM/Campaign/Form/Task/Reserve.php
-msgid "They have been added to %1."
-msgstr "%1 üzerine eklendiler."
-
-#: CRM/Campaign/Form/Task/Reserve.php
-msgid "Reservation did not add for %count contact."
-msgid_plural "Reservation did not add for %count contacts."
-msgstr[0] "%count kişi ayırtılamadı."
-msgstr[1] "%count kişi ayırtılamadı."
-
-#: CRM/Campaign/Info.php
-msgid "administer CiviCampaign"
-msgstr "CiviCampaign Yönetimi"
-
-#: CRM/Campaign/Info.php
-msgid "Create new campaign, survey and petition types and their status"
-msgstr "Yeni bir kampanya, anket ya da imza kampanyası tipi ve durumu ekleyin"
-
-#: CRM/Campaign/Info.php
-msgid "manage campaign"
-msgstr "kampanya yönetimi"
-
-#: CRM/Campaign/Info.php
-msgid "Create new campaigns, surveys and petitions, reserve respondents"
-msgstr "Yeni kampanyalar, anketler ve imza kampanyaları ekleyip yanıtlayanları ayırtın"
-
-#: CRM/Campaign/Info.php
-msgid "reserve campaign contacts"
-msgstr "kampanya kişilerini ayırtın"
-
-#: CRM/Campaign/Info.php
-msgid "Reserve campaign contacts for surveys and petitions"
-msgstr "Anket ve imza kampanyaları için kişileri ayırtın"
-
-#: CRM/Campaign/Info.php
-msgid "release campaign contacts"
-msgstr "kampanya kişilerini serbest bırakın"
-
-#: CRM/Campaign/Info.php
-msgid "Release reserved campaign contacts for surveys and petitions"
-msgstr "Anket ve imza kampanyaları için ayırtılmış kişileri serbest bırakın"
-
-#: CRM/Campaign/Info.php
-msgid "interview campaign contacts"
-msgstr "kampanya kişileri ile görüşün"
-
-#: CRM/Campaign/Info.php
-msgid "Record survey and petition responses from their reserved contacts"
-msgstr "Ayırtılmış kişilerin anket ve imza kampanyası yanıtlarını kaydedin"
-
-#: CRM/Campaign/Info.php
-msgid "GOTV campaign contacts"
-msgstr "GOTV kampanya kişileri"
-
-#: CRM/Campaign/Info.php
-msgid "Record that contacts voted"
-msgstr "Oy veren kişiler kaydedilsin"
-
-#: CRM/Campaign/Info.php
-msgid "sign CiviCRM Petition"
-msgstr "CiviCRM İmza Kampanyasını İmzalayın"
-
-#: CRM/Campaign/Page/DashBoard.php
-msgid "1 Day"
-msgid_plural "%count Days"
-msgstr[0] "1 Gün"
-msgstr[1] "%count Gün"
-
-#: templates/CRM/Campaign/Form/Petition/Signature.tpl
-msgid ""
-"You have already signed this petition but you still <b>need to verify your "
-"email address</b>."
-msgstr "Bu kampanyayı daha önce imzalamışsınız ancak <b>e-posta adresinizi doğrulamanız gerekiyor</b>."
-
-#: templates/CRM/Campaign/Form/Petition/Signature.tpl
-msgid ""
-"Please check your email inbox for the confirmation email. If you don't find "
-"it, verify if it isn't in your spam folder."
-msgstr "Lütfen gelen kutunuza gelmiş olması gereken onay e-postasına bakın. Göremezseniz önemsiz posta klasörüne de bakın."
-
-#: templates/CRM/Campaign/Form/addCampaignToComponent.hlp
-msgid ""
-"Your organization can use Campaigns to track all constituent interactions "
-"related to a particular fund-raising or engagement effort. You can link "
-"activities, contributions, event participation, mailings, membership "
-"signups, and pledges to a particular campaign."
-msgstr "Kuruluşunuz için kampanyaları kullanarak özel bir bağış toplama ya da dayanışma etkinliğindeki tüm katılım ve iletişim çalışmalarını yürütebilirsiniz. Kampanyalarda etkinlik, katkı, etkinlik katılımı, postalama, üyelik kaydı ve söz toplama gibi işlemler yapabilirsiniz."
+#: templates/CRM/Campaign/Page/SurveyType.tpl
+msgid "There are no survey types entered. You can <a href='%1'>add one</a>."
+msgstr "Henüz bir anket tipi eklenmemiş. <a href='%1'>Buradan ekleyebilirsiniz</a>."
