@@ -15,11 +15,11 @@ Usage:
 
 - Make sure your repository is up to date (git fetch --all).
 
-- Run this script:
-    $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot '4.2 4.3 4.4' 2>&1 | tee pots.log
+- Run this script (where 4.7.12 is the latest version of CiviCRM):
+    $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot '4.6 4.7.12' 2>&1 | tee pots.log
 
   or, for master:
-    $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot '4.2 4.3 master' 2>&1 | tee pots.log
+    $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot '4.6 master' 2>&1 | tee pots.log
 
 - Use diff-check.php to see if the changes make sense. For example:
     $ git diff -U2000 --patience po/pot/admin.pot | ./bin/diff-check.php
