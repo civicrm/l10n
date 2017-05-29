@@ -38,8 +38,8 @@ fi
 # This makes it easier to configure crons on civi infrastructure,
 # while still making it possible to use this script in other places.
 if [ ! -d "po" ]; then
-  if [ -d "$HOME/repositories/civicrm-l10n-core/po" ]; then
-    cd $HOME/repositories/civicrm-l10n-core
+  if [ -d "$HOME/l10n/civicrm-l10n-core/po" ]; then
+    cd $HOME/l10n/civicrm-l10n-core
   else
     echo "ERROR: Could not find the location of the civicrm-l10n repository."
     echo ""
@@ -65,25 +65,25 @@ else
   # check that we are running as the l10n user.
   user=`whoami`
 
-  if [ "$user" = "gitlab-runner" ]; then
+  if [ "$user" = "jenkins" ]; then
+    mkdir -p $WORKSPACE/publish
+
+    # Copy over the .mo files included in the daily tar.gz
     for i in $(cat conf/distributed_languages.txt); do
       mkdir -p workdir/l10n/$i/LC_MESSAGES
       cp workdir/mo/$i/civicrm.mo workdir/l10n/$i/LC_MESSAGES/
     done
 
     pushd workdir
-    tar cfz civicrm-l10n-daily.tar.gz l10n
-    md5sum civicrm-l10n-daily.tar.gz > civicrm-l10n-daily.tar.gz.MD5SUMS
-
-    echo -n "gsutil rsync civicrm-l10n-daily.tar.gz to gcloud bucket for download.civicrm.org ... "
-    ~/bin/gsutil/gsutil rsync civicrm-l10n-daily.tar.gz gs://civicrm/civicrm-l10n-core/archives/
-    ~/bin/gsutil/gsutil rsync civicrm-l10n-daily.tar.gz.MD5SUMS gs://civicrm/civicrm-l10n-core/archives/
-
-    echo -n "gsutil rsync all .mo files to gcloud bucket for download.civicrm.org ... "
-    ~/bin/gsutil/gsutil rsync -r ./mo gs://civicrm/civicrm-l10n-core/mo/
-    echo "done!"
-
-    rm civicrm-l10n-daily.tar.gz*
+    mkdir -p $WORKSPACE/publish/archives
+    tar cfz $WORKSPACE/publish/archives/civicrm-l10n-daily.tar.gz l10n
+    md5sum $WORKSPACE/publish/archives/civicrm-l10n-daily.tar.gz > $WORKSPACE/publish/archives/civicrm-l10n-daily.tar.gz.MD5SUMS
     popd
+
+    # Copy over the .mo files to publish on gcloud
+    for lang in $langs; do
+      mkdir -p $WORKSPACE/publish/mo/$lang
+      cp workdir/mo/$lang/civicrm.mo $WORKSPACE/publish/mo/$lang/civirm.mo
+    done
   fi
 fi
