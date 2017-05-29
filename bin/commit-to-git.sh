@@ -42,7 +42,9 @@ PO_NEW=$(git ls-files -o | grep '\.po' | sort)
 PO_MOD=$(git ls-files -m | grep '\.po' | sort)
 
 function get_author {
-	echo $(awk 'BEGIN { FS=": " } /Last-Translator/ { sub("\\\\n\"", ""); print $2 }' "$1")
+	# Transifex has an option to hide the email from .po files
+	# So if we don't see a @ char, use <>, otherwise git won't commit.
+	echo $(awk 'BEGIN { FS=": " } /Last-Translator/ { sub("\\\\n\"", ""); if ($2 ~ /@/) print $2; else print $2, " <>" }' "$1")
 }
 
 function do_commit {
