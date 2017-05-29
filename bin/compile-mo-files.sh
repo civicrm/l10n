@@ -83,7 +83,7 @@ else
     # Copy over the .mo files to publish on gcloud
     for lang in $langs; do
       mkdir -p $WORKSPACE/publish/mo/$lang
-      cp workdir/mo/$lang/civicrm.mo $WORKSPACE/publish/mo/$lang/civirm.mo
+      cp workdir/mo/$lang/civicrm.mo $WORKSPACE/publish/mo/$lang/civicrm.mo
     done
   fi
 fi
