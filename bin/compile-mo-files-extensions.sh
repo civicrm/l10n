@@ -79,8 +79,8 @@ if [ "$1" = "--help" -o "$1" = "-h" ]; then
 fi
 
 if [ ! -d "po" ]; then
-  if [ -d "$HOME/repositories/civicrm-l10n-extensions/po" ]; then
-    cd $HOME/repositories/civicrm-l10n-extensions
+  if [ -d "$HOME/l10n/civicrm-l10n-extensions/po" ]; then
+    cd $HOME/l10n/civicrm-l10n-extensions
   else
     echo "ERROR: Could not find the location of the civicrm-l10n-extensions repository."
     echo ""
@@ -114,9 +114,12 @@ else
   # check that we are running as the l10n user.
   user=`whoami`
 
-  if [ "$user" = "l10n" ]; then
-    echo -n "Rsync to download.civicrm.org ... "
-    rsync --delete -ra mo /var/www/download.civicrm.org/public/civicrm-l10n-extensions/
-    echo "done!"
+  if [ "$user" = "jenkins" ]; then
+    # Copy over the .mo files to publish on gcloud
+    # The jenkins job picks up the files in this directory and takes care of pushing.
+    for lang in $langs; do
+      mkdir -p $WORKSPACE/publish/extensions/mo/
+      rsync -Prav workdir/extensions/mo/* $WORKSPACE/publish/extensions/mo/
+    done
   fi
 fi

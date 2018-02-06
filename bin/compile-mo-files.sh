@@ -81,6 +81,7 @@ else
     popd
 
     # Copy over the .mo files to publish on gcloud
+    # The jenkins job picks up the files in this directory and takes care of pushing.
     for lang in $langs; do
       mkdir -p $WORKSPACE/publish/mo/$lang
       cp workdir/mo/$lang/civicrm.mo $WORKSPACE/publish/mo/$lang/civicrm.mo
