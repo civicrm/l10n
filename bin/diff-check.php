@@ -151,6 +151,7 @@ while ($line = fgets(STDIN)) {
 
     // remove msgctxt prefix
     $line = str_replace('msgctxt "menu"', '', $line);
+    $line = str_replace('msgctxt "province"', '', $line);
 
     // remove the opening or closing quotes
     $line = preg_replace('/^"/', '', $line);
