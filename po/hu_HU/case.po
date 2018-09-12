@@ -9,9 +9,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2016-10-05 11:33-0400\n"
-"PO-Revision-Date: 2017-09-23 18:03+0000\n"
-"Last-Translator: Zoltán Reizinger <zreizinger@hdsnet.hu>\n"
+"POT-Creation-Date: 2018-09-11 10:33-0400\n"
+"PO-Revision-Date: 2018-09-11 14:57+0000\n"
+"Last-Translator: Mathieu Lu <mathieu@bidon.ca>\n"
 "Language-Team: Hungarian (http://www.transifex.com/civicrm/civicrm/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,19 +19,24 @@ msgstr ""
 "Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: CRM/Case/BAO/Case.php templates/CRM/Case/Page/DashboardSelector.tpl
+#: CRM/Case/BAO/Case.php CRM/Case/Form/Activity/OpenCase.php
+#: CRM/Case/Selector/Search.php templates/CRM/Case/Audit/Report.tpl
+#: templates/CRM/Case/Form/Activity.tpl templates/CRM/Case/Form/Case.tpl
+#: templates/CRM/Case/Form/Task/Print.tpl
+msgid "Client"
+msgstr ""
+
+#: CRM/Case/BAO/Case.php
 #: xml/templates/message_templates/case_activity_html.tpl
 #: xml/templates/message_templates/case_activity_text.tpl
 msgid "View activity"
 msgstr "Tevékenység megtekintése"
 
 #: CRM/Case/BAO/Case.php
-msgid "no subject"
-msgstr "tárgy nem található"
-
-#: CRM/Case/BAO/Case.php
-msgid "(multiple)"
-msgstr "(több)"
+#: xml/templates/message_templates/case_activity_html.tpl
+#: xml/templates/message_templates/case_activity_text.tpl
+msgid "Edit activity"
+msgstr "Tevékenység szerkesztése"
 
 #: CRM/Case/BAO/Case.php
 msgid "Move To Case"
@@ -152,12 +157,28 @@ msgid "Only My Cases"
 msgstr "Csak az én ügyeim"
 
 #: CRM/Case/BAO/Query.php
+msgid "Search Cases with Upcoming Activities"
+msgstr ""
+
+#: CRM/Case/BAO/Query.php
+msgid "Case Tag(s)"
+msgstr "Ügy cimkéje (cimkék)"
+
+#: CRM/Case/BAO/Query.php
 msgid "Deleted Cases"
 msgstr "Törölt ügyek"
 
 #: CRM/Case/DAO/Case.php
 msgid "Case is in the Trash"
 msgstr "Tevékenység a Lomtárban"
+
+#: CRM/Case/DAO/CaseActivity.php
+msgid "Case Activity ID"
+msgstr "Ügy tevékenységei azonosítói"
+
+#: CRM/Case/DAO/CaseContact.php
+msgid "Case Contact ID"
+msgstr "Ügy kapcsolat azonosító"
 
 #: CRM/Case/DAO/CaseType.php
 msgid "Case Type ID"
@@ -210,14 +231,6 @@ msgstr "Az ügy kezdési dátuma sikeresen megváltoztatva."
 #: CRM/Case/Form/Activity/ChangeCaseStatus.php
 msgid "Case status changed from %1 to %2"
 msgstr "Az ügy állapota megváltozott %1ről %2re."
-
-#: CRM/Case/Form/Activity/ChangeCaseStatus.php
-msgid "Case Status changed successfully."
-msgstr "Ügy állapota sikeresen megváltoztatva."
-
-#: CRM/Case/Form/Activity/ChangeCaseType.php ang/crmCaseType/list.html
-msgid "New Case Type"
-msgstr "Ügy új típusa"
 
 #: CRM/Case/Form/Activity/ChangeCaseType.php
 msgid "Reset Case Timeline?"
@@ -302,6 +315,18 @@ msgstr "Kapcsolatt(okk)al"
 msgid "Activity Revision History"
 msgstr "Tevékenység felülvizsgálat történet"
 
+#: CRM/Case/Form/ActivityView.php CRM/Case/Page/DashBoard.php
+msgid "CiviCase Dashboard"
+msgstr "CiviÜgy vezérlőpult"
+
+#: CRM/Case/Form/AddToCaseAsRole.php CRM/Case/Form/CaseView.php
+msgid "- select type -"
+msgstr "- típus kiválasztása -"
+
+#: CRM/Case/Form/AddToCaseAsRole.php
+msgid "Assign to"
+msgstr ""
+
 #: CRM/Case/Form/Case.php
 msgid "You do not have any active %1"
 msgstr "Nincs semmilyen aktív %1"
@@ -318,23 +343,18 @@ msgid "Client contact does not exist: %1"
 msgstr "%1: ügyfél kapcsolat nem létezik"
 
 #: CRM/Case/Form/Case.php
-msgid "Select Tags"
-msgstr "Kiválasztott cimkék"
-
-#: CRM/Case/Form/Case.php
 msgid ""
-"The selected case has been moved to the Trash. You can view and / or restore"
-" deleted cases by checking the \"Deleted Cases\" option under Find Cases.<br"
-" />"
-msgstr "A kiválasztott ügy a lomtárba került.Megtekintheted és / vagy helyreállíthatod a törölt ügyeket azzal hogy kijelölöd a \"Törölt Ügyek\" opciót az Ügyek keresése alatt.<br />"
+"You can view and / or restore deleted cases by checking the \"Deleted "
+"Cases\" option under Find Cases."
+msgstr ""
 
 #: CRM/Case/Form/Case.php
 msgid "Case Deleted"
 msgstr "Ügy törölve"
 
 #: CRM/Case/Form/Case.php
-msgid "The selected case has been restored.<br />"
-msgstr "A kiválasztott ügy vissza lett állítva.<br />"
+msgid "The selected case has been restored."
+msgstr ""
 
 #: CRM/Case/Form/CaseView.php
 msgid "Related Cases"
@@ -357,14 +377,6 @@ msgstr "Tevékenység audit"
 #: CRM/Case/Form/CaseView.php
 msgid "Add Timeline"
 msgstr "Idővonal hozzáadása"
-
-#: CRM/Case/Form/CaseView.php
-msgid "Select Case for Merge"
-msgstr "Válassza ki az egyesítendő ügyet"
-
-#: CRM/Case/Form/CaseView.php
-msgid "- select type -"
-msgstr "- típus kiválasztása -"
 
 #: CRM/Case/Form/CaseView.php
 msgid "Activities from the %1 activity set have been added to this case."
@@ -390,9 +402,17 @@ msgstr "Tevékenység dátumok - Dátumtól"
 msgid "Deleted Activities"
 msgstr "Törölt tevékenységek"
 
-#: CRM/Case/Form/EditClient.php
-msgid "Select Contact"
-msgstr "Kapcsolat kiválasztása"
+#: CRM/Case/Form/CaseView.php
+msgid "(opened %1)"
+msgstr "(megnyitva %1)"
+
+#: CRM/Case/Form/CaseView.php
+msgid "Select Case for Merge"
+msgstr "Válassza ki az egyesítendő ügyet"
+
+#: CRM/Case/Form/CaseView.php
+msgid "- select case -"
+msgstr ""
 
 #: CRM/Case/Form/EditClient.php
 msgid "Reassign Case"
@@ -427,7 +447,7 @@ msgid "Find Cases"
 msgstr "Ügykeresés"
 
 #: CRM/Case/Form/Task/Delete.php CRM/Case/Info.php CRM/Case/Task.php
-msgid "Delete Cases"
+msgid "Delete cases"
 msgstr "Ügyek törlése"
 
 #: CRM/Case/Form/Task/Delete.php
@@ -446,7 +466,7 @@ msgstr[1] "%count ügyek véglegesen törölve"
 msgid "Print Case List"
 msgstr "Ügy lista kinyomtatása"
 
-#: CRM/Case/Form/Task/Restore.php CRM/Case/Task.php
+#: CRM/Case/Form/Task/Restore.php
 msgid "Restore Cases"
 msgstr "Ügy visszaállítása"
 
@@ -475,16 +495,32 @@ msgid "administer CiviCase"
 msgstr "CiviÜgy kezelése"
 
 #: CRM/Case/Info.php
+msgid "Define case types, access deleted cases"
+msgstr "Ügy típusok meghatározása, hozzáférés a törölt ügyekhez"
+
+#: CRM/Case/Info.php
 msgid "access my cases and activities"
 msgstr "Ügyeim és tevékenységeim elérése"
+
+#: CRM/Case/Info.php
+msgid "View and edit only those cases managed by this user"
+msgstr "Csak ezen felhasználó által kezelt ügyek megtekintése és szerkesztése"
 
 #: CRM/Case/Info.php
 msgid "access all cases and activities"
 msgstr "összes ügyek és tevékenységek elérése"
 
 #: CRM/Case/Info.php
+msgid "View and edit all cases (for visible contacts)"
+msgstr "Összes ügy megtekintése és szerkesztése (látható kapcsolatokhoz)"
+
+#: CRM/Case/Info.php
 msgid "add cases"
 msgstr "ügyek hozzáadása"
+
+#: CRM/Case/Info.php
+msgid "Open a new case"
+msgstr "Új ügy megnyitása"
 
 #: CRM/Case/Info.php
 msgid ""
@@ -492,13 +528,29 @@ msgid ""
 " the 'CREATE VIEW' permission"
 msgstr "Nem tudok létrehozni MySQL nézetet a CiviÜgyhöz. A MySQL felhasználójának 'CREATE VIEW' jogosultsággal kell rendelkeznie"
 
-#: CRM/Case/Page/AJAX.php
-msgid "closed"
-msgstr "lezárva"
+#: CRM/Case/Info.php
+msgid "Do not redact emails"
+msgstr ""
 
-#: CRM/Case/Page/DashBoard.php
-msgid "CiviCase Dashboard"
-msgstr "CiviÜgy vezérlőpult"
+#: CRM/Case/Info.php
+msgid "Redact emails"
+msgstr ""
+
+#: CRM/Case/Info.php
+msgid "Single client per case"
+msgstr ""
+
+#: CRM/Case/Info.php
+msgid "Multiple client per case"
+msgstr ""
+
+#: CRM/Case/Info.php
+msgid "Definition order"
+msgstr ""
+
+#: CRM/Case/Info.php
+msgid "Alphabetical order"
+msgstr ""
 
 #: CRM/Case/Page/DashBoard.php
 msgid "You are not authorized to access all cases and activities."
@@ -535,8 +587,20 @@ msgid "Case Search"
 msgstr "Ügy keresése"
 
 #: CRM/Case/Task.php
-msgid "Export Cases"
+msgid "Export cases"
 msgstr "Ügyek exportálása"
+
+#: CRM/Case/Task.php
+msgid "Restore cases"
+msgstr "Ügyek visszaállítása"
+
+#: CRM/Case/Task.php
+msgid "Print/merge Document"
+msgstr "Dokumentum nyomtatás/egybevonás"
+
+#: CRM/Case/Task.php
+msgid "Update multiple cases"
+msgstr ""
 
 #: CRM/Case/XMLProcessor/Process.php
 msgid "Configuration file could not be retrieved for case type = '%1' %2."
@@ -600,6 +664,38 @@ msgid "ADC referral"
 msgstr "ADC ajánló"
 
 #: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Homeless Services Coordinator is"
+msgstr "Hajléktalan szolgáltatások koordinátora"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Homeless Services Coordinator"
+msgstr "Hajléktalan szolgáltatások koordinátor"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Health Services Coordinator is"
+msgstr "Egészségügyi szolgáltatások koordinátora"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Health Services Coordinator"
+msgstr "Egészségügyi szolgáltatások koordinátor"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Senior Services Coordinator is"
+msgstr "Idős ügyi szolgáltatások koordinátora"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Senior Services Coordinator"
+msgstr "Idős ügyi szolgáltatások koordinátor"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Benefits Specialist is"
+msgstr "Ellátások specialistája"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Benefits Specialist"
+msgstr "Ellátások specialista"
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
 msgid "Case Resources"
 msgstr "Ügy erőforrások"
 
@@ -621,6 +717,10 @@ msgid ""
 "they must be updated manually."
 msgstr "FIGYELMEZTETÉS: Ha bármelyik külső fájl vagy program a régi \"Név\"-re hivatkozik, azokat kézzel kell frissíteni."
 
+#: ang/crmCaseType/edit.html ang/crmCaseType/list.html
+msgid "New Case Type"
+msgstr "Ügy új típusa"
+
 #: ang/crmCaseType/edit.html
 msgid ""
 "Use this screen to define or update the Case Roles, Activity Types, and "
@@ -631,9 +731,13 @@ msgstr "Használja ezt a képernyőt az ügy szerepkör, tevékenység típus é
 msgid "Learn more..."
 msgstr "Tudjon meg többet..."
 
-#: ang/crmCaseType/edit.html templates/CRM/Case/Form/CaseView.tpl
-msgid "Roles"
-msgstr "Szerepkörök"
+#: ang/crmCaseType/edit.html templates/CRM/Case/Audit/Report.tpl
+msgid "Case Roles"
+msgstr "Ügy szerepkörei"
+
+#: ang/crmCaseType/edit.html
+msgid "Case Statuses"
+msgstr ""
 
 #: ang/crmCaseType/edit.html
 msgid "Add..."
@@ -646,6 +750,10 @@ msgstr "Idővonal"
 #: ang/crmCaseType/edit.html
 msgid "Sequence"
 msgstr "Sorrend"
+
+#: ang/crmCaseType/list.html
+msgid "Case Types"
+msgstr "Ügy típusok"
 
 #: ang/crmCaseType/list.html
 msgid ""
@@ -664,26 +772,42 @@ msgstr "Menedzser"
 msgid "Add role"
 msgstr "Szerepkör hozzáadása:"
 
+#: ang/crmCaseType/statusTable.html
+msgid "New Status"
+msgstr ""
+
 #: ang/crmCaseType/timelineTable.html
 msgid "Reference"
 msgstr "Hivatkozások"
+
+#: ang/crmCaseType/timelineTable.html
+msgid "Offset"
+msgstr ""
+
+#: ang/crmCaseType/timelineTable.html
+msgid "Default assignee"
+msgstr ""
+
+#: ang/crmCaseType/timelineTable.html
+msgid "Newest"
+msgstr ""
+
+#: ang/crmCaseType/timelineTable.html
+msgid "Oldest"
+msgstr ""
+
+#: ang/crmCaseType.js
+msgid "new"
+msgstr ""
 
 #: ang/crmCaseType.js
 msgid ""
 "The CiviCase XML file for this case-type prohibits editing the definition."
 msgstr "A CiviÜgy ehhez az ügytípushoz tartozó XML fájlja nem engedi a definíció szerkesztését."
 
-#: templates/CRM/Case/Audit/Audit.tpl
-msgid "Incomplete"
-msgstr "bejezetlen"
-
 #: templates/CRM/Case/Audit/Report.tpl
 msgid "Case Summary"
 msgstr "Ügy összegzése"
-
-#: templates/CRM/Case/Audit/Report.tpl
-msgid "Case Roles"
-msgstr "Ügy szerepkörei"
 
 #: templates/CRM/Case/Audit/Report.tpl templates/CRM/Case/Form/Activity.tpl
 #: templates/CRM/Case/Form/CaseView.tpl
@@ -705,6 +829,10 @@ msgstr "Ügy tevékenységei"
 #: templates/CRM/Case/Form/Activity/ChangeCaseStartDate.tpl
 msgid "Current Start Date"
 msgstr "Jelenlegi kezdési dátum"
+
+#: templates/CRM/Case/Form/Activity/ChangeCaseStatus.tpl
+msgid "Update Linked Cases Status?"
+msgstr ""
 
 #: templates/CRM/Case/Form/Activity/LinkCases.tpl
 msgid "Create link between %1 - %2 (CaseID: %3) and %4 - %5 (CaseID: %6)"
@@ -745,9 +873,8 @@ msgid "Search Filters"
 msgstr "Keresési szűrők "
 
 #: templates/CRM/Case/Form/ActivityTab.tpl
-#: templates/CRM/Case/Page/CaseDetails.tpl
-msgid "Reporter / Assignee"
-msgstr "Bejelntő/ Illetékes"
+msgid "Reporter"
+msgstr "Jelentő"
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
 msgid "You can modify the activity subject before filing."
@@ -855,6 +982,10 @@ msgid ""
 "Trash."
 msgstr "Kattints a Visszaállításra hogy helyreállítsd ezt az ügyet és minden vele kapcsolatos tevékenységet a Lomtárból."
 
+#: templates/CRM/Case/Form/CaseFilter.tpl
+msgid "Filter by Case"
+msgstr ""
+
 #: templates/CRM/Case/Form/CaseView.js
 msgid "Add the %1 set of scheduled activities to this case?"
 msgstr "Hozzáadjam a %1 ütemezett tevékenység csoportot ehhez az ügyhöz?"
@@ -884,12 +1015,16 @@ msgid "Change case status (creates activity record)"
 msgstr "Ügy állapotának megváltoztatása (tevékenység rekordot hoz létre)"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Open Date"
-msgstr "Megnyitási dátum"
-
-#: templates/CRM/Case/Form/CaseView.tpl
 msgid "Change case start date (creates activity record)"
 msgstr "Ügy kezdő dátumának megváltoztatása (tevékenység rekordot hoz létre)"
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Export Document"
+msgstr "Dokumentum export"
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Roles"
+msgstr "Szerepkörök"
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Add new role"
@@ -904,8 +1039,8 @@ msgid "Change To"
 msgstr "Változtatás"
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Are you sure you want to delete this case role?"
-msgstr "Biztos abban, hogy törölni akarja ezt a ügy szerepkört?"
+msgid "Are you sure you want to end this relationship?"
+msgstr "Biztos abban, hogy megszünteti ezt a viszonyt?"
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Other Relationships"
@@ -922,10 +1057,6 @@ msgstr "Tagok hozzáadása %1hez"
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "- select contacts -"
 msgstr "- kapcsolat kiválasztása -"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "The group %1 has no members."
-msgstr "Az %1 csoportnak nincsenek tagjai."
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Case Tags"
@@ -947,24 +1078,11 @@ msgstr "Ez az ügy jelenleg %1hez tartozik."
 msgid "Report Parameters"
 msgstr "Jelentés paraméterei"
 
-#: templates/CRM/Case/Form/Search/Common.tpl
-msgid "Case Tag(s)"
-msgstr "Ügy cimkéje (cimkék)"
-
 #: templates/CRM/Case/Form/Search/EmptyResults.tpl
 msgid "if you are searching by client name, check your spelling"
 msgstr "Ha az ügyfél neve alapján keresel, kérlek ellenőrizd a helyesírást"
 
 #: templates/CRM/Case/Form/Selector.tpl
-msgid "Show recent activities"
-msgstr "Mutassa az aktuális tevékenységeket"
-
-#: templates/CRM/Case/Form/Selector.tpl
-msgid "Hide activities"
-msgstr "Tevékenységek elrejtése"
-
-#: templates/CRM/Case/Form/Selector.tpl
-#: templates/CRM/Case/Page/DashboardSelector.tpl
 msgid "Find more cases"
 msgstr "Még több ügy keresése"
 
@@ -991,10 +1109,6 @@ msgstr "Biztos vagy abban hogy helyre akarod állítani a kiválasztott ügyeket
 #: templates/CRM/Case/Form/Task.tpl
 msgid "Number of selected cases: %1"
 msgstr "A kiválasztott ügyek száma: %1"
-
-#: templates/CRM/Case/Page/CaseDetails.tpl
-msgid "There are no activities defined for this case."
-msgstr "Nincsenek tevékenységek megadva ehhez az ügyhöz."
 
 #: templates/CRM/Case/Page/ConfigureError.tpl
 msgid ""
@@ -1058,12 +1172,6 @@ msgstr "Jelenleg nincsenek folyamatban lévő ügyek amelyekben tevékenységek 
 msgid "Manager"
 msgstr "Menedzser"
 
-#: templates/CRM/Case/Page/DashboardSelector.tpl
-#: xml/templates/message_templates/case_activity_html.tpl
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "Edit activity"
-msgstr "Tevékenység szerkesztése"
-
 #: templates/CRM/Case/Page/Tab.tpl
 msgid "Oops, It looks like there are no active case types."
 msgstr "Hoppá, úgy látszik jelenleg nincsenek aktív ügy típusok."
@@ -1093,95 +1201,3 @@ msgstr "Tevékenység összegzés"
 #: xml/templates/message_templates/case_activity_text.tpl
 msgid "Your Case Role(s)"
 msgstr "A te ügyed szerepköre(i)"
-
-#: CRM/Case/DAO/CaseActivity.php
-msgid "Case Activity ID"
-msgstr "Ügy tevékenységei azonosítói"
-
-#: CRM/Case/DAO/CaseContact.php
-msgid "Case Contact ID"
-msgstr "Ügy kapcsolat azonosító"
-
-#: CRM/Case/Form/CaseView.php
-msgid "(opened %1)"
-msgstr "(megnyitva %1)"
-
-#: CRM/Case/Form/Task/Delete.php CRM/Case/Info.php CRM/Case/Task.php
-msgid "Delete cases"
-msgstr "Ügyek törlése"
-
-#: CRM/Case/Info.php
-msgid "Define case types, access deleted cases"
-msgstr "Ügy típusok meghatározása, hozzáférés a törölt ügyekhez"
-
-#: CRM/Case/Info.php
-msgid "View and edit only those cases managed by this user"
-msgstr "Csak ezen felhasználó által kezelt ügyek megtekintése és szerkesztése"
-
-#: CRM/Case/Info.php
-msgid "View and edit all cases (for visible contacts)"
-msgstr "Összes ügy megtekintése és szerkesztése (látható kapcsolatokhoz)"
-
-#: CRM/Case/Info.php
-msgid "Open a new case"
-msgstr "Új ügy megnyitása"
-
-#: CRM/Case/Task.php
-msgid "Export cases"
-msgstr "Ügyek exportálása"
-
-#: CRM/Case/Task.php
-msgid "Restore cases"
-msgstr "Ügyek visszaállítása"
-
-#: CRM/Case/Task.php
-msgid "Print/merge Document"
-msgstr "Dokumentum nyomtatás/egybevonás"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Homeless Services Coordinator is"
-msgstr "Hajléktalan szolgáltatások koordinátora"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Homeless Services Coordinator"
-msgstr "Hajléktalan szolgáltatások koordinátor"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Health Services Coordinator is"
-msgstr "Egészségügyi szolgáltatások koordinátora"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Health Services Coordinator"
-msgstr "Egészségügyi szolgáltatások koordinátor"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Senior Services Coordinator is"
-msgstr "Idős ügyi szolgáltatások koordinátora"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Senior Services Coordinator"
-msgstr "Idős ügyi szolgáltatások koordinátor"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Benefits Specialist is"
-msgstr "Ellátások specialistája"
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Benefits Specialist"
-msgstr "Ellátások specialista"
-
-#: ang/crmCaseType/list.html
-msgid "Case Types"
-msgstr "Ügy típusok"
-
-#: templates/CRM/Case/Form/ActivityTab.tpl
-msgid "Reporter"
-msgstr "Jelentő"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Export Document"
-msgstr "Dokumentum export"
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Are you sure you want to end this relationship?"
-msgstr "Biztos abban, hogy megszünteti ezt a viszonyt?"
