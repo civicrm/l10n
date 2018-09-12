@@ -18,8 +18,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2016-10-05 11:33-0400\n"
-"PO-Revision-Date: 2017-09-19 09:47+0000\n"
+"POT-Creation-Date: 2018-09-11 10:33-0400\n"
+"PO-Revision-Date: 2018-09-11 14:57+0000\n"
 "Last-Translator: Mathieu Lu <mathieu@bidon.ca>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/civicrm/civicrm/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -28,19 +28,24 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: CRM/Case/BAO/Case.php templates/CRM/Case/Page/DashboardSelector.tpl
+#: CRM/Case/BAO/Case.php CRM/Case/Form/Activity/OpenCase.php
+#: CRM/Case/Selector/Search.php templates/CRM/Case/Audit/Report.tpl
+#: templates/CRM/Case/Form/Activity.tpl templates/CRM/Case/Form/Case.tpl
+#: templates/CRM/Case/Form/Task/Print.tpl
+msgid "Client"
+msgstr ""
+
+#: CRM/Case/BAO/Case.php
 #: xml/templates/message_templates/case_activity_html.tpl
 #: xml/templates/message_templates/case_activity_text.tpl
 msgid "View activity"
 msgstr "查看活动"
 
 #: CRM/Case/BAO/Case.php
-msgid "no subject"
-msgstr "无标题"
-
-#: CRM/Case/BAO/Case.php
-msgid "(multiple)"
-msgstr "(多重选择)"
+#: xml/templates/message_templates/case_activity_html.tpl
+#: xml/templates/message_templates/case_activity_text.tpl
+msgid "Edit activity"
+msgstr ""
 
 #: CRM/Case/BAO/Case.php
 msgid "Move To Case"
@@ -161,12 +166,28 @@ msgid "Only My Cases"
 msgstr "仅我的个案"
 
 #: CRM/Case/BAO/Query.php
+msgid "Search Cases with Upcoming Activities"
+msgstr ""
+
+#: CRM/Case/BAO/Query.php
+msgid "Case Tag(s)"
+msgstr "个案标签"
+
+#: CRM/Case/BAO/Query.php
 msgid "Deleted Cases"
 msgstr "已删除个案"
 
 #: CRM/Case/DAO/Case.php
 msgid "Case is in the Trash"
 msgstr "回收站中的个案"
+
+#: CRM/Case/DAO/CaseActivity.php
+msgid "Case Activity ID"
+msgstr ""
+
+#: CRM/Case/DAO/CaseContact.php
+msgid "Case Contact ID"
+msgstr ""
 
 #: CRM/Case/DAO/CaseType.php
 msgid "Case Type ID"
@@ -219,14 +240,6 @@ msgstr "个案开始时间修改成功。"
 #: CRM/Case/Form/Activity/ChangeCaseStatus.php
 msgid "Case status changed from %1 to %2"
 msgstr "个案状态从 %1 变成 %2"
-
-#: CRM/Case/Form/Activity/ChangeCaseStatus.php
-msgid "Case Status changed successfully."
-msgstr "个案状态修改成功。"
-
-#: CRM/Case/Form/Activity/ChangeCaseType.php ang/crmCaseType/list.html
-msgid "New Case Type"
-msgstr "新个案类型"
 
 #: CRM/Case/Form/Activity/ChangeCaseType.php
 msgid "Reset Case Timeline?"
@@ -311,6 +324,18 @@ msgstr ""
 msgid "Activity Revision History"
 msgstr ""
 
+#: CRM/Case/Form/ActivityView.php CRM/Case/Page/DashBoard.php
+msgid "CiviCase Dashboard"
+msgstr " CiviCase仪表盘"
+
+#: CRM/Case/Form/AddToCaseAsRole.php CRM/Case/Form/CaseView.php
+msgid "- select type -"
+msgstr "- 选择类型 -"
+
+#: CRM/Case/Form/AddToCaseAsRole.php
+msgid "Assign to"
+msgstr ""
+
 #: CRM/Case/Form/Case.php
 msgid "You do not have any active %1"
 msgstr "您没有任何有效的%1"
@@ -327,23 +352,18 @@ msgid "Client contact does not exist: %1"
 msgstr "客户联系人不存在： %1"
 
 #: CRM/Case/Form/Case.php
-msgid "Select Tags"
-msgstr "选择标签"
-
-#: CRM/Case/Form/Case.php
 msgid ""
-"The selected case has been moved to the Trash. You can view and / or restore"
-" deleted cases by checking the \"Deleted Cases\" option under Find Cases.<br"
-" />"
-msgstr "选定的个案已被移到回收站。 你可以在查找个案下选定\" 已删除个案 \" 选项来查看或恢复那些已被删除的个案。"
+"You can view and / or restore deleted cases by checking the \"Deleted "
+"Cases\" option under Find Cases."
+msgstr ""
 
 #: CRM/Case/Form/Case.php
 msgid "Case Deleted"
 msgstr ""
 
 #: CRM/Case/Form/Case.php
-msgid "The selected case has been restored.<br />"
-msgstr "选定个案已被恢复。<br />"
+msgid "The selected case has been restored."
+msgstr ""
 
 #: CRM/Case/Form/CaseView.php
 msgid "Related Cases"
@@ -365,14 +385,6 @@ msgstr ""
 #: CRM/Case/Form/CaseView.php
 msgid "Add Timeline"
 msgstr "增加时间轴"
-
-#: CRM/Case/Form/CaseView.php
-msgid "Select Case for Merge"
-msgstr "选择要合并的个案"
-
-#: CRM/Case/Form/CaseView.php
-msgid "- select type -"
-msgstr "- 选择类型 -"
 
 #: CRM/Case/Form/CaseView.php
 msgid "Activities from the %1 activity set have been added to this case."
@@ -398,8 +410,16 @@ msgstr ""
 msgid "Deleted Activities"
 msgstr ""
 
-#: CRM/Case/Form/EditClient.php
-msgid "Select Contact"
+#: CRM/Case/Form/CaseView.php
+msgid "(opened %1)"
+msgstr ""
+
+#: CRM/Case/Form/CaseView.php
+msgid "Select Case for Merge"
+msgstr "选择要合并的个案"
+
+#: CRM/Case/Form/CaseView.php
+msgid "- select case -"
 msgstr ""
 
 #: CRM/Case/Form/EditClient.php
@@ -435,8 +455,8 @@ msgid "Find Cases"
 msgstr "查找个案"
 
 #: CRM/Case/Form/Task/Delete.php CRM/Case/Info.php CRM/Case/Task.php
-msgid "Delete Cases"
-msgstr "删除个案"
+msgid "Delete cases"
+msgstr ""
 
 #: CRM/Case/Form/Task/Delete.php
 msgid "%count case moved to trash."
@@ -452,7 +472,7 @@ msgstr[0] ""
 msgid "Print Case List"
 msgstr "打印个案列表"
 
-#: CRM/Case/Form/Task/Restore.php CRM/Case/Task.php
+#: CRM/Case/Form/Task/Restore.php
 msgid "Restore Cases"
 msgstr "恢复个案"
 
@@ -479,7 +499,15 @@ msgid "administer CiviCase"
 msgstr ""
 
 #: CRM/Case/Info.php
+msgid "Define case types, access deleted cases"
+msgstr ""
+
+#: CRM/Case/Info.php
 msgid "access my cases and activities"
+msgstr ""
+
+#: CRM/Case/Info.php
+msgid "View and edit only those cases managed by this user"
 msgstr ""
 
 #: CRM/Case/Info.php
@@ -487,7 +515,15 @@ msgid "access all cases and activities"
 msgstr ""
 
 #: CRM/Case/Info.php
+msgid "View and edit all cases (for visible contacts)"
+msgstr ""
+
+#: CRM/Case/Info.php
 msgid "add cases"
+msgstr ""
+
+#: CRM/Case/Info.php
+msgid "Open a new case"
 msgstr ""
 
 #: CRM/Case/Info.php
@@ -496,13 +532,29 @@ msgid ""
 " the 'CREATE VIEW' permission"
 msgstr ""
 
-#: CRM/Case/Page/AJAX.php
-msgid "closed"
+#: CRM/Case/Info.php
+msgid "Do not redact emails"
 msgstr ""
 
-#: CRM/Case/Page/DashBoard.php
-msgid "CiviCase Dashboard"
-msgstr " CiviCase仪表盘"
+#: CRM/Case/Info.php
+msgid "Redact emails"
+msgstr ""
+
+#: CRM/Case/Info.php
+msgid "Single client per case"
+msgstr ""
+
+#: CRM/Case/Info.php
+msgid "Multiple client per case"
+msgstr ""
+
+#: CRM/Case/Info.php
+msgid "Definition order"
+msgstr ""
+
+#: CRM/Case/Info.php
+msgid "Alphabetical order"
+msgstr ""
 
 #: CRM/Case/Page/DashBoard.php
 msgid "You are not authorized to access all cases and activities."
@@ -539,8 +591,20 @@ msgid "Case Search"
 msgstr "个案搜索"
 
 #: CRM/Case/Task.php
-msgid "Export Cases"
-msgstr "导出个案"
+msgid "Export cases"
+msgstr ""
+
+#: CRM/Case/Task.php
+msgid "Restore cases"
+msgstr ""
+
+#: CRM/Case/Task.php
+msgid "Print/merge Document"
+msgstr ""
+
+#: CRM/Case/Task.php
+msgid "Update multiple cases"
+msgstr ""
 
 #: CRM/Case/XMLProcessor/Process.php
 msgid "Configuration file could not be retrieved for case type = '%1' %2."
@@ -604,6 +668,38 @@ msgid "ADC referral"
 msgstr ""
 
 #: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Homeless Services Coordinator is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Homeless Services Coordinator"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Health Services Coordinator is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Health Services Coordinator"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Senior Services Coordinator is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Senior Services Coordinator"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Benefits Specialist is"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
+msgid "Benefits Specialist"
+msgstr ""
+
+#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
 msgid "Case Resources"
 msgstr ""
 
@@ -625,6 +721,10 @@ msgid ""
 "they must be updated manually."
 msgstr ""
 
+#: ang/crmCaseType/edit.html ang/crmCaseType/list.html
+msgid "New Case Type"
+msgstr "新个案类型"
+
 #: ang/crmCaseType/edit.html
 msgid ""
 "Use this screen to define or update the Case Roles, Activity Types, and "
@@ -635,8 +735,12 @@ msgstr ""
 msgid "Learn more..."
 msgstr ""
 
-#: ang/crmCaseType/edit.html templates/CRM/Case/Form/CaseView.tpl
-msgid "Roles"
+#: ang/crmCaseType/edit.html templates/CRM/Case/Audit/Report.tpl
+msgid "Case Roles"
+msgstr "个案角色"
+
+#: ang/crmCaseType/edit.html
+msgid "Case Statuses"
 msgstr ""
 
 #: ang/crmCaseType/edit.html
@@ -649,6 +753,10 @@ msgstr ""
 
 #: ang/crmCaseType/edit.html
 msgid "Sequence"
+msgstr ""
+
+#: ang/crmCaseType/list.html
+msgid "Case Types"
 msgstr ""
 
 #: ang/crmCaseType/list.html
@@ -668,8 +776,32 @@ msgstr ""
 msgid "Add role"
 msgstr ""
 
+#: ang/crmCaseType/statusTable.html
+msgid "New Status"
+msgstr ""
+
 #: ang/crmCaseType/timelineTable.html
 msgid "Reference"
+msgstr ""
+
+#: ang/crmCaseType/timelineTable.html
+msgid "Offset"
+msgstr ""
+
+#: ang/crmCaseType/timelineTable.html
+msgid "Default assignee"
+msgstr ""
+
+#: ang/crmCaseType/timelineTable.html
+msgid "Newest"
+msgstr ""
+
+#: ang/crmCaseType/timelineTable.html
+msgid "Oldest"
+msgstr ""
+
+#: ang/crmCaseType.js
+msgid "new"
 msgstr ""
 
 #: ang/crmCaseType.js
@@ -677,17 +809,9 @@ msgid ""
 "The CiviCase XML file for this case-type prohibits editing the definition."
 msgstr ""
 
-#: templates/CRM/Case/Audit/Audit.tpl
-msgid "Incomplete"
-msgstr "未完成的"
-
 #: templates/CRM/Case/Audit/Report.tpl
 msgid "Case Summary"
 msgstr "个案概要"
-
-#: templates/CRM/Case/Audit/Report.tpl
-msgid "Case Roles"
-msgstr "个案角色"
 
 #: templates/CRM/Case/Audit/Report.tpl templates/CRM/Case/Form/Activity.tpl
 #: templates/CRM/Case/Form/CaseView.tpl
@@ -709,6 +833,10 @@ msgstr "个案活动"
 #: templates/CRM/Case/Form/Activity/ChangeCaseStartDate.tpl
 msgid "Current Start Date"
 msgstr "当前的开始日期"
+
+#: templates/CRM/Case/Form/Activity/ChangeCaseStatus.tpl
+msgid "Update Linked Cases Status?"
+msgstr ""
 
 #: templates/CRM/Case/Form/Activity/LinkCases.tpl
 msgid "Create link between %1 - %2 (CaseID: %3) and %4 - %5 (CaseID: %6)"
@@ -749,9 +877,8 @@ msgid "Search Filters"
 msgstr "搜索过滤器"
 
 #: templates/CRM/Case/Form/ActivityTab.tpl
-#: templates/CRM/Case/Page/CaseDetails.tpl
-msgid "Reporter / Assignee"
-msgstr "报告人/申请人"
+msgid "Reporter"
+msgstr ""
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
 msgid "You can modify the activity subject before filing."
@@ -859,6 +986,10 @@ msgid ""
 "Trash."
 msgstr "单击“还原”从回收站中找回这个个案及其所有相关活动。"
 
+#: templates/CRM/Case/Form/CaseFilter.tpl
+msgid "Filter by Case"
+msgstr ""
+
 #: templates/CRM/Case/Form/CaseView.js
 msgid "Add the %1 set of scheduled activities to this case?"
 msgstr ""
@@ -888,11 +1019,15 @@ msgid "Change case status (creates activity record)"
 msgstr ""
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Open Date"
+msgid "Change case start date (creates activity record)"
 msgstr ""
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Change case start date (creates activity record)"
+msgid "Export Document"
+msgstr ""
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Roles"
 msgstr ""
 
 #: templates/CRM/Case/Form/CaseView.tpl
@@ -908,7 +1043,7 @@ msgid "Change To"
 msgstr ""
 
 #: templates/CRM/Case/Form/CaseView.tpl
-msgid "Are you sure you want to delete this case role?"
+msgid "Are you sure you want to end this relationship?"
 msgstr ""
 
 #: templates/CRM/Case/Form/CaseView.tpl
@@ -925,10 +1060,6 @@ msgstr "将成员添加到%1"
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "- select contacts -"
-msgstr ""
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "The group %1 has no members."
 msgstr ""
 
 #: templates/CRM/Case/Form/CaseView.tpl
@@ -951,24 +1082,11 @@ msgstr "此个案目前已经分配给%1"
 msgid "Report Parameters"
 msgstr "报告参数"
 
-#: templates/CRM/Case/Form/Search/Common.tpl
-msgid "Case Tag(s)"
-msgstr "个案标签"
-
 #: templates/CRM/Case/Form/Search/EmptyResults.tpl
 msgid "if you are searching by client name, check your spelling"
 msgstr "如果您是按客户名称搜索，请检查拼写。"
 
 #: templates/CRM/Case/Form/Selector.tpl
-msgid "Show recent activities"
-msgstr ""
-
-#: templates/CRM/Case/Form/Selector.tpl
-msgid "Hide activities"
-msgstr ""
-
-#: templates/CRM/Case/Form/Selector.tpl
-#: templates/CRM/Case/Page/DashboardSelector.tpl
 msgid "Find more cases"
 msgstr "搜索更多的个案"
 
@@ -995,10 +1113,6 @@ msgstr "是否确定恢复选定的个案？此操作将从回收站取回此(�
 #: templates/CRM/Case/Form/Task.tpl
 msgid "Number of selected cases: %1"
 msgstr "选定个案的个数：%1"
-
-#: templates/CRM/Case/Page/CaseDetails.tpl
-msgid "There are no activities defined for this case."
-msgstr "此个案未定义任何活动"
 
 #: templates/CRM/Case/Page/ConfigureError.tpl
 msgid ""
@@ -1062,12 +1176,6 @@ msgstr "没有在过去两周内安排了活动的个案。使用%1可以扩展�
 msgid "Manager"
 msgstr "管理"
 
-#: templates/CRM/Case/Page/DashboardSelector.tpl
-#: xml/templates/message_templates/case_activity_html.tpl
-#: xml/templates/message_templates/case_activity_text.tpl
-msgid "Edit activity"
-msgstr ""
-
 #: templates/CRM/Case/Page/Tab.tpl
 msgid "Oops, It looks like there are no active case types."
 msgstr "哎呀，看起来没有有效的个案类型。"
@@ -1097,95 +1205,3 @@ msgstr "活动概要"
 #: xml/templates/message_templates/case_activity_text.tpl
 msgid "Your Case Role(s)"
 msgstr "您的个案角色(s)"
-
-#: CRM/Case/DAO/CaseActivity.php
-msgid "Case Activity ID"
-msgstr ""
-
-#: CRM/Case/DAO/CaseContact.php
-msgid "Case Contact ID"
-msgstr ""
-
-#: CRM/Case/Form/CaseView.php
-msgid "(opened %1)"
-msgstr ""
-
-#: CRM/Case/Form/Task/Delete.php CRM/Case/Info.php CRM/Case/Task.php
-msgid "Delete cases"
-msgstr ""
-
-#: CRM/Case/Info.php
-msgid "Define case types, access deleted cases"
-msgstr ""
-
-#: CRM/Case/Info.php
-msgid "View and edit only those cases managed by this user"
-msgstr ""
-
-#: CRM/Case/Info.php
-msgid "View and edit all cases (for visible contacts)"
-msgstr ""
-
-#: CRM/Case/Info.php
-msgid "Open a new case"
-msgstr ""
-
-#: CRM/Case/Task.php
-msgid "Export cases"
-msgstr ""
-
-#: CRM/Case/Task.php
-msgid "Restore cases"
-msgstr ""
-
-#: CRM/Case/Task.php
-msgid "Print/merge Document"
-msgstr ""
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Homeless Services Coordinator is"
-msgstr ""
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Homeless Services Coordinator"
-msgstr ""
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Health Services Coordinator is"
-msgstr ""
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Health Services Coordinator"
-msgstr ""
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Senior Services Coordinator is"
-msgstr ""
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Senior Services Coordinator"
-msgstr ""
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Benefits Specialist is"
-msgstr ""
-
-#: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
-msgid "Benefits Specialist"
-msgstr ""
-
-#: ang/crmCaseType/list.html
-msgid "Case Types"
-msgstr ""
-
-#: templates/CRM/Case/Form/ActivityTab.tpl
-msgid "Reporter"
-msgstr ""
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Export Document"
-msgstr ""
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Are you sure you want to end this relationship?"
-msgstr ""
