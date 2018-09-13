@@ -33,19 +33,6 @@ Translation guide for Windows:
 https://forum.civicrm.org/index.php/topic,19068.0.html
 
 
-Forums, help, community
-=======================
-
-For questions, please post on the Internationalisation forum:  
-http://forum.civicrm.org/index.php/board,10.0.html
-
-Or on the language-specific forums:
-* French: http://forum.civicrm.org/index.php/board,58.0.html
-* German: http://forum.civicrm.org/index.php/board,62.0.html
-* Spanish: http://forum.civicrm.org/index.php/board,69.0.html
-* UK: http://forum.civicrm.org/index.php/board,34.0.html
-
-
 Note about language/country ISO codes
 =====================================
 
