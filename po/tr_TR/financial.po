@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2016-10-05 11:33-0400\n"
-"PO-Revision-Date: 2018-08-20 08:23+0000\n"
+"POT-Creation-Date: 2018-09-11 10:33-0400\n"
+"PO-Revision-Date: 2018-09-13 04:01+0000\n"
 "Last-Translator: Kaya Zeren <kayazeren@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/civicrm/civicrm/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -34,8 +34,8 @@ msgid "Last Modified By:"
 msgstr "Son Değiştiren:"
 
 #: CRM/Financial/BAO/ExportFormat.php
-msgid "Payment Instrument:"
-msgstr "Ödeme Aracı:"
+msgid "Payment Method:"
+msgstr "Ödeme Yöntemi:"
 
 #: CRM/Financial/BAO/ExportFormat.php
 msgid "Batch"
@@ -43,10 +43,25 @@ msgstr "Toplu"
 
 #: CRM/Financial/BAO/FinancialAccount.php
 msgid ""
+"You cannot change the account type since this financial account refers to a "
+"financial item having an account type of Revenue/Liability."
+msgstr "Bu mali hesap Kazanç ya da Sorumluluk türünde bir hesaba sahip bir mali öge ile ilişkili olduğundan değiştirilemez."
+
+#: CRM/Financial/BAO/FinancialAccount.php
+msgid ""
 "This financial account cannot be deleted since it is being used as a header "
 "account. Please remove it from being a header account before trying to "
 "delete it again."
 msgstr "Bu mali hesap bir üst hesap olduğundan silinemez. Silmek için önce üst hesap olmaktan çıkarın."
+
+#: CRM/Financial/BAO/FinancialAccount.php
+msgid ""
+"Revenue Recognition Date cannot be processed unless there is a Deferred "
+"Revenue account setup for the Financial Type. Please remove Revenue "
+"Recognition Date, select a different Financial Type with a Deferred Revenue "
+"account setup for it, or setup a Deferred Revenue account for this Financial"
+" Type."
+msgstr "Kazanç Gerçekleşme Tarihi, Mali Tür için Ötelenmiş Kazanç hesabı ayarı yapılmamış ise işlenemez. Lütfen Kazanç Gerçekleşme Tarihini kaldırın, Ötelenmiş Kazanç hesabı yapılmış farklı bir Mali Tür seçin ya da bu Mali Tür için Ötelenmiş Kazanç hesabı ayarlarını yapın."
 
 #: CRM/Financial/BAO/FinancialItem.php
 msgid ""
@@ -56,8 +71,24 @@ msgid ""
 msgstr "Bu kişi için bir ya da bir kaç canlı mali hareket kaydı ile ilişkili olduğundan kalıcı olarak silinemez. Kayıt silinirse mali bilgiler kaybolabilir."
 
 #: CRM/Financial/BAO/FinancialType.php
+msgid ""
+"Changing the name of a Financial Type will result in losing the current permissions associated with that Financial Type.\n"
+"            Before making this change you should likely note the existing permissions at Administer > Users and Permissions > Permissions (Access Control),\n"
+"            then clicking the Access Control link for your Content Management System, then noting down the permissions for 'CiviCRM: {financial type name} view', etc.\n"
+"            Then after making the change of name, reset the permissions to the way they were."
+msgstr "Bir Mali Türün adının değiştirilmesi bu mali türe atanmış geçerli izinlerin kaybolmasına yol açar.\nBu değişikliği yapmadan önce Yönetim > Kullanıcılar ve İzinler > İzinler (Erişim Denetimi) bölümünden var olan izinleri not alın.\nArdından İçerik Yönetimi Sisteminizin Erişim Denetimi bölümüne gidin ve  'CiviCRM: {mali tür adı} görüntüleme' gibi izinleri not edin.\nAdı değiştirin ve izinleri olması gerektiği şekilde yeniden yapın."
+
+#: CRM/Financial/BAO/FinancialType.php
 msgid "The following tables have an entry for this financial type: %1"
 msgstr "Şu tablolarda %1 mali tür ile ilgili kayıtllar var"
+
+#: CRM/Financial/BAO/FinancialType.php
+msgid "administer CiviCRM Financial Types"
+msgstr "CiviCRM Mali Türler Yönetimi"
+
+#: CRM/Financial/BAO/FinancialType.php
+msgid "Administer access to Financial Types"
+msgstr "Mali Türler Erişim Yönetimi"
 
 #: CRM/Financial/BAO/FinancialTypeAccount.php
 msgid ""
@@ -79,13 +110,13 @@ msgid ""
 "%1."
 msgstr "%1 hesap türünü silerseniz bakiyesi bozulacak işlemler olabilir."
 
-#: CRM/Financial/BAO/PaymentProcessor.php
-msgid "Invalid value passed to getPayment function"
-msgstr "getPayment işlevine geçersiz bir değer gönderildi"
+#: CRM/Financial/BAO/FinancialTypeAccount.php
+msgid "This financial account cannot have '%1' relationship."
+msgstr "Bu mali hesap '%1' ilişkisine sahip olamaz."
 
 #: CRM/Financial/BAO/PaymentProcessor.php
-msgid "Could not retrieve payment processor details"
-msgstr "Ödeme aracısı ayrıntıları alınamadı"
+msgid "Could not find payment processor meta information"
+msgstr "Ödeme aracısı üstveri bilgileri bulunamadı"
 
 #: CRM/Financial/BAO/PaymentProcessorType.php
 msgid ""
@@ -98,12 +129,24 @@ msgid "Selected Payment Processor type has been deleted.<br/>"
 msgstr "Seçilmiş Ödeme Aracısı türü silindi.<br/>"
 
 #: CRM/Financial/DAO/Currency.php
-msgid "Symbol"
-msgstr "Simge"
+msgid "Currency ID"
+msgstr "Para Birimi Kodu"
 
 #: CRM/Financial/DAO/Currency.php
-msgid "Numeric Code"
-msgstr "Sayısal Kod"
+msgid "Currency Symbol"
+msgstr "Para Birimi Simgesi"
+
+#: CRM/Financial/DAO/Currency.php
+msgid "Currency Numeric Code"
+msgstr "Sayısal Para Birimi Kodu"
+
+#: CRM/Financial/DAO/Currency.php
+msgid "Full Currency Name"
+msgstr "Tam Para Birimi Adı"
+
+#: CRM/Financial/DAO/EntityFinancialAccount.php
+msgid "Entity Financial Account ID"
+msgstr "Varlık Mali Hesap Kodu"
 
 #: CRM/Financial/DAO/EntityFinancialTrxn.php
 msgid "Entity Financial Transaction ID"
@@ -113,7 +156,7 @@ msgstr "Varlık Mali Hareket Kodu"
 msgid "Financial Transaction Id"
 msgstr "Mali Hareket Kodu"
 
-#: CRM/Financial/DAO/FinancialAccount.php
+#: CRM/Financial/DAO/FinancialAccount.php CRM/Financial/DAO/FinancialItem.php
 msgid "Financial Account ID"
 msgstr "Mali Hesap Kodu"
 
@@ -129,6 +172,7 @@ msgstr "Hesap Kodu"
 
 #: CRM/Financial/DAO/FinancialAccount.php
 #: CRM/Financial/Form/FinancialAccount.php
+#: templates/CRM/Financial/Form/FinancialAccount.hlp
 msgid "Account Type Code"
 msgstr "Hesap Türü Kodu"
 
@@ -168,6 +212,30 @@ msgstr "Mali Hesap Etkin"
 msgid "Default Financial Account"
 msgstr "Varsayılan Mali Hesap"
 
+#: CRM/Financial/DAO/FinancialItem.php
+msgid "Financial Item Created Date"
+msgstr "Mali Öge Oluşturulma Tarihi"
+
+#: CRM/Financial/DAO/FinancialItem.php
+msgid "Financial Item Transaction Date"
+msgstr "Mali Öge Hareket Tarihi"
+
+#: CRM/Financial/DAO/FinancialItem.php
+msgid "Financial Item Contact ID"
+msgstr "Mali Öge Kişi Kodu"
+
+#: CRM/Financial/DAO/FinancialItem.php
+msgid "Financial Item Description"
+msgstr "Mali Öge Açıklaması"
+
+#: CRM/Financial/DAO/FinancialItem.php
+msgid "Financial Item Currency"
+msgstr "Mali Öge Para Birimi"
+
+#: CRM/Financial/DAO/FinancialItem.php
+msgid "Financial Item Status ID"
+msgstr "Mali Öge Durum Kodu"
+
 #: CRM/Financial/DAO/FinancialTrxn.php
 msgid "Financial Transaction ID"
 msgstr "Mali Hareket Kodu"
@@ -201,6 +269,10 @@ msgid "Financial Currency"
 msgstr "Mali Para Birimi"
 
 #: CRM/Financial/DAO/FinancialTrxn.php
+msgid "Is Payment?"
+msgstr "Ödeme"
+
+#: CRM/Financial/DAO/FinancialTrxn.php
 msgid "Transaction Result Code"
 msgstr "Hareket Sonuç Kodu"
 
@@ -208,8 +280,24 @@ msgstr "Hareket Sonuç Kodu"
 msgid "Financial Transaction Status Id"
 msgstr "Mali Hareket Durum Kodu"
 
+#: CRM/Financial/DAO/FinancialTrxn.php
+msgid "Card Type ID"
+msgstr "Kart Türü Kodu"
+
+#: CRM/Financial/DAO/FinancialTrxn.php
+msgid "Pan Truncation"
+msgstr "Hesap Numarası Gizleme"
+
+#: CRM/Financial/DAO/FinancialType.php
+msgid "Financial Type ID"
+msgstr "Mali Tür Kodu"
+
 #: CRM/Financial/DAO/FinancialType.php
 msgid "Is Tax Deductible?"
+msgstr "Vergiden Düşülebilir"
+
+#: CRM/Financial/DAO/FinancialType.php CRM/Financial/Form/FinancialAccount.php
+msgid "Tax-Deductible?"
 msgstr "Vergiden Düşülebilir"
 
 #: CRM/Financial/DAO/FinancialType.php
@@ -251,7 +339,7 @@ msgstr "Deneme Ödeme Aracısı"
 
 #: CRM/Financial/DAO/PaymentProcessor.php
 #: CRM/Financial/DAO/PaymentProcessorType.php
-msgid "Suffix for PHP clas name implementation"
+msgid "Suffix for PHP class name implementation"
 msgstr "PHP sınıf adı uyarlamasının son eki"
 
 #: CRM/Financial/DAO/PaymentProcessor.php
@@ -359,20 +447,20 @@ msgid "Accounting Batch - %1"
 msgstr "Toplu Muhasebe İşlemi - %1"
 
 #: CRM/Financial/Form/BatchTransaction.php
-msgid "Entered Transactions"
-msgstr "Yazılmış Hareketler"
+msgid "Expected Number of Items"
+msgstr "Beklenen Öge Sayısı"
 
 #: CRM/Financial/Form/BatchTransaction.php
-msgid "Assigned Transactions"
-msgstr "Atanmış Hareketler"
+msgid "Actual Number of Items"
+msgstr "Gerçek Öge Sayısı"
 
 #: CRM/Financial/Form/BatchTransaction.php
-msgid "Entered Total"
-msgstr "Yazılmış Toplam"
+msgid "Expected Total Amount"
+msgstr "Beklenen Toplam Tutar"
 
 #: CRM/Financial/Form/BatchTransaction.php
-msgid "Assigned Total"
-msgstr "Atanmış Toplam"
+msgid "Actual Total Amount"
+msgstr "Gerçek Toplam Tutar"
 
 #: CRM/Financial/Form/BatchTransaction.php
 msgid "Close & Export Batch"
@@ -403,12 +491,16 @@ msgid "Assign Transaction"
 msgstr "Hareketi Ata"
 
 #: CRM/Financial/Form/Export.php
-msgid "You cannot exported the batches which were exported earlier."
+msgid "You cannot export batches which have already been exported."
 msgstr "Daha önce dışa aktarılmış toplu işlemler dışa aktarılamaz."
 
 #: CRM/Financial/Form/Export.php
 msgid "Export to IIF"
 msgstr "IIF olarak dışa aktar"
+
+#: CRM/Financial/Form/Export.php
+msgid "Export to CSV"
+msgstr "CSV Olarak Dışa Aktar"
 
 #: CRM/Financial/Form/FinancialAccount.php
 msgid ""
@@ -426,11 +518,6 @@ msgstr "Aynı adlı bir mali tür zaten var. Lütfen başka bir ad seçin."
 #: CRM/Financial/Form/FinancialAccount.php
 msgid "Owner"
 msgstr "Sahibi"
-
-#: CRM/Financial/Form/FinancialAccount.php
-#: CRM/Financial/Form/FinancialType.php
-msgid "Tax-Deductible?"
-msgstr "Vergiden Düşülebilir"
 
 #: CRM/Financial/Form/FinancialAccount.php
 msgid "Is Tax?"
@@ -502,6 +589,29 @@ msgid "You dont have permission to %1 this batch"
 msgstr "Bu toplu işlemi %1 izniniz yok"
 
 #: CRM/Financial/Form/FinancialType.php
+msgid "Are contributions of this type tax-deductible?"
+msgstr "Bu tür katkılar vergiden muaf"
+
+#: CRM/Financial/Form/FinancialType.php
+#: templates/CRM/Financial/Form/FinancialBatch.tpl
+#: templates/CRM/Financial/Form/FinancialTypeAccount.tpl
+msgid ""
+"WARNING: You cannot delete a financial type if it is currently used by any "
+"Contributions, Contribution Pages or Membership Types. Consider disabling "
+"this option instead."
+msgstr "UYARI: Herhangi bir Katılım, Katkı Sayfası ya da Üyelik türleri tarafından kullanılan bir mali tür silinemez. Silmek yerine devre dışı bırakmayı deneyin."
+
+#: CRM/Financial/Form/FinancialType.php
+#: templates/CRM/Financial/Form/FinancialAccount.tpl
+#: templates/CRM/Financial/Form/FinancialBatch.tpl
+msgid "Deleting a financial type cannot be undone."
+msgstr "Bir mali tür silindikten sonra geri alınamaz."
+
+#: CRM/Financial/Form/FinancialType.php
+msgid "Cannot Delete"
+msgstr "Silinemez"
+
+#: CRM/Financial/Form/FinancialType.php
 msgid "Selected financial type has been deleted."
 msgstr "Seçilmiş mali tür silinmiş."
 
@@ -511,18 +621,18 @@ msgstr "\"%1\" mali türü güncellendi."
 
 #: CRM/Financial/Form/FinancialType.php
 msgid ""
+"Your Financial \"%1\" Type has been created, along with a corresponding "
+"income account \"%1\". That income account, along with standard financial "
+"accounts \"%2\", \"%3\" and \"%4\" have been linked to the financial type. "
+"You may edit or replace those relationships here."
+msgstr "\"%1\" Mali Türünüz \"%1\" gelir hesabına bağlı olarak oluşturuldu. Gelir hesabının yanında \"%2\", \"%3\" ve \"%4\" standart hesapları da mali türe bağlandı. Bu ilişkileri buradan düzenleyerek değiştirebilirsiniz."
+
+#: CRM/Financial/Form/FinancialType.php
+msgid ""
 "Your Financial \"%1\" Type has been created and assigned to an existing "
 "financial account with the same title. You should review the assigned "
 "account and determine whether additional account relationships are needed."
 msgstr "'%1' Mali Türünüz var olan bir mali hesaba bağlanarak oluşturuldu. İlişkilendirilmiş hesabı gözden geçirerek başka hesaplar eklenmesi gerekip gerekmediğini gözden geçirin."
-
-#: CRM/Financial/Form/FinancialType.php
-msgid ""
-"Your Financial \"%1\" Type has been created, along with a corresponding "
-"income account \"%2\". That income account, along with standard financial "
-"accounts \"%3\", \"%4\" and \"%5\" have been linked to the financial type. "
-"You may edit or replace those relationships here."
-msgstr "\"%1\" Mali Türünüz \"%2\" gelir hesabına bağlı olarak oluşturuldu. Gelir hesabının yanında \"%3\", \"%4\" ve \"%5\" standart hesapları da mali türe bağlandı. Bu ilişkileri buradan düzenleyerek değiştirebilirsiniz."
 
 #: CRM/Financial/Form/FinancialTypeAccount.php
 #: templates/CRM/Financial/Page/FinancialType.tpl
@@ -547,6 +657,10 @@ msgstr "Mali Tür Hesabı"
 msgid "Financial Account Relationship"
 msgstr "Mali Hesap İlşkisi"
 
+#: CRM/Financial/Form/FinancialTypeAccount.php CRM/Financial/Page/AJAX.php
+msgid "- Select Financial Account Relationship -"
+msgstr "- Mali Hesap İlişkisini Seçin -"
+
 #: CRM/Financial/Form/FinancialTypeAccount.php
 msgid "Is Tax? must be set for respective financial account"
 msgstr "Vergi mi? İlgili mali hesap için ayarlanması gerekiyor"
@@ -567,9 +681,13 @@ msgstr "Mali tür hesabı kaydedildi."
 msgid " You can add another Financial Account Type."
 msgstr "Diğer Mali Hesap Türlerini ekleyebilirsiniz."
 
-#: CRM/Financial/Page/AJAX.php
-msgid "- Select Financial Account Relationship -"
-msgstr "- Mali Hesap İlişkisini Seçin -"
+#: CRM/Financial/Form/PaymentEdit.php
+msgid "You cannot update this payment as it is tied to a payment processor"
+msgstr "Bu ödeme bir ödeme aracısına bağlı olduğundan güncellenemez"
+
+#: CRM/Financial/Form/PaymentEdit.php
+msgid "Update Payment details"
+msgstr "Ödeme Ayrıntılarını Güncelle"
 
 #: CRM/Financial/Page/AJAX.php
 msgid ""
@@ -610,7 +728,7 @@ msgstr "Mali Türü Devre Dışı Bırak"
 #: CRM/Financial/Page/FinancialAccount.php
 #: CRM/Financial/Page/FinancialType.php
 msgid "Enable Financial Type"
-msgstr "Mali Türü Etkinleştirin"
+msgstr "Mali Türü Etkinleştir"
 
 #: CRM/Financial/Page/FinancialAccount.php
 #: CRM/Financial/Page/FinancialType.php
@@ -639,6 +757,11 @@ msgstr "Mali Hesap Türleri"
 
 #: templates/CRM/Financial/Form/BatchTransaction.tpl
 #: templates/CRM/Financial/Page/BatchTransaction.tpl
+msgid "Payment/Transaction Date"
+msgstr "Ödeme/İşlem Tarihi"
+
+#: templates/CRM/Financial/Form/BatchTransaction.tpl
+#: templates/CRM/Financial/Page/BatchTransaction.tpl
 msgid "Pay Method"
 msgstr "Ödeme Yöntemi"
 
@@ -656,11 +779,27 @@ msgid ""
 "exported. Are you sure you want to export?"
 msgstr "Dikkat: Dışa aktarıldıktan sonra toplu işlemi yeniden açamaz ya da değiştiremezsiniz. Dışa aktarmak istediğinize emin misiniz?"
 
-#: templates/CRM/Financial/Form/FinancialAccount.tpl
-#: templates/CRM/Financial/Form/FinancialBatch.tpl
-#: templates/CRM/Financial/Form/FinancialType.tpl
-msgid "Deleting a financial type cannot be undone."
-msgstr "Bir mali tür silindikten sonra geri alınamaz."
+#: templates/CRM/Financial/Form/FinancialAccount.hlp
+msgid "Financial Account Owner"
+msgstr "Mali Hesap Sahibi"
+
+#: templates/CRM/Financial/Form/FinancialAccount.hlp
+msgid ""
+"Normally the owner of a financial account is the organization implementing "
+"CiviCRM so there is no need to change this. Some organizations that maintain"
+" accounts for groups, chapters, regions, constiuency associations or other "
+"parts of the main CiviCRM organization may need to change the owner to one "
+"of these sub-entities or sibling entities."
+msgstr "Normal olarak mali hesap sahibi CiviCRM uygulamasını kullanan kuruluş olduğundan bunun değiştirilmesi gerekmez. Ana CiviCRM kuruluşuna ait grup, bölüm, bölge, seçim bölgesi gibi alt birimler varsa, onlar için bu sahip bilgisinin değiştirilmesi gerekebilir."
+
+#: templates/CRM/Financial/Form/FinancialAccount.hlp
+msgid ""
+"For export to QuickBooks, export your Chart of Accounts and open in low "
+"level text editor. You will be able to see the Account Type Code for each "
+"account. Generally, they will be from the following list: BANK, AR, OCASSET,"
+" FIXASSET, OASSET, AP, OCLIAB, LTLIAB, EQUITY, INC, COGS, EXP, EXEXP (though"
+" there may be others in your version of QuickBooks)."
+msgstr "Verileri QuickBooks üzerine aktarmak için Hesap Çizelgenizi dışa aktarın ve düşük düzeyli bir metin düzenleyici içinde açın. Böylece her hesap için Hesap Türü Kodunu görebilirsiniz. Genel olarak kayıtlar şu biçimdedir:  BANK, AR, OCASSET, FIXASSET, OASSET, AP, OCLIAB, LTLIAB, EQUITY, INC, COGS, EXP, EXEXP (QuickBooks sürümünüze göre başka alanlar olabilir)."
 
 #: templates/CRM/Financial/Form/FinancialAccount.tpl
 msgid "Use this field to indicate the organization that owns this account."
@@ -701,25 +840,12 @@ msgid ""
 msgstr "Mali hesaplar mali türler ile ilişkilendirilirken bu hesap varsayılan hesap olarak kullanılsın mı?"
 
 #: templates/CRM/Financial/Form/FinancialBatch.tpl
-#: templates/CRM/Financial/Form/FinancialType.tpl
-#: templates/CRM/Financial/Form/FinancialTypeAccount.tpl
-msgid ""
-"WARNING: You cannot delete a financial type if it is currently used by any "
-"Contributions, Contribution Pages or Membership Types. Consider disabling "
-"this option instead."
-msgstr "UYARI: Herhangi bir Katılım, Katkı Sayfası ya da Üyelik türleri tarafından kullanılan bir mali tür silinemez. Silmek yerine devre dışı bırakmayı deneyin."
-
-#: templates/CRM/Financial/Form/FinancialBatch.tpl
 msgid "Opened Date"
 msgstr "Açıldığı Tarih"
 
 #: templates/CRM/Financial/Form/FinancialBatch.tpl
 msgid "Optional Constraints"
 msgstr "İsteğe Bağlı Kısıtlamalar"
-
-#: templates/CRM/Financial/Form/FinancialType.tpl
-msgid "Are contributions of this type tax-deductible?"
-msgstr "Bu tür katkılar vergiden muaf"
 
 #: templates/CRM/Financial/Form/FinancialType.tpl
 msgid "View or Edit Financial Accounts"
@@ -730,6 +856,26 @@ msgid ""
 "Deleting a financial type cannot be undone. Unbalanced transactions may be "
 "created if you delete this account."
 msgstr "Silinen mali türler geri alınamaz. Bu hesabı silerseniz bakiyesi bozulacak işlemler olabilir."
+
+#: templates/CRM/Financial/Form/PaypalExpress.tpl
+msgid "Checkout with PayPal"
+msgstr "PayPal ile öde"
+
+#: templates/CRM/Financial/Form/PaypalExpress.tpl
+msgid "Click the PayPal button to continue."
+msgstr "Devam etmek için PayPal düğmesine tıklayın."
+
+#: templates/CRM/Financial/Form/PaypalExpress.tpl
+#: templates/CRM/Financial/Form/PaypalPro.tpl
+msgid "Checkout securely. Pay without sharing your financial information."
+msgstr "Mali bilgilerinizi paylaşamadan güvenli olarak ödeme yapın. "
+
+#: templates/CRM/Financial/Form/PaypalPro.tpl
+msgid ""
+"If you have a PayPal account, you can click the PayPal button to continue. "
+"Otherwise, fill in the credit card and billing information on this form and "
+"click <strong>Continue</strong> at the bottom of the page."
+msgstr "Bir PayPal hesabınız varsa, devam etmek için PayPal düğmesine tıklayabilirsiniz. Yoksa, bu formdaki kredi kartı ve fatura bilgilerini yazdıktan sonra sayfanın altındaki <strong>Devam</strong> düğmesine tıklayın."
 
 #: templates/CRM/Financial/Form/Search.tpl
 msgid "New Accounting Batch"
@@ -843,9 +989,9 @@ msgstr "Bu toplu işlemi kapatıp dışa aktarmak istediğinize emin misiniz?"
 #: templates/CRM/Financial/Page/FinancialAccount.tpl
 msgid ""
 "Financial accounts correspond to those in your accounting system.  <a "
-"href=\"%1\">Financial types</a>, <a href=\"%2\">payment instruments</a>, and"
-" <a href=\"%3\">premiums</a> are associated with financial accounts so that "
-"they can result in the proper double-entry transactions to export to your "
+"href=\"%1\">Financial types</a>, <a href=\"%2\">payment methods</a>, and <a "
+"href=\"%3\">premiums</a> are associated with financial accounts so that they"
+" can result in the proper double-entry transactions to export to your "
 "accounting system."
 msgstr "Mali hesaplar muhasebe sisteminizde şunlara karşılık gelir: <a href=\"%1\">Mali türler</a>, <a href=\"%2\">ödeme araçları</a> ve <a href=\"%3\">hediyeler</a> mali hesaplarla ilişkilendirilir, böylece muhasebe sisteminize dışa aktarılmaya uygun hareket kayıtları çifti elde edilir."
 
@@ -864,14 +1010,14 @@ msgstr "Henüz bir mali hesap yok. Siz <a href='%1'>ekleyebilirsiniz</a>."
 
 #: templates/CRM/Financial/Page/FinancialBatch.hlp
 msgid ""
-"If you specify a payment instrument then this batch will be limited to "
-"exporting only transactions paid with that method."
+"If you specify a payment method then this batch will be limited to exporting"
+" only transactions paid with that method."
 msgstr "Bir ödeme yöntemi seçerseniz, bu toplu işlem yalnız bu yöntem kullanılarak yapılan ödeme kayıtlarını dışa aktarabilir."
 
 #: templates/CRM/Financial/Page/FinancialBatch.hlp
 msgid ""
 "Note that not all transactions are necessarily associated with a payment "
-"instrument."
+"method."
 msgstr "Unutmayın, tüm ödemeler bir ödeme yöntemi ile ilişkili olmayabilir."
 
 #: templates/CRM/Financial/Page/FinancialBatch.hlp
@@ -935,173 +1081,3 @@ msgid ""
 "There are no financial accounts assigned to this financial type. You can <a "
 "href='%1'>assign one</a>."
 msgstr "Bu mali tür ile ilişkilendirilmiş bir mali hesap bulunamadı. Siz <a href='%1'>atayabilirsiniz</a>."
-
-#: CRM/Financial/BAO/ExportFormat.php
-msgid "Payment Method:"
-msgstr "Ödeme Yöntemi:"
-
-#: CRM/Financial/BAO/FinancialAccount.php
-msgid ""
-"You cannot change the account type since this financial account refers to a "
-"financial item having an account type of Revenue/Liability."
-msgstr "Bu mali hesap Kazanç ya da Sorumluluk türünde bir hesaba sahip bir mali öge ile ilişkili olduğundan değiştirilemez."
-
-#: CRM/Financial/BAO/FinancialAccount.php
-msgid ""
-"Revenue recognition date can only be specified if the financial type "
-"selected has a deferred revenue account configured. Please have an "
-"administrator set up the deferred revenue account at Administer > "
-"CiviContribute > Financial Accounts, then configure it for financial types "
-"at Administer > CiviContribution > Financial Types, Accounts"
-msgstr "Kazanç gerçekleşme tarihi yalnız bir ötelenmiş kazanç hesabı türü ayarlanmış ise belirtilebilir. Lütfen bir yöneticiden Yönetim > CiviContribute > Mali Hesaplar bölümden bir kazanç hesabı oluşturmasını ve ardından Yönetim > CiviContribution > Mali Türler, Hesaplar bölümünden mali tür ayarlarını yapmasını isteyin"
-
-#: CRM/Financial/BAO/FinancialAccount.php
-msgid ""
-"Deferred revenue account is not configured for selected financial type. "
-"Please have an administrator set up the deferred revenue account at "
-"Administer > CiviContribute > Financial Accounts, then configure it for "
-"financial types at Administer > CiviContribution > Financial Types, Accounts"
-msgstr "Seçilmiş mali tür için bir ötelenmiş kazanç hesabı ayarlanmamış. Lütfen bir yöneticiden Yönetim > CiviContribute > Mali Hesaplar bölümünden bir kazanç hesabını oluşturmasını ve ardından Yönetim > CiviContribution > Mali Türler, Hesaplar bölümünden ayarlamasını isteyin"
-
-#: CRM/Financial/BAO/FinancialAccount.php
-msgid ""
-"Before Deferred Revenue can be enabled, a Deferred Revenue Account relationship must be defined for all financial types currently used for Memberships and Events, including\n"
-"<ul>\n"
-"<li>those specified for each membership type at Admin > CiviMember > Membership Types, edit</li>\n"
-"<li>on the Fees tab when managing events</li>\n"
-"<li>the default financial type associated with a membership or event price set</li>\n"
-"<li>the financial type for a membership price set field option when the membership type is non-blank</li>\n"
-"<li>as the financial type for a price set field with participant count > 0</li>\n"
-"<li>as the financial type for a price set field option with participant count > 0</li>\n"
-"</ul>\n"
-"In other words, please create deferred revenue accounts at Administer > CiviContribute > Financial Accounts, then configure them for the following financial types at Administer > CiviContribute > Financial Types, accounts:"
-msgstr "Ötelenmiş kazanç etkinleştirilmeden bir kullanılmakta olan Üyelik ve Etkinlik Mali Türleri ile bir Ötelenmiş Kazanç Hesabı şunları içerecek şekilde ilişkilendirilmelidir\n<ul>\n<li>Yönetim > CiviMember > Üyelik Türleri bölümündeki her üyelik türü için düzenleme</li>\n<li>Etkinlik yönetiminde Ücretler sekmesinde</li>\n<li>Bir üyelik ya da etkinlik fiyat paketi ile ilişkilendirilmiş varsayılan mali tür</li>\n<li>Üyelik türü boş değilken bir üyelik fiyat paketi alanı seçeneği ile ilişkilendirilmiş mali tür</li>\n<li>Katılımcı sayısı >0 olduğunda bir fiyat paketi alanı için mali tür olarak</li>\n<li>Katılımcı sayısı >0 olduğunda bir fiyat paketi alanı seçeneği için mali tür olarak</li>\n</ul>\nDiğer bir deyişle, lütfen Yönetim > CiviContribute > Mali Hesaplar bölümünden ötelenmiş kazanç hesaplarını oluşturun ve bu hesapları Yönetim > CiviContribute > Mali Türler, hesaplar bölümünden şu mali türler için ayarlayın:"
-
-#: CRM/Financial/BAO/FinancialType.php
-msgid ""
-"Changing the name of a Financial Type will result in losing the current permissions associated with that Financial Type.\n"
-"            Before making this change you should likely note the existing permissions at Administer > Users and Permissions > Permissions (Access Control),\n"
-"            then clicking the Access Control link for your Content Management System, then noting down the permissions for 'CiviCRM: {financial type name} view', etc.\n"
-"            Then after making the change of name, reset the permissions to the way they were."
-msgstr "Bir Mali Türün adının değiştirilmesi bu mali türe atanmış geçerli izinlerin kaybolmasına yol açar.\nBu değişikliği yapmadan önce Yönetim > Kullanıcılar ve İzinler > İzinler (Erişim Denetimi) bölümünden var olan izinleri not alın.\nArdından İçerik Yönetimi Sisteminizin Erişim Denetimi bölümüne gidin ve  'CiviCRM: {mali tür adı} görüntüleme' gibi izinleri not edin.\nAdı değiştirin ve izinleri olması gerektiği şekilde yeniden yapın."
-
-#: CRM/Financial/BAO/FinancialType.php
-msgid "administer CiviCRM Financial Types"
-msgstr "CiviCRM Mali Türler Yönetimi"
-
-#: CRM/Financial/BAO/FinancialType.php
-msgid "Administer access to Financial Types"
-msgstr "Mali Türler Erişim Yönetimi"
-
-#: CRM/Financial/BAO/FinancialTypeAccount.php
-msgid "This financial account cannot have '%1' relationship."
-msgstr "Bu mali hesap '%1' ilişkisine sahip olamaz."
-
-#: CRM/Financial/DAO/Currency.php
-msgid "Currency ID"
-msgstr "Para Birimi Kodu"
-
-#: CRM/Financial/DAO/Currency.php
-msgid "Currency Symbol"
-msgstr "Para Birimi Simgesi"
-
-#: CRM/Financial/DAO/Currency.php
-msgid "Currency Numeric Code"
-msgstr "Sayısal Para Birimi Kodu"
-
-#: CRM/Financial/DAO/Currency.php
-msgid "Full Currency Name"
-msgstr "Tam Para Birimi Adı"
-
-#: CRM/Financial/DAO/EntityFinancialAccount.php
-msgid "Entity Financial Account ID"
-msgstr "Varlık Mali Hesap Kodu"
-
-#: CRM/Financial/DAO/FinancialAccount.php
-#: CRM/Financial/Form/FinancialAccount.php
-msgid "Opening Balance"
-msgstr "Açılış Bakiyesi"
-
-#: CRM/Financial/DAO/FinancialAccount.php
-msgid "Current period opening Balance"
-msgstr "Geçerli Dönemin Açılış Bakiyesi"
-
-#: CRM/Financial/DAO/FinancialItem.php
-msgid "Financial Item ID"
-msgstr "Mali Öge Kodu"
-
-#: CRM/Financial/DAO/FinancialItem.php
-msgid "Financial Item Created Date"
-msgstr "Mali Öge Oluşturulma Tarihi"
-
-#: CRM/Financial/DAO/FinancialItem.php
-msgid "Financial Item Transaction Date"
-msgstr "Mali Öge Hareket Tarihi"
-
-#: CRM/Financial/DAO/FinancialItem.php
-msgid "Financial Item Contact ID"
-msgstr "Mali Öge Kişi Kodu"
-
-#: CRM/Financial/DAO/FinancialItem.php
-msgid "Financial Item Description"
-msgstr "Mali Öge Açıklaması"
-
-#: CRM/Financial/DAO/FinancialItem.php
-msgid "Financial Item Currency"
-msgstr "Mali Öge Para Birimi"
-
-#: CRM/Financial/DAO/FinancialItem.php
-msgid "Financial Item Status ID"
-msgstr "Mali Öge Durum Kodu"
-
-#: CRM/Financial/DAO/FinancialTrxn.php
-msgid "Is Payment?"
-msgstr "Ödeme"
-
-#: CRM/Financial/DAO/PaymentProcessor.php
-#: CRM/Financial/DAO/PaymentProcessorType.php
-msgid "Suffix for PHP class name implementation"
-msgstr "PHP sınıf adı uyarlamasının son eki"
-
-#: CRM/Financial/Form/FinancialAccount.php
-msgid "Current Period Opening Balance"
-msgstr "Geçerli Dönemin Açılış Bakiyesi"
-
-#: templates/CRM/Financial/Form/FinancialAccount.hlp
-msgid "Financial Account Owner"
-msgstr "Mali Hesap Sahibi"
-
-#: templates/CRM/Financial/Form/FinancialAccount.hlp
-msgid ""
-"For export to QuickBooks, export your Chart of Accounts and open in low "
-"level text editor. You will be able to see the Account Type Code for each "
-"account. Generally, they will be from the following list: BANK, AR, OCASSET,"
-" FIXASSET, OASSET, AP, OCLIAB, LTLIAB, EQUITY, INC, COGS, EXP, EXEXP (though"
-" there may be others in your version of QuickBooks)."
-msgstr "Verileri QuickBooks üzerine aktarmak için Hesap Çizelgenizi dışa aktarın ve düşük düzeyli bir metin düzenleyici içinde açın. Böylece her hesap için Hesap Türü Kodunu görebilirsiniz. Genel olarak kayıtlar şu biçimdedir:  BANK, AR, OCASSET, FIXASSET, OASSET, AP, OCLIAB, LTLIAB, EQUITY, INC, COGS, EXP, EXEXP (QuickBooks sürümünüze göre başka alanlar olabilir)."
-
-#: templates/CRM/Financial/Form/PaypalExpress.tpl
-#: templates/CRM/Financial/Form/PaypalPro.tpl
-msgid "Checkout securely. Pay without sharing your financial information."
-msgstr "Mali bilgilerinizi paylaşamadan güvenli olarak ödeme yapın. "
-
-#: templates/CRM/Financial/Page/FinancialAccount.tpl
-msgid ""
-"Financial accounts correspond to those in your accounting system.  <a "
-"href=\"%1\">Financial types</a>, <a href=\"%2\">payment methods</a>, and <a "
-"href=\"%3\">premiums</a> are associated with financial accounts so that they"
-" can result in the proper double-entry transactions to export to your "
-"accounting system."
-msgstr "Mali hesaplar muhasebe sisteminizde şunlara karşılık gelir: <a href=\"%1\">Mali türler</a>, <a href=\"%2\">ödeme araçları</a> ve <a href=\"%3\">hediyeler</a> mali hesaplarla ilişkilendirilir, böylece muhasebe sisteminize dışa aktarılmaya uygun hareket kayıtları çifti elde edilir."
-
-#: templates/CRM/Financial/Page/FinancialBatch.hlp
-msgid ""
-"If you specify a payment method then this batch will be limited to exporting"
-" only transactions paid with that method."
-msgstr "Bir ödeme yöntemi seçerseniz, bu toplu işlem yalnız bu yöntem kullanılarak yapılan ödeme kayıtlarını dışa aktarabilir."
-
-#: templates/CRM/Financial/Page/FinancialBatch.hlp
-msgid ""
-"Note that not all transactions are necessarily associated with a payment "
-"method."
-msgstr "Unutmayın, tüm ödemeler bir ödeme yöntemi ile ilişkili olmayabilir."
