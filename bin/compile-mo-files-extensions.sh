@@ -114,7 +114,7 @@ else
   # check that we are running as the l10n user.
   user=`whoami`
 
-  if [ "$user" = "jenkins" ]; then
+  if [ "$user" = "jenkins" -o "$user" = "publisher" ]; then
     # Copy over the .mo files to publish on gcloud
     # The jenkins job picks up the files in this directory and takes care of pushing.
     for lang in $langs; do

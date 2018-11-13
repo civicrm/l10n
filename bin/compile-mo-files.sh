@@ -65,7 +65,7 @@ else
   # check that we are running as the l10n user.
   user=`whoami`
 
-  if [ "$user" = "jenkins" ]; then
+  if [ "$user" = "jenkins" -o "$user" = "publisher" ]; then
     mkdir -p $WORKSPACE/publish
 
     # Copy over the .mo files included in the daily tar.gz
