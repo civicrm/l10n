@@ -143,7 +143,7 @@ function main() {
     }
 
     // Extract the ts() strings
-    system("cd $extdir; env POTDIR=$l10n_repo_dir/po CIVI_KEEP_IT_QUIET=1 ~/bin/l10n/bin/create-pot-files-extensions.sh");
+    system("cd $extdir; env POTDIR=$l10n_repo_dir/po CIVI_KEEP_IT_QUIET=1 ~/l10n/civicrm-l10n-core/bin/create-pot-files-extensions.sh");
 
     // Send strings to Transifex, add new resource if necessary
     // NB: we do not pull the strings at this point, it will be done
