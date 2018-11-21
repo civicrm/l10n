@@ -119,7 +119,7 @@ else
     # The jenkins job picks up the files in this directory and takes care of pushing.
     for lang in $langs; do
       mkdir -p $WORKSPACE/publish/extensions/mo/
-      rsync -Prav workdir/extensions/mo/* $WORKSPACE/publish/extensions/mo/
+      rsync -Prav mo/* $WORKSPACE/publish/extensions/mo/
     done
   fi
 fi
