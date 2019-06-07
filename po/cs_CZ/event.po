@@ -14,9 +14,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2018-09-11 10:33-0400\n"
-"PO-Revision-Date: 2019-03-03 20:08+0000\n"
-"Last-Translator: Karel Hennhofer <khennhofer@kam.cz>\n"
+"POT-Creation-Date: 2019-06-06 12:32-0400\n"
+"PO-Revision-Date: 2019-06-07 00:38+0000\n"
+"Last-Translator: Mathieu Lu <mathieu@bidon.ca>\n"
 "Language-Team: Czech (http://www.transifex.com/civicrm/civicrm/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,10 +54,6 @@ msgstr "Tato událost je plná."
 #: CRM/Event/BAO/Participant.php
 msgid "- Participant Fields -"
 msgstr "- Pole účastníka -"
-
-#: CRM/Event/BAO/Participant.php
-msgid "Participant Note"
-msgstr ""
 
 #: CRM/Event/BAO/Participant.php
 msgid "Participant Status Id"
@@ -158,6 +154,14 @@ msgid "Cart ID"
 msgstr ""
 
 #: CRM/Event/Cart/DAO/Cart.php
+msgid "Cart Id"
+msgstr ""
+
+#: CRM/Event/Cart/DAO/Cart.php
+msgid "FK to civicrm_contact who created this cart"
+msgstr ""
+
+#: CRM/Event/Cart/DAO/Cart.php
 msgid "Complete?"
 msgstr ""
 
@@ -165,9 +169,27 @@ msgstr ""
 msgid "Event In Cart"
 msgstr ""
 
+#: CRM/Event/Cart/DAO/EventInCart.php
+msgid "Event In Cart Id"
+msgstr ""
+
+#: CRM/Event/Cart/DAO/EventInCart.php CRM/Event/DAO/Participant.php
+msgid "FK to Event ID"
+msgstr ""
+
+#: CRM/Event/Cart/DAO/EventInCart.php
+msgid "FK to Event Cart ID"
+msgstr ""
+
 #: CRM/Event/Cart/Form/Cart.php
 msgid "Online Registration for %1"
 msgstr "Online registrace %1"
+
+#: CRM/Event/Cart/Form/Cart.php
+msgid ""
+"Could not create or match a contact with that email address. Please contact "
+"the webmaster."
+msgstr ""
 
 #: CRM/Event/Cart/Form/Checkout/ParticipantsAndPrices.php
 msgid "Select at least one option from Price Levels."
@@ -234,16 +256,84 @@ msgid "You don't have any events in you cart. Please add some events."
 msgstr "Ve vašem košíku momentálně nejsou žádné události. Prosím přidejte sem nějaké."
 
 #: CRM/Event/DAO/Event.php
+msgid "Event Title (e.g. Fall Fundraiser Dinner)"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid ""
+"Brief summary of event. Text and html allowed. Displayed on Event "
+"Registration form and can be used on other CMS pages which need an event "
+"summary."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid ""
+"Full description of event. Text and html allowed. Displayed on built-in "
+"Event Information screens."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid ""
+"Event Type ID.Implicit FK to civicrm_option_value where option_group = "
+"event_type."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid ""
+"Should we expose the participant list? Implicit FK to civicrm_option_value "
+"where option_group = participant_listing."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
 msgid "Is Event Public"
 msgstr "Je akce veřejná"
+
+#: CRM/Event/DAO/Event.php
+msgid ""
+"Public events will be included in the iCal feeds. Access to private event "
+"information may be limited using ACLs."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "Date and time that event starts."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "Date and time that event ends. May be NULL if no defined end date/time"
+msgstr ""
 
 #: CRM/Event/DAO/Event.php
 msgid "Is Online Registration"
 msgstr "Je online přihlášení"
 
 #: CRM/Event/DAO/Event.php
+msgid "If true, include registration link on Event Info page."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
 msgid "Event Registration Link Text"
 msgstr "Text odkazu na přihlášení na akci"
+
+#: CRM/Event/DAO/Event.php
+msgid ""
+"Text for link to Event Registration form which is displayed on Event "
+"Information screen when is_online_registration is true."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "Date and time that online registration starts."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "Date and time that online registration ends."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid ""
+"Maximum number of registered participants to allow. After max is reached, a "
+"custom Event Full message is displayed. If NULL, allow unlimited number of "
+"participants."
+msgstr ""
 
 #: CRM/Event/DAO/Event.php templates/CRM/Event/Form/Registration/Confirm.tpl
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
@@ -251,7 +341,30 @@ msgid "Event Information"
 msgstr "Informace o akci"
 
 #: CRM/Event/DAO/Event.php
+msgid ""
+"Message to display on Event Information page and INSTEAD OF Event "
+"Registration form if maximum participants are signed up. Can include email "
+"address/info about getting on a waiting list, etc. Text and html allowed."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
 msgid "Is this a PAID event?"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid ""
+"If true, one or more fee amounts must be set and a Payment Processor must be"
+" configured for Online Event Registration."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid ""
+"Financial type assigned to paid event registrations for this event. Required"
+" if is_monetary is true."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "Payment Processors configured for this Event (if is_monetary is true)"
 msgstr ""
 
 #: CRM/Event/DAO/Event.php
@@ -259,16 +372,56 @@ msgid "Map Enabled"
 msgstr ""
 
 #: CRM/Event/DAO/Event.php
+msgid ""
+"Include a map block on the Event Information page when geocode info is "
+"available and a mapping provider has been specified?"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "Is this Event enabled or disabled/cancelled?"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
 msgid "show location"
 msgstr "Ukázat lokaci"
+
+#: CRM/Event/DAO/Event.php
+msgid "If true, show event location."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "FK to Location Block ID"
+msgstr ""
 
 #: CRM/Event/DAO/Event.php
 msgid "Default Role"
 msgstr ""
 
+#: CRM/Event/DAO/Event.php CRM/Event/DAO/Participant.php
+msgid ""
+"Participant role ID. Implicit FK to civicrm_option_value where option_group "
+"= participant_role."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid ""
+"Introductory message for Event Registration page. Text and html allowed. "
+"Displayed at the top of Event Registration form."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid ""
+"Footer message for Event Registration page. Text and html allowed. Displayed"
+" at the bottom of Event Registration form."
+msgstr ""
+
 #: CRM/Event/DAO/Event.php
 msgid "Confirmation Title"
 msgstr "Potvrzovací titulek"
+
+#: CRM/Event/DAO/Event.php
+msgid "Title for Confirmation page."
+msgstr ""
 
 #: CRM/Event/DAO/Event.php
 msgid "Confirm Text"
@@ -279,24 +432,56 @@ msgid "Is confirm email"
 msgstr "Potvrzovací e-mail"
 
 #: CRM/Event/DAO/Event.php
+msgid ""
+"If true, confirmation is automatically emailed to contact on successful "
+"registration."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
 msgid "Confirmation Email Text"
 msgstr "Text potvrzovacího emailu"
+
+#: CRM/Event/DAO/Event.php
+msgid ""
+"text to include above standard event info on confirmation email. emails are "
+"text-only, so do not allow html for now"
+msgstr ""
 
 #: CRM/Event/DAO/Event.php CRM/Event/Form/ManageEvent/Registration.php
 msgid "Confirm From Name"
 msgstr "Potvrdit podle jména"
+
+#: CRM/Event/DAO/Event.php
+msgid "FROM email name used for confirmation emails."
+msgstr ""
 
 #: CRM/Event/DAO/Event.php CRM/Event/Form/ManageEvent/Registration.php
 msgid "Confirm From Email"
 msgstr "Potvrdit podle emailu"
 
 #: CRM/Event/DAO/Event.php
+msgid "FROM email address used for confirmation emails."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
 msgid "Cc Confirm"
 msgstr "Cc potvrdit"
 
 #: CRM/Event/DAO/Event.php
+msgid ""
+"comma-separated list of email addresses to cc each time a confirmation is "
+"sent"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
 msgid "Bcc Confirm"
 msgstr "Bcc potvrdit"
+
+#: CRM/Event/DAO/Event.php
+msgid ""
+"comma-separated list of email addresses to bcc each time a confirmation is "
+"sent"
+msgstr ""
 
 #: CRM/Event/DAO/Event.php
 msgid "Default Fee ID"
@@ -311,8 +496,20 @@ msgid "ThankYou Title"
 msgstr "ThankYou nadpis"
 
 #: CRM/Event/DAO/Event.php
+msgid "Title for ThankYou page."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
 msgid "ThankYou Text"
 msgstr "ThankYou text"
+
+#: CRM/Event/DAO/Event.php
+msgid "ThankYou Text."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "Footer message."
+msgstr ""
 
 #: CRM/Event/DAO/Event.php
 msgid "Pay Later Allowed"
@@ -327,6 +524,10 @@ msgid "Partial Payments Enabled"
 msgstr ""
 
 #: CRM/Event/DAO/Event.php
+msgid "is partial payment enabled for this event"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
 msgid "Minimum Initial Amount"
 msgstr ""
 
@@ -335,7 +536,17 @@ msgid "Allow Multiple Registrations"
 msgstr ""
 
 #: CRM/Event/DAO/Event.php
+msgid "if true - allows the user to register multiple participants for event"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
 msgid "Maximum number of additional participants per registration"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid ""
+"Maximum number of additional participants that can be registered on a single"
+" booking"
 msgstr ""
 
 #: CRM/Event/DAO/Event.php
@@ -343,7 +554,17 @@ msgid "Does Event allow multiple registrations from same email address?"
 msgstr "Umožňuje akce více přihlášení z jedné emailové adresy?"
 
 #: CRM/Event/DAO/Event.php
+msgid ""
+"if true - allows the user to register multiple registrations from same email"
+" address."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
 msgid "Waitlist Enabled"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "Whether the event has waitlist support."
 msgstr ""
 
 #: CRM/Event/DAO/Event.php
@@ -351,15 +572,34 @@ msgid "Requires Approval"
 msgstr "Vyžaduje schválení"
 
 #: CRM/Event/DAO/Event.php
+msgid ""
+"Whether participants require approval before they can finish registering."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
 msgid "Expiration Time"
 msgstr "Čas expirace"
+
+#: CRM/Event/DAO/Event.php
+msgid "Expire pending but unconfirmed registrations after this many hours."
+msgstr ""
 
 #: CRM/Event/DAO/Event.php
 msgid "Allow Self-service Cancellation or Transfer"
 msgstr ""
 
 #: CRM/Event/DAO/Event.php
+msgid "Allow self service cancellation or transfer for event?"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
 msgid "Self-service Cancellation or Transfer Time"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid ""
+"Number of hours prior to event start date to allow self-service cancellation"
+" or transfer."
 msgstr ""
 
 #: CRM/Event/DAO/Event.php templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
@@ -367,11 +607,27 @@ msgid "Waitlist Text"
 msgstr "Text seznamu náhradníků"
 
 #: CRM/Event/DAO/Event.php
+msgid ""
+"Text to display when the event is full, but participants can signup for a "
+"waitlist."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
 msgid "Approval Req Text"
 msgstr "Text požadavku na schválení"
 
 #: CRM/Event/DAO/Event.php
+msgid ""
+"Text to display when the approval is required to complete registration for "
+"an event."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
 msgid "Is an Event Template"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "whether the event has template"
 msgstr ""
 
 #: CRM/Event/DAO/Event.php
@@ -379,11 +635,31 @@ msgid "Event Template Title"
 msgstr "Název šablony akce"
 
 #: CRM/Event/DAO/Event.php
+msgid "FK to civicrm_contact, who created this event"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
 msgid "Event Created Date"
 msgstr "Datum vytvoření akce"
 
 #: CRM/Event/DAO/Event.php
+msgid "Date and time that event was created."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "The campaign for which this event has been created."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "Can people share the event through social media?"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
 msgid "Is the booking confirmation screen enabled?"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "If false, the event booking confirmation screen gets skipped"
 msgstr ""
 
 #: CRM/Event/DAO/Event.php
@@ -391,7 +667,35 @@ msgid "Parent Event ID"
 msgstr ""
 
 #: CRM/Event/DAO/Event.php
+msgid "Implicit FK to civicrm_event: parent event"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
 msgid "Subevent Slot Label ID"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid ""
+"Subevent slot label. Implicit FK to civicrm_option_value where option_group "
+"= conference_slot."
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "Rule to use when matching registrations for this event"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "if true than billing block is required this event"
+msgstr ""
+
+#: CRM/Event/DAO/Participant.php
+msgid "Participant Id"
+msgstr ""
+
+#: CRM/Event/DAO/Participant.php
+msgid ""
+"Participant status ID. FK to civicrm_participant_status_type. Default of 1 "
+"should map to status = Registered."
 msgstr ""
 
 #: CRM/Event/DAO/Participant.php
@@ -399,12 +703,43 @@ msgid "Register date"
 msgstr "Datum přihlášení"
 
 #: CRM/Event/DAO/Participant.php
+msgid "When did contact register for event?"
+msgstr ""
+
+#: CRM/Event/DAO/Participant.php
 msgid "Participant Source"
 msgstr "Zdroj účastníka"
 
 #: CRM/Event/DAO/Participant.php
+msgid "Source of this event registration."
+msgstr ""
+
+#: CRM/Event/DAO/Participant.php
+msgid ""
+"Populate with the label (text) associated with a fee level for paid events with multiple levels. Note that\n"
+"      we store the label value and not the key\n"
+"    "
+msgstr ""
+
+#: CRM/Event/DAO/Participant.php
 msgid "Registered By ID"
 msgstr "Přihlášení dle ID"
+
+#: CRM/Event/DAO/Participant.php
+msgid "FK to Participant ID"
+msgstr ""
+
+#: CRM/Event/DAO/Participant.php
+msgid "FK to Discount ID"
+msgstr ""
+
+#: CRM/Event/DAO/Participant.php
+msgid "3 character string, value derived from config setting."
+msgstr ""
+
+#: CRM/Event/DAO/Participant.php
+msgid "The campaign for which this participant has been registered."
+msgstr ""
 
 #: CRM/Event/DAO/Participant.php
 msgid "Discount Amount"
@@ -415,11 +750,27 @@ msgid "Event Cart ID"
 msgstr ""
 
 #: CRM/Event/DAO/Participant.php
+msgid "FK to civicrm_event_carts"
+msgstr ""
+
+#: CRM/Event/DAO/Participant.php
 msgid "Must Wait on List"
 msgstr ""
 
 #: CRM/Event/DAO/Participant.php
+msgid "On Waiting List"
+msgstr ""
+
+#: CRM/Event/DAO/Participant.php
 msgid "Transferred to Contact ID"
+msgstr ""
+
+#: CRM/Event/DAO/ParticipantPayment.php
+msgid "Participant Payment Id"
+msgstr ""
+
+#: CRM/Event/DAO/ParticipantPayment.php
+msgid "Participant Id (FK)"
 msgstr ""
 
 #: CRM/Event/DAO/ParticipantStatusType.php
@@ -427,7 +778,19 @@ msgid "Participant Status Type ID"
 msgstr ""
 
 #: CRM/Event/DAO/ParticipantStatusType.php
+msgid "unique participant status type id"
+msgstr ""
+
+#: CRM/Event/DAO/ParticipantStatusType.php
+msgid "non-localized name of the status type"
+msgstr ""
+
+#: CRM/Event/DAO/ParticipantStatusType.php
 msgid "Participant Status Label"
+msgstr ""
+
+#: CRM/Event/DAO/ParticipantStatusType.php
+msgid "localized label for display of this status type"
 msgstr ""
 
 #: CRM/Event/DAO/ParticipantStatusType.php
@@ -435,7 +798,15 @@ msgid "Participant Status Class"
 msgstr ""
 
 #: CRM/Event/DAO/ParticipantStatusType.php
+msgid "the general group of status type this one belongs to"
+msgstr ""
+
+#: CRM/Event/DAO/ParticipantStatusType.php
 msgid "Participant Status Is Reserved?>"
+msgstr ""
+
+#: CRM/Event/DAO/ParticipantStatusType.php
+msgid "whether this is a status type required by the system"
 msgstr ""
 
 #: CRM/Event/DAO/ParticipantStatusType.php
@@ -443,11 +814,29 @@ msgid "Participant Status is Active"
 msgstr ""
 
 #: CRM/Event/DAO/ParticipantStatusType.php
+msgid "whether this status type is active"
+msgstr ""
+
+#: CRM/Event/DAO/ParticipantStatusType.php
 msgid "Participant Status Counts?"
 msgstr ""
 
 #: CRM/Event/DAO/ParticipantStatusType.php
+msgid "whether this status type is counted against event size limit"
+msgstr ""
+
+#: CRM/Event/DAO/ParticipantStatusType.php
+msgid "controls sort order"
+msgstr ""
+
+#: CRM/Event/DAO/ParticipantStatusType.php
 msgid "Participant Status Visibility"
+msgstr ""
+
+#: CRM/Event/DAO/ParticipantStatusType.php
+msgid ""
+"whether the status type is visible to the public, an implicit foreign key to"
+" option_value.value related to the `visibility` option_group"
 msgstr ""
 
 #: CRM/Event/Form/EventFees.php templates/CRM/Event/Form/EventFees.tpl
@@ -532,10 +921,6 @@ msgid "Include Map to Event Location"
 msgstr ""
 
 #: CRM/Event/Form/ManageEvent/EventInfo.php
-msgid "End Date / Time"
-msgstr "Datum / čas ukončení"
-
-#: CRM/Event/Form/ManageEvent/EventInfo.php
 msgid "Max Number of Participants"
 msgstr "Maximální počet účastníků"
 
@@ -558,10 +943,6 @@ msgstr "Zpráva, pokud je akce plně obsazena"
 #: CRM/Event/Form/ManageEvent/EventInfo.php
 msgid "Is this Event Active?"
 msgstr "Je tato akce aktivní?"
-
-#: CRM/Event/Form/ManageEvent/EventInfo.php
-msgid "Start Date and Time are required fields"
-msgstr "Datum a čas zahájení jsou požadovaná pole"
 
 #: CRM/Event/Form/ManageEvent/EventInfo.php
 msgid "Please do not use '/' in Event Title."
@@ -1465,6 +1846,10 @@ msgid " is already registered for this event"
 msgstr ""
 
 #: CRM/Event/Form/SelfSvcTransfer.php
+msgid "Contact does not exist."
+msgstr ""
+
+#: CRM/Event/Form/SelfSvcTransfer.php
 msgid "Registration Transferred"
 msgstr ""
 
@@ -1702,6 +2087,30 @@ msgstr "Povolit událost"
 msgid "Copy Event"
 msgstr "Kopírovat událost"
 
+#: CRM/Event/Page/ManageEvent.php templates/CRM/Event/Form/ManageEvent/Tab.tpl
+msgid "Register Participant"
+msgstr "Register Participant"
+
+#: CRM/Event/Page/ManageEvent.php
+msgid "Registration (Test-drive)"
+msgstr "Registrace (testovací mód)"
+
+#: CRM/Event/Page/ManageEvent.php templates/CRM/Event/Form/ManageEvent/Tab.tpl
+msgid "Online Registration (Test-drive)"
+msgstr "Online registrace (test-drive)"
+
+#: CRM/Event/Page/ManageEvent.php
+msgid "Registration (Live)"
+msgstr "Registrace (skutečná)"
+
+#: CRM/Event/Page/ManageEvent.php templates/CRM/Event/Form/ManageEvent/Tab.tpl
+msgid "Online Registration (Live)"
+msgstr "Online registrace (živě)"
+
+#: CRM/Event/Page/ManageEvent.php templates/CRM/Event/Form/ManageEvent/Tab.tpl
+msgid "Event Links"
+msgstr "Odkazy události"
+
 #: CRM/Event/Page/ManageEvent.php
 msgid "Search Events"
 msgstr "Hledat události"
@@ -1729,6 +2138,10 @@ msgstr "Kód souboru výpisu účastníků nemůže být '%1'"
 #: CRM/Event/Page/Tab.php
 msgid "View Participant"
 msgstr "Zobrazit účastníka"
+
+#: CRM/Event/Page/Tab.php
+msgid "Delete Participant"
+msgstr ""
 
 #: CRM/Event/PseudoConstant.php
 msgid "Positive"
@@ -2100,7 +2513,7 @@ msgstr "Můžete umožnit uživatelům připojit se do pořadníku (čekací lis
 msgid ""
 "You may allow users to join a waitlist when the event is full. To enable "
 "this feature you must first enable the Participant Statuses used by the "
-"waitlist work-flow (click the pencil icon, or navigate to Administer » "
+"waitlist work-flow (click the wrench icon, or navigate to Administer » "
 "CiviEvent » Participant Statuses). Then reload this form and check 'Offer a "
 "Waitlist?'."
 msgstr ""
@@ -2421,11 +2834,11 @@ msgid ""
 "Check this box to allow users to register themselves AND additional "
 "participants for an event. When this feature is enabled, users have the "
 "option to specify the number of additional participants they are registering"
-" for. If this is a paid event, they can select a different event fees for "
-"each participant - and will be charged the total of those fees. If a profile"
-" is included - they will complete the profile information for each "
+" for. If this is a paid event, they can select a different event fee for "
+"each participant and will be charged the total of those fees. If a profile "
+"is included, they will complete the profile information for each "
 "participant."
-msgstr "Zaškrtnutím tohoto políčka umožníte uživatelům, aby sami sebe a další účastníky zaregistrovali na událost. Je-li tato funkce povolena, uživatelé mají možnost určit počet dalších účastníků pro registraci. Pokud je to placená událost, lze zvolit různé poplatky za událost pro každého účastníka - a bude účtována celková částka těchto poplatků. Je-li zahrnut profil - doplní informace o profilu pro každého účastníka."
+msgstr ""
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.hlp
 msgid ""
@@ -2774,24 +3187,6 @@ msgid ""
 msgstr "Zobrazit vaši vlastní <strong>SKUTEČNOU</strong> stránku online registrace. Pro odkázání na tuto stránku použijte následující URL adresu pro libovolná tlačítka a widgety a odkazy na jakékoli webové stránce."
 
 #: templates/CRM/Event/Form/ManageEvent/Tab.tpl
-#: templates/CRM/Event/Page/ManageEvent.tpl
-msgid "Event Links"
-msgstr "Odkazy události"
-
-#: templates/CRM/Event/Form/ManageEvent/Tab.tpl
-#: templates/CRM/Event/Page/ManageEvent.tpl
-msgid "Register Participant"
-msgstr "Register Participant"
-
-#: templates/CRM/Event/Form/ManageEvent/Tab.tpl
-msgid "Online Registration (Test-drive)"
-msgstr "Online registrace (test-drive)"
-
-#: templates/CRM/Event/Form/ManageEvent/Tab.tpl
-msgid "Online Registration (Live)"
-msgstr "Online registrace (živě)"
-
-#: templates/CRM/Event/Form/ManageEvent/Tab.tpl
 #: templates/CRM/Event/Page/EventInfo.tpl
 #: templates/CRM/Event/Page/ManageEvent.tpl
 msgid "Public Participant Listing"
@@ -2926,12 +3321,6 @@ msgstr "Zkontrolujte prosím zadané údaje. Pokud chcete provést změny, klikn
 
 #: templates/CRM/Event/Form/Registration/Confirm.tpl
 msgid ""
-"Click the <strong>%1</strong> button to checkout to Google, where you will "
-"select your payment method and complete the registration."
-msgstr "Kliknutím na tlačítko <strong>%1</strong> budete přesměrováni na Google checkout, kde budete moci zvolit způsob platby a dokončit registraci."
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid ""
 "Click the <strong>Continue</strong> button to checkout to %1, where you will"
 " select your payment method and complete the registration."
 msgstr "Kliknutím na tlačítko <strong>Pokračovat</strong>  budete přesměrováni na %1, kde budete moci zvolit způsob platby a dokončit registraci."
@@ -3046,10 +3435,8 @@ msgid "An email with event details has been sent to %1."
 msgstr "E-mail s podrobnostmi o akci byl zaslán na %1."
 
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
-msgid ""
-"Your registration payment has been submitted to %1 for processing. Please "
-"print this page for your records."
-msgstr "Vaše platba za registraci byla zadána %1 ke zpracování. Tuto stránku si můžete vytisknout pro svou potřebu. "
+msgid "Your registration payment has been submitted to %1 for processing."
+msgstr ""
 
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
 msgid ""
@@ -3058,10 +3445,8 @@ msgid ""
 msgstr "Email s potvrzením registrace bude poslán na %1, jakmile bude transakce úspěšně zpracována."
 
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
-msgid ""
-"Your registration has been processed successfully. Please print this page "
-"for your records."
-msgstr "Vaše registrace byla úspěšně zpracována. Tuto stránku si pro svou potřebu můžete vytisknout ."
+msgid "Your registration has been processed successfully."
+msgstr ""
 
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
 msgid "A registration confirmation email has also been sent to %1"
@@ -3677,18 +4062,6 @@ msgid "Add Event"
 msgstr "Přidat událost"
 
 #: templates/CRM/Event/Page/ManageEvent.tpl
-msgid "Registration (Test-drive)"
-msgstr "Registrace (testovací mód)"
-
-#: templates/CRM/Event/Page/ManageEvent.tpl
-msgid "Registration (Live)"
-msgstr "Registrace (skutečná)"
-
-#: templates/CRM/Event/Page/ManageEvent.tpl
-msgid "Don't see your event listed? Try \"Search All or by Date Range\" above."
-msgstr "Nevidíte vaši událost na seznamu? Zkuste \"Hledat vše\" nebo \"Datové rozmezí\" výše."
-
-#: templates/CRM/Event/Page/ManageEvent.tpl
 msgid "No available Events match your search criteria. Suggestions:"
 msgstr "Žádné události nesplňují vaše zadaná kritéria. Nechtěli jste hledat:"
 
@@ -3953,3 +4326,49 @@ msgstr ""
 #: xml/templates/message_templates/participant_transferred_text.tpl
 msgid "Your Event Registration has been transferred to %1."
 msgstr ""
+
+#: CRM/Event/Form/ManageEvent/EventInfo.php
+msgid "Start Date and Time are required fields"
+msgstr "Datum a čas zahájení jsou požadovaná pole"
+
+#: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
+msgid ""
+"You may allow users to join a waitlist when the event is full. To enable "
+"this feature you must first enable the Participant Statuses used by the "
+"waitlist work-flow (click the pencil icon, or navigate to Administer » "
+"CiviEvent » Participant Statuses). Then reload this form and check 'Offer a "
+"Waitlist?'."
+msgstr ""
+
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
+msgid ""
+"Check this box to allow users to register themselves AND additional "
+"participants for an event. When this feature is enabled, users have the "
+"option to specify the number of additional participants they are registering"
+" for. If this is a paid event, they can select a different event fees for "
+"each participant - and will be charged the total of those fees. If a profile"
+" is included - they will complete the profile information for each "
+"participant."
+msgstr "Zaškrtnutím tohoto políčka umožníte uživatelům, aby sami sebe a další účastníky zaregistrovali na událost. Je-li tato funkce povolena, uživatelé mají možnost určit počet dalších účastníků pro registraci. Pokud je to placená událost, lze zvolit různé poplatky za událost pro každého účastníka - a bude účtována celková částka těchto poplatků. Je-li zahrnut profil - doplní informace o profilu pro každého účastníka."
+
+#: templates/CRM/Event/Form/Registration/Confirm.tpl
+msgid ""
+"Click the <strong>%1</strong> button to checkout to Google, where you will "
+"select your payment method and complete the registration."
+msgstr "Kliknutím na tlačítko <strong>%1</strong> budete přesměrováni na Google checkout, kde budete moci zvolit způsob platby a dokončit registraci."
+
+#: templates/CRM/Event/Form/Registration/ThankYou.tpl
+msgid ""
+"Your registration payment has been submitted to %1 for processing. Please "
+"print this page for your records."
+msgstr "Vaše platba za registraci byla zadána %1 ke zpracování. Tuto stránku si můžete vytisknout pro svou potřebu. "
+
+#: templates/CRM/Event/Form/Registration/ThankYou.tpl
+msgid ""
+"Your registration has been processed successfully. Please print this page "
+"for your records."
+msgstr "Vaše registrace byla úspěšně zpracována. Tuto stránku si pro svou potřebu můžete vytisknout ."
+
+#: templates/CRM/Event/Page/ManageEvent.tpl
+msgid "Don't see your event listed? Try \"Search All or by Date Range\" above."
+msgstr "Nevidíte vaši událost na seznamu? Zkuste \"Hledat vše\" nebo \"Datové rozmezí\" výše."
