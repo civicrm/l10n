@@ -10,8 +10,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2018-09-11 10:33-0400\n"
-"PO-Revision-Date: 2018-09-11 15:26+0000\n"
+"POT-Creation-Date: 2019-06-06 12:32-0400\n"
+"PO-Revision-Date: 2019-06-07 00:38+0000\n"
 "Last-Translator: Mathieu Lu <mathieu@bidon.ca>\n"
 "Language-Team: Persian (Iran) (http://www.transifex.com/civicrm/civicrm/language/fa_IR/)\n"
 "MIME-Version: 1.0\n"
@@ -170,6 +170,7 @@ msgstr "%1(s)"
 
 #: CRM/Admin/Form/ScheduleReminders.php CRM/Contribute/Form/ManagePremiums.php
 #: templates/CRM/Contribute/Page/ContributionRecur.tpl
+#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
 #: CRM/Pledge/Form/Pledge.php CRM/Report/Form.php
 msgid "Frequency"
 msgstr "تناوب"
@@ -403,6 +404,10 @@ msgstr "نام دسته"
 msgid "Batch Title"
 msgstr "عنوان دسته"
 
+#: CRM/Batch/DAO/Batch.php CRM/Mailing/DAO/MailingAB.php
+msgid "When was this item created"
+msgstr ""
+
 #: CRM/Batch/Form/Batch.php CRM/Financial/Form/Search.php
 msgid "Number of Items"
 msgstr "تعدادی از آیتم‌ها"
@@ -445,19 +450,23 @@ msgstr ""
 msgid "Search:"
 msgstr ""
 
-#: CRM/Campaign/DAO/Campaign.php
-#: templates/CRM/Campaign/Form/Search/Campaign.tpl
-#: CRM/Report/Form/Mailing/Summary.php
-msgid "Campaign Name"
-msgstr "نام کمپین"
-
 #: CRM/Campaign/DAO/Campaign.php CRM/Contribute/BAO/Contribution.php
 msgid "Campaign Title"
 msgstr ""
 
 #: CRM/Campaign/DAO/Survey.php CRM/Contribute/DAO/ContributionPage.php
+msgid ""
+"Title for Thank-you page (header title tag, and display at the top of the "
+"page)."
+msgstr ""
+
+#: CRM/Campaign/DAO/Survey.php CRM/Contribute/DAO/ContributionPage.php
 msgid "Thank-you Text"
 msgstr "متن تشکر"
+
+#: CRM/Campaign/DAO/Survey.php CRM/Contribute/DAO/ContributionPage.php
+msgid "text and html allowed. displayed above result on success page"
+msgstr ""
 
 #: CRM/Campaign/DAO/Survey.php CRM/Event/DAO/Event.php
 msgid "Is shared through social media"
@@ -620,6 +629,7 @@ msgstr "اگردر بازه زمانی/تاریخ مشخصی جستجو می ک�
 
 #: CRM/Contribute/ActionMapping/ByPage.php
 #: CRM/Contribute/ActionMapping/ByType.php
+#: CRM/Contribute/Import/Parser/Contribution.php
 #: templates/CRM/Contribute/Form/Task/SearchTaskHookSample.tpl
 #: CRM/Report/Form/Contribute/DeferredRevenue.php
 msgid "Receive Date"
@@ -628,6 +638,8 @@ msgstr ""
 #: CRM/Contribute/ActionMapping/ByPage.php
 #: CRM/Contribute/ActionMapping/ByType.php CRM/Contribute/BAO/Query.php
 #: CRM/Contribute/DAO/Contribution.php
+#: CRM/Contribute/DAO/ContributionRecur.php
+#: CRM/Contribute/Import/Parser/Contribution.php
 #: templates/CRM/Contribute/Form/Search/ContributionRecur.tpl
 #: CRM/Report/Form/Contribute/DeferredRevenue.php
 #: CRM/Report/Form/Contribute/Recur.php
@@ -637,6 +649,15 @@ msgstr "تاریخ لغو"
 #: CRM/Contribute/BAO/Contribution.php CRM/Member/BAO/Membership.php
 msgid "(match to contact)"
 msgstr "(مطابقت با مخاطب)"
+
+#: CRM/Contribute/BAO/Contribution.php CRM/Contribute/BAO/Query.php
+#: CRM/Contribute/DAO/PremiumsProduct.php
+#: CRM/Contribute/Form/AdditionalInfo.php CRM/Contribute/Selector/Search.php
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+#: templates/CRM/Contribute/Form/Task/Print.tpl
+#: CRM/Report/Form/Member/ContributionDetail.php
+msgid "Premium"
+msgstr "حق بیمه"
 
 #: CRM/Contribute/BAO/Contribution.php CRM/Contribute/Selector/Search.php
 #: CRM/Report/Form/Contribute/Detail.php
@@ -648,15 +669,6 @@ msgstr "مشارکت غیر مستقیم برای"
 #: CRM/Report/Form/Contribute/Summary.php
 msgid "Soft Credit Amount"
 msgstr "میزان شمارکت غیر مستقیم"
-
-#: CRM/Contribute/BAO/Contribution.php CRM/Contribute/BAO/Query.php
-#: CRM/Contribute/DAO/PremiumsProduct.php
-#: CRM/Contribute/Form/AdditionalInfo.php CRM/Contribute/Selector/Search.php
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-#: templates/CRM/Contribute/Form/Task/Print.tpl
-#: CRM/Report/Form/Member/ContributionDetail.php
-msgid "Premium"
-msgstr "حق بیمه"
 
 #: CRM/Contribute/BAO/Contribution.php
 #: CRM/Report/Form/Contribute/SoftCredit.php
@@ -709,10 +721,22 @@ msgstr ""
 msgid "Copy of"
 msgstr "رونوشت از"
 
+#: CRM/Contribute/BAO/ContributionRecur.php
+#: CRM/Financial/DAO/PaymentProcessor.php CRM/Financial/DAO/PaymentToken.php
+msgid "Payment Processor ID"
+msgstr ""
+
 #: CRM/Contribute/BAO/Query.php
 #: templates/CRM/Financial/Form/BatchTransaction.tpl
 #: templates/CRM/Financial/Page/BatchTransaction.tpl
 msgid "Contribution Date"
+msgstr ""
+
+#: CRM/Contribute/BAO/Query.php CRM/Contribute/Form/Contribution.php
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+#: templates/CRM/Contribute/Form/Search/Common.tpl
+#: CRM/Report/Form/Contribute/Detail.php
+msgid "Cancelled / Refunded Date"
 msgstr ""
 
 #: CRM/Contribute/BAO/Query.php CRM/Contribute/DAO/Contribution.php
@@ -729,10 +753,45 @@ msgstr " فقط مشارکت ها"
 msgid "Soft Credits Only"
 msgstr "فقط مشارکت های غیر مستقیم/ اعتبارهای نرم"
 
+#: CRM/Contribute/DAO/Contribution.php CRM/Contribute/DAO/Widget.php
+#: CRM/Pledge/DAO/Pledge.php
+msgid "The Contribution Page which triggered this contribution"
+msgstr ""
+
+#: CRM/Contribute/DAO/Contribution.php CRM/Event/DAO/Participant.php
+#: CRM/Financial/DAO/FinancialTrxn.php
+msgid "actual processor fee if known - may be 0."
+msgstr ""
+
+#: CRM/Contribute/DAO/Contribution.php CRM/Financial/DAO/FinancialTrxn.php
+msgid ""
+"actual funds transfer amount. total less fees. if processor does not report "
+"actual fee during transaction, this is set to total_amount."
+msgstr ""
+
 #: CRM/Contribute/DAO/Contribution.php
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 #: CRM/Report/Form/Contribute/Bookkeeping.php
 msgid "Invoice Reference"
+msgstr ""
+
+#: CRM/Contribute/DAO/Contribution.php CRM/Contribute/DAO/ContributionPage.php
+#: CRM/Contribute/DAO/ContributionRecur.php
+#: CRM/Contribute/DAO/ContributionSoft.php CRM/Contribute/DAO/Product.php
+#: CRM/Event/DAO/Event.php CRM/Financial/DAO/FinancialTrxn.php
+#: CRM/Grant/DAO/Grant.php CRM/PCP/DAO/PCP.php CRM/Pledge/DAO/Pledge.php
+#: CRM/Pledge/DAO/PledgePayment.php
+msgid "3 character string, value from config setting or input via user."
+msgstr ""
+
+#: CRM/Contribute/DAO/Contribution.php CRM/Contribute/Form/Contribution.php
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+#: CRM/Report/Form/Contribute/Detail.php
+msgid "Cancellation / Refund Reason"
+msgstr ""
+
+#: CRM/Contribute/DAO/Contribution.php CRM/Report/Form/Contribute/Detail.php
+msgid "Thank-you Date"
 msgstr ""
 
 #: CRM/Contribute/DAO/Contribution.php CRM/Event/DAO/Participant.php
@@ -755,23 +814,52 @@ msgstr "عنوان صفحه مشارکت "
 #: CRM/Contribute/Form/AbstractEditPayment.php
 #: CRM/Contribute/Form/AdditionalPayment.php
 #: CRM/Contribute/Form/ContributionPage/Amount.php
+#: templates/CRM/Contribute/Form/Search/ContributionRecur.tpl
 #: templates/CRM/Contribute/Page/ContributionRecur.tpl CRM/Event/DAO/Event.php
 #: CRM/Event/Form/ManageEvent/Fee.php CRM/Financial/DAO/FinancialTrxn.php
-#: CRM/Financial/DAO/PaymentProcessor.php
+#: CRM/Financial/DAO/PaymentProcessor.php CRM/Report/Form/Contribute/Recur.php
 msgid "Payment Processor"
 msgstr "پردازشگر پرداخت"
+
+#: CRM/Contribute/DAO/ContributionPage.php CRM/Event/DAO/Event.php
+msgid "if true - allows the user to send payment directly to the org later"
+msgstr ""
 
 #: CRM/Contribute/DAO/ContributionPage.php CRM/Event/DAO/Event.php
 msgid "Pay Later Text"
 msgstr "متن پرداخت در آینده"
 
 #: CRM/Contribute/DAO/ContributionPage.php CRM/Event/DAO/Event.php
+msgid "The text displayed to the user in the main form"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionPage.php CRM/Event/DAO/Event.php
+msgid "The receipt sent to the user instead of the normal receipt text"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionPage.php CRM/Event/DAO/Event.php
 msgid "Initial Amount Label"
 msgstr "برچسب مقدار اولیه"
 
 #: CRM/Contribute/DAO/ContributionPage.php CRM/Event/DAO/Event.php
+msgid "Initial amount label for partial payment"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionPage.php CRM/Event/DAO/Event.php
 msgid "Initial Amount Help Text"
 msgstr "متن راهنمای مقدار اولیه"
+
+#: CRM/Contribute/DAO/ContributionPage.php CRM/Event/DAO/Event.php
+msgid "Initial amount help text for partial payment"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionPage.php CRM/Event/DAO/Event.php
+msgid "Minimum initial amount for partial payment"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionPage.php CRM/Event/DAO/Event.php
+msgid "FK to civicrm_option_value."
+msgstr ""
 
 #: CRM/Contribute/DAO/ContributionPage.php
 #: CRM/Contribute/Form/ContributionPage/Amount.php CRM/Grant/BAO/Query.php
@@ -835,6 +923,16 @@ msgstr "تاریخ مشارکت برنامه ریزی شده بعدی"
 #: templates/CRM/Member/Form/Membership.hlp
 msgid "Auto Renew"
 msgstr "تمدید خودکار"
+
+#: CRM/Contribute/DAO/ContributionRecur.php CRM/Pledge/DAO/Pledge.php
+msgid "FK to Financial Type"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionSoft.php
+#: CRM/Event/DAO/ParticipantPayment.php CRM/Member/DAO/MembershipPayment.php
+#: CRM/Pledge/DAO/PledgePayment.php
+msgid "FK to contribution table."
+msgstr ""
 
 #: CRM/Contribute/DAO/Product.php CRM/Contribute/Form/ManagePremiums.php
 #: templates/CRM/Contribute/Page/ManagePremiums.tpl
@@ -920,7 +1018,7 @@ msgid "Include my name and message"
 msgstr "نام و پیام من را اضافه کن "
 
 #: CRM/Contribute/Form/Contribution/Main.php
-#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
 #: CRM/Pledge/BAO/Query.php
 msgid "Every"
 msgstr "همه"
@@ -1071,6 +1169,19 @@ msgstr "گروه (های) مشترکین"
 msgid "Sent"
 msgstr "ارسال شد"
 
+#: CRM/Contribute/Form/Task/Status.php
+#: templates/CRM/Contribute/Form/Task/Status.tpl
+#: templates/CRM/Event/Form/Registration/ThankYou.tpl
+#: xml/templates/message_templates/event_offline_receipt_html.tpl
+#: xml/templates/message_templates/event_offline_receipt_text.tpl
+#: xml/templates/message_templates/event_online_receipt_html.tpl
+#: xml/templates/message_templates/event_online_receipt_text.tpl
+#: CRM/Financial/Form/PaymentEdit.php CRM/Financial/Page/AJAX.php
+#: CRM/Report/Form/Contribute/Bookkeeping.php
+#: CRM/Report/Form/Contribute/DeferredRevenue.php
+msgid "Transaction Date"
+msgstr "تاریخ تراکنش"
+
 #: CRM/Contribute/Form/UpdateBilling.php
 #: xml/templates/message_templates/membership_autorenew_billing_html.tpl
 #: xml/templates/message_templates/membership_autorenew_billing_text.tpl
@@ -1085,6 +1196,7 @@ msgid "Import mode"
 msgstr "حالت ورود"
 
 #: CRM/Contribute/Import/Parser/Contribution.php CRM/Pledge/DAO/Pledge.php
+#: CRM/Pledge/DAO/PledgeBlock.php
 msgid "Pledge ID"
 msgstr "شناسه ضمانت/تعهد"
 
@@ -1110,8 +1222,8 @@ msgstr "مشاهده مشارکت"
 
 #: CRM/Contribute/Selector/Search.php
 #: templates/CRM/Contribute/Page/ContributionRecur.tpl
-#: CRM/Event/Selector/Search.php templates/CRM/Member/Form/Selector.tpl
-#: templates/CRM/Member/Page/Tab.tpl
+#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
+#: templates/CRM/Member/Form/Selector.tpl templates/CRM/Member/Page/Tab.tpl
 msgid "test"
 msgstr "تست/آزمایش/ آزمون"
 
@@ -1280,15 +1392,6 @@ msgstr "تراکنش عضویت"
 #: templates/CRM/Member/Page/Tab.hlp
 msgid "Contributor"
 msgstr "مشترک"
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-#: templates/CRM/Event/Form/Participant.tpl
-#: templates/CRM/Member/Form/Membership.tpl
-#: templates/CRM/Member/Form/MembershipRenewal.tpl
-#: templates/CRM/Pledge/Form/PledgeView.tpl
-msgid "(test)"
-msgstr "(آزمایشی)"
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
 #: templates/CRM/Member/Form/Membership.tpl
@@ -1466,6 +1569,7 @@ msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 #: templates/CRM/Contribute/Page/ContributionRecur.tpl
+#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
 #: templates/CRM/Contribute/Page/UserDashboard.tpl
 #: CRM/Pledge/BAO/PledgeBlock.php CRM/Report/Form/Contribute/Recur.php
 #: CRM/Report/Form/Pledge/Detail.php CRM/Report/Form/Pledge/Pbnp.php
@@ -1543,7 +1647,7 @@ msgid "view payments"
 msgstr "نمایش پرداخت ها"
 
 #: templates/CRM/Contribute/Form/Task/Invoice.hlp
-#: templates/CRM/Mailing/Form/Upload.hlp templates/CRM/Mailing/MailingUI.hlp
+#: templates/CRM/Mailing/MailingUI.hlp
 msgid ""
 "You can choose to send BOTH an <strong>HTML</strong> and a plain "
 "<strong>TEXT</strong> version of your mailing, OR you can send a "
@@ -1551,7 +1655,7 @@ msgid ""
 msgstr "می توانید هم  یک نسخه <strong>HTML</strong> و هم یکـ <strong>متن</strong> ساده از پست الکترونیکی تان بفرستید، یا اینکه می توانید فقط یک نسخه <strong>متن</strong> بفرستید."
 
 #: templates/CRM/Contribute/Form/Task/Invoice.hlp
-#: templates/CRM/Mailing/Form/Upload.hlp templates/CRM/Mailing/MailingUI.hlp
+#: templates/CRM/Mailing/MailingUI.hlp
 msgid ""
 "If you create only an <strong>HTML</strong> version, CiviMail will "
 "automatically create a <strong>TEXT</strong> version for your recipients who"
@@ -1559,12 +1663,12 @@ msgid ""
 msgstr "در صورتیکه فقط یک نسخه ی <strong>HTML</strong> ایجاد کنید، CiviMail بطور خودکار یک نسخه <strong>متن</strong> برای دریافت کنندگانتان که دریافت نکردن ایمیل HTML را انتخاب کردند، ایجاد می شود."
 
 #: templates/CRM/Contribute/Form/Task/Invoice.hlp
-#: templates/CRM/Mailing/Form/Upload.hlp templates/CRM/Mailing/MailingUI.hlp
+#: templates/CRM/Mailing/MailingUI.hlp
 msgid "Required Elements"
 msgstr "المان‌های اجباری"
 
 #: templates/CRM/Contribute/Form/Task/Invoice.hlp
-#: templates/CRM/Mailing/Form/Upload.hlp templates/CRM/Mailing/MailingUI.hlp
+#: templates/CRM/Mailing/MailingUI.hlp
 msgid ""
 "CiviMail email messages must include an <strong>opt-out</strong> link (\"Opt"
 " out via web page\"), and the <strong>postal address</strong> of your "
@@ -1574,26 +1678,6 @@ msgid ""
 " for details on how to include required links and contact information as "
 "well as sample messages."
 msgstr "پیام های الکترونیکی CiviMail باید شامل یک لینک <strong>opt-out \")  Opt-outاز طریق صفحه وب\")، و یک <strong>آدرس پستی</strong> از سازمان شما باشد. تا احتمال دسته بندی ایمیل شما به عنوان پیام الکترونیکی ناخواسته کاهش یابد. آنها می توانند در متن اصلی پیام یا یک <strong>پاورقی پیام</strong> درج شوند. جهت جزئیات که چگونه لینک های مورد نیاز و اطلاعات مخاطب همچنین پیام های نمونه را درج کنید، به اسناد آنلاین مراجعه کنید."
-
-#: templates/CRM/Contribute/Form/Task/Invoice.hlp
-#: templates/CRM/Mailing/Form/Upload.hlp
-msgid ""
-"You can use your favorite editor to create content on your local computer "
-"and then <strong>Upload</strong> the files. OR you can "
-"<strong>Compose</strong> content directly on the screen."
-msgstr "می توانید از ویرایشگر دلخواه خود برای ایجاد محتویات در کامپیوتر خود استفاده کنید و سپس فایل ها را <strong>آپلود کنید</strong>. یا می توانید محتویات را مستقیما روی صفحه <strong>وارد کنید</strong>."
-
-#: templates/CRM/Contribute/Form/Task/Status.tpl
-#: templates/CRM/Event/Form/Registration/ThankYou.tpl
-#: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
-#: xml/templates/message_templates/event_online_receipt_html.tpl
-#: xml/templates/message_templates/event_online_receipt_text.tpl
-#: CRM/Financial/Form/PaymentEdit.php CRM/Financial/Page/AJAX.php
-#: CRM/Report/Form/Contribute/Bookkeeping.php
-#: CRM/Report/Form/Contribute/DeferredRevenue.php
-msgid "Transaction Date"
-msgstr "تاریخ تراکنش"
 
 #: templates/CRM/Contribute/Import/Form/DataSource.hlp
 #: templates/CRM/Event/Import/Form/DataSource.hlp
@@ -1701,23 +1785,7 @@ msgstr "تاریخ شکست تلاش مجدد "
 msgid "Related Contributions"
 msgstr ""
 
-#: templates/CRM/Contribute/Page/ContributionSoft.tpl
-#: CRM/Report/Form/Contribute/Detail.php
-#: CRM/Report/Form/Contribute/Summary.php
-msgid "Total Soft Credits"
-msgstr "مجموع اعتبارات نرم/ مشارکت های غیر مستقیم"
-
-#: templates/CRM/Contribute/Page/ContributionTotals.tpl
-#: CRM/Report/Form/Contribute/Summary.php
-msgid "Median"
-msgstr "میانه، میانگین "
-
-#: templates/CRM/Contribute/Page/ContributionTotals.tpl
-#: CRM/Report/Form/Contribute/Summary.php
-msgid "Mode"
-msgstr "مد، میانگین"
-
-#: templates/CRM/Contribute/Page/ContributionTotals.tpl
+#: templates/CRM/Contribute/Page/ContributionSoftTotals.tpl
 #: CRM/Report/Form/Contribute/Summary.php
 msgid "Total Soft Credit Amount"
 msgstr "مبلغ مشارکت غیر مستقیم/اعتبار نرم"
@@ -1981,9 +2049,9 @@ msgstr "اگر سوالی دارید با ما در %1 تماس بگیرید"
 #: xml/templates/message_templates/contribution_recurring_notify_text.tpl
 #: xml/templates/message_templates/membership_online_receipt_html.tpl
 msgid ""
-"This membership will be renewed automatically. You can cancel the auto-"
-"renewal option by <a href=\"%1\">visiting this web page</a>."
-msgstr "این عضویت به طور خودکار تمدید. خواهد شد. می توانید گزینه تمدید خودکار را٪ 1 با بازدید از این صفحه وب  لغو نمایید."
+"You can cancel the auto-renewal option by <a href=\"%1\">visiting this web "
+"page</a>."
+msgstr ""
 
 #: xml/templates/message_templates/contribution_recurring_notify_html.tpl
 #: xml/templates/message_templates/contribution_recurring_notify_text.tpl
@@ -1993,6 +2061,10 @@ msgid ""
 "You can update billing details for this automatically renewed membership by "
 "<a href=\"%1\">visiting this web page</a>."
 msgstr " می توانید جزئیات صورت حساب  این عضویت که به طور خودکار تمدید شده است را ٪ 1 در این صفحه وب مشاهده کنید."
+
+#: CRM/Event/BAO/Participant.php CRM/Report/Form/Event/ParticipantListing.php
+msgid "Participant Note"
+msgstr ""
 
 #: CRM/Event/DAO/Event.php CRM/Event/Form/ManageEvent/Fee.php
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
@@ -2258,7 +2330,7 @@ msgstr "صرفنظر کردن"
 msgid "Approval"
 msgstr "تاییدیه"
 
-#: templates/CRM/Mailing/Form/Upload.hlp templates/CRM/Mailing/MailingUI.hlp
+#: templates/CRM/Mailing/MailingUI.hlp
 #: templates/CRM/Member/Form/Membership.hlp
 msgid ""
 "Select the \"FROM\" Email Address for this mailing from the dropdown list. "
@@ -2266,7 +2338,7 @@ msgid ""
 "permission. EXAMPLE: \"Client Services\" &lt;clientservices@example.org&gt;"
 msgstr "آدرس ایمیل From را برای این پست الکترونیکی از لیست انتخاب کنید. آدرس ایمیل های موجود توسط کاربران با مجوز مدیریت CiviVRM قابل پیکر بندی هستند. مثال: خدمات مشتری &It;clientservices@example.org&gt;"
 
-#: templates/CRM/Mailing/Form/Upload.hlp templates/CRM/Mailing/MailingUI.hlp
+#: templates/CRM/Mailing/MailingUI.hlp
 #: templates/CRM/Member/Form/Membership.hlp
 msgid ""
 "Go to <a href='%1'>Administer CiviCRM &raquo; Communications &raquo; FROM "
@@ -2274,7 +2346,7 @@ msgid ""
 "addresses are valid email accounts with your email service provider."
 msgstr "به <a href='%1'>مدیریت CiviCRM و آموزه ها؛ ارتباطات و آموزه ها از طریق آدرس های ایمیل ها</a> بروید تا آدرس های ایمیل ها را اضافه یا ویرایش کنید. مطمئن شوید که این آدرس های ایمیل حساب های ایمیل معتبری با فراهم کننده ی سرویس ایمیل شما هستند."
 
-#: templates/CRM/Mailing/Form/Upload.hlp templates/CRM/Mailing/MailingUI.hlp
+#: templates/CRM/Mailing/MailingUI.hlp
 #: templates/CRM/Member/Form/Membership.hlp
 msgid ""
 "Contact your site administrator if you need to use a \"FROM\" Email Address "
@@ -2351,8 +2423,7 @@ msgid "Pledge Start Date"
 msgstr "تاریخ شروع ضمانت"
 
 #: CRM/Pledge/DAO/Pledge.php CRM/Pledge/Form/Pledge.php
-#: CRM/Pledge/Selector/Search.php templates/CRM/Pledge/Form/Pledge.tpl
-#: templates/CRM/Pledge/Form/PledgeView.tpl
+#: CRM/Pledge/Selector/Search.php templates/CRM/Pledge/Form/PledgeView.tpl
 #: templates/CRM/Pledge/Form/Task/SearchTaskHookSample.tpl
 #: CRM/Report/Form/Pledge/Pbnp.php
 msgid "Pledge Made"
@@ -2376,3 +2447,41 @@ msgstr "مبلغ ضمانت/تعهد"
 #: templates/CRM/Pledge/Page/DashBoard.tpl CRM/Report/Form/Pledge/Detail.php
 msgid "Balance Due"
 msgstr "میزان بدهی"
+
+#: CRM/Campaign/DAO/Campaign.php
+#: templates/CRM/Campaign/Form/Search/Campaign.tpl
+#: CRM/Report/Form/Mailing/Summary.php
+msgid "Campaign Name"
+msgstr "نام کمپین"
+
+#: templates/CRM/Contribute/Form/Task/Invoice.hlp
+#: templates/CRM/Mailing/Form/Upload.hlp
+msgid ""
+"You can use your favorite editor to create content on your local computer "
+"and then <strong>Upload</strong> the files. OR you can "
+"<strong>Compose</strong> content directly on the screen."
+msgstr "می توانید از ویرایشگر دلخواه خود برای ایجاد محتویات در کامپیوتر خود استفاده کنید و سپس فایل ها را <strong>آپلود کنید</strong>. یا می توانید محتویات را مستقیما روی صفحه <strong>وارد کنید</strong>."
+
+#: templates/CRM/Contribute/Page/ContributionSoft.tpl
+#: CRM/Report/Form/Contribute/Detail.php
+#: CRM/Report/Form/Contribute/Summary.php
+msgid "Total Soft Credits"
+msgstr "مجموع اعتبارات نرم/ مشارکت های غیر مستقیم"
+
+#: templates/CRM/Contribute/Page/ContributionTotals.tpl
+#: CRM/Report/Form/Contribute/Summary.php
+msgid "Median"
+msgstr "میانه، میانگین "
+
+#: templates/CRM/Contribute/Page/ContributionTotals.tpl
+#: CRM/Report/Form/Contribute/Summary.php
+msgid "Mode"
+msgstr "مد، میانگین"
+
+#: xml/templates/message_templates/contribution_recurring_notify_html.tpl
+#: xml/templates/message_templates/contribution_recurring_notify_text.tpl
+#: xml/templates/message_templates/membership_online_receipt_html.tpl
+msgid ""
+"This membership will be renewed automatically. You can cancel the auto-"
+"renewal option by <a href=\"%1\">visiting this web page</a>."
+msgstr "این عضویت به طور خودکار تمدید. خواهد شد. می توانید گزینه تمدید خودکار را٪ 1 با بازدید از این صفحه وب  لغو نمایید."
