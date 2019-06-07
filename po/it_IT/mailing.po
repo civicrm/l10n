@@ -15,9 +15,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2018-09-11 10:33-0400\n"
-"PO-Revision-Date: 2019-04-25 22:42+0000\n"
-"Last-Translator: Francesco Garganese <francesco.garganese@aeromnia.aero>\n"
+"POT-Creation-Date: 2019-06-06 12:32-0400\n"
+"PO-Revision-Date: 2019-06-07 00:37+0000\n"
+"Last-Translator: Mathieu Lu <mathieu@bidon.ca>\n"
 "Language-Team: Italian (http://www.transifex.com/civicrm/civicrm/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -217,9 +217,17 @@ msgstr "Data Mailing"
 msgid "Bounce Pattern ID"
 msgstr "ID Bounce Pattern"
 
+#: CRM/Mailing/DAO/BouncePattern.php CRM/Mailing/DAO/BounceType.php
+msgid "Type of bounce"
+msgstr ""
+
 #: CRM/Mailing/DAO/BouncePattern.php
 msgid "Pattern"
 msgstr "Schema"
+
+#: CRM/Mailing/DAO/BouncePattern.php
+msgid "A regexp to match a message to a bounce type"
+msgstr ""
 
 #: CRM/Mailing/DAO/BounceType.php
 msgid "Bounce Type ID"
@@ -234,49 +242,50 @@ msgid "Bounce Type Description"
 msgstr "Descrizione Tipo Bounce"
 
 #: CRM/Mailing/DAO/BounceType.php
+msgid "A description of this bounce type"
+msgstr ""
+
+#: CRM/Mailing/DAO/BounceType.php
 msgid "Hold Threshold"
 msgstr "Soglia di sospensione"
 
-#: CRM/Mailing/DAO/Component.php
-msgid "Mailing Component ID"
-msgstr "ID Componente Mailing"
-
-#: CRM/Mailing/DAO/Component.php
-msgid "Component Name"
-msgstr "Nome del Componente"
-
-#: CRM/Mailing/DAO/Component.php
-msgid "Mailing Component Type"
-msgstr "Tipo Componente Mailing"
-
-#: CRM/Mailing/DAO/Component.php
-msgid "Mailing Component Body HTML"
-msgstr "Componente Mailing Body HTML"
-
-#: CRM/Mailing/DAO/Component.php CRM/Mailing/DAO/Mailing.php
-#: templates/CRM/Mailing/Page/Component.tpl
-msgid "Body Text"
-msgstr "Corpo del Testo"
-
-#: CRM/Mailing/DAO/Component.php
-msgid "Mailing Component is Default?"
-msgstr "Componente Mailing è il default?"
-
-#: CRM/Mailing/DAO/Component.php
-msgid "Mailing Component Is Active?"
-msgstr "È attivo il Componente Mailing?"
+#: CRM/Mailing/DAO/BounceType.php
+msgid ""
+"Number of bounces of this type required before the email address is put on "
+"bounce hold"
+msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "Mailing Domain"
 msgstr "Dominio Email"
+
+#: CRM/Mailing/DAO/Mailing.php CRM/Mailing/DAO/MailingAB.php
+msgid "Which site is this mailing for"
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "FK to the header component."
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "FK to the footer component."
+msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "Mailing Reply"
 msgstr "Risposta Mailing"
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "FK to the auto-responder component."
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "Mailing Unsubscribe"
 msgstr "Mailing Cancellare Iscrizione"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "FK to the unsubscribe component."
+msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "Mailing Resubscribe"
@@ -287,28 +296,66 @@ msgid "Mailing Opt Out"
 msgstr "Disiscrizione Mail"
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "FK to the opt-out component."
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Mailing Name."
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "Mailing Type"
 msgstr "Tipo Mailing"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid ""
+"differentiate between standalone mailings, A/B tests, and A/B final-winner"
+msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "Mailing From Name"
 msgstr "Mailing Da Nome"
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "From Header of mailing"
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "Mailing From Email"
 msgstr "Mailing Da Email"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "From Email of mailing"
+msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "Replyto Email"
 msgstr "Rispondi a Email"
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "Reply-To Email of mailing"
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "Template Type"
 msgstr "Tipo Template"
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "The language/processing system used for email templates."
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "Template Options (JSON)"
 msgstr "Opzioni Template (JSON)"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Advanced options used by the email templating system. (JSON encoded)"
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php CRM/Mailing/DAO/MailingComponent.php
+#: templates/CRM/Mailing/Page/Component.tpl
+msgid "Body Text"
+msgstr "Corpo del Testo"
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "Body Html"
@@ -318,22 +365,42 @@ msgstr "Body HTML"
 msgid "Url Tracking"
 msgstr "Tracciamento Url."
 
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Should we track URL click-throughs for this mailing?"
+msgstr ""
+
 #: CRM/Mailing/DAO/Mailing.php ang/crmMailing/BlockResponses.html
 #: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
 msgid "Forward Replies"
 msgstr "Inoltrare le risposte"
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "Should we forward replies back to the author?"
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "Auto Responder"
 msgstr "Auto Responder"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Should we enable the auto-responder?"
+msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "Track Mailing?"
 msgstr "Traccio Mailing?"
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "Should we track when recipients open/read this mailing?"
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "Mailing Completed"
 msgstr "Mailing Completato"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Has at least one job associated with this mailing finished?"
+msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "Mailing Message Template"
@@ -344,48 +411,106 @@ msgid "Override Verp"
 msgstr "Sovrascrivi Verp"
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "Should we overrite VERP address in Reply-To"
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "Mailing Creator"
 msgstr "Creatore Mailing"
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "FK to Contact ID who first created this mailing"
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "Mailing Created Date"
 msgstr "Mailing Creato in Data"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Date and time this mailing was created."
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid ""
+"When the mailing (or closely related entity) was created or modified or "
+"deleted."
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "FK to Contact ID who scheduled this mailing"
+msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php CRM/Mailing/DAO/MailingJob.php
 msgid "Mailing Scheduled Date"
 msgstr "Mailing Programmato in Data"
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "Date and time this mailing was scheduled."
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "Approved By"
 msgstr "Approvato da"
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "FK to Contact ID who approved this mailing"
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "Mailing Approved Date"
 msgstr "Mailing Approvato in Data"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Date and time this mailing was approved."
+msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php CRM/Mailing/Form/Approve.php
 msgid "Approval Status"
 msgstr "Stato di approvazione"
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "The status of this mailing. Values: none, approved, rejected"
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "Approval Note"
 msgstr "Nota Approvazione"
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "Note behind the decision."
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "Is Mailing Archived?"
 msgstr "Mailing archiviato?"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Is this mailing archived?"
+msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php ang/crmMailing/BlockPublication.html
 msgid "Mailing Visibility"
 msgstr "Visibilità Mailing"
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "In what context(s) is the mailing contents visible (online viewing)"
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "Mailing Campaign"
 msgstr "Campagna Mailing"
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "The campaign for which this mailing has been initiated."
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "No Duplicate emails?"
 msgstr "Nessun email duplicato?"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Remove duplicate emails?"
+msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "Mailing SMS Provider"
@@ -396,28 +521,61 @@ msgid "Mailing Hash"
 msgstr "Hash Mailing"
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "Key for validating requests related to this mailing."
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "With email_selection_method, determines which email address to use"
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "Email Selection Method"
 msgstr "Metodo di selezione Email"
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid ""
+"With location_type_id, determine how to choose the email address to use."
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "Mailing Language"
 msgstr "Lingua Mailing"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Language of the content of the mailing. Useful for tokens."
+msgstr ""
 
 #: CRM/Mailing/DAO/MailingAB.php
 msgid "MailingAB ID"
 msgstr "MailingAB ID"
 
 #: CRM/Mailing/DAO/MailingAB.php
+msgid "Name of the A/B test"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingAB.php
 msgid "Mailing ID (A)"
 msgstr "Mailing ID (A)"
+
+#: CRM/Mailing/DAO/MailingAB.php
+msgid "The first experimental mailing (\"A\" condition)"
+msgstr ""
 
 #: CRM/Mailing/DAO/MailingAB.php
 msgid "Mailing ID (B)"
 msgstr "Mailing ID (B)"
 
 #: CRM/Mailing/DAO/MailingAB.php
+msgid "The second experimental mailing (\"B\" condition)"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingAB.php
 msgid "Mailing ID (C)"
 msgstr "Mailing ID (C)"
+
+#: CRM/Mailing/DAO/MailingAB.php
+msgid "The final, general mailing (derived from A or B)"
+msgstr ""
 
 #: CRM/Mailing/DAO/MailingAB.php
 msgid "Testing Criteria"
@@ -432,8 +590,16 @@ msgid "URL for Winner Criteria"
 msgstr "URL per Criteri Vincenti"
 
 #: CRM/Mailing/DAO/MailingAB.php
+msgid "What specific url to track"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingAB.php
 msgid "Declaration Time"
 msgstr "Dichiarazione Tempo"
+
+#: CRM/Mailing/DAO/MailingAB.php
+msgid "In how much time to declare winner"
+msgstr ""
 
 #: CRM/Mailing/DAO/MailingAB.php
 msgid "Group Percentage"
@@ -447,13 +613,65 @@ msgstr "Test AB Creato da"
 msgid "AB Test Created Date"
 msgstr "Test AB Data di creazione"
 
+#: CRM/Mailing/DAO/MailingComponent.php
+msgid "Mailing Component ID"
+msgstr "ID Componente Mailing"
+
+#: CRM/Mailing/DAO/MailingComponent.php
+msgid "Component Name"
+msgstr "Nome del Componente"
+
+#: CRM/Mailing/DAO/MailingComponent.php
+msgid "The name of this component"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingComponent.php
+msgid "Mailing Component Type"
+msgstr "Tipo Componente Mailing"
+
+#: CRM/Mailing/DAO/MailingComponent.php
+msgid "Type of Component."
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingComponent.php
+msgid "Mailing Component Body HTML"
+msgstr "Componente Mailing Body HTML"
+
+#: CRM/Mailing/DAO/MailingComponent.php
+msgid "Body of the component in html format."
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingComponent.php
+msgid "Body of the component in text format."
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingComponent.php
+msgid "Mailing Component is Default?"
+msgstr "Componente Mailing è il default?"
+
+#: CRM/Mailing/DAO/MailingComponent.php
+msgid "Is this the default component for this component_type?"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingComponent.php
+msgid "Mailing Component Is Active?"
+msgstr "È attivo il Componente Mailing?"
+
 #: CRM/Mailing/DAO/MailingGroup.php
 msgid "Mailing Group ID"
 msgstr "Mailing Gruppo ID"
 
 #: CRM/Mailing/DAO/MailingGroup.php
+msgid "The ID of a previous mailing to include/exclude recipients."
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingGroup.php
 msgid "Mailing Group Type"
 msgstr "Mailing Tipo gruppo"
+
+#: CRM/Mailing/DAO/MailingGroup.php
+msgid "Are the members of the group included or excluded?."
+msgstr ""
 
 #: CRM/Mailing/DAO/MailingGroup.php
 msgid "Mailing Group Entity Table"
@@ -468,40 +686,88 @@ msgid "Mailing Group Search"
 msgstr "Ricerca Mailing Group"
 
 #: CRM/Mailing/DAO/MailingGroup.php
+msgid "The filtering search. custom search id or -1 for civicrm api search"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingGroup.php
 msgid "Mailing Group Search Arguments"
 msgstr "Argomenti di Ricerca Mailing Group"
+
+#: CRM/Mailing/DAO/MailingGroup.php
+msgid "The arguments to be sent to the search function"
+msgstr ""
 
 #: CRM/Mailing/DAO/MailingJob.php
 msgid "Mailing Job ID"
 msgstr "ID Job Mailing"
+
+#: CRM/Mailing/DAO/MailingJob.php CRM/Mailing/DAO/Recipients.php
+msgid "The ID of the mailing this Job will send."
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingJob.php
+msgid "date on which this job was scheduled."
+msgstr ""
 
 #: CRM/Mailing/DAO/MailingJob.php
 msgid "Mailing Job Start Date"
 msgstr "Data Inizio Job Mailing"
 
 #: CRM/Mailing/DAO/MailingJob.php
+msgid "date on which this job was started."
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingJob.php
 msgid "Mailing Job End Date"
 msgstr "Data Fine Job Mailing"
+
+#: CRM/Mailing/DAO/MailingJob.php
+msgid "date on which this job ended."
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingJob.php
+msgid "The state of this job"
+msgstr ""
 
 #: CRM/Mailing/DAO/MailingJob.php
 msgid "Mailing Job Is Test?"
 msgstr "È un Job Mailing di Test?"
 
 #: CRM/Mailing/DAO/MailingJob.php
+msgid "Is this job for a test mail?"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingJob.php
 msgid "Mailing Job Type"
 msgstr "Tipo Job Mailing"
+
+#: CRM/Mailing/DAO/MailingJob.php
+msgid "Type of mailling job: null | child "
+msgstr ""
 
 #: CRM/Mailing/DAO/MailingJob.php
 msgid "Mailing Job Parent"
 msgstr "Genitore Mailing Job"
 
 #: CRM/Mailing/DAO/MailingJob.php
+msgid "Parent job id"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingJob.php
 msgid "Mailing Job Offset"
 msgstr "Offset Mailing Job "
 
 #: CRM/Mailing/DAO/MailingJob.php
+msgid "Offset of the child job"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingJob.php
 msgid "Mailing Job Limit"
 msgstr "Limite Job Mailing"
+
+#: CRM/Mailing/DAO/MailingJob.php
+msgid "Queue size limit for each child job"
+msgstr ""
 
 #: CRM/Mailing/DAO/Recipients.php
 msgid "Mailing Recipients ID"
@@ -511,13 +777,26 @@ msgstr "ID Destinatari Mailing"
 msgid "Mailing Recipient"
 msgstr "Destinatario Mailing"
 
+#: CRM/Mailing/DAO/Recipients.php CRM/Mailing/Event/DAO/Queue.php
+#: CRM/Mailing/Event/DAO/Subscribe.php
+msgid "FK to Contact"
+msgstr ""
+
 #: CRM/Mailing/DAO/Recipients.php CRM/Mailing/DAO/Spool.php
 msgid "Recipient Email"
 msgstr "Email destinatario"
 
+#: CRM/Mailing/DAO/Recipients.php CRM/Mailing/Event/DAO/Queue.php
+msgid "FK to Email"
+msgstr ""
+
 #: CRM/Mailing/DAO/Recipients.php
 msgid "Recipient Phone"
 msgstr "Telefono Destinatario"
+
+#: CRM/Mailing/DAO/Recipients.php CRM/Mailing/Event/DAO/Queue.php
+msgid "FK to Phone"
+msgstr ""
 
 #: CRM/Mailing/DAO/Spool.php
 msgid "Spool ID"
@@ -528,16 +807,48 @@ msgid "Mailing Job"
 msgstr "Job Mailing"
 
 #: CRM/Mailing/DAO/Spool.php
+msgid "The ID of the Job ."
+msgstr ""
+
+#: CRM/Mailing/DAO/Spool.php
+msgid "The email of the receipients this mail is to be sent."
+msgstr ""
+
+#: CRM/Mailing/DAO/Spool.php
 msgid "Headers"
 msgstr "Intestazioni"
+
+#: CRM/Mailing/DAO/Spool.php
+msgid "The header information of this mailing ."
+msgstr ""
 
 #: CRM/Mailing/DAO/Spool.php
 msgid "Body"
 msgstr "Corpo messaggio"
 
+#: CRM/Mailing/DAO/Spool.php
+msgid "The body of this mailing."
+msgstr ""
+
+#: CRM/Mailing/DAO/Spool.php
+msgid "date on which this job was added."
+msgstr ""
+
+#: CRM/Mailing/DAO/Spool.php
+msgid "date on which this job was removed."
+msgstr ""
+
 #: CRM/Mailing/DAO/TrackableURL.php
 msgid "Trackable URL ID"
 msgstr "ID URL  Tracciabile"
+
+#: CRM/Mailing/DAO/TrackableURL.php
+msgid "The URL to be tracked."
+msgstr ""
+
+#: CRM/Mailing/DAO/TrackableURL.php
+msgid "FK to the mailing"
+msgstr ""
 
 #: CRM/Mailing/Event/BAO/Bounce.php
 msgid "Unknown bounce type: Could not parse bounce email"
@@ -571,6 +882,25 @@ msgstr "ID Bounce"
 msgid "Event Queue"
 msgstr "Coda Eventi"
 
+#: CRM/Mailing/Event/DAO/Bounce.php CRM/Mailing/Event/DAO/Delivered.php
+#: CRM/Mailing/Event/DAO/Forward.php CRM/Mailing/Event/DAO/Opened.php
+#: CRM/Mailing/Event/DAO/Reply.php CRM/Mailing/Event/DAO/TrackableURLOpen.php
+#: CRM/Mailing/Event/DAO/Unsubscribe.php
+msgid "FK to EventQueue"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/Bounce.php
+msgid "What type of bounce was it?"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/Bounce.php
+msgid "The reason the email bounced."
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/Bounce.php
+msgid "When this bounce event occurred."
+msgstr ""
+
 #: CRM/Mailing/Event/DAO/Confirm.php
 msgid "Mailing Confirmation ID"
 msgstr "ID Mailing di Conferma"
@@ -580,12 +910,24 @@ msgid "Mailing Subscribe ID"
 msgstr "ID Mailing di iscrizione"
 
 #: CRM/Mailing/Event/DAO/Confirm.php
+msgid "FK to civicrm_mailing_event_subscribe"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/Confirm.php
 msgid "Confirm Timestamp"
 msgstr "Conferma Timestamp"
+
+#: CRM/Mailing/Event/DAO/Confirm.php
+msgid "When this confirmation event occurred."
+msgstr ""
 
 #: CRM/Mailing/Event/DAO/Delivered.php
 msgid "Delivered ID"
 msgstr "ID Consegnato"
+
+#: CRM/Mailing/Event/DAO/Delivered.php CRM/Mailing/Event/DAO/Unsubscribe.php
+msgid "When this delivery event occurred."
+msgstr ""
 
 #: CRM/Mailing/Event/DAO/Forward.php
 msgid "Forward ID"
@@ -599,16 +941,36 @@ msgstr "Coda Eventi Mailing"
 msgid "Destination Queue"
 msgstr "Coda di Destinazione"
 
+#: CRM/Mailing/Event/DAO/Forward.php
+msgid "FK to EventQueue for destination"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/Forward.php
+msgid "When this forward event occurred."
+msgstr ""
+
 #: CRM/Mailing/Event/DAO/Opened.php
 msgid "Mailing Opened ID"
 msgstr "ID Mailing Aperto"
+
+#: CRM/Mailing/Event/DAO/Opened.php
+msgid "When this open event occurred."
+msgstr ""
 
 #: CRM/Mailing/Event/DAO/Queue.php
 msgid "Mailing Event Queue ID"
 msgstr "ID Coda Eventi Mailing"
 
 #: CRM/Mailing/Event/DAO/Queue.php
+msgid "FK to Job"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/Queue.php
 msgid "Security Hash"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/Queue.php CRM/Mailing/Event/DAO/Subscribe.php
+msgid "Security hash"
 msgstr ""
 
 #: CRM/Mailing/Event/DAO/Reply.php
@@ -618,6 +980,10 @@ msgstr "ID Risposta"
 #: CRM/Mailing/Event/DAO/Reply.php
 msgid "Reply Timestamp"
 msgstr "Timestamp Risposta"
+
+#: CRM/Mailing/Event/DAO/Reply.php
+msgid "When this reply event occurred."
+msgstr ""
 
 #: CRM/Mailing/Event/DAO/Subscribe.php
 msgid "Mailing Subscribe Group"
@@ -635,6 +1001,10 @@ msgstr "Hash Iscrizione Mailing"
 msgid "Mailing Subscribe Timestamp"
 msgstr "Timestamp Iscrizione Mailing"
 
+#: CRM/Mailing/Event/DAO/Subscribe.php
+msgid "When this subscription event occurred."
+msgstr ""
+
 #: CRM/Mailing/Event/DAO/TrackableURLOpen.php
 msgid "Trackable URL Open ID"
 msgstr "Apertura ID URL Tracciabile"
@@ -643,6 +1013,14 @@ msgstr "Apertura ID URL Tracciabile"
 msgid "Trackable Url"
 msgstr "Url tracciabile"
 
+#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
+msgid "FK to TrackableURL"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
+msgid "When this trackable URL open occurred."
+msgstr ""
+
 #: CRM/Mailing/Event/DAO/Unsubscribe.php
 msgid "Unsubscribe ID"
 msgstr "ID di cancellazione iscrizione"
@@ -650,6 +1028,10 @@ msgstr "ID di cancellazione iscrizione"
 #: CRM/Mailing/Event/DAO/Unsubscribe.php
 msgid "Unsubscribe is for Organization?"
 msgstr "Cancella iscrizione si riferisce a Organizzazione?"
+
+#: CRM/Mailing/Event/DAO/Unsubscribe.php
+msgid "Unsubscribe at org- or group-level"
+msgstr ""
 
 #: CRM/Mailing/Event/DAO/Unsubscribe.php
 msgid "Unsubscribe Timestamp"
@@ -1184,12 +1566,8 @@ msgstr "Creatore Mailing (Email)"
 msgid "Unreviewed"
 msgstr "Non revisionati"
 
-#: ang/crmMailing/BlockMailing.html ang/crmMailingAB/BlockMailing.html
-msgid "Email address"
-msgstr "Indirizzo email"
-
 #: ang/crmMailing/BlockMailing.html ang/crmMailing/EmailAddrCtrl.js
-#: ang/crmMailingAB/BlockMailing.html templates/CRM/Mailing/Form/Upload.tpl
+#: ang/crmMailingAB/BlockMailing.html
 msgid "Reply-To"
 msgstr "Rispondi a"
 
@@ -1308,7 +1686,6 @@ msgstr "Testo semplice"
 #: ang/crmMailing/EditMailingCtrl/wizard.html
 #: ang/crmMailing/EditMailingCtrl/workflow.html
 #: ang/crmMailingAB/EditCtrl/report.html
-#: templates/CRM/Mailing/Form/Settings.tpl
 msgid "Tracking"
 msgstr "Tracciamento"
 
@@ -1321,7 +1698,6 @@ msgid "Opens"
 msgstr "Aperture"
 
 #: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
-#: templates/CRM/Mailing/Form/Settings.tpl
 msgid "Responding"
 msgstr "Risposte"
 
@@ -1337,14 +1713,6 @@ msgstr "Risposte Automatiche"
 #: ang/crmMailingAB/EditCtrl/edit.html ang/crmMailingAB/EditCtrl/report.html
 msgid "Publication"
 msgstr "Pubblicazione"
-
-#: ang/crmMailing/BlockSchedule.html
-msgid "Send immediately"
-msgstr "Invia immediatamente"
-
-#: ang/crmMailing/BlockSchedule.html
-msgid "Send at:"
-msgstr "Invia a:"
 
 #: ang/crmMailing/BlockSummary.html ang/crmMailingAB/BlockSetup.html
 msgid "Select Campaign"
@@ -1839,22 +2207,18 @@ msgid "Submit final mailing"
 msgstr "Invia la mail finale"
 
 #: templates/CRM/Mailing/Form/Approve.tpl
-#: templates/CRM/Mailing/Form/Schedule.tpl templates/CRM/Mailing/Form/Test.tpl
 msgid "Preview Mailing"
 msgstr "Anteprima Mailing"
 
 #: templates/CRM/Mailing/Form/Approve.tpl
-#: templates/CRM/Mailing/Form/Schedule.tpl templates/CRM/Mailing/Form/Test.tpl
 msgid "Attachment(s):"
 msgstr "Allegato/i:"
 
 #: templates/CRM/Mailing/Form/Approve.tpl
-#: templates/CRM/Mailing/Form/Schedule.tpl
 msgid "Mailing HTML:"
 msgstr "HTML Mailing:"
 
 #: templates/CRM/Mailing/Form/Approve.tpl
-#: templates/CRM/Mailing/Form/Schedule.tpl
 msgid "Mailing Text:"
 msgstr "Testo Mailing:"
 
@@ -1870,170 +2234,6 @@ msgstr "Destinatari totali:"
 msgid "Please enter up to 5 email addresses to receive the mailing."
 msgstr "Per favore, digita fino a 5 indirizzi email per ricevere il mailing."
 
-#: templates/CRM/Mailing/Form/Group.hlp templates/CRM/Mailing/MailingUI.hlp
-msgid ""
-"Assign a unique name to each of your mailings. Select a naming convention "
-"that will help keep your mailings organized and easy to find when you want "
-"to review and compare mailing results. For example, if you do a monthly "
-"general-interest newsletter - you might use the following naming convention:"
-msgstr "Assegna un nome univoco a ciascuna mailing. Utilizzando una convenzione comune si rende più semplice organizzare e ritrovare le mailing per paragonarne i risultati. Ad esempio, se create una newsletter generica mensile, potete usare la seguente convenzione:"
-
-#: templates/CRM/Mailing/Form/Group.hlp templates/CRM/Mailing/MailingUI.hlp
-msgid "General Monthly Newsletter: 200709"
-msgstr "Newsletter generica mensile: 200810"
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid "Search-based mailings require an \"unsubscribe tracking\" group."
-msgstr "I mailing basati su ricerche richiedono un gruppo di \"tracciamento disiscrizione\"."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"Because this mailing is using the results of a search to provide the "
-"recipient list, you need to specify a group to track people who unsubscribe "
-"in response to this mailing."
-msgstr "Siccome questa mail si serve dei risultati di una ricerca per fornire la lista di destinatari, bisogna specificare un gruppo per tracciare le persone che cancellano la loro iscrizione in risposta a questa mail."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"If a recipient unsubscribes from this mailing, they will be excluded from "
-"future mailings which use the same \"Unsubscription Group\". This is "
-"achieved through actually marking the contact as \"unsubscribed from the "
-"group\". If a contact in your search results has already been marked as "
-"unsubscribed from that group, they will be excluded from this mailing."
-msgstr "Se un destinatario si cancella da questa mail, verrà escluso dalle mail future che utilizzeranno lo stesso \"Gruppo di cancellazione iscrizione\". Questo è possibile tramite effettiva segnalazione del contatto come \"cancellato dal gruppo\". Se un contatto nei tuoi risultati di ricerca è già stato segnalato come cancellato dal gruppo, verrà escluso da questa mail."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"If a recipient clicks the unsubscribe link they will see the "
-"\"Unsubscription Group\" title on the unsubscribe page. The selected group "
-"should have a title that corresponds to the content / type of mailing being "
-"sent."
-msgstr "Se un destinatario fa clic sul link di annullamento dell'iscrizione, vedrà il titolo \"Gruppo di annullamento sottoscrizione\" nella pagina di annullamento dell'iscrizione. Il gruppo selezionato dovrebbe avere un titolo che corrisponda al contenuto / tipo di mailing inviato."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"NOTE: Contacts who are in the \"Unsubscription Group\" but do not match your"
-" search critera will not be included in the mailing regardless of their "
-"status in that group. This is a change from previous versions which used the"
-" term \"Base Group\"."
-msgstr "NOTA: i contatti che si trovano nel \"Gruppo disiscrizione\" ma che non corrispondono ai criteri di ricerca non saranno inclusi nell'invio indipendentemente dal loro essere in quel gruppo. Questo è un cambiamento rispetto alle versioni precedenti che utilizzavano il \"Gruppo Base\"."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid "Dedupe"
-msgstr "Deduplica"
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"CiviCRM will always dedupe your mailing based on unique contact records. For"
-" example, if a contact is in three of the groups you are including in your "
-"mailing, they will only be sent one copy of the email."
-msgstr "CiviCRM deduplicherà sempre le tue email sulla base di record di contatto unici. Ad esempio, se un contatto è in tre dei gruppi che includi nel tuo invio, verrà inviata solo una copia dell'e-mail."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"However, if the same email is used by multiple contacts, that email address "
-"will receive multiple copies of the email -- one for each contact using that"
-" address."
-msgstr "Tuttavia, se la stessa email viene utilizzata da più contatti, tale indirizzo di posta elettronica riceverà più copie dell'email - una per ciascun contatto che utilizza tale indirizzo."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"Selecting this option will ensure only one email is sent to each address. "
-"Note that when using this option and including contact tokens in your email "
-"content, the email with it's respective tokens will only be created for one "
-"of the matching contacts."
-msgstr "Selezionando questa opzione assicurerai che solo una email sia inviata a ciascun indirizzo. Tieni presente che quando si utilizza questa opzione e si includono token di contatto nel contenuto della posta elettronica, l'e-mail con i rispettivi token verrà creata solo per uno dei contatti corrispondenti."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid "Email selection"
-msgstr "Selezione email"
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"Some of your contacts may have more than one email address. By selecting a "
-"location and a selection method, you can tell CiviCRM which email address to"
-" use for this mailing."
-msgstr "Alcuni dei tuoi contatti possono avere più di un indirizzo email. Selezionando una posizione ed un metodo di selezione, è possibile indicare a CiviCRM quale indirizzo email utilizzare per questo mailing."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"Automatic: If you choose automatic for both the location and the selection "
-"method, CiviCRM will choose the best option for each user: If an email is "
-"marked \"Bulk\" then it will be used; otherwise, the email marked "
-"\"Primary\" will be used."
-msgstr "Automatico: se scegli l'opzione automatica sia per la posizione che per il metodo di selezione, CiviCRM sceglierà l'opzione migliore per ciascun utente: se un'e-mail è contrassegnata come \"Bulk\", verrà utilizzata; in caso contrario, verrà utilizzata l'e-mail contrassegnata come \"Principale\"."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"If \"Only send to email addresses assigned to the specified location\" is "
-"selected, then the recipients will be restricted to only include contacts "
-"that have an email address assigned to the given location. This option may "
-"limit the number of recipients in your mailing."
-msgstr "Se \"Invia solo a indirizzi email assegnati a una posizione specifica\" è selezionato, i destinatari verranno limitati solo ai contatti che hanno un indirizzo email assegnato a una data posizione. Questa opzione può limitare il numero dei destinatari nel tuo mailing."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"If \"Prefer email addresses assigned to the specified location\" is "
-"selected, then recipients that have an email address assigned to the given "
-"location will have that email used. Other recipients will have their email "
-"selected using the automatic method."
-msgstr "Se è selezionato \"Preferisci indirizzi e-mail assegnati alla posizione specificata\", i destinatari che hanno un indirizzo e-mail assegnato alla posizione specificata avranno quell'email usata. Gli altri destinatari avranno la loro e-mail selezionata utilizzando il metodo automatico."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"If \"Exclude email addresses assigned to the specified location\" is chosen,"
-" then recipients who only have an email address assigned to the given "
-"location will be excluded. Everyone else will have their email chosen from "
-"the list of emails that are not assigned to the given location, using the "
-"automatic method."
-msgstr "Se \"escludi indirizzi email assegnati alla posizione specificata\" è selezionato, i destinatari che hanno solo un indirizzo email assegnato alla posizione specificata verranno esclusi. La email di chiunque altro verrà scelta dalla lista delle email che non sono assegnate a una data posizione, utilizzando il metodo automatico."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"Determine the contacts in your database who should receive this mailing by "
-"first selecting one or more <strong>Included Groups</strong>. (Groups must "
-"be assigned the <strong>Mailing List</strong> type to be available on this "
-"screen - you can update this for an existing group from <strong>Manage "
-"Groups &raquo; Settings</strong>.)"
-msgstr "Determinate qualii contatti nel database devono ricevere questa mailing selezionando come prima cosa uno o più <strong>gruppi da includere</strong> (perché appaiano in questa lista, ai gruppi deve essere assegnato il tipo <strong>Mailing List</strong>: potete farlo per i gruppi esistenti usando <strong>Gestione gruppi &raquo; Impostazioni</strong>)."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"You also have the option to <strong>Exclude</strong> some contacts from your"
-" included groups by selecting one or more <strong>Excluded Groups</strong>. "
-"Contacts who are in both groups will NOT receive the mailing (they are "
-"'excluded')."
-msgstr "Potete anche <strong>escludere</strong> dei contatti appartenenti ai gruppi inclusi, selezionando uno o più <strong>gruppi da escludere</strong>. I contatti che appartengono sia ad uno dei gruppi inclusi che ad uno dei gruppi esclusi NON riceveranno la mailing (sono 'esclusi')."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"If you have sent other mailings - you can additionally Include (or Exclude) "
-"contacts who received those mailings. CiviCRM will eliminate any "
-"duplications so that contacts who are in an Included Group AND were "
-"recipients of an Included Mailing will only be sent one copy of this "
-"mailing."
-msgstr "Se avete inviato altre mailing, potete anche includere (o escludere) i contatti che hanno ricevuto queste altre mailing. CiviCRM eliminerà i duplicati, quindi ai contatti che appartengono ad uno dei gruppi inclusi ed hanno già ricevuto una mailing che si include, verrà inviata solo una copia della mailing."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid ""
-"You also have the option to <strong>Exclude</strong> some contacts in your "
-"included groups by selecting one or more <strong>Excluded Groups</strong>. "
-"Contacts who are in both groups will NOT receive the mailing (they are "
-"'excluded')."
-msgstr "Hai anche l'opzione di <strong>escludere</strong> dei contatti appartenenti ai gruppi inclusi, selezionando uno o più <strong>gruppi da escludere</strong>. I contatti che appartengono a entrambi i gruppi  NON riceveranno la mailing (sono 'esclusi')."
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid "Include Mailings"
-msgstr "Includi mailing"
-
-#: templates/CRM/Mailing/Form/Group.hlp
-msgid "Exclude Mailings"
-msgstr "Escludi mail"
-
-#: templates/CRM/Mailing/Form/Group.tpl
-msgid "Additional Mailing Recipients"
-msgstr "Destinatari Aggiuntivi Mailing"
-
 #: templates/CRM/Mailing/Form/Optout.tpl
 msgid ""
 "You are requesting to opt out this email address from all mailing lists:"
@@ -2046,51 +2246,6 @@ msgid ""
 "address and you <i><b>wish to opt out</b></i> please enter your email "
 "address below for verification purposes:"
 msgstr "Se questo non è il tuo indirizzo email, non è necessario fare nulla. <i> <b> Non </b> </i> sei stato aggiunto a questa mailing list. Se questo è il tuo indirizzo email e <i> <b> desideri essere cancellato </b> </i> inserisci il tuo indirizzo e-mail qui sotto per la verifica:"
-
-#: templates/CRM/Mailing/Form/Schedule.hlp
-msgid "Scheduling and Sending Mailings"
-msgstr "Pianificazione e invio delle mailing"
-
-#: templates/CRM/Mailing/Form/Schedule.hlp
-msgid ""
-"You can schedule mailings to be sent starting at a specific date and time, "
-"OR you can request that they be sent as soon as possible by checking "
-"&quot;Send Immediately&quot;."
-msgstr "Potete pianificare l'invio di questa mailing ad una data e ora specifica, O richiedere che venga inviata il prima possibile spuntando &quot;Invia Immediatamente&quot;"
-
-#: templates/CRM/Mailing/Form/Schedule.hlp
-msgid ""
-"Click <strong>Submit Mailing</strong> to add this mailing to the mailing "
-"queue. An automated task which runs periodically on your server processes "
-"mailings in the queue, and starts actually sending out your mail."
-msgstr "Clicca su <strong>invia mail</strong> per aggiungere questa mail alla coda delle mail. Un programma automatico in esecuzione sul server, elabora le mail in coda e le invia."
-
-#: templates/CRM/Mailing/Form/Schedule.hlp
-msgid ""
-"Click <strong>Continue Later</strong> if you're not ready to schedule or "
-"send this mailing. Click the <strong>Continue</strong> link from Unscheduled"
-" and Draft Mailings when you are ready to schedule or send it."
-msgstr "Clicca su <strong>Continua dopo</ strong> se non sei pronto per programmare o inviare questa mail. Clicca sul link <strong>Continua</ strong> da 'Bozze Mail e Mail Non schedulate' quando sei pronto a schedularle o inviarle."
-
-#: templates/CRM/Mailing/Form/Schedule.hlp
-msgid ""
-"<strong>Trouble-shooting Tip</strong> - If you find that your mailings are "
-"not being sent, ask the system administrator or technical support contact "
-"for your site to verify that the automated task (&quot;cron job&quot;) is "
-"running - and how frequently."
-msgstr "<strong>Se qualcosa va storto</strong> - Se ti accordi che le tue mails non vengono inviate, chiedi all'amministratore di sistema o al supporto tecnico di verificare che il programma periodico di invio (il &quot;cron job&quot;) sia in esecuzione, e con quale frequenza (<a href='%1' title='%2' target='_blank'>per saperne di più...</a>)"
-
-#: templates/CRM/Mailing/Form/Schedule.tpl
-msgid ""
-"You can schedule this mailing to be sent starting at a specific date and "
-"time, OR you can request that it be sent as soon as possible by checking "
-"&quot;Send Immediately&quot;."
-msgstr "Potete pianificare l'invio di questo mailing ad una data e ora specifica, O richiedere che venga inviato il prima possibile spuntando &quot;Invia Immediatamente&quot;"
-
-#: templates/CRM/Mailing/Form/Schedule.tpl
-msgid ""
-"Set a date and time when you want CiviMail to start sending this mailing."
-msgstr "Imposta una data e ora in cui vuoi che CiviMail inizi ad inviare questo mailing."
 
 #: templates/CRM/Mailing/Form/Search.tpl
 msgid "SMS Date"
@@ -2126,67 +2281,6 @@ msgid ""
 "recipients will have to log in to be able to view the message"
 msgstr "\"utente e utente amministratore\" significa che solo gli utenti che hanno ricevuto il mailing o gli amministratori possono visualizzare il contenuto di questa email come una pagina Web; i destinatari dovranno loggarsi per poter visualizzare il messaggio"
 
-#: templates/CRM/Mailing/Form/Settings.tpl
-msgid ""
-"These settings control tracking and responses to recipient actions. The "
-"number of recipients selected to receive this mailing is shown in the box to"
-" the right. If this count doesn't match your expectations, click "
-"<strong>Previous</strong> to review your selection(s)."
-msgstr "Queste impostazioni controllano il tracciamento e le risposte alle azioni dei destinatari. Il numero di destinatari selezionato per ricevere questo mailing viene mostrato nella casella a destra. Se il conteggio non corrisponde alle vostre aspettative, cliccate <strong>Precedente</strong> per rivedere le selezioni."
-
-#: templates/CRM/Mailing/Form/Settings.tpl templates/CRM/Mailing/MailingUI.hlp
-msgid "Track the number of times recipients click each link in this mailing."
-msgstr "Traccia il numero di volte che i destinatari fanno clic su ogni link di questo mailing."
-
-#: templates/CRM/Mailing/Form/Settings.tpl
-msgid ""
-"NOTE: When this feature is enabled, all links in the message body will be "
-"automatically re-written to route through your CiviCRM server prior to "
-"redirecting to the target page."
-msgstr "NOTA: quando questa funzione è abilitata, tutti i collegamenti nel corpo del messaggio verranno automaticamente riscritti per instradare attraverso il server CiviCRM prima di reindirizzare alla pagina di destinazione."
-
-#: templates/CRM/Mailing/Form/Settings.tpl templates/CRM/Mailing/MailingUI.hlp
-msgid ""
-"Track the number of times recipients open this mailing in their email "
-"software."
-msgstr "Traccia il numero di volte che i destinatari aprono questo mailing nel loro software email."
-
-#: templates/CRM/Mailing/Form/Settings.tpl templates/CRM/Mailing/MailingUI.hlp
-msgid ""
-"Recipients' replies are sent to a CiviMail specific address instead of the "
-"sender's address so they can be stored within CiviCRM."
-msgstr "Le risposte dei destinatari vengono inviate a un indirizzo specifico CiviMail invece che all'indirizzo del mittente in modo che possano essere memorizzate all'interno di CiviCRM."
-
-#: templates/CRM/Mailing/Form/Settings.tpl templates/CRM/Mailing/MailingUI.hlp
-msgid ""
-"If a recipient replies to this mailing, forward the reply to the FROM Email "
-"address specified for the mailing."
-msgstr "Se un destinatario risponde a questo mailing, inoltra la risposta all'indirizzo del mittente (FROM) indicato per il mailing."
-
-#: templates/CRM/Mailing/Form/Settings.tpl templates/CRM/Mailing/MailingUI.hlp
-msgid ""
-"If a recipient replies to this mailing, send an automated reply using the "
-"selected message."
-msgstr "Se un destinatario risponde a questa mail, manda una risposta automatica usando il messaggio selezionato."
-
-#: templates/CRM/Mailing/Form/Settings.tpl
-msgid ""
-"Select the automated message to be sent when a recipient unsubscribes from "
-"this mailing."
-msgstr "Seleziona il messaggio automatico da mandare quando un destinatario si deiscrive da questo mailing."
-
-#: templates/CRM/Mailing/Form/Settings.tpl
-msgid ""
-"Select the automated message to be sent when a recipient resubscribes to "
-"this mailing."
-msgstr "Seleziona il messaggio automatico da mandare quando un destinatario si iscrive a questo mailing."
-
-#: templates/CRM/Mailing/Form/Settings.tpl
-msgid ""
-"Select the automated message to be sent when a recipient opts out of all "
-"mailings from your site."
-msgstr "Seleziona il messaggio automatico da mandare quando un destinatario si deiscrive da tutti i mailing del sito (opt-out)."
-
 #: templates/CRM/Mailing/Form/Subscribe.tpl
 msgid ""
 "Enter your email address and click <strong>Subscribe</strong>. You will "
@@ -2207,71 +2301,6 @@ msgstr "Inserite il vostro indirizzo di posta e cliccate sul riquadro accanto al
 msgid "Number of selected Mailing Recipients: %1"
 msgstr "Numero di Destinatari del Mailing selezionati: %1"
 
-#: templates/CRM/Mailing/Form/Test.hlp
-msgid "Test Message"
-msgstr "Messaggio di prova"
-
-#: templates/CRM/Mailing/Form/Test.hlp
-msgid ""
-"It's a good idea to test your mailing by sending it to yourself and/or a "
-"selected group of people in your organization. You can also view your "
-"content in the preview panel below."
-msgstr "E' una buona idea testare la tua mail inviandola a te stesso e/o a un gruppo selezionato di persone all'interno della tua organizzazione. Puoi anche visualizzarne il contenuto nel pannello di anteprima qui sotto."
-
-#: templates/CRM/Mailing/Form/Test.hlp
-msgid ""
-"Enter a single email address or select an existing group and click \"Send a "
-"Test Mailing.\" Once you receive the test mailing:"
-msgstr "Immetti un singolo indirizzo di email o seleziona un gruppo di destinatari e clicca su \"Invia email di prova\". Una volta che avete ricevuto la mail:"
-
-#: templates/CRM/Mailing/Form/Test.hlp
-msgid "Verify the content and formatting."
-msgstr "Verifica il contenuto e la formattazione"
-
-#: templates/CRM/Mailing/Form/Test.hlp templates/CRM/Mailing/MailingUI.hlp
-msgid ""
-"If you are using mail-merge tokens, check that they have been replaced with "
-"expected values."
-msgstr "Se state usando degli elementi che inseriscono valori relativi ai contatti, controllate che siano stati sostituiti dai valori corretti."
-
-#: templates/CRM/Mailing/Form/Test.hlp templates/CRM/Mailing/MailingUI.hlp
-msgid ""
-"Click on each included link to make sure they go to the expected web pages."
-msgstr "Cliccate su tutti i link per assicurarvi che portino alla pagina corretta."
-
-#: templates/CRM/Mailing/Form/Test.hlp
-msgid ""
-"If you need to make changes, you can click <strong>Previous</strong> to "
-"return to the content step, make your changes, and send another test."
-msgstr "Se dovete effettuare delle modifiche, potete cliccare su <strong>Precedente</strong> per tornare al passo del contenuto, fate le modifiche e spedite un altro test."
-
-#: templates/CRM/Mailing/Form/Test.tpl
-msgid ""
-"It's a good idea to test your mailing by sending it to yourself and/or a "
-"selected group of people in your organization. You can also view your "
-"content by clicking (+) Preview Mailing."
-msgstr "E' una buona idea mandare una copia di prova della mailing a voi stessi o ad un gruppo di persone dell'organizzazione; potete anche visualizzare un'anteprima del contenuto cliccando su (+)Anteprima Mailing."
-
-#: templates/CRM/Mailing/Form/Test.tpl
-msgid "(filled with your contact's token values)"
-msgstr "(usando i dati del vostro contatto se ci sono segnaposti da sostituire)"
-
-#: templates/CRM/Mailing/Form/Test.tpl
-msgid "Text Version:"
-msgstr "Versione testo:"
-
-#: templates/CRM/Mailing/Form/Test.tpl
-msgid "Text Version"
-msgstr "Versione testo"
-
-#: templates/CRM/Mailing/Form/Test.tpl
-msgid "HTML Version:"
-msgstr "Versione HTML:"
-
-#: templates/CRM/Mailing/Form/Test.tpl
-msgid "HTML Version"
-msgstr "Versione HTML"
-
 #: templates/CRM/Mailing/Form/Unsubscribe.tpl
 msgid ""
 "Are you sure you want to be removed from the mailing list(s) shown below:"
@@ -2289,57 +2318,29 @@ msgid ""
 "address below for verification purposes:"
 msgstr "Se questo non è il tuo indirizzo email, non è necessario fare nulla. <i> <b> Non </b> </i> sei stato aggiunto a questa mailing list. Se questo è il tuo indirizzo email e <i> <b> desideri essere cancellato </b> </i> inserisci il tuo indirizzo e-mail qui sotto per la verifica:"
 
-#: templates/CRM/Mailing/Form/Upload.hlp
+#: templates/CRM/Mailing/MailingUI.hlp
 msgid ""
-"If you choose to compose on the screen, a basic WYSIWYG (what-you-see-is-"
-"what-you-get) editor is provided which you can use create simple HTML "
-"messages. However, if you are planning on creating HTML messages with "
-"complex layouts - it is best to use an HTML editor on your local computer. "
-"Then locate and upload the saved file(s) by clicking the "
-"<strong>Browse</strong> button."
-msgstr "Se scegliete di comporre il contenuto a schermo, è disponibile un editor HTML di base; se volete creare messaggi con struttura complessa è meglio usare un editor sul vostro computer, e poi caricare il file cliccando su <strong>Browse</strong>"
+"Assign a unique name to each of your mailings. Select a naming convention "
+"that will help keep your mailings organized and easy to find when you want "
+"to review and compare mailing results. For example, if you do a monthly "
+"general-interest newsletter - you might use the following naming convention:"
+msgstr "Assegna un nome univoco a ciascuna mailing. Utilizzando una convenzione comune si rende più semplice organizzare e ritrovare le mailing per paragonarne i risultati. Ad esempio, se create una newsletter generica mensile, potete usare la seguente convenzione:"
 
-#: templates/CRM/Mailing/Form/Upload.tpl
-msgid ""
-"You can either <strong>upload</strong> the mailing content from your "
-"computer OR <strong>compose</strong> the content on this screen."
-msgstr "Potete sia scrivere il contenuto della mailing sul vostro computer e poi <strong>inviarlo</strong>, sia <strong>comporlo</strong> direttamente a schermo usando l'editor fornito. Tenete il puntatore del mouse sull'icona di aiuto (quella con il punto interrogativo) per avere ulteriori informazioni sui formati e i requisiti."
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid "General Monthly Newsletter: 200709"
+msgstr "Newsletter generica mensile: 200810"
 
-#: templates/CRM/Mailing/Form/Upload.tpl
-msgid "Auto-Generated"
-msgstr "Auto-Generato"
-
-#: templates/CRM/Mailing/Form/Upload.tpl
-msgid ""
-"Browse to the <strong>TEXT</strong> message file you have prepared for this "
-"mailing."
-msgstr "Richiamate il file del messaggio <strong>di testo puro</strong> che avete preparato per questa mailing."
-
-#: templates/CRM/Mailing/Form/Upload.tpl
-msgid ""
-"Browse to the <strong>HTML</strong> message file you have prepared for this "
-"mailing."
-msgstr "Richiamate il file del messaggio <strong>in HTML</strong> che avete preparato per questa mailing."
-
-#: templates/CRM/Mailing/Form/Upload.tpl
-msgid "Header / Footer"
-msgstr "Intestazione / Piedipagina"
-
-#: templates/CRM/Mailing/Form/Upload.tpl templates/CRM/Mailing/MailingUI.hlp
+#: templates/CRM/Mailing/MailingUI.hlp
 msgid ""
 "You may choose to include a pre-configured Header block above your message."
 msgstr "Potete scegliere di includere una intestazione preconfigurata in cima al messaggio."
 
-#: templates/CRM/Mailing/Form/Upload.tpl templates/CRM/Mailing/MailingUI.hlp
+#: templates/CRM/Mailing/MailingUI.hlp
 msgid ""
 "You may choose to include a pre-configured Footer block below your message. "
 "This is a good place to include the required unsubscribe, opt-out and postal"
 " address tokens."
 msgstr "Potete scegliere di includere un piedino preconfigurato in fondo al messaggio; è un buon posto in cui includere i segnaposto obbligatori: link di disiscrizione e di opt-out e indirizzo di posta."
-
-#: templates/CRM/Mailing/Form/Upload.tpl
-msgid "More information and sample messages..."
-msgstr "Altre informazioni e messaggi di esempio..."
 
 #: templates/CRM/Mailing/MailingUI.hlp
 msgid ""
@@ -2402,10 +2403,49 @@ msgstr "Verifica che il contenuto e la formattazione siano coerenti tra i vari c
 
 #: templates/CRM/Mailing/MailingUI.hlp
 msgid ""
+"If you are using mail-merge tokens, check that they have been replaced with "
+"expected values."
+msgstr "Se state usando degli elementi che inseriscono valori relativi ai contatti, controllate che siano stati sostituiti dai valori corretti."
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"Click on each included link to make sure they go to the expected web pages."
+msgstr "Cliccate su tutti i link per assicurarvi che portino alla pagina corretta."
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid "Track the number of times recipients click each link in this mailing."
+msgstr "Traccia il numero di volte che i destinatari fanno clic su ogni link di questo mailing."
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
 "NOTE: When this feature is enabled, all links in the message body (including"
 " mailtos) will be automatically re-written to route through your CiviCRM "
 "website prior to redirecting to the target page."
 msgstr "NOTA: Quando questa caratteristica è abilitata, tutti i link nel corpo di test (inclusi mailto) verrano automaticamente riscritto per aprirsi un percorso nel tuo sito CiviCRM prima di essere indirizzati alla pagina di destinazione."
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"Track the number of times recipients open this mailing in their email "
+"software."
+msgstr "Traccia il numero di volte che i destinatari aprono questo mailing nel loro software email."
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"Recipients' replies are sent to a CiviMail specific address instead of the "
+"sender's address so they can be stored within CiviCRM."
+msgstr "Le risposte dei destinatari vengono inviate a un indirizzo specifico CiviMail invece che all'indirizzo del mittente in modo che possano essere memorizzate all'interno di CiviCRM."
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"If a recipient replies to this mailing, send an automated reply using the "
+"selected message."
+msgstr "Se un destinatario risponde a questa mail, manda una risposta automatica usando il messaggio selezionato."
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"If a recipient replies to this mailing, forward the reply to the FROM Email "
+"address specified for the mailing."
+msgstr "Se un destinatario risponde a questo mailing, inoltra la risposta all'indirizzo del mittente (FROM) indicato per il mailing."
 
 #: templates/CRM/Mailing/Page/Browse.hlp
 msgid ""
@@ -2575,3 +2615,327 @@ msgstr "Vuoi davvero reiscriverti: %1 (%2)"
 #: templates/CRM/Mailing/Page/Tab.tpl
 msgid "Opens/ Clicks"
 msgstr "Aperture / Clicks"
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid "Search-based mailings require an \"unsubscribe tracking\" group."
+msgstr "I mailing basati su ricerche richiedono un gruppo di \"tracciamento disiscrizione\"."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"Because this mailing is using the results of a search to provide the "
+"recipient list, you need to specify a group to track people who unsubscribe "
+"in response to this mailing."
+msgstr "Siccome questa mail si serve dei risultati di una ricerca per fornire la lista di destinatari, bisogna specificare un gruppo per tracciare le persone che cancellano la loro iscrizione in risposta a questa mail."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"If a recipient unsubscribes from this mailing, they will be excluded from "
+"future mailings which use the same \"Unsubscription Group\". This is "
+"achieved through actually marking the contact as \"unsubscribed from the "
+"group\". If a contact in your search results has already been marked as "
+"unsubscribed from that group, they will be excluded from this mailing."
+msgstr "Se un destinatario si cancella da questa mail, verrà escluso dalle mail future che utilizzeranno lo stesso \"Gruppo di cancellazione iscrizione\". Questo è possibile tramite effettiva segnalazione del contatto come \"cancellato dal gruppo\". Se un contatto nei tuoi risultati di ricerca è già stato segnalato come cancellato dal gruppo, verrà escluso da questa mail."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"If a recipient clicks the unsubscribe link they will see the "
+"\"Unsubscription Group\" title on the unsubscribe page. The selected group "
+"should have a title that corresponds to the content / type of mailing being "
+"sent."
+msgstr "Se un destinatario fa clic sul link di annullamento dell'iscrizione, vedrà il titolo \"Gruppo di annullamento sottoscrizione\" nella pagina di annullamento dell'iscrizione. Il gruppo selezionato dovrebbe avere un titolo che corrisponda al contenuto / tipo di mailing inviato."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"NOTE: Contacts who are in the \"Unsubscription Group\" but do not match your"
+" search critera will not be included in the mailing regardless of their "
+"status in that group. This is a change from previous versions which used the"
+" term \"Base Group\"."
+msgstr "NOTA: i contatti che si trovano nel \"Gruppo disiscrizione\" ma che non corrispondono ai criteri di ricerca non saranno inclusi nell'invio indipendentemente dal loro essere in quel gruppo. Questo è un cambiamento rispetto alle versioni precedenti che utilizzavano il \"Gruppo Base\"."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid "Dedupe"
+msgstr "Deduplica"
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"CiviCRM will always dedupe your mailing based on unique contact records. For"
+" example, if a contact is in three of the groups you are including in your "
+"mailing, they will only be sent one copy of the email."
+msgstr "CiviCRM deduplicherà sempre le tue email sulla base di record di contatto unici. Ad esempio, se un contatto è in tre dei gruppi che includi nel tuo invio, verrà inviata solo una copia dell'e-mail."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"However, if the same email is used by multiple contacts, that email address "
+"will receive multiple copies of the email -- one for each contact using that"
+" address."
+msgstr "Tuttavia, se la stessa email viene utilizzata da più contatti, tale indirizzo di posta elettronica riceverà più copie dell'email - una per ciascun contatto che utilizza tale indirizzo."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"Selecting this option will ensure only one email is sent to each address. "
+"Note that when using this option and including contact tokens in your email "
+"content, the email with it's respective tokens will only be created for one "
+"of the matching contacts."
+msgstr "Selezionando questa opzione assicurerai che solo una email sia inviata a ciascun indirizzo. Tieni presente che quando si utilizza questa opzione e si includono token di contatto nel contenuto della posta elettronica, l'e-mail con i rispettivi token verrà creata solo per uno dei contatti corrispondenti."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid "Email selection"
+msgstr "Selezione email"
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"Some of your contacts may have more than one email address. By selecting a "
+"location and a selection method, you can tell CiviCRM which email address to"
+" use for this mailing."
+msgstr "Alcuni dei tuoi contatti possono avere più di un indirizzo email. Selezionando una posizione ed un metodo di selezione, è possibile indicare a CiviCRM quale indirizzo email utilizzare per questo mailing."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"Automatic: If you choose automatic for both the location and the selection "
+"method, CiviCRM will choose the best option for each user: If an email is "
+"marked \"Bulk\" then it will be used; otherwise, the email marked "
+"\"Primary\" will be used."
+msgstr "Automatico: se scegli l'opzione automatica sia per la posizione che per il metodo di selezione, CiviCRM sceglierà l'opzione migliore per ciascun utente: se un'e-mail è contrassegnata come \"Bulk\", verrà utilizzata; in caso contrario, verrà utilizzata l'e-mail contrassegnata come \"Principale\"."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"If \"Only send to email addresses assigned to the specified location\" is "
+"selected, then the recipients will be restricted to only include contacts "
+"that have an email address assigned to the given location. This option may "
+"limit the number of recipients in your mailing."
+msgstr "Se \"Invia solo a indirizzi email assegnati a una posizione specifica\" è selezionato, i destinatari verranno limitati solo ai contatti che hanno un indirizzo email assegnato a una data posizione. Questa opzione può limitare il numero dei destinatari nel tuo mailing."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"If \"Prefer email addresses assigned to the specified location\" is "
+"selected, then recipients that have an email address assigned to the given "
+"location will have that email used. Other recipients will have their email "
+"selected using the automatic method."
+msgstr "Se è selezionato \"Preferisci indirizzi e-mail assegnati alla posizione specificata\", i destinatari che hanno un indirizzo e-mail assegnato alla posizione specificata avranno quell'email usata. Gli altri destinatari avranno la loro e-mail selezionata utilizzando il metodo automatico."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"If \"Exclude email addresses assigned to the specified location\" is chosen,"
+" then recipients who only have an email address assigned to the given "
+"location will be excluded. Everyone else will have their email chosen from "
+"the list of emails that are not assigned to the given location, using the "
+"automatic method."
+msgstr "Se \"escludi indirizzi email assegnati alla posizione specificata\" è selezionato, i destinatari che hanno solo un indirizzo email assegnato alla posizione specificata verranno esclusi. La email di chiunque altro verrà scelta dalla lista delle email che non sono assegnate a una data posizione, utilizzando il metodo automatico."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"Determine the contacts in your database who should receive this mailing by "
+"first selecting one or more <strong>Included Groups</strong>. (Groups must "
+"be assigned the <strong>Mailing List</strong> type to be available on this "
+"screen - you can update this for an existing group from <strong>Manage "
+"Groups &raquo; Settings</strong>.)"
+msgstr "Determinate qualii contatti nel database devono ricevere questa mailing selezionando come prima cosa uno o più <strong>gruppi da includere</strong> (perché appaiano in questa lista, ai gruppi deve essere assegnato il tipo <strong>Mailing List</strong>: potete farlo per i gruppi esistenti usando <strong>Gestione gruppi &raquo; Impostazioni</strong>)."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"You also have the option to <strong>Exclude</strong> some contacts from your"
+" included groups by selecting one or more <strong>Excluded Groups</strong>. "
+"Contacts who are in both groups will NOT receive the mailing (they are "
+"'excluded')."
+msgstr "Potete anche <strong>escludere</strong> dei contatti appartenenti ai gruppi inclusi, selezionando uno o più <strong>gruppi da escludere</strong>. I contatti che appartengono sia ad uno dei gruppi inclusi che ad uno dei gruppi esclusi NON riceveranno la mailing (sono 'esclusi')."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"If you have sent other mailings - you can additionally Include (or Exclude) "
+"contacts who received those mailings. CiviCRM will eliminate any "
+"duplications so that contacts who are in an Included Group AND were "
+"recipients of an Included Mailing will only be sent one copy of this "
+"mailing."
+msgstr "Se avete inviato altre mailing, potete anche includere (o escludere) i contatti che hanno ricevuto queste altre mailing. CiviCRM eliminerà i duplicati, quindi ai contatti che appartengono ad uno dei gruppi inclusi ed hanno già ricevuto una mailing che si include, verrà inviata solo una copia della mailing."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid ""
+"You also have the option to <strong>Exclude</strong> some contacts in your "
+"included groups by selecting one or more <strong>Excluded Groups</strong>. "
+"Contacts who are in both groups will NOT receive the mailing (they are "
+"'excluded')."
+msgstr "Hai anche l'opzione di <strong>escludere</strong> dei contatti appartenenti ai gruppi inclusi, selezionando uno o più <strong>gruppi da escludere</strong>. I contatti che appartengono a entrambi i gruppi  NON riceveranno la mailing (sono 'esclusi')."
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid "Include Mailings"
+msgstr "Includi mailing"
+
+#: templates/CRM/Mailing/Form/Group.hlp
+msgid "Exclude Mailings"
+msgstr "Escludi mail"
+
+#: templates/CRM/Mailing/Form/Group.tpl
+msgid "Additional Mailing Recipients"
+msgstr "Destinatari Aggiuntivi Mailing"
+
+#: templates/CRM/Mailing/Form/Schedule.hlp
+msgid "Scheduling and Sending Mailings"
+msgstr "Pianificazione e invio delle mailing"
+
+#: templates/CRM/Mailing/Form/Schedule.hlp
+msgid ""
+"You can schedule mailings to be sent starting at a specific date and time, "
+"OR you can request that they be sent as soon as possible by checking "
+"&quot;Send Immediately&quot;."
+msgstr "Potete pianificare l'invio di questa mailing ad una data e ora specifica, O richiedere che venga inviata il prima possibile spuntando &quot;Invia Immediatamente&quot;"
+
+#: templates/CRM/Mailing/Form/Schedule.hlp
+msgid ""
+"Click <strong>Submit Mailing</strong> to add this mailing to the mailing "
+"queue. An automated task which runs periodically on your server processes "
+"mailings in the queue, and starts actually sending out your mail."
+msgstr "Clicca su <strong>invia mail</strong> per aggiungere questa mail alla coda delle mail. Un programma automatico in esecuzione sul server, elabora le mail in coda e le invia."
+
+#: templates/CRM/Mailing/Form/Schedule.hlp
+msgid ""
+"Click <strong>Continue Later</strong> if you're not ready to schedule or "
+"send this mailing. Click the <strong>Continue</strong> link from Unscheduled"
+" and Draft Mailings when you are ready to schedule or send it."
+msgstr "Clicca su <strong>Continua dopo</ strong> se non sei pronto per programmare o inviare questa mail. Clicca sul link <strong>Continua</ strong> da 'Bozze Mail e Mail Non schedulate' quando sei pronto a schedularle o inviarle."
+
+#: templates/CRM/Mailing/Form/Schedule.hlp
+msgid ""
+"<strong>Trouble-shooting Tip</strong> - If you find that your mailings are "
+"not being sent, ask the system administrator or technical support contact "
+"for your site to verify that the automated task (&quot;cron job&quot;) is "
+"running - and how frequently."
+msgstr "<strong>Se qualcosa va storto</strong> - Se ti accordi che le tue mails non vengono inviate, chiedi all'amministratore di sistema o al supporto tecnico di verificare che il programma periodico di invio (il &quot;cron job&quot;) sia in esecuzione, e con quale frequenza (<a href='%1' title='%2' target='_blank'>per saperne di più...</a>)"
+
+#: templates/CRM/Mailing/Form/Schedule.tpl
+msgid ""
+"You can schedule this mailing to be sent starting at a specific date and "
+"time, OR you can request that it be sent as soon as possible by checking "
+"&quot;Send Immediately&quot;."
+msgstr "Potete pianificare l'invio di questo mailing ad una data e ora specifica, O richiedere che venga inviato il prima possibile spuntando &quot;Invia Immediatamente&quot;"
+
+#: templates/CRM/Mailing/Form/Schedule.tpl
+msgid ""
+"Set a date and time when you want CiviMail to start sending this mailing."
+msgstr "Imposta una data e ora in cui vuoi che CiviMail inizi ad inviare questo mailing."
+
+#: templates/CRM/Mailing/Form/Settings.tpl
+msgid ""
+"These settings control tracking and responses to recipient actions. The "
+"number of recipients selected to receive this mailing is shown in the box to"
+" the right. If this count doesn't match your expectations, click "
+"<strong>Previous</strong> to review your selection(s)."
+msgstr "Queste impostazioni controllano il tracciamento e le risposte alle azioni dei destinatari. Il numero di destinatari selezionato per ricevere questo mailing viene mostrato nella casella a destra. Se il conteggio non corrisponde alle vostre aspettative, cliccate <strong>Precedente</strong> per rivedere le selezioni."
+
+#: templates/CRM/Mailing/Form/Settings.tpl
+msgid ""
+"NOTE: When this feature is enabled, all links in the message body will be "
+"automatically re-written to route through your CiviCRM server prior to "
+"redirecting to the target page."
+msgstr "NOTA: quando questa funzione è abilitata, tutti i collegamenti nel corpo del messaggio verranno automaticamente riscritti per instradare attraverso il server CiviCRM prima di reindirizzare alla pagina di destinazione."
+
+#: templates/CRM/Mailing/Form/Settings.tpl
+msgid ""
+"Select the automated message to be sent when a recipient unsubscribes from "
+"this mailing."
+msgstr "Seleziona il messaggio automatico da mandare quando un destinatario si deiscrive da questo mailing."
+
+#: templates/CRM/Mailing/Form/Settings.tpl
+msgid ""
+"Select the automated message to be sent when a recipient resubscribes to "
+"this mailing."
+msgstr "Seleziona il messaggio automatico da mandare quando un destinatario si iscrive a questo mailing."
+
+#: templates/CRM/Mailing/Form/Settings.tpl
+msgid ""
+"Select the automated message to be sent when a recipient opts out of all "
+"mailings from your site."
+msgstr "Seleziona il messaggio automatico da mandare quando un destinatario si deiscrive da tutti i mailing del sito (opt-out)."
+
+#: templates/CRM/Mailing/Form/Test.hlp
+msgid "Test Message"
+msgstr "Messaggio di prova"
+
+#: templates/CRM/Mailing/Form/Test.hlp
+msgid ""
+"It's a good idea to test your mailing by sending it to yourself and/or a "
+"selected group of people in your organization. You can also view your "
+"content in the preview panel below."
+msgstr "E' una buona idea testare la tua mail inviandola a te stesso e/o a un gruppo selezionato di persone all'interno della tua organizzazione. Puoi anche visualizzarne il contenuto nel pannello di anteprima qui sotto."
+
+#: templates/CRM/Mailing/Form/Test.hlp
+msgid ""
+"Enter a single email address or select an existing group and click \"Send a "
+"Test Mailing.\" Once you receive the test mailing:"
+msgstr "Immetti un singolo indirizzo di email o seleziona un gruppo di destinatari e clicca su \"Invia email di prova\". Una volta che avete ricevuto la mail:"
+
+#: templates/CRM/Mailing/Form/Test.hlp
+msgid "Verify the content and formatting."
+msgstr "Verifica il contenuto e la formattazione"
+
+#: templates/CRM/Mailing/Form/Test.hlp
+msgid ""
+"If you need to make changes, you can click <strong>Previous</strong> to "
+"return to the content step, make your changes, and send another test."
+msgstr "Se dovete effettuare delle modifiche, potete cliccare su <strong>Precedente</strong> per tornare al passo del contenuto, fate le modifiche e spedite un altro test."
+
+#: templates/CRM/Mailing/Form/Test.tpl
+msgid ""
+"It's a good idea to test your mailing by sending it to yourself and/or a "
+"selected group of people in your organization. You can also view your "
+"content by clicking (+) Preview Mailing."
+msgstr "E' una buona idea mandare una copia di prova della mailing a voi stessi o ad un gruppo di persone dell'organizzazione; potete anche visualizzare un'anteprima del contenuto cliccando su (+)Anteprima Mailing."
+
+#: templates/CRM/Mailing/Form/Test.tpl
+msgid "(filled with your contact's token values)"
+msgstr "(usando i dati del vostro contatto se ci sono segnaposti da sostituire)"
+
+#: templates/CRM/Mailing/Form/Test.tpl
+msgid "Text Version:"
+msgstr "Versione testo:"
+
+#: templates/CRM/Mailing/Form/Test.tpl
+msgid "Text Version"
+msgstr "Versione testo"
+
+#: templates/CRM/Mailing/Form/Test.tpl
+msgid "HTML Version:"
+msgstr "Versione HTML:"
+
+#: templates/CRM/Mailing/Form/Test.tpl
+msgid "HTML Version"
+msgstr "Versione HTML"
+
+#: templates/CRM/Mailing/Form/Upload.hlp
+msgid ""
+"If you choose to compose on the screen, a basic WYSIWYG (what-you-see-is-"
+"what-you-get) editor is provided which you can use create simple HTML "
+"messages. However, if you are planning on creating HTML messages with "
+"complex layouts - it is best to use an HTML editor on your local computer. "
+"Then locate and upload the saved file(s) by clicking the "
+"<strong>Browse</strong> button."
+msgstr "Se scegliete di comporre il contenuto a schermo, è disponibile un editor HTML di base; se volete creare messaggi con struttura complessa è meglio usare un editor sul vostro computer, e poi caricare il file cliccando su <strong>Browse</strong>"
+
+#: templates/CRM/Mailing/Form/Upload.tpl
+msgid ""
+"You can either <strong>upload</strong> the mailing content from your "
+"computer OR <strong>compose</strong> the content on this screen."
+msgstr "Potete sia scrivere il contenuto della mailing sul vostro computer e poi <strong>inviarlo</strong>, sia <strong>comporlo</strong> direttamente a schermo usando l'editor fornito. Tenete il puntatore del mouse sull'icona di aiuto (quella con il punto interrogativo) per avere ulteriori informazioni sui formati e i requisiti."
+
+#: templates/CRM/Mailing/Form/Upload.tpl
+msgid "Auto-Generated"
+msgstr "Auto-Generato"
+
+#: templates/CRM/Mailing/Form/Upload.tpl
+msgid ""
+"Browse to the <strong>TEXT</strong> message file you have prepared for this "
+"mailing."
+msgstr "Richiamate il file del messaggio <strong>di testo puro</strong> che avete preparato per questa mailing."
+
+#: templates/CRM/Mailing/Form/Upload.tpl
+msgid ""
+"Browse to the <strong>HTML</strong> message file you have prepared for this "
+"mailing."
+msgstr "Richiamate il file del messaggio <strong>in HTML</strong> che avete preparato per questa mailing."
+
+#: templates/CRM/Mailing/Form/Upload.tpl
+msgid "Header / Footer"
+msgstr "Intestazione / Piedipagina"
+
+#: templates/CRM/Mailing/Form/Upload.tpl
+msgid "More information and sample messages..."
+msgstr "Altre informazioni e messaggi di esempio..."
