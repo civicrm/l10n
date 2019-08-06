@@ -66,12 +66,14 @@ for rel in $releases; do
 
   echo "Copying $root ($rel) to $temp/$rel ..."
   cd $root
+  git fetch
   git checkout $rel
   git archive $rel | tar -xC $temp/$rel
 
-  echo "Copying $root/drupal (7x-$rel) to $temp/$rel/drupal ..."
+  echo "Copying $root/drupal (7.x-$rel) to $temp/$rel/drupal ..."
   mkdir -p $temp/$rel/drupal
   cd $root/drupal
+  git fetch
   git checkout 7.x-$rel
   git archive 7.x-$rel | tar -xC $temp/$rel/drupal
 
@@ -79,6 +81,7 @@ for rel in $releases; do
     echo "Copying $root/joomla ($rel) to $temp/$rel/joomla ..."
     mkdir -p $temp/$rel/joomla
     cd $root/joomla
+    git fetch
     git checkout $rel
     git archive $rel | tar -xC $temp/$rel/joomla
   else
@@ -90,6 +93,7 @@ for rel in $releases; do
     echo "Copying $root/wordpress ($rel) to $temp/$rel/wordpress ..."
     mkdir -p $temp/$rel/wordpress
     cd $root/wordpress
+    git fetch
     git checkout $rel
     git archive $rel | tar -xC $temp/$rel/wordpress
   else
@@ -100,6 +104,7 @@ for rel in $releases; do
   echo "Copying $root/packages ($rel) to $temp/$rel/packages ..."
   mkdir -p $temp/$rel/packages
   cd $root/packages
+  git fetch
   git checkout $rel
   git archive $rel | tar -xC $temp/$rel/packages
 
