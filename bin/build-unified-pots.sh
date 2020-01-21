@@ -163,7 +163,7 @@ for pot in $pots; do
   rm $common
 done
 
-rm -r $temp
+rm -rf $temp
 
 cat <<EOT
 
