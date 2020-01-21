@@ -174,12 +174,13 @@ You are strongly encouraged to use the "patience" algorightm otherwise
 the diffs will seem bigger than they actually are:
 
     $ git status
-    $ git diff --patience
+    $ git diff --patience | ./bin/diff-check.php
 
 If it all looks good, commit the changes:
 
     $ git add po/pot/*
-    $ git tag 4.3.1
+    $ git commit -m "New strings for version 5.xx"
+    $ git tag 5.21
     $ git push --tags
 
 After that, you can push the source pot files to Transifex:
@@ -192,8 +193,5 @@ that was created), it needs to be added to Transifex. For example:
     $ tx set --auto-local -r civicrm.pcp 'po/<lang>.po' --source-lang en --source-file po/pot/pcp.pot --execute
     $ tx push -s -r civicrm.pcp
     $ tx pull -a -r civicrm.pcp
-
-NB: use the "patience" diff algorithm from git to generate cleaner diffs:
-    $ git config --global diff.algorithm patience
 
 EOT
