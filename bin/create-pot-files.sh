@@ -229,6 +229,7 @@ function build_raw_pot() {
       _civistrings -o "$filepath" \
         {CRM,templates/CRM}/$name \
         xml/templates/message_templates/contribution_* \
+        xml/templates/message_templates/payment_* \
         xml/templates/message_templates/test_*
       ;;
 
