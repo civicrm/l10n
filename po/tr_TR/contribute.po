@@ -9,9 +9,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2019-06-06 12:32-0400\n"
-"PO-Revision-Date: 2019-12-03 05:57+0000\n"
-"Last-Translator: Kaya Zeren <kayazeren@gmail.com>\n"
+"POT-Creation-Date: 2020-01-21 16:29-0500\n"
+"PO-Revision-Date: 2020-01-21 21:44+0000\n"
+"Last-Translator: Mathieu Lu <mathieu@bidon.ca>\n"
 "Language-Team: Turkish (http://www.transifex.com/civicrm/civicrm/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,6 +38,12 @@ msgstr "bu hareket zaten işlenmiş."
 #: CRM/Contribute/BAO/Contribution/Utils.php
 msgid "ContributionProcessor: %1 API"
 msgstr "Katkı Aracısı: %1 API"
+
+#: CRM/Contribute/BAO/Contribution.php
+msgid ""
+"Duplicate error - existing contribution record(s) have a matching "
+"Transaction ID or Invoice ID. Contribution record ID(s) are: %1"
+msgstr ""
 
 #: CRM/Contribute/BAO/Contribution.php
 msgid "- Contribution Fields -"
@@ -154,27 +160,6 @@ msgstr "Tüm yinelenen katkılar"
 msgid "Recurring contributions with at least one payment"
 msgstr "En az bir ödemesi olan yinelenen katkılar"
 
-#: CRM/Contribute/BAO/ContributionRecur.php
-msgid "Recurring Contribution Start Date"
-msgstr "Yinelenen Katkı Başlangıç Tarihi"
-
-#: CRM/Contribute/BAO/ContributionRecur.php
-msgid "Next Scheduled Recurring Contribution"
-msgstr "Sonraki Katkı Yinelenme Tarihi"
-
-#: CRM/Contribute/BAO/ContributionRecur.php
-msgid "Recurring Contribution Cancel Date"
-msgstr "Yinelenen Katkı İptal Tarihi"
-
-#: CRM/Contribute/BAO/ContributionRecur.php
-#: CRM/Contribute/DAO/ContributionRecur.php
-msgid "Recurring Contribution End Date"
-msgstr "Yinelenen Katkı Bitiş Tarihi"
-
-#: CRM/Contribute/BAO/ContributionRecur.php
-msgid "Failed Recurring Contribution Retry Date"
-msgstr "Katkı Yineleme Tarihi Uygun Değil"
-
 #: CRM/Contribute/BAO/ContributionSoft.php
 msgid "View related contribution"
 msgstr "İlgili katkıyı görüntüle"
@@ -182,12 +167,6 @@ msgstr "İlgili katkıyı görüntüle"
 #: CRM/Contribute/BAO/Premium.php
 msgid "Selected Option"
 msgstr "Seçilmiş Seçenek"
-
-#: CRM/Contribute/BAO/Query.php
-msgid ""
-"The contribution type criteria is now obsolete, please update your smart "
-"group"
-msgstr "Katkı türü ölçütü artık kullanılmıyor, lütfen akıllı grubunuzu güncelleyin"
 
 #: CRM/Contribute/BAO/Query.php
 msgid "Contribution Thank-you Sent"
@@ -276,12 +255,6 @@ msgstr "Kart Türü %1 %2"
 #: CRM/Contribute/BAO/Query.php
 msgid "Card Number %1 %2"
 msgstr "Kart Numarası %1 %2"
-
-#: CRM/Contribute/BAO/Query.php
-msgid ""
-"We did not recognize the search field: %1. Please check and fix your "
-"contribution related smart groups."
-msgstr "%1 arama alanı anlaşılamadı. Lütfen akıllı gruplar ile ilişkili katkınızı denetleyip düzeltin."
 
 #: CRM/Contribute/BAO/Query.php
 msgid "Currency Type"
@@ -469,6 +442,14 @@ msgstr ""
 
 #: CRM/Contribute/DAO/Contribution.php
 msgid "Stores the date when revenue should be recognized."
+msgstr ""
+
+#: CRM/Contribute/DAO/Contribution.php
+msgid "Is a Template Contribution"
+msgstr ""
+
+#: CRM/Contribute/DAO/Contribution.php
+msgid "Shows this is a template for recurring contributions."
 msgstr ""
 
 #: CRM/Contribute/DAO/ContributionPage.php CRM/Contribute/DAO/Widget.php
@@ -751,6 +732,10 @@ msgstr ""
 msgid "if true - billing block is required for online contribution page"
 msgstr ""
 
+#: CRM/Contribute/DAO/ContributionPage.php
+msgid "Contribution Page Public title"
+msgstr ""
+
 #: CRM/Contribute/DAO/ContributionProduct.php
 msgid "Contribution Product ID"
 msgstr "Katkı Ürün Kodu"
@@ -765,6 +750,11 @@ msgstr "Ürün Seçeneği"
 
 #: CRM/Contribute/DAO/ContributionProduct.php
 msgid "Option value selected if applicable - e.g. color, size etc."
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionProduct.php
+#: xml/templates/message_templates/contribution_invoice_receipt_html.tpl
+msgid "Quantity"
 msgstr ""
 
 #: CRM/Contribute/DAO/ContributionProduct.php
@@ -837,7 +827,15 @@ msgid "The date the first scheduled recurring contribution occurs."
 msgstr ""
 
 #: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Start Date"
+msgstr "Yinelenen Katkı Başlangıç Tarihi"
+
+#: CRM/Contribute/DAO/ContributionRecur.php
 msgid "When this recurring contribution record was created."
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Create Date"
 msgstr ""
 
 #: CRM/Contribute/DAO/ContributionRecur.php
@@ -847,10 +845,18 @@ msgid ""
 msgstr ""
 
 #: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Modified Date"
+msgstr "Yinelenen Katkı Değişiklik Tarihi"
+
+#: CRM/Contribute/DAO/ContributionRecur.php
 msgid ""
 "Date this recurring contribution was cancelled by contributor- if we can get"
 " access to it"
 msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Cancel Date"
+msgstr "Yinelenen Katkı İptal Tarihi"
 
 #: CRM/Contribute/DAO/ContributionRecur.php
 msgid "Cancellation Reason"
@@ -859,6 +865,14 @@ msgstr ""
 #: CRM/Contribute/DAO/ContributionRecur.php
 msgid "Free text field for a reason for cancelling"
 msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Cancel Reason"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution End Date"
+msgstr "Yinelenen Katkı Bitiş Tarihi"
 
 #: CRM/Contribute/DAO/ContributionRecur.php
 msgid "Date this recurring contribution finished successfully"
@@ -892,6 +906,10 @@ msgid "Next scheduled date"
 msgstr ""
 
 #: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Next Scheduled Recurring Contribution"
+msgstr "Sonraki Katkı Yinelenme Tarihi"
+
+#: CRM/Contribute/DAO/ContributionRecur.php
 msgid "Number of Failures"
 msgstr "Başarısız İşlem Sayısı"
 
@@ -908,6 +926,10 @@ msgstr "Yeniden Denemenin Başarısız Olduğu Tarih"
 #: CRM/Contribute/DAO/ContributionRecur.php
 msgid "Date to retry failed attempt"
 msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Failed Recurring Contribution Retry Date"
+msgstr "Katkı Yineleme Tarihi Uygun Değil"
 
 #: CRM/Contribute/DAO/ContributionRecur.php
 msgid ""
@@ -1367,22 +1389,12 @@ msgid "Refund Date"
 msgstr "Geri Ödeme Tarihi"
 
 #: CRM/Contribute/Form/AdditionalPayment.php
-msgid "Please enter a valid monetary value for Net Amount."
-msgstr "Lütfen net tutar için geçerli parasal bir değer yazın."
-
-#: CRM/Contribute/Form/AdditionalPayment.php
 msgid "Payment amount cannot be greater than owed amount"
 msgstr "Ödeme tutarı borçlanılan tutardan büyük olamaz"
 
 #: CRM/Contribute/Form/AdditionalPayment.php
 msgid "Refund amount must equal refund due amount."
 msgstr "Geri ödeme tutarı geri ödenecek tutara eşit olmalıdır."
-
-#: CRM/Contribute/Form/AdditionalPayment.php
-msgid ""
-"Net amount should be equal to the difference between payment amount and fee "
-"amount."
-msgstr "Net tutar, ödenen tutar ile ücret tutarı arasındaki farka eşit olmalıdır."
 
 #: CRM/Contribute/Form/AdditionalPayment.php
 msgid "Payment method is a required field"
@@ -1407,17 +1419,17 @@ msgid "The recurring contribution looks to have been cancelled already."
 msgstr "Yinelenen katkı zaten iptal edilmiş görünüyor."
 
 #: CRM/Contribute/Form/CancelSubscription.php
-msgid "You do not have permission to cancel this recurring contribution."
-msgstr "Bu yinelenen katkıyı iptal etme izniniz yok."
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "Send cancellation request to %1 ?"
-msgstr "%1 için iptal isteği gönderilsin mi?"
+msgid "Send cancellation request?"
+msgstr ""
 
 #: CRM/Contribute/Form/CancelSubscription.php
 #: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Notify Contributor?"
 msgstr "Katkıda Bulunana Bildirilsin mi?"
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Send cancellation request to %1 ?"
+msgstr "%1 için iptal isteği gönderilsin mi?"
 
 #: CRM/Contribute/Form/CancelSubscription.php
 msgid "Cancel Automatic Membership Renewal"
@@ -1522,6 +1534,12 @@ msgstr "Katkı tutarı en az %1 olmalıdır"
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid "Contribution amount cannot be more than %1."
 msgstr "Katkı tutarı en fazla %1 olmalıdır."
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid ""
+"Your %1 membership was previously cancelled and can not be renewed online. "
+"Please contact the site administrator for assistance."
+msgstr ""
 
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid "Additional Contribution is required."
@@ -1688,6 +1706,14 @@ msgstr "Maalesef, yenilemeye çalıştığınız üyelik geçersiz görünüyor.
 #: CRM/Contribute/Form/ContributionBase.php
 msgid "Membership Invalid"
 msgstr "Üyelik Geçersiz"
+
+#: CRM/Contribute/Form/ContributionBase.php
+msgid "The page you requested has past its end date on %1"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionBase.php
+msgid "The page you requested will be active from %1"
+msgstr ""
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid ""
@@ -2213,6 +2239,15 @@ msgstr "%1 Sayfasını Önizle"
 msgid "Delete Page - %1"
 msgstr "%1 Sayfasını Silin"
 
+#: CRM/Contribute/Form/ContributionRecur.php
+msgid ""
+"There is no valid processor for this subscription so it cannot be updated"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionRecur.php
+msgid "You do not have permission to cancel this recurring contribution."
+msgstr "Bu yinelenen katkıyı iptal etme izniniz yok."
+
 #: CRM/Contribute/Form/ContributionView.php
 msgid "View Contribution from"
 msgstr "Şunun katkılarını görüntüle"
@@ -2343,6 +2378,10 @@ msgid "The product has been configured to use a default image."
 msgstr "Ürün varsayılan görseli kullanacak şekilde yapılandırıldı."
 
 #: CRM/Contribute/Form/Search.php
+msgid "Contributor Name or Email"
+msgstr ""
+
+#: CRM/Contribute/Form/Search.php
 msgid "Contributor Contact Type"
 msgstr "Katkıda Bulunan Kişi Türü"
 
@@ -2423,8 +2462,9 @@ msgstr[1] "%count katkı silindi."
 
 #: CRM/Contribute/Form/Task/Invoice.php
 msgid ""
-"Please select only contributions with Completed, Pending, Refunded status."
-msgstr "Lütfen yalnız Tamamlanmış, Bekleyen ve Geri Ödenmiş durumdaki katkıları seçin."
+"Please select only contributions with Completed, Pending, Refunded, or "
+"Partially Paid status."
+msgstr ""
 
 #: CRM/Contribute/Form/Task/Invoice.php
 #: templates/CRM/Contribute/Form/ContributionView.tpl
@@ -2655,10 +2695,6 @@ msgid "Status Updated"
 msgstr "Durum Güncellendi"
 
 #: CRM/Contribute/Form/UpdateBilling.php
-msgid "You do not have permission to cancel subscription."
-msgstr "Aboneliği iptal etme izniniz yok."
-
-#: CRM/Contribute/Form/UpdateBilling.php
 msgid "%1 processor doesn't support updating subscription billing details."
 msgstr "%1 aracısı abonelik fatura bilgilerinin güncellenmesini desteklemiyor."
 
@@ -2686,17 +2722,8 @@ msgid "Update Error"
 msgstr "Güncelleme Hatası"
 
 #: CRM/Contribute/Form/UpdateSubscription.php
-msgid ""
-"There is no valid processor for this subscription so it cannot be edited."
-msgstr "Bu abonelik, geçerli bir ödeme aracısı olmadığından düzenlenemiyor."
-
-#: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Required information missing."
 msgstr "Zorunlu bilgiler eksik."
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "You do not have permission to update subscription."
-msgstr "Aboneliği güncelleme izniniz yok."
 
 #: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Recurring Contribution Amount"
@@ -2753,14 +2780,14 @@ msgid "Load Mapping"
 msgstr "Eşleştirmeyi Yükle"
 
 #: CRM/Contribute/Import/Form/MapField.php
-msgid "Missing required fields: Soft Credit"
-msgstr "Zorunlu alanlar eksik: Sanal Kredi"
-
-#: CRM/Contribute/Import/Form/MapField.php
 msgid ""
 "Invoice ID or Transaction ID or Contribution ID are required to match to the"
 " existing contribution records in Update mode."
 msgstr "Güncelleme kipinde var olan katkı kayıtlarını eşleştirmek için Fatura Kodu, Hareket Kodu ya da Katkı Kodu gereklidir."
+
+#: CRM/Contribute/Import/Form/MapField.php
+msgid "Missing required fields: Soft Credit"
+msgstr "Zorunlu alanlar eksik: Sanal Kredi"
 
 #: CRM/Contribute/Import/Form/MapField.php
 msgid ""
@@ -2778,6 +2805,10 @@ msgstr ""
 
 #: CRM/Contribute/Import/Parser/Contribution.php
 msgid "Thankyou Date"
+msgstr ""
+
+#: CRM/Contribute/Import/Parser/Contribution.php
+msgid "Soft Credit %1 - %2 doesn't exist. Row was skipped."
 msgstr ""
 
 #: CRM/Contribute/Import/Parser.php
@@ -3104,22 +3135,22 @@ msgid "Automatically email a receipt to %1?"
 msgstr "Otomatik alındı e-postası %1 adresine gönderilsin"
 
 #: templates/CRM/Contribute/Form/AdditionalPayment.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Refund Details"
 msgstr "Geri Ödeme Ayrıntıları"
 
 #: templates/CRM/Contribute/Form/AdditionalPayment.tpl
 #: templates/CRM/Contribute/Form/Contribution.tpl
 #: templates/CRM/Contribute/Form/ContributionView.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Payment Details"
 msgstr "Ödeme Ayrıntıları"
 
 #: templates/CRM/Contribute/Form/AdditionalPayment.tpl
 msgid "The date this payment was received."
 msgstr "Bu ödemenin alındığı tarih."
-
-#: templates/CRM/Contribute/Form/AdditionalPayment.tpl
-msgid "Net value of the payment (Total Amount minus Fee)."
-msgstr "Net ödeme değeri (Toplam Tutar eksi Ücret)."
 
 #: templates/CRM/Contribute/Form/AdditionalPayment.tpl
 msgid ""
@@ -3235,17 +3266,15 @@ msgstr "Hesap bilgileriniz ödemenizin doğrudan banka hesabınızdan alınması
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 msgid ""
-"Your transaction will not be completed until you click the\n"
-"            <strong>%1</strong>\n"
-"            button. Please click the button one time only."
-msgstr ""
+"Your transaction will not be completed until you click the "
+"<strong>%1</strong> button. Please click the button one time only."
+msgstr "İşleminiz <strong>%1</strong> düğmesine tıklayana kadar tamamlanmış olmayacak. Lütfen düğmeye yalnız bir kez tıklayın."
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 msgid ""
-"Your contribution will not be completed until you click the\n"
-"            <strong>%1</strong>\n"
-"            button. Please click the button one time only."
-msgstr ""
+"Your contribution will not be completed until you click the "
+"<strong>%1</strong> button. Please click the button one time only."
+msgstr "Katkınız <strong>%1</strong> düğmesine tıklayana kadar tamamlanmış olmayacak. Lütfen düğmeye yalnız bir kez tıklayın."
 
 #: templates/CRM/Contribute/Form/Contribution/Main.tpl
 msgid ""
@@ -4109,6 +4138,13 @@ msgstr "Bu katkı sayfasının, başlığını, mali türünü (bağış, kampan
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
+"This title will be displayed at the top of the page unless the frontend "
+"title field is filled out.<br />Please use only alphanumeric, spaces, "
+"hyphens and dashes for Title."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
+msgid ""
 "This title will be displayed at the top of the page.<br />Please use only "
 "alphanumeric, spaces, hyphens and dashes for Title."
 msgstr "Bu başlık sayfanın üst bölümünde görüntülenir.<br />Lütfen başlık için yalnız alfasayısal, boşluk ve tire karakterlerini kullanın."
@@ -4714,14 +4750,6 @@ msgid ""
 "records which use this option."
 msgstr "UYARI: Bu seçenek silinirse, bu seçeneği kullanan tüm katkı kayıtları kaybolacak."
 
-#: templates/CRM/Contribute/Form/Search/ContributionRecur.tpl
-msgid "Next Scheduled"
-msgstr "Sonraki Zamanlanmış"
-
-#: templates/CRM/Contribute/Form/Search/ContributionRecur.tpl
-msgid "Retry Date"
-msgstr "Yineleme Tarihi"
-
 #: templates/CRM/Contribute/Form/Search/EmptyResults.tpl
 msgid "if you are searching by contributor name, check your spelling"
 msgstr "Katkıda bulunan kişi adına göre arıyorsanız, yazdığını ifadeyi denetleyin"
@@ -4756,6 +4784,13 @@ msgid ""
 "operation cannot be undone and will delete all transactions and activity "
 "associated with these contributions."
 msgstr "Seçilmiş katkı kayıtlarını silmek istediğinize emin misiniz? Silme işlemi geri alınamaz ve bu katkı kayıtları ile ilişkili tüm hareket ve işlemler de silinir."
+
+#: templates/CRM/Contribute/Form/Task/Invoice.hlp
+msgid ""
+"You can use your favorite editor to create content on your local computer "
+"and then <strong>Upload</strong> the files. OR you can "
+"<strong>Compose</strong> content directly on the screen."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/Task/Invoice.hlp
 msgid ""
@@ -5148,6 +5183,10 @@ msgid ""
 "No contribution pages have been created yet. Click <a accesskey=\"N\" "
 "href='%1'>here</a> to create a new contribution page."
 msgstr "Henüz bir katkı sayfası oluşturulmamış. <a accesskey=\"N\" href='%1'>Buraya tıklayarak oluşturabilirsiniz</a>."
+
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "Cancel Reason"
+msgstr "İptal Nedeni"
 
 #: templates/CRM/Contribute/Page/ContributionRecur.tpl
 msgid "Next Contribution"
@@ -5663,6 +5702,11 @@ msgid "Contribution Invoice"
 msgstr "Katkı Faturası"
 
 #: xml/templates/message_templates/contribution_offline_receipt_html.tpl
+#: xml/templates/message_templates/contribution_offline_receipt_text.tpl
+msgid "Below you will find a receipt for this contribution."
+msgstr ""
+
+#: xml/templates/message_templates/contribution_offline_receipt_html.tpl
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
 msgid " Amount before Tax : "
 msgstr "Vergi Hariç Tutar:"
@@ -5817,10 +5861,8 @@ msgstr "Yinelenen katkıda bulunduğunuz dönem sona erdi."
 
 #: xml/templates/message_templates/contribution_recurring_notify_html.tpl
 #: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid ""
-"You have successfully completed %1 recurring contributions. Thank you for "
-"your support."
-msgstr "%1 yinelenen katkıda bulundunuz. Desteğiniz için teşekkürler."
+msgid "You have successfully completed %1 recurring contributions. Thank you."
+msgstr ""
 
 #: xml/templates/message_templates/contribution_recurring_notify_html.tpl
 #: xml/templates/message_templates/contribution_recurring_notify_text.tpl
@@ -5841,6 +5883,57 @@ msgid ""
 "this web page</a>."
 msgstr "Otomatik olarak yinelenen bu katkıyı iptal etmek için <a href=\"%1\">web sayfamızı</a> ziyaret edin."
 
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
+msgid ""
+"A refund has been issued based on changes in your registration selections."
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
+msgid "Below you will find a receipt for this payment."
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+msgid "Thank you for completing this contribution."
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
+msgid "This Refund Amount"
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
+msgid "This Payment Amount"
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
+msgid "Contribution Details"
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
+msgid "Total Fee"
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+msgid "Expires:"
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_subject.tpl
+msgid "Refund Notification"
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_subject.tpl
+msgid "Payment Receipt"
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
+msgid "Thank you for completing this payment."
+msgstr ""
+
 #: xml/templates/message_templates/test_preview_html.tpl
 #: xml/templates/message_templates/test_preview_text.tpl
 msgid "Test-drive Email / Receipt"
@@ -5851,116 +5944,3 @@ msgstr "Deneme Sürüşü - E-posta / Alındı"
 msgid ""
 "This is a test-drive email. No live financial transaction has occurred."
 msgstr "Bu e-posta deneme amacıyla gönderilmiştir. Herhangi bir işlem yapılmadı."
-
-#: CRM/Contribute/Form/ContributionRecur.php
-msgid ""
-"There is no valid processor for this subscription so it cannot be updated"
-msgstr ""
-
-#: CRM/Contribute/BAO/Contribution.php
-msgid "Membership for %1 has been Cancelled."
-msgstr "%1 üyeliği iptal edildi."
-
-#: CRM/Contribute/BAO/Contribution.php
-msgid "Membership for %1 has been Expired."
-msgstr "%1 üyeliğinin süresi doldu."
-
-#: CRM/Contribute/BAO/Contribution.php
-msgid "Membership for %1 has been updated. The membership End Date is %2."
-msgstr "%1 üyeliği güncellendi. Üyelik bitiş tarihi %2."
-
-#: CRM/Contribute/DAO/Contribution.php
-msgid "Cancel Reason"
-msgstr "İptal Nedeni"
-
-#: CRM/Contribute/DAO/ContributionRecur.php
-msgid "Recurring Contribution Started Date"
-msgstr "Yinelenen Katkı Başlangıç Tarihi"
-
-#: CRM/Contribute/DAO/ContributionRecur.php
-msgid "Recurring Contribution Created Date"
-msgstr "Yinelenen Katkı Oluşturulma Tarihi"
-
-#: CRM/Contribute/DAO/ContributionRecur.php
-msgid "Recurring Contribution Modified Date"
-msgstr "Yinelenen Katkı Değişiklik Tarihi"
-
-#: CRM/Contribute/DAO/ContributionRecur.php
-#: templates/CRM/Contribute/Form/Search/ContributionRecur.tpl
-msgid "Recurring Contribution Status"
-msgstr "Yinelenen Katkı Durumu"
-
-#: CRM/Contribute/DAO/ContributionRecur.php
-msgid "Number of Cycle Day"
-msgstr "Yeniden Denenecek Gün Sayısı"
-
-#: CRM/Contribute/Form/AdditionalPayment.php
-msgid "notification"
-msgstr "bildirim"
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Click the <strong>%2</strong> button to go to %1, where you will select your"
-" payment method and complete the contribution."
-msgstr "%1 üzerinden ödeme yöntemini seçmek ve katkınızı tamamlamak için <strong>%2</strong> düğmesine tıklayın."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"To complete this transaction, click the <strong>%1</strong> button below."
-msgstr "Bu işlemi tamamlamak için aşağıdaki <strong>%1</strong> düğmesine tıklayın."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"To complete your contribution, click the <strong>%1</strong> button below."
-msgstr "Katkınızı tamamlamak için aşağıdaki <strong>%1</strong> düğmesine tıklayın."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Your transaction will not be completed until you click the "
-"<strong>%1</strong> button. Please click the button one time only."
-msgstr "İşleminiz <strong>%1</strong> düğmesine tıklayana kadar tamamlanmış olmayacak. Lütfen düğmeye yalnız bir kez tıklayın."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Your contribution will not be completed until you click the "
-"<strong>%1</strong> button. Please click the button one time only."
-msgstr "Katkınız <strong>%1</strong> düğmesine tıklayana kadar tamamlanmış olmayacak. Lütfen düğmeye yalnız bir kez tıklayın."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"Your contribution has been submitted to %1 for processing. Please print this"
-" page for your records."
-msgstr "Katkınız işlenmek için %1 üzerine gönderildi. Kayıtlarınızda bulunması için bu sayfayı yazdırmanız önerilir."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"Your transaction has been processed successfully. Please print this page for"
-" your records."
-msgstr "İşleminiz tamamlandı. Kayıtlarınızda bulunması için bu sayfayı yazdırmanız önerilir."
-
-#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
-msgid "'WARNING: This recurring contribution is linked to membership:"
-msgstr "'UYARI: Bu yinelenen katkı şu üyelik ile ilişkili:"
-
-#: templates/CRM/Contribute/Page/ContributionRecurPayments.tpl
-msgid "Recieved"
-msgstr "Alındı"
-
-#: templates/CRM/Contribute/Page/ContributionSoft.tpl
-msgid "Avg Soft Credits"
-msgstr "Ortalama Sanal Kredi"
-
-#: templates/CRM/Contribute/Page/ContributionSoft.tpl
-msgid "Total Cancelled Soft Credits"
-msgstr "Toplam İptal Edilen Sanal Kredi"
-
-#: xml/templates/message_templates/contribution_online_receipt_html.tpl
-msgid ""
-"This is a recurring contribution. You can cancel future contributions by <a "
-"href=\"%1\">visiting this web page</a>."
-msgstr "Bu katkı otomatik olarak yineleniyor. Gelecek katkıları ve otomatik yineleme seçeneğini iptal etmek için <a href=\"%1\">web sayfamızı</a> ziyaret edin."
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid ""
-"This is a recurring contribution. You can cancel future contributions at:"
-msgstr "Bu katkı otomatik olarak yineleniyor. Gelecek katkıları ve otomatik yineleme seçeneğini şuradan iptal edebilirsiniz:"
