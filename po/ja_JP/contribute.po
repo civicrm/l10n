@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2019-06-06 12:32-0400\n"
-"PO-Revision-Date: 2019-06-07 00:37+0000\n"
+"POT-Creation-Date: 2020-01-21 16:29-0500\n"
+"PO-Revision-Date: 2020-01-21 21:44+0000\n"
 "Last-Translator: Mathieu Lu <mathieu@bidon.ca>\n"
 "Language-Team: Japanese (http://www.transifex.com/civicrm/civicrm/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -40,6 +40,12 @@ msgstr "取引は既に処理されています。"
 #: CRM/Contribute/BAO/Contribution/Utils.php
 msgid "ContributionProcessor: %1 API"
 msgstr "支援プロセッサ : API %1"
+
+#: CRM/Contribute/BAO/Contribution.php
+msgid ""
+"Duplicate error - existing contribution record(s) have a matching "
+"Transaction ID or Invoice ID. Contribution record ID(s) are: %1"
+msgstr ""
 
 #: CRM/Contribute/BAO/Contribution.php
 msgid "- Contribution Fields -"
@@ -156,27 +162,6 @@ msgstr ""
 msgid "Recurring contributions with at least one payment"
 msgstr ""
 
-#: CRM/Contribute/BAO/ContributionRecur.php
-msgid "Recurring Contribution Start Date"
-msgstr "定期的な支援開始日"
-
-#: CRM/Contribute/BAO/ContributionRecur.php
-msgid "Next Scheduled Recurring Contribution"
-msgstr "次回の予定された定期的な支援"
-
-#: CRM/Contribute/BAO/ContributionRecur.php
-msgid "Recurring Contribution Cancel Date"
-msgstr "定期的な支援のキャンセル日"
-
-#: CRM/Contribute/BAO/ContributionRecur.php
-#: CRM/Contribute/DAO/ContributionRecur.php
-msgid "Recurring Contribution End Date"
-msgstr "定期的な支援終了日"
-
-#: CRM/Contribute/BAO/ContributionRecur.php
-msgid "Failed Recurring Contribution Retry Date"
-msgstr "失敗した定期的な支援の再試行日"
-
 #: CRM/Contribute/BAO/ContributionSoft.php
 msgid "View related contribution"
 msgstr "関連する支援を見る"
@@ -184,12 +169,6 @@ msgstr "関連する支援を見る"
 #: CRM/Contribute/BAO/Premium.php
 msgid "Selected Option"
 msgstr "選択されたオプション"
-
-#: CRM/Contribute/BAO/Query.php
-msgid ""
-"The contribution type criteria is now obsolete, please update your smart "
-"group"
-msgstr "支援タイプの基準は廃止されたので、スマートグループを更新してください。"
 
 #: CRM/Contribute/BAO/Query.php
 msgid "Contribution Thank-you Sent"
@@ -278,12 +257,6 @@ msgstr ""
 #: CRM/Contribute/BAO/Query.php
 msgid "Card Number %1 %2"
 msgstr ""
-
-#: CRM/Contribute/BAO/Query.php
-msgid ""
-"We did not recognize the search field: %1. Please check and fix your "
-"contribution related smart groups."
-msgstr "検索フィールドを認識していません : %1 支援に関連するスマートグループを確認して修正してください。"
 
 #: CRM/Contribute/BAO/Query.php
 msgid "Currency Type"
@@ -471,6 +444,14 @@ msgstr ""
 
 #: CRM/Contribute/DAO/Contribution.php
 msgid "Stores the date when revenue should be recognized."
+msgstr ""
+
+#: CRM/Contribute/DAO/Contribution.php
+msgid "Is a Template Contribution"
+msgstr ""
+
+#: CRM/Contribute/DAO/Contribution.php
+msgid "Shows this is a template for recurring contributions."
 msgstr ""
 
 #: CRM/Contribute/DAO/ContributionPage.php CRM/Contribute/DAO/Widget.php
@@ -753,6 +734,10 @@ msgstr ""
 msgid "if true - billing block is required for online contribution page"
 msgstr ""
 
+#: CRM/Contribute/DAO/ContributionPage.php
+msgid "Contribution Page Public title"
+msgstr ""
+
 #: CRM/Contribute/DAO/ContributionProduct.php
 msgid "Contribution Product ID"
 msgstr ""
@@ -767,6 +752,11 @@ msgstr "製品オプション"
 
 #: CRM/Contribute/DAO/ContributionProduct.php
 msgid "Option value selected if applicable - e.g. color, size etc."
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionProduct.php
+#: xml/templates/message_templates/contribution_invoice_receipt_html.tpl
+msgid "Quantity"
 msgstr ""
 
 #: CRM/Contribute/DAO/ContributionProduct.php
@@ -839,7 +829,15 @@ msgid "The date the first scheduled recurring contribution occurs."
 msgstr ""
 
 #: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Start Date"
+msgstr "定期的な支援開始日"
+
+#: CRM/Contribute/DAO/ContributionRecur.php
 msgid "When this recurring contribution record was created."
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Create Date"
 msgstr ""
 
 #: CRM/Contribute/DAO/ContributionRecur.php
@@ -849,10 +847,18 @@ msgid ""
 msgstr ""
 
 #: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Modified Date"
+msgstr "定期的な支援が修正された日付"
+
+#: CRM/Contribute/DAO/ContributionRecur.php
 msgid ""
 "Date this recurring contribution was cancelled by contributor- if we can get"
 " access to it"
 msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Cancel Date"
+msgstr "定期的な支援のキャンセル日"
 
 #: CRM/Contribute/DAO/ContributionRecur.php
 msgid "Cancellation Reason"
@@ -861,6 +867,14 @@ msgstr ""
 #: CRM/Contribute/DAO/ContributionRecur.php
 msgid "Free text field for a reason for cancelling"
 msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution Cancel Reason"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Recurring Contribution End Date"
+msgstr "定期的な支援終了日"
 
 #: CRM/Contribute/DAO/ContributionRecur.php
 msgid "Date this recurring contribution finished successfully"
@@ -894,6 +908,10 @@ msgid "Next scheduled date"
 msgstr ""
 
 #: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Next Scheduled Recurring Contribution"
+msgstr "次回の予定された定期的な支援"
+
+#: CRM/Contribute/DAO/ContributionRecur.php
 msgid "Number of Failures"
 msgstr "失敗数"
 
@@ -910,6 +928,10 @@ msgstr "失敗した日付を再試行"
 #: CRM/Contribute/DAO/ContributionRecur.php
 msgid "Date to retry failed attempt"
 msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "Failed Recurring Contribution Retry Date"
+msgstr "失敗した定期的な支援の再試行日"
 
 #: CRM/Contribute/DAO/ContributionRecur.php
 msgid ""
@@ -1369,22 +1391,12 @@ msgid "Refund Date"
 msgstr "払い戻し日"
 
 #: CRM/Contribute/Form/AdditionalPayment.php
-msgid "Please enter a valid monetary value for Net Amount."
-msgstr "正味金額を入力してください。"
-
-#: CRM/Contribute/Form/AdditionalPayment.php
 msgid "Payment amount cannot be greater than owed amount"
 msgstr "支払い金額は、支払う必要のある金額を超えることはできません"
 
 #: CRM/Contribute/Form/AdditionalPayment.php
 msgid "Refund amount must equal refund due amount."
 msgstr "払い戻し額は返金額に等しくなければなりません。"
-
-#: CRM/Contribute/Form/AdditionalPayment.php
-msgid ""
-"Net amount should be equal to the difference between payment amount and fee "
-"amount."
-msgstr "正味金額は、支払い額と料金金額との間の差に等しくなる必要があります。"
 
 #: CRM/Contribute/Form/AdditionalPayment.php
 msgid "Payment method is a required field"
@@ -1409,17 +1421,17 @@ msgid "The recurring contribution looks to have been cancelled already."
 msgstr "この定期的な支援は既にキャンセルされているようです。"
 
 #: CRM/Contribute/Form/CancelSubscription.php
-msgid "You do not have permission to cancel this recurring contribution."
-msgstr "この定期的な支援をキャンセルする権限がありません。"
-
-#: CRM/Contribute/Form/CancelSubscription.php
-msgid "Send cancellation request to %1 ?"
-msgstr "キャンセル要求を %1 に送信しますか？"
+msgid "Send cancellation request?"
+msgstr ""
 
 #: CRM/Contribute/Form/CancelSubscription.php
 #: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Notify Contributor?"
 msgstr "支援者に通知しますか？"
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Send cancellation request to %1 ?"
+msgstr "キャンセル要求を %1 に送信しますか？"
 
 #: CRM/Contribute/Form/CancelSubscription.php
 msgid "Cancel Automatic Membership Renewal"
@@ -1524,6 +1536,12 @@ msgstr "支援金額は最低 %1 です"
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid "Contribution amount cannot be more than %1."
 msgstr "支援金額は %1 より小さくなくてはなりません。"
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid ""
+"Your %1 membership was previously cancelled and can not be renewed online. "
+"Please contact the site administrator for assistance."
+msgstr ""
 
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid "Additional Contribution is required."
@@ -1690,6 +1708,14 @@ msgstr ""
 #: CRM/Contribute/Form/ContributionBase.php
 msgid "Membership Invalid"
 msgstr "会員の無効"
+
+#: CRM/Contribute/Form/ContributionBase.php
+msgid "The page you requested has past its end date on %1"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionBase.php
+msgid "The page you requested will be active from %1"
+msgstr ""
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid ""
@@ -2215,6 +2241,15 @@ msgstr "ページのプレビュー - %1"
 msgid "Delete Page - %1"
 msgstr "ページの削除 - %1"
 
+#: CRM/Contribute/Form/ContributionRecur.php
+msgid ""
+"There is no valid processor for this subscription so it cannot be updated"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionRecur.php
+msgid "You do not have permission to cancel this recurring contribution."
+msgstr "この定期的な支援をキャンセルする権限がありません。"
+
 #: CRM/Contribute/Form/ContributionView.php
 msgid "View Contribution from"
 msgstr "支援を表示"
@@ -2345,6 +2380,10 @@ msgid "The product has been configured to use a default image."
 msgstr ""
 
 #: CRM/Contribute/Form/Search.php
+msgid "Contributor Name or Email"
+msgstr ""
+
+#: CRM/Contribute/Form/Search.php
 msgid "Contributor Contact Type"
 msgstr ""
 
@@ -2422,8 +2461,9 @@ msgstr[0] "%count の支援を削除しました。"
 
 #: CRM/Contribute/Form/Task/Invoice.php
 msgid ""
-"Please select only contributions with Completed, Pending, Refunded status."
-msgstr "完了、保留中、払い戻しのステータスを持つ支援のみ選択してください。"
+"Please select only contributions with Completed, Pending, Refunded, or "
+"Partially Paid status."
+msgstr ""
 
 #: CRM/Contribute/Form/Task/Invoice.php
 #: templates/CRM/Contribute/Form/ContributionView.tpl
@@ -2654,10 +2694,6 @@ msgid "Status Updated"
 msgstr "ステータスを更新"
 
 #: CRM/Contribute/Form/UpdateBilling.php
-msgid "You do not have permission to cancel subscription."
-msgstr "加入をキャンセルする権限がありません。"
-
-#: CRM/Contribute/Form/UpdateBilling.php
 msgid "%1 processor doesn't support updating subscription billing details."
 msgstr "%1 プロセッサでは、加入課金詳細の更新をすることはできません。"
 
@@ -2685,17 +2721,8 @@ msgid "Update Error"
 msgstr "更新エラー"
 
 #: CRM/Contribute/Form/UpdateSubscription.php
-msgid ""
-"There is no valid processor for this subscription so it cannot be edited."
-msgstr ""
-
-#: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Required information missing."
 msgstr ""
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "You do not have permission to update subscription."
-msgstr "加入の更新をする権限がありません。"
 
 #: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Recurring Contribution Amount"
@@ -2752,14 +2779,14 @@ msgid "Load Mapping"
 msgstr "マッピングをロード"
 
 #: CRM/Contribute/Import/Form/MapField.php
-msgid "Missing required fields: Soft Credit"
-msgstr "必須フィールドがありません : ソフトクレジット"
-
-#: CRM/Contribute/Import/Form/MapField.php
 msgid ""
 "Invoice ID or Transaction ID or Contribution ID are required to match to the"
 " existing contribution records in Update mode."
 msgstr "更新モードで既存の支援レコードと一致させるには、請求書ID、取引ID、支援ID のいずれかが必要です。"
+
+#: CRM/Contribute/Import/Form/MapField.php
+msgid "Missing required fields: Soft Credit"
+msgstr "必須フィールドがありません : ソフトクレジット"
 
 #: CRM/Contribute/Import/Form/MapField.php
 msgid ""
@@ -2777,6 +2804,10 @@ msgstr ""
 
 #: CRM/Contribute/Import/Parser/Contribution.php
 msgid "Thankyou Date"
+msgstr ""
+
+#: CRM/Contribute/Import/Parser/Contribution.php
+msgid "Soft Credit %1 - %2 doesn't exist. Row was skipped."
 msgstr ""
 
 #: CRM/Contribute/Import/Parser.php
@@ -3103,22 +3134,22 @@ msgid "Automatically email a receipt to %1?"
 msgstr "自動的に %1 の受領書をメールで送信しますか？"
 
 #: templates/CRM/Contribute/Form/AdditionalPayment.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Refund Details"
 msgstr "払い戻しの詳細"
 
 #: templates/CRM/Contribute/Form/AdditionalPayment.tpl
 #: templates/CRM/Contribute/Form/Contribution.tpl
 #: templates/CRM/Contribute/Form/ContributionView.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Payment Details"
 msgstr "支払いの詳細"
 
 #: templates/CRM/Contribute/Form/AdditionalPayment.tpl
 msgid "The date this payment was received."
 msgstr "この支払いを受信した日付"
-
-#: templates/CRM/Contribute/Form/AdditionalPayment.tpl
-msgid "Net value of the payment (Total Amount minus Fee)."
-msgstr "支払いの正味値 (総額を引いた料金) になります。"
 
 #: templates/CRM/Contribute/Form/AdditionalPayment.tpl
 msgid ""
@@ -3234,17 +3265,15 @@ msgstr "銀行口座からの引き落としにあなたの口座データを使
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 msgid ""
-"Your transaction will not be completed until you click the\n"
-"            <strong>%1</strong>\n"
-"            button. Please click the button one time only."
-msgstr ""
+"Your transaction will not be completed until you click the "
+"<strong>%1</strong> button. Please click the button one time only."
+msgstr "<strong>%1</strong>ボタンをクリックするまで、取引処理は完了しません。ボタンは 1 回だけクリックしてください。"
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 msgid ""
-"Your contribution will not be completed until you click the\n"
-"            <strong>%1</strong>\n"
-"            button. Please click the button one time only."
-msgstr ""
+"Your contribution will not be completed until you click the "
+"<strong>%1</strong> button. Please click the button one time only."
+msgstr "<strong>%1</strong>ボタンをクリックするまで、支援は完了しません。ボタンは 1 回だけクリックしてください。"
 
 #: templates/CRM/Contribute/Form/Contribution/Main.tpl
 msgid ""
@@ -4108,6 +4137,13 @@ msgstr "このフォームを使ってこのオンライン支援ページのペ
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
+"This title will be displayed at the top of the page unless the frontend "
+"title field is filled out.<br />Please use only alphanumeric, spaces, "
+"hyphens and dashes for Title."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
+msgid ""
 "This title will be displayed at the top of the page.<br />Please use only "
 "alphanumeric, spaces, hyphens and dashes for Title."
 msgstr "このタイトルがページの先頭に表示されます。<br />タイトルには文字、数字、空白、ハイフン、ダッシュ以外の文字は使えません。"
@@ -4713,14 +4749,6 @@ msgid ""
 "records which use this option."
 msgstr "警告: このオプションを削除すると、このオプションを使用している支援レコードがすべて失われます。"
 
-#: templates/CRM/Contribute/Form/Search/ContributionRecur.tpl
-msgid "Next Scheduled"
-msgstr "次の予定"
-
-#: templates/CRM/Contribute/Form/Search/ContributionRecur.tpl
-msgid "Retry Date"
-msgstr "日付を再試行"
-
 #: templates/CRM/Contribute/Form/Search/EmptyResults.tpl
 msgid "if you are searching by contributor name, check your spelling"
 msgstr "支援者の名前を探しているのであれば、スペルをチェックしてください。"
@@ -4755,6 +4783,13 @@ msgid ""
 "operation cannot be undone and will delete all transactions and activity "
 "associated with these contributions."
 msgstr "選択した支援を削除しますか？この操作は取消しができません。またこの支援に関連づけられたすべての取引とアクティビティも削除されます。"
+
+#: templates/CRM/Contribute/Form/Task/Invoice.hlp
+msgid ""
+"You can use your favorite editor to create content on your local computer "
+"and then <strong>Upload</strong> the files. OR you can "
+"<strong>Compose</strong> content directly on the screen."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/Task/Invoice.hlp
 msgid ""
@@ -5144,6 +5179,10 @@ msgid ""
 "No contribution pages have been created yet. Click <a accesskey=\"N\" "
 "href='%1'>here</a> to create a new contribution page."
 msgstr "まだ支援ページは作成されていません。<a accesskey=\"N\" href='%1'>新しく作成</a>をクリックして新しい支援ページを作ることができます。"
+
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "Cancel Reason"
+msgstr "キャンセルの理由"
 
 #: templates/CRM/Contribute/Page/ContributionRecur.tpl
 msgid "Next Contribution"
@@ -5659,6 +5698,11 @@ msgid "Contribution Invoice"
 msgstr "支援の請求書"
 
 #: xml/templates/message_templates/contribution_offline_receipt_html.tpl
+#: xml/templates/message_templates/contribution_offline_receipt_text.tpl
+msgid "Below you will find a receipt for this contribution."
+msgstr ""
+
+#: xml/templates/message_templates/contribution_offline_receipt_html.tpl
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
 msgid " Amount before Tax : "
 msgstr "税引前額 : "
@@ -5813,10 +5857,8 @@ msgstr "定期的な支援の期間が終了しました。"
 
 #: xml/templates/message_templates/contribution_recurring_notify_html.tpl
 #: xml/templates/message_templates/contribution_recurring_notify_text.tpl
-msgid ""
-"You have successfully completed %1 recurring contributions. Thank you for "
-"your support."
-msgstr "%1 回の定期的な支援を完了しました。ご支援頂ききありがとうございます。"
+msgid "You have successfully completed %1 recurring contributions. Thank you."
+msgstr ""
 
 #: xml/templates/message_templates/contribution_recurring_notify_html.tpl
 #: xml/templates/message_templates/contribution_recurring_notify_text.tpl
@@ -5837,6 +5879,57 @@ msgid ""
 "this web page</a>."
 msgstr "定期的な支援オプションは<a href=\"%1\">このウェブページ</a>でキャンセルすることができます。"
 
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
+msgid ""
+"A refund has been issued based on changes in your registration selections."
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
+msgid "Below you will find a receipt for this payment."
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+msgid "Thank you for completing this contribution."
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
+msgid "This Refund Amount"
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
+msgid "This Payment Amount"
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
+msgid "Contribution Details"
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
+msgid "Total Fee"
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
+msgid "Expires:"
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_subject.tpl
+msgid "Refund Notification"
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_subject.tpl
+msgid "Payment Receipt"
+msgstr ""
+
+#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
+msgid "Thank you for completing this payment."
+msgstr ""
+
 #: xml/templates/message_templates/test_preview_html.tpl
 #: xml/templates/message_templates/test_preview_text.tpl
 msgid "Test-drive Email / Receipt"
@@ -5847,116 +5940,3 @@ msgstr "テストドライブ メール / 受領書"
 msgid ""
 "This is a test-drive email. No live financial transaction has occurred."
 msgstr "これはテスト用のメールです。実際の金銭取引は発生しません。"
-
-#: CRM/Contribute/Form/ContributionRecur.php
-msgid ""
-"There is no valid processor for this subscription so it cannot be updated"
-msgstr ""
-
-#: CRM/Contribute/BAO/Contribution.php
-msgid "Membership for %1 has been Cancelled."
-msgstr "%1 の会員をキャンセルしました。"
-
-#: CRM/Contribute/BAO/Contribution.php
-msgid "Membership for %1 has been Expired."
-msgstr "%1 の会員は期限切れで失効しました。"
-
-#: CRM/Contribute/BAO/Contribution.php
-msgid "Membership for %1 has been updated. The membership End Date is %2."
-msgstr "%1 の会員を更新しました。新しい会員の終了日は %2 です。"
-
-#: CRM/Contribute/DAO/Contribution.php
-msgid "Cancel Reason"
-msgstr "キャンセルの理由"
-
-#: CRM/Contribute/DAO/ContributionRecur.php
-msgid "Recurring Contribution Started Date"
-msgstr "定期的な支援が開始された日付"
-
-#: CRM/Contribute/DAO/ContributionRecur.php
-msgid "Recurring Contribution Created Date"
-msgstr "定期的な支援が作成された日付"
-
-#: CRM/Contribute/DAO/ContributionRecur.php
-msgid "Recurring Contribution Modified Date"
-msgstr "定期的な支援が修正された日付"
-
-#: CRM/Contribute/DAO/ContributionRecur.php
-#: templates/CRM/Contribute/Form/Search/ContributionRecur.tpl
-msgid "Recurring Contribution Status"
-msgstr "定期的な支援のステータス"
-
-#: CRM/Contribute/DAO/ContributionRecur.php
-msgid "Number of Cycle Day"
-msgstr "サイクル日数"
-
-#: CRM/Contribute/Form/AdditionalPayment.php
-msgid "notification"
-msgstr "通知"
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Click the <strong>%2</strong> button to go to %1, where you will select your"
-" payment method and complete the contribution."
-msgstr "<strong>%2</strong>ボタンをクリックすると %1 に移動します。ここでは支払い方法を選択し、支援を完了させてください。"
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"To complete this transaction, click the <strong>%1</strong> button below."
-msgstr "この処理を完了するには、下の<strong>%1</strong>ボタンをクリックしてください。"
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"To complete your contribution, click the <strong>%1</strong> button below."
-msgstr "支援を完了するには、下の<strong>%1</strong>ボタンをクリックしてください。"
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Your transaction will not be completed until you click the "
-"<strong>%1</strong> button. Please click the button one time only."
-msgstr "<strong>%1</strong>ボタンをクリックするまで、取引処理は完了しません。ボタンは 1 回だけクリックしてください。"
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Your contribution will not be completed until you click the "
-"<strong>%1</strong> button. Please click the button one time only."
-msgstr "<strong>%1</strong>ボタンをクリックするまで、支援は完了しません。ボタンは 1 回だけクリックしてください。"
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"Your contribution has been submitted to %1 for processing. Please print this"
-" page for your records."
-msgstr "処理のために支援を %1 に送信しました。記録のためにこのページを印刷しておいてください。"
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"Your transaction has been processed successfully. Please print this page for"
-" your records."
-msgstr "手続きが正常に処理されました。記録のために、このページを印刷しておいてください。"
-
-#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
-msgid "'WARNING: This recurring contribution is linked to membership:"
-msgstr ""
-
-#: templates/CRM/Contribute/Page/ContributionRecurPayments.tpl
-msgid "Recieved"
-msgstr ""
-
-#: templates/CRM/Contribute/Page/ContributionSoft.tpl
-msgid "Avg Soft Credits"
-msgstr "ソフトクレジット平均"
-
-#: templates/CRM/Contribute/Page/ContributionSoft.tpl
-msgid "Total Cancelled Soft Credits"
-msgstr ""
-
-#: xml/templates/message_templates/contribution_online_receipt_html.tpl
-msgid ""
-"This is a recurring contribution. You can cancel future contributions by <a "
-"href=\"%1\">visiting this web page</a>."
-msgstr "定期的な支援です。 <a href=\"%1\">このウェブページ</a>で、今後の支援をキャンセルすることができます>."
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid ""
-"This is a recurring contribution. You can cancel future contributions at:"
-msgstr "定期的な支援です。次のページで、今後の支援をキャンセルすることができます :"
