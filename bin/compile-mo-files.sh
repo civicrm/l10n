@@ -74,6 +74,13 @@ else
       cp workdir/mo/$i/civicrm.mo workdir/l10n/$i/LC_MESSAGES/
     done
 
+    # dev/translation#1 If there is settings.default.json for this language stored copy it across to be included in the l10n zip file.
+    for i in ($cat conf/distributed_languages.txt); do
+      if [ -d "$home/l10n/settings/$i" ]; then
+        cp $home/l10n/settings/$i/settings.default.json workdir/l10n/$i/
+      fi
+    done
+
     pushd workdir
     mkdir -p $WORKSPACE/publish/archives
     tar cfz $WORKSPACE/publish/archives/civicrm-l10n-daily.tar.gz l10n
