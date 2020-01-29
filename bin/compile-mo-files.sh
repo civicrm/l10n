@@ -76,7 +76,7 @@ else
 
     # dev/translation#1 If there is settings.default.json for this language stored copy it across to be included in the l10n zip file.
     for i in $(cat conf/distributed_languages.txt); do
-      if [ -d "$home/l10n/settings/$i" ]; then
+      if [ -d "$home/l10n/civicrm-l10n-core/settings/$i" ]; then
         cp $home/l10n/civicrm-l10n-core/settings/$i/settings.default.json workdir/l10n/$i/
       fi
     done
