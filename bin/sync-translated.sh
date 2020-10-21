@@ -20,7 +20,7 @@ EOT
 
 echo "porting from $1 to $2"
 
-pots=`for pot in po/pot/*.pot; do basename $pot .pot; done`
+pots=`for pot in po/$1/*.po; do basename $pot .po; done`
 for pot in $pots; do
   echo $pot
   msgcat --use-first po/$2/$pot.po po/$1/$pot.po | sponge po/$2/$pot.po
