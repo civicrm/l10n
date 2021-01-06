@@ -10,7 +10,7 @@ build-unified-pots.sh - builds .pot files for the last 3 versions of CiviCRM.
 Usage:
 
 - Prepare a CiviCRM checkout that also has all of the sub-repositories, ex:
-  /path/to/repositories/civicrm/{drupal,joomla,wordpress,packages}
+  /path/to/repositories/civicrm/{joomla,wordpress,packages}
   where the 'civicrm' directory corresponds to civicrm-core.git.
 
 - Make sure your repository is up to date (git fetch --all).
@@ -70,12 +70,14 @@ for rel in $releases; do
   git checkout $rel
   git archive $rel | tar -xC $temp/$rel
 
-  echo "Copying $root/drupal (7.x-$rel) to $temp/$rel/drupal ..."
-  mkdir -p $temp/$rel/drupal
-  cd $root/drupal
-  git fetch
-  git checkout 7.x-$rel
-  git archive 7.x-$rel | tar -xC $temp/$rel/drupal
+# Dropped because it is not really used (translations use 't' instead of 'ts')
+# and Drupal7 is heading for EOL (i.e. we're not going to fix it).
+#   echo "Copying $root/drupal (7.x-$rel) to $temp/$rel/drupal ..."
+#   mkdir -p $temp/$rel/drupal
+#   cd $root/drupal
+#   git fetch
+#   git checkout 7.x-$rel
+#   git archive 7.x-$rel | tar -xC $temp/$rel/drupal
 
   if [ -d $root/joomla ]; then
     echo "Copying $root/joomla ($rel) to $temp/$rel/joomla ..."
