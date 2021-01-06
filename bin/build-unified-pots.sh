@@ -46,7 +46,6 @@ EOT
 root="$1"
 potdir="$2"
 releases=`echo "$3" | tr ' ' '\n'`
-lts=""
 
 temp=`mktemp -d`
 
