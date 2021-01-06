@@ -31,7 +31,7 @@ of CiviCRM. For example, as of 4.6, this means the po files will be compatible
 with CiviCRM 4.6, 4.5 and 4.4.
 
 For more information:
-http://wiki.civicrm.org/confluence/display/CRMDOC/Pushing+new+strings+to+Transifex
+https://lab.civicrm.org/dev/translation/-/wikis/Pushing-new-strings-to-transifex
 EOT
 
   exit 1;
