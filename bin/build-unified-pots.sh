@@ -21,8 +21,20 @@ Usage:
   or, for master:
     $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot '4.6 master' 2>&1 | tee pots.log
 
-- Use diff-check.php to see if the changes make sense. For example:
-    $ git diff -U2000 --patience po/pot/admin.pot | ./bin/diff-check.php
+- Use diff-check.php to see if the changes make sense. Spot-check new strings
+  and make sure few strings were removed (strings may be moved to civicrm-common,
+  but there should not be a huge amount of strings removed).
+
+  For example:
+
+  To display strings added or removed:
+    $ ./bin/diff-check.php | less
+
+  To display a summary per file:
+    $ ./bin/diff-check.php | grep -E '^(\# FILE|Removed|Added|Unchanged)'
+
+  To view a total summary:
+    $ ./bin/diff-check.php | grep -E '^(Removed|Added|Unchanged)' | awk '{foo[$1] += $2} END {for (f in foo) {print f, foo[f]}}'
 
 - Push the new strings to Transifex.
 
@@ -175,7 +187,9 @@ You are strongly encouraged to use the "patience" algorightm otherwise
 the diffs will seem bigger than they actually are:
 
     $ git status
-    $ git diff --patience | ./bin/diff-check.php
+    $ ./bin/diff-check.php | less
+    $ ./bin/diff-check.php | grep -E '^(\# FILE|Removed|Added|Unchanged)'
+    $ ./bin/diff-check.php | grep -E '^(Removed|Added|Unchanged)' | awk '{foo[$1] += $2} END {for (f in foo) {print f, foo[f]}}'
 
 If it all looks good, commit the changes:
 
