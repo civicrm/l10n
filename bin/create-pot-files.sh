@@ -135,6 +135,7 @@ function build_raw_pot() {
         {CRM,templates/CRM}/{Relationship,SMS,Standalone,Tag,UF,Utils} \
         ang/crmApp* \
         ang/crmAttachment* \
+        ang/crmDashboard* \
         ang/crmUi* \
         xml/templates/civicrm_acl.tpl \
         xml/templates/civicrm_data.tpl \
