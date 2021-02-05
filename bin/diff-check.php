@@ -13,7 +13,6 @@ define('STATE_ADDING',   '+');
 define('STATE_REMOVING', '-');
 
 $state = STATE_NEUTRAL;
-$strings = [];
 $buffer = "";
 $counter = 0;
 
@@ -48,11 +47,11 @@ foreach ($dir as $fileinfo) {
     continue;
   }
 
-  $fname = 'po/pot/' . $fileinfo->getFilename();
+  $strings = [];
   $output = [];
+  $fname = 'po/pot/' . $fileinfo->getFilename();
 
   echo "\n# FILE: $fname\n";
-
   exec('git diff --patience -U$(wc -l ' . $fname . ') ' . $fname, $output);
 
   foreach ($output as $line) {
