@@ -49,9 +49,10 @@ foreach ($dir as $fileinfo) {
 
   $strings = [];
   $output = [];
-  $fname = 'po/pot/' . $fileinfo->getFilename();
+  $state = STATE_NEUTRAL;
+  $buffer = '';
 
-  echo "\n# FILE: $fname\n";
+  $fname = 'po/pot/' . $fileinfo->getFilename();
   exec('git diff --patience -U$(wc -l ' . $fname . ') ' . $fname, $output);
 
   foreach ($output as $line) {
@@ -188,27 +189,45 @@ foreach ($dir as $fileinfo) {
   $removed = 0;
   $unchanged = 0;
 
-  // Show removed strings
+  // To reduce the quantity of screen output, we first calculate the stats,
+  // then display the added/removed strings.
   foreach ($strings as $key => $val) {
     if ($val < 0) {
       $removed++;
-      echo "REMOVED: " . $key . "\n";
     }
     elseif ($val == 0) {
-      // Count unchanged
       $unchanged++;
     }
-  }
-
-  // Show added strings
-  foreach ($strings as $key => $val) {
-    if ($val > 0) {
+    else {
       $added++;
-      echo "ADDED: " . $key . "\n";
     }
   }
 
-  echo "Added: $added\n";
-  echo "Removed: $removed\n";
-  echo "Unchanged: $unchanged\n";
+  // This may be a bit pedantic, but if we want people to read it, it must be concise.
+  $stats = [];
+
+  if ($added) {
+    $stats[] = "+{$added}";
+  }
+  if ($removed) {
+    $stats[] = "-{$removed}";
+  }
+  if ($unchanged) {
+    $stats[] = "$unchanged unchanged";
+  }
+
+  echo "# $fname [" . implode(', ', $stats) . "]\n";
+
+  // Show removed strings first, then added strings (do not mix)
+  foreach ($strings as $key => $val) {
+    if ($val < 0) {
+      echo "- " . $key . "\n";
+    }
+  }
+
+  foreach ($strings as $key => $val) {
+    if ($val > 0) {
+      echo "+ " . $key . "\n";
+    }
+  }
 }
