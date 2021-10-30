@@ -188,8 +188,8 @@ the diffs will seem bigger than they actually are:
 
     $ git status
     $ ./bin/diff-check.php | less
-    $ ./bin/diff-check.php | grep -E '^(\# FILE|Removed|Added|Unchanged)'
-    $ ./bin/diff-check.php | grep -E '^(Removed|Added|Unchanged)' | awk '{foo[$1] += $2} END {for (f in foo) {print f, foo[f]}}'
+    $ ./bin/diff-check.php | grep -E '^\# .*(removed|added|unchanged)'
+    $ ./bin/diff-check.php | grep -E '^\# .*(removed|added|unchanged)' | awk '{foo[$1] += $2} END {for (f in foo) {print f, foo[f]}}'
 
 If it all looks good, commit the changes:
 
