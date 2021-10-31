@@ -12,9 +12,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2021-02-05 10:11-0500\n"
-"PO-Revision-Date: 2021-02-07 15:55+0000\n"
-"Last-Translator: Zoltán Reizinger <zreizinger@hdsnet.hu>\n"
+"POT-Creation-Date: 2021-10-30 09:41-0400\n"
+"PO-Revision-Date: 2021-10-30 13:54+0000\n"
+"Last-Translator: Mathieu Lu <mathieu@bidon.ca>\n"
 "Language-Team: Hungarian (http://www.transifex.com/civicrm/civicrm/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -102,19 +102,28 @@ msgstr "Keresés"
 msgid "All"
 msgstr "Összes"
 
-#: CRM/ACL/BAO/EntityRole.php CRM/Contact/ActionMapping.php
-#: CRM/Contact/DAO/Contact.php CRM/Contact/Form/Relationship.php
-#: CRM/Contact/Form/Task/Map.php CRM/Core/DAO/Website.php
+#: CRM/ACL/BAO/ACLEntityRole.php CRM/ACL/DAO/ACLCache.php
+#: CRM/Activity/DAO/ActivityContact.php CRM/Contact/ActionMapping.php
+#: CRM/Contact/DAO/ACLContactCache.php CRM/Contact/DAO/Contact.php
+#: CRM/Contact/DAO/DashboardContact.php CRM/Contact/DAO/GroupContact.php
+#: CRM/Contact/DAO/GroupContactCache.php
+#: CRM/Contact/DAO/SubscriptionHistory.php CRM/Contact/Form/Relationship.php
+#: CRM/Contact/Form/Task/Map.php CRM/Core/DAO/ActionLog.php
+#: CRM/Core/DAO/Address.php CRM/Core/DAO/Domain.php CRM/Core/DAO/Email.php
+#: CRM/Core/DAO/IM.php CRM/Core/DAO/OpenID.php CRM/Core/DAO/Phone.php
+#: CRM/Core/DAO/Setting.php CRM/Core/DAO/UFMatch.php CRM/Core/DAO/Website.php
 #: templates/CRM/Contact/Page/DedupeFind.tpl
 msgid "Contact"
 msgstr "Kapcsolat"
 
-#: CRM/ACL/BAO/EntityRole.php CRM/ACL/Form/ACL.php CRM/ACL/Page/ACL.php
+#: CRM/ACL/BAO/ACLEntityRole.php CRM/ACL/Form/ACL.php CRM/ACL/Page/ACL.php
 #: CRM/Contact/BAO/Contact.php CRM/Contact/DAO/Group.php
-#: CRM/Contact/DAO/GroupContactCache.php CRM/Contact/DAO/GroupOrganization.php
+#: CRM/Contact/DAO/GroupContact.php CRM/Contact/DAO/GroupContactCache.php
+#: CRM/Contact/DAO/GroupOrganization.php
 #: CRM/Contact/DAO/SubscriptionHistory.php
 #: CRM/Contact/Form/Search/Custom/PostalMailing.php
 #: CRM/Contact/Form/Search/Custom/Proximity.php CRM/Core/Block.php
+#: CRM/Core/DAO/ActionSchedule.php CRM/Dedupe/DAO/DedupeRule.php
 #: templates/CRM/Contact/Form/Task/AddToGroup.tpl
 #: templates/CRM/Contact/Form/Task/RemoveFromGroup.tpl
 #: templates/CRM/Contact/Page/View/ContactSmartGroup.tpl
@@ -127,15 +136,15 @@ msgstr "Csoport"
 msgid "ACLs"
 msgstr "Hozzáférési listák"
 
-#: CRM/ACL/DAO/ACL.php CRM/ACL/Form/ACL.php
+#: CRM/ACL/DAO/ACL.php CRM/ACL/DAO/ACLCache.php CRM/ACL/Form/ACL.php
 msgid "ACL"
 msgstr "hozzáférési lista"
 
-#: CRM/ACL/DAO/ACL.php
+#: CRM/ACL/DAO/ACL.php CRM/ACL/DAO/ACLCache.php
 msgid "ACL ID"
 msgstr "hozzáférési lista azonosító"
 
-#: CRM/ACL/DAO/ACL.php CRM/ACL/DAO/ACLCache.php CRM/ACL/DAO/EntityRole.php
+#: CRM/ACL/DAO/ACL.php CRM/ACL/DAO/ACLCache.php CRM/ACL/DAO/ACLEntityRole.php
 #: CRM/Core/DAO/Cache.php CRM/Core/DAO/UFField.php CRM/Core/DAO/UFGroup.php
 #: CRM/Core/DAO/UFJoin.php
 msgid "Unique table ID"
@@ -221,8 +230,9 @@ msgstr "Hozzáférés jogosultság lista vagy csoport jogmegadás/visszavonás a
 msgid "ACL Is Active?"
 msgstr "Hozzáférés lista aktív?"
 
-#: CRM/ACL/DAO/ACL.php CRM/ACL/DAO/EntityRole.php CRM/Core/DAO/CustomField.php
-#: CRM/Core/DAO/CustomGroup.php CRM/Core/DAO/LocationType.php
+#: CRM/ACL/DAO/ACL.php CRM/ACL/DAO/ACLEntityRole.php
+#: CRM/Core/DAO/CustomField.php CRM/Core/DAO/CustomGroup.php
+#: CRM/Core/DAO/LocationType.php
 msgid "Is this property active?"
 msgstr "Ez a tulajdonság aktív?"
 
@@ -238,17 +248,39 @@ msgstr "Hozzáférési lista gyorsítótár"
 msgid "Cache ID"
 msgstr "Gyorsítótár azonosítója."
 
-#: CRM/ACL/DAO/ACLCache.php
-msgid "Cache Contact"
-msgstr "Gyorsítótár kapcsolat"
+#: CRM/ACL/DAO/ACLCache.php CRM/Activity/DAO/ActivityContact.php
+#: CRM/Activity/Import/Form/MapField.php CRM/Contact/DAO/ACLContactCache.php
+#: CRM/Contact/DAO/Contact.php CRM/Contact/DAO/DashboardContact.php
+#: CRM/Contact/DAO/GroupContact.php CRM/Contact/DAO/GroupContactCache.php
+#: CRM/Contact/DAO/SubscriptionHistory.php
+#: CRM/Contact/Form/Search/Criteria.php
+#: CRM/Contact/Form/Search/Custom/ContribSYBNT.php
+#: CRM/Contact/Form/Search/Custom/ContributionAggregate.php
+#: CRM/Contact/Form/Search/Custom/DateAdded.php
+#: CRM/Contact/Form/Search/Custom/FullText.php
+#: CRM/Contact/Form/Search/Custom/Group.php
+#: CRM/Contact/Form/Search/Custom/MultipleValues.php
+#: CRM/Contact/Form/Search/Custom/PostalMailing.php
+#: CRM/Contact/Form/Search/Custom/PriceSet.php
+#: CRM/Contact/Form/Search/Custom/RandomSegment.php
+#: CRM/Contact/Form/Search/Custom/Sample.php
+#: CRM/Contact/Form/Search/Custom/TagContributions.php
+#: CRM/Contact/Form/Search/Custom/ZipCodeRange.php CRM/Contact/Selector.php
+#: CRM/Core/DAO/ActionLog.php CRM/Core/DAO/Address.php CRM/Core/DAO/Domain.php
+#: CRM/Core/DAO/Email.php CRM/Core/DAO/IM.php CRM/Core/DAO/OpenID.php
+#: CRM/Core/DAO/Phone.php CRM/Core/DAO/Setting.php CRM/Core/DAO/UFMatch.php
+#: CRM/Core/DAO/Website.php CRM/Core/SelectValues.php
+#: CRM/Custom/Import/Parser/Api.php CRM/Export/BAO/ExportProcessor.php
+#: templates/CRM/Contact/Form/Contact.hlp
+#: templates/CRM/Contact/Form/Contact.tpl
+#: templates/CRM/Contact/Page/Inline/Basic.tpl
+#: templates/CRM/common/contactFooter.tpl
+msgid "Contact ID"
+msgstr "Kapcsolat azonosító"
 
 #: CRM/ACL/DAO/ACLCache.php
 msgid "Foreign Key to Contact"
 msgstr "FK a Kapcsolathoz"
-
-#: CRM/ACL/DAO/ACLCache.php
-msgid "Cache ACL"
-msgstr "Gyorsítótár hozzáférés lista"
 
 #: CRM/ACL/DAO/ACLCache.php
 msgid "Foreign Key to ACL"
@@ -262,25 +294,29 @@ msgstr "Gyorsítótár módosított dátuma"
 msgid "When was this cache entry last modified"
 msgstr "Mikor volt ez a gyorsítótár bejegyzés utoljára módosítva"
 
-#: CRM/ACL/DAO/EntityRole.php
-msgid "Entity Roles"
-msgstr "Egyed szerepkörök"
+#: CRM/ACL/DAO/ACLEntityRole.php
+msgid "ACLEntity Roles"
+msgstr ""
 
-#: CRM/ACL/DAO/EntityRole.php
+#: CRM/ACL/DAO/ACLEntityRole.php
+msgid "ACLEntity Role"
+msgstr ""
+
+#: CRM/ACL/DAO/ACLEntityRole.php
 msgid "Entity Role"
 msgstr "Egyed szerepkör"
 
-#: CRM/ACL/DAO/EntityRole.php
+#: CRM/ACL/DAO/ACLEntityRole.php
 msgid "ACL Role ID"
 msgstr "Hozzáférés lista szerepkör azonosító"
 
-#: CRM/ACL/DAO/EntityRole.php
+#: CRM/ACL/DAO/ACLEntityRole.php
 msgid ""
 "Foreign Key to ACL Role (which is an option value pair and hence an implicit"
 " FK)"
 msgstr "FK a Hozzáférés jogosultság lista szerephez (ami egy opció lista pár és itt egy implicit FK)"
 
-#: CRM/ACL/DAO/EntityRole.php CRM/Core/DAO/ActionLog.php
+#: CRM/ACL/DAO/ACLEntityRole.php CRM/Core/DAO/ActionLog.php
 #: CRM/Core/DAO/Discount.php CRM/Core/DAO/EntityFile.php
 #: CRM/Core/DAO/EntityTag.php CRM/Core/DAO/Log.php
 #: CRM/Core/DAO/RecurringEntity.php CRM/Friend/DAO/Friend.php
@@ -288,19 +324,19 @@ msgstr "FK a Hozzáférés jogosultság lista szerephez (ami egy opció lista p�
 msgid "Entity Table"
 msgstr "Entitástábla"
 
-#: CRM/ACL/DAO/EntityRole.php
+#: CRM/ACL/DAO/ACLEntityRole.php
 msgid "Table of the object joined to the ACL Role (Contact or Group)"
 msgstr "Hozzáférés jogosultság lista szerephez kapcsolódó objektum tábla (Kapcsolat vagy Csoport)"
 
-#: CRM/ACL/DAO/EntityRole.php
+#: CRM/ACL/DAO/ACLEntityRole.php
 msgid "ACL Entity ID"
 msgstr "Hozzáférés lista egyed azonosító"
 
-#: CRM/ACL/DAO/EntityRole.php
+#: CRM/ACL/DAO/ACLEntityRole.php
 msgid "ID of the group/contact object being joined"
 msgstr "Csoport/kapcsolat objektum azonosítója, amelyhez kapcsolódik"
 
-#: CRM/ACL/DAO/EntityRole.php
+#: CRM/ACL/DAO/ACLEntityRole.php
 msgid "ACL Entity Role is Active"
 msgstr "Hozzáférés lista szerepkör aktív"
 
@@ -404,7 +440,8 @@ msgstr "Minden esemény"
 msgid "Custom Data"
 msgstr "Egyedi adat"
 
-#: CRM/ACL/Form/ACL.php CRM/ACL/Page/ACL.php CRM/Core/Form/ShortCode.php
+#: CRM/ACL/Form/ACL.php CRM/ACL/Page/ACL.php CRM/Core/DAO/UFField.php
+#: CRM/Core/DAO/UFJoin.php CRM/Core/Form/ShortCode.php
 msgid "Profile"
 msgstr "Profil"
 
@@ -480,8 +517,7 @@ msgstr "Hozzáférés lista szerep"
 
 #: CRM/ACL/Form/EntityRole.php CRM/Activity/BAO/Query.php
 #: CRM/Activity/Form/Activity.php CRM/Activity/Form/Task/Batch.php
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
-#: templates/CRM/ACL/Page/EntityRole.tpl
+#: CRM/Contact/Form/Task/EmailTrait.php templates/CRM/ACL/Page/EntityRole.tpl
 #: templates/CRM/Activity/Form/Task/Print.tpl
 msgid "Assigned to"
 msgstr "Felelős:"
@@ -580,7 +616,6 @@ msgstr "Hozzáférés-szabályozás"
 #: CRM/Price/Form/Field.php CRM/Price/Form/Option.php CRM/Price/Form/Set.php
 #: CRM/SMS/Form/Group.php CRM/Tag/Form/Edit.php CRM/UF/Form/AdvanceSetting.php
 #: js/Common.js js/jquery/jquery.crmProfileSelector.js
-#: templates/CRM/Contact/Form/Search/Builder.js
 msgid "- select -"
 msgstr "- kiválasztás -"
 
@@ -637,7 +672,8 @@ msgid "Assign Users to Roles"
 msgstr "Jelöljön ki felhasználókat szerepekörhöz!"
 
 #: CRM/Activity/ActionMapping.php CRM/Activity/DAO/Activity.php
-#: CRM/Core/BAO/Mapping.php CRM/Core/Block.php CRM/UF/Page/ProfileEditor.php
+#: CRM/Activity/DAO/ActivityContact.php CRM/Core/BAO/Mapping.php
+#: CRM/Core/Block.php CRM/UF/Page/ProfileEditor.php
 msgid "Activity"
 msgstr "Tevékenység"
 
@@ -677,8 +713,8 @@ msgid "- Activity Fields -"
 msgstr "- Tevékenység mezők -"
 
 #: CRM/Activity/BAO/Activity.php CRM/Core/BAO/Mapping.php
-#: CRM/Price/Form/Set.php CRM/Price/Page/Set.php CRM/UF/Page/ProfileEditor.php
-#: xml/templates/civicrm_data.tpl
+#: CRM/Price/BAO/LineItem.php CRM/Price/Form/Set.php CRM/Price/Page/Set.php
+#: CRM/UF/Page/ProfileEditor.php xml/templates/civicrm_data.tpl
 msgid "Membership"
 msgstr "Tagság"
 
@@ -911,8 +947,8 @@ msgstr "FK a civicrm_option_value.id, amelyiknek érvényesnek, és regisztrált
 
 #: CRM/Activity/DAO/Activity.php CRM/Activity/Form/Activity.php
 #: CRM/Activity/Selector/Activity.php CRM/Activity/Selector/Search.php
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
-#: CRM/Core/DAO/Note.php templates/CRM/Activity/Form/ActivityView.tpl
+#: CRM/Contact/Form/Task/EmailTrait.php CRM/Core/DAO/Note.php
+#: templates/CRM/Activity/Form/ActivityView.tpl
 #: templates/CRM/Activity/Form/Task/Print.tpl
 #: templates/CRM/Activity/Form/Task/SearchTaskHookSample.tpl
 #: templates/CRM/Activity/Page/UserDashboard.tpl
@@ -945,6 +981,7 @@ msgid ""
 msgstr "A tevékenység tervezett vagy valós időtartama percekben kifejezve. A korábbi duration_hours és a duration_minutes konglomerátuma."
 
 #: CRM/Activity/DAO/Activity.php CRM/Activity/Form/Activity.php
+#: CRM/Contact/DAO/GroupContact.php
 #: CRM/Contact/Form/Search/Custom/ActivitySearch.php
 msgid "Location"
 msgstr "Helyszín"
@@ -954,8 +991,8 @@ msgid "Location of the activity (optional, open text)."
 msgstr "Tevékenység helyszíne (opcionális, nyílt szöveg)"
 
 #: CRM/Activity/DAO/Activity.php
-msgid "Phone (called) ID"
-msgstr "Telefon (hívott) azonosító"
+msgid "Phone ID (called)"
+msgstr ""
 
 #: CRM/Activity/DAO/Activity.php
 msgid ""
@@ -1004,14 +1041,18 @@ msgid ""
 msgstr "A tevékenységhez adott prioritás azonosítója. FK a civicrm_option_value táblához."
 
 #: CRM/Activity/DAO/Activity.php
-msgid "Parent Activity Id"
-msgstr "Szülőtevékenység azonosító"
+msgid "Parent Activity ID"
+msgstr ""
 
 #: CRM/Activity/DAO/Activity.php
 msgid ""
 "Parent meeting ID (if this is a follow-up item). This is not currently "
 "implemented"
 msgstr "Szülői találkozó azonosítója (ha ez egy nyomon követési elem). Ez jelenleg nincs bevezetve"
+
+#: CRM/Activity/DAO/Activity.php
+msgid "Parent Activity"
+msgstr ""
 
 #: CRM/Activity/DAO/Activity.php
 msgid "Test"
@@ -1027,25 +1068,36 @@ msgstr "Tevékenység Medium, Implicit FK to civicrm_option_value értékehez, a
 msgid "Auto"
 msgstr "Auto"
 
-#: CRM/Activity/DAO/Activity.php
-msgid "Relationship Id"
+#: CRM/Activity/DAO/Activity.php CRM/Contact/DAO/GroupNesting.php
+#: CRM/Contact/DAO/GroupOrganization.php CRM/Contact/DAO/Relationship.php
+#: CRM/Contact/DAO/RelationshipCache.php
+msgid "Relationship ID"
 msgstr "Viszony azonosító"
 
 #: CRM/Activity/DAO/Activity.php
 msgid "FK to Relationship ID"
 msgstr "FK a viszony azonosítóra"
 
+#: CRM/Activity/DAO/Activity.php CRM/Contact/BAO/Relationship.php
+#: CRM/Contact/DAO/Relationship.php CRM/Contact/DAO/RelationshipCache.php
+msgid "Relationship"
+msgstr "Viszony"
+
 #: CRM/Activity/DAO/Activity.php
 msgid "Is this activity a current revision in versioning chain?"
 msgstr "Ez a tevékenység a naprakész változatú a verzió láncban?"
 
 #: CRM/Activity/DAO/Activity.php
-msgid "Original Activity ID "
-msgstr "Eredeti tevékenység azonosító"
+msgid "Original Activity ID"
+msgstr ""
 
 #: CRM/Activity/DAO/Activity.php
 msgid "Activity ID of the first activity record in versioning chain."
 msgstr "Az verzió láncban az első tevékenység rekord tevékenység azonosítója"
+
+#: CRM/Activity/DAO/Activity.php
+msgid "Original Activity"
+msgstr ""
 
 #: CRM/Activity/DAO/Activity.php CRM/Activity/Form/Activity.php
 msgid "Result"
@@ -1061,14 +1113,18 @@ msgstr "Jelenleg a felmérés tevékenység eredmény azonosító tárolására 
 msgid "Activity is in the Trash"
 msgstr "Tevékenység a lomtárban"
 
-#: CRM/Activity/DAO/Activity.php CRM/Core/BAO/UFField.php
-#: CRM/UF/Form/Field.php templates/CRM/Activity/Form/ActivityView.tpl
-msgid "Campaign"
-msgstr "Kampány"
+#: CRM/Activity/DAO/Activity.php CRM/Export/BAO/ExportProcessor.php
+msgid "Campaign ID"
+msgstr "Kampány ID (azonosító)"
 
 #: CRM/Activity/DAO/Activity.php
 msgid "The campaign for which this activity has been triggered."
 msgstr "Az a kampány, amelyre ez a tevékenység indult."
+
+#: CRM/Activity/DAO/Activity.php CRM/Core/BAO/UFField.php
+#: CRM/UF/Form/Field.php templates/CRM/Activity/Form/ActivityView.tpl
+msgid "Campaign"
+msgstr "Kampány"
 
 #: CRM/Activity/DAO/Activity.php xml/templates/civicrm_data.tpl
 msgid "Engagement Index"
@@ -1085,7 +1141,7 @@ msgstr "Adjon hozzá egy specifikus elköteleződési szintet ehhez a tevékenys
 #: CRM/Core/DAO/Menu.php CRM/Core/DAO/Navigation.php
 #: CRM/Core/DAO/OptionValue.php CRM/Core/DAO/UFField.php
 #: CRM/Core/DAO/UFJoin.php CRM/Custom/Form/Field.php CRM/Custom/Form/Group.php
-#: CRM/Custom/Form/Option.php CRM/Dedupe/DAO/Rule.php
+#: CRM/Custom/Form/Option.php CRM/Dedupe/DAO/DedupeRule.php
 #: CRM/Price/DAO/PriceField.php CRM/Price/DAO/PriceFieldValue.php
 #: CRM/Price/Form/Field.php CRM/Price/Form/Option.php CRM/UF/Form/Field.php
 #: CRM/UF/Form/Group.php js/model/crm.uf.js
@@ -1106,7 +1162,8 @@ msgid "Activity marked as favorite."
 msgstr "Kedvencnek jelölt tevékenység."
 
 #: CRM/Activity/DAO/Activity.php CRM/Contact/DAO/Contact.php
-#: CRM/Core/DAO/Cache.php
+#: CRM/Contact/DAO/SavedSearch.php CRM/Core/DAO/ActionSchedule.php
+#: CRM/Core/DAO/Cache.php CRM/Core/DAO/Note.php
 msgid "Created Date"
 msgstr "Létrehozás dátuma"
 
@@ -1115,7 +1172,9 @@ msgid "When was the activity was created."
 msgstr "A tevékenység létrehozási dátuma."
 
 #: CRM/Activity/DAO/Activity.php CRM/Contact/BAO/Query.php
-#: CRM/Contact/DAO/Contact.php CRM/Core/DAO/Log.php
+#: CRM/Contact/DAO/Contact.php CRM/Contact/DAO/SavedSearch.php
+#: CRM/Core/DAO/ActionSchedule.php CRM/Core/DAO/Log.php
+#: templates/CRM/Contact/Page/View/Note.tpl
 msgid "Modified Date"
 msgstr "Módosított dátum"
 
@@ -1146,22 +1205,21 @@ msgid "Foreign key to the activity for this record."
 msgstr "Ezen rekord tevékenységéhez idegen kulcs."
 
 #: CRM/Activity/DAO/ActivityContact.php
-msgid "Contact ID (match to contact)"
-msgstr "Kapcsolat azonosító (kapcsolathoz tartozó)"
-
-#: CRM/Activity/DAO/ActivityContact.php
 msgid "Foreign key to the contact for this record."
 msgstr "Ezen rekord kapcsolatához idegen kulcs."
 
 #: CRM/Activity/DAO/ActivityContact.php
-msgid "Record Type ID"
-msgstr "Rekord típus azonosító"
+msgid "Activity Contact Type"
+msgstr ""
 
 #: CRM/Activity/DAO/ActivityContact.php
 msgid ""
-"Nature of this contact's role in the activity: 1 assignee, 2 creator, 3 "
-"focus or target."
-msgstr "Ennek a kapcsolatnak a szerepe a tevékenységben: 1 megbízott, 2 létrehozó, 3 fókusz vagy cél."
+"Determines the contact's role in the activity (source, target, or assignee)."
+msgstr ""
+
+#: CRM/Activity/DAO/ActivityContact.php
+msgid "Contact Role"
+msgstr ""
 
 #: CRM/Activity/Form/Activity.php CRM/Activity/Form/Task/Batch.php
 #: CRM/Activity/Form/Task/PickOption.php
@@ -1179,13 +1237,11 @@ msgstr "Kapcsolattal"
 msgid "Date"
 msgstr "Dátum"
 
-#: CRM/Activity/Form/Activity.php CRM/Contact/Form/Task/EmailCommon.php
-#: CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Activity/Form/Activity.php CRM/Contact/Form/Task/EmailTrait.php
 msgid "Followup Activity"
 msgstr "Követő tevékenység"
 
-#: CRM/Activity/Form/Activity.php CRM/Contact/Form/Task/EmailCommon.php
-#: CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Activity/Form/Activity.php CRM/Contact/Form/Task/EmailTrait.php
 msgid "select activity"
 msgstr "tevékenység választása"
 
@@ -1255,7 +1311,7 @@ msgstr "Kérem adja meg az időtartamot percekben (csak egész szám)."
 #: CRM/Activity/Form/Activity.php CRM/Contact/Form/Search/Basic.php
 #: CRM/Contact/Form/Search/Custom/Basic.php
 #: CRM/Contact/Form/Search/Custom/MultipleValues.php
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Contact/Form/Task/EmailTrait.php
 #: templates/CRM/Contact/Form/Search/BasicCriteria.tpl
 msgid "in"
 msgstr "csoport"
@@ -1317,8 +1373,7 @@ msgid_plural "%count Activities have been deleted successfully."
 msgstr[0] "A kiválasztott tevékenység sikeresen törölve."
 msgstr[1] "%1 számú tevékenység sikeresen törölve."
 
-#: CRM/Activity/Form/Activity.php CRM/Contact/Form/Task/EmailCommon.php
-#: CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Activity/Form/Activity.php CRM/Contact/Form/Task/EmailTrait.php
 msgid "A followup activity has been scheduled."
 msgstr "Egy utókövetési tevékenység ütemezve."
 
@@ -1326,8 +1381,7 @@ msgstr "Egy utókövetési tevékenység ütemezve."
 msgid "A copy of the activity has also been sent to assignee contacts(s)."
 msgstr "A tevékenység másolata szintén el lett küldve a felelős kapcsolat(ok)nak."
 
-#: CRM/Activity/Form/Activity.php CRM/Contact/Form/Task/EmailCommon.php
-#: CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Activity/Form/Activity.php CRM/Contact/Form/Task/EmailTrait.php
 msgid ""
 "A copy of the follow-up activity has also been sent to follow-up assignee "
 "contacts(s)."
@@ -1343,8 +1397,7 @@ msgstr "A %1 tevékenység mentve. %2 %3"
 #: CRM/Custom/Form/Group.php CRM/Note/Form/Note.php CRM/Price/Form/Field.php
 #: CRM/Price/Form/Set.php CRM/Price/Page/Set.php CRM/SMS/Form/Group.php
 #: CRM/SMS/Form/Schedule.php CRM/Tag/Form/Edit.php CRM/Tag/Form/Tag.php
-#: ang/crmDashboard/crmDashboard.component.js js/Common.js js/crm.ajax.js
-#: templates/CRM/Contact/Page/View/Summary.js
+#: js/Common.js js/crm.ajax.js templates/CRM/Contact/Page/View/Summary.js
 msgid "Saved"
 msgstr "Mentve"
 
@@ -1640,7 +1693,7 @@ msgstr "Adat illesztés mentése"
 #: CRM/Core/DAO/ActionSchedule.php CRM/Core/DAO/Extension.php
 #: CRM/Core/DAO/Managed.php CRM/Core/DAO/PrintLabel.php
 #: CRM/Core/Form/Search.php CRM/Core/Form/Task/Batch.php
-#: CRM/Core/SelectValues.php CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Core/SelectValues.php CRM/Dedupe/DAO/DedupeRuleGroup.php
 #: CRM/Import/Form/MapField.php CRM/Price/DAO/PriceField.php
 #: CRM/Price/DAO/PriceFieldValue.php CRM/Price/DAO/PriceSet.php
 #: CRM/Profile/Selector/Listings.php CRM/SMS/Form/Provider.php
@@ -1684,33 +1737,6 @@ msgstr "Az import fájl adatoszlopa különbözik a mentett adatillesztőtől. K
 msgid "Previous"
 msgstr "Előző"
 
-#: CRM/Activity/Import/Form/MapField.php CRM/Contact/BAO/Contact.php
-#: CRM/Contact/DAO/ACLContactCache.php CRM/Contact/DAO/Contact.php
-#: CRM/Contact/DAO/DashboardContact.php CRM/Contact/DAO/GroupContact.php
-#: CRM/Contact/DAO/GroupContactCache.php
-#: CRM/Contact/DAO/SubscriptionHistory.php
-#: CRM/Contact/Form/Search/Criteria.php
-#: CRM/Contact/Form/Search/Custom/ContribSYBNT.php
-#: CRM/Contact/Form/Search/Custom/ContributionAggregate.php
-#: CRM/Contact/Form/Search/Custom/DateAdded.php
-#: CRM/Contact/Form/Search/Custom/FullText.php
-#: CRM/Contact/Form/Search/Custom/Group.php
-#: CRM/Contact/Form/Search/Custom/MultipleValues.php
-#: CRM/Contact/Form/Search/Custom/PostalMailing.php
-#: CRM/Contact/Form/Search/Custom/PriceSet.php
-#: CRM/Contact/Form/Search/Custom/RandomSegment.php
-#: CRM/Contact/Form/Search/Custom/Sample.php
-#: CRM/Contact/Form/Search/Custom/TagContributions.php
-#: CRM/Contact/Form/Search/Custom/ZipCodeRange.php CRM/Contact/Selector.php
-#: CRM/Core/DAO/Address.php CRM/Core/SelectValues.php
-#: CRM/Custom/Import/Parser/Api.php CRM/Export/BAO/ExportProcessor.php
-#: templates/CRM/Contact/Form/Contact.hlp
-#: templates/CRM/Contact/Form/Contact.tpl
-#: templates/CRM/Contact/Page/Inline/Basic.tpl
-#: templates/CRM/common/contactFooter.tpl
-msgid "Contact ID"
-msgstr "Kapcsolat azonosító"
-
 #: CRM/Activity/Import/Form/MapField.php CRM/Activity/Tokens.php
 #: CRM/Contact/Form/Search/Custom/ActivitySearch.php
 #: CRM/Core/Form/Task/PDFLetterCommon.php CRM/Core/SelectValues.php
@@ -1720,10 +1746,6 @@ msgstr "Tevékenység tárgya"
 #: CRM/Activity/Import/Form/MapField.php
 msgid "Missing required contact matching fields."
 msgstr "Hiányzó kötelező kapcsolat egyezési mező."
-
-#: CRM/Activity/Import/Form/MapField.php
-msgid "(Sum of all weights should be greater than or equal to threshold: %1)."
-msgstr "(A súlyok összegének nagyobb vagy egyenlőnek kellene lennie mint: %1)."
 
 #: CRM/Activity/Import/Form/MapField.php
 msgid "Missing required field: Provide %1 or %2"
@@ -1759,12 +1781,24 @@ msgid "Activity Type Label"
 msgstr "Tevékenység típus címke"
 
 #: CRM/Activity/Import/Parser/Activity.php
-msgid "Please select either Activity Type ID OR Activity Type Label."
-msgstr "Válasszon tevékenység típus azonosítót vagy tevékenység típus címkét!"
+msgid "Activity type label and Activity type ID are in conflict"
+msgstr ""
+
+#: CRM/Activity/Import/Parser/Activity.php
+msgid "Missing required fields: Activity type label or Activity type ID"
+msgstr ""
 
 #: CRM/Activity/Import/Parser/Activity.php
 msgid "Missing required fields"
 msgstr "Hiányzó szükséges mezők"
+
+#: CRM/Activity/Import/Parser/Activity.php
+msgid "Invalid Activity Date"
+msgstr ""
+
+#: CRM/Activity/Import/Parser/Activity.php
+msgid "Activity Engagement Index"
+msgstr ""
 
 #: CRM/Activity/Import/Parser.php CRM/Contact/Import/Parser.php
 #: CRM/Custom/Import/Parser.php
@@ -1789,8 +1823,8 @@ msgid "Case Manager"
 msgstr "Ügyek kezelése"
 
 #: CRM/Activity/Page/AJAX.php CRM/Contact/BAO/Contact.php
-#: CRM/Contact/Page/View.php CRM/Core/Form/Renderer.php
-#: CRM/Logging/ReportDetail.php
+#: CRM/Contact/Page/View.php CRM/Core/BAO/CustomGroup.php
+#: CRM/Core/Form/Renderer.php CRM/Logging/ReportDetail.php
 msgid "View Contact"
 msgstr "Kapcsolat megtekintése"
 
@@ -1896,8 +1930,8 @@ msgstr "Kijelölt"
 
 #: CRM/Activity/Selector/Activity.php CRM/Activity/Selector/Search.php
 #: CRM/Contact/Form/Search/Custom/ActivitySearch.php
-#: CRM/Core/DAO/ActionMapping.php CRM/Group/Form/Search.php
-#: templates/CRM/Activity/Form/Task/Print.tpl
+#: CRM/Core/DAO/ActionMapping.php CRM/Core/DAO/Translation.php
+#: CRM/Group/Form/Search.php templates/CRM/Activity/Form/Task/Print.tpl
 #: templates/CRM/Activity/Page/UserDashboard.tpl
 #: templates/CRM/Activity/Selector/Selector.tpl
 #: templates/CRM/Contact/Form/Relationship.tpl
@@ -2151,7 +2185,8 @@ msgid "Current Employer"
 msgstr "Jelenlegi munkáltató"
 
 #: CRM/Contact/BAO/Contact.php CRM/Contact/BAO/Query.php
-#: CRM/Core/DAO/LocationType.php js/model/crm.uf.js
+#: CRM/Core/DAO/LocationType.php CRM/Core/DAO/Phone.php
+#: CRM/Core/DAO/UFField.php js/model/crm.uf.js
 msgid "Location Type"
 msgstr "Hely típusa"
 
@@ -2254,7 +2289,7 @@ msgstr "Felhasználói rekord létrehozása"
 #: CRM/Contact/Form/Search/Custom/RandomSegment.php
 #: CRM/Contact/Form/Search/Custom/Sample.php
 #: CRM/Contact/Import/Form/DataSource.php CRM/Contact/Selector.php
-#: CRM/Core/DAO/MappingField.php CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Core/DAO/MappingField.php CRM/Dedupe/DAO/DedupeRuleGroup.php
 #: CRM/Import/Form/DataSource.php
 #: templates/CRM/Contact/Import/Form/DataSource.hlp
 #: templates/CRM/Contact/Page/Inline/Basic.tpl
@@ -2435,7 +2470,8 @@ msgstr "Aktív időtartam"
 msgid "Demographics"
 msgstr "Demográfia"
 
-#: CRM/Contact/BAO/Query.php CRM/Core/DAO/Worldregion.php
+#: CRM/Contact/BAO/Query.php CRM/Core/DAO/Country.php
+#: CRM/Core/DAO/Worldregion.php
 msgid "World Region"
 msgstr "Világrész"
 
@@ -2506,11 +2542,13 @@ msgid "Greeting %1 %2"
 msgstr "Üdvözlet %1 %2"
 
 #: CRM/Contact/BAO/Query.php CRM/Contact/BAO/Relationship.php
-#: CRM/Contact/Form/Location.php CRM/Contact/Form/Search/Custom/Basic.php
+#: CRM/Contact/DAO/GroupContact.php CRM/Contact/Form/Location.php
+#: CRM/Contact/Form/Search/Custom/Basic.php
 #: CRM/Contact/Form/Search/Custom/RandomSegment.php
 #: CRM/Contact/Form/Search/Custom/ZipCodeRange.php
-#: CRM/Contact/Form/Task/Email.php CRM/Contact/Selector.php CRM/Core/Block.php
-#: CRM/Core/DAO/Email.php CRM/Core/SelectValues.php
+#: CRM/Contact/Form/Task/Email.php CRM/Contact/Form/Task/Useradd.php
+#: CRM/Contact/Selector.php CRM/Core/Block.php CRM/Core/DAO/Email.php
+#: CRM/Core/DAO/LocBlock.php CRM/Core/SelectValues.php
 #: templates/CRM/Contact/Form/DedupeRules.tpl
 #: templates/CRM/Contact/Form/Edit/Email.tpl
 #: templates/CRM/Contact/Form/Inline/Email.tpl
@@ -2530,7 +2568,7 @@ msgstr "Telefonszám tartalmazza"
 #: CRM/Contact/BAO/Query.php CRM/Contact/BAO/Relationship.php
 #: CRM/Contact/Form/Location.php CRM/Contact/Form/Search/Criteria.php
 #: CRM/Contact/Form/Search/Custom/Basic.php CRM/Contact/Selector.php
-#: CRM/Core/DAO/Phone.php CRM/Core/SelectValues.php
+#: CRM/Core/DAO/LocBlock.php CRM/Core/DAO/Phone.php CRM/Core/SelectValues.php
 #: templates/CRM/Contact/Form/Edit/Phone.tpl
 #: templates/CRM/Contact/Form/Inline/Phone.tpl
 #: templates/CRM/Contact/Form/Task/AddToParentClass.tpl
@@ -2785,11 +2823,6 @@ msgstr "Az öröklött tagság% 1 státusa lejárttá vált a kapcsolat típusá
 msgid "Record Updated"
 msgstr "Rekord frissítve"
 
-#: CRM/Contact/BAO/Relationship.php CRM/Contact/DAO/Relationship.php
-#: CRM/Contact/DAO/RelationshipCache.php
-msgid "Relationship"
-msgstr "Viszony"
-
 #: CRM/Contact/BAO/Relationship.php CRM/Core/DAO/PreferencesDate.php
 msgid "Start"
 msgstr "Kezdés"
@@ -2844,7 +2877,8 @@ msgstr "Milyen műveletekre van ennek a felhasználónak jogosultsága?"
 
 #: CRM/Contact/DAO/Contact.php
 #: CRM/Contact/Form/Search/Custom/FullText/Contact.php
-#: CRM/Contact/Form/Search.php CRM/Core/BAO/Mapping.php CRM/Utils/Recent.php
+#: CRM/Contact/Form/Search.php CRM/Core/BAO/Mapping.php
+#: CRM/Core/SelectValues.php CRM/Utils/Recent.php
 #: templates/CRM/Block/FullTextSearch.tpl
 #: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
 #: templates/CRM/common/navigation.js.tpl
@@ -2899,6 +2933,10 @@ msgid ""
 msgstr "A kapcsolat leiratkozott minden a szervezettől vagy a weboldalról érkező tömeges e-mailről?"
 
 #: CRM/Contact/DAO/Contact.php
+msgid "Is Opt Out"
+msgstr ""
+
+#: CRM/Contact/DAO/Contact.php
 msgid "Legal Identifier"
 msgstr "Jogi azonosító"
 
@@ -2918,7 +2956,7 @@ msgid ""
 "Particularly useful for deduping operations."
 msgstr "Egyedi megbízható külső azonosító (általában külső régebben használt alkalmazás, adatforrás). Különösen alkalmas a deduplikációs műveleteknél."
 
-#: CRM/Contact/DAO/Contact.php CRM/Dedupe/BAO/RuleGroup.php
+#: CRM/Contact/DAO/Contact.php CRM/Dedupe/BAO/DedupeRuleGroup.php
 msgid "Sort Name"
 msgstr "Rendezési név"
 
@@ -2964,6 +3002,10 @@ msgid ""
 "contact."
 msgstr "opcionális URL a preferált képhez (kép, logó stb.) a kapcsolatnál való kijelzéshez"
 
+#: CRM/Contact/DAO/Contact.php
+msgid "Image URL"
+msgstr ""
+
 #: CRM/Contact/DAO/Contact.php CRM/Contact/Form/Search/Criteria.php
 #: CRM/Contact/Import/Parser/Contact.php xml/templates/civicrm_data.tpl
 msgid "Preferred Communication Method"
@@ -3007,6 +3049,10 @@ msgstr "Api kulcs"
 #: CRM/Contact/DAO/Contact.php
 msgid "API Key for validating requests related to this contact."
 msgstr "A kapcsolathoz kapcsolódó igazolás kérés API kulcsa."
+
+#: CRM/Contact/DAO/Contact.php
+msgid "API KEY"
+msgstr ""
 
 #: CRM/Contact/DAO/Contact.php
 msgid "where contact come from, e.g. import, donate module insert..."
@@ -3156,6 +3202,10 @@ msgid "Date of birth"
 msgstr "Születési dátum"
 
 #: CRM/Contact/DAO/Contact.php
+msgid "Is Deceased"
+msgstr ""
+
+#: CRM/Contact/DAO/Contact.php
 msgid "Date of deceased"
 msgstr "Elhalálozás dátuma"
 
@@ -3172,6 +3222,10 @@ msgid "Optional FK to Primary Contact for this household."
 msgstr "Opcionális FK a háztartás elspdleges kapcsolatához."
 
 #: CRM/Contact/DAO/Contact.php
+msgid "Household Primary Contact"
+msgstr ""
+
+#: CRM/Contact/DAO/Contact.php
 msgid "Organization Name."
 msgstr "Szervezet neve."
 
@@ -3182,6 +3236,11 @@ msgstr "Sic kód"
 #: CRM/Contact/DAO/Contact.php
 msgid "Standard Industry Classification Code."
 msgstr "Ipari osztályozási kód"
+
+#: CRM/Contact/DAO/Contact.php
+#: templates/CRM/Contact/Page/Inline/ContactInfo.tpl
+msgid "SIC Code"
+msgstr "SIC kód"
 
 #: CRM/Contact/DAO/Contact.php
 msgid "Unique ID (OpenID)"
@@ -3251,13 +3310,17 @@ msgstr "Kapcsolat típus kép URL"
 msgid "URL of image if any."
 msgstr "A kép URL-je, ha van."
 
-#: CRM/Contact/DAO/ContactType.php
-msgid "Contact Type Parent"
-msgstr "Kapcsolat típus szülője"
+#: CRM/Contact/DAO/ContactType.php CRM/Core/DAO/RecurringEntity.php
+msgid "Parent ID"
+msgstr "Szülő azonosító"
 
 #: CRM/Contact/DAO/ContactType.php
 msgid "Optional FK to parent contact type."
 msgstr "Opcionális FK a szülő kapcsolat típushoz"
+
+#: CRM/Contact/DAO/ContactType.php
+msgid "Parent"
+msgstr ""
 
 #: CRM/Contact/DAO/ContactType.php
 msgid "Contact Type Is Active?"
@@ -3289,13 +3352,13 @@ msgid "Dashboard Contact ID"
 msgstr "Vezérlőpult kapcsolat azonosító"
 
 #: CRM/Contact/DAO/DashboardContact.php
+msgid "Dashboard ID"
+msgstr "Vezérlőpult azonosító"
+
+#: CRM/Contact/DAO/DashboardContact.php
 #: CRM/Contact/Page/View/UserDashBoard.php CRM/Core/DAO/Dashboard.php
 msgid "Dashboard"
 msgstr "Vezérlőpult"
-
-#: CRM/Contact/DAO/DashboardContact.php
-msgid "Dashboard ID"
-msgstr "Vezérlőpult azonosító"
 
 #: CRM/Contact/DAO/DashboardContact.php
 msgid "Column No"
@@ -3304,6 +3367,10 @@ msgstr "Oszlop száma"
 #: CRM/Contact/DAO/DashboardContact.php
 msgid "column no for this widget"
 msgstr "Nincs oszlop ehhez a kisalkalmazáshoz"
+
+#: CRM/Contact/DAO/DashboardContact.php
+msgid "Column Number"
+msgstr ""
 
 #: CRM/Contact/DAO/DashboardContact.php
 msgid "Dashlet is Active?"
@@ -3325,6 +3392,9 @@ msgid "Groups"
 msgstr "Csoportok"
 
 #: CRM/Contact/DAO/Group.php CRM/Contact/DAO/GroupContact.php
+#: CRM/Contact/DAO/GroupContactCache.php CRM/Contact/DAO/GroupOrganization.php
+#: CRM/Contact/DAO/SubscriptionHistory.php CRM/Core/DAO/ActionSchedule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "Group ID"
 msgstr "Csoport azonosító"
 
@@ -3368,6 +3438,11 @@ msgstr "Mentett keresés azonosító"
 #: CRM/Contact/DAO/Group.php
 msgid "FK to saved search table."
 msgstr "FK az elmentett keresési táblához."
+
+#: CRM/Contact/DAO/Group.php CRM/Contact/DAO/SavedSearch.php
+#: templates/CRM/Contact/Page/SavedSearch.tpl
+msgid "Saved Search"
+msgstr "Mentett keresés"
 
 #: CRM/Contact/DAO/Group.php
 msgid "Group Enabled"
@@ -3461,17 +3536,37 @@ msgstr "Ez rejtett csoport?"
 msgid "Group is Reserved"
 msgstr "A csoport fenntartva"
 
-#: CRM/Contact/DAO/Group.php
-msgid "Group Created By"
-msgstr "Csoportot létrehozta"
+#: CRM/Contact/DAO/Group.php CRM/Contact/DAO/SavedSearch.php
+#: CRM/Core/DAO/CustomGroup.php CRM/Core/DAO/File.php CRM/Core/DAO/Note.php
+#: CRM/Core/DAO/PrintLabel.php CRM/Core/DAO/Setting.php CRM/Core/DAO/Tag.php
+#: CRM/Core/DAO/UFGroup.php
+msgid "Created By Contact ID"
+msgstr "Létrehozó kapcsolat azonosítója"
 
-#: CRM/Contact/DAO/Group.php
+#: CRM/Contact/DAO/Group.php CRM/Contact/DAO/SavedSearch.php
 msgid "FK to contact table."
 msgstr "FK a kapcsolat táblához."
 
-#: CRM/Contact/DAO/Group.php
-msgid "Group Modified By"
-msgstr "Csoportot módosította"
+#: CRM/Contact/DAO/Group.php CRM/Contact/DAO/SavedSearch.php
+#: CRM/Core/DAO/CustomGroup.php CRM/Core/DAO/File.php CRM/Core/DAO/Note.php
+#: CRM/Core/DAO/PrintLabel.php CRM/Core/DAO/Setting.php CRM/Core/DAO/Tag.php
+#: CRM/Core/DAO/UFGroup.php CRM/Group/Form/Search.php
+#: templates/CRM/Contact/Page/View/Note.tpl templates/CRM/Group/Form/Edit.tpl
+#: templates/CRM/Group/Form/Search.tpl templates/CRM/UF/Page/Group.tpl
+msgid "Created By"
+msgstr "Készítette"
+
+#: CRM/Contact/DAO/Group.php CRM/Contact/DAO/SavedSearch.php
+#: CRM/Core/DAO/Log.php
+msgid "Modified By Contact ID"
+msgstr ""
+
+#: CRM/Contact/DAO/Group.php CRM/Contact/DAO/SavedSearch.php
+#: CRM/Contact/Form/Search/Criteria.php CRM/Core/DAO/Log.php
+#: templates/CRM/Contact/Form/Search/Criteria/ChangeLog.tpl
+#: templates/CRM/Group/Form/Edit.tpl
+msgid "Modified By"
+msgstr "Módosította"
 
 #: CRM/Contact/DAO/Group.php
 msgid "Public Group Title"
@@ -3510,16 +3605,17 @@ msgid "status of contact relative to membership in group"
 msgstr "a kapcsolat állapota a csoporttagsághoz viszonyítva"
 
 #: CRM/Contact/DAO/GroupContact.php
-msgid "Group Contact Location"
-msgstr "Csoport kapcsolat hely"
+msgid "Location ID"
+msgstr ""
 
 #: CRM/Contact/DAO/GroupContact.php
 msgid "Optional location to associate with this membership"
 msgstr "Opcionális hely ehhez a tagsághoz viszonyítva"
 
-#: CRM/Contact/DAO/GroupContact.php
-msgid "Group Contact Email"
-msgstr "Csoport kapcsolat e-mail"
+#: CRM/Contact/DAO/GroupContact.php CRM/Core/DAO/Email.php
+#: CRM/Core/DAO/LocBlock.php
+msgid "Email ID"
+msgstr "E-mail azonosító"
 
 #: CRM/Contact/DAO/GroupContact.php
 msgid "Optional email to associate with this membership"
@@ -3549,26 +3645,29 @@ msgstr "Csoport beágyazása"
 msgid "Group Nesting ID"
 msgstr "Csoport beágyazás azonosítója"
 
-#: CRM/Contact/DAO/GroupNesting.php CRM/Contact/DAO/GroupOrganization.php
-#: CRM/Contact/DAO/Relationship.php
-msgid "Relationship ID"
-msgstr "Viszony azonosító"
-
 #: CRM/Contact/DAO/GroupNesting.php
-msgid "Child Group"
-msgstr "Gyermek csoport"
+msgid "Child Group ID"
+msgstr ""
 
 #: CRM/Contact/DAO/GroupNesting.php
 msgid "ID of the child group"
 msgstr "gyermek csoport azonosítója"
 
 #: CRM/Contact/DAO/GroupNesting.php
-msgid "Parent Group"
-msgstr "Szülő csoport"
+msgid "Child Group"
+msgstr "Gyermek csoport"
+
+#: CRM/Contact/DAO/GroupNesting.php
+msgid "Parent Group ID"
+msgstr ""
 
 #: CRM/Contact/DAO/GroupNesting.php
 msgid "ID of the parent group"
 msgstr "szülőcsoport azonosítója"
+
+#: CRM/Contact/DAO/GroupNesting.php
+msgid "Parent Group"
+msgstr "Szülő csoport"
 
 #: CRM/Contact/DAO/GroupOrganization.php
 msgid "Group Organizations"
@@ -3587,6 +3686,14 @@ msgid "ID of the group"
 msgstr "A csoport azonosítója "
 
 #: CRM/Contact/DAO/GroupOrganization.php
+msgid "Organization ID"
+msgstr ""
+
+#: CRM/Contact/DAO/GroupOrganization.php
+msgid "ID of the Organization Contact"
+msgstr "Szervezeti kapcsolat azonosítója"
+
+#: CRM/Contact/DAO/GroupOrganization.php
 #: CRM/Contact/Import/Form/DataSource.php CRM/Group/Form/Edit.php
 #: CRM/Import/Form/DataSource.php CRM/UF/Page/ProfileEditor.php
 #: templates/CRM/Group/Form/Search.tpl
@@ -3594,35 +3701,44 @@ msgstr "A csoport azonosítója "
 msgid "Organization"
 msgstr "Szervezet"
 
-#: CRM/Contact/DAO/GroupOrganization.php
-msgid "ID of the Organization Contact"
-msgstr "Szervezeti kapcsolat azonosítója"
-
 #: CRM/Contact/DAO/Relationship.php
-msgid "Contact A"
-msgstr "\"A\" kapcsolat"
+msgid "Contact A ID"
+msgstr ""
 
 #: CRM/Contact/DAO/Relationship.php CRM/Contact/DAO/RelationshipCache.php
 msgid "id of the first contact"
 msgstr "első kapcsolat azonosítója"
 
 #: CRM/Contact/DAO/Relationship.php
-msgid "Contact B"
-msgstr "\"B\" kapcsolat"
+msgid "Contact A"
+msgstr "\"A\" kapcsolat"
+
+#: CRM/Contact/DAO/Relationship.php
+msgid "Contact B ID"
+msgstr ""
 
 #: CRM/Contact/DAO/Relationship.php CRM/Contact/DAO/RelationshipCache.php
 msgid "id of the second contact"
 msgstr "második kapcsolat azonosítója"
+
+#: CRM/Contact/DAO/Relationship.php
+msgid "Contact B"
+msgstr "\"B\" kapcsolat"
+
+#: CRM/Contact/DAO/Relationship.php CRM/Contact/DAO/RelationshipCache.php
+#: CRM/Contact/DAO/RelationshipType.php
+msgid "Relationship Type ID"
+msgstr "Viszony típus azonosító"
+
+#: CRM/Contact/DAO/Relationship.php
+msgid "Type of relationship"
+msgstr ""
 
 #: CRM/Contact/DAO/Relationship.php CRM/Contact/DAO/RelationshipCache.php
 #: CRM/Contact/DAO/RelationshipType.php CRM/Contact/Form/Search/Criteria.php
 #: CRM/Contact/Form/Task/AddToParentClass.php
 msgid "Relationship Type"
 msgstr "Viszony típus"
-
-#: CRM/Contact/DAO/Relationship.php
-msgid "id of the relationship"
-msgstr "viszony azonosítója"
 
 #: CRM/Contact/DAO/Relationship.php CRM/Contact/DAO/RelationshipCache.php
 msgid "Relationship Start Date"
@@ -3673,12 +3789,19 @@ msgid "Permission that Contact B has to view/update Contact A"
 msgstr "Az B kapcsolat azon engedélye, hogy az A kapcsolatot megtekintse/szerkessze"
 
 #: CRM/Contact/DAO/Relationship.php
-msgid "Relationship Case"
-msgstr "Viszony ügy"
+#: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
+msgid "Case ID"
+msgstr "Eset azonosító"
 
 #: CRM/Contact/DAO/Relationship.php
 msgid "FK to civicrm_case"
 msgstr "FK a civicrm_case"
+
+#: CRM/Contact/DAO/Relationship.php CRM/Core/BAO/Mapping.php
+#: CRM/Dashlet/Page/AllCases.php CRM/Dashlet/Page/MyCases.php
+#: CRM/UF/Page/ProfileEditor.php
+msgid "Case"
+msgstr "Eset"
 
 #: CRM/Contact/DAO/RelationshipCache.php CRM/Contact/Form/Search.php
 msgid "Related Contacts"
@@ -3716,6 +3839,10 @@ msgid "Contact ID (Near side)"
 msgstr "Kapcsolat azonosító (Közeli oldal)"
 
 #: CRM/Contact/DAO/RelationshipCache.php
+msgid "Contact (Near side)"
+msgstr ""
+
+#: CRM/Contact/DAO/RelationshipCache.php
 msgid "Relationship Name (to related contact)"
 msgstr "Viszony neve (a kapcsolódó kapcsolathoz)"
 
@@ -3724,8 +3851,16 @@ msgid "name for relationship of near_contact to far_contact."
 msgstr "a viszony neve a near_contact -tól a far_contact -hoz"
 
 #: CRM/Contact/DAO/RelationshipCache.php
+msgid "Relationship to contact"
+msgstr ""
+
+#: CRM/Contact/DAO/RelationshipCache.php
 msgid "Contact ID (Far side)"
 msgstr "Kapcsolat azonosító (Távoli oldal)"
+
+#: CRM/Contact/DAO/RelationshipCache.php
+msgid "Contact (Far side)"
+msgstr ""
 
 #: CRM/Contact/DAO/RelationshipCache.php
 msgid "Relationship Name (from related contact)"
@@ -3735,13 +3870,13 @@ msgstr "Viszony neve (a kapcsolódó kapcsolattól)"
 msgid "name for relationship of far_contact to near_contact."
 msgstr "a viszony neve a far_contact -tól a near_contact -hoz"
 
+#: CRM/Contact/DAO/RelationshipCache.php
+msgid "Relationship from contact"
+msgstr ""
+
 #: CRM/Contact/DAO/RelationshipType.php
 msgid "Relationship Types"
 msgstr "Viszony típusok"
-
-#: CRM/Contact/DAO/RelationshipType.php
-msgid "Relationship Type ID"
-msgstr "Viszony típus azonosító"
 
 #: CRM/Contact/DAO/RelationshipType.php
 msgid "Primary key"
@@ -3847,10 +3982,6 @@ msgstr "Ez a kapcsolat típus jelenleg aktív (azaz felhasználható viszonyok l
 msgid "Saved Searches"
 msgstr "Mentett keresések"
 
-#: CRM/Contact/DAO/SavedSearch.php templates/CRM/Contact/Page/SavedSearch.tpl
-msgid "Saved Search"
-msgstr "Mentett keresés"
-
 #: CRM/Contact/DAO/SavedSearch.php
 msgid "Saved Search Name"
 msgstr "Mentett keresés neve"
@@ -3884,6 +4015,11 @@ msgstr "Illesztés azonosító"
 msgid "Foreign key to civicrm_mapping used for saved search-builder searches."
 msgstr "A civicrm_mapping idegen kulcsa  a keresés készítővel mentett keresésekhez."
 
+#: CRM/Contact/DAO/SavedSearch.php CRM/Core/DAO/Mapping.php
+#: CRM/Core/DAO/MappingField.php
+msgid "Mapping"
+msgstr "Illesztés"
+
 #: CRM/Contact/DAO/SavedSearch.php CRM/Core/DAO/OptionValue.php
 msgid "Option Value ID"
 msgstr "Opció érték azonosító"
@@ -3910,6 +4046,26 @@ msgstr "API Paraméterek"
 msgid "Parameters for API based search"
 msgstr "API alapú kereséshez paraméterek"
 
+#: CRM/Contact/DAO/SavedSearch.php
+msgid "Search Expiry Date"
+msgstr ""
+
+#: CRM/Contact/DAO/SavedSearch.php
+msgid "Optional date after which the search is not needed"
+msgstr ""
+
+#: CRM/Contact/DAO/SavedSearch.php
+msgid "When the search was created."
+msgstr ""
+
+#: CRM/Contact/DAO/SavedSearch.php
+msgid "When the search was last modified."
+msgstr ""
+
+#: CRM/Contact/DAO/SavedSearch.php
+msgid "Saved Search Description"
+msgstr ""
+
 #: CRM/Contact/DAO/SubscriptionHistory.php
 msgid "Subscription Histories"
 msgstr "Feliratkozási történetek"
@@ -3923,16 +4079,8 @@ msgid "Group Membership History ID"
 msgstr "Csoport tagság történet azonosító"
 
 #: CRM/Contact/DAO/SubscriptionHistory.php
-msgid "Internal Id"
-msgstr "Belső azonosító"
-
-#: CRM/Contact/DAO/SubscriptionHistory.php
-msgid "Contact Id"
-msgstr "Kapcsolat azonosító"
-
-#: CRM/Contact/DAO/SubscriptionHistory.php
-msgid "Group Id"
-msgstr "Csoport azonosító"
+msgid "Internal ID"
+msgstr ""
 
 #: CRM/Contact/DAO/SubscriptionHistory.php
 msgid "Group Membership Action Date"
@@ -3987,9 +4135,10 @@ msgstr "Nincs jogosultsága a kapcsolat szerkesztésére."
 msgid "deceased"
 msgstr "elhunyt"
 
-#: CRM/Contact/Form/Contact.php CRM/Core/Form.php CRM/Custom/Form/Group.php
-#: CRM/Price/Form/Set.php CRM/Profile/Page/MultipleRecordFieldsListing.php
-#: CRM/Utils/System.php templates/CRM/Custom/Page/CustomDataView.tpl
+#: CRM/Contact/Form/Contact.php CRM/Contact/Form/CustomData.php
+#: CRM/Core/Form.php CRM/Custom/Form/Group.php CRM/Price/Form/Set.php
+#: CRM/Profile/Page/MultipleRecordFieldsListing.php CRM/Utils/System.php
+#: templates/CRM/Custom/Page/CustomDataView.tpl
 msgid "Edit %1"
 msgstr "Szerkesztés %1"
 
@@ -4124,8 +4273,13 @@ msgid "The maximum record limit is reached"
 msgstr "A maximális rekord számot elértük"
 
 #: CRM/Contact/Form/CustomData.php
-msgid "%1 %2 Record"
-msgstr "%1 %2 rekord"
+msgid "Add %1"
+msgstr ""
+
+#: CRM/Contact/Form/CustomData.php
+#: CRM/Profile/Page/MultipleRecordFieldsListing.php
+msgid "Copy %1"
+msgstr "%1 másolása"
 
 #: CRM/Contact/Form/CustomData.php
 msgid "Save a Copy"
@@ -4158,7 +4312,7 @@ msgstr "A duplikátum egyezőségi szabály ezzel a névvel már létezik. Kére
 msgid "Usage"
 msgstr "Használat"
 
-#: CRM/Contact/Form/DedupeRules.php CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Contact/Form/DedupeRules.php CRM/Dedupe/DAO/DedupeRuleGroup.php
 #: CRM/Tag/Form/Edit.php
 msgid "Reserved?"
 msgstr "Fenntartva?"
@@ -4179,6 +4333,10 @@ msgstr "Súlyozási határ a kapcsolat egyezés 'illesztés' átgondolására:"
 #: CRM/Contact/Form/DedupeRules.php
 msgid "Threshold weight cannot be empty or zero."
 msgstr "A küszöb súly nem lehet üres vagy nulla."
+
+#: CRM/Contact/Form/DedupeRules.php
+msgid "Total weight must be greater than or equal to the Weight Threshold."
+msgstr ""
 
 #: CRM/Contact/Form/DedupeRules.php
 msgid "Please select at least one field."
@@ -4449,7 +4607,8 @@ msgstr "Csak egy telefon jelölhető meg elsődlegesként."
 
 #: CRM/Contact/Form/Location.php CRM/Contact/Form/Search/Custom/Basic.php
 #: CRM/Contact/Form/Search/Custom/PostalMailing.php CRM/Contact/Selector.php
-#: CRM/Core/DAO/Address.php templates/CRM/Contact/Form/OnBehalfOf.tpl
+#: CRM/Core/DAO/Address.php CRM/Core/DAO/LocBlock.php
+#: templates/CRM/Contact/Form/OnBehalfOf.tpl
 #: templates/CRM/Contact/Form/Task/Print.tpl
 #: templates/CRM/Contact/Page/Inline/Address.tpl
 #: xml/templates/civicrm_data.tpl
@@ -4775,9 +4934,8 @@ msgstr "E-mail várakoztatva"
 msgid "Phone Location"
 msgstr "Telefon hely"
 
-#: CRM/Contact/Form/Search/Criteria.php CRM/Core/DAO/MappingField.php
-#: CRM/Core/DAO/Phone.php js/model/crm.uf.js
-#: templates/CRM/Contact/Form/Edit/Phone.tpl
+#: CRM/Contact/Form/Search/Criteria.php CRM/Core/DAO/Phone.php
+#: js/model/crm.uf.js templates/CRM/Contact/Form/Edit/Phone.tpl
 #: templates/CRM/Contact/Form/Inline/Phone.tpl xml/templates/civicrm_data.tpl
 msgid "Phone Type"
 msgstr "Telefon Típus"
@@ -4836,17 +4994,16 @@ msgstr "Utca neve"
 msgid "Apt/Unit/Suite"
 msgstr "Lakás/Egység/Lakosztály"
 
-#: CRM/Contact/Form/Search/Criteria.php CRM/Contact/Form/Task/EmailCommon.php
-#: CRM/Contact/Form/Task/EmailTrait.php CRM/Contact/Form/Task/SMSCommon.php
-#: CRM/Core/BAO/CustomField.php CRM/Friend/Form.php
-#: templates/CRM/Contact/Page/View/Email.tpl
+#: CRM/Contact/Form/Search/Criteria.php CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Contact/Form/Task/SMSCommon.php CRM/Core/BAO/CustomField.php
+#: CRM/Friend/Form.php templates/CRM/Contact/Page/View/Email.tpl
 #: templates/CRM/Contact/Page/View/SMS.tpl templates/CRM/SMS/Form/Task/SMS.tpl
 msgid "From"
 msgstr "Kitől: "
 
-#: CRM/Contact/Form/Search/Criteria.php CRM/Contact/Form/Task/EmailCommon.php
-#: CRM/Contact/Form/Task/EmailTrait.php CRM/Contact/Form/Task/SMSCommon.php
-#: CRM/Core/BAO/CustomField.php templates/CRM/Contact/Page/View/Email.tpl
+#: CRM/Contact/Form/Search/Criteria.php CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Contact/Form/Task/SMSCommon.php CRM/Core/BAO/CustomField.php
+#: templates/CRM/Contact/Page/View/Email.tpl
 #: templates/CRM/Contact/Page/View/SMS.tpl
 msgid "To"
 msgstr "Címzett"
@@ -4877,17 +5034,12 @@ msgstr "Cím helye"
 msgid "Primary"
 msgstr "Elsődleges"
 
-#: CRM/Contact/Form/Search/Criteria.php CRM/Core/DAO/Log.php
-#: templates/CRM/Contact/Form/Search/Criteria/ChangeLog.tpl
-#: templates/CRM/Group/Form/Edit.tpl
-msgid "Modified By"
-msgstr "Módosította"
-
 #: CRM/Contact/Form/Search/Criteria.php
 msgid "Target Contact"
 msgstr "Cél kapcsolat"
 
-#: CRM/Contact/Form/Search/Criteria.php templates/CRM/UF/Form/Field.hlp
+#: CRM/Contact/Form/Search/Criteria.php CRM/Core/BAO/Translation.php
+#: templates/CRM/UF/Form/Field.hlp
 msgid "Active"
 msgstr "Aktív"
 
@@ -5119,7 +5271,7 @@ msgid "Net Payment"
 msgstr "Nettó fizetendő"
 
 #: CRM/Contact/Form/Search/Custom/EventAggregate.php CRM/Core/BAO/Mapping.php
-#: CRM/UF/Page/ProfileEditor.php
+#: CRM/Price/BAO/LineItem.php CRM/UF/Page/ProfileEditor.php
 msgid "Participant"
 msgstr "Résztvevő"
 
@@ -5643,66 +5795,64 @@ msgid ""
 "have been configured."
 msgstr "A felhasználói rekordjának nincs egy érvényes e-mail címe és címe beállítva."
 
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/SMSCommon.php
+#: CRM/Core/Form/Task/PDFLetterCommon.php
+msgid "Enter name to save message template"
+msgstr "Adjon meg egy nevet, az üzenetsablon mentéshez"
+
+#: CRM/Contact/Form/Task/EmailTrait.php
 msgid "CC"
 msgstr "Másolat"
 
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Contact/Form/Task/EmailTrait.php
 msgid "BCC"
 msgstr "Rejtett másolat"
 
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Contact/Form/Task/EmailTrait.php
 msgid ""
 "Selected contact(s) do not have a valid email address, or communication "
 "preferences specify DO NOT EMAIL, or they are deceased or Primary email "
 "address is On Hold."
 msgstr "A kiválasztott kapcsolat(ok)nak nincs érvényes e-mail címe, vagy az adatvédelmi beállításainál kijelölt a NEM KÉREK E-MAILT, vagy elhunytak vagy az elsődleges e-mail címük vissza van tartva."
 
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Contact/Form/Task/EmailTrait.php
 msgid "Send Email"
 msgstr "E-mail küldése"
 
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/SMSCommon.php
-#: CRM/Core/Form/Task/PDFLetterCommon.php
-msgid "Enter name to save message template"
-msgstr "Adjon meg egy nevet, az üzenetsablon mentéshez"
-
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
-msgid "One message was sent successfully. "
-msgid_plural "%count messages were sent successfully. "
-msgstr[0] "Egy üzenet sikeresen elküldve."
-msgstr[1] "%count üzenet sikeresen elküldve."
-
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
-#: CRM/Contact/Form/Task/SMSCommon.php
-msgid "Message Sent"
-msgid_plural "Messages Sent"
-msgstr[0] "Üzenet elküldve"
-msgstr[1] "Üzenetek elküldve"
-
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
-msgid "on hold"
-msgstr "visszatartva"
-
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
-msgid ""
-"because no email address on file or communication preferences specify DO NOT"
-" EMAIL or Contact is deceased or Primary email address is On Hold"
-msgstr "mert nincs e-mail címe rögzítve, vagy a kommunikációs beállításoknál megadta NEM KÉREK E-MAILT vagy a kapcsolat elhunyt vagy az elsődleges e-mail címe vissza van tartva "
-
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
-#: CRM/Contact/Form/Task/SMSCommon.php
-msgid "One Message Not Sent"
-msgid_plural "%count Messages Not Sent"
-msgstr[0] "Egy üzenet nem lett elküldve"
-msgstr[1] "%count üzenetek nem lettek elküldve"
-
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Contact/Form/Task/EmailTrait.php
 msgid ""
 "Please do not use this task to send a lot of emails (greater than %1). Many "
 "countries have legal requirements when sending bulk emails and the CiviMail "
 "framework has opt out functionality and domain tokens to help meet these."
 msgstr "Ezt a feladatot ne használja több e-mail küldésére (több mint %1). Sok országban a tömeges levélküldésre jogszabályok vonatkoznak és a CiviKörlevél keretrendszer leiratkozási funkcióval és tartomány tokennel is rendelkezik ezen szabályok betartását segítendő."
+
+#: CRM/Contact/Form/Task/EmailTrait.php
+msgid "One message was sent successfully. "
+msgid_plural "%count messages were sent successfully. "
+msgstr[0] "Egy üzenet sikeresen elküldve."
+msgstr[1] "%count üzenet sikeresen elküldve."
+
+#: CRM/Contact/Form/Task/EmailTrait.php CRM/Contact/Form/Task/SMSCommon.php
+msgid "Message Sent"
+msgid_plural "Messages Sent"
+msgstr[0] "Üzenet elküldve"
+msgstr[1] "Üzenetek elküldve"
+
+#: CRM/Contact/Form/Task/EmailTrait.php
+msgid ""
+"because no email address on file or communication preferences specify DO NOT"
+" EMAIL or Contact is deceased or Primary email address is On Hold"
+msgstr "mert nincs e-mail címe rögzítve, vagy a kommunikációs beállításoknál megadta NEM KÉREK E-MAILT vagy a kapcsolat elhunyt vagy az elsődleges e-mail címe vissza van tartva "
+
+#: CRM/Contact/Form/Task/EmailTrait.php CRM/Contact/Form/Task/SMSCommon.php
+msgid "One Message Not Sent"
+msgid_plural "%count Messages Not Sent"
+msgstr[0] "Egy üzenet nem lett elküldve"
+msgstr[1] "%count üzenetek nem lettek elküldve"
+
+#: CRM/Contact/Form/Task/EmailTrait.php
+msgid "on hold"
+msgstr "visszatartva"
 
 #: CRM/Contact/Form/Task/HookSample.php
 msgid "Back to Search"
@@ -6001,6 +6151,10 @@ msgstr "Felhasználó rekord létrehozása %1"
 msgid "Username"
 msgstr "Felhasználó neve"
 
+#: CRM/Contact/Form/Task/Useradd.php
+msgid "Username is required"
+msgstr ""
+
 #: CRM/Contact/Form/Task/Useradd.php CRM/Core/BAO/CMSUser.php
 #: CRM/SMS/Form/Provider.php xml/templates/civicrm_data.tpl
 msgid "Password"
@@ -6010,9 +6164,13 @@ msgstr "Jelszó"
 msgid "Confirm Password"
 msgstr "Jelszó megerősítése"
 
-#: CRM/Contact/Form/Task/Useradd.php templates/CRM/Block/Add.tpl
-msgid "Email:"
-msgstr "E-mail:"
+#: CRM/Contact/Form/Task/Useradd.php
+msgid "Password is required"
+msgstr ""
+
+#: CRM/Contact/Form/Task/Useradd.php
+msgid "Email is required"
+msgstr ""
 
 #: CRM/Contact/Form/Task/Useradd.php
 msgid "Error creating CMS user account."
@@ -6022,16 +6180,13 @@ msgstr "Tartalom kezelő felhasználó fiók készítési hiba"
 msgid "User Added"
 msgstr "Felhasználó hozzáadva"
 
+#: CRM/Contact/Form/Task/Useradd.php
+msgid "Password mismatch"
+msgstr ""
+
 #: CRM/Contact/Form/Task.php
 msgid "Confirm Action"
 msgstr "Intézkedés megerősítése"
-
-#: CRM/Contact/Import/Form/DataSource.php
-msgid ""
-"Database Configuration Error: Insufficient permissions. Import requires that"
-" the CiviCRM database user has permission to create temporary tables. "
-"Contact your site administrator for assistance."
-msgstr "Adatbázis beállítási hiba: Elégtelen jogosultságok. Az importhoz szükséges az, hogy a CiviCRM adatbázis felhasználónak legyen ideiglenes tábla létrehozási jogosultsága. Segítségért lépjen kapcsolatba a weboldal adminisztrátorával."
 
 #: CRM/Contact/Import/Form/DataSource.php
 msgid ""
@@ -6073,7 +6228,7 @@ msgstr "Háztartás"
 msgid "Subtype"
 msgstr "Altípus"
 
-#: CRM/Contact/Import/Form/DataSource.php
+#: CRM/Contact/Import/Form/DataSource.php CRM/Dedupe/DAO/DedupeRule.php
 #: templates/CRM/Contact/Import/Form/DataSource.hlp
 msgid "Dedupe Rule"
 msgstr "Deduplikálási szabály"
@@ -6184,10 +6339,6 @@ msgid "Related contact required fields are missing."
 msgstr "A kapcsolattartóval kapcsolatos kötelező mezők hiányoznak."
 
 #: CRM/Contact/Import/Parser/Contact.php
-msgid "Record duplicates multiple contacts"
-msgstr "Több kapcsolatú duplikátumok rögzítése"
-
-#: CRM/Contact/Import/Parser/Contact.php
 msgid "field ID"
 msgstr "mező azonosító"
 
@@ -6273,6 +6424,10 @@ msgid ""
 "Matching this contact based on the de-dupe rule would cause an external ID "
 "conflict"
 msgstr "Az ezen kapcsolat összefűzése a deduplikációs szabály alapján külső azonosító konfliktust okozhat"
+
+#: CRM/Contact/Import/Parser/Contact.php
+msgid "Record duplicates multiple contacts"
+msgstr "Több kapcsolatú duplikátumok rögzítése"
 
 #: CRM/Contact/Import/Parser.php
 msgid "View Contact URL"
@@ -6401,13 +6556,13 @@ msgstr "Szabály törölve"
 msgid "Malformed photo name"
 msgstr "Rosszul formált fotónév"
 
-#: CRM/Contact/Page/ImageFile.php
-msgid "Photo does not exist"
-msgstr "Kép nem létezik."
-
 #: CRM/Contact/Page/SavedSearch.php
 msgid "Do you really want to remove this Smart Group?"
 msgstr "Biztosan eltávolítja ezt a Smart csoportot?"
+
+#: CRM/Contact/Page/View/CustomData.php CRM/Utils/Request.php
+msgid "Could not find valid value for %1"
+msgstr "Nem található érvényes érték %1-nek"
 
 #: CRM/Contact/Page/View/CustomData.php CRM/Profile/Page/Dynamic.php
 msgid "View %1 Record"
@@ -7098,7 +7253,8 @@ msgstr "- mező kiválasztás -"
 msgid "Another search field"
 msgstr "Másik kereső mező"
 
-#: CRM/Core/BAO/Mapping.php CRM/Price/Form/Set.php CRM/Price/Page/Set.php
+#: CRM/Core/BAO/Mapping.php CRM/Price/BAO/LineItem.php
+#: CRM/Price/DAO/LineItem.php CRM/Price/Form/Set.php CRM/Price/Page/Set.php
 #: CRM/UF/Page/ProfileEditor.php CRM/Utils/Chart.php
 #: xml/templates/civicrm_data.tpl
 msgid "Contribution"
@@ -7135,11 +7291,6 @@ msgstr "Tranzakció azonosítója"
 #: CRM/Core/BAO/Mapping.php
 msgid "Pledge"
 msgstr "Felajánlás"
-
-#: CRM/Core/BAO/Mapping.php CRM/Dashlet/Page/AllCases.php
-#: CRM/Dashlet/Page/MyCases.php CRM/UF/Page/ProfileEditor.php
-msgid "Case"
-msgstr "Eset"
 
 #: CRM/Core/BAO/Mapping.php
 msgid "Case Activity"
@@ -7248,6 +7399,10 @@ msgstr "A súlyossági szint nem lehet magasabb mint 7."
 #: CRM/Core/BAO/StatusPreference.php
 msgid "Invalid string passed as severity level."
 msgstr "Érvénytelen karakterlánc került átadásra mint súlyossági szint."
+
+#: CRM/Core/BAO/Translation.php
+msgid "Draft"
+msgstr ""
 
 #: CRM/Core/BAO/UFField.php
 msgid "Cannot enable this UF field since the used custom field is disabled."
@@ -7431,6 +7586,14 @@ msgstr "Néhány modul hozzáféréseket határoz meg, de a tartalomkezelő nem 
 msgid "Permission Error"
 msgstr "Hozzáférés hiba"
 
+#: CRM/Core/Controller/Task.php
+msgid "No records available"
+msgstr ""
+
+#: CRM/Core/Controller/Task.php
+msgid "Invalid task"
+msgstr ""
+
 #: CRM/Core/Controller.php
 msgid ""
 "We can't load the requested web page. This page requires cookies to be "
@@ -7471,14 +7634,10 @@ msgstr "Akció napló"
 msgid "Action Schedule ID"
 msgstr "Akció ütemezés azonosító"
 
-#: CRM/Core/DAO/ActionLog.php
-msgid "Action Schedule Contact ID"
-msgstr "Akció ütemezés kapcsolat azonosító"
-
 #: CRM/Core/DAO/ActionLog.php CRM/Core/DAO/Address.php CRM/Core/DAO/Email.php
 #: CRM/Core/DAO/IM.php CRM/Core/DAO/OpenID.php CRM/Core/DAO/Phone.php
 #: CRM/Core/DAO/UFMatch.php CRM/Core/DAO/Website.php
-#: CRM/Dedupe/DAO/Exception.php
+#: CRM/Dedupe/DAO/DedupeException.php
 msgid "FK to Contact ID"
 msgstr "FK a kapcsolat azonosítóhoz"
 
@@ -7493,12 +7652,16 @@ msgid ""
 msgstr "a fenti azonosító entitástáblájának neve, pl. civicrm_activity, civicrm_participant"
 
 #: CRM/Core/DAO/ActionLog.php
-msgid "Schedule"
-msgstr "Ütemezés"
+msgid "Schedule ID"
+msgstr ""
 
 #: CRM/Core/DAO/ActionLog.php
 msgid "FK to the action schedule that this action originated from."
 msgstr "FK a művelet ütemezéshez, amelyből ez a művelet származik."
+
+#: CRM/Core/DAO/ActionLog.php
+msgid "Schedule"
+msgstr "Ütemezés"
 
 #: CRM/Core/DAO/ActionLog.php
 msgid "Action Date And Time"
@@ -7624,7 +7787,7 @@ msgid "Name of the action(reminder)"
 msgstr "Művelet neve (emlékeztető)"
 
 #: CRM/Core/DAO/ActionSchedule.php CRM/Core/DAO/PrintLabel.php
-#: CRM/Dedupe/DAO/RuleGroup.php CRM/Friend/BAO/Friend.php
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php CRM/Friend/BAO/Friend.php
 #: CRM/Friend/DAO/Friend.php CRM/SMS/Form/Provider.php
 #: templates/CRM/Custom/Page/Group.hlp
 msgid "Title"
@@ -7677,6 +7840,10 @@ msgstr "Kezdő akció állapot"
 #: CRM/Core/DAO/ActionSchedule.php
 msgid "Reminder Action"
 msgstr "Emlékeztető művelet"
+
+#: CRM/Core/DAO/ActionSchedule.php
+msgid "Start Action condition"
+msgstr ""
 
 #: CRM/Core/DAO/ActionSchedule.php
 msgid "Start Action Date"
@@ -7804,24 +7971,28 @@ msgid "Name/ID of the mapping to use on this table"
 msgstr "A táblán használandó leképezés neve / azonosítója"
 
 #: CRM/Core/DAO/ActionSchedule.php
-msgid "Reminder Group"
-msgstr "Emlékeztető csoport"
-
-#: CRM/Core/DAO/ActionSchedule.php
 msgid "FK to Group"
 msgstr "FK a csoporthoz"
 
-#: CRM/Core/DAO/ActionSchedule.php
-msgid "Reminder Template"
-msgstr "Emlékeztető sablon"
+#: CRM/Core/DAO/ActionSchedule.php CRM/Core/DAO/MessageTemplate.php
+msgid "Message Template ID"
+msgstr "Üzenet sablon azonosító"
 
 #: CRM/Core/DAO/ActionSchedule.php
 msgid "FK to the message template."
 msgstr "FK az üzenet sablonhoz"
 
+#: CRM/Core/DAO/ActionSchedule.php CRM/Core/DAO/MessageTemplate.php
+msgid "Message Template"
+msgstr "Üzenet sablon"
+
 #: CRM/Core/DAO/ActionSchedule.php
-msgid "SMS Reminder Template"
-msgstr "SMS emlékeztető sablon"
+msgid "SMS Template ID"
+msgstr ""
+
+#: CRM/Core/DAO/ActionSchedule.php
+msgid "SMS Template"
+msgstr ""
 
 #: CRM/Core/DAO/ActionSchedule.php
 msgid "Fixed Date for Reminder"
@@ -7855,6 +8026,10 @@ msgstr "Üzenet mód"
 msgid "Send the message as email or sms or both."
 msgstr "Az üzenet elküldése mint e-mail vagy sms vagy mindkettő."
 
+#: CRM/Core/DAO/ActionSchedule.php CRM/SMS/DAO/Provider.php
+msgid "SMS Provider ID"
+msgstr "SMS szolgáltató azonosító"
+
 #: CRM/Core/DAO/ActionSchedule.php CRM/SMS/Form/Provider.php
 #: CRM/SMS/Page/Provider.php templates/CRM/SMS/Form/Group.hlp
 msgid "SMS Provider"
@@ -7883,11 +8058,35 @@ msgstr "Többnyelvű telepítésnél használva"
 msgid "Communication Language"
 msgstr "Kommunikációs nyelv"
 
+#: CRM/Core/DAO/ActionSchedule.php
+msgid "When was the scheduled reminder created."
+msgstr "Mikor készült ez az ütemezett emlékeztető."
+
+#: CRM/Core/DAO/ActionSchedule.php
+msgid "When the reminder was created or modified."
+msgstr "Mikor készítették vagy módosították ezt az emlékeztetőt."
+
+#: CRM/Core/DAO/ActionSchedule.php
+msgid "Effective start date"
+msgstr "Tényleges kezdési dátum"
+
+#: CRM/Core/DAO/ActionSchedule.php
+msgid "Earliest date to consider start events from."
+msgstr "A legkorábbi megfontolandó esemény kezdési dátum."
+
+#: CRM/Core/DAO/ActionSchedule.php
+msgid "Effective end date"
+msgstr "Tényleges vég dátum"
+
+#: CRM/Core/DAO/ActionSchedule.php
+msgid "Latest date to consider end events from."
+msgstr "A legkésőbbi megfontolandó esemény befejezési dátum."
+
 #: CRM/Core/DAO/Address.php CRM/Core/SelectValues.php
 msgid "Addresses"
 msgstr "Címek"
 
-#: CRM/Core/DAO/Address.php
+#: CRM/Core/DAO/Address.php CRM/Core/DAO/LocBlock.php
 msgid "Address ID"
 msgstr "Cím azonosító"
 
@@ -7996,9 +8195,17 @@ msgstr "Kiegészítő cím 3 sor"
 msgid "City, Town or Village Name."
 msgstr "Város vagy falu neve"
 
+#: CRM/Core/DAO/Address.php CRM/Core/DAO/County.php
+msgid "County ID"
+msgstr "Megye azonosító"
+
 #: CRM/Core/DAO/Address.php
 msgid "Which County does this address belong to."
 msgstr "Melyik megyéhez tartozik ez a cím?"
+
+#: CRM/Core/DAO/Address.php CRM/Core/DAO/StateProvince.php
+msgid "State/Province ID"
+msgstr "Állam/Tartomány azonosító"
 
 #: CRM/Core/DAO/Address.php
 msgid "Which State_Province does this address belong to."
@@ -8027,6 +8234,12 @@ msgstr "USPS kód"
 msgid "USPS Bulk mailing code."
 msgstr "USPS Tömeges levelezési kód."
 
+#: CRM/Core/DAO/Address.php CRM/Core/DAO/Country.php
+#: CRM/Core/DAO/StateProvince.php CRM/Core/DAO/Timezone.php
+#: CRM/Core/DAO/Worldregion.php
+msgid "Country ID"
+msgstr "Ország azonosító"
+
 #: CRM/Core/DAO/Address.php
 msgid "Which Country does this address belong to."
 msgstr "Melyik országhoz tartozik ez a cím?"
@@ -8050,12 +8263,16 @@ msgid ""
 msgstr "Az időzóna UTC eltolásban kifejezve - pl. Az Egyesült Államok CST-je \"UTC-6\" lesz."
 
 #: CRM/Core/DAO/Address.php
-msgid "Master Address Belongs To"
-msgstr "A Fő cím tartozik"
+msgid "Master Address ID"
+msgstr ""
 
 #: CRM/Core/DAO/Address.php
 msgid "FK to Address ID"
 msgstr "FK a cím azonosítóhoz."
+
+#: CRM/Core/DAO/Address.php
+msgid "Master Address Belongs To"
+msgstr "A Fő cím tartozik"
 
 #: CRM/Core/DAO/AddressFormat.php
 msgid "Address Formats"
@@ -8065,12 +8282,8 @@ msgstr "Cím formátumok"
 msgid "Address Format"
 msgstr "Cím formátuma"
 
-#: CRM/Core/DAO/AddressFormat.php
+#: CRM/Core/DAO/AddressFormat.php CRM/Core/DAO/Country.php
 msgid "Address Format ID"
-msgstr "Cím formátum azonosító"
-
-#: CRM/Core/DAO/AddressFormat.php
-msgid "Address Format Id"
 msgstr "Cím formátum azonosító"
 
 #: CRM/Core/DAO/AddressFormat.php
@@ -8105,13 +8318,19 @@ msgstr "Adat"
 msgid "data associated with this path"
 msgstr "ehhez az útvonalhoz társított adatok"
 
-#: CRM/Core/DAO/Cache.php CRM/Core/DAO/Component.php
+#: CRM/Core/DAO/Cache.php CRM/Core/DAO/Component.php CRM/Core/DAO/Menu.php
+#: CRM/Core/DAO/OptionValue.php CRM/Core/DAO/Setting.php
 msgid "Component ID"
 msgstr "Komponens azonosító"
 
 #: CRM/Core/DAO/Cache.php CRM/Core/DAO/Menu.php CRM/Core/DAO/Setting.php
 msgid "Component that this menu item belongs to"
 msgstr "Komponens melyhez ez a menüelem tartozik"
+
+#: CRM/Core/DAO/Cache.php CRM/Core/DAO/Component.php CRM/Core/DAO/Menu.php
+#: CRM/Core/DAO/OptionValue.php CRM/Core/DAO/Setting.php
+msgid "Component"
+msgstr "Komponens"
 
 #: CRM/Core/DAO/Cache.php
 msgid "When was the cache item created"
@@ -8128,10 +8347,6 @@ msgstr "Mikor jár le ez a gyorsítótár elem."
 #: CRM/Core/DAO/Component.php
 msgid "Components"
 msgstr "Komponensek"
-
-#: CRM/Core/DAO/Component.php CRM/Core/DAO/Menu.php
-msgid "Component"
-msgstr "Komponens"
 
 #: CRM/Core/DAO/Component.php
 msgid "Component name"
@@ -8152,15 +8367,6 @@ msgstr "A komponensek fő könyvtárának elérési útvonala egy osztály névt
 #: CRM/Core/DAO/Country.php
 msgid "Countries"
 msgstr "Országok"
-
-#: CRM/Core/DAO/Country.php
-msgid "Country ID"
-msgstr "Ország azonosító"
-
-#: CRM/Core/DAO/Country.php CRM/Core/DAO/Timezone.php
-#: CRM/Core/DAO/Worldregion.php
-msgid "Country Id"
-msgstr "Ország azonosító"
 
 #: CRM/Core/DAO/Country.php
 msgid "Country Name"
@@ -8222,13 +8428,17 @@ msgid ""
 "country?"
 msgstr "Az államot / tartományt rövidítésként kell megjeleníteni ezen ország kapcsolatainál?"
 
+#: CRM/Core/DAO/Country.php
+msgid "Country Is Active"
+msgstr ""
+
+#: CRM/Core/DAO/Country.php
+msgid "Is this Country active?"
+msgstr ""
+
 #: CRM/Core/DAO/County.php
 msgid "Counties"
 msgstr "Megyék"
-
-#: CRM/Core/DAO/County.php
-msgid "County ID"
-msgstr "Megye azonosító"
 
 #: CRM/Core/DAO/County.php
 msgid "Name of County"
@@ -8242,9 +8452,21 @@ msgstr "Megye rövidítése"
 msgid "2-4 Character Abbreviation of County"
 msgstr "Megye 2-4 karakternyi rövidítése"
 
+#: CRM/Core/DAO/County.php CRM/Core/DAO/StateProvince.php
+msgid "State ID"
+msgstr "Állam azonosító"
+
 #: CRM/Core/DAO/County.php
 msgid "ID of State/Province that County belongs"
 msgstr "Állam/Tartomány azonosítója, amibe ez a megye tartozik"
+
+#: CRM/Core/DAO/County.php
+msgid "County Is Active"
+msgstr ""
+
+#: CRM/Core/DAO/County.php
+msgid "Is this County active?"
+msgstr ""
 
 #: CRM/Core/DAO/CustomField.php CRM/Custom/Page/Field.php
 msgid "Custom Field"
@@ -8258,6 +8480,10 @@ msgstr "Egyedi mező azonosítója"
 msgid "Unique Custom Field ID"
 msgstr "Egyedi egyedi mező azonosítója"
 
+#: CRM/Core/DAO/CustomField.php CRM/Core/DAO/CustomGroup.php
+msgid "Custom Group ID"
+msgstr "Egyedi csoport azonosítója"
+
 #: CRM/Core/DAO/CustomField.php
 msgid "FK to civicrm_custom_group."
 msgstr "FK a civicrm_custom_group csoporthoz."
@@ -8266,9 +8492,9 @@ msgstr "FK a civicrm_custom_group csoporthoz."
 msgid "Custom Field Name"
 msgstr "Egyedi mező neve"
 
-#: CRM/Core/DAO/CustomField.php CRM/Core/DAO/CustomGroup.php
-msgid "Variable name/programmatic handle for this group."
-msgstr "Változó név / programozási fogantyú ehhez a csoporthoz."
+#: CRM/Core/DAO/CustomField.php CRM/Price/DAO/PriceField.php
+msgid "Variable name/programmatic handle for this field."
+msgstr "Változónév / programozó fogantyú ehhez a mezőhöz."
 
 #: CRM/Core/DAO/CustomField.php
 msgid "Custom Field Label"
@@ -8280,21 +8506,17 @@ msgid ""
 "property)."
 msgstr "Az űrlapmező címkéjének szövege (egy alkalmas név ennek az egyedi tulajdonságnak a kezelésére)."
 
-#: CRM/Core/DAO/CustomField.php
-msgid "Custom Field Data Type"
-msgstr "Egyedi mező adattípusa"
-
-#: CRM/Core/DAO/CustomField.php
-msgid "Controls location of data storage in extended_data table."
-msgstr "Vezérli az adattárolás helyét a extended_data táblázatban."
-
 #: CRM/Core/DAO/CustomField.php templates/CRM/Custom/Page/Field.tpl
 msgid "Data Type"
 msgstr "Adat típus"
 
 #: CRM/Core/DAO/CustomField.php
-msgid "Custom Field HTML Type"
-msgstr "Egyedi mező HTML típusa"
+msgid "Controls location of data storage in extended_data table."
+msgstr "Vezérli az adattárolás helyét a extended_data táblázatban."
+
+#: CRM/Core/DAO/CustomField.php
+msgid "HTML Type"
+msgstr ""
 
 #: CRM/Core/DAO/CustomField.php
 msgid "HTML types plus several built-in extended types."
@@ -8471,12 +8693,16 @@ msgid "Name of the column that holds the values for this field."
 msgstr "Az oszlop neve, amely tartalmazza a mező értékeit"
 
 #: CRM/Core/DAO/CustomField.php
-msgid "Field Option Group"
-msgstr "Mező opciócsoport"
+msgid "Field Option Group ID"
+msgstr ""
 
 #: CRM/Core/DAO/CustomField.php
 msgid "For elements with options, the option group id that is used"
 msgstr "Opciókkal rendelkező elemeknél, a használt opciócsoport azonosítója"
+
+#: CRM/Core/DAO/CustomField.php
+msgid "Field Option Group"
+msgstr "Mező opciócsoport"
 
 #: CRM/Core/DAO/CustomField.php
 msgid "Serialize"
@@ -8512,16 +8738,16 @@ msgid "Custom Groups"
 msgstr "Egyedi csoport"
 
 #: CRM/Core/DAO/CustomGroup.php
-msgid "Custom Group ID"
-msgstr "Egyedi csoport azonosítója"
-
-#: CRM/Core/DAO/CustomGroup.php
 msgid "Unique Custom Group ID"
 msgstr "Egyéni egyedi csoport azonosító"
 
 #: CRM/Core/DAO/CustomGroup.php
 msgid "Custom Group Name"
 msgstr "Egyedi csoport neve"
+
+#: CRM/Core/DAO/CustomGroup.php
+msgid "Variable name/programmatic handle for this group."
+msgstr "Változó név / programozási fogantyú ehhez a csoporthoz."
 
 #: CRM/Core/DAO/CustomGroup.php
 msgid "Custom Group Title"
@@ -8644,10 +8870,6 @@ msgid ""
 msgstr "Ez a csoport a részletes keresés kijelzésénél összezárt vagy kibontott módban lesz?"
 
 #: CRM/Core/DAO/CustomGroup.php
-msgid "Custom Group Created By"
-msgstr "Egyedi csoportot létrehozta"
-
-#: CRM/Core/DAO/CustomGroup.php
 msgid "FK to civicrm_contact, who created this custom group"
 msgstr "FK a civicrm_contact aki az egyedi csoportot létrehozta"
 
@@ -8692,13 +8914,27 @@ msgstr "Vezérlőpultok"
 msgid "DashletID"
 msgstr "Kisalkalmazás azonosító"
 
-#: CRM/Core/DAO/Dashboard.php
-msgid "Dashlet Domain"
-msgstr "Kisalkalmazás tartománya"
+#: CRM/Core/DAO/Dashboard.php CRM/Core/DAO/Domain.php CRM/Core/DAO/Job.php
+#: CRM/Core/DAO/JobLog.php CRM/Core/DAO/MailSettings.php CRM/Core/DAO/Menu.php
+#: CRM/Core/DAO/Navigation.php CRM/Core/DAO/OptionValue.php
+#: CRM/Core/DAO/Setting.php CRM/Core/DAO/StatusPreference.php
+#: CRM/Core/DAO/UFMatch.php CRM/Core/DAO/WordReplacement.php
+#: CRM/Price/DAO/PriceSet.php CRM/SMS/DAO/Provider.php
+msgid "Domain ID"
+msgstr "Taromány azonosító"
 
 #: CRM/Core/DAO/Dashboard.php
 msgid "Domain for dashboard"
 msgstr "Vezérlőpult tartomány"
+
+#: CRM/Core/DAO/Dashboard.php CRM/Core/DAO/Domain.php CRM/Core/DAO/Job.php
+#: CRM/Core/DAO/JobLog.php CRM/Core/DAO/MailSettings.php CRM/Core/DAO/Menu.php
+#: CRM/Core/DAO/Navigation.php CRM/Core/DAO/OptionValue.php
+#: CRM/Core/DAO/Setting.php CRM/Core/DAO/StatusPreference.php
+#: CRM/Core/DAO/UFMatch.php CRM/Core/DAO/WordReplacement.php
+#: CRM/Price/DAO/PriceSet.php CRM/SMS/DAO/Provider.php
+msgid "Domain"
+msgstr "Domain"
 
 #: CRM/Core/DAO/Dashboard.php
 msgid "Dashlet Name"
@@ -8803,13 +9039,20 @@ msgstr "a kedvezményhez kapcsolt egyed fizikai tábla neve, pl. civicrm_event"
 msgid "FK to entity table specified in entity_table column."
 msgstr "FK az entitás táblához amit a entity_table column -ben határoztak meg. "
 
-#: CRM/Core/DAO/Discount.php
-msgid "Discount Name"
-msgstr "Engedmény neve"
+#: CRM/Core/DAO/Discount.php CRM/Price/DAO/PriceField.php
+#: CRM/Price/DAO/PriceSetEntity.php
+msgid "Price Set ID"
+msgstr ""
 
 #: CRM/Core/DAO/Discount.php CRM/Price/DAO/PriceField.php
 msgid "FK to civicrm_price_set"
 msgstr "FK a civicrm_price_set -hez"
+
+#: CRM/Core/DAO/Discount.php CRM/Price/DAO/PriceField.php
+#: CRM/Price/DAO/PriceSet.php CRM/Price/DAO/PriceSetEntity.php
+#: CRM/Price/Page/Set.php
+msgid "Price Set"
+msgstr "Árlista"
 
 #: CRM/Core/DAO/Discount.php
 msgid "Discount Start Date"
@@ -8830,14 +9073,6 @@ msgstr "A kedvezmény vég dátuma."
 #: CRM/Core/DAO/Domain.php
 msgid "Domains"
 msgstr "Tartományok"
-
-#: CRM/Core/DAO/Domain.php CRM/Core/DAO/Menu.php
-msgid "Domain"
-msgstr "Domain"
-
-#: CRM/Core/DAO/Domain.php CRM/Core/DAO/JobLog.php
-msgid "Domain ID"
-msgstr "Taromány azonosító"
 
 #: CRM/Core/DAO/Domain.php templates/CRM/Contact/Form/Domain.hlp
 msgid "Domain Name"
@@ -8862,10 +9097,6 @@ msgstr "CiviCRM változat"
 #: CRM/Core/DAO/Domain.php
 msgid "The civicrm version this instance is running"
 msgstr "A szerveren futó civicrm verziója"
-
-#: CRM/Core/DAO/Domain.php
-msgid "Domain Contact"
-msgstr "Tartomány kapcsolat"
 
 #: CRM/Core/DAO/Domain.php
 msgid ""
@@ -8896,16 +9127,8 @@ msgid "Emails"
 msgstr "E-mailek"
 
 #: CRM/Core/DAO/Email.php
-msgid "Email ID"
-msgstr "E-mail azonosító"
-
-#: CRM/Core/DAO/Email.php
 msgid "Unique Email ID"
 msgstr "Egyedi e-mail azonosító"
-
-#: CRM/Core/DAO/Email.php
-msgid "Email Contact"
-msgstr "E-mail kapcsolat"
 
 #: CRM/Core/DAO/Email.php
 msgid "Email Location Type"
@@ -8985,6 +9208,10 @@ msgstr "Aláírás HTML"
 msgid "HTML formatted signature for the email."
 msgstr "HTML formátumú üzenet aláírás az e-mailhez."
 
+#: CRM/Core/DAO/Email.php templates/CRM/Contact/Page/Inline/Email.tpl
+msgid "Signature HTML"
+msgstr "Aláírás HTML"
+
 #: CRM/Core/DAO/EntityFile.php
 msgid "Entity Files"
 msgstr "Egyedi fájlok"
@@ -9002,6 +9229,10 @@ msgid ""
 "physical tablename for entity being joined to file, e.g. civicrm_contact"
 msgstr "a fájlhoz kapcsolt egyed fizikai tábla neve, pl. civicrm_contact"
 
+#: CRM/Core/DAO/EntityFile.php CRM/Core/DAO/File.php
+msgid "File ID"
+msgstr "Fájl azonosító"
+
 #: CRM/Core/DAO/EntityFile.php
 msgid "FK to civicrm_file"
 msgstr "FK a civicrm_file -hoz"
@@ -9017,6 +9248,10 @@ msgstr "Egyedi címke"
 #: CRM/Core/DAO/EntityTag.php
 msgid "Entity Tag ID"
 msgstr "Egyed címke azonosító"
+
+#: CRM/Core/DAO/EntityTag.php CRM/Core/DAO/Tag.php
+msgid "Tag ID"
+msgstr "Címke azonosító"
 
 #: CRM/Core/DAO/EntityTag.php
 msgid "FK to civicrm_tag"
@@ -9086,10 +9321,6 @@ msgstr "Aktív ez a kiterjesztés?"
 msgid "Files"
 msgstr "Fájlok"
 
-#: CRM/Core/DAO/File.php
-msgid "File ID"
-msgstr "Fájl azonosító"
-
 #: CRM/Core/DAO/File.php CRM/Core/DAO/LocBlock.php
 msgid "Unique ID"
 msgstr "Egyedi azonosító"
@@ -9141,10 +9372,6 @@ msgid "Date and time that this attachment was uploaded or written to server."
 msgstr "A melléklet szerverre történő feltöltésének vagy felírásának a dátuma és ideje."
 
 #: CRM/Core/DAO/File.php
-msgid "Created By Contact ID"
-msgstr "Létrehozó kapcsolat azonosítója"
-
-#: CRM/Core/DAO/File.php
 msgid "FK to civicrm_contact, who uploaded this file"
 msgstr "a fájlt feltöltő civicrm_contact -hoz  tartozó FK "
 
@@ -9159,10 +9386,6 @@ msgstr "Azonnali üzenetküldő azonosító"
 #: CRM/Core/DAO/IM.php
 msgid "Unique IM ID"
 msgstr "Egyedi üzenetküldő azonosító"
-
-#: CRM/Core/DAO/IM.php
-msgid "IM Contact"
-msgstr "Azonnali üzenet küldő kapcsolat"
 
 #: CRM/Core/DAO/IM.php
 msgid "IM Location Type"
@@ -9203,14 +9426,6 @@ msgstr "Feladat"
 #: CRM/Core/DAO/Job.php CRM/Core/DAO/JobLog.php
 msgid "Job ID"
 msgstr "Feladat azonosító"
-
-#: CRM/Core/DAO/Job.php
-msgid "Job Id"
-msgstr "Feladat azonosító"
-
-#: CRM/Core/DAO/Job.php
-msgid "Job Domain"
-msgstr "Feladat tartomány"
 
 #: CRM/Core/DAO/Job.php CRM/Core/DAO/JobLog.php
 msgid "Which Domain is this scheduled job for"
@@ -9297,8 +9512,8 @@ msgid "Job Log ID"
 msgstr "Munka napló azonosító"
 
 #: CRM/Core/DAO/JobLog.php
-msgid "Job log entry Id"
-msgstr "Feladat napló bejegyzés azonosító"
+msgid "Job log entry ID"
+msgstr ""
 
 #: CRM/Core/DAO/JobLog.php
 msgid "Timestamp"
@@ -9344,33 +9559,45 @@ msgstr "Hely blokk"
 msgid "Location Block ID"
 msgstr "Hely blokk azonosító"
 
-#: CRM/Core/DAO/LocBlock.php
-msgid "Location Block Address"
-msgstr "Hely blokk cím"
+#: CRM/Core/DAO/LocBlock.php CRM/Core/DAO/Phone.php
+msgid "Phone ID"
+msgstr "Telefon azonosító"
 
 #: CRM/Core/DAO/LocBlock.php
-msgid "Location Block Email"
-msgstr "Hely blokk e-mail"
+msgid "IM ID"
+msgstr ""
+
+#: CRM/Core/DAO/LocBlock.php templates/CRM/Contact/Page/Inline/IM.tpl
+msgid "IM"
+msgstr "Azonnali üzenetküldő"
 
 #: CRM/Core/DAO/LocBlock.php
-msgid "Location Block Phone"
-msgstr "Hely blokk telefon"
+msgid "IM 2 ID"
+msgstr ""
 
 #: CRM/Core/DAO/LocBlock.php
-msgid "Location Block IM"
-msgstr "Hely blokk azonnali üzenetküldő"
+msgid "IM 2"
+msgstr ""
 
 #: CRM/Core/DAO/LocBlock.php
-msgid "Location Block IM 2"
-msgstr "Hely blokk azonnali üzenetküldő 2"
+msgid "Email 2 ID"
+msgstr ""
 
 #: CRM/Core/DAO/LocBlock.php templates/CRM/Contact/Page/DedupeFind.tpl
 msgid "Email 2"
 msgstr "E-mail 2"
 
 #: CRM/Core/DAO/LocBlock.php
+msgid "Phone 2 ID"
+msgstr ""
+
+#: CRM/Core/DAO/LocBlock.php
 msgid "Phone 2"
 msgstr "Telefon 2"
+
+#: CRM/Core/DAO/LocBlock.php
+msgid "Instant Messenger 2 ID"
+msgstr ""
 
 #: CRM/Core/DAO/LocBlock.php
 msgid "Instant Messenger 2"
@@ -9380,7 +9607,8 @@ msgstr "Azonnali üzenetküldő 2"
 msgid "Location Types"
 msgstr "Hely típusok"
 
-#: CRM/Core/DAO/LocationType.php
+#: CRM/Core/DAO/LocationType.php CRM/Core/DAO/Phone.php
+#: CRM/Core/DAO/UFField.php
 msgid "Location Type ID"
 msgstr "Hely típusa azonosító"
 
@@ -9474,10 +9702,6 @@ msgstr "Levelezési beállítások"
 #: CRM/Core/DAO/MailSettings.php
 msgid "Mail Settings ID"
 msgstr "Levelezés beállítás azonosító"
-
-#: CRM/Core/DAO/MailSettings.php
-msgid "Mail Settings Domain"
-msgstr "Levelezés beállítás tartomány"
 
 #: CRM/Core/DAO/MailSettings.php CRM/Core/DAO/UFMatch.php
 msgid "Which Domain is this match entry for"
@@ -9653,10 +9877,6 @@ msgid "Mappings"
 msgstr "Illesztések"
 
 #: CRM/Core/DAO/Mapping.php
-msgid "Mapping"
-msgstr "Illesztés"
-
-#: CRM/Core/DAO/Mapping.php
 msgid "Mapping Name"
 msgstr "Illesztés neve"
 
@@ -9716,6 +9936,14 @@ msgstr "Hely típus azonosító"
 msgid "Location type of this mapping, if required"
 msgstr "Illesztés hely típusa, ha szükséges"
 
+#: CRM/Core/DAO/MappingField.php
+msgid "Location type"
+msgstr ""
+
+#: CRM/Core/DAO/MappingField.php
+msgid "Phone type ID"
+msgstr ""
+
 #: CRM/Core/DAO/MappingField.php CRM/Core/DAO/Phone.php
 msgid "Which type of phone does this number belongs."
 msgstr "Milyen típusú telefonhoz tartozik ez a szám?"
@@ -9743,6 +9971,10 @@ msgstr "Viszony típus azonosító"
 #: CRM/Core/DAO/MappingField.php
 msgid "Relationship type, if required"
 msgstr "Viszony típus, ha szükséges "
+
+#: CRM/Core/DAO/MappingField.php
+msgid "Relationship type"
+msgstr ""
 
 #: CRM/Core/DAO/MappingField.php
 msgid "Relationship Direction"
@@ -9852,12 +10084,20 @@ msgid "Url where a page should redirected to, if next url not known."
 msgstr "URL, ahova az oldalt átirányítani kell, ha a következő URL nem ismert."
 
 #: CRM/Core/DAO/Menu.php
+msgid "Return URL"
+msgstr ""
+
+#: CRM/Core/DAO/Menu.php
 msgid "Return Url Args"
 msgstr "Válasz Url argumentumok"
 
 #: CRM/Core/DAO/Menu.php
 msgid "Arguments to pass to return_url"
 msgstr "A return_url felé továbbítandó argumentumok"
+
+#: CRM/Core/DAO/Menu.php
+msgid "Return URL Arguments"
+msgstr ""
 
 #: CRM/Core/DAO/Menu.php
 msgid "Is this menu item active?"
@@ -9922,14 +10162,6 @@ msgstr "Az összes más menü metaadat nem kerül tárolásra másik mezőkben"
 #: CRM/Core/DAO/MessageTemplate.php
 msgid "Message Templates"
 msgstr "Üzenet sablonok"
-
-#: CRM/Core/DAO/MessageTemplate.php
-msgid "Message Template"
-msgstr "Üzenet sablon"
-
-#: CRM/Core/DAO/MessageTemplate.php
-msgid "Message Template ID"
-msgstr "Üzenet sablon azonosító"
 
 #: CRM/Core/DAO/MessageTemplate.php
 msgid "Message Template Title"
@@ -10028,10 +10260,6 @@ msgid "Navigation ID"
 msgstr "Navigációs azonosító"
 
 #: CRM/Core/DAO/Navigation.php
-msgid "Navigation Domain"
-msgstr "Navigációs tartomány"
-
-#: CRM/Core/DAO/Navigation.php
 msgid "Which Domain is this navigation item for"
 msgstr "Melyik tartományhoz tartozik ez a menü elem"
 
@@ -10072,12 +10300,16 @@ msgid "Permission for menu item"
 msgstr "Menüelem jogosultsága"
 
 #: CRM/Core/DAO/Navigation.php
-msgid "Navigation parent ID"
-msgstr "Navigációs szülő azonosító"
+msgid "parent ID"
+msgstr ""
 
 #: CRM/Core/DAO/Navigation.php
 msgid "Parent navigation item, used for grouping"
 msgstr "Szülő navigációs elem, csoportosításra használva"
+
+#: CRM/Core/DAO/Navigation.php
+msgid "parent"
+msgstr ""
 
 #: CRM/Core/DAO/Navigation.php
 msgid "Is this navigation item active?"
@@ -10112,12 +10344,20 @@ msgid "Note and/or Comment."
 msgstr "Megjegyzés."
 
 #: CRM/Core/DAO/Note.php
-msgid "Note Created By"
-msgstr "Megjegyzést készítette"
-
-#: CRM/Core/DAO/Note.php
 msgid "FK to Contact ID creator"
 msgstr "FK a kapcsolat azonosító létrehozójához"
+
+#: CRM/Core/DAO/Note.php
+msgid "Note Date"
+msgstr ""
+
+#: CRM/Core/DAO/Note.php
+msgid "Date attached to the note"
+msgstr ""
+
+#: CRM/Core/DAO/Note.php
+msgid "When the note was created."
+msgstr ""
 
 #: CRM/Core/DAO/Note.php
 msgid "Note Modified By"
@@ -10155,10 +10395,6 @@ msgid "Unique OpenID ID"
 msgstr "Egyedi OpenID azonosító"
 
 #: CRM/Core/DAO/OpenID.php
-msgid "OpenID Contact"
-msgstr "OpenID Kapcsolat "
-
-#: CRM/Core/DAO/OpenID.php
 msgid "OpenID Location Type"
 msgstr "OpenID hely típus"
 
@@ -10182,7 +10418,7 @@ msgstr "Ez a kapcsolat és a hely elsődleges email címe."
 msgid "Option Groups"
 msgstr "Opció csoportok"
 
-#: CRM/Core/DAO/OptionGroup.php
+#: CRM/Core/DAO/OptionGroup.php CRM/Core/DAO/OptionValue.php
 msgid "Option Group"
 msgstr "Opció csoport"
 
@@ -10252,7 +10488,7 @@ msgstr "Opció értékek"
 msgid "Option Value"
 msgstr "Opció érték"
 
-#: CRM/Core/DAO/OptionValue.php
+#: CRM/Core/DAO/OptionValue.php CRM/Price/DAO/LineItem.php
 msgid "Option ID"
 msgstr "Opció azonosító"
 
@@ -10352,16 +10588,8 @@ msgid "Option Is Active"
 msgstr "Aktív opció"
 
 #: CRM/Core/DAO/OptionValue.php
-msgid "Option Component"
-msgstr "Opció komponens"
-
-#: CRM/Core/DAO/OptionValue.php
 msgid "Component that this option value belongs/caters to."
 msgstr "Komponens melyhez ez a opció érték tartozik/támogat."
-
-#: CRM/Core/DAO/OptionValue.php
-msgid "Option Domain"
-msgstr "Opció tartomány"
 
 #: CRM/Core/DAO/OptionValue.php
 msgid "Which Domain is this option value for"
@@ -10384,28 +10612,12 @@ msgid "Phones"
 msgstr "Telefon számok"
 
 #: CRM/Core/DAO/Phone.php
-msgid "Phone ID"
-msgstr "Telefon azonosító"
-
-#: CRM/Core/DAO/Phone.php
 msgid "Unique Phone ID"
 msgstr "Egyedi telefon azonosító"
 
 #: CRM/Core/DAO/Phone.php
-msgid "Phone Contact"
-msgstr "Telefon kapcsolat"
-
-#: CRM/Core/DAO/Phone.php
-msgid "Phone Location Type ID"
-msgstr "Telefon hely típus azonosító"
-
-#: CRM/Core/DAO/Phone.php
 msgid "Which Location does this phone belong to."
 msgstr "Melyik helyhez tartozik ez a telefon."
-
-#: CRM/Core/DAO/Phone.php
-msgid "Phone Location Type"
-msgstr "Telefon hely típus"
 
 #: CRM/Core/DAO/Phone.php
 msgid "Primary phone"
@@ -10446,6 +10658,10 @@ msgstr "Numerikus telefon"
 #: CRM/Core/DAO/Phone.php
 msgid "Phone number stripped of all whitespace, letters, and punctuation."
 msgstr "Telefonszám, melyből törölték az összes szóközt, betűt és kötőjelet."
+
+#: CRM/Core/DAO/Phone.php
+msgid "Numeric"
+msgstr ""
 
 #: CRM/Core/DAO/Phone.php
 msgid "Phone Type ID"
@@ -10615,10 +10831,6 @@ msgid "Is this reserved label?"
 msgstr "Fenntartott címke?"
 
 #: CRM/Core/DAO/PrintLabel.php
-msgid "Label Created By"
-msgstr "Címkét létrehozta"
-
-#: CRM/Core/DAO/PrintLabel.php
 msgid "FK to civicrm_contact, who created this label layout"
 msgstr "A címke elrendezést létrehozó civicrm_contact FK"
 
@@ -10630,16 +10842,12 @@ msgstr "Ismétlődő elemek"
 msgid "Recurring Entity"
 msgstr "Ismétlődő egyedek"
 
-#: CRM/Core/DAO/RecurringEntity.php
+#: CRM/Core/DAO/RecurringEntity.php CRM/Price/DAO/PriceSet.php
 #: templates/CRM/Contact/Form/Task/HookSample.tpl
 #: templates/CRM/Custom/Page/Field.tpl templates/CRM/Custom/Page/Group.tpl
 #: templates/CRM/UF/Page/Group.tpl
 msgid "ID"
 msgstr "Azonosító"
-
-#: CRM/Core/DAO/RecurringEntity.php
-msgid "Parent ID"
-msgstr "Szülő azonosító"
 
 #: CRM/Core/DAO/RecurringEntity.php
 msgid "Recurring Entity Parent ID"
@@ -10687,14 +10895,6 @@ msgstr "Érték"
 msgid "data associated with this group / name combo"
 msgstr "ehhez a csoporthoz / név kombinációhoz tartozó adatok"
 
-#: CRM/Core/DAO/Setting.php CRM/Core/DAO/StatusPreference.php
-msgid "Setting Domain"
-msgstr "Beállítás tartomány"
-
-#: CRM/Core/DAO/Setting.php
-msgid "Setting Contact"
-msgstr "Beállítás kapcsolat"
-
 #: CRM/Core/DAO/Setting.php
 msgid "FK to Contact ID if the setting is localized to a contact"
 msgstr "Ha a kapcsolathoz lokalizáltra van beállítva, FK a kapcsolat azonosítóhoz"
@@ -10708,10 +10908,6 @@ msgid "Is this setting a contact specific or site wide setting?"
 msgstr "Ez a beállítás kapcsolat specifikus vagy weboldal általános beállítás?"
 
 #: CRM/Core/DAO/Setting.php
-msgid "Setting Component"
-msgstr "Beállítás komponens"
-
-#: CRM/Core/DAO/Setting.php
 msgid "Setting Created Date"
 msgstr "Beállítás létrehozási dátuma"
 
@@ -10720,24 +10916,12 @@ msgid "When was the setting created"
 msgstr "Beállítás létrehozási dátuma"
 
 #: CRM/Core/DAO/Setting.php
-msgid "Setting Created By"
-msgstr "Beállítást létrehozta"
-
-#: CRM/Core/DAO/Setting.php
 msgid "FK to civicrm_contact, who created this setting"
 msgstr "Beállítást létrehozó kapcsolat, FK a civicrm_contact"
 
 #: CRM/Core/DAO/StateProvince.php
 msgid "States/Provinces"
 msgstr "Államok/Tartományok"
-
-#: CRM/Core/DAO/StateProvince.php
-msgid "State ID"
-msgstr "Állam azonosító"
-
-#: CRM/Core/DAO/StateProvince.php
-msgid "State/Province ID"
-msgstr "Állam/Tartomány azonosító"
 
 #: CRM/Core/DAO/StateProvince.php
 msgid "Name of State/Province"
@@ -10754,6 +10938,14 @@ msgstr "Állam/Tartomány 2-4 karakternyi rövidítése"
 #: CRM/Core/DAO/StateProvince.php
 msgid "ID of Country that State/Province belong"
 msgstr " Ország azonosítója, amibe ez a Állam/Tartomány tartozik"
+
+#: CRM/Core/DAO/StateProvince.php
+msgid "StateProvince Is Active"
+msgstr ""
+
+#: CRM/Core/DAO/StateProvince.php
+msgid "Is this StateProvince active?"
+msgstr ""
 
 #: CRM/Core/DAO/StatusPreference.php
 msgid "Status Preferences"
@@ -10882,10 +11074,6 @@ msgid "Optional Name of logging host"
 msgstr "A naplózó host opcionális neve"
 
 #: CRM/Core/DAO/Tag.php
-msgid "Tag ID"
-msgstr "Címke azonosító"
-
-#: CRM/Core/DAO/Tag.php
 msgid "Name of Tag."
 msgstr "Címke neve."
 
@@ -10893,13 +11081,17 @@ msgstr "Címke neve."
 msgid "Optional verbose description of the tag."
 msgstr "A címke opcionális szó szerinti leírása."
 
-#: CRM/Core/DAO/Tag.php CRM/Tag/Form/Edit.php
-msgid "Parent Tag"
-msgstr "Szülő címke"
+#: CRM/Core/DAO/Tag.php
+msgid "Parent Tag ID"
+msgstr ""
 
 #: CRM/Core/DAO/Tag.php
 msgid "Optional parent id for this tag."
 msgstr "Opcionális szülő azonosító ehhez a címkéhez."
+
+#: CRM/Core/DAO/Tag.php CRM/Tag/Form/Edit.php
+msgid "Parent Tag"
+msgstr "Szülő címke"
 
 #: CRM/Core/DAO/Tag.php
 msgid "Display Tag?"
@@ -10919,10 +11111,6 @@ msgid "Tagset"
 msgstr "Címkekészlet"
 
 #: CRM/Core/DAO/Tag.php
-msgid "Tag Created By"
-msgstr "Címke létrehozója"
-
-#: CRM/Core/DAO/Tag.php
 msgid "FK to civicrm_contact, who created this tag"
 msgstr "Címkét létrehozó kapcsolat, FK a civicrm_contact"
 
@@ -10940,10 +11128,6 @@ msgstr "Időzónák"
 
 #: CRM/Core/DAO/Timezone.php
 msgid "Timezone ID"
-msgstr "Időzóna azonosító"
-
-#: CRM/Core/DAO/Timezone.php
-msgid "Timezone Id"
 msgstr "Időzóna azonosító"
 
 #: CRM/Core/DAO/Timezone.php
@@ -10973,6 +11157,62 @@ msgstr "Időzóna GMT neve"
 #: CRM/Core/DAO/Timezone.php
 msgid "GMT Offset"
 msgstr "GMT eltolás"
+
+#: CRM/Core/DAO/Translation.php
+msgid "Translated Strings"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Translated String"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Translated String ID"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Unique String ID"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Translated Entity"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Table where referenced item is stored"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Translated Field"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Field where referenced item is stored"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Translated Entity ID"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "ID of the relevant entity."
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Language"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Relevant language"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Specify whether the string is active, draft, etc"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Translated string"
+msgstr ""
 
 #: CRM/Core/DAO/UFField.php
 msgid "UFFields"
@@ -11063,24 +11303,20 @@ msgid "Is this field included search form of profile?"
 msgstr "Ez a mező oszlopként szerepel-e a profil kereső űrlapján?"
 
 #: CRM/Core/DAO/UFField.php
-msgid "Profile Field Location Type"
-msgstr "Profil mező hely típus"
-
-#: CRM/Core/DAO/UFField.php
 msgid "Profile Field Phone Type"
 msgstr "Profil mező telefon típus"
 
 #: CRM/Core/DAO/UFField.php
-msgid "Phone Type Id, if required"
-msgstr "Telefon típus, ha szükséges "
+msgid "Phone Type ID, if required"
+msgstr ""
 
 #: CRM/Core/DAO/UFField.php
 msgid "Profile Field Website Type"
 msgstr "Profil mező weboldal típus"
 
 #: CRM/Core/DAO/UFField.php
-msgid "Website Type Id, if required"
-msgstr "Weboldal típus, ha szükséges "
+msgid "Website Type ID, if required"
+msgstr ""
 
 #: CRM/Core/DAO/UFField.php
 msgid "Profile Field Label"
@@ -11168,17 +11404,26 @@ msgstr "A profil opcionális szó szerinti leírása."
 msgid "Help Pre"
 msgstr "Segítse elő"
 
+#: CRM/Core/DAO/UFGroup.php CRM/Price/DAO/PriceFieldValue.php
+#: templates/CRM/Custom/Page/Group.hlp templates/CRM/Price/Page/Option.tpl
+msgid "Pre Help"
+msgstr "Előzetes súgó"
+
 #: CRM/Core/DAO/UFGroup.php
 msgid "Profile Post Text"
 msgstr "Profil utó szöveg"
 
 #: CRM/Core/DAO/UFGroup.php
-msgid "Profile Search Limit Group"
-msgstr "Profil keresés korlátozó csoport"
+msgid "Search Limit Group ID"
+msgstr ""
 
 #: CRM/Core/DAO/UFGroup.php
 msgid "Group id, foreign key from civicrm_group"
 msgstr "Csoport azonosító, civicrm_group idegen kulcsa"
+
+#: CRM/Core/DAO/UFGroup.php
+msgid "Search Limit Group"
+msgstr ""
 
 #: CRM/Core/DAO/UFGroup.php
 msgid "Post Url"
@@ -11189,12 +11434,20 @@ msgid "Redirect to URL."
 msgstr "URL-re átirányítás."
 
 #: CRM/Core/DAO/UFGroup.php
-msgid "Add Contact To Group"
-msgstr "Kapcsolat hozzáadása a csoporthoz"
+msgid "Post URL"
+msgstr ""
+
+#: CRM/Core/DAO/UFGroup.php
+msgid "Add Contact To Group ID"
+msgstr ""
 
 #: CRM/Core/DAO/UFGroup.php
 msgid "foreign key to civicrm_group_id"
 msgstr "Idegen kulcs a civicrm_group_id azonosítóhoz."
+
+#: CRM/Core/DAO/UFGroup.php
+msgid "Add Contact To Group"
+msgstr "Kapcsolat hozzáadása a csoporthoz"
 
 #: CRM/Core/DAO/UFGroup.php
 msgid "Show Captcha On Profile"
@@ -11267,10 +11520,6 @@ msgstr "Ez a csoport fenntartva van-e más CiviCRM funkciók számára?"
 #: CRM/Core/DAO/UFGroup.php
 msgid "Name of the UF group for directly addressing it in the codebase"
 msgstr "Az UF-csoport neve a kódbázisban való közvetlen címzéshez"
-
-#: CRM/Core/DAO/UFGroup.php
-msgid "Profile Created By"
-msgstr "Profil létrehozója"
 
 #: CRM/Core/DAO/UFGroup.php
 msgid "FK to civicrm_contact, who created this UF group"
@@ -11395,10 +11644,6 @@ msgid "System generated ID."
 msgstr "Rendszer-által generált azonosító"
 
 #: CRM/Core/DAO/UFMatch.php
-msgid "UF Match Domain ID"
-msgstr "UF Match tartomány azonosító"
-
-#: CRM/Core/DAO/UFMatch.php
 msgid "CMS ID"
 msgstr "Tartalomkezelő azonosító"
 
@@ -11413,10 +11658,6 @@ msgstr "Tartalomkezelő egyedi azonosító"
 #: CRM/Core/DAO/UFMatch.php
 msgid "UF Name"
 msgstr "UF neve"
-
-#: CRM/Core/DAO/UFMatch.php
-msgid "CiviCRM Contact ID"
-msgstr "CiviCRM kapcsolat azonosító"
 
 #: CRM/Core/DAO/UFMatch.php
 msgid "UI language preferred by the given user/contact"
@@ -11484,10 +11725,6 @@ msgstr "Szócsere aktív"
 #: CRM/Core/DAO/WordReplacement.php
 msgid "Word Replacement Match Type"
 msgstr "Szócsere azonosság típus"
-
-#: CRM/Core/DAO/WordReplacement.php
-msgid "Word Replacement Domain ID"
-msgstr "Szócsere tartomány azonosító"
 
 #: CRM/Core/DAO/WordReplacement.php
 msgid "FK to Domain ID. This is for Domain specific word replacement"
@@ -12051,7 +12288,7 @@ msgstr "Elavon - ismétlődő fizetések nem megvalósított"
 msgid "Elavon / Nova Virtual Merchant Gateway requires curl with SSL support"
 msgstr "Elavon / Nova Virtual Merchant Gateway megköveteli a curl -t SSL támogatással"
 
-#: CRM/Core/Payment/Elavon.php CRM/Core/Payment/PayflowPro.php
+#: CRM/Core/Payment/Elavon.php
 msgid "ssl_merchant_id is not set for this payment processor"
 msgstr "ssl_merchant_id nincs beállítva erre a fizetés feldolgozóra."
 
@@ -12134,6 +12371,12 @@ msgid ""
 msgstr "Felhasználó neve nincs beállítva az Adminisztrálás  &raquo; Rendszerbeállítások  &raquo;  Fizetésfeldolgozók alatt"
 
 #: CRM/Core/Payment/PayPalImpl.php
+msgid ""
+"Site URL is not set (eg. https://www.paypal.com/ - "
+"https://www.sandbox.paypal.com/)"
+msgstr ""
+
+#: CRM/Core/Payment/PayPalImpl.php
 msgid "Recurring contribution, but no database id"
 msgstr "Ismétlődő adomány, de hiányzik az adatbázis azonosítója"
 
@@ -12141,14 +12384,6 @@ msgstr "Ismétlődő adomány, de hiányzik az adatbázis azonosítója"
 msgid ""
 "Please set the API URL. Please refer to the documentation for more details"
 msgstr "Kérem állítsa be az API URL-t. Forduljon a dokumentációhoz a részletekért"
-
-#: CRM/Core/Payment/PayflowPro.php
-msgid "Payflow Pro requires curl with SSL support"
-msgstr "Payflow Pro működéséhez curl kell SSL támogatással"
-
-#: CRM/Core/Payment/PayflowPro.php
-msgid "URL is not set for %1"
-msgstr "URL nincs megadva %1hez"
 
 #: CRM/Core/Payment/ProcessorForm.php
 msgid "Payment processor is not set for this page"
@@ -12223,19 +12458,11 @@ msgid ""
 msgstr "Most nem tudtuk a fizetését feldolgozni. Kérem próbálja meg később."
 
 #: CRM/Core/Payment.php
-msgid "Your recurring contribution will be processed automatically."
-msgstr "Az Ön ismétlődő adományát automatikusan dolgozzuk fel. "
-
-#: CRM/Core/Payment.php
 msgid ""
 "You can specify the number of installments, or you can leave the number of "
 "installments blank if you want to make an open-ended commitment. In either "
 "case, you can choose to cancel at any time."
 msgstr "Megadhatja a részletek számát, vagy üresen is hagyhatja, akkor nyílt végű lesz az elkötelezettsége. Mindkét esetben bármikor megszakíthatja rendszeres adományát."
-
-#: CRM/Core/Payment.php
-msgid "You will receive an email receipt for each recurring contribution."
-msgstr "Minden ismétlődő befizetéséről nyugtát kap e-mailben."
 
 #: CRM/Core/Payment.php
 msgid ""
@@ -12383,14 +12610,38 @@ msgstr "Nem találom az '%1' aktív példányait a fizetés feldolgozónak."
 msgid "Recurring payment"
 msgstr "Ismétlődő befizetés"
 
+#: CRM/Core/Permission/List.php
+msgid "CMS"
+msgstr "Tartalomkezelő"
+
+#: CRM/Core/Permission/List.php
+msgid "View user accounts"
+msgstr "Felhasználói fiókok megtekintése"
+
+#: CRM/Core/Permission/List.php
+msgid "View user accounts. (Synthetic permission - adapts to local CMS)"
+msgstr "Felhasználói fiók megtekintése. (Szintetikus engedély - alkalmazkodik a helyi tartalomkezelőhöz)"
+
+#: CRM/Core/Permission/List.php
+msgid "Administer user accounts"
+msgstr "Felhasználói fiókok kezelése"
+
+#: CRM/Core/Permission/List.php
+msgid "Administer user accounts. (Synthetic permission - adapts to local CMS)"
+msgstr "Felhasználói fiók kezelése. (Szintetikus engedély - alkalmazkodik a helyi tartalomkezelőhöz)"
+
+#: CRM/Core/Permission/List.php
+msgid "Generic: Deny all users"
+msgstr ""
+
+#: CRM/Core/Permission/List.php
+msgid "Generic: Allow all users (including anonymous)"
+msgstr ""
+
 #: CRM/Core/Permission.php CRM/Logging/ReportDetail.php
 #: templates/CRM/common/joomla.tpl templates/CRM/common/print.tpl
 msgid "CiviCRM"
 msgstr "CiviCRM"
-
-#: CRM/Core/Permission.php
-msgid "administer Multiple Organizations"
-msgstr "több szervezet adminisztrációja"
 
 #: CRM/Core/Permission.php
 msgid "add contacts"
@@ -12863,6 +13114,27 @@ msgstr "CiviCRM adatok adminisztrálása"
 msgid "Permit altering all restricted data options"
 msgstr "Engedélyezheti az összes korlátozott adatopció módosítását"
 
+#: CRM/Core/Permission.php
+msgid "all CiviCRM permissions and ACLs"
+msgstr ""
+
+#: CRM/Core/Permission.php
+msgid ""
+"Administer and use CiviCRM bypassing any other permission or ACL checks and "
+"enabling the creation of displays and forms that allow others to bypass "
+"checks. This permission should be given out with care"
+msgstr ""
+
+#: CRM/Core/Permission.php
+msgid "administer Multiple Organizations"
+msgstr "több szervezet adminisztrációja"
+
+#: CRM/Core/Permission.php
+msgid ""
+"Administer multiple organizations. In practice this allows editing the group"
+" organization link"
+msgstr ""
+
 #: CRM/Core/QuickForm/Action/Upload.php
 msgid ""
 "We could not move the uploaded file %1 to the upload directory %2. Please "
@@ -12885,16 +13157,16 @@ msgid ""
 msgstr "Előfordulhat, hogy ez a képernyő nem működik megfelelően egy bootstrap alapú téma, például a Shoreditch telepítése nélkül."
 
 #: CRM/Core/Resources.php
-msgid "Start typing a name or email..."
-msgstr "Kezdje el beírni a nevet vagy e-mail címet ..."
+msgid "Search by name/email or id..."
+msgstr ""
 
 #: CRM/Core/Resources.php
-msgid "Start typing a name..."
-msgstr "Kezdje el beírni a nevet ..."
+msgid "Search by name or id..."
+msgstr ""
 
 #: CRM/Core/Resources.php
-msgid "Enter search term..."
-msgstr "Adja meg a keresett szót ..."
+msgid "Enter search term or id..."
+msgstr ""
 
 #: CRM/Core/SelectValues.php
 msgid "HTML"
@@ -13331,7 +13603,7 @@ msgstr "Esemény regisztrációs URL"
 msgid "Event Balance"
 msgstr "Esemény mérlege"
 
-#: CRM/Core/SelectValues.php
+#: CRM/Core/SelectValues.php CRM/Price/DAO/LineItem.php
 msgid "Contribution ID"
 msgstr "Adomány azonosító"
 
@@ -14327,131 +14599,133 @@ msgstr "Egyedi opció"
 msgid "Custom Data Fields"
 msgstr "Egyedi adatmezők"
 
-#: CRM/Dedupe/DAO/Exception.php
-msgid "Exceptions"
-msgstr "Kivételek"
+#: CRM/Dedupe/DAO/DedupeException.php
+msgid "Dedupe Exceptions"
+msgstr ""
 
-#: CRM/Dedupe/DAO/Exception.php
-msgid "Exception"
-msgstr "Kivétel"
+#: CRM/Dedupe/DAO/DedupeException.php
+msgid "Dedupe Exception"
+msgstr ""
 
-#: CRM/Dedupe/DAO/Exception.php
+#: CRM/Dedupe/DAO/DedupeException.php
 msgid "Dedupe Exception ID"
 msgstr "Deduplikáció kivételek azonosítója"
 
-#: CRM/Dedupe/DAO/Exception.php
+#: CRM/Dedupe/DAO/DedupeException.php
 msgid "Unique dedupe exception id"
 msgstr "Egyedi deduplikálási kivétel azonosítója"
 
-#: CRM/Dedupe/DAO/Exception.php
+#: CRM/Dedupe/DAO/DedupeException.php
 msgid "First Dupe Contact ID"
 msgstr "Első duplikált kapcsolat azonosító"
 
-#: CRM/Dedupe/DAO/Exception.php
+#: CRM/Dedupe/DAO/DedupeException.php
+msgid "First Dupe Contact"
+msgstr ""
+
+#: CRM/Dedupe/DAO/DedupeException.php
 msgid "Second Dupe Contact ID"
 msgstr "Második duplikált kapcsolat azonosító"
 
-#: CRM/Dedupe/DAO/Rule.php
-msgid "Rules"
-msgstr "Szabályok"
+#: CRM/Dedupe/DAO/DedupeException.php
+msgid "Second Dupe Contact"
+msgstr ""
 
-#: CRM/Dedupe/DAO/Rule.php
-msgid "Rule"
-msgstr "Szabály"
+#: CRM/Dedupe/DAO/DedupeRule.php
+msgid "Dedupe Rules"
+msgstr ""
 
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "Dedupe Rule ID"
 msgstr "Deduplikálási szabály azonosító"
 
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "Unique dedupe rule id"
 msgstr "Egyedi deduplikációs szabály azonosító"
 
-#: CRM/Dedupe/DAO/Rule.php
-msgid "Dedupe Rule Group"
-msgstr "Deduplikálási szabály csoport"
-
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "The id of the rule group this rule belongs to"
 msgstr "A szabálycsoport azonosítója, amelyhez ez a szabály tartozik"
 
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "Rule Table"
 msgstr "Szabály tábla"
 
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "The name of the table this rule is about"
 msgstr "A tábla neve, amelyről ez a szabály szól"
 
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "Rule Field"
 msgstr "Szabály Mező"
 
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "The name of the field of the table referenced in rule_table"
 msgstr "A táblázat mezőjének neve, amelyet a rule_table-ban hivatkoznak"
 
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "Rule Length"
 msgstr "Szabály Hossz"
 
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "The length of the matching substring"
 msgstr "Az egyező részkarakterlánc hossza"
 
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "The weight of the rule"
 msgstr "Szabály súlya"
 
-#: CRM/Dedupe/DAO/RuleGroup.php
-msgid "Rule Groups"
-msgstr "Szabály csoportok"
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
+msgid "Dedupe Rule Groups"
+msgstr ""
 
-#: CRM/Dedupe/DAO/RuleGroup.php
-msgid "Rule Group"
-msgstr "Szabály csoport"
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
+msgid "Dedupe Rule Group"
+msgstr "Deduplikálási szabály csoport"
 
-#: CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
 msgid "Rule Group ID"
 msgstr "Szabály csoport azonosító"
 
-#: CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
 msgid "Unique dedupe rule group id"
 msgstr "Egyedi deduplikációs szabály csoport azonosító"
 
-#: CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
 msgid "The type of contacts this group applies to"
 msgstr "Az a kapcsolat típus, amelyre a csoport vonatkozik"
 
-#: CRM/Dedupe/DAO/RuleGroup.php templates/CRM/Contact/Page/DedupeFind.tpl
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
+#: templates/CRM/Contact/Page/DedupeFind.tpl
 msgid "Threshold"
 msgstr "Limit"
 
-#: CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
 msgid ""
 "The weight threshold the sum of the rule weights has to cross to consider "
 "two contacts the same"
 msgstr "A súly küszöbértékét a szabály súlyok összegének át kell lépnie, hogy két kapcsolatot azonosnak tekintsük"
 
-#: CRM/Dedupe/DAO/RuleGroup.php templates/CRM/Contact/Form/DedupeRules.tpl
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
+#: templates/CRM/Contact/Form/DedupeRules.tpl
 msgid "Length"
 msgstr "Hossz"
 
-#: CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
 msgid ""
 "Whether the rule should be used for cases where usage is Unsupervised, "
 "Supervised OR General(programatically)"
 msgstr "A szabályt kell-e használni azokban az esetekben, amikor a használat felügyelet nélküli, felügyelt vagy általános (programozottan)"
 
-#: CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
 msgid "Name of the rule group"
 msgstr "Szabálycsoport neve"
 
-#: CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
 msgid "Label of the rule group"
 msgstr "Szabálycsoport címke"
 
-#: CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
 msgid ""
 "Is this a reserved rule - a rule group that has been optimized and cannot be"
 " changed by the admin"
@@ -14560,10 +14834,6 @@ msgstr "CiviCRM támogatások keresése"
 #: CRM/Export/BAO/ExportProcessor.php
 msgid "CiviCRM Search"
 msgstr "CiviCRM Keresés"
-
-#: CRM/Export/BAO/ExportProcessor.php
-msgid "Campaign ID"
-msgstr "Kampány ID (azonosító)"
 
 #: CRM/Export/BAO/ExportProcessor.php
 msgid "Household ID"
@@ -14897,12 +15167,6 @@ msgstr "'%1' Csoport elmentve."
 msgid "Add Parent"
 msgstr "Szülő hozzáadása"
 
-#: CRM/Group/Form/Search.php templates/CRM/Contact/Page/View/Note.tpl
-#: templates/CRM/Group/Form/Edit.tpl templates/CRM/Group/Form/Search.tpl
-#: templates/CRM/UF/Page/Group.tpl
-msgid "Created By"
-msgstr "Készítette"
-
 #: CRM/Group/Form/Search.php
 msgid "Normal Group"
 msgstr "Normál csoport"
@@ -14979,6 +15243,10 @@ msgstr "Adatok feltöltése"
 #: CRM/Import/Form/MapField.php
 msgid "Match Fields"
 msgstr "Mezők egyeztetése"
+
+#: CRM/Import/Form/MapField.php
+msgid "(Sum of all weights should be greater than or equal to threshold: %1)."
+msgstr "(A súlyok összegének nagyobb vagy egyenlőnek kellene lennie mint: %1)."
 
 #: CRM/Import/Form/Preview.php
 msgid "Import Now"
@@ -15084,7 +15352,7 @@ msgstr "Sajnálom, ez az opció jelenleg elfogyott."
 msgid "Text / Numeric Quantity"
 msgstr "Szöveges / Szám Mennyiség"
 
-#: CRM/Price/BAO/PriceField.php
+#: CRM/Price/BAO/PriceField.php templates/CRM/Contact/Form/Search/Builder.js
 msgid "Select"
 msgstr "Kiválaszt"
 
@@ -15134,8 +15402,9 @@ msgid "Line Item Entity Type"
 msgstr "Sor egyed típus"
 
 #: CRM/Price/DAO/LineItem.php
-msgid "table which has the transaction"
-msgstr "táblázat, amely tartalmazza a tranzakciót"
+msgid ""
+"May contain civicrm_contribution, civicrm_participant or civicrm_membership"
+msgstr ""
 
 #: CRM/Price/DAO/LineItem.php
 msgid "Line Item Entity"
@@ -15146,20 +15415,23 @@ msgid "entry in table"
 msgstr "bejegyzés a táblázatban"
 
 #: CRM/Price/DAO/LineItem.php
-msgid "Line Item Contribution"
-msgstr "Sor adomány"
-
-#: CRM/Price/DAO/LineItem.php
 msgid "FK to civicrm_contribution"
 msgstr "FK a civicrm_contribution"
 
-#: CRM/Price/DAO/LineItem.php
-msgid "Line Item Price Field"
-msgstr "s"
+#: CRM/Price/DAO/LineItem.php CRM/Price/DAO/PriceField.php
+#: CRM/Price/DAO/PriceFieldValue.php
+msgid "Price Field ID"
+msgstr "Ármező azonosító"
 
 #: CRM/Price/DAO/LineItem.php CRM/Price/DAO/PriceFieldValue.php
 msgid "FK to civicrm_price_field"
 msgstr "FK a civicrm_price_field"
+
+#: CRM/Price/DAO/LineItem.php CRM/Price/DAO/PriceField.php
+#: CRM/Price/DAO/PriceFieldValue.php CRM/Price/Form/Field.php
+#: CRM/Price/Page/Field.php
+msgid "Price Field"
+msgstr "Ármező"
 
 #: CRM/Price/DAO/LineItem.php
 msgid "Line Item Label"
@@ -15203,14 +15475,15 @@ msgid "Participant count for field"
 msgstr "A résztvevők száma a mezőben"
 
 #: CRM/Price/DAO/LineItem.php
-msgid "Line Item Option"
-msgstr "Sor opció"
-
-#: CRM/Price/DAO/LineItem.php
 msgid "FK to civicrm_price_field_value"
 msgstr "FK a civicrm_price_field_value"
 
 #: CRM/Price/DAO/LineItem.php
+msgid "Option"
+msgstr ""
+
+#: CRM/Price/DAO/LineItem.php CRM/Price/DAO/PriceFieldValue.php
+#: CRM/Price/DAO/PriceSet.php
 msgid "Financial Type ID"
 msgstr "Pénzügyi típus azonosító"
 
@@ -15234,24 +15507,6 @@ msgstr "egyes elemek adója"
 #: CRM/Price/DAO/PriceField.php CRM/Price/Page/Option.php
 msgid "Price Fields"
 msgstr "Ármezők"
-
-#: CRM/Price/DAO/PriceField.php CRM/Price/DAO/PriceFieldValue.php
-#: CRM/Price/Form/Field.php CRM/Price/Page/Field.php
-msgid "Price Field"
-msgstr "Ármező"
-
-#: CRM/Price/DAO/PriceField.php
-msgid "Price Field ID"
-msgstr "Ármező azonosító"
-
-#: CRM/Price/DAO/PriceField.php CRM/Price/DAO/PriceSet.php
-#: CRM/Price/DAO/PriceSetEntity.php CRM/Price/Page/Set.php
-msgid "Price Set"
-msgstr "Árlista"
-
-#: CRM/Price/DAO/PriceField.php
-msgid "Variable name/programmatic handle for this field."
-msgstr "Változónév / programozó fogantyú ehhez a mezőhöz."
 
 #: CRM/Price/DAO/PriceField.php
 msgid ""
@@ -15378,6 +15633,11 @@ msgstr "Súgó hozzászólás"
 msgid "Price field option post field help."
 msgstr "Ármező opció utáni súgó szöveg."
 
+#: CRM/Price/DAO/PriceFieldValue.php templates/CRM/Custom/Page/Group.hlp
+#: templates/CRM/Price/Page/Option.tpl
+msgid "Post Help"
+msgstr "Utólagos súgó"
+
 #: CRM/Price/DAO/PriceFieldValue.php
 msgid "Price field option amount"
 msgstr "Ármező opció mennyiség"
@@ -15403,6 +15663,10 @@ msgid "Order in which the field options should appear"
 msgstr "A mező opciók megjelenésének sorrendje"
 
 #: CRM/Price/DAO/PriceFieldValue.php
+msgid "Membership Type ID"
+msgstr ""
+
+#: CRM/Price/DAO/PriceFieldValue.php
 msgid "FK to Membership Type"
 msgstr "FK a tagság típushoz"
 
@@ -15413,6 +15677,10 @@ msgstr "Tagsági ciklusok száma"
 #: CRM/Price/DAO/PriceFieldValue.php
 msgid "Number of terms for this membership"
 msgstr "Ezen tagság időszakainak a száma"
+
+#: CRM/Price/DAO/PriceFieldValue.php
+msgid "Number of terms"
+msgstr ""
 
 #: CRM/Price/DAO/PriceFieldValue.php
 msgid "Is Default Price Field Option?"
@@ -15438,10 +15706,6 @@ msgstr "Ármező opció láthatóság "
 #: CRM/Price/Form/Set.php CRM/Price/Page/Set.php
 msgid "Price Sets"
 msgstr "Árlista"
-
-#: CRM/Price/DAO/PriceSet.php
-msgid "Price Set Domain"
-msgstr "Árlista tartomány"
 
 #: CRM/Price/DAO/PriceSet.php
 msgid "Which Domain is this price-set for"
@@ -16078,10 +16342,6 @@ msgstr "Profil Keresése"
 msgid "This profile does not have the map feature turned on."
 msgstr "Ez a profil nem tartalmaz bekapcsolt térképet."
 
-#: CRM/Profile/Page/MultipleRecordFieldsListing.php
-msgid "Copy %1"
-msgstr "%1 másolása"
-
 #: CRM/Profile/Page/Router.php
 msgid "Create Profile"
 msgstr "Profil készítés"
@@ -16119,10 +16379,6 @@ msgstr "Szolgáltatók"
 #: CRM/SMS/DAO/Provider.php templates/CRM/Contact/Form/Task/SMS.hlp
 msgid "Provider"
 msgstr "Szolgáltató"
-
-#: CRM/SMS/DAO/Provider.php
-msgid "SMS Provider ID"
-msgstr "SMS szolgáltató azonosító"
 
 #: CRM/SMS/DAO/Provider.php
 msgid "SMS Provider Name"
@@ -16177,10 +16433,6 @@ msgstr "Alapértelmezett SMS szolgáltató?"
 #: CRM/SMS/DAO/Provider.php
 msgid "SMS Provider is Active?"
 msgstr "Aktív SMS szolgáltató?"
-
-#: CRM/SMS/DAO/Provider.php
-msgid "SMS Domain"
-msgstr "SMS tartomány"
 
 #: CRM/SMS/DAO/Provider.php
 msgid "Which Domain is this sms provider for"
@@ -17061,16 +17313,25 @@ msgstr "Kérem, szerkessze a \"<em>%2</em>\" ügytípus XML fájlját úgy, hogy
 msgid "Case Role using display label instead of internal machine name"
 msgstr "Ügy szerepkör a kijelzési címkét használja a belső gépi név helyett"
 
-#: CRM/Utils/Check/Component/Cms.php
+#: CRM/Utils/Check/Component/Case.php
 msgid ""
-"CiviCRM relies upon a <a href=\"%1%2\">base page in WordPress</a>, but it is"
-" not published."
-msgstr "A CiviCRM a <a href=\"%1%2\">WordPress egyik alapoldalára</a> támaszkodik, de az nem közzé tett."
+"Case Type \"<em>%1</em>\" has invalid characters in the internal machine "
+"name (<em>%2</em>). Only letters, numbers, and underscore are allowed."
+msgstr ""
+
+#: CRM/Utils/Check/Component/Case.php
+msgid "Invalid Case Type Name"
+msgstr ""
 
 #: CRM/Utils/Check/Component/Cms.php
 msgid ""
-"CiviCRM relies upon a base page in WordPress at %1%2, but it is missing."
-msgstr "A CiviCRM a WordPress egyik alapoldalára támaszkodik %1 %2 , de az hiányzik."
+"CiviCRM relies upon a <a href=\"%1\">base page in WordPress</a>, but it is "
+"not published."
+msgstr ""
+
+#: CRM/Utils/Check/Component/Cms.php
+msgid "CiviCRM relies upon a base page in WordPress at %1, but it is missing."
+msgstr ""
 
 #: CRM/Utils/Check/Component/Cms.php
 msgid ""
@@ -17079,16 +17340,16 @@ msgid ""
 msgstr "Ha van alternatív alapoldala, akkor azt a <a href=\"%2\">WordPress integrációs beállításai között</a> állíthatja be."
 
 #: CRM/Utils/Check/Component/Cms.php
-msgid "The default is %1%2, which <a href=\"%1%2\">does exist on this site</a>."
-msgstr "Az alapértelmezett érték %1 %2, amely <a href=\"%1%2\">létezik ezen a webhelyen.</a>"
+msgid "The default is %1, which <a href=\"%1\">does exist on this site</a>."
+msgstr ""
 
 #: CRM/Utils/Check/Component/Cms.php
 msgid "However, it is not published."
 msgstr "Ugyanakkor nincs nyilvánossá téve."
 
 #: CRM/Utils/Check/Component/Cms.php
-msgid "The default is %1%2, but that does not exist on this site either."
-msgstr "Az alapértelmezett érték %1 %2, de ez ezen a weboldalon sem létezik."
+msgid "The default is %1, but that does not exist on this site either."
+msgstr ""
 
 #: CRM/Utils/Check/Component/Cms.php
 msgid ""
@@ -17751,18 +18012,6 @@ msgstr "Rendszerállapot: Megjegyzés"
 msgid "System Status: Ok"
 msgstr "Rendszerállapot: OK"
 
-#: CRM/Utils/DeprecatedUtils.php
-msgid "Participant  id is not valid"
-msgstr "A résztvevő azonosító érvénytelen"
-
-#: CRM/Utils/DeprecatedUtils.php
-msgid "Contact id is not valid"
-msgstr "Kapcsolat azonosító érvénytelen"
-
-#: CRM/Utils/DeprecatedUtils.php
-msgid "Event templates are not meant to be registered."
-msgstr "Az esemény sablonok nem azt jelentik, hogy regisztrált."
-
 #: CRM/Utils/File.php
 msgid "Unable to remove file %1"
 msgstr "Nem tudom a %1 fájlt eltávolítani."
@@ -18038,14 +18287,6 @@ msgstr "&lt;&lt; Első"
 msgid "Last &gt;&gt;"
 msgstr "Utolsó &gt;&gt;"
 
-#: CRM/Utils/ReCAPTCHA.php
-msgid "Please go back and complete the CAPTCHA at the bottom of this form."
-msgstr "Kérem lépjen vissza és töltse ki a CAPTCHA-t az űrlap alján."
-
-#: CRM/Utils/Request.php
-msgid "Could not find valid value for %1"
-msgstr "Nem található érvényes érték %1-nek"
-
 #: CRM/Utils/System/Backdrop.php CRM/Utils/System/Drupal.php
 #: CRM/Utils/System/Drupal6.php CRM/Utils/System/Joomla.php
 #: CRM/Utils/System/WordPress.php
@@ -18242,6 +18483,10 @@ msgstr "Összezár"
 msgid "Permanently Delete %1"
 msgstr "Végleges törlés %1"
 
+#: ang/crmDashboard/crmDashboard.component.js
+msgid "Deleting"
+msgstr ""
+
 #: ang/crmDashboard/crmInactiveDashlet.component.js
 msgid ""
 "Do you want to remove this dashlet as an \"Available Dashlet\", AND delete "
@@ -18335,6 +18580,10 @@ msgstr "Törlés %1?"
 #: ang/crmUi.js
 msgid "Hello"
 msgstr "Helló"
+
+#: js/Common.js
+msgid "Select Current User"
+msgstr ""
 
 #: js/Common.js
 msgid "new tag"
@@ -19511,6 +19760,10 @@ msgstr "Keresztnév:"
 msgid "Last Name:"
 msgstr "Vezetéknév:"
 
+#: templates/CRM/Block/Add.tpl
+msgid "Email:"
+msgstr "E-mail:"
+
 #: templates/CRM/Block/CreateNew.tpl
 msgid "Create New"
 msgstr "Új létrehozása"
@@ -20466,7 +20719,6 @@ msgid "Display Results have been Reset"
 msgstr "Találatok vissza lettek állítva"
 
 #: templates/CRM/Contact/Form/Search/AdvancedCriteria.tpl
-#: templates/CRM/Contact/Form/Search/Builder.js
 msgid "Loading"
 msgstr "Betöltés"
 
@@ -20764,10 +21016,6 @@ msgid "Client Name"
 msgstr "Ügyfél neve"
 
 #: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
-msgid "Case ID"
-msgstr "Eset azonosító"
-
-#: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
 msgid "Restore Case"
 msgstr "Ügy visszaállítása"
 
@@ -21019,6 +21267,10 @@ msgid "This action cannot be undone."
 msgstr "Ez a tevékenység nem visszavonható."
 
 #: templates/CRM/Contact/Form/Task/Email.hlp
+msgid "Find out more about CiviCRM Tokens"
+msgstr ""
+
+#: templates/CRM/Contact/Form/Task/Email.hlp
 msgid "From Address"
 msgstr "Feladó címe"
 
@@ -21052,6 +21304,28 @@ msgid ""
 "Email Addresses</a> to add or edit general email addresses. Make sure these "
 "email addresses are valid email accounts with your email service provider."
 msgstr "Menjen a <a href='%1'>Adminisztrálás&raquo; Beállítás &raquo; FELADÓ email cím</a>-hez, hogy hozzáadjon vagy szerkesszen email címeket. Győződjön meg arról hogy az email címek érvényesek a szolgáltatónál."
+
+#: templates/CRM/Contact/Form/Task/Email.hlp
+msgid "To Address"
+msgstr ""
+
+#: templates/CRM/Contact/Form/Task/Email.hlp
+msgid ""
+"Contacts in the \"To\" field will each receive one copy of this email, with "
+"any tokens respectively filled for their contact record."
+msgstr ""
+
+#: templates/CRM/Contact/Form/Task/Email.hlp
+msgid ""
+"\"To\" recipients will not see which other \"To\" recipients received an "
+"email, but they will see the list of \"Cc\" recipients."
+msgstr ""
+
+#: templates/CRM/Contact/Form/Task/Email.hlp
+msgid ""
+"Any contacts in the \"Cc\" or \"Bcc\" fields will receive a copy, one for "
+"each \"To\" email, but with the tokens filled for the \"To\" contact."
+msgstr ""
 
 #: templates/CRM/Contact/Form/Task/Email.hlp
 msgid "Subject Tokens"
@@ -21163,6 +21437,10 @@ msgid ""
 "this option cautiously unless you have a template format that has been "
 "tested with different web and desktop email programs."
 msgstr "A HTML üzeneteknek vizuális hatásuk is van, lehetőség van képek beillesztésére, és jobban olvashatók ha tartalmaz linket a weboldal lapjaira. Ugyanakkor, a a különböző e-mail programok a HTML formátumot különbözőképpen értelmezik - ezt csak akkor alkalmazza, ha különböző web és asztali e-mail programokban tesztelt üzenet sablonja van. "
+
+#: templates/CRM/Contact/Form/Task/Email.hlp
+msgid "$tokentext"
+msgstr ""
 
 #: templates/CRM/Contact/Form/Task/Email.tpl
 msgid ""
@@ -22148,10 +22426,6 @@ msgstr "Munkáltató"
 msgid "view current employer"
 msgstr "jelenlegi munkáltató megtekintése"
 
-#: templates/CRM/Contact/Page/Inline/ContactInfo.tpl
-msgid "SIC Code"
-msgstr "SIC kód"
-
 #: templates/CRM/Contact/Page/Inline/ContactName.tpl
 msgid "Edit Contact Name"
 msgstr "Kapcsolat nevének szerkesztése"
@@ -22201,10 +22475,6 @@ msgstr "E-mail küldése %1"
 msgid "(signature)"
 msgstr "(aláírás)"
 
-#: templates/CRM/Contact/Page/Inline/Email.tpl
-msgid "Signature HTML"
-msgstr "Aláírás HTML"
-
 #: templates/CRM/Contact/Page/Inline/IM.tpl
 msgid "Add or edit IM"
 msgstr "Azonnali üzenetküldő hozzáadása vagy szerkesztése"
@@ -22212,10 +22482,6 @@ msgstr "Azonnali üzenetküldő hozzáadása vagy szerkesztése"
 #: templates/CRM/Contact/Page/Inline/IM.tpl
 msgid "Add IM"
 msgstr "Azonnali üzenetküldő hozzáadása"
-
-#: templates/CRM/Contact/Page/Inline/IM.tpl
-msgid "IM"
-msgstr "Azonnali üzenetküldő"
 
 #: templates/CRM/Contact/Page/Inline/OpenID.tpl
 msgid "Add or edit OpenID"
@@ -22439,6 +22705,10 @@ msgstr "Változtatás dátuma"
 #: xml/templates/message_templates/uf_notify_text.tpl
 msgid "Date:"
 msgstr "Dátum:"
+
+#: templates/CRM/Contact/Page/View/Note.tpl
+msgid "Modified Date:"
+msgstr ""
 
 #: templates/CRM/Contact/Page/View/Note.tpl
 msgid "Privacy:"
@@ -23191,17 +23461,9 @@ msgid ""
 "event receipts."
 msgstr "Jelölje be ezt a négyzetet, ha azt akarja, hogy ez az egyéni csoport megjelenjen nyilvános űrlapokon, pl. Eseményinformációs oldal. Csak a nyilvános egyéni csoportok kerülnek bele az esemény nyugtájába."
 
-#: templates/CRM/Custom/Page/Group.hlp templates/CRM/Price/Page/Option.tpl
-msgid "Pre Help"
-msgstr "Előzetes súgó"
-
 #: templates/CRM/Custom/Page/Group.hlp
 msgid "Explanatory text displayed at the beginning of this sets of fields."
 msgstr "Ezen mezőkészlet elején kijelzett magyarázó szöveg."
-
-#: templates/CRM/Custom/Page/Group.hlp templates/CRM/Price/Page/Option.tpl
-msgid "Post Help"
-msgstr "Utólagos súgó"
 
 #: templates/CRM/Custom/Page/Group.hlp
 msgid "Explanatory text displayed below this set of fields."
@@ -24953,9 +25215,8 @@ msgid ""
 "To use reCAPTCHA you must sign up at <a href=\"%1\" "
 "target=\"_blank\">Google's reCaptcha site</a> to get your public and private"
 " keys. Then enter both keys in <a href=\"%2\">Administer CiviCRM &raquo; "
-"System Settings &raquo; Misc (Undelete, PDFs, Limits, Logging, Captcha, "
-"etc.)</a>."
-msgstr "A reCAPTCHA használatához fel kell iratkoznia a <a href=\"%1\" target=\"_blank\">Google's reCaptcha oldalon</a>, ahol megkaphatja a nyilvános és privát kulcsát. Ez után mindkét kulcsot meg kell adnia a  <a href=\"%2\">Adminisztrálás &raquo; Rendszerbeállítások &raquo; Egyéb (Törlés visszavonása, PDFk, korlátok, naplózás,  ReCAPTCHA9</a> alatt."
+"Customize Data and Screens &raquo; reCAPTCHA settings</a>."
+msgstr ""
 
 #: templates/CRM/UF/Form/Group.hlp
 msgid ""
@@ -26716,10 +26977,6 @@ msgid "Tags and Groups"
 msgstr "Cimkék és Csoportok"
 
 #: xml/templates/civicrm_data.tpl
-msgid "Change"
-msgstr "módosítás"
-
-#: xml/templates/civicrm_data.tpl
 msgid "Mailing"
 msgstr "Levelezés"
 
@@ -28367,10 +28624,6 @@ msgid "Realex Payment"
 msgstr "Realex fizetés"
 
 #: xml/templates/civicrm_data.tpl
-msgid "PayflowPro"
-msgstr "PayflowPro"
-
-#: xml/templates/civicrm_data.tpl
 msgid "FirstData (aka linkpoint)"
 msgstr "FirstData (aka linkpoint)"
 
@@ -29892,6 +30145,18 @@ msgstr "A %1 kiterjesztés elavult és eltávolításra került."
 msgid "You can remove it from your extensions directory."
 msgstr "Eltávolíthatja ezt a kiterjesztés könyvtárából."
 
+#: CRM/Upgrade/Form.php
+msgid ""
+"A replacement extension %1 has been installed as you had the obsolete "
+"extension %2 installed"
+msgstr ""
+
+#: CRM/Upgrade/Form.php
+msgid ""
+"The replacement extension %1 could not be installed due to an error. It is "
+"recommended to enable this extension manually."
+msgstr ""
+
 #: CRM/Upgrade/Headless.php CRM/Upgrade/Page/Upgrade.php
 msgid "CiviCRM Upgrade Tasks"
 msgstr "CiviCRM frissítési feladatok"
@@ -29999,19 +30264,27 @@ msgstr "Támogatja a lemondás / átadás negatív óráit"
 msgid "Ensure that amount paid is shown even when fully paid"
 msgstr "Győződjön meg arról, hogy a kifizetett összeg akkor is megjelenik, ha teljesen kifizetett"
 
-#: CRM/Upgrade/Incremental/php/FiveEighteen.php
-#: CRM/Upgrade/Incremental/php/FiveEleven.php
+#: CRM/Upgrade/Incremental/MessageTemplates.php
+msgid "Fix Petition Confirmation email having a blank space at the end of url"
+msgstr ""
+
+#: CRM/Upgrade/Incremental/MessageTemplates.php
+msgid ""
+"Fix Pledge and PCP urls to go to the front end site rather than backend site"
+msgstr ""
+
 #: CRM/Upgrade/Incremental/php/FiveFifteen.php
 #: CRM/Upgrade/Incremental/php/FiveFour.php
-#: CRM/Upgrade/Incremental/php/FiveFourteen.php
-#: CRM/Upgrade/Incremental/php/FiveNineteen.php
 #: CRM/Upgrade/Incremental/php/FiveSeventeen.php
-#: CRM/Upgrade/Incremental/php/FiveSix.php
 #: CRM/Upgrade/Incremental/php/FiveSixteen.php
 #: CRM/Upgrade/Incremental/php/FiveThirteen.php
 #: CRM/Upgrade/Incremental/php/FiveThirty.php
+#: CRM/Upgrade/Incremental/php/FiveThirtyEight.php
+#: CRM/Upgrade/Incremental/php/FiveThirtyFive.php
+#: CRM/Upgrade/Incremental/php/FiveThirtyFour.php
+#: CRM/Upgrade/Incremental/php/FiveThirtyNine.php
 #: CRM/Upgrade/Incremental/php/FiveThirtyOne.php
-#: CRM/Upgrade/Incremental/php/FiveThirtyThree.php
+#: CRM/Upgrade/Incremental/php/FiveThirtySeven.php
 #: CRM/Upgrade/Incremental/php/FiveThirtyTwo.php
 #: CRM/Upgrade/Incremental/php/FiveThree.php
 #: CRM/Upgrade/Incremental/php/FiveTwelve.php
@@ -30024,7 +30297,6 @@ msgstr "Győződjön meg arról, hogy a kifizetett összeg akkor is megjelenik, 
 #: CRM/Upgrade/Incremental/php/FiveTwentySeven.php
 #: CRM/Upgrade/Incremental/php/FiveTwentySix.php
 #: CRM/Upgrade/Incremental/php/FiveTwentyThree.php
-#: CRM/Upgrade/Incremental/php/FiveZero.php
 #: CRM/Upgrade/Incremental/php/FourFive.php
 #: CRM/Upgrade/Incremental/php/FourSeven.php
 #: CRM/Upgrade/Incremental/php/FourSix.php
@@ -30040,12 +30312,6 @@ msgstr "Új jogosultság, \"%1\" hozzáadva. Alapértelmezetten nem kerül beál
 #: CRM/Upgrade/Incremental/php/FiveFour.php
 msgid "save Report Criteria"
 msgstr "Jelentés kritérium mentése"
-
-#: CRM/Upgrade/Incremental/php/FiveFourteen.php
-msgid ""
-"Could not create the MySQL views for CiviCase. Your mysql user needs to have"
-" the 'CREATE VIEW' permission"
-msgstr "Nem tudok létrehozni MySQL nézetet a CiviÜgyhöz. A MySQL felhasználójának 'CREATE VIEW' jogosultsággal kell rendelkeznie"
 
 #: CRM/Upgrade/Incremental/php/FiveNine.php
 msgid "Enable multiple bulk email address for a contact"
@@ -30096,6 +30362,64 @@ msgid ""
 "report and re-save the report after selecting and or setting the campaign "
 "filters up again"
 msgstr "Ha a Levelezési összesítő jelentés sablon alapján készített jelentést, és ez kampányokat hoz ki vagy szűr, akkor vissza kell térnie ehhez a jelentéshez, és újra el kell mentenie a jelentést, miután kiválasztotta és beállította a kampányszűrőket."
+
+#: CRM/Upgrade/Incremental/php/FiveThirtyFour.php
+msgid ""
+"This system has an encrypted SMTP password. Encryption in v5.34+ requires "
+"CIVICRM_CRED_KEYS. You may <a href=\"%1\" target=\"_blank\">setup "
+"CIVICRM_CRED_KEYS</a> before or after upgrading. If you choose to wait, then"
+" the SMTP password will be stored as plain-text until you setup "
+"CIVICRM_CRED_KEYS."
+msgstr ""
+
+#: CRM/Upgrade/Incremental/php/FiveThirtyFour.php
+msgid ""
+"The SMTP password (%1) was previously stored in the database. It has "
+"unexpected content which cannot be migrated automatically. However, it "
+"appears to be inactive, so the upgrader will drop this value."
+msgstr ""
+
+#: CRM/Upgrade/Incremental/php/FiveThirtyFour.php
+msgid ""
+"The SMTP password (%1) has unusual content that cannot be stored as plain-"
+"text. It may be unreadable due to a previous misconfiguration, or it may "
+"rely on an unclear character-set. Your options are:"
+msgstr ""
+
+#: CRM/Upgrade/Incremental/php/FiveThirtyFour.php
+msgid ""
+"<a href=\"%1\" target=\"_blank\">Setup CIVICRM_CRED_KEYS</a> before "
+"upgrading. This warning will go away, and the current SMTP password will "
+"ultimately be preserved during upgrade."
+msgstr ""
+
+#: CRM/Upgrade/Incremental/php/FiveThirtyFour.php
+msgid ""
+"Proceed with upgrading in the current configuration. The SMTP password will "
+"be lost, but you may re-configure it after upgrade."
+msgstr ""
+
+#: CRM/Upgrade/Incremental/php/FiveThirtyFour.php
+msgid ""
+"This system has a PHP override for the SMTP password (%1). The override was "
+"most likely encrypted with an old mechanism. After upgrading, you must "
+"verify and/or revise this setting."
+msgstr ""
+
+#: CRM/Upgrade/Incremental/php/FiveThirtySeven.php
+msgid ""
+"Some mail-merge tokens may display differently when used with Scheduled "
+"Reminders, Mosaico templates, or PDF letters. For details, see <a "
+"href=\"%1\" target=\"_blank\">upgrade notes</a>."
+msgstr ""
+
+#: CRM/Upgrade/Incremental/php/FiveThirtySix.php
+msgid ""
+"CiviCRM v5.36 introduces a new configuration option to support digital "
+"signatures. You may <a href=\"%1\" target=\"_blank\">setup "
+"CIVICRM_SIGN_KEYS</a> before or after upgrading. The option is not critical "
+"in v5.36, but it may be required for extensions or future upgrades."
+msgstr ""
 
 #: CRM/Upgrade/Incremental/php/FiveThree.php
 msgid ""
@@ -30477,91 +30801,322 @@ msgstr "Gratulálunk! A frissítése sikeresen lezajlott!"
 msgid "Upgrade failed to redirect"
 msgstr "A frissítést nem sikerült átirányítani"
 
-#: CRM/Core/DAO/ActionSchedule.php
-msgid "When was the scheduled reminder created."
-msgstr "Mikor készült ez az ütemezett emlékeztető."
+#: CRM/Activity/DAO/Activity.php
+msgid "Past or future actions concerning one or more contacts."
+msgstr ""
 
-#: CRM/Core/DAO/ActionSchedule.php
-msgid "When the reminder was created or modified."
-msgstr "Mikor készítették vagy módosították ezt az emlékeztetőt."
+#: CRM/Contact/DAO/Contact.php
+msgid "Individuals, organizations, households, etc."
+msgstr ""
 
-#: CRM/Core/DAO/ActionSchedule.php
-msgid "Effective start date"
-msgstr "Tényleges kezdési dátum"
+#: CRM/Contact/Form/Task/EmailTrait.php CRM/Core/Form/Task/PDFLetterCommon.php
+msgid "Token %1 is no longer supported - use %2 instead"
+msgstr ""
 
-#: CRM/Core/DAO/ActionSchedule.php
-msgid "Earliest date to consider start events from."
-msgstr "A legkorábbi megfontolandó esemény kezdési dátum."
+#: CRM/Contact/Tokens.php
+msgid "Organization name"
+msgstr ""
 
-#: CRM/Core/DAO/ActionSchedule.php
-msgid "Effective end date"
-msgstr "Tényleges vég dátum"
+#: CRM/Core/BAO/MessageTemplate.php
+msgid "No message template with workflow name %1."
+msgstr ""
 
-#: CRM/Core/DAO/ActionSchedule.php
-msgid "Latest date to consider end events from."
-msgstr "A legkésőbbi megfontolandó esemény befejezési dátum."
+#: CRM/Core/BAO/Translation.php
+msgid "Invalid status"
+msgstr ""
 
-#: CRM/Core/Permission/List.php
-msgid "CMS"
-msgstr "Tartalomkezelő"
+#: CRM/Core/BAO/Translation.php
+msgid "Must specify all entity identification fields"
+msgstr ""
 
-#: CRM/Core/Permission/List.php
-msgid "View user accounts"
-msgstr "Felhasználói fiókok megtekintése"
+#: CRM/Core/BAO/Translation.php
+msgid "Entity reference is malformed"
+msgstr ""
 
-#: CRM/Core/Permission/List.php
-msgid "View user accounts. (Synthetic permission - adapts to local CMS)"
-msgstr "Felhasználói fiók megtekintése. (Szintetikus engedély - alkalmazkodik a helyi tartalomkezelőhöz)"
+#: CRM/Core/BAO/Translation.php
+msgid "Entity reference specifies a non-existent or non-translatable table"
+msgstr ""
 
-#: CRM/Core/Permission/List.php
-msgid "Administer user accounts"
-msgstr "Felhasználói fiókok kezelése"
+#: CRM/Core/BAO/Translation.php
+msgid "Entity reference specifies a non-existent or non-translatable field"
+msgstr ""
 
-#: CRM/Core/Permission/List.php
-msgid "Administer user accounts. (Synthetic permission - adapts to local CMS)"
-msgstr "Felhasználói fiók kezelése. (Szintetikus engedély - alkalmazkodik a helyi tartalomkezelőhöz)"
+#: CRM/Core/BAO/Translation.php
+msgid "Entity does not exist"
+msgstr ""
 
-#: CRM/Core/Permission/List.php
-msgid "Constant: Always deny"
-msgstr "Állandó: Mindig elutasít"
+#: CRM/Core/DAO/LocBlock.php
+msgid "Locations"
+msgstr ""
 
-#: CRM/Core/Permission/List.php
-msgid "Constant: Always allow"
-msgstr "Állandó: Mindig engedéyez"
+#: CRM/Core/DAO/LocBlock.php
+msgid "Address 2 ID"
+msgstr ""
 
-#: CRM/Utils/Check/Component/Env.php
+#: CRM/Core/DAO/LocBlock.php
+msgid "Address 2"
+msgstr ""
+
+#: CRM/Core/DomainTokens.php
+msgid "Current time/date"
+msgstr ""
+
+#: CRM/Core/EntityTokens.php
+msgid "Machine name"
+msgstr ""
+
+#: CRM/Core/Form/RecurringEntity.php
+msgid "Error creating recurring list"
+msgstr ""
+
+#: CRM/Core/Form/ShortCode.php
+msgid "Setup a Personal Campaign Page"
+msgstr ""
+
+#: CRM/Core/Form/ShortCode.php
+msgid "Map View"
+msgstr ""
+
+#: CRM/Core/Invoke.php
+msgid "You do not have permission to execute this url"
+msgstr ""
+
+#: CRM/Core/ManagedEntities.php
+msgid "Managed Entity (%1) is missing field \"%2\": %3"
+msgstr ""
+
+#: CRM/Core/ManagedEntities.php
+msgid "Entity declaration references invalid or inactive module name [%1]"
+msgstr ""
+
+#: CRM/Core/Page/File.php
+msgid "URL for file is not valid"
+msgstr ""
+
+#: CRM/Core/Page/File.php
+msgid "Could not retrieve the file"
+msgstr ""
+
+#: CRM/Core/Page/File.php
 msgid ""
-"CiviCRM is configured to use the wkhtmltopdf package to produce PDFs however"
-" it is missing, as such the system will fall back to using the DOMPDF "
-"package, this may mean that the output is different to what was expected. "
-"You should resolve this by either clearing the setting at Administer -> "
-"System Settings -> Miscellaneous or by getting your system administrator to "
-"install the wkhtmltopdf package"
-msgstr "A CiviCRM úgy van beállítva, hogy a wkhtmltopdf csomagot használja PDF-ek előállítására, azonban hiányzik, így a rendszer a DOMPDF csomag használatára fog visszatérni, ez azt jelentheti, hogy a kimenet eltér az elvártól. Ezt meg oldhatja az Adminisztráció -> Rendszerbeállítások -> Kiegészítő alatt a beállítás törlésével, vagy a rendszergazda a wkhtmltopdf csomag telepítésével."
+"The file is either empty or you do not have permission to retrieve the file"
+msgstr ""
 
-#: CRM/Utils/Check/Component/Env.php
-msgid "Missing System Package: wkhtmltopdf"
-msgstr "Hiányzó rendszer csomag: wkhtmltopdf"
+#: CRM/Core/Page/Redirect.php
+msgid "This page is configured as a redirect, but it does not have a target."
+msgstr ""
 
-#: CRM/Upgrade/Incremental/php/FiveTwentyEight.php
-msgid "5.29 Default:"
-msgstr "5.29 Alapértelmezett:"
+#: CRM/Core/Permission.php
+msgid "render templates"
+msgstr ""
 
-#: CRM/Upgrade/Incremental/php/FiveTwentyEight.php
-msgid "5.28 Default:"
-msgstr "5.28 Alapértelmezett:"
-
-#: CRM/Upgrade/Incremental/php/FiveTwentyEight.php
+#: CRM/Core/Permission.php
 msgid ""
-"Starting with version 5.29.0, CiviCRM on WordPress may make a subtle change in the calculation of <code>[civicrm.files]</code>.\n"
-"         To ensure a smooth upgrade, please review the following table. All paths and URLs should appear the same. If there is <strong><em>any</em></strong> discrepancy,\n"
-"         then consult <a href='%1' target='_blank'>the upgrade documentation</a>."
-msgstr "Az 5.29.0 verziótól kezdve a WordPress alatt található CiviCRM finom változásokat hozhat a <code>[civicrm.files]</code> számításában. A zökkenőmentes frissítés érdekében kérjük, olvassa el az alábbi táblázatot. Minden útvonalnak és URL-nek azonosnak kell lennie. Ha van <strong><em>bármilyen </em></strong> eltérés, olvassa el a <a href='%1' target='_blank'>frissítési dokumentációt</a>."
+"Render open-ended template content. (Additional constraints may apply to "
+"autoloaded records and specific notations.)"
+msgstr ""
 
-#: CRM/Upgrade/Incremental/php/FiveTwentySeven.php
+#: CRM/Core/SelectValues.php
+msgid "Membership Expiration Date"
+msgstr ""
+
+#: CRM/Core/SelectValues.php
+msgid "Case Subject"
+msgstr ""
+
+#: CRM/Core/SelectValues.php
+msgid "Case Start Date"
+msgstr ""
+
+#: CRM/Core/SelectValues.php
+msgid "Case End Date"
+msgstr ""
+
+#: CRM/Core/SelectValues.php
+msgid "Case is in the Trash"
+msgstr ""
+
+#: CRM/Price/DAO/LineItem.php
+msgid "Number of membership terms purchased"
+msgstr ""
+
+#: CRM/Price/DAO/LineItem.php
 msgid ""
-"Starting with version 5.28.0, CiviCRM will\n"
-"        require the PHP Internationalization extension (PHP-Intl).  In preparation\n"
-"        for this, the system check will show a warning beginning in 5.27.0 if your\n"
-"        site lacks this extension."
-msgstr "Az 5.28.0 verziótól kezdve a CiviCRM megköveteli\n a PHP nemzetközi kiterjesztést (PHP-Intl). Erre készülve a rendszerellenőrzés figyelmeztetést jelenít meg az 5.27.0-s verziótól kezdődően, ha a webhelyén nincs ilyen kiterjesztés."
+"Number of terms for this membership (only supported in Order->Payment flow)."
+" If the field is NULL it means unknown and it will be assumed to be 1 during"
+" payment.create if entity_table is civicrm_membership"
+msgstr ""
+
+#: CRM/Profile/Page/Listings.php
+msgid "Unable to find matching UF Group"
+msgstr ""
+
+#: CRM/Utils/Check/Component/Schema.php
+msgid ""
+"Your database is missing a function to populate the 'Phone number' field "
+"with a numbers-only version of the phone."
+msgstr ""
+
+#: CRM/Utils/Check/Component/Schema.php
+msgid "Missing Phone numeric function"
+msgstr ""
+
+#: CRM/Utils/Check/Component/Schema.php
+msgid "Rebuild triggers (also re-builds the phone number function)"
+msgstr ""
+
+#: CRM/Utils/Check/Component/Schema.php
+msgid "Create missing function now? This may take few minutes."
+msgstr ""
+
+#: CRM/Utils/Check/Component/Tokens.php
+msgid ""
+"Please review your %1 message template and remove references to the token %2"
+" as it has been replaced by %3"
+msgstr ""
+
+#: CRM/Utils/Check/Component/Tokens.php
+msgid "You are using tokens that have been removed or deprecated."
+msgstr ""
+
+#: CRM/Utils/Check/Component/Tokens.php
+msgid "Outdated tokens in use"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "January"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "February"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "March"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "April"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "May"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "June"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "July"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "August"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "September"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "October"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "November"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "December"
+msgstr ""
+
+#: CRM/Utils/Mail.php
+msgid ""
+"Unable to send email. Please report this message to the site administrator"
+msgstr ""
+
+#: templates/CRM/Contact/Form/Search/Advanced.hlp
+msgid "Template Records"
+msgstr ""
+
+#: templates/CRM/Contact/Form/Search/Advanced.hlp
+msgid ""
+"Template contributions are used with recurring contribution to generate "
+"follow up contributions."
+msgstr ""
+
+#: templates/CRM/Contact/Form/Search/Advanced.hlp
+msgid ""
+"You can change the template contribution and the changes will occur as soon "
+"as new contribution is generated within the recurring series."
+msgstr ""
+
+#: templates/CRM/Contact/Form/Search/Intro.tpl
+msgid "Edit Group Settings"
+msgstr ""
+
+#: templates/CRM/Contact/Form/Task/SMS.hlp
+msgid ""
+"A single SMS message is typically 160 characters in length. If you want to "
+"send a message that is longer than 160 characters, it is split into multiple"
+" segments."
+msgstr ""
+
+#: templates/CRM/Contact/Form/Task/SMS.hlp
+msgid "The cost of sending SMS message is typically <em>per segment</em>."
+msgstr ""
+
+#: templates/CRM/Contact/Form/Task/SMS.hlp
+msgid ""
+"Certain characters like emoji or curly quotes can shorten the segment size "
+"to 96 characters, increasing the cost per message."
+msgstr ""
+
+#: templates/CRM/Contact/Form/Task/SMSCommon.tpl
+msgid ""
+"You can insert up to %1 characters. You have entered %2 characters, "
+"requiring %3 segments."
+msgstr ""
+
+#: templates/CRM/Contact/Form/Task/SMSCommon.tpl
+msgid "SMS body exceeding limit of %1 characters"
+msgstr ""
+
+#: templates/CRM/Contact/Page/Inline/Email.tpl
+msgid "primary"
+msgstr ""
+
+#: xml/templates/civicrm_data.tpl CRM/Upgrade/Incremental/php/FiveForty.php
+msgid "Note Used For"
+msgstr ""
+
+#: xml/templates/civicrm_data.tpl CRM/Upgrade/Incremental/php/FiveFortyTwo.php
+msgid "Entity Batch Extends"
+msgstr ""
+
+#: xml/templates/civicrm_data.tpl CRM/Upgrade/Incremental/php/FiveForty.php
+msgid "CKEditor 4"
+msgstr ""
+
+#: xml/templates/civicrm_data.tpl CRM/Upgrade/Incremental/php/FiveFortyTwo.php
+msgid "Financial Transactions"
+msgstr ""
+
+#: CRM/Upgrade/Incremental/MessageTemplates.php
+msgid "Missed templates from earlier versions"
+msgstr ""
+
+#: CRM/Upgrade/Incremental/php/FiveFortyOne.php
+msgid ""
+"A token has been updated in the %1 template. Check the system checks page to"
+" see if any action is required."
+msgstr ""
+
+#: CRM/Upgrade/Incremental/php/FiveFortyThree.php
+msgid ""
+"Minor changes have been made to how the tokens to render case.is_deleted, "
+"case.created_date and case.modified_date. See "
+"https://docs.civicrm.org/sysadmin/en/latest/upgrade/version-specific/ for "
+"more"
+msgstr ""
