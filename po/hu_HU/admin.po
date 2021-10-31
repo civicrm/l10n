@@ -10,8 +10,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2021-02-05 10:11-0500\n"
-"PO-Revision-Date: 2021-02-05 15:37+0000\n"
+"POT-Creation-Date: 2021-10-30 09:41-0400\n"
+"PO-Revision-Date: 2021-10-30 13:54+0000\n"
 "Last-Translator: Mathieu Lu <mathieu@bidon.ca>\n"
 "Language-Team: Hungarian (http://www.transifex.com/civicrm/civicrm/language/hu/)\n"
 "MIME-Version: 1.0\n"
@@ -169,12 +169,6 @@ msgstr "Frissített kiterjesztés"
 #: CRM/Admin/Form/Extensions.php
 msgid "Extension Upgrade Failed"
 msgstr "Kiterjesztés frissítés megszakadt"
-
-#: CRM/Admin/Form/Generic.php CRM/Admin/Form/Setting.php
-msgid ""
-"Some fields are loaded as 'readonly' as they have been set (overridden) in "
-"civicrm.settings.php."
-msgstr "Néhány mező mint 'csak olvasható' került betöltésre, mivel így került beállításra (felülírva) a civicrm.settings.php -ben."
 
 #: CRM/Admin/Form/Generic.php CRM/Admin/Form/Preferences.php
 #: CRM/Admin/Form/Setting.php
@@ -991,11 +985,6 @@ msgstr "Beállítások - CiviCase"
 msgid "You need to enable CiviContribute before enabling CiviPledge."
 msgstr "Engedélyezned kell a CiviContribute-t, mielőtt engedélyezed a CiviPledge-t."
 
-#: CRM/Admin/Form/Setting/Component.php
-msgid ""
-"CiviCase requires CREATE VIEW and DROP VIEW permissions for the database."
-msgstr "CiviÜgy-höz szükséges az adatbázishoz a CREATE VIEW és DROP VIEW jogosultság."
-
 #: CRM/Admin/Form/Setting/Date.php
 msgid "Settings - Date"
 msgstr "Beállítások - dátum"
@@ -1118,14 +1107,14 @@ msgstr "A térkép funkció PHP 5 verziót vagy nagyobbat igényel"
 
 #: CRM/Admin/Form/Setting/Miscellaneous.php
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid "Misc (Undelete, PDFs, Limits, Logging, Captcha, etc.)"
-msgstr "Kiegészítő (Törlés visszavonása, PDF-ek, korlátok, Naplózás, Captcha, stb.)"
+msgid "Misc (Undelete, PDFs, Limits, Logging, etc.)"
+msgstr ""
 
 #: CRM/Admin/Form/Setting/Miscellaneous.php
 msgid ""
-"Maximum file size cannot exceed Upload max size ('upload_max_filesize') as "
-"defined in PHP.ini."
-msgstr "A maximális fájlméret nem haladhatja meg a Feltöltési maximális méretet ('upload_max_filesize') ahogy az a PHP.ini fájlban meghatározott."
+"Maximum file size cannot exceed limit defined in \"php.ini\" "
+"(\"upload_max_filesize=%1\")."
+msgstr ""
 
 #: CRM/Admin/Form/Setting/Miscellaneous.php
 msgid "Illegal stack size. Use values between 1 and %1."
@@ -1339,6 +1328,12 @@ msgid ""
 "You need to set up a secure server before you can use the Force Secure URLs "
 "option"
 msgstr "Be kell állítania biztonságos szervert mielőtt Biztonságos URL-k kikényszerítését használná"
+
+#: CRM/Admin/Form/SettingTrait.php
+msgid ""
+"Some fields are loaded as 'readonly' as they have been set (overridden) in "
+"civicrm.settings.php."
+msgstr "Néhány mező mint 'csak olvasható' került betöltésre, mivel így került beállításra (felülírva) a civicrm.settings.php -ben."
 
 #: CRM/Admin/Form/WordReplacements.php
 msgid "Please Enter the value for Replacement Word"
@@ -2216,15 +2211,16 @@ msgid ""
 msgstr "Hogyan rendezze a tevékenység típusokat az \"Ügykezelés\" képernyőn? (Állítsa \"Alapértelmezett\" -re a korábbi \"Settings.xml\" fájlból a beállítások betöltésére.)"
 
 #: settings/Case.setting.php
-msgid "Enable Embedded Activity Revisions"
-msgstr "Engedélyezze a beágyazott tevékenység felülvizsgálatokat"
+msgid "Enable deprecated Embedded Activity Revisions"
+msgstr ""
 
 #: settings/Case.setting.php
 msgid ""
 "Enable tracking of activity revisions embedded within the "
-"\"civicrm_activity\" table. Alternatively, see \"Administer => System "
-"Settings => Misc => Logging\"."
-msgstr "Beépített követés engedélyezése a tevékenység felülvizsgálatokhoz a \"civicrm_activity\" táblában. Alternatívaként, nézze meg a \"Adminisztrálás => Rendszer beállítások => Kiegészítő => Naplózás\" alatt."
+"\"civicrm_activity\" table. This should not be enabled on new installs and "
+"will be unsupported in the future. You should enable \"Administer => System "
+"Settings => Misc => Logging\" instead."
+msgstr ""
 
 #: settings/Case.setting.php
 msgid "Include case activities in general activity views."
@@ -2461,8 +2457,8 @@ msgid "Smart Group Refresh Mode"
 msgstr "Okos csoport frissítési mód"
 
 #: settings/Core.setting.php
-msgid "Should the smart groups be by cron jobs or user actions"
-msgstr "Az okos csoportok cron feladatok vagy felhasználói tevékenységek alapján készülnek"
+msgid "Should the smart groups be flushed by cron jobs or user actions"
+msgstr ""
 
 #: settings/Core.setting.php
 msgid ""
@@ -2472,6 +2468,23 @@ msgid ""
 " caches; this can improve latency on form-submissions but requires more "
 "setup."
 msgstr "\"Opportunistic Flush\" módban a gyorsítótárak kiürülnek a felhasználóra reagálva; ez a mód nagyjából kompatibilis, de késést okozhat az űrlap-beküldések során. \"Cron Flush\" módban egy cron feladatot kell ütemeznie a gyorsítótárak ürítéséhez; ez javíthatja az űrlap-beküldés késését, de további beállításokat igényel."
+
+#: settings/Core.setting.php
+msgid "ACL Group Refresh Mode"
+msgstr ""
+
+#: settings/Core.setting.php
+msgid "Should the acl cache be by cron jobs or user actions"
+msgstr ""
+
+#: settings/Core.setting.php
+msgid ""
+"In \"Opportunistic Flush\" mode, caches are flushed in response to user "
+"actions; this mode is broadly compatible but may add latency during form-"
+"submissions. In \"Cron Flush\" mode, you should schedule a cron job to flush"
+" caches if your site uses ACLs; this can improve latency on form-submissions"
+" but requires more setup."
+msgstr ""
 
 #: settings/Core.setting.php
 msgid "System Installed"
@@ -2573,35 +2586,6 @@ msgstr "Amikor (PDF/Word) levelet generálunk a körlevél funkción keresztül,
 #: settings/Core.setting.php
 msgid "Path to wkhtmltopdf executable"
 msgstr "wkhtmltopdf végrehajtási útvonala"
-
-#: settings/Core.setting.php
-msgid "reCAPTCHA Options"
-msgstr "reCAPTCHA opciók"
-
-#: settings/Core.setting.php
-msgid ""
-"You can specify the reCAPTCHA theme options as comma separated data.(eg: "
-"theme:'blackglass', lang : 'fr' ). Check the available options at <a "
-"href=\"https://developers.google.com/recaptcha/docs/display#config\">Customizing"
-" the Look and Feel of reCAPTCHA</a>."
-msgstr "Beállíthatja a reCAPTCHA téma opcióit mint vesszővel elválasztott adat. (pl: theme:'blackglass', lang : 'fr' ). A reCAPTCHA rendelkezésre álló opcióit leellenőrizheti itt: <a href=\"https://developers.google.com/recaptcha/docs/display#config\">reCAPTCHA kinézetének beállítása</a>."
-
-#: settings/Core.setting.php
-msgid "reCAPTCHA Site Key"
-msgstr "reCAPTCHA webhelykulcs"
-
-#: settings/Core.setting.php
-msgid "Force reCAPTCHA on Contribution pages"
-msgstr "reCAPTCHA kikényszerítése az adomány oldalakon."
-
-#: settings/Core.setting.php
-#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
-msgid "If enabled, reCAPTCHA will show on all contribution pages."
-msgstr "Ha engedélyezett, a reCAPTCHA kijelzésre kerül minden adomány oldalon."
-
-#: settings/Core.setting.php
-msgid "reCAPTCHA Secret Key"
-msgstr "reCAPTCHA titkos kulcs"
 
 #: settings/Core.setting.php
 msgid "Checksum Lifespan"
@@ -3633,6 +3617,14 @@ msgid ""
 "your custom field here? Make sure it is marked as Searchable."
 msgstr "Mely mezőkben lehet keresni a menüsor gyors keresési mezőjében? Nem látja itt az egyéni mezőjét? Győződjön meg arról, hogy kereshetőnek van jelölve"
 
+#: settings/Search.setting.php
+msgid "Default Search Pager size"
+msgstr ""
+
+#: settings/Search.setting.php
+msgid "What is the default number of records to show on a search"
+msgstr ""
+
 #: settings/Url.setting.php
 msgid "CiviCRM Resource URL"
 msgstr "CiviCRM erőforrás URL"
@@ -3912,10 +3904,6 @@ msgid ""
 msgstr "Az e-mail vagy dokumentum kimenethez készítsen üzenetet a képernyőn, vagy töltsön fel előre elkészített dokumentumot a körlevélhez. "
 
 #: templates/CRM/Admin/Form/MessageTemplates.tpl
-msgid "Tokens may be included (%1)."
-msgstr "Beilleszthető tokenek (%1)."
-
-#: templates/CRM/Admin/Form/MessageTemplates.tpl
 msgid "Upload the document in .docx or .odt format."
 msgstr "Töltse fel a dokumentumot .docx vagy .odt formátumban."
 
@@ -3932,10 +3920,6 @@ msgstr "Szöveges formátumú üzenet"
 #: templates/CRM/Admin/Form/MessageTemplates.tpl
 msgid "Page format to use when creating PDF files using this template."
 msgstr "Ezen sablon felhasználásával készülő PDF fájl előállítás során használt oldal formátum. "
-
-#: templates/CRM/Admin/Form/MessageTemplates.tpl
-msgid "token documentation"
-msgstr "token dokumentáció"
 
 #: templates/CRM/Admin/Form/Navigation.hlp
 msgid ""
@@ -5003,34 +4987,6 @@ msgid ""
 " This is disabled by default to limit abuse."
 msgstr "Ha engedélyezett, a CiviCRM lehetővé teszi a felhasználóknak, hogy profilokat küldjön a külső oldalakról. Ez alapértelmezetten letiltott a visszaélés elkerülésére."
 
-#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
-msgid "reCAPTCHA v2"
-msgstr "reCAPTCHA v2"
-
-#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
-msgid ""
-"reCAPTCHA is a free service that helps prevent automated abuse of your site."
-" To use it on public-facing CiviCRM forms: sign up at <a %1>Google's "
-"reCaptcha site</a>; enter the provided public and private keys here; then "
-"enable reCAPTCHA under Advanced Settings in any Profile."
-msgstr "A reCAPTCHA egy ingyenes szolgáltatás ami megelőzi az automatikus visszaéléseket az ön oldalával. Ahhoz hogy használni tudja a reCAPTCHA-t a nyilvánosság-felé elérhető CiviCRM űrlapoknál: regisztráljon a <a %1>Google reCaptcha oldalán</a>; adja meg a megkapott publikus és privát reCAPTCHA kulcsait itt; aztán engedélyezze az reCAPTCHA -t a Speciális beállítások alatt a bármelyik profilban."
-
-#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
-msgid "Only the reCAPTCHA v2 checkbox type is supported."
-msgstr "Csak a reCAPTCHA v2 jelölőnégyzet típus támogatott."
-
-#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
-msgid ""
-"You can specify the reCAPTCHA theme options as comma separated data.(eg: "
-"theme:'blackglass', lang : 'fr' )."
-msgstr "Megadhatja mint vesszővel elválasztott adat a reCAPTCHA téma opciókat. (Például: theme: 'blackglass', lang: 'fr)."
-
-#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
-msgid ""
-"Check the available options at <a %1>Customizing the Look and Feel of "
-"reCAPTCHA</a>."
-msgstr "Ellenőrizze a rendelkezésre álló beállításokat a <a %1>reCAPTCHA kinézet beállítása</a>."
-
 #: templates/CRM/Admin/Form/Setting/Path.hlp
 msgid "Path Variables"
 msgstr "Útvonal változók"
@@ -5774,8 +5730,8 @@ msgid ""
 msgstr "A keresési viselkedés beállítása, beleértve a helyettesítőket, és a gyors keresési eredményeket. A keresési beállítások finomítása javíthatja a keresési teljesítményt a nagy adatállományokban."
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid "Version reporting and alerts, reCAPTCHA configuration and attachments."
-msgstr "Verzió jelentés és figyelmeztetés, reCAPTCHA beállítás és mellékeltek."
+msgid "Version reporting, alerts and attachments."
+msgstr ""
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
 msgid ""
@@ -5942,6 +5898,38 @@ msgstr "(tudj meg többet...)"
 msgid "Organizing Your Data"
 msgstr "Adatainak rendezése"
 
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid "$componentTitles.CiviContribute"
+msgstr ""
+
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid "$componentTitles.CiviPledge"
+msgstr ""
+
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid "$componentTitles.CiviEvent"
+msgstr ""
+
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid "$componentTitles.CiviMember"
+msgstr ""
+
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid "$componentTitles.CiviMail"
+msgstr ""
+
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid "$componentTitles.CiviCampaign"
+msgstr ""
+
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid "$componentTitles.CiviCase"
+msgstr ""
+
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid "$componentTitles.CiviGrant"
+msgstr ""
+
 #: templates/CRM/Admin/Page/ContactType.hlp
 msgid ""
 "CiviCRM comes with 3 basic (built-in) contact types: Individual, Household, "
@@ -6069,6 +6057,16 @@ msgstr "Nincsenek kijelezhető kiterjesztések. Kérem kattintson a \"Frissíté
 #: templates/CRM/Admin/Page/Extensions/Main.tpl
 msgid "Outdated"
 msgstr "Elavult"
+
+#: templates/CRM/Admin/Page/Extensions/Main.tpl
+msgid ""
+"This is a pre-release version. For more details, see the expanded "
+"description."
+msgstr ""
+
+#: templates/CRM/Admin/Page/Extensions/Main.tpl
+msgid "This is a stable release version."
+msgstr ""
 
 #: templates/CRM/Admin/Page/Extensions/Main.tpl
 msgid ""
@@ -7301,9 +7299,9 @@ msgstr "Vegyes beállítások"
 
 #: templates/CRM/Admin/Page/Setting.tpl
 msgid ""
-"Dashboard caching time, move to trash / undelete, change logging, version "
-"checking and reCAPTCHA (prevents automated abuse of public forms)."
-msgstr "A Vezérlőpult gyorsítótárazási ideje, mozgatás lomtárba / törlésből helyreállítás, naplózás változtatása, verzió ellenőrzése és a újCAPTCHA  ( megelőzi a nyilvános mintákkal való visszaéléseket)."
+"Dashboard caching time, move to trash / undelete, change logging and version"
+" checking."
+msgstr ""
 
 #: templates/CRM/Admin/Page/Setting.tpl
 msgid ""
@@ -7314,3 +7312,43 @@ msgstr "A hibakeresési funkciók engedélyezése a sablon változók kijelzése
 #: templates/CRM/Admin/Page/Setting.tpl
 msgid "Administration Documentation"
 msgstr "Adminisztrációs dokumentáció"
+
+#: settings/Core.setting.php
+msgid "DOMPDF Font Folder"
+msgstr ""
+
+#: settings/Core.setting.php
+#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
+msgid "Additional folder where DOMPDF will look for fonts."
+msgstr ""
+
+#: settings/Core.setting.php
+msgid "DOMPDF Local Images Folder"
+msgstr ""
+
+#: settings/Core.setting.php
+#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
+msgid ""
+"Folder to restrict where DOMPDF looks when loading local images. By default "
+"it is the DOMPDF folder itself for security reasons. It will search in "
+"subfolders."
+msgstr ""
+
+#: settings/Core.setting.php
+msgid "DOMPDF Enable Remote Images"
+msgstr ""
+
+#: settings/Core.setting.php
+#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
+msgid ""
+"Enable the use of remote images. By default this is enabled, but if not "
+"using remote images you may wish to turn it off for security reasons."
+msgstr ""
+
+#: settings/Core.setting.php
+msgid "DOMPDF Log File"
+msgstr ""
+
+#: settings/Core.setting.php
+msgid "DOMPDF will log debugging output in this file."
+msgstr ""
