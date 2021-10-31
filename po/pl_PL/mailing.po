@@ -23,8 +23,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2021-01-07 11:47-0500\n"
-"PO-Revision-Date: 2021-01-07 20:29+0000\n"
+"POT-Creation-Date: 2021-10-30 09:41-0400\n"
+"PO-Revision-Date: 2021-10-30 13:54+0000\n"
 "Last-Translator: Mathieu Lu <mathieu@bidon.ca>\n"
 "Language-Team: Polish (http://www.transifex.com/civicrm/civicrm/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -69,7 +69,11 @@ msgstr "Ponownie subskrybuj (Akcja)"
 msgid "Resubscribe URL (Action)"
 msgstr "Ponownie subskrybuj URL (Akcja)"
 
-#: CRM/Mailing/ActionTokens.php
+#: CRM/Mailing/ActionTokens.php CRM/Mailing/Event/DAO/Bounce.php
+#: CRM/Mailing/Event/DAO/Delivered.php CRM/Mailing/Event/DAO/Forward.php
+#: CRM/Mailing/Event/DAO/Opened.php CRM/Mailing/Event/DAO/Reply.php
+#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
+#: CRM/Mailing/Event/DAO/Unsubscribe.php
 msgid "Event Queue ID"
 msgstr "ID kolejki zdarzeń"
 
@@ -201,9 +205,8 @@ msgstr "Mailing:"
 msgid "Unsubscribe Requests"
 msgstr "Żądania wypisania"
 
-#: CRM/Mailing/BAO/Query.php CRM/Mailing/Event/DAO/Forward.php
-#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
-#: templates/CRM/Mailing/Page/Report.tpl
+#: CRM/Mailing/BAO/Query.php CRM/Mailing/Selector/Event.php
+#: ang/crmMailing/services.js templates/CRM/Mailing/Page/Report.tpl
 msgid "Forwards"
 msgstr "Przekazania"
 
@@ -248,6 +251,10 @@ msgid "Bounce Pattern ID"
 msgstr "ID wzorca odbijania"
 
 #: CRM/Mailing/DAO/BouncePattern.php CRM/Mailing/DAO/BounceType.php
+msgid "Bounce Type ID"
+msgstr "ID typu odbicia"
+
+#: CRM/Mailing/DAO/BouncePattern.php CRM/Mailing/DAO/BounceType.php
 msgid "Type of bounce"
 msgstr "Rodzaj odbicia"
 
@@ -258,10 +265,6 @@ msgstr "Wzór"
 #: CRM/Mailing/DAO/BouncePattern.php
 msgid "A regexp to match a message to a bounce type"
 msgstr ""
-
-#: CRM/Mailing/DAO/BounceType.php
-msgid "Bounce Type ID"
-msgstr "ID typu odbicia"
 
 #: CRM/Mailing/DAO/BounceType.php
 msgid "Bounce Type Name"
@@ -285,12 +288,12 @@ msgid ""
 "bounce hold"
 msgstr ""
 
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing Domain"
-msgstr "Domena mailingu"
-
 #: CRM/Mailing/DAO/Mailing.php CRM/Mailing/DAO/MailingAB.php
 msgid "Which site is this mailing for"
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Header ID"
 msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
@@ -298,20 +301,24 @@ msgid "FK to the header component."
 msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
-msgid "FK to the footer component."
+msgid "Footer ID"
 msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing Reply"
-msgstr "Odpowiedź mailingowa"
+msgid "FK to the footer component."
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php CRM/Mailing/Event/DAO/Reply.php
+msgid "Reply ID"
+msgstr "ID odpowiedzi"
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "FK to the auto-responder component."
 msgstr ""
 
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing Unsubscribe"
-msgstr "Wypisanych z mailingu"
+#: CRM/Mailing/DAO/Mailing.php CRM/Mailing/Event/DAO/Unsubscribe.php
+msgid "Unsubscribe ID"
+msgstr "ID wypisu"
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "FK to the unsubscribe component."
@@ -322,8 +329,8 @@ msgid "Mailing Resubscribe"
 msgstr "Resubskrybowanie mailingu"
 
 #: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing Opt Out"
-msgstr "Zrezygnowało z mailingu"
+msgid "Opt Out ID"
+msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "FK to the opt-out component."
@@ -367,6 +374,10 @@ msgid "Reply-To Email of mailing"
 msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "Reply-To Email"
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "Template Type"
 msgstr "Rodzaj szablonu"
 
@@ -389,6 +400,10 @@ msgstr "Tekst treści"
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "Body Html"
+msgstr "Treść HTML"
+
+#: CRM/Mailing/DAO/Mailing.php templates/CRM/Mailing/Page/Component.tpl
+msgid "Body HTML"
 msgstr "Treść HTML"
 
 #: CRM/Mailing/DAO/Mailing.php
@@ -433,10 +448,6 @@ msgid "Has at least one job associated with this mailing finished?"
 msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing Message Template"
-msgstr "Szablon wiadomości mailingu"
-
-#: CRM/Mailing/DAO/Mailing.php
 msgid "Override Verp"
 msgstr "Nadpisz VERP"
 
@@ -445,11 +456,15 @@ msgid "Overwrite the VERP address in Reply-To"
 msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing Creator"
-msgstr "Tworzenie mailingu"
+msgid "Overwrite VERP"
+msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "FK to Contact ID who first created this mailing"
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Creator"
 msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
@@ -467,6 +482,10 @@ msgid ""
 msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
+msgid "Scheduled By Contact ID"
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
 msgid "FK to Contact ID who scheduled this mailing"
 msgstr ""
 
@@ -479,12 +498,16 @@ msgid "Date and time this mailing was scheduled."
 msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
-msgid "Approved By"
-msgstr "Zatwierdzone przez"
+msgid "Approved By Contact ID"
+msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "FK to Contact ID who approved this mailing"
 msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Approved By"
+msgstr "Zatwierdzone przez"
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "Mailing Approved Date"
@@ -527,10 +550,6 @@ msgid "In what context(s) is the mailing contents visible (online viewing)"
 msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing Campaign"
-msgstr "Kampania e-mailowa"
-
-#: CRM/Mailing/DAO/Mailing.php
 msgid "The campaign for which this mailing has been initiated."
 msgstr ""
 
@@ -541,10 +560,6 @@ msgstr "Bez powtórzonych e-maili?"
 #: CRM/Mailing/DAO/Mailing.php
 msgid "Remove duplicate emails?"
 msgstr ""
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Mailing SMS Provider"
-msgstr "Dostawca wysyłki SMS"
 
 #: CRM/Mailing/DAO/Mailing.php
 msgid "Mailing Hash"
@@ -644,10 +659,6 @@ msgid "Group Percentage"
 msgstr "Procent grupy"
 
 #: CRM/Mailing/DAO/MailingAB.php
-msgid "AB Test Created By"
-msgstr "Test AB stworzony przez"
-
-#: CRM/Mailing/DAO/MailingAB.php
 msgid "AB Test Created Date"
 msgstr "Test AB stworzony dnia"
 
@@ -689,6 +700,10 @@ msgstr ""
 
 #: CRM/Mailing/DAO/MailingComponent.php
 msgid "Body of the component in text format."
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingComponent.php
+msgid "Body in Text Format"
 msgstr ""
 
 #: CRM/Mailing/DAO/MailingComponent.php
@@ -755,7 +770,7 @@ msgstr ""
 msgid "Mailing Jobs"
 msgstr ""
 
-#: CRM/Mailing/DAO/MailingJob.php CRM/Mailing/DAO/Spool.php
+#: CRM/Mailing/DAO/MailingJob.php
 msgid "Mailing Job"
 msgstr "Zadanie mailingu"
 
@@ -812,10 +827,6 @@ msgid "Type of mailling job: null | child "
 msgstr ""
 
 #: CRM/Mailing/DAO/MailingJob.php
-msgid "Mailing Job Parent"
-msgstr "Rodzic mailingu"
-
-#: CRM/Mailing/DAO/MailingJob.php
 msgid "Parent job id"
 msgstr ""
 
@@ -836,33 +847,21 @@ msgid "Queue size limit for each child job"
 msgstr ""
 
 #: CRM/Mailing/DAO/Recipients.php
-msgid "Recipientses"
-msgstr ""
-
-#: CRM/Mailing/DAO/Recipients.php
 msgid "Mailing Recipients ID"
 msgstr "ID odbiorców mailingu"
 
-#: CRM/Mailing/DAO/Recipients.php CRM/Mailing/Selector/Search.php
-msgid "Mailing Recipient"
-msgstr "Odbiorca mailingu"
+#: CRM/Mailing/DAO/Recipients.php
+msgid "Recipient ID"
+msgstr ""
 
 #: CRM/Mailing/DAO/Recipients.php CRM/Mailing/Event/DAO/Queue.php
 #: CRM/Mailing/Event/DAO/Subscribe.php
 msgid "FK to Contact"
 msgstr ""
 
-#: CRM/Mailing/DAO/Recipients.php CRM/Mailing/DAO/Spool.php
-msgid "Recipient Email"
-msgstr "Adres odbiorcy"
-
 #: CRM/Mailing/DAO/Recipients.php CRM/Mailing/Event/DAO/Queue.php
 msgid "FK to Email"
 msgstr ""
-
-#: CRM/Mailing/DAO/Recipients.php
-msgid "Recipient Phone"
-msgstr "Telefon odbiorcy"
 
 #: CRM/Mailing/DAO/Recipients.php CRM/Mailing/Event/DAO/Queue.php
 msgid "FK to Phone"
@@ -883,6 +882,10 @@ msgstr "Identyfikator buforu"
 #: CRM/Mailing/DAO/Spool.php
 msgid "The ID of the Job ."
 msgstr ""
+
+#: CRM/Mailing/DAO/Spool.php
+msgid "Recipient Email"
+msgstr "Adres odbiorcy"
 
 #: CRM/Mailing/DAO/Spool.php
 msgid "The email of the recipients this mail is to be sent."
@@ -950,20 +953,17 @@ msgid ""
 "Please contact the site administrator."
 msgstr "Podczas przetwarzania żądania subskrypcji dla %1 wystąpił problem. Próbowałeś zasubskrybować prywatną grupę i / lub napotkaliśmy błąd bazy danych. Proszę skontaktować się z administratorem serwisu."
 
-#: CRM/Mailing/Event/DAO/Bounce.php CRM/Mailing/Selector/Event.php
-#: ang/crmMailing/services.js templates/CRM/Mailing/Page/Report.tpl
-msgid "Bounces"
-msgstr "Odrzucenia"
+#: CRM/Mailing/Event/DAO/Bounce.php
+msgid "Mailing Bounce Events"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/Bounce.php
+msgid "Mailing Bounce Event"
+msgstr ""
 
 #: CRM/Mailing/Event/DAO/Bounce.php
 msgid "Bounce ID"
 msgstr "ID odrzuceń"
-
-#: CRM/Mailing/Event/DAO/Bounce.php CRM/Mailing/Event/DAO/Delivered.php
-#: CRM/Mailing/Event/DAO/Opened.php CRM/Mailing/Event/DAO/Reply.php
-#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
-msgid "Event Queue"
-msgstr "Kolejki zdarzeń"
 
 #: CRM/Mailing/Event/DAO/Bounce.php CRM/Mailing/Event/DAO/Delivered.php
 #: CRM/Mailing/Event/DAO/Forward.php CRM/Mailing/Event/DAO/Opened.php
@@ -971,6 +971,13 @@ msgstr "Kolejki zdarzeń"
 #: CRM/Mailing/Event/DAO/Unsubscribe.php
 msgid "FK to EventQueue"
 msgstr ""
+
+#: CRM/Mailing/Event/DAO/Bounce.php CRM/Mailing/Event/DAO/Delivered.php
+#: CRM/Mailing/Event/DAO/Forward.php CRM/Mailing/Event/DAO/Opened.php
+#: CRM/Mailing/Event/DAO/Reply.php CRM/Mailing/Event/DAO/TrackableURLOpen.php
+#: CRM/Mailing/Event/DAO/Unsubscribe.php
+msgid "Event Queue"
+msgstr "Kolejki zdarzeń"
 
 #: CRM/Mailing/Event/DAO/Bounce.php
 msgid "What type of bounce was it?"
@@ -985,7 +992,11 @@ msgid "When this bounce event occurred."
 msgstr ""
 
 #: CRM/Mailing/Event/DAO/Confirm.php
-msgid "Confirms"
+msgid "Mailing Contribution Events"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/Confirm.php
+msgid "Mailing Confirmation Event"
 msgstr ""
 
 #: CRM/Mailing/Event/DAO/Confirm.php
@@ -1001,6 +1012,10 @@ msgid "FK to civicrm_mailing_event_subscribe"
 msgstr ""
 
 #: CRM/Mailing/Event/DAO/Confirm.php
+msgid "Mailing Subscribe"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/Confirm.php
 msgid "Confirm Timestamp"
 msgstr "Potwierdź znacznik czasu"
 
@@ -1009,7 +1024,11 @@ msgid "When this confirmation event occurred."
 msgstr ""
 
 #: CRM/Mailing/Event/DAO/Delivered.php
-msgid "Delivereds"
+msgid "Mailing Delivery Events"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/Delivered.php
+msgid "Mailing Delivery Event"
 msgstr ""
 
 #: CRM/Mailing/Event/DAO/Delivered.php
@@ -1020,32 +1039,40 @@ msgstr "ID dostarczenia mailingu"
 msgid "When this delivery event occurred."
 msgstr ""
 
-#: CRM/Mailing/Event/DAO/Forward.php CRM/Mailing/Form/ForwardMailing.php
-msgid "Forward"
-msgstr "Przekazanie"
+#: CRM/Mailing/Event/DAO/Forward.php
+msgid "Mailing Forwarded Events"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/Forward.php
+msgid "Mailing Forwarded Event"
+msgstr ""
 
 #: CRM/Mailing/Event/DAO/Forward.php
 msgid "Forward ID"
 msgstr "ID przekazania mailingu"
 
-#: CRM/Mailing/Event/DAO/Forward.php CRM/Mailing/Event/DAO/Unsubscribe.php
-msgid "Mailing Event Queue"
-msgstr "Kolejka zdarzeń mailingu"
-
 #: CRM/Mailing/Event/DAO/Forward.php
-msgid "Destination Queue"
-msgstr "Kolejka docelowa"
+msgid "Destination Queue ID"
+msgstr ""
 
 #: CRM/Mailing/Event/DAO/Forward.php
 msgid "FK to EventQueue for destination"
 msgstr ""
 
 #: CRM/Mailing/Event/DAO/Forward.php
+msgid "Destination Queue"
+msgstr "Kolejka docelowa"
+
+#: CRM/Mailing/Event/DAO/Forward.php
 msgid "When this forward event occurred."
 msgstr ""
 
 #: CRM/Mailing/Event/DAO/Opened.php
-msgid "Openeds"
+msgid "Mailing Opened Events"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/Opened.php
+msgid "Mailing Opened Event"
 msgstr ""
 
 #: CRM/Mailing/Event/DAO/Opened.php
@@ -1057,11 +1084,11 @@ msgid "When this open event occurred."
 msgstr ""
 
 #: CRM/Mailing/Event/DAO/Queue.php
-msgid "Queues"
+msgid "Mailing Queue Events"
 msgstr ""
 
 #: CRM/Mailing/Event/DAO/Queue.php
-msgid "Queue"
+msgid "Mailing Queue Event"
 msgstr ""
 
 #: CRM/Mailing/Event/DAO/Queue.php
@@ -1086,10 +1113,6 @@ msgid "Replies"
 msgstr "Odpowiedzi"
 
 #: CRM/Mailing/Event/DAO/Reply.php
-msgid "Reply ID"
-msgstr "ID odpowiedzi"
-
-#: CRM/Mailing/Event/DAO/Reply.php
 msgid "Reply Timestamp"
 msgstr "Czas odpowiedzi"
 
@@ -1104,14 +1127,6 @@ msgstr ""
 #: CRM/Mailing/Event/DAO/Subscribe.php CRM/Mailing/Form/Subscribe.php
 msgid "Subscribe"
 msgstr "Zapisz się"
-
-#: CRM/Mailing/Event/DAO/Subscribe.php
-msgid "Mailing Subscribe Group"
-msgstr "Grupa zapisana na mailing"
-
-#: CRM/Mailing/Event/DAO/Subscribe.php
-msgid "Mailing Subscribe Contact"
-msgstr "Kontakt zapisany na mailing"
 
 #: CRM/Mailing/Event/DAO/Subscribe.php
 msgid "Mailing Subscribe Hash"
@@ -1138,12 +1153,16 @@ msgid "Trackable URL Open ID"
 msgstr "ID śledzonych otwarć URL"
 
 #: CRM/Mailing/Event/DAO/TrackableURLOpen.php
-msgid "Trackable Url"
-msgstr "Śledzone URL"
+msgid "Trackable Url ID"
+msgstr ""
 
 #: CRM/Mailing/Event/DAO/TrackableURLOpen.php
 msgid "FK to TrackableURL"
 msgstr ""
+
+#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
+msgid "Trackable Url"
+msgstr "Śledzone URL"
 
 #: CRM/Mailing/Event/DAO/TrackableURLOpen.php
 msgid "When this trackable URL open occurred."
@@ -1152,10 +1171,6 @@ msgstr ""
 #: CRM/Mailing/Event/DAO/Unsubscribe.php ang/crmMailing/services.js
 msgid "Unsubscribes"
 msgstr "Wypisani"
-
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
-msgid "Unsubscribe ID"
-msgstr "ID wypisu"
 
 #: CRM/Mailing/Event/DAO/Unsubscribe.php
 msgid "Unsubscribe is for Organization?"
@@ -1231,6 +1246,10 @@ msgid "Forward Mailing: %1"
 msgstr "Przekaż mailing: %1"
 
 #: CRM/Mailing/Form/ForwardMailing.php
+msgid "Forward"
+msgstr "Przekazanie"
+
+#: CRM/Mailing/Form/ForwardMailing.php
 msgid "Mailing is not forwarded to the given email address."
 msgid_plural "Mailing is not forwarded to the given email addresses."
 msgstr[0] "Mailing nie został przekazany na podany adres e-mail."
@@ -1290,12 +1309,6 @@ msgstr "Stworzone lub Wysłane przez"
 #: CRM/Mailing/Form/Search.php
 msgid "Draft / Unscheduled"
 msgstr "Szkice / Niezaplanowane"
-
-#: CRM/Mailing/Form/Search.php CRM/Mailing/Selector/Browse.php
-#: CRM/Mailing/Selector/Search.php ang/crmMailing/BlockMailing.html
-#: ang/crmMailing/BlockReview.html templates/CRM/Mailing/Page/Browse.hlp
-msgid "Language"
-msgstr "Język"
 
 #: CRM/Mailing/Form/Search.php
 msgid "- all languages -"
@@ -1465,10 +1478,6 @@ msgid "Mailings sent to %1"
 msgstr "Wysyłki wysłane do %1"
 
 #: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
-msgid "Draft"
-msgstr "Robocza"
-
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
 msgid "Testing"
 msgstr "Testowanie"
 
@@ -1566,16 +1575,12 @@ msgid "Approve/Reject"
 msgstr "Zatwierdzone/Odrzucone"
 
 #: CRM/Mailing/Selector/Browse.php
-msgid "Re-Use"
-msgstr "Użyj ponownie"
-
-#: CRM/Mailing/Selector/Browse.php
-msgid "Re-Send Mailing"
-msgstr "Wyślij ponownie mailing"
-
-#: CRM/Mailing/Selector/Browse.php
 msgid "Continue Mailing"
 msgstr "Kontynuuj Wysyłkę"
+
+#: CRM/Mailing/Selector/Browse.php
+msgid "Copy Mailing"
+msgstr ""
 
 #: CRM/Mailing/Selector/Browse.php
 msgid "Archive"
@@ -1618,6 +1623,11 @@ msgstr "E-mail przekazany"
 msgid "Successful Deliveries"
 msgstr "Dostarczone mailingi"
 
+#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: templates/CRM/Mailing/Page/Report.tpl
+msgid "Bounces"
+msgstr "Odrzucenia"
+
 #: CRM/Mailing/Selector/Event.php
 msgid "Unique Replies"
 msgstr "Unikalne odpowiedzi"
@@ -1638,6 +1648,10 @@ msgstr "Rózne śledzone otwarcia"
 #: CRM/Mailing/Selector/Event.php
 msgid "Total Tracked Opens"
 msgstr "Łączna ilość śledzonych otworzeń"
+
+#: CRM/Mailing/Selector/Search.php
+msgid "Mailing Recipient"
+msgstr "Odbiorca mailingu"
 
 #: CRM/Mailing/Selector/Search.php templates/CRM/Mailing/Form/Task/Print.tpl
 msgid "Completed Date"
@@ -2615,10 +2629,6 @@ msgid " OR you can search the <a href='%1'>Archived %2</a>"
 msgstr " LUB możesz wyszukać wartość <a href='%1'>Zarchiwizowane %2</a>"
 
 #: templates/CRM/Mailing/Page/Component.tpl
-msgid "Body HTML"
-msgstr "Treść HTML"
-
-#: templates/CRM/Mailing/Page/Component.tpl
 msgid "Add Mailing Component"
 msgstr "Dodaj składnik mailingu"
 
@@ -2721,3 +2731,41 @@ msgstr "Czy na pewno chcesz się ponownie zapisać: %1 (%2)"
 #: templates/CRM/Mailing/Page/Tab.tpl
 msgid "Opens/ Clicks"
 msgstr "Otwarć/kliknięć"
+
+#: CRM/Mailing/BAO/Mailing.php
+msgid ""
+"You have selected an email Selection Method without specifying a Location "
+"Type. Please go back and change your recipient settings (using the wrench "
+"icon next to \"Recipients\")."
+msgstr ""
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Mass emails sent from CiviMail."
+msgstr ""
+
+#: CRM/Mailing/Form/Unsubscribe.php
+msgid "%1 has already been unsubscribed."
+msgstr ""
+
+#: CRM/Mailing/Form/Unsubscribe.php
+msgid "%1 has been unsubscribed successfully."
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Optout.tpl
+#: templates/CRM/Mailing/Form/Unsubscribe.tpl
+msgid ""
+"If this is not your email address, there is no need to do anything. You have"
+" <strong>not</strong> been added to any mailing lists."
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Optout.tpl
+msgid ""
+"If this is your email address and you <strong>wish to opt out</strong> "
+"please click the <strong>Opt Out</strong> button to confirm."
+msgstr ""
+
+#: templates/CRM/Mailing/Form/Unsubscribe.tpl
+msgid ""
+"If this is your email address and you <strong>wish to unsubscribe</strong> "
+"please click the <strong>Unsubscribe</strong> button to confirm."
+msgstr ""
