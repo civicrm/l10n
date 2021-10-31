@@ -34,8 +34,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2021-02-05 10:11-0500\n"
-"PO-Revision-Date: 2021-02-05 15:36+0000\n"
+"POT-Creation-Date: 2021-10-30 09:41-0400\n"
+"PO-Revision-Date: 2021-10-30 13:54+0000\n"
 "Last-Translator: Mathieu Lu <mathieu@bidon.ca>\n"
 "Language-Team: Portuguese (http://www.transifex.com/civicrm/civicrm/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -124,19 +124,28 @@ msgstr "Pesquisar"
 msgid "All"
 msgstr "Todos"
 
-#: CRM/ACL/BAO/EntityRole.php CRM/Contact/ActionMapping.php
-#: CRM/Contact/DAO/Contact.php CRM/Contact/Form/Relationship.php
-#: CRM/Contact/Form/Task/Map.php CRM/Core/DAO/Website.php
+#: CRM/ACL/BAO/ACLEntityRole.php CRM/ACL/DAO/ACLCache.php
+#: CRM/Activity/DAO/ActivityContact.php CRM/Contact/ActionMapping.php
+#: CRM/Contact/DAO/ACLContactCache.php CRM/Contact/DAO/Contact.php
+#: CRM/Contact/DAO/DashboardContact.php CRM/Contact/DAO/GroupContact.php
+#: CRM/Contact/DAO/GroupContactCache.php
+#: CRM/Contact/DAO/SubscriptionHistory.php CRM/Contact/Form/Relationship.php
+#: CRM/Contact/Form/Task/Map.php CRM/Core/DAO/ActionLog.php
+#: CRM/Core/DAO/Address.php CRM/Core/DAO/Domain.php CRM/Core/DAO/Email.php
+#: CRM/Core/DAO/IM.php CRM/Core/DAO/OpenID.php CRM/Core/DAO/Phone.php
+#: CRM/Core/DAO/Setting.php CRM/Core/DAO/UFMatch.php CRM/Core/DAO/Website.php
 #: templates/CRM/Contact/Page/DedupeFind.tpl
 msgid "Contact"
 msgstr "Contacto"
 
-#: CRM/ACL/BAO/EntityRole.php CRM/ACL/Form/ACL.php CRM/ACL/Page/ACL.php
+#: CRM/ACL/BAO/ACLEntityRole.php CRM/ACL/Form/ACL.php CRM/ACL/Page/ACL.php
 #: CRM/Contact/BAO/Contact.php CRM/Contact/DAO/Group.php
-#: CRM/Contact/DAO/GroupContactCache.php CRM/Contact/DAO/GroupOrganization.php
+#: CRM/Contact/DAO/GroupContact.php CRM/Contact/DAO/GroupContactCache.php
+#: CRM/Contact/DAO/GroupOrganization.php
 #: CRM/Contact/DAO/SubscriptionHistory.php
 #: CRM/Contact/Form/Search/Custom/PostalMailing.php
 #: CRM/Contact/Form/Search/Custom/Proximity.php CRM/Core/Block.php
+#: CRM/Core/DAO/ActionSchedule.php CRM/Dedupe/DAO/DedupeRule.php
 #: templates/CRM/Contact/Form/Task/AddToGroup.tpl
 #: templates/CRM/Contact/Form/Task/RemoveFromGroup.tpl
 #: templates/CRM/Contact/Page/View/ContactSmartGroup.tpl
@@ -149,15 +158,15 @@ msgstr "Grupo"
 msgid "ACLs"
 msgstr ""
 
-#: CRM/ACL/DAO/ACL.php CRM/ACL/Form/ACL.php
+#: CRM/ACL/DAO/ACL.php CRM/ACL/DAO/ACLCache.php CRM/ACL/Form/ACL.php
 msgid "ACL"
 msgstr "ACL"
 
-#: CRM/ACL/DAO/ACL.php
+#: CRM/ACL/DAO/ACL.php CRM/ACL/DAO/ACLCache.php
 msgid "ACL ID"
 msgstr "ID da ACL"
 
-#: CRM/ACL/DAO/ACL.php CRM/ACL/DAO/ACLCache.php CRM/ACL/DAO/EntityRole.php
+#: CRM/ACL/DAO/ACL.php CRM/ACL/DAO/ACLCache.php CRM/ACL/DAO/ACLEntityRole.php
 #: CRM/Core/DAO/Cache.php CRM/Core/DAO/UFField.php CRM/Core/DAO/UFGroup.php
 #: CRM/Core/DAO/UFJoin.php
 msgid "Unique table ID"
@@ -243,8 +252,9 @@ msgstr "ID da ACL ou do Grupo da ACL que está a ser afectada por esta operaçã
 msgid "ACL Is Active?"
 msgstr "Está esta ACL activa?"
 
-#: CRM/ACL/DAO/ACL.php CRM/ACL/DAO/EntityRole.php CRM/Core/DAO/CustomField.php
-#: CRM/Core/DAO/CustomGroup.php CRM/Core/DAO/LocationType.php
+#: CRM/ACL/DAO/ACL.php CRM/ACL/DAO/ACLEntityRole.php
+#: CRM/Core/DAO/CustomField.php CRM/Core/DAO/CustomGroup.php
+#: CRM/Core/DAO/LocationType.php
 msgid "Is this property active?"
 msgstr "Está esta propriedade activa?"
 
@@ -260,17 +270,39 @@ msgstr ""
 msgid "Cache ID"
 msgstr "ID do Cache"
 
-#: CRM/ACL/DAO/ACLCache.php
-msgid "Cache Contact"
-msgstr "Contato do Cache"
+#: CRM/ACL/DAO/ACLCache.php CRM/Activity/DAO/ActivityContact.php
+#: CRM/Activity/Import/Form/MapField.php CRM/Contact/DAO/ACLContactCache.php
+#: CRM/Contact/DAO/Contact.php CRM/Contact/DAO/DashboardContact.php
+#: CRM/Contact/DAO/GroupContact.php CRM/Contact/DAO/GroupContactCache.php
+#: CRM/Contact/DAO/SubscriptionHistory.php
+#: CRM/Contact/Form/Search/Criteria.php
+#: CRM/Contact/Form/Search/Custom/ContribSYBNT.php
+#: CRM/Contact/Form/Search/Custom/ContributionAggregate.php
+#: CRM/Contact/Form/Search/Custom/DateAdded.php
+#: CRM/Contact/Form/Search/Custom/FullText.php
+#: CRM/Contact/Form/Search/Custom/Group.php
+#: CRM/Contact/Form/Search/Custom/MultipleValues.php
+#: CRM/Contact/Form/Search/Custom/PostalMailing.php
+#: CRM/Contact/Form/Search/Custom/PriceSet.php
+#: CRM/Contact/Form/Search/Custom/RandomSegment.php
+#: CRM/Contact/Form/Search/Custom/Sample.php
+#: CRM/Contact/Form/Search/Custom/TagContributions.php
+#: CRM/Contact/Form/Search/Custom/ZipCodeRange.php CRM/Contact/Selector.php
+#: CRM/Core/DAO/ActionLog.php CRM/Core/DAO/Address.php CRM/Core/DAO/Domain.php
+#: CRM/Core/DAO/Email.php CRM/Core/DAO/IM.php CRM/Core/DAO/OpenID.php
+#: CRM/Core/DAO/Phone.php CRM/Core/DAO/Setting.php CRM/Core/DAO/UFMatch.php
+#: CRM/Core/DAO/Website.php CRM/Core/SelectValues.php
+#: CRM/Custom/Import/Parser/Api.php CRM/Export/BAO/ExportProcessor.php
+#: templates/CRM/Contact/Form/Contact.hlp
+#: templates/CRM/Contact/Form/Contact.tpl
+#: templates/CRM/Contact/Page/Inline/Basic.tpl
+#: templates/CRM/common/contactFooter.tpl
+msgid "Contact ID"
+msgstr "ID do Contacto"
 
 #: CRM/ACL/DAO/ACLCache.php
 msgid "Foreign Key to Contact"
 msgstr "Chave externa para o Contacto"
-
-#: CRM/ACL/DAO/ACLCache.php
-msgid "Cache ACL"
-msgstr "ACL do Cache"
 
 #: CRM/ACL/DAO/ACLCache.php
 msgid "Foreign Key to ACL"
@@ -284,25 +316,29 @@ msgstr "Data da Modificação do Cache"
 msgid "When was this cache entry last modified"
 msgstr "Quando esta cache foi modificada pela última vez"
 
-#: CRM/ACL/DAO/EntityRole.php
-msgid "Entity Roles"
+#: CRM/ACL/DAO/ACLEntityRole.php
+msgid "ACLEntity Roles"
 msgstr ""
 
-#: CRM/ACL/DAO/EntityRole.php
+#: CRM/ACL/DAO/ACLEntityRole.php
+msgid "ACLEntity Role"
+msgstr ""
+
+#: CRM/ACL/DAO/ACLEntityRole.php
 msgid "Entity Role"
 msgstr "Papel da Entidade"
 
-#: CRM/ACL/DAO/EntityRole.php
+#: CRM/ACL/DAO/ACLEntityRole.php
 msgid "ACL Role ID"
 msgstr "ID do Papel ACL"
 
-#: CRM/ACL/DAO/EntityRole.php
+#: CRM/ACL/DAO/ACLEntityRole.php
 msgid ""
 "Foreign Key to ACL Role (which is an option value pair and hence an implicit"
 " FK)"
 msgstr "Chave externa para o Papel ACL (que é um par opcional de valores e portanto um chave externa implícita)"
 
-#: CRM/ACL/DAO/EntityRole.php CRM/Core/DAO/ActionLog.php
+#: CRM/ACL/DAO/ACLEntityRole.php CRM/Core/DAO/ActionLog.php
 #: CRM/Core/DAO/Discount.php CRM/Core/DAO/EntityFile.php
 #: CRM/Core/DAO/EntityTag.php CRM/Core/DAO/Log.php
 #: CRM/Core/DAO/RecurringEntity.php CRM/Friend/DAO/Friend.php
@@ -310,19 +346,19 @@ msgstr "Chave externa para o Papel ACL (que é um par opcional de valores e port
 msgid "Entity Table"
 msgstr "Tabela de Entidades"
 
-#: CRM/ACL/DAO/EntityRole.php
+#: CRM/ACL/DAO/ACLEntityRole.php
 msgid "Table of the object joined to the ACL Role (Contact or Group)"
 msgstr "Tabela do objecto juntado ao Papel ACL (Contacto ou Grupo)"
 
-#: CRM/ACL/DAO/EntityRole.php
+#: CRM/ACL/DAO/ACLEntityRole.php
 msgid "ACL Entity ID"
 msgstr "ID da Entidade ACL"
 
-#: CRM/ACL/DAO/EntityRole.php
+#: CRM/ACL/DAO/ACLEntityRole.php
 msgid "ID of the group/contact object being joined"
 msgstr "ID do objecto grupo/contacto que está a ser juntado à base de dados"
 
-#: CRM/ACL/DAO/EntityRole.php
+#: CRM/ACL/DAO/ACLEntityRole.php
 msgid "ACL Entity Role is Active"
 msgstr "O Papel da Entidade ACL está Activa"
 
@@ -426,7 +462,8 @@ msgstr "Todos os Eventos"
 msgid "Custom Data"
 msgstr "Dados personalizados"
 
-#: CRM/ACL/Form/ACL.php CRM/ACL/Page/ACL.php CRM/Core/Form/ShortCode.php
+#: CRM/ACL/Form/ACL.php CRM/ACL/Page/ACL.php CRM/Core/DAO/UFField.php
+#: CRM/Core/DAO/UFJoin.php CRM/Core/Form/ShortCode.php
 msgid "Profile"
 msgstr "Perfil"
 
@@ -502,8 +539,7 @@ msgstr "Papel ACL"
 
 #: CRM/ACL/Form/EntityRole.php CRM/Activity/BAO/Query.php
 #: CRM/Activity/Form/Activity.php CRM/Activity/Form/Task/Batch.php
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
-#: templates/CRM/ACL/Page/EntityRole.tpl
+#: CRM/Contact/Form/Task/EmailTrait.php templates/CRM/ACL/Page/EntityRole.tpl
 #: templates/CRM/Activity/Form/Task/Print.tpl
 msgid "Assigned to"
 msgstr "Atribuido a"
@@ -602,7 +638,6 @@ msgstr "Controlo de acessos"
 #: CRM/Price/Form/Field.php CRM/Price/Form/Option.php CRM/Price/Form/Set.php
 #: CRM/SMS/Form/Group.php CRM/Tag/Form/Edit.php CRM/UF/Form/AdvanceSetting.php
 #: js/Common.js js/jquery/jquery.crmProfileSelector.js
-#: templates/CRM/Contact/Form/Search/Builder.js
 msgid "- select -"
 msgstr "- seleccionar -"
 
@@ -659,7 +694,8 @@ msgid "Assign Users to Roles"
 msgstr "Atribuir Utilizadores a Papéis"
 
 #: CRM/Activity/ActionMapping.php CRM/Activity/DAO/Activity.php
-#: CRM/Core/BAO/Mapping.php CRM/Core/Block.php CRM/UF/Page/ProfileEditor.php
+#: CRM/Activity/DAO/ActivityContact.php CRM/Core/BAO/Mapping.php
+#: CRM/Core/Block.php CRM/UF/Page/ProfileEditor.php
 msgid "Activity"
 msgstr "Actividade"
 
@@ -699,8 +735,8 @@ msgid "- Activity Fields -"
 msgstr "-Campos de Actividades-"
 
 #: CRM/Activity/BAO/Activity.php CRM/Core/BAO/Mapping.php
-#: CRM/Price/Form/Set.php CRM/Price/Page/Set.php CRM/UF/Page/ProfileEditor.php
-#: xml/templates/civicrm_data.tpl
+#: CRM/Price/BAO/LineItem.php CRM/Price/Form/Set.php CRM/Price/Page/Set.php
+#: CRM/UF/Page/ProfileEditor.php xml/templates/civicrm_data.tpl
 msgid "Membership"
 msgstr "Membresia"
 
@@ -933,8 +969,8 @@ msgstr "Chave Externa do campo civicrm_option_value.id, que tem de ser um tipo d
 
 #: CRM/Activity/DAO/Activity.php CRM/Activity/Form/Activity.php
 #: CRM/Activity/Selector/Activity.php CRM/Activity/Selector/Search.php
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
-#: CRM/Core/DAO/Note.php templates/CRM/Activity/Form/ActivityView.tpl
+#: CRM/Contact/Form/Task/EmailTrait.php CRM/Core/DAO/Note.php
+#: templates/CRM/Activity/Form/ActivityView.tpl
 #: templates/CRM/Activity/Form/Task/Print.tpl
 #: templates/CRM/Activity/Form/Task/SearchTaskHookSample.tpl
 #: templates/CRM/Activity/Page/UserDashboard.tpl
@@ -967,6 +1003,7 @@ msgid ""
 msgstr "Duração efectiva ou estimada de uma actividade expressa em minutos. Condensação dos antigos campos  duration_hours e duration_minutes."
 
 #: CRM/Activity/DAO/Activity.php CRM/Activity/Form/Activity.php
+#: CRM/Contact/DAO/GroupContact.php
 #: CRM/Contact/Form/Search/Custom/ActivitySearch.php
 msgid "Location"
 msgstr "Localização"
@@ -976,7 +1013,7 @@ msgid "Location of the activity (optional, open text)."
 msgstr "Local da Actividade (opcional, texto aberto)"
 
 #: CRM/Activity/DAO/Activity.php
-msgid "Phone (called) ID"
+msgid "Phone ID (called)"
 msgstr ""
 
 #: CRM/Activity/DAO/Activity.php
@@ -1026,14 +1063,18 @@ msgid ""
 msgstr "ID da prioridade a tribuída a esta actividade. É a Chave Externa para civicrm_option_value."
 
 #: CRM/Activity/DAO/Activity.php
-msgid "Parent Activity Id"
-msgstr "ID da Atividade Pai"
+msgid "Parent Activity ID"
+msgstr ""
 
 #: CRM/Activity/DAO/Activity.php
 msgid ""
 "Parent meeting ID (if this is a follow-up item). This is not currently "
 "implemented"
 msgstr "ID de reunião-mãe (se esta for um item de seguimento). Isto não está a ser implementado actualmente"
+
+#: CRM/Activity/DAO/Activity.php
+msgid "Parent Activity"
+msgstr ""
 
 #: CRM/Activity/DAO/Activity.php
 msgid "Test"
@@ -1049,25 +1090,36 @@ msgstr "Medium da Actividade, Chave Externa implícita para civicrm_option_value
 msgid "Auto"
 msgstr "Auto"
 
-#: CRM/Activity/DAO/Activity.php
-msgid "Relationship Id"
+#: CRM/Activity/DAO/Activity.php CRM/Contact/DAO/GroupNesting.php
+#: CRM/Contact/DAO/GroupOrganization.php CRM/Contact/DAO/Relationship.php
+#: CRM/Contact/DAO/RelationshipCache.php
+msgid "Relationship ID"
 msgstr "ID do Relacionamento"
 
 #: CRM/Activity/DAO/Activity.php
 msgid "FK to Relationship ID"
 msgstr "Chave Exterma para ID de Relacionamento"
 
+#: CRM/Activity/DAO/Activity.php CRM/Contact/BAO/Relationship.php
+#: CRM/Contact/DAO/Relationship.php CRM/Contact/DAO/RelationshipCache.php
+msgid "Relationship"
+msgstr "Relacionamento"
+
 #: CRM/Activity/DAO/Activity.php
 msgid "Is this activity a current revision in versioning chain?"
 msgstr "É esta actividade uma revisão actual na cadeia de versionamento?"
 
 #: CRM/Activity/DAO/Activity.php
-msgid "Original Activity ID "
-msgstr "ID da Actividade Original"
+msgid "Original Activity ID"
+msgstr ""
 
 #: CRM/Activity/DAO/Activity.php
 msgid "Activity ID of the first activity record in versioning chain."
 msgstr "ID de Actividade do primeiro registo de actividade na cadeia de versionamento."
+
+#: CRM/Activity/DAO/Activity.php
+msgid "Original Activity"
+msgstr ""
 
 #: CRM/Activity/DAO/Activity.php CRM/Activity/Form/Activity.php
 msgid "Result"
@@ -1083,14 +1135,18 @@ msgstr "Actualmente a ser usado para guardar o ID resultante de actividade de le
 msgid "Activity is in the Trash"
 msgstr "A Actividade está no Lixo"
 
-#: CRM/Activity/DAO/Activity.php CRM/Core/BAO/UFField.php
-#: CRM/UF/Form/Field.php templates/CRM/Activity/Form/ActivityView.tpl
-msgid "Campaign"
-msgstr "Campanha"
+#: CRM/Activity/DAO/Activity.php CRM/Export/BAO/ExportProcessor.php
+msgid "Campaign ID"
+msgstr "ID da Campanha"
 
 #: CRM/Activity/DAO/Activity.php
 msgid "The campaign for which this activity has been triggered."
 msgstr "A campanha para qual foi engatilhada esta actividade."
+
+#: CRM/Activity/DAO/Activity.php CRM/Core/BAO/UFField.php
+#: CRM/UF/Form/Field.php templates/CRM/Activity/Form/ActivityView.tpl
+msgid "Campaign"
+msgstr "Campanha"
 
 #: CRM/Activity/DAO/Activity.php xml/templates/civicrm_data.tpl
 msgid "Engagement Index"
@@ -1107,7 +1163,7 @@ msgstr "Atribua um nível específico de envolvimento a esta actividade. Usado p
 #: CRM/Core/DAO/Menu.php CRM/Core/DAO/Navigation.php
 #: CRM/Core/DAO/OptionValue.php CRM/Core/DAO/UFField.php
 #: CRM/Core/DAO/UFJoin.php CRM/Custom/Form/Field.php CRM/Custom/Form/Group.php
-#: CRM/Custom/Form/Option.php CRM/Dedupe/DAO/Rule.php
+#: CRM/Custom/Form/Option.php CRM/Dedupe/DAO/DedupeRule.php
 #: CRM/Price/DAO/PriceField.php CRM/Price/DAO/PriceFieldValue.php
 #: CRM/Price/Form/Field.php CRM/Price/Form/Option.php CRM/UF/Form/Field.php
 #: CRM/UF/Form/Group.php js/model/crm.uf.js
@@ -1128,7 +1184,8 @@ msgid "Activity marked as favorite."
 msgstr "Actividade marcada como favorita."
 
 #: CRM/Activity/DAO/Activity.php CRM/Contact/DAO/Contact.php
-#: CRM/Core/DAO/Cache.php
+#: CRM/Contact/DAO/SavedSearch.php CRM/Core/DAO/ActionSchedule.php
+#: CRM/Core/DAO/Cache.php CRM/Core/DAO/Note.php
 msgid "Created Date"
 msgstr "Data da criação"
 
@@ -1137,7 +1194,9 @@ msgid "When was the activity was created."
 msgstr "Data em que a actividade foi criada."
 
 #: CRM/Activity/DAO/Activity.php CRM/Contact/BAO/Query.php
-#: CRM/Contact/DAO/Contact.php CRM/Core/DAO/Log.php
+#: CRM/Contact/DAO/Contact.php CRM/Contact/DAO/SavedSearch.php
+#: CRM/Core/DAO/ActionSchedule.php CRM/Core/DAO/Log.php
+#: templates/CRM/Contact/Page/View/Note.tpl
 msgid "Modified Date"
 msgstr "Data da modificação"
 
@@ -1168,22 +1227,21 @@ msgid "Foreign key to the activity for this record."
 msgstr "Chave externa para a actividade deste registo. "
 
 #: CRM/Activity/DAO/ActivityContact.php
-msgid "Contact ID (match to contact)"
-msgstr "ID do Contacto (emparelhar com o contacto)"
-
-#: CRM/Activity/DAO/ActivityContact.php
 msgid "Foreign key to the contact for this record."
 msgstr "Chave externa para o contacto deste registo."
 
 #: CRM/Activity/DAO/ActivityContact.php
-msgid "Record Type ID"
-msgstr "ID do Tipo de Registo"
+msgid "Activity Contact Type"
+msgstr ""
 
 #: CRM/Activity/DAO/ActivityContact.php
 msgid ""
-"Nature of this contact's role in the activity: 1 assignee, 2 creator, 3 "
-"focus or target."
-msgstr "Natureza do papel deste contacto na actividade: 1 a quem é atribuída, 2 criador, 3 foco ou alvo."
+"Determines the contact's role in the activity (source, target, or assignee)."
+msgstr ""
+
+#: CRM/Activity/DAO/ActivityContact.php
+msgid "Contact Role"
+msgstr ""
 
 #: CRM/Activity/Form/Activity.php CRM/Activity/Form/Task/Batch.php
 #: CRM/Activity/Form/Task/PickOption.php
@@ -1201,13 +1259,11 @@ msgstr "Com Contacto"
 msgid "Date"
 msgstr "Data"
 
-#: CRM/Activity/Form/Activity.php CRM/Contact/Form/Task/EmailCommon.php
-#: CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Activity/Form/Activity.php CRM/Contact/Form/Task/EmailTrait.php
 msgid "Followup Activity"
 msgstr "Actividade de Seguimento"
 
-#: CRM/Activity/Form/Activity.php CRM/Contact/Form/Task/EmailCommon.php
-#: CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Activity/Form/Activity.php CRM/Contact/Form/Task/EmailTrait.php
 msgid "select activity"
 msgstr "seleccionar actividade"
 
@@ -1277,7 +1333,7 @@ msgstr "Por favor introduza a duração como número de minutos (inteiros apenas
 #: CRM/Activity/Form/Activity.php CRM/Contact/Form/Search/Basic.php
 #: CRM/Contact/Form/Search/Custom/Basic.php
 #: CRM/Contact/Form/Search/Custom/MultipleValues.php
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Contact/Form/Task/EmailTrait.php
 #: templates/CRM/Contact/Form/Search/BasicCriteria.tpl
 msgid "in"
 msgstr "em"
@@ -1339,8 +1395,7 @@ msgid_plural "%count Activities have been deleted successfully."
 msgstr[0] "A Actividade Selecionada foi apagada com sucesso."
 msgstr[1] "%contagem de Actividades foram apagadas com sucesso. "
 
-#: CRM/Activity/Form/Activity.php CRM/Contact/Form/Task/EmailCommon.php
-#: CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Activity/Form/Activity.php CRM/Contact/Form/Task/EmailTrait.php
 msgid "A followup activity has been scheduled."
 msgstr "Uma actividade de seguimento foi agendada."
 
@@ -1348,8 +1403,7 @@ msgstr "Uma actividade de seguimento foi agendada."
 msgid "A copy of the activity has also been sent to assignee contacts(s)."
 msgstr "Uma cópia da actividade foi enviada aos contacto(s) associados."
 
-#: CRM/Activity/Form/Activity.php CRM/Contact/Form/Task/EmailCommon.php
-#: CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Activity/Form/Activity.php CRM/Contact/Form/Task/EmailTrait.php
 msgid ""
 "A copy of the follow-up activity has also been sent to follow-up assignee "
 "contacts(s)."
@@ -1365,8 +1419,7 @@ msgstr "A Actividade %1 foi guardada. %2 %3"
 #: CRM/Custom/Form/Group.php CRM/Note/Form/Note.php CRM/Price/Form/Field.php
 #: CRM/Price/Form/Set.php CRM/Price/Page/Set.php CRM/SMS/Form/Group.php
 #: CRM/SMS/Form/Schedule.php CRM/Tag/Form/Edit.php CRM/Tag/Form/Tag.php
-#: ang/crmDashboard/crmDashboard.component.js js/Common.js js/crm.ajax.js
-#: templates/CRM/Contact/Page/View/Summary.js
+#: js/Common.js js/crm.ajax.js templates/CRM/Contact/Page/View/Summary.js
 msgid "Saved"
 msgstr "Guardado"
 
@@ -1662,7 +1715,7 @@ msgstr "Guardar este mapeamento de campos"
 #: CRM/Core/DAO/ActionSchedule.php CRM/Core/DAO/Extension.php
 #: CRM/Core/DAO/Managed.php CRM/Core/DAO/PrintLabel.php
 #: CRM/Core/Form/Search.php CRM/Core/Form/Task/Batch.php
-#: CRM/Core/SelectValues.php CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Core/SelectValues.php CRM/Dedupe/DAO/DedupeRuleGroup.php
 #: CRM/Import/Form/MapField.php CRM/Price/DAO/PriceField.php
 #: CRM/Price/DAO/PriceFieldValue.php CRM/Price/DAO/PriceSet.php
 #: CRM/Profile/Selector/Listings.php CRM/SMS/Form/Provider.php
@@ -1706,33 +1759,6 @@ msgstr "As colunas de dados neste arquivo importado parecem ser diferentes das d
 msgid "Previous"
 msgstr "Anterior"
 
-#: CRM/Activity/Import/Form/MapField.php CRM/Contact/BAO/Contact.php
-#: CRM/Contact/DAO/ACLContactCache.php CRM/Contact/DAO/Contact.php
-#: CRM/Contact/DAO/DashboardContact.php CRM/Contact/DAO/GroupContact.php
-#: CRM/Contact/DAO/GroupContactCache.php
-#: CRM/Contact/DAO/SubscriptionHistory.php
-#: CRM/Contact/Form/Search/Criteria.php
-#: CRM/Contact/Form/Search/Custom/ContribSYBNT.php
-#: CRM/Contact/Form/Search/Custom/ContributionAggregate.php
-#: CRM/Contact/Form/Search/Custom/DateAdded.php
-#: CRM/Contact/Form/Search/Custom/FullText.php
-#: CRM/Contact/Form/Search/Custom/Group.php
-#: CRM/Contact/Form/Search/Custom/MultipleValues.php
-#: CRM/Contact/Form/Search/Custom/PostalMailing.php
-#: CRM/Contact/Form/Search/Custom/PriceSet.php
-#: CRM/Contact/Form/Search/Custom/RandomSegment.php
-#: CRM/Contact/Form/Search/Custom/Sample.php
-#: CRM/Contact/Form/Search/Custom/TagContributions.php
-#: CRM/Contact/Form/Search/Custom/ZipCodeRange.php CRM/Contact/Selector.php
-#: CRM/Core/DAO/Address.php CRM/Core/SelectValues.php
-#: CRM/Custom/Import/Parser/Api.php CRM/Export/BAO/ExportProcessor.php
-#: templates/CRM/Contact/Form/Contact.hlp
-#: templates/CRM/Contact/Form/Contact.tpl
-#: templates/CRM/Contact/Page/Inline/Basic.tpl
-#: templates/CRM/common/contactFooter.tpl
-msgid "Contact ID"
-msgstr "ID do Contacto"
-
 #: CRM/Activity/Import/Form/MapField.php CRM/Activity/Tokens.php
 #: CRM/Contact/Form/Search/Custom/ActivitySearch.php
 #: CRM/Core/Form/Task/PDFLetterCommon.php CRM/Core/SelectValues.php
@@ -1742,10 +1768,6 @@ msgstr "Assunto da Actividade"
 #: CRM/Activity/Import/Form/MapField.php
 msgid "Missing required contact matching fields."
 msgstr "Campos de contacto necessários correspondentes em falta."
-
-#: CRM/Activity/Import/Form/MapField.php
-msgid "(Sum of all weights should be greater than or equal to threshold: %1)."
-msgstr "(A Soma de todos os pesos deve ser igual ou superior ao limiar: %1)."
 
 #: CRM/Activity/Import/Form/MapField.php
 msgid "Missing required field: Provide %1 or %2"
@@ -1781,12 +1803,24 @@ msgid "Activity Type Label"
 msgstr "Nome do Tipo de actividade"
 
 #: CRM/Activity/Import/Parser/Activity.php
-msgid "Please select either Activity Type ID OR Activity Type Label."
-msgstr "Por favor, selecione ou o ID do Tipo de Actividade OU a etiqueta do Tipo de Actividade."
+msgid "Activity type label and Activity type ID are in conflict"
+msgstr ""
+
+#: CRM/Activity/Import/Parser/Activity.php
+msgid "Missing required fields: Activity type label or Activity type ID"
+msgstr ""
 
 #: CRM/Activity/Import/Parser/Activity.php
 msgid "Missing required fields"
 msgstr "Faltam campos obrigatórios"
+
+#: CRM/Activity/Import/Parser/Activity.php
+msgid "Invalid Activity Date"
+msgstr ""
+
+#: CRM/Activity/Import/Parser/Activity.php
+msgid "Activity Engagement Index"
+msgstr ""
 
 #: CRM/Activity/Import/Parser.php CRM/Contact/Import/Parser.php
 #: CRM/Custom/Import/Parser.php
@@ -1811,8 +1845,8 @@ msgid "Case Manager"
 msgstr "Gestor de Processo"
 
 #: CRM/Activity/Page/AJAX.php CRM/Contact/BAO/Contact.php
-#: CRM/Contact/Page/View.php CRM/Core/Form/Renderer.php
-#: CRM/Logging/ReportDetail.php
+#: CRM/Contact/Page/View.php CRM/Core/BAO/CustomGroup.php
+#: CRM/Core/Form/Renderer.php CRM/Logging/ReportDetail.php
 msgid "View Contact"
 msgstr "Visualizar Contacto"
 
@@ -1918,8 +1952,8 @@ msgstr "Atribuído"
 
 #: CRM/Activity/Selector/Activity.php CRM/Activity/Selector/Search.php
 #: CRM/Contact/Form/Search/Custom/ActivitySearch.php
-#: CRM/Core/DAO/ActionMapping.php CRM/Group/Form/Search.php
-#: templates/CRM/Activity/Form/Task/Print.tpl
+#: CRM/Core/DAO/ActionMapping.php CRM/Core/DAO/Translation.php
+#: CRM/Group/Form/Search.php templates/CRM/Activity/Form/Task/Print.tpl
 #: templates/CRM/Activity/Page/UserDashboard.tpl
 #: templates/CRM/Activity/Selector/Selector.tpl
 #: templates/CRM/Contact/Form/Relationship.tpl
@@ -2173,7 +2207,8 @@ msgid "Current Employer"
 msgstr "Actual Empregador"
 
 #: CRM/Contact/BAO/Contact.php CRM/Contact/BAO/Query.php
-#: CRM/Core/DAO/LocationType.php js/model/crm.uf.js
+#: CRM/Core/DAO/LocationType.php CRM/Core/DAO/Phone.php
+#: CRM/Core/DAO/UFField.php js/model/crm.uf.js
 msgid "Location Type"
 msgstr "Tipo de Localização"
 
@@ -2276,7 +2311,7 @@ msgstr "Criar Registo de Utilizador"
 #: CRM/Contact/Form/Search/Custom/RandomSegment.php
 #: CRM/Contact/Form/Search/Custom/Sample.php
 #: CRM/Contact/Import/Form/DataSource.php CRM/Contact/Selector.php
-#: CRM/Core/DAO/MappingField.php CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Core/DAO/MappingField.php CRM/Dedupe/DAO/DedupeRuleGroup.php
 #: CRM/Import/Form/DataSource.php
 #: templates/CRM/Contact/Import/Form/DataSource.hlp
 #: templates/CRM/Contact/Page/Inline/Basic.tpl
@@ -2457,7 +2492,8 @@ msgstr "Período em que está activo"
 msgid "Demographics"
 msgstr "Demografia"
 
-#: CRM/Contact/BAO/Query.php CRM/Core/DAO/Worldregion.php
+#: CRM/Contact/BAO/Query.php CRM/Core/DAO/Country.php
+#: CRM/Core/DAO/Worldregion.php
 msgid "World Region"
 msgstr "Região do Mundo"
 
@@ -2528,11 +2564,13 @@ msgid "Greeting %1 %2"
 msgstr "Saudação %1 %2"
 
 #: CRM/Contact/BAO/Query.php CRM/Contact/BAO/Relationship.php
-#: CRM/Contact/Form/Location.php CRM/Contact/Form/Search/Custom/Basic.php
+#: CRM/Contact/DAO/GroupContact.php CRM/Contact/Form/Location.php
+#: CRM/Contact/Form/Search/Custom/Basic.php
 #: CRM/Contact/Form/Search/Custom/RandomSegment.php
 #: CRM/Contact/Form/Search/Custom/ZipCodeRange.php
-#: CRM/Contact/Form/Task/Email.php CRM/Contact/Selector.php CRM/Core/Block.php
-#: CRM/Core/DAO/Email.php CRM/Core/SelectValues.php
+#: CRM/Contact/Form/Task/Email.php CRM/Contact/Form/Task/Useradd.php
+#: CRM/Contact/Selector.php CRM/Core/Block.php CRM/Core/DAO/Email.php
+#: CRM/Core/DAO/LocBlock.php CRM/Core/SelectValues.php
 #: templates/CRM/Contact/Form/DedupeRules.tpl
 #: templates/CRM/Contact/Form/Edit/Email.tpl
 #: templates/CRM/Contact/Form/Inline/Email.tpl
@@ -2552,7 +2590,7 @@ msgstr "O Número de Telefone contém"
 #: CRM/Contact/BAO/Query.php CRM/Contact/BAO/Relationship.php
 #: CRM/Contact/Form/Location.php CRM/Contact/Form/Search/Criteria.php
 #: CRM/Contact/Form/Search/Custom/Basic.php CRM/Contact/Selector.php
-#: CRM/Core/DAO/Phone.php CRM/Core/SelectValues.php
+#: CRM/Core/DAO/LocBlock.php CRM/Core/DAO/Phone.php CRM/Core/SelectValues.php
 #: templates/CRM/Contact/Form/Edit/Phone.tpl
 #: templates/CRM/Contact/Form/Inline/Phone.tpl
 #: templates/CRM/Contact/Form/Task/AddToParentClass.tpl
@@ -2807,11 +2845,6 @@ msgstr "O estado %1 de membresia herdado foi mudado para Expirado devido a uma a
 msgid "Record Updated"
 msgstr "Registo Actualizado"
 
-#: CRM/Contact/BAO/Relationship.php CRM/Contact/DAO/Relationship.php
-#: CRM/Contact/DAO/RelationshipCache.php
-msgid "Relationship"
-msgstr "Relacionamento"
-
 #: CRM/Contact/BAO/Relationship.php CRM/Core/DAO/PreferencesDate.php
 msgid "Start"
 msgstr "Início"
@@ -2866,7 +2899,8 @@ msgstr "Para que tipo de operação tem este utilizador permissão?"
 
 #: CRM/Contact/DAO/Contact.php
 #: CRM/Contact/Form/Search/Custom/FullText/Contact.php
-#: CRM/Contact/Form/Search.php CRM/Core/BAO/Mapping.php CRM/Utils/Recent.php
+#: CRM/Contact/Form/Search.php CRM/Core/BAO/Mapping.php
+#: CRM/Core/SelectValues.php CRM/Utils/Recent.php
 #: templates/CRM/Block/FullTextSearch.tpl
 #: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
 #: templates/CRM/common/navigation.js.tpl
@@ -2921,6 +2955,10 @@ msgid ""
 msgstr "O contacto já comunicou a sua decisão de não mais receber emails em massa da nossa organização e/ou a partir do domínio do nosso site?"
 
 #: CRM/Contact/DAO/Contact.php
+msgid "Is Opt Out"
+msgstr ""
+
+#: CRM/Contact/DAO/Contact.php
 msgid "Legal Identifier"
 msgstr "Identificador Legal"
 
@@ -2940,7 +2978,7 @@ msgid ""
 "Particularly useful for deduping operations."
 msgstr "ID externo de confiança, único (normalmente originário de uma aplicação/fonte dados antiga). Particularmente útil para operações de deduplicação."
 
-#: CRM/Contact/DAO/Contact.php CRM/Dedupe/BAO/RuleGroup.php
+#: CRM/Contact/DAO/Contact.php CRM/Dedupe/BAO/DedupeRuleGroup.php
 msgid "Sort Name"
 msgstr "Ordenar Nome"
 
@@ -2986,6 +3024,10 @@ msgid ""
 "contact."
 msgstr "URL opcional para a imagem preferida (foto, logotipo etc.) a ser exibida para este contacto."
 
+#: CRM/Contact/DAO/Contact.php
+msgid "Image URL"
+msgstr ""
+
 #: CRM/Contact/DAO/Contact.php CRM/Contact/Form/Search/Criteria.php
 #: CRM/Contact/Import/Parser/Contact.php xml/templates/civicrm_data.tpl
 msgid "Preferred Communication Method"
@@ -3029,6 +3071,10 @@ msgstr "Chave do API"
 #: CRM/Contact/DAO/Contact.php
 msgid "API Key for validating requests related to this contact."
 msgstr "Chave da API para validar solicitações relacionadas com este contacto."
+
+#: CRM/Contact/DAO/Contact.php
+msgid "API KEY"
+msgstr ""
 
 #: CRM/Contact/DAO/Contact.php
 msgid "where contact come from, e.g. import, donate module insert..."
@@ -3178,6 +3224,10 @@ msgid "Date of birth"
 msgstr "Data de nascimento"
 
 #: CRM/Contact/DAO/Contact.php
+msgid "Is Deceased"
+msgstr ""
+
+#: CRM/Contact/DAO/Contact.php
 msgid "Date of deceased"
 msgstr "Data de Falecimento"
 
@@ -3194,6 +3244,10 @@ msgid "Optional FK to Primary Contact for this household."
 msgstr "Chave Externa opcional para Primary Contact para este agregado familiar."
 
 #: CRM/Contact/DAO/Contact.php
+msgid "Household Primary Contact"
+msgstr ""
+
+#: CRM/Contact/DAO/Contact.php
 msgid "Organization Name."
 msgstr "Nome da Organização"
 
@@ -3204,6 +3258,11 @@ msgstr "Código Sic"
 #: CRM/Contact/DAO/Contact.php
 msgid "Standard Industry Classification Code."
 msgstr "Código Padrão de Classiificação Industrial."
+
+#: CRM/Contact/DAO/Contact.php
+#: templates/CRM/Contact/Page/Inline/ContactInfo.tpl
+msgid "SIC Code"
+msgstr "Código SIC"
 
 #: CRM/Contact/DAO/Contact.php
 msgid "Unique ID (OpenID)"
@@ -3273,13 +3332,17 @@ msgstr "URL de Imagem do Tipo de Contacto"
 msgid "URL of image if any."
 msgstr "URL da imagem, se houver."
 
-#: CRM/Contact/DAO/ContactType.php
-msgid "Contact Type Parent"
-msgstr "Ascendente do Tipo de Contato"
+#: CRM/Contact/DAO/ContactType.php CRM/Core/DAO/RecurringEntity.php
+msgid "Parent ID"
+msgstr "ID do Pai"
 
 #: CRM/Contact/DAO/ContactType.php
 msgid "Optional FK to parent contact type."
 msgstr "Chave Externa opcional para o tipo de contato pai."
+
+#: CRM/Contact/DAO/ContactType.php
+msgid "Parent"
+msgstr ""
 
 #: CRM/Contact/DAO/ContactType.php
 msgid "Contact Type Is Active?"
@@ -3311,13 +3374,13 @@ msgid "Dashboard Contact ID"
 msgstr "ID do Painel de Controlo do Contacto"
 
 #: CRM/Contact/DAO/DashboardContact.php
+msgid "Dashboard ID"
+msgstr "ID do Painel de Controlo"
+
+#: CRM/Contact/DAO/DashboardContact.php
 #: CRM/Contact/Page/View/UserDashBoard.php CRM/Core/DAO/Dashboard.php
 msgid "Dashboard"
 msgstr "Painel de Controlo"
-
-#: CRM/Contact/DAO/DashboardContact.php
-msgid "Dashboard ID"
-msgstr "ID do Painel de Controlo"
 
 #: CRM/Contact/DAO/DashboardContact.php
 msgid "Column No"
@@ -3326,6 +3389,10 @@ msgstr "Coluna nº"
 #: CRM/Contact/DAO/DashboardContact.php
 msgid "column no for this widget"
 msgstr "Número de coluna para este widget"
+
+#: CRM/Contact/DAO/DashboardContact.php
+msgid "Column Number"
+msgstr ""
 
 #: CRM/Contact/DAO/DashboardContact.php
 msgid "Dashlet is Active?"
@@ -3347,6 +3414,9 @@ msgid "Groups"
 msgstr "Grupos"
 
 #: CRM/Contact/DAO/Group.php CRM/Contact/DAO/GroupContact.php
+#: CRM/Contact/DAO/GroupContactCache.php CRM/Contact/DAO/GroupOrganization.php
+#: CRM/Contact/DAO/SubscriptionHistory.php CRM/Core/DAO/ActionSchedule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "Group ID"
 msgstr "ID do grupo"
 
@@ -3390,6 +3460,11 @@ msgstr "ID da Pesquisa Guardada"
 #: CRM/Contact/DAO/Group.php
 msgid "FK to saved search table."
 msgstr "Chave Externa para a tabela de pesquisa guardada."
+
+#: CRM/Contact/DAO/Group.php CRM/Contact/DAO/SavedSearch.php
+#: templates/CRM/Contact/Page/SavedSearch.tpl
+msgid "Saved Search"
+msgstr "Pesquisa guardada"
 
 #: CRM/Contact/DAO/Group.php
 msgid "Group Enabled"
@@ -3483,17 +3558,37 @@ msgstr "Está este grupo oculto?"
 msgid "Group is Reserved"
 msgstr "O Grupo é Reservado"
 
-#: CRM/Contact/DAO/Group.php
-msgid "Group Created By"
-msgstr "Grupo criado por"
+#: CRM/Contact/DAO/Group.php CRM/Contact/DAO/SavedSearch.php
+#: CRM/Core/DAO/CustomGroup.php CRM/Core/DAO/File.php CRM/Core/DAO/Note.php
+#: CRM/Core/DAO/PrintLabel.php CRM/Core/DAO/Setting.php CRM/Core/DAO/Tag.php
+#: CRM/Core/DAO/UFGroup.php
+msgid "Created By Contact ID"
+msgstr "ID do Contacto Criado Por"
 
-#: CRM/Contact/DAO/Group.php
+#: CRM/Contact/DAO/Group.php CRM/Contact/DAO/SavedSearch.php
 msgid "FK to contact table."
 msgstr "Chave externa para a tabela contact"
 
-#: CRM/Contact/DAO/Group.php
-msgid "Group Modified By"
-msgstr "Grupo modificado por"
+#: CRM/Contact/DAO/Group.php CRM/Contact/DAO/SavedSearch.php
+#: CRM/Core/DAO/CustomGroup.php CRM/Core/DAO/File.php CRM/Core/DAO/Note.php
+#: CRM/Core/DAO/PrintLabel.php CRM/Core/DAO/Setting.php CRM/Core/DAO/Tag.php
+#: CRM/Core/DAO/UFGroup.php CRM/Group/Form/Search.php
+#: templates/CRM/Contact/Page/View/Note.tpl templates/CRM/Group/Form/Edit.tpl
+#: templates/CRM/Group/Form/Search.tpl templates/CRM/UF/Page/Group.tpl
+msgid "Created By"
+msgstr "Criado Por"
+
+#: CRM/Contact/DAO/Group.php CRM/Contact/DAO/SavedSearch.php
+#: CRM/Core/DAO/Log.php
+msgid "Modified By Contact ID"
+msgstr ""
+
+#: CRM/Contact/DAO/Group.php CRM/Contact/DAO/SavedSearch.php
+#: CRM/Contact/Form/Search/Criteria.php CRM/Core/DAO/Log.php
+#: templates/CRM/Contact/Form/Search/Criteria/ChangeLog.tpl
+#: templates/CRM/Group/Form/Edit.tpl
+msgid "Modified By"
+msgstr "Alterado por"
 
 #: CRM/Contact/DAO/Group.php
 msgid "Public Group Title"
@@ -3532,16 +3627,17 @@ msgid "status of contact relative to membership in group"
 msgstr "status do contacto em relação à membresia num grupo"
 
 #: CRM/Contact/DAO/GroupContact.php
-msgid "Group Contact Location"
-msgstr "Localização do Contacto do Grupo"
+msgid "Location ID"
+msgstr ""
 
 #: CRM/Contact/DAO/GroupContact.php
 msgid "Optional location to associate with this membership"
 msgstr "Localização opcional para associar a esta membresia"
 
-#: CRM/Contact/DAO/GroupContact.php
-msgid "Group Contact Email"
-msgstr "Email do Contacto do Grupo"
+#: CRM/Contact/DAO/GroupContact.php CRM/Core/DAO/Email.php
+#: CRM/Core/DAO/LocBlock.php
+msgid "Email ID"
+msgstr "ID do Email"
 
 #: CRM/Contact/DAO/GroupContact.php
 msgid "Optional email to associate with this membership"
@@ -3571,26 +3667,29 @@ msgstr "Aninhamento de Grupos"
 msgid "Group Nesting ID"
 msgstr "ID de Aninhamento do Grupo"
 
-#: CRM/Contact/DAO/GroupNesting.php CRM/Contact/DAO/GroupOrganization.php
-#: CRM/Contact/DAO/Relationship.php
-msgid "Relationship ID"
-msgstr "ID do Relacionamento"
-
 #: CRM/Contact/DAO/GroupNesting.php
-msgid "Child Group"
-msgstr "Grupo Descendente"
+msgid "Child Group ID"
+msgstr ""
 
 #: CRM/Contact/DAO/GroupNesting.php
 msgid "ID of the child group"
 msgstr "ID do grupo descendente"
 
 #: CRM/Contact/DAO/GroupNesting.php
-msgid "Parent Group"
-msgstr "Grupo Ascendente"
+msgid "Child Group"
+msgstr "Grupo Descendente"
+
+#: CRM/Contact/DAO/GroupNesting.php
+msgid "Parent Group ID"
+msgstr ""
 
 #: CRM/Contact/DAO/GroupNesting.php
 msgid "ID of the parent group"
 msgstr "ID do grupo pai"
+
+#: CRM/Contact/DAO/GroupNesting.php
+msgid "Parent Group"
+msgstr "Grupo Ascendente"
 
 #: CRM/Contact/DAO/GroupOrganization.php
 msgid "Group Organizations"
@@ -3609,6 +3708,14 @@ msgid "ID of the group"
 msgstr "ID do grupo"
 
 #: CRM/Contact/DAO/GroupOrganization.php
+msgid "Organization ID"
+msgstr ""
+
+#: CRM/Contact/DAO/GroupOrganization.php
+msgid "ID of the Organization Contact"
+msgstr "ID do Contacto da Organização"
+
+#: CRM/Contact/DAO/GroupOrganization.php
 #: CRM/Contact/Import/Form/DataSource.php CRM/Group/Form/Edit.php
 #: CRM/Import/Form/DataSource.php CRM/UF/Page/ProfileEditor.php
 #: templates/CRM/Group/Form/Search.tpl
@@ -3616,35 +3723,44 @@ msgstr "ID do grupo"
 msgid "Organization"
 msgstr "Organização"
 
-#: CRM/Contact/DAO/GroupOrganization.php
-msgid "ID of the Organization Contact"
-msgstr "ID do Contacto da Organização"
-
 #: CRM/Contact/DAO/Relationship.php
-msgid "Contact A"
-msgstr "Contacto A"
+msgid "Contact A ID"
+msgstr ""
 
 #: CRM/Contact/DAO/Relationship.php CRM/Contact/DAO/RelationshipCache.php
 msgid "id of the first contact"
 msgstr "ID do primeiro contacto"
 
 #: CRM/Contact/DAO/Relationship.php
-msgid "Contact B"
-msgstr "Contacto B"
+msgid "Contact A"
+msgstr "Contacto A"
+
+#: CRM/Contact/DAO/Relationship.php
+msgid "Contact B ID"
+msgstr ""
 
 #: CRM/Contact/DAO/Relationship.php CRM/Contact/DAO/RelationshipCache.php
 msgid "id of the second contact"
 msgstr "ID do segundo contacto"
+
+#: CRM/Contact/DAO/Relationship.php
+msgid "Contact B"
+msgstr "Contacto B"
+
+#: CRM/Contact/DAO/Relationship.php CRM/Contact/DAO/RelationshipCache.php
+#: CRM/Contact/DAO/RelationshipType.php
+msgid "Relationship Type ID"
+msgstr "ID do Tipo de Relacionamento"
+
+#: CRM/Contact/DAO/Relationship.php
+msgid "Type of relationship"
+msgstr ""
 
 #: CRM/Contact/DAO/Relationship.php CRM/Contact/DAO/RelationshipCache.php
 #: CRM/Contact/DAO/RelationshipType.php CRM/Contact/Form/Search/Criteria.php
 #: CRM/Contact/Form/Task/AddToParentClass.php
 msgid "Relationship Type"
 msgstr "Tipo de Relacionamento"
-
-#: CRM/Contact/DAO/Relationship.php
-msgid "id of the relationship"
-msgstr "id do relacionamento"
 
 #: CRM/Contact/DAO/Relationship.php CRM/Contact/DAO/RelationshipCache.php
 msgid "Relationship Start Date"
@@ -3695,12 +3811,19 @@ msgid "Permission that Contact B has to view/update Contact A"
 msgstr "Permissão que o Contacto B tem para visualizar/actualizar o Contacto A"
 
 #: CRM/Contact/DAO/Relationship.php
-msgid "Relationship Case"
-msgstr "Processo do Relacionamento"
+#: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
+msgid "Case ID"
+msgstr "ID do Processo"
 
 #: CRM/Contact/DAO/Relationship.php
 msgid "FK to civicrm_case"
 msgstr "Chave Externa para civicrm_case"
+
+#: CRM/Contact/DAO/Relationship.php CRM/Core/BAO/Mapping.php
+#: CRM/Dashlet/Page/AllCases.php CRM/Dashlet/Page/MyCases.php
+#: CRM/UF/Page/ProfileEditor.php
+msgid "Case"
+msgstr "Processo"
 
 #: CRM/Contact/DAO/RelationshipCache.php CRM/Contact/Form/Search.php
 msgid "Related Contacts"
@@ -3738,6 +3861,10 @@ msgid "Contact ID (Near side)"
 msgstr ""
 
 #: CRM/Contact/DAO/RelationshipCache.php
+msgid "Contact (Near side)"
+msgstr ""
+
+#: CRM/Contact/DAO/RelationshipCache.php
 msgid "Relationship Name (to related contact)"
 msgstr ""
 
@@ -3746,7 +3873,15 @@ msgid "name for relationship of near_contact to far_contact."
 msgstr ""
 
 #: CRM/Contact/DAO/RelationshipCache.php
+msgid "Relationship to contact"
+msgstr ""
+
+#: CRM/Contact/DAO/RelationshipCache.php
 msgid "Contact ID (Far side)"
+msgstr ""
+
+#: CRM/Contact/DAO/RelationshipCache.php
+msgid "Contact (Far side)"
 msgstr ""
 
 #: CRM/Contact/DAO/RelationshipCache.php
@@ -3757,13 +3892,13 @@ msgstr ""
 msgid "name for relationship of far_contact to near_contact."
 msgstr ""
 
-#: CRM/Contact/DAO/RelationshipType.php
-msgid "Relationship Types"
+#: CRM/Contact/DAO/RelationshipCache.php
+msgid "Relationship from contact"
 msgstr ""
 
 #: CRM/Contact/DAO/RelationshipType.php
-msgid "Relationship Type ID"
-msgstr "ID do Tipo de Relacionamento"
+msgid "Relationship Types"
+msgstr ""
 
 #: CRM/Contact/DAO/RelationshipType.php
 msgid "Primary key"
@@ -3869,10 +4004,6 @@ msgstr "Este tipo de relacionamento está activo neste momento (ou seja, pode se
 msgid "Saved Searches"
 msgstr ""
 
-#: CRM/Contact/DAO/SavedSearch.php templates/CRM/Contact/Page/SavedSearch.tpl
-msgid "Saved Search"
-msgstr "Pesquisa guardada"
-
 #: CRM/Contact/DAO/SavedSearch.php
 msgid "Saved Search Name"
 msgstr ""
@@ -3906,6 +4037,11 @@ msgstr "ID do Mapeamento"
 msgid "Foreign key to civicrm_mapping used for saved search-builder searches."
 msgstr "Chave Externa para civicrm_mapping usada para pesquisas guardadas no construtor de pesquisas."
 
+#: CRM/Contact/DAO/SavedSearch.php CRM/Core/DAO/Mapping.php
+#: CRM/Core/DAO/MappingField.php
+msgid "Mapping"
+msgstr ""
+
 #: CRM/Contact/DAO/SavedSearch.php CRM/Core/DAO/OptionValue.php
 msgid "Option Value ID"
 msgstr "ID de Valor de Opção"
@@ -3932,6 +4068,26 @@ msgstr "Parâmetros do API"
 msgid "Parameters for API based search"
 msgstr ""
 
+#: CRM/Contact/DAO/SavedSearch.php
+msgid "Search Expiry Date"
+msgstr ""
+
+#: CRM/Contact/DAO/SavedSearch.php
+msgid "Optional date after which the search is not needed"
+msgstr ""
+
+#: CRM/Contact/DAO/SavedSearch.php
+msgid "When the search was created."
+msgstr ""
+
+#: CRM/Contact/DAO/SavedSearch.php
+msgid "When the search was last modified."
+msgstr ""
+
+#: CRM/Contact/DAO/SavedSearch.php
+msgid "Saved Search Description"
+msgstr ""
+
 #: CRM/Contact/DAO/SubscriptionHistory.php
 msgid "Subscription Histories"
 msgstr ""
@@ -3945,16 +4101,8 @@ msgid "Group Membership History ID"
 msgstr "ID do Histórico de Membresia em Grupo"
 
 #: CRM/Contact/DAO/SubscriptionHistory.php
-msgid "Internal Id"
-msgstr "Id interno"
-
-#: CRM/Contact/DAO/SubscriptionHistory.php
-msgid "Contact Id"
-msgstr "Id de Contacto"
-
-#: CRM/Contact/DAO/SubscriptionHistory.php
-msgid "Group Id"
-msgstr "Id de Grupo"
+msgid "Internal ID"
+msgstr ""
 
 #: CRM/Contact/DAO/SubscriptionHistory.php
 msgid "Group Membership Action Date"
@@ -4009,9 +4157,10 @@ msgstr "Não tem a necessária permissão para editar este contacto."
 msgid "deceased"
 msgstr "falecido ou falecida"
 
-#: CRM/Contact/Form/Contact.php CRM/Core/Form.php CRM/Custom/Form/Group.php
-#: CRM/Price/Form/Set.php CRM/Profile/Page/MultipleRecordFieldsListing.php
-#: CRM/Utils/System.php templates/CRM/Custom/Page/CustomDataView.tpl
+#: CRM/Contact/Form/Contact.php CRM/Contact/Form/CustomData.php
+#: CRM/Core/Form.php CRM/Custom/Form/Group.php CRM/Price/Form/Set.php
+#: CRM/Profile/Page/MultipleRecordFieldsListing.php CRM/Utils/System.php
+#: templates/CRM/Custom/Page/CustomDataView.tpl
 msgid "Edit %1"
 msgstr "Editar %1"
 
@@ -4146,8 +4295,13 @@ msgid "The maximum record limit is reached"
 msgstr "O limite máximo para o registo foi atingido"
 
 #: CRM/Contact/Form/CustomData.php
-msgid "%1 %2 Record"
-msgstr "Registro %1 %2"
+msgid "Add %1"
+msgstr ""
+
+#: CRM/Contact/Form/CustomData.php
+#: CRM/Profile/Page/MultipleRecordFieldsListing.php
+msgid "Copy %1"
+msgstr "Copiar %1"
 
 #: CRM/Contact/Form/CustomData.php
 msgid "Save a Copy"
@@ -4180,7 +4334,7 @@ msgstr "Já existe uma regra de correspondência de duplicados com este nome. Po
 msgid "Usage"
 msgstr "Utilização"
 
-#: CRM/Contact/Form/DedupeRules.php CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Contact/Form/DedupeRules.php CRM/Dedupe/DAO/DedupeRuleGroup.php
 #: CRM/Tag/Form/Edit.php
 msgid "Reserved?"
 msgstr "Reservado?"
@@ -4201,6 +4355,10 @@ msgstr "Limiar do peso para Considerar Contactos 'Emparelhados':"
 #: CRM/Contact/Form/DedupeRules.php
 msgid "Threshold weight cannot be empty or zero."
 msgstr "O limiar do peso não pode ser vazio ou zero."
+
+#: CRM/Contact/Form/DedupeRules.php
+msgid "Total weight must be greater than or equal to the Weight Threshold."
+msgstr ""
 
 #: CRM/Contact/Form/DedupeRules.php
 msgid "Please select at least one field."
@@ -4471,7 +4629,8 @@ msgstr "Somente um telefone pode ser marcado como principal."
 
 #: CRM/Contact/Form/Location.php CRM/Contact/Form/Search/Custom/Basic.php
 #: CRM/Contact/Form/Search/Custom/PostalMailing.php CRM/Contact/Selector.php
-#: CRM/Core/DAO/Address.php templates/CRM/Contact/Form/OnBehalfOf.tpl
+#: CRM/Core/DAO/Address.php CRM/Core/DAO/LocBlock.php
+#: templates/CRM/Contact/Form/OnBehalfOf.tpl
 #: templates/CRM/Contact/Form/Task/Print.tpl
 #: templates/CRM/Contact/Page/Inline/Address.tpl
 #: xml/templates/civicrm_data.tpl
@@ -4797,9 +4956,8 @@ msgstr "E-mail suspenso"
 msgid "Phone Location"
 msgstr "Local do Telefone"
 
-#: CRM/Contact/Form/Search/Criteria.php CRM/Core/DAO/MappingField.php
-#: CRM/Core/DAO/Phone.php js/model/crm.uf.js
-#: templates/CRM/Contact/Form/Edit/Phone.tpl
+#: CRM/Contact/Form/Search/Criteria.php CRM/Core/DAO/Phone.php
+#: js/model/crm.uf.js templates/CRM/Contact/Form/Edit/Phone.tpl
 #: templates/CRM/Contact/Form/Inline/Phone.tpl xml/templates/civicrm_data.tpl
 msgid "Phone Type"
 msgstr "Tipo de Telefone"
@@ -4858,17 +5016,16 @@ msgstr "Nome da Rua"
 msgid "Apt/Unit/Suite"
 msgstr "Apt/Unidade/Suite"
 
-#: CRM/Contact/Form/Search/Criteria.php CRM/Contact/Form/Task/EmailCommon.php
-#: CRM/Contact/Form/Task/EmailTrait.php CRM/Contact/Form/Task/SMSCommon.php
-#: CRM/Core/BAO/CustomField.php CRM/Friend/Form.php
-#: templates/CRM/Contact/Page/View/Email.tpl
+#: CRM/Contact/Form/Search/Criteria.php CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Contact/Form/Task/SMSCommon.php CRM/Core/BAO/CustomField.php
+#: CRM/Friend/Form.php templates/CRM/Contact/Page/View/Email.tpl
 #: templates/CRM/Contact/Page/View/SMS.tpl templates/CRM/SMS/Form/Task/SMS.tpl
 msgid "From"
 msgstr "De"
 
-#: CRM/Contact/Form/Search/Criteria.php CRM/Contact/Form/Task/EmailCommon.php
-#: CRM/Contact/Form/Task/EmailTrait.php CRM/Contact/Form/Task/SMSCommon.php
-#: CRM/Core/BAO/CustomField.php templates/CRM/Contact/Page/View/Email.tpl
+#: CRM/Contact/Form/Search/Criteria.php CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Contact/Form/Task/SMSCommon.php CRM/Core/BAO/CustomField.php
+#: templates/CRM/Contact/Page/View/Email.tpl
 #: templates/CRM/Contact/Page/View/SMS.tpl
 msgid "To"
 msgstr "Para"
@@ -4899,17 +5056,12 @@ msgstr "Localização do Endereço"
 msgid "Primary"
 msgstr "Principal"
 
-#: CRM/Contact/Form/Search/Criteria.php CRM/Core/DAO/Log.php
-#: templates/CRM/Contact/Form/Search/Criteria/ChangeLog.tpl
-#: templates/CRM/Group/Form/Edit.tpl
-msgid "Modified By"
-msgstr "Alterado por"
-
 #: CRM/Contact/Form/Search/Criteria.php
 msgid "Target Contact"
 msgstr "Contato alvo"
 
-#: CRM/Contact/Form/Search/Criteria.php templates/CRM/UF/Form/Field.hlp
+#: CRM/Contact/Form/Search/Criteria.php CRM/Core/BAO/Translation.php
+#: templates/CRM/UF/Form/Field.hlp
 msgid "Active"
 msgstr "Activo"
 
@@ -5141,7 +5293,7 @@ msgid "Net Payment"
 msgstr "Pagamento Líquido"
 
 #: CRM/Contact/Form/Search/Custom/EventAggregate.php CRM/Core/BAO/Mapping.php
-#: CRM/UF/Page/ProfileEditor.php
+#: CRM/Price/BAO/LineItem.php CRM/UF/Page/ProfileEditor.php
 msgid "Participant"
 msgstr "Participante"
 
@@ -5665,66 +5817,64 @@ msgid ""
 "have been configured."
 msgstr "O seu registo de utilizador não tem um endereço de email válido e nenhum endereço emissor de emails foi configurado."
 
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/SMSCommon.php
+#: CRM/Core/Form/Task/PDFLetterCommon.php
+msgid "Enter name to save message template"
+msgstr "Insira um nome para guardar o modelo de mensagem"
+
+#: CRM/Contact/Form/Task/EmailTrait.php
 msgid "CC"
 msgstr "CC"
 
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Contact/Form/Task/EmailTrait.php
 msgid "BCC"
 msgstr "BCC"
 
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Contact/Form/Task/EmailTrait.php
 msgid ""
 "Selected contact(s) do not have a valid email address, or communication "
 "preferences specify DO NOT EMAIL, or they are deceased or Primary email "
 "address is On Hold."
 msgstr "Os contato(s) selecionado(s) não têm um endereço de email válido, ou aspreferências de comunicação especificam NÃO ENVIAR EMAIL, ou eles faleceram ou o Email Principal está suspenso."
 
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Contact/Form/Task/EmailTrait.php
 msgid "Send Email"
 msgstr "Enviar Email"
 
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/SMSCommon.php
-#: CRM/Core/Form/Task/PDFLetterCommon.php
-msgid "Enter name to save message template"
-msgstr "Insira um nome para guardar o modelo de mensagem"
-
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
-msgid "One message was sent successfully. "
-msgid_plural "%count messages were sent successfully. "
-msgstr[0] "Uma mensagem foi enviada com sucesso."
-msgstr[1] "%count mensagens foram enviadas com sucesso."
-
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
-#: CRM/Contact/Form/Task/SMSCommon.php
-msgid "Message Sent"
-msgid_plural "Messages Sent"
-msgstr[0] "Mensagem enviada"
-msgstr[1] "Mensagens enviadas"
-
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
-msgid "on hold"
-msgstr "suspenso"
-
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
-msgid ""
-"because no email address on file or communication preferences specify DO NOT"
-" EMAIL or Contact is deceased or Primary email address is On Hold"
-msgstr "porque não existe um endereço de email identificado no sistema, ou as preferências de comunicação especificam NÃO ENVIAR EMAIL, ou o contacto faleceu, ou o endereço de email principal está suspenso"
-
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
-#: CRM/Contact/Form/Task/SMSCommon.php
-msgid "One Message Not Sent"
-msgid_plural "%count Messages Not Sent"
-msgstr[0] "Uma mensagem não enviada"
-msgstr[1] "%count Mensagens não enviadas"
-
-#: CRM/Contact/Form/Task/EmailCommon.php CRM/Contact/Form/Task/EmailTrait.php
+#: CRM/Contact/Form/Task/EmailTrait.php
 msgid ""
 "Please do not use this task to send a lot of emails (greater than %1). Many "
 "countries have legal requirements when sending bulk emails and the CiviMail "
 "framework has opt out functionality and domain tokens to help meet these."
 msgstr "Por favor não utilize esta tarefa para enviar demasiados emails (mais de %1). Muitos países definem requisitos legais para governar o envio de emails em massa e a estrutura CiviMail tem funcionalidades opt out e tokens de domínio para ajudar no cumprimento desses requisitos."
+
+#: CRM/Contact/Form/Task/EmailTrait.php
+msgid "One message was sent successfully. "
+msgid_plural "%count messages were sent successfully. "
+msgstr[0] "Uma mensagem foi enviada com sucesso."
+msgstr[1] "%count mensagens foram enviadas com sucesso."
+
+#: CRM/Contact/Form/Task/EmailTrait.php CRM/Contact/Form/Task/SMSCommon.php
+msgid "Message Sent"
+msgid_plural "Messages Sent"
+msgstr[0] "Mensagem enviada"
+msgstr[1] "Mensagens enviadas"
+
+#: CRM/Contact/Form/Task/EmailTrait.php
+msgid ""
+"because no email address on file or communication preferences specify DO NOT"
+" EMAIL or Contact is deceased or Primary email address is On Hold"
+msgstr "porque não existe um endereço de email identificado no sistema, ou as preferências de comunicação especificam NÃO ENVIAR EMAIL, ou o contacto faleceu, ou o endereço de email principal está suspenso"
+
+#: CRM/Contact/Form/Task/EmailTrait.php CRM/Contact/Form/Task/SMSCommon.php
+msgid "One Message Not Sent"
+msgid_plural "%count Messages Not Sent"
+msgstr[0] "Uma mensagem não enviada"
+msgstr[1] "%count Mensagens não enviadas"
+
+#: CRM/Contact/Form/Task/EmailTrait.php
+msgid "on hold"
+msgstr "suspenso"
 
 #: CRM/Contact/Form/Task/HookSample.php
 msgid "Back to Search"
@@ -6023,6 +6173,10 @@ msgstr "Criar Registo de Utilizador para %1"
 msgid "Username"
 msgstr "Nome de Utilizador"
 
+#: CRM/Contact/Form/Task/Useradd.php
+msgid "Username is required"
+msgstr ""
+
 #: CRM/Contact/Form/Task/Useradd.php CRM/Core/BAO/CMSUser.php
 #: CRM/SMS/Form/Provider.php xml/templates/civicrm_data.tpl
 msgid "Password"
@@ -6032,9 +6186,13 @@ msgstr "Senha"
 msgid "Confirm Password"
 msgstr "Confirmar Senha"
 
-#: CRM/Contact/Form/Task/Useradd.php templates/CRM/Block/Add.tpl
-msgid "Email:"
-msgstr "Email:"
+#: CRM/Contact/Form/Task/Useradd.php
+msgid "Password is required"
+msgstr ""
+
+#: CRM/Contact/Form/Task/Useradd.php
+msgid "Email is required"
+msgstr ""
 
 #: CRM/Contact/Form/Task/Useradd.php
 msgid "Error creating CMS user account."
@@ -6044,16 +6202,13 @@ msgstr ""
 msgid "User Added"
 msgstr "Utilizador Adicionado"
 
+#: CRM/Contact/Form/Task/Useradd.php
+msgid "Password mismatch"
+msgstr ""
+
 #: CRM/Contact/Form/Task.php
 msgid "Confirm Action"
 msgstr "Confirmar Acção"
-
-#: CRM/Contact/Import/Form/DataSource.php
-msgid ""
-"Database Configuration Error: Insufficient permissions. Import requires that"
-" the CiviCRM database user has permission to create temporary tables. "
-"Contact your site administrator for assistance."
-msgstr "Erro de configuração da Base de dados: Permissões insuficientes. Importação requer que o utilizador da base de dados do CiviCRM tenha permissão para criar tabelas temporárias. Contacte o administrador do site para obter assistência."
 
 #: CRM/Contact/Import/Form/DataSource.php
 msgid ""
@@ -6095,7 +6250,7 @@ msgstr "Agregado Familiar"
 msgid "Subtype"
 msgstr "Subtipo"
 
-#: CRM/Contact/Import/Form/DataSource.php
+#: CRM/Contact/Import/Form/DataSource.php CRM/Dedupe/DAO/DedupeRule.php
 #: templates/CRM/Contact/Import/Form/DataSource.hlp
 msgid "Dedupe Rule"
 msgstr "Regra de Deduplicação"
@@ -6206,10 +6361,6 @@ msgid "Related contact required fields are missing."
 msgstr "Campos obrigatórios do contacto relacionado estão faltando"
 
 #: CRM/Contact/Import/Parser/Contact.php
-msgid "Record duplicates multiple contacts"
-msgstr "O registo duplica contactos múltiplos"
-
-#: CRM/Contact/Import/Parser/Contact.php
 msgid "field ID"
 msgstr "ID do campo"
 
@@ -6295,6 +6446,10 @@ msgid ""
 "Matching this contact based on the de-dupe rule would cause an external ID "
 "conflict"
 msgstr "Fazer corresponder este contacto com base na regra de deduplicação vai causar um conflito de ID externo"
+
+#: CRM/Contact/Import/Parser/Contact.php
+msgid "Record duplicates multiple contacts"
+msgstr "O registo duplica contactos múltiplos"
 
 #: CRM/Contact/Import/Parser.php
 msgid "View Contact URL"
@@ -6423,13 +6578,13 @@ msgstr "Regra Apagada"
 msgid "Malformed photo name"
 msgstr "Nome malformado de foto "
 
-#: CRM/Contact/Page/ImageFile.php
-msgid "Photo does not exist"
-msgstr "A foto não existe"
-
 #: CRM/Contact/Page/SavedSearch.php
 msgid "Do you really want to remove this Smart Group?"
 msgstr "Quer realmente remover este Grupo Inteligente?"
+
+#: CRM/Contact/Page/View/CustomData.php CRM/Utils/Request.php
+msgid "Could not find valid value for %1"
+msgstr "Não foi possível encontrar um valor válido para %1"
 
 #: CRM/Contact/Page/View/CustomData.php CRM/Profile/Page/Dynamic.php
 msgid "View %1 Record"
@@ -7120,7 +7275,8 @@ msgstr "- selecione campo -"
 msgid "Another search field"
 msgstr "Um outro campo de pesquisa"
 
-#: CRM/Core/BAO/Mapping.php CRM/Price/Form/Set.php CRM/Price/Page/Set.php
+#: CRM/Core/BAO/Mapping.php CRM/Price/BAO/LineItem.php
+#: CRM/Price/DAO/LineItem.php CRM/Price/Form/Set.php CRM/Price/Page/Set.php
 #: CRM/UF/Page/ProfileEditor.php CRM/Utils/Chart.php
 #: xml/templates/civicrm_data.tpl
 msgid "Contribution"
@@ -7157,11 +7313,6 @@ msgstr "ID de Transação"
 #: CRM/Core/BAO/Mapping.php
 msgid "Pledge"
 msgstr "Promessa de Contribuição ou de Pagamento"
-
-#: CRM/Core/BAO/Mapping.php CRM/Dashlet/Page/AllCases.php
-#: CRM/Dashlet/Page/MyCases.php CRM/UF/Page/ProfileEditor.php
-msgid "Case"
-msgstr "Processo"
 
 #: CRM/Core/BAO/Mapping.php
 msgid "Case Activity"
@@ -7270,6 +7421,10 @@ msgstr "Você não pode passar um nível de severidade maior que 7."
 #: CRM/Core/BAO/StatusPreference.php
 msgid "Invalid string passed as severity level."
 msgstr "String inválida fornecida como nível de severidade."
+
+#: CRM/Core/BAO/Translation.php
+msgid "Draft"
+msgstr ""
 
 #: CRM/Core/BAO/UFField.php
 msgid "Cannot enable this UF field since the used custom field is disabled."
@@ -7453,6 +7608,14 @@ msgstr "Alguns módulos definem permissões, mas o CMS não pode armazená-las: 
 msgid "Permission Error"
 msgstr "Erro de Permissão"
 
+#: CRM/Core/Controller/Task.php
+msgid "No records available"
+msgstr ""
+
+#: CRM/Core/Controller/Task.php
+msgid "Invalid task"
+msgstr ""
+
 #: CRM/Core/Controller.php
 msgid ""
 "We can't load the requested web page. This page requires cookies to be "
@@ -7493,14 +7656,10 @@ msgstr ""
 msgid "Action Schedule ID"
 msgstr "ID de Acção Agendada"
 
-#: CRM/Core/DAO/ActionLog.php
-msgid "Action Schedule Contact ID"
-msgstr "ID de Contacto da Acção Agendada"
-
 #: CRM/Core/DAO/ActionLog.php CRM/Core/DAO/Address.php CRM/Core/DAO/Email.php
 #: CRM/Core/DAO/IM.php CRM/Core/DAO/OpenID.php CRM/Core/DAO/Phone.php
 #: CRM/Core/DAO/UFMatch.php CRM/Core/DAO/Website.php
-#: CRM/Dedupe/DAO/Exception.php
+#: CRM/Dedupe/DAO/DedupeException.php
 msgid "FK to Contact ID"
 msgstr "Chave externa para ID de Contacto"
 
@@ -7515,12 +7674,16 @@ msgid ""
 msgstr "nome da tabela de entidades para o id acima, p. ex., civicrm_activity, civicrm_participant"
 
 #: CRM/Core/DAO/ActionLog.php
-msgid "Schedule"
-msgstr "Agenda"
+msgid "Schedule ID"
+msgstr ""
 
 #: CRM/Core/DAO/ActionLog.php
 msgid "FK to the action schedule that this action originated from."
 msgstr "Chave Externa para o agendamento de acções de onde esta acção se originou."
+
+#: CRM/Core/DAO/ActionLog.php
+msgid "Schedule"
+msgstr "Agenda"
 
 #: CRM/Core/DAO/ActionLog.php
 msgid "Action Date And Time"
@@ -7646,7 +7809,7 @@ msgid "Name of the action(reminder)"
 msgstr "Nome da acção (lembrete)"
 
 #: CRM/Core/DAO/ActionSchedule.php CRM/Core/DAO/PrintLabel.php
-#: CRM/Dedupe/DAO/RuleGroup.php CRM/Friend/BAO/Friend.php
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php CRM/Friend/BAO/Friend.php
 #: CRM/Friend/DAO/Friend.php CRM/SMS/Form/Provider.php
 #: templates/CRM/Custom/Page/Group.hlp
 msgid "Title"
@@ -7699,6 +7862,10 @@ msgstr "Condição de Início da Acção"
 #: CRM/Core/DAO/ActionSchedule.php
 msgid "Reminder Action"
 msgstr "Acção de Lembrete"
+
+#: CRM/Core/DAO/ActionSchedule.php
+msgid "Start Action condition"
+msgstr ""
 
 #: CRM/Core/DAO/ActionSchedule.php
 msgid "Start Action Date"
@@ -7826,24 +7993,28 @@ msgid "Name/ID of the mapping to use on this table"
 msgstr "Nome/ID do mapeamento a ser usado nesta tabela"
 
 #: CRM/Core/DAO/ActionSchedule.php
-msgid "Reminder Group"
-msgstr "Grupo de Lembretes"
-
-#: CRM/Core/DAO/ActionSchedule.php
 msgid "FK to Group"
 msgstr "Chave Externa para Grupo"
 
-#: CRM/Core/DAO/ActionSchedule.php
-msgid "Reminder Template"
-msgstr "Modelo de Lembretes"
+#: CRM/Core/DAO/ActionSchedule.php CRM/Core/DAO/MessageTemplate.php
+msgid "Message Template ID"
+msgstr "ID do Modelo de Mensagem"
 
 #: CRM/Core/DAO/ActionSchedule.php
 msgid "FK to the message template."
 msgstr "Chave Externa para modelo de mensagem"
 
+#: CRM/Core/DAO/ActionSchedule.php CRM/Core/DAO/MessageTemplate.php
+msgid "Message Template"
+msgstr ""
+
 #: CRM/Core/DAO/ActionSchedule.php
-msgid "SMS Reminder Template"
-msgstr "Modelo de Lembretes por  SMS"
+msgid "SMS Template ID"
+msgstr ""
+
+#: CRM/Core/DAO/ActionSchedule.php
+msgid "SMS Template"
+msgstr ""
 
 #: CRM/Core/DAO/ActionSchedule.php
 msgid "Fixed Date for Reminder"
@@ -7877,6 +8048,10 @@ msgstr "Modo de Mensagem"
 msgid "Send the message as email or sms or both."
 msgstr "Enviar a mensagem como email ou sms ou ambos."
 
+#: CRM/Core/DAO/ActionSchedule.php CRM/SMS/DAO/Provider.php
+msgid "SMS Provider ID"
+msgstr "ID do Provedor de SMS"
+
 #: CRM/Core/DAO/ActionSchedule.php CRM/SMS/Form/Provider.php
 #: CRM/SMS/Page/Provider.php templates/CRM/SMS/Form/Group.hlp
 msgid "SMS Provider"
@@ -7905,11 +8080,35 @@ msgstr "Usado para instalação multilíngue"
 msgid "Communication Language"
 msgstr "Idioma de Comunicação"
 
+#: CRM/Core/DAO/ActionSchedule.php
+msgid "When was the scheduled reminder created."
+msgstr ""
+
+#: CRM/Core/DAO/ActionSchedule.php
+msgid "When the reminder was created or modified."
+msgstr ""
+
+#: CRM/Core/DAO/ActionSchedule.php
+msgid "Effective start date"
+msgstr ""
+
+#: CRM/Core/DAO/ActionSchedule.php
+msgid "Earliest date to consider start events from."
+msgstr ""
+
+#: CRM/Core/DAO/ActionSchedule.php
+msgid "Effective end date"
+msgstr ""
+
+#: CRM/Core/DAO/ActionSchedule.php
+msgid "Latest date to consider end events from."
+msgstr ""
+
 #: CRM/Core/DAO/Address.php CRM/Core/SelectValues.php
 msgid "Addresses"
 msgstr "Endereços"
 
-#: CRM/Core/DAO/Address.php
+#: CRM/Core/DAO/Address.php CRM/Core/DAO/LocBlock.php
 msgid "Address ID"
 msgstr "ID do Endereço"
 
@@ -8018,9 +8217,17 @@ msgstr "Informações Complementares sobre Endereço, Linha 3"
 msgid "City, Town or Village Name."
 msgstr "Nome da cidade, vila ou aldeia."
 
+#: CRM/Core/DAO/Address.php CRM/Core/DAO/County.php
+msgid "County ID"
+msgstr "ID de Concelho/Condado"
+
 #: CRM/Core/DAO/Address.php
 msgid "Which County does this address belong to."
 msgstr "A qual condado este endereço pertence."
+
+#: CRM/Core/DAO/Address.php CRM/Core/DAO/StateProvince.php
+msgid "State/Province ID"
+msgstr "ID de Estado/Província"
 
 #: CRM/Core/DAO/Address.php
 msgid "Which State_Province does this address belong to."
@@ -8049,6 +8256,12 @@ msgstr "Código do USPS"
 msgid "USPS Bulk mailing code."
 msgstr "Código de correspondência em massa do USPS."
 
+#: CRM/Core/DAO/Address.php CRM/Core/DAO/Country.php
+#: CRM/Core/DAO/StateProvince.php CRM/Core/DAO/Timezone.php
+#: CRM/Core/DAO/Worldregion.php
+msgid "Country ID"
+msgstr "ID do País"
+
 #: CRM/Core/DAO/Address.php
 msgid "Which Country does this address belong to."
 msgstr "A qual país este endereço pertence."
@@ -8072,12 +8285,16 @@ msgid ""
 msgstr "Fuso horário expresso como um deslocamento UTC - p. ex., O CST dos Estados Unidos seria escrito como \"UTC-6\"."
 
 #: CRM/Core/DAO/Address.php
-msgid "Master Address Belongs To"
-msgstr "O Endereço Principal Pertence A"
+msgid "Master Address ID"
+msgstr ""
 
 #: CRM/Core/DAO/Address.php
 msgid "FK to Address ID"
 msgstr "Chave Externa para ID Address"
+
+#: CRM/Core/DAO/Address.php
+msgid "Master Address Belongs To"
+msgstr "O Endereço Principal Pertence A"
 
 #: CRM/Core/DAO/AddressFormat.php
 msgid "Address Formats"
@@ -8087,13 +8304,9 @@ msgstr ""
 msgid "Address Format"
 msgstr "Formato do Endereço"
 
-#: CRM/Core/DAO/AddressFormat.php
+#: CRM/Core/DAO/AddressFormat.php CRM/Core/DAO/Country.php
 msgid "Address Format ID"
 msgstr "ID de Formato do Endereço"
-
-#: CRM/Core/DAO/AddressFormat.php
-msgid "Address Format Id"
-msgstr "ID do formato de endereço"
 
 #: CRM/Core/DAO/AddressFormat.php
 msgid "The format of an address"
@@ -8127,13 +8340,19 @@ msgstr "Dados"
 msgid "data associated with this path"
 msgstr "dados associados a este caminho"
 
-#: CRM/Core/DAO/Cache.php CRM/Core/DAO/Component.php
+#: CRM/Core/DAO/Cache.php CRM/Core/DAO/Component.php CRM/Core/DAO/Menu.php
+#: CRM/Core/DAO/OptionValue.php CRM/Core/DAO/Setting.php
 msgid "Component ID"
 msgstr "ID de Componente"
 
 #: CRM/Core/DAO/Cache.php CRM/Core/DAO/Menu.php CRM/Core/DAO/Setting.php
 msgid "Component that this menu item belongs to"
 msgstr "Componente ao qual este item de menu pertence"
+
+#: CRM/Core/DAO/Cache.php CRM/Core/DAO/Component.php CRM/Core/DAO/Menu.php
+#: CRM/Core/DAO/OptionValue.php CRM/Core/DAO/Setting.php
+msgid "Component"
+msgstr "Componente"
 
 #: CRM/Core/DAO/Cache.php
 msgid "When was the cache item created"
@@ -8150,10 +8369,6 @@ msgstr "Quando o item de cache deve expirar"
 #: CRM/Core/DAO/Component.php
 msgid "Components"
 msgstr ""
-
-#: CRM/Core/DAO/Component.php CRM/Core/DAO/Menu.php
-msgid "Component"
-msgstr "Componente"
 
 #: CRM/Core/DAO/Component.php
 msgid "Component name"
@@ -8174,15 +8389,6 @@ msgstr "Caminho para o directório principal dos componentes, na forma de uma cl
 #: CRM/Core/DAO/Country.php
 msgid "Countries"
 msgstr ""
-
-#: CRM/Core/DAO/Country.php
-msgid "Country ID"
-msgstr "ID do País"
-
-#: CRM/Core/DAO/Country.php CRM/Core/DAO/Timezone.php
-#: CRM/Core/DAO/Worldregion.php
-msgid "Country Id"
-msgstr "Id de País"
 
 #: CRM/Core/DAO/Country.php
 msgid "Country Name"
@@ -8244,13 +8450,17 @@ msgid ""
 "country?"
 msgstr "O Estado/Província deve ser exibido como abreviação de contactos deste país?"
 
-#: CRM/Core/DAO/County.php
-msgid "Counties"
+#: CRM/Core/DAO/Country.php
+msgid "Country Is Active"
+msgstr ""
+
+#: CRM/Core/DAO/Country.php
+msgid "Is this Country active?"
 msgstr ""
 
 #: CRM/Core/DAO/County.php
-msgid "County ID"
-msgstr "ID de Concelho/Condado"
+msgid "Counties"
+msgstr ""
 
 #: CRM/Core/DAO/County.php
 msgid "Name of County"
@@ -8264,9 +8474,21 @@ msgstr "Abrev. Concelho/Condado"
 msgid "2-4 Character Abbreviation of County"
 msgstr "Abreviatura de 2-4 caracteres de concelho/condado"
 
+#: CRM/Core/DAO/County.php CRM/Core/DAO/StateProvince.php
+msgid "State ID"
+msgstr "ID de Estado"
+
 #: CRM/Core/DAO/County.php
 msgid "ID of State/Province that County belongs"
 msgstr "ID do Estado/Província ao qual o concelho/condado pertence"
+
+#: CRM/Core/DAO/County.php
+msgid "County Is Active"
+msgstr ""
+
+#: CRM/Core/DAO/County.php
+msgid "Is this County active?"
+msgstr ""
 
 #: CRM/Core/DAO/CustomField.php CRM/Custom/Page/Field.php
 msgid "Custom Field"
@@ -8280,6 +8502,10 @@ msgstr "ID de Campo Personalizado"
 msgid "Unique Custom Field ID"
 msgstr "ID exclusivo de Campo Personalizado "
 
+#: CRM/Core/DAO/CustomField.php CRM/Core/DAO/CustomGroup.php
+msgid "Custom Group ID"
+msgstr "ID do Grupo Personalizado"
+
 #: CRM/Core/DAO/CustomField.php
 msgid "FK to civicrm_custom_group."
 msgstr "Chave Externa para civicrm_custom_group."
@@ -8288,9 +8514,9 @@ msgstr "Chave Externa para civicrm_custom_group."
 msgid "Custom Field Name"
 msgstr "Nome do Campo Personalizado"
 
-#: CRM/Core/DAO/CustomField.php CRM/Core/DAO/CustomGroup.php
-msgid "Variable name/programmatic handle for this group."
-msgstr "Nome da variável/identificador programático para este grupo."
+#: CRM/Core/DAO/CustomField.php CRM/Price/DAO/PriceField.php
+msgid "Variable name/programmatic handle for this field."
+msgstr "Nome da variável/identificador programático para este campo."
 
 #: CRM/Core/DAO/CustomField.php
 msgid "Custom Field Label"
@@ -8302,21 +8528,17 @@ msgid ""
 "property)."
 msgstr "Texto para o rótulo do campo de formulário (também nome amigável para administrar esta propriedade personalizada)."
 
-#: CRM/Core/DAO/CustomField.php
-msgid "Custom Field Data Type"
-msgstr "Tipo de Dados de Campo Personalizado"
-
-#: CRM/Core/DAO/CustomField.php
-msgid "Controls location of data storage in extended_data table."
-msgstr "Controla a localização do armazenamento de dados na tabela extended_data."
-
 #: CRM/Core/DAO/CustomField.php templates/CRM/Custom/Page/Field.tpl
 msgid "Data Type"
 msgstr "Tipo de Dados"
 
 #: CRM/Core/DAO/CustomField.php
-msgid "Custom Field HTML Type"
-msgstr "Campo Personalizado do Tipo HTML"
+msgid "Controls location of data storage in extended_data table."
+msgstr "Controla a localização do armazenamento de dados na tabela extended_data."
+
+#: CRM/Core/DAO/CustomField.php
+msgid "HTML Type"
+msgstr ""
 
 #: CRM/Core/DAO/CustomField.php
 msgid "HTML types plus several built-in extended types."
@@ -8493,12 +8715,16 @@ msgid "Name of the column that holds the values for this field."
 msgstr "Nome da coluna que contém os valores para este campo."
 
 #: CRM/Core/DAO/CustomField.php
-msgid "Field Option Group"
-msgstr "Grupo de Opções do Campo"
+msgid "Field Option Group ID"
+msgstr ""
 
 #: CRM/Core/DAO/CustomField.php
 msgid "For elements with options, the option group id that is used"
 msgstr "Para elementos com opções, o ID do grupo de opções que é usado"
+
+#: CRM/Core/DAO/CustomField.php
+msgid "Field Option Group"
+msgstr "Grupo de Opções do Campo"
 
 #: CRM/Core/DAO/CustomField.php
 msgid "Serialize"
@@ -8534,16 +8760,16 @@ msgid "Custom Groups"
 msgstr "Grupos Personalizados"
 
 #: CRM/Core/DAO/CustomGroup.php
-msgid "Custom Group ID"
-msgstr "ID do Grupo Personalizado"
-
-#: CRM/Core/DAO/CustomGroup.php
 msgid "Unique Custom Group ID"
 msgstr "ID Exclusivo de Grupo Personalizado"
 
 #: CRM/Core/DAO/CustomGroup.php
 msgid "Custom Group Name"
 msgstr "Nome do Grupo Personalizado"
+
+#: CRM/Core/DAO/CustomGroup.php
+msgid "Variable name/programmatic handle for this group."
+msgstr "Nome da variável/identificador programático para este grupo."
 
 #: CRM/Core/DAO/CustomGroup.php
 msgid "Custom Group Title"
@@ -8666,10 +8892,6 @@ msgid ""
 msgstr "Estará este grupo no modo recolhido ou expandido na exibição de pesquisa avançada?"
 
 #: CRM/Core/DAO/CustomGroup.php
-msgid "Custom Group Created By"
-msgstr "Grupo Personalizado Criado Por"
-
-#: CRM/Core/DAO/CustomGroup.php
 msgid "FK to civicrm_contact, who created this custom group"
 msgstr "Chave Externa para civicrm_contact, a pessoa que criou este grupo personalizado"
 
@@ -8714,13 +8936,27 @@ msgstr ""
 msgid "DashletID"
 msgstr "ID do Painel-Resumo"
 
-#: CRM/Core/DAO/Dashboard.php
-msgid "Dashlet Domain"
-msgstr "Domínio do Painel-Resumo"
+#: CRM/Core/DAO/Dashboard.php CRM/Core/DAO/Domain.php CRM/Core/DAO/Job.php
+#: CRM/Core/DAO/JobLog.php CRM/Core/DAO/MailSettings.php CRM/Core/DAO/Menu.php
+#: CRM/Core/DAO/Navigation.php CRM/Core/DAO/OptionValue.php
+#: CRM/Core/DAO/Setting.php CRM/Core/DAO/StatusPreference.php
+#: CRM/Core/DAO/UFMatch.php CRM/Core/DAO/WordReplacement.php
+#: CRM/Price/DAO/PriceSet.php CRM/SMS/DAO/Provider.php
+msgid "Domain ID"
+msgstr "ID do Domínio"
 
 #: CRM/Core/DAO/Dashboard.php
 msgid "Domain for dashboard"
 msgstr "Domínio para o Painel de Controlo"
+
+#: CRM/Core/DAO/Dashboard.php CRM/Core/DAO/Domain.php CRM/Core/DAO/Job.php
+#: CRM/Core/DAO/JobLog.php CRM/Core/DAO/MailSettings.php CRM/Core/DAO/Menu.php
+#: CRM/Core/DAO/Navigation.php CRM/Core/DAO/OptionValue.php
+#: CRM/Core/DAO/Setting.php CRM/Core/DAO/StatusPreference.php
+#: CRM/Core/DAO/UFMatch.php CRM/Core/DAO/WordReplacement.php
+#: CRM/Price/DAO/PriceSet.php CRM/SMS/DAO/Provider.php
+msgid "Domain"
+msgstr "Domínio"
 
 #: CRM/Core/DAO/Dashboard.php
 msgid "Dashlet Name"
@@ -8825,13 +9061,20 @@ msgstr "nome da tabela física da entidade que está sendo associada ao desconto
 msgid "FK to entity table specified in entity_table column."
 msgstr "Chave Externa para a tabela de entidade especificada na coluna entity_table."
 
-#: CRM/Core/DAO/Discount.php
-msgid "Discount Name"
-msgstr "Nome do Desconto"
+#: CRM/Core/DAO/Discount.php CRM/Price/DAO/PriceField.php
+#: CRM/Price/DAO/PriceSetEntity.php
+msgid "Price Set ID"
+msgstr ""
 
 #: CRM/Core/DAO/Discount.php CRM/Price/DAO/PriceField.php
 msgid "FK to civicrm_price_set"
 msgstr "Chave Externa para civicrm_price_set"
+
+#: CRM/Core/DAO/Discount.php CRM/Price/DAO/PriceField.php
+#: CRM/Price/DAO/PriceSet.php CRM/Price/DAO/PriceSetEntity.php
+#: CRM/Price/Page/Set.php
+msgid "Price Set"
+msgstr "Conjunto de Preços"
 
 #: CRM/Core/DAO/Discount.php
 msgid "Discount Start Date"
@@ -8852,14 +9095,6 @@ msgstr "Data em que o desconto acaba."
 #: CRM/Core/DAO/Domain.php
 msgid "Domains"
 msgstr ""
-
-#: CRM/Core/DAO/Domain.php CRM/Core/DAO/Menu.php
-msgid "Domain"
-msgstr "Domínio"
-
-#: CRM/Core/DAO/Domain.php CRM/Core/DAO/JobLog.php
-msgid "Domain ID"
-msgstr "ID do Domínio"
 
 #: CRM/Core/DAO/Domain.php templates/CRM/Contact/Form/Domain.hlp
 msgid "Domain Name"
@@ -8884,10 +9119,6 @@ msgstr "Versão do CiviCRM"
 #: CRM/Core/DAO/Domain.php
 msgid "The civicrm version this instance is running"
 msgstr "A versão do CiviCRM que esta instância está a correr"
-
-#: CRM/Core/DAO/Domain.php
-msgid "Domain Contact"
-msgstr "Contacto do Domínio"
 
 #: CRM/Core/DAO/Domain.php
 msgid ""
@@ -8918,16 +9149,8 @@ msgid "Emails"
 msgstr ""
 
 #: CRM/Core/DAO/Email.php
-msgid "Email ID"
-msgstr "ID do Email"
-
-#: CRM/Core/DAO/Email.php
 msgid "Unique Email ID"
 msgstr "ID exclusivo de Email"
-
-#: CRM/Core/DAO/Email.php
-msgid "Email Contact"
-msgstr "Contacto do Email"
 
 #: CRM/Core/DAO/Email.php
 msgid "Email Location Type"
@@ -9007,6 +9230,10 @@ msgstr "Assinatura em HTML"
 msgid "HTML formatted signature for the email."
 msgstr "Assinatura formatada em HTML para o email."
 
+#: CRM/Core/DAO/Email.php templates/CRM/Contact/Page/Inline/Email.tpl
+msgid "Signature HTML"
+msgstr "Assinatura em HTML"
+
 #: CRM/Core/DAO/EntityFile.php
 msgid "Entity Files"
 msgstr ""
@@ -9024,6 +9251,10 @@ msgid ""
 "physical tablename for entity being joined to file, e.g. civicrm_contact"
 msgstr "nome da tabela física da entidade que está sendo associada ao arquivo, por exemplo, civicrm_contact"
 
+#: CRM/Core/DAO/EntityFile.php CRM/Core/DAO/File.php
+msgid "File ID"
+msgstr "ID do Arquivo"
+
 #: CRM/Core/DAO/EntityFile.php
 msgid "FK to civicrm_file"
 msgstr "Chave Externa para civicrm_file"
@@ -9039,6 +9270,10 @@ msgstr ""
 #: CRM/Core/DAO/EntityTag.php
 msgid "Entity Tag ID"
 msgstr "ID da Etiqueta da Entidade"
+
+#: CRM/Core/DAO/EntityTag.php CRM/Core/DAO/Tag.php
+msgid "Tag ID"
+msgstr "ID da Etiqueta"
 
 #: CRM/Core/DAO/EntityTag.php
 msgid "FK to civicrm_tag"
@@ -9108,10 +9343,6 @@ msgstr "Está esta extensão activa?"
 msgid "Files"
 msgstr "Ficheiros"
 
-#: CRM/Core/DAO/File.php
-msgid "File ID"
-msgstr "ID do Arquivo"
-
 #: CRM/Core/DAO/File.php CRM/Core/DAO/LocBlock.php
 msgid "Unique ID"
 msgstr "ID Exclusivo"
@@ -9163,10 +9394,6 @@ msgid "Date and time that this attachment was uploaded or written to server."
 msgstr "Data e hora em que este anexo foi carregado ou guardado no servidor."
 
 #: CRM/Core/DAO/File.php
-msgid "Created By Contact ID"
-msgstr "ID do Contacto Criado Por"
-
-#: CRM/Core/DAO/File.php
 msgid "FK to civicrm_contact, who uploaded this file"
 msgstr "Chave Externa para civicrm_contact, a pessoa que enviou este arquivo"
 
@@ -9181,10 +9408,6 @@ msgstr "ID de Serviço de Mensagem Instantânea"
 #: CRM/Core/DAO/IM.php
 msgid "Unique IM ID"
 msgstr "ID exclusivo de Mensagem Instantânea"
-
-#: CRM/Core/DAO/IM.php
-msgid "IM Contact"
-msgstr "Contato de Serviço de Mensagem Instantânea"
 
 #: CRM/Core/DAO/IM.php
 msgid "IM Location Type"
@@ -9225,14 +9448,6 @@ msgstr ""
 #: CRM/Core/DAO/Job.php CRM/Core/DAO/JobLog.php
 msgid "Job ID"
 msgstr "ID de Trabalho"
-
-#: CRM/Core/DAO/Job.php
-msgid "Job Id"
-msgstr "ID de trabalho"
-
-#: CRM/Core/DAO/Job.php
-msgid "Job Domain"
-msgstr "Domínio do Trabalho"
 
 #: CRM/Core/DAO/Job.php CRM/Core/DAO/JobLog.php
 msgid "Which Domain is this scheduled job for"
@@ -9319,8 +9534,8 @@ msgid "Job Log ID"
 msgstr "ID do Log do Trabalho"
 
 #: CRM/Core/DAO/JobLog.php
-msgid "Job log entry Id"
-msgstr "ID da entrada do registo de trabalhos"
+msgid "Job log entry ID"
+msgstr ""
 
 #: CRM/Core/DAO/JobLog.php
 msgid "Timestamp"
@@ -9366,33 +9581,45 @@ msgstr ""
 msgid "Location Block ID"
 msgstr "ID do Bloco de Localização"
 
-#: CRM/Core/DAO/LocBlock.php
-msgid "Location Block Address"
-msgstr "Bloco de Localização do Endereço"
+#: CRM/Core/DAO/LocBlock.php CRM/Core/DAO/Phone.php
+msgid "Phone ID"
+msgstr "ID do Telefone"
 
 #: CRM/Core/DAO/LocBlock.php
-msgid "Location Block Email"
-msgstr "Bloco de Localização do Email"
+msgid "IM ID"
+msgstr ""
+
+#: CRM/Core/DAO/LocBlock.php templates/CRM/Contact/Page/Inline/IM.tpl
+msgid "IM"
+msgstr "Mensagem Instantânea"
 
 #: CRM/Core/DAO/LocBlock.php
-msgid "Location Block Phone"
-msgstr "Bloco de Localização do Telefone"
+msgid "IM 2 ID"
+msgstr ""
 
 #: CRM/Core/DAO/LocBlock.php
-msgid "Location Block IM"
-msgstr "Bloco de Localização do Serviço de Mensagens Instantâneas"
+msgid "IM 2"
+msgstr ""
 
 #: CRM/Core/DAO/LocBlock.php
-msgid "Location Block IM 2"
-msgstr "Bloco de Localização do Serviço de Mensagens Instantâneas 2"
+msgid "Email 2 ID"
+msgstr ""
 
 #: CRM/Core/DAO/LocBlock.php templates/CRM/Contact/Page/DedupeFind.tpl
 msgid "Email 2"
 msgstr "Email 2"
 
 #: CRM/Core/DAO/LocBlock.php
+msgid "Phone 2 ID"
+msgstr ""
+
+#: CRM/Core/DAO/LocBlock.php
 msgid "Phone 2"
 msgstr "Telefone 2"
+
+#: CRM/Core/DAO/LocBlock.php
+msgid "Instant Messenger 2 ID"
+msgstr ""
 
 #: CRM/Core/DAO/LocBlock.php
 msgid "Instant Messenger 2"
@@ -9402,7 +9629,8 @@ msgstr "Serviço de Mensagens Instantâneas 2"
 msgid "Location Types"
 msgstr ""
 
-#: CRM/Core/DAO/LocationType.php
+#: CRM/Core/DAO/LocationType.php CRM/Core/DAO/Phone.php
+#: CRM/Core/DAO/UFField.php
 msgid "Location Type ID"
 msgstr "ID do Tipo de Localização"
 
@@ -9496,10 +9724,6 @@ msgstr ""
 #: CRM/Core/DAO/MailSettings.php
 msgid "Mail Settings ID"
 msgstr "ID das Configurações de Correio"
-
-#: CRM/Core/DAO/MailSettings.php
-msgid "Mail Settings Domain"
-msgstr "Domínio das Configurações do Correio"
 
 #: CRM/Core/DAO/MailSettings.php CRM/Core/DAO/UFMatch.php
 msgid "Which Domain is this match entry for"
@@ -9675,10 +9899,6 @@ msgid "Mappings"
 msgstr ""
 
 #: CRM/Core/DAO/Mapping.php
-msgid "Mapping"
-msgstr ""
-
-#: CRM/Core/DAO/Mapping.php
 msgid "Mapping Name"
 msgstr "Nome do Mapeamento"
 
@@ -9738,6 +9958,14 @@ msgstr "ID do Tipo de Localização"
 msgid "Location type of this mapping, if required"
 msgstr "Tipo de localização deste mapeamento, se necessário"
 
+#: CRM/Core/DAO/MappingField.php
+msgid "Location type"
+msgstr ""
+
+#: CRM/Core/DAO/MappingField.php
+msgid "Phone type ID"
+msgstr ""
+
 #: CRM/Core/DAO/MappingField.php CRM/Core/DAO/Phone.php
 msgid "Which type of phone does this number belongs."
 msgstr "A que tipo de telefone pertence este número."
@@ -9765,6 +9993,10 @@ msgstr "ID do Tipo de Relacionamento"
 #: CRM/Core/DAO/MappingField.php
 msgid "Relationship type, if required"
 msgstr "Tipo de relacionamento, se necessário"
+
+#: CRM/Core/DAO/MappingField.php
+msgid "Relationship type"
+msgstr ""
 
 #: CRM/Core/DAO/MappingField.php
 msgid "Relationship Direction"
@@ -9874,12 +10106,20 @@ msgid "Url where a page should redirected to, if next url not known."
 msgstr "URL para o qual uma página deve ser redirecionada, se o próximo URL não for conhecido."
 
 #: CRM/Core/DAO/Menu.php
+msgid "Return URL"
+msgstr ""
+
+#: CRM/Core/DAO/Menu.php
 msgid "Return Url Args"
 msgstr "Argumentos de URL de retorno"
 
 #: CRM/Core/DAO/Menu.php
 msgid "Arguments to pass to return_url"
 msgstr "Argumentos a serem passados para return_url"
+
+#: CRM/Core/DAO/Menu.php
+msgid "Return URL Arguments"
+msgstr ""
 
 #: CRM/Core/DAO/Menu.php
 msgid "Is this menu item active?"
@@ -9944,14 +10184,6 @@ msgstr "Todos os outros metadados do menu não armazenados noutros campos"
 #: CRM/Core/DAO/MessageTemplate.php
 msgid "Message Templates"
 msgstr ""
-
-#: CRM/Core/DAO/MessageTemplate.php
-msgid "Message Template"
-msgstr ""
-
-#: CRM/Core/DAO/MessageTemplate.php
-msgid "Message Template ID"
-msgstr "ID do Modelo de Mensagem"
 
 #: CRM/Core/DAO/MessageTemplate.php
 msgid "Message Template Title"
@@ -10050,10 +10282,6 @@ msgid "Navigation ID"
 msgstr "ID da Navegação"
 
 #: CRM/Core/DAO/Navigation.php
-msgid "Navigation Domain"
-msgstr "Domínio da Navegação"
-
-#: CRM/Core/DAO/Navigation.php
 msgid "Which Domain is this navigation item for"
 msgstr "Para qual domínio este item de navegação é"
 
@@ -10094,12 +10322,16 @@ msgid "Permission for menu item"
 msgstr "Permissão para item de menu"
 
 #: CRM/Core/DAO/Navigation.php
-msgid "Navigation parent ID"
-msgstr "ID pai da navegação"
+msgid "parent ID"
+msgstr ""
 
 #: CRM/Core/DAO/Navigation.php
 msgid "Parent navigation item, used for grouping"
 msgstr "Item de navegação pai, usado para agrupar"
+
+#: CRM/Core/DAO/Navigation.php
+msgid "parent"
+msgstr ""
 
 #: CRM/Core/DAO/Navigation.php
 msgid "Is this navigation item active?"
@@ -10134,12 +10366,20 @@ msgid "Note and/or Comment."
 msgstr "Nota e/ou Comentário."
 
 #: CRM/Core/DAO/Note.php
-msgid "Note Created By"
-msgstr "Nota Criada Por"
-
-#: CRM/Core/DAO/Note.php
 msgid "FK to Contact ID creator"
 msgstr "Chave externa para o criador do ID do Contacto"
+
+#: CRM/Core/DAO/Note.php
+msgid "Note Date"
+msgstr ""
+
+#: CRM/Core/DAO/Note.php
+msgid "Date attached to the note"
+msgstr ""
+
+#: CRM/Core/DAO/Note.php
+msgid "When the note was created."
+msgstr ""
 
 #: CRM/Core/DAO/Note.php
 msgid "Note Modified By"
@@ -10177,10 +10417,6 @@ msgid "Unique OpenID ID"
 msgstr "ID exclusivo do OpenID "
 
 #: CRM/Core/DAO/OpenID.php
-msgid "OpenID Contact"
-msgstr "Contacto do OpenID"
-
-#: CRM/Core/DAO/OpenID.php
 msgid "OpenID Location Type"
 msgstr "Tipo de Localização do OpenID"
 
@@ -10204,7 +10440,7 @@ msgstr "É este é o email principal deste contacto e localização."
 msgid "Option Groups"
 msgstr ""
 
-#: CRM/Core/DAO/OptionGroup.php
+#: CRM/Core/DAO/OptionGroup.php CRM/Core/DAO/OptionValue.php
 msgid "Option Group"
 msgstr ""
 
@@ -10274,7 +10510,7 @@ msgstr ""
 msgid "Option Value"
 msgstr "Valor das Opções"
 
-#: CRM/Core/DAO/OptionValue.php
+#: CRM/Core/DAO/OptionValue.php CRM/Price/DAO/LineItem.php
 msgid "Option ID"
 msgstr "ID de Opção"
 
@@ -10374,16 +10610,8 @@ msgid "Option Is Active"
 msgstr "A Opção está Activa"
 
 #: CRM/Core/DAO/OptionValue.php
-msgid "Option Component"
-msgstr "Componente da Opção"
-
-#: CRM/Core/DAO/OptionValue.php
 msgid "Component that this option value belongs/caters to."
 msgstr "Componente ao qual esse valor de opção pertence/atende."
-
-#: CRM/Core/DAO/OptionValue.php
-msgid "Option Domain"
-msgstr "Domínio da Opção"
 
 #: CRM/Core/DAO/OptionValue.php
 msgid "Which Domain is this option value for"
@@ -10406,28 +10634,12 @@ msgid "Phones"
 msgstr ""
 
 #: CRM/Core/DAO/Phone.php
-msgid "Phone ID"
-msgstr "ID do Telefone"
-
-#: CRM/Core/DAO/Phone.php
 msgid "Unique Phone ID"
 msgstr "ID único de Telefone"
 
 #: CRM/Core/DAO/Phone.php
-msgid "Phone Contact"
-msgstr "Contacto do Telefone"
-
-#: CRM/Core/DAO/Phone.php
-msgid "Phone Location Type ID"
-msgstr ""
-
-#: CRM/Core/DAO/Phone.php
 msgid "Which Location does this phone belong to."
 msgstr "A que Localização pertence este telefone."
-
-#: CRM/Core/DAO/Phone.php
-msgid "Phone Location Type"
-msgstr "Tipo de Localização do Telefone"
 
 #: CRM/Core/DAO/Phone.php
 msgid "Primary phone"
@@ -10468,6 +10680,10 @@ msgstr "Telefone Numérico"
 #: CRM/Core/DAO/Phone.php
 msgid "Phone number stripped of all whitespace, letters, and punctuation."
 msgstr "Número de telefone do qual são eliminados todos os espaços em branco, letras e pontuação."
+
+#: CRM/Core/DAO/Phone.php
+msgid "Numeric"
+msgstr ""
 
 #: CRM/Core/DAO/Phone.php
 msgid "Phone Type ID"
@@ -10637,10 +10853,6 @@ msgid "Is this reserved label?"
 msgstr "Este rótulo é reservado?"
 
 #: CRM/Core/DAO/PrintLabel.php
-msgid "Label Created By"
-msgstr "Rótulo Criado Por"
-
-#: CRM/Core/DAO/PrintLabel.php
 msgid "FK to civicrm_contact, who created this label layout"
 msgstr "Chave externa para civicrm_contact, a pessoa que criou este layout de rótulo"
 
@@ -10652,16 +10864,12 @@ msgstr ""
 msgid "Recurring Entity"
 msgstr ""
 
-#: CRM/Core/DAO/RecurringEntity.php
+#: CRM/Core/DAO/RecurringEntity.php CRM/Price/DAO/PriceSet.php
 #: templates/CRM/Contact/Form/Task/HookSample.tpl
 #: templates/CRM/Custom/Page/Field.tpl templates/CRM/Custom/Page/Group.tpl
 #: templates/CRM/UF/Page/Group.tpl
 msgid "ID"
 msgstr "ID"
-
-#: CRM/Core/DAO/RecurringEntity.php
-msgid "Parent ID"
-msgstr "ID do Pai"
 
 #: CRM/Core/DAO/RecurringEntity.php
 msgid "Recurring Entity Parent ID"
@@ -10709,14 +10917,6 @@ msgstr "Valor"
 msgid "data associated with this group / name combo"
 msgstr "dados associados a este grupo/nome combinado"
 
-#: CRM/Core/DAO/Setting.php CRM/Core/DAO/StatusPreference.php
-msgid "Setting Domain"
-msgstr "Domínio da Configuração"
-
-#: CRM/Core/DAO/Setting.php
-msgid "Setting Contact"
-msgstr "Contacto da Configuração"
-
 #: CRM/Core/DAO/Setting.php
 msgid "FK to Contact ID if the setting is localized to a contact"
 msgstr "Chave Externa para ID do Contacto se a configuração é localizada a um contacto"
@@ -10730,10 +10930,6 @@ msgid "Is this setting a contact specific or site wide setting?"
 msgstr "É esta configuração específica para um contacto ou para todo o site?"
 
 #: CRM/Core/DAO/Setting.php
-msgid "Setting Component"
-msgstr "Componente da Configuração"
-
-#: CRM/Core/DAO/Setting.php
 msgid "Setting Created Date"
 msgstr "Data de Criação da Configuração"
 
@@ -10742,24 +10938,12 @@ msgid "When was the setting created"
 msgstr "Quando a configuração foi criada"
 
 #: CRM/Core/DAO/Setting.php
-msgid "Setting Created By"
-msgstr "Configuração Criada Por"
-
-#: CRM/Core/DAO/Setting.php
 msgid "FK to civicrm_contact, who created this setting"
 msgstr "Chace Externa para civicrm_contact, a pessoa que criou esta configuração"
 
 #: CRM/Core/DAO/StateProvince.php
 msgid "States/Provinces"
 msgstr ""
-
-#: CRM/Core/DAO/StateProvince.php
-msgid "State ID"
-msgstr "ID de Estado"
-
-#: CRM/Core/DAO/StateProvince.php
-msgid "State/Province ID"
-msgstr "ID de Estado/Província"
 
 #: CRM/Core/DAO/StateProvince.php
 msgid "Name of State/Province"
@@ -10776,6 +10960,14 @@ msgstr "Abreviatura de 2-4 caracteres para Estado/Província"
 #: CRM/Core/DAO/StateProvince.php
 msgid "ID of Country that State/Province belong"
 msgstr "ID do país ao qual o Estado/Província pertence"
+
+#: CRM/Core/DAO/StateProvince.php
+msgid "StateProvince Is Active"
+msgstr ""
+
+#: CRM/Core/DAO/StateProvince.php
+msgid "Is this StateProvince active?"
+msgstr ""
 
 #: CRM/Core/DAO/StatusPreference.php
 msgid "Status Preferences"
@@ -10904,10 +11096,6 @@ msgid "Optional Name of logging host"
 msgstr "Nome Opcional de logging do host"
 
 #: CRM/Core/DAO/Tag.php
-msgid "Tag ID"
-msgstr "ID da Etiqueta"
-
-#: CRM/Core/DAO/Tag.php
 msgid "Name of Tag."
 msgstr "Nome da Etiqueta."
 
@@ -10915,13 +11103,17 @@ msgstr "Nome da Etiqueta."
 msgid "Optional verbose description of the tag."
 msgstr "Descrição detalhada opcional da tag."
 
-#: CRM/Core/DAO/Tag.php CRM/Tag/Form/Edit.php
-msgid "Parent Tag"
-msgstr "Etiqueta Mãe"
+#: CRM/Core/DAO/Tag.php
+msgid "Parent Tag ID"
+msgstr ""
 
 #: CRM/Core/DAO/Tag.php
 msgid "Optional parent id for this tag."
 msgstr "ID opcional do progenitor desta tag."
+
+#: CRM/Core/DAO/Tag.php CRM/Tag/Form/Edit.php
+msgid "Parent Tag"
+msgstr "Etiqueta Mãe"
 
 #: CRM/Core/DAO/Tag.php
 msgid "Display Tag?"
@@ -10939,10 +11131,6 @@ msgstr "Reservado"
 #: CRM/Core/DAO/Tag.php
 msgid "Tagset"
 msgstr "Conjunto de Etiquetas"
-
-#: CRM/Core/DAO/Tag.php
-msgid "Tag Created By"
-msgstr "Etiqueta Criada Por"
 
 #: CRM/Core/DAO/Tag.php
 msgid "FK to civicrm_contact, who created this tag"
@@ -10963,10 +11151,6 @@ msgstr ""
 #: CRM/Core/DAO/Timezone.php
 msgid "Timezone ID"
 msgstr "ID do Fuso Horário"
-
-#: CRM/Core/DAO/Timezone.php
-msgid "Timezone Id"
-msgstr "Id do Fuso Horário"
 
 #: CRM/Core/DAO/Timezone.php
 msgid "Timezone Name"
@@ -10995,6 +11179,62 @@ msgstr "nome GMT do fuso horário"
 #: CRM/Core/DAO/Timezone.php
 msgid "GMT Offset"
 msgstr "Diferença para GMT"
+
+#: CRM/Core/DAO/Translation.php
+msgid "Translated Strings"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Translated String"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Translated String ID"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Unique String ID"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Translated Entity"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Table where referenced item is stored"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Translated Field"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Field where referenced item is stored"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Translated Entity ID"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "ID of the relevant entity."
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Language"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Relevant language"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Specify whether the string is active, draft, etc"
+msgstr ""
+
+#: CRM/Core/DAO/Translation.php
+msgid "Translated string"
+msgstr ""
 
 #: CRM/Core/DAO/UFField.php
 msgid "UFFields"
@@ -11085,24 +11325,20 @@ msgid "Is this field included search form of profile?"
 msgstr "Este campo inclui o formulário de pesquisa do perfil?"
 
 #: CRM/Core/DAO/UFField.php
-msgid "Profile Field Location Type"
-msgstr "Tipo de Localização do Campo do Perfil"
-
-#: CRM/Core/DAO/UFField.php
 msgid "Profile Field Phone Type"
 msgstr "Tipo de Telefone do Campo do Perfil"
 
 #: CRM/Core/DAO/UFField.php
-msgid "Phone Type Id, if required"
-msgstr "ID do Tipo de Telefone, se necessário"
+msgid "Phone Type ID, if required"
+msgstr ""
 
 #: CRM/Core/DAO/UFField.php
 msgid "Profile Field Website Type"
 msgstr "Tipo de Website do Campo do Perfil"
 
 #: CRM/Core/DAO/UFField.php
-msgid "Website Type Id, if required"
-msgstr "ID do Tipo de Website, se necessário"
+msgid "Website Type ID, if required"
+msgstr ""
 
 #: CRM/Core/DAO/UFField.php
 msgid "Profile Field Label"
@@ -11190,17 +11426,26 @@ msgstr "Descrição detalhada opcional do perfil."
 msgid "Help Pre"
 msgstr "Pre-ajuda"
 
+#: CRM/Core/DAO/UFGroup.php CRM/Price/DAO/PriceFieldValue.php
+#: templates/CRM/Custom/Page/Group.hlp templates/CRM/Price/Page/Option.tpl
+msgid "Pre Help"
+msgstr "Pré-Ajuda"
+
 #: CRM/Core/DAO/UFGroup.php
 msgid "Profile Post Text"
 msgstr "Texto Posterior do Perfil"
 
 #: CRM/Core/DAO/UFGroup.php
-msgid "Profile Search Limit Group"
-msgstr "Grupo para Restrição da Pesquisa do Perfil"
+msgid "Search Limit Group ID"
+msgstr ""
 
 #: CRM/Core/DAO/UFGroup.php
 msgid "Group id, foreign key from civicrm_group"
 msgstr "ID do grupo, chave externa a partir de civicrm_group"
+
+#: CRM/Core/DAO/UFGroup.php
+msgid "Search Limit Group"
+msgstr ""
 
 #: CRM/Core/DAO/UFGroup.php
 msgid "Post Url"
@@ -11211,12 +11456,20 @@ msgid "Redirect to URL."
 msgstr "Redirecionar para URL."
 
 #: CRM/Core/DAO/UFGroup.php
-msgid "Add Contact To Group"
-msgstr "Adicionar o Contacto ao Grupo"
+msgid "Post URL"
+msgstr ""
+
+#: CRM/Core/DAO/UFGroup.php
+msgid "Add Contact To Group ID"
+msgstr ""
 
 #: CRM/Core/DAO/UFGroup.php
 msgid "foreign key to civicrm_group_id"
 msgstr "chave eexterna para civicrm_group_id"
+
+#: CRM/Core/DAO/UFGroup.php
+msgid "Add Contact To Group"
+msgstr "Adicionar o Contacto ao Grupo"
 
 #: CRM/Core/DAO/UFGroup.php
 msgid "Show Captcha On Profile"
@@ -11289,10 +11542,6 @@ msgstr "Este grupo está reservado para ser usado por outras funcionalidades do 
 #: CRM/Core/DAO/UFGroup.php
 msgid "Name of the UF group for directly addressing it in the codebase"
 msgstr "Nome do grupo UF que o endereça directamente no codebase"
-
-#: CRM/Core/DAO/UFGroup.php
-msgid "Profile Created By"
-msgstr "Perfil Criado Por"
 
 #: CRM/Core/DAO/UFGroup.php
 msgid "FK to civicrm_contact, who created this UF group"
@@ -11417,10 +11666,6 @@ msgid "System generated ID."
 msgstr "ID gerado pelo sistema."
 
 #: CRM/Core/DAO/UFMatch.php
-msgid "UF Match Domain ID"
-msgstr "ID de Correspondência de Domínios UF"
-
-#: CRM/Core/DAO/UFMatch.php
 msgid "CMS ID"
 msgstr "ID do CMS"
 
@@ -11435,10 +11680,6 @@ msgstr "Identificador Único do CMS"
 #: CRM/Core/DAO/UFMatch.php
 msgid "UF Name"
 msgstr "Nome do UF"
-
-#: CRM/Core/DAO/UFMatch.php
-msgid "CiviCRM Contact ID"
-msgstr "ID do Contacto do CiviCRM"
 
 #: CRM/Core/DAO/UFMatch.php
 msgid "UI language preferred by the given user/contact"
@@ -11506,10 +11747,6 @@ msgstr "A Substituição de Palavras está Activa"
 #: CRM/Core/DAO/WordReplacement.php
 msgid "Word Replacement Match Type"
 msgstr "Tipo de Correspondência de Substituição de Palavras"
-
-#: CRM/Core/DAO/WordReplacement.php
-msgid "Word Replacement Domain ID"
-msgstr "ID de Domínio de Substituição de Palavras"
 
 #: CRM/Core/DAO/WordReplacement.php
 msgid "FK to Domain ID. This is for Domain specific word replacement"
@@ -12073,7 +12310,7 @@ msgstr "Elavon - pagamentos recorrentes não implementados"
 msgid "Elavon / Nova Virtual Merchant Gateway requires curl with SSL support"
 msgstr "O Gateway Elavon/Nova Virtual Merchant requer obrigatoriamente curl com suporte SSL"
 
-#: CRM/Core/Payment/Elavon.php CRM/Core/Payment/PayflowPro.php
+#: CRM/Core/Payment/Elavon.php
 msgid "ssl_merchant_id is not set for this payment processor"
 msgstr "Não foi definido nenhum ssl_merchant_id para este processador de pagamento"
 
@@ -12156,6 +12393,12 @@ msgid ""
 msgstr "O Nome de Utilizador não está definido em Administração --> Configurações do Sistema --> Processadores de Pagamento."
 
 #: CRM/Core/Payment/PayPalImpl.php
+msgid ""
+"Site URL is not set (eg. https://www.paypal.com/ - "
+"https://www.sandbox.paypal.com/)"
+msgstr ""
+
+#: CRM/Core/Payment/PayPalImpl.php
 msgid "Recurring contribution, but no database id"
 msgstr "Contribuição recorrente, mas sem Id na base de dados"
 
@@ -12163,14 +12406,6 @@ msgstr "Contribuição recorrente, mas sem Id na base de dados"
 msgid ""
 "Please set the API URL. Please refer to the documentation for more details"
 msgstr "Por favor defina o URL do API. Consulte a documentação para mais detalhes."
-
-#: CRM/Core/Payment/PayflowPro.php
-msgid "Payflow Pro requires curl with SSL support"
-msgstr "O Payflow Pro requer curl com suporte SSL"
-
-#: CRM/Core/Payment/PayflowPro.php
-msgid "URL is not set for %1"
-msgstr "O URL não está definido para %1"
 
 #: CRM/Core/Payment/ProcessorForm.php
 msgid "Payment processor is not set for this page"
@@ -12245,19 +12480,11 @@ msgid ""
 msgstr "Não foi possível processar seu pagamento nesta altura. Por favor tentar novamente mais tarde."
 
 #: CRM/Core/Payment.php
-msgid "Your recurring contribution will be processed automatically."
-msgstr "A sua contribuição recorrente será processada automaticamente."
-
-#: CRM/Core/Payment.php
 msgid ""
 "You can specify the number of installments, or you can leave the number of "
 "installments blank if you want to make an open-ended commitment. In either "
 "case, you can choose to cancel at any time."
 msgstr "Você pode especificar o número de prestações, ou pode deixar em branco o número de prestações caso queira assumir um compromisso sem data concreta para expirar. Em qualquer dos casos, você poderá cancelar quando quiser."
-
-#: CRM/Core/Payment.php
-msgid "You will receive an email receipt for each recurring contribution."
-msgstr "Você receberá um email-recibo por cada contribuição recorrente."
 
 #: CRM/Core/Payment.php
 msgid ""
@@ -12405,14 +12632,38 @@ msgstr "Nenhumas instâncias activas de processador de pagamentos '%1' foram enc
 msgid "Recurring payment"
 msgstr "Pagamento Recorrente"
 
+#: CRM/Core/Permission/List.php
+msgid "CMS"
+msgstr ""
+
+#: CRM/Core/Permission/List.php
+msgid "View user accounts"
+msgstr ""
+
+#: CRM/Core/Permission/List.php
+msgid "View user accounts. (Synthetic permission - adapts to local CMS)"
+msgstr ""
+
+#: CRM/Core/Permission/List.php
+msgid "Administer user accounts"
+msgstr ""
+
+#: CRM/Core/Permission/List.php
+msgid "Administer user accounts. (Synthetic permission - adapts to local CMS)"
+msgstr ""
+
+#: CRM/Core/Permission/List.php
+msgid "Generic: Deny all users"
+msgstr ""
+
+#: CRM/Core/Permission/List.php
+msgid "Generic: Allow all users (including anonymous)"
+msgstr ""
+
 #: CRM/Core/Permission.php CRM/Logging/ReportDetail.php
 #: templates/CRM/common/joomla.tpl templates/CRM/common/print.tpl
 msgid "CiviCRM"
 msgstr "CiviCRM"
-
-#: CRM/Core/Permission.php
-msgid "administer Multiple Organizations"
-msgstr "administrar Múltiplas Organizações"
 
 #: CRM/Core/Permission.php
 msgid "add contacts"
@@ -12885,6 +13136,27 @@ msgstr ""
 msgid "Permit altering all restricted data options"
 msgstr ""
 
+#: CRM/Core/Permission.php
+msgid "all CiviCRM permissions and ACLs"
+msgstr ""
+
+#: CRM/Core/Permission.php
+msgid ""
+"Administer and use CiviCRM bypassing any other permission or ACL checks and "
+"enabling the creation of displays and forms that allow others to bypass "
+"checks. This permission should be given out with care"
+msgstr ""
+
+#: CRM/Core/Permission.php
+msgid "administer Multiple Organizations"
+msgstr "administrar Múltiplas Organizações"
+
+#: CRM/Core/Permission.php
+msgid ""
+"Administer multiple organizations. In practice this allows editing the group"
+" organization link"
+msgstr ""
+
 #: CRM/Core/QuickForm/Action/Upload.php
 msgid ""
 "We could not move the uploaded file %1 to the upload directory %2. Please "
@@ -12907,16 +13179,16 @@ msgid ""
 msgstr ""
 
 #: CRM/Core/Resources.php
-msgid "Start typing a name or email..."
-msgstr "Comece a digitar um nome ou endereço de email..."
+msgid "Search by name/email or id..."
+msgstr ""
 
 #: CRM/Core/Resources.php
-msgid "Start typing a name..."
-msgstr "Comece a digitar um nome..."
+msgid "Search by name or id..."
+msgstr ""
 
 #: CRM/Core/Resources.php
-msgid "Enter search term..."
-msgstr "Insira um termo de busca..."
+msgid "Enter search term or id..."
+msgstr ""
 
 #: CRM/Core/SelectValues.php
 msgid "HTML"
@@ -13353,7 +13625,7 @@ msgstr "URL de Inscrições do Evento"
 msgid "Event Balance"
 msgstr "Balanço do Evento"
 
-#: CRM/Core/SelectValues.php
+#: CRM/Core/SelectValues.php CRM/Price/DAO/LineItem.php
 msgid "Contribution ID"
 msgstr "ID da Contribuição"
 
@@ -14349,131 +14621,133 @@ msgstr "Opção Personalizada"
 msgid "Custom Data Fields"
 msgstr "Campos de Dados Personalizados"
 
-#: CRM/Dedupe/DAO/Exception.php
-msgid "Exceptions"
+#: CRM/Dedupe/DAO/DedupeException.php
+msgid "Dedupe Exceptions"
 msgstr ""
 
-#: CRM/Dedupe/DAO/Exception.php
-msgid "Exception"
+#: CRM/Dedupe/DAO/DedupeException.php
+msgid "Dedupe Exception"
 msgstr ""
 
-#: CRM/Dedupe/DAO/Exception.php
+#: CRM/Dedupe/DAO/DedupeException.php
 msgid "Dedupe Exception ID"
 msgstr "ID de Exceção de Deduplicação"
 
-#: CRM/Dedupe/DAO/Exception.php
+#: CRM/Dedupe/DAO/DedupeException.php
 msgid "Unique dedupe exception id"
 msgstr "ID de Exceção de Deduplicação Exclusivo"
 
-#: CRM/Dedupe/DAO/Exception.php
+#: CRM/Dedupe/DAO/DedupeException.php
 msgid "First Dupe Contact ID"
 msgstr "ID do Contacto First Dupe"
 
-#: CRM/Dedupe/DAO/Exception.php
+#: CRM/Dedupe/DAO/DedupeException.php
+msgid "First Dupe Contact"
+msgstr ""
+
+#: CRM/Dedupe/DAO/DedupeException.php
 msgid "Second Dupe Contact ID"
 msgstr "ID do Contacto Second Dupe"
 
-#: CRM/Dedupe/DAO/Rule.php
-msgid "Rules"
+#: CRM/Dedupe/DAO/DedupeException.php
+msgid "Second Dupe Contact"
 msgstr ""
 
-#: CRM/Dedupe/DAO/Rule.php
-msgid "Rule"
+#: CRM/Dedupe/DAO/DedupeRule.php
+msgid "Dedupe Rules"
 msgstr ""
 
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "Dedupe Rule ID"
 msgstr "ID da Regra de Deduplicação"
 
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "Unique dedupe rule id"
 msgstr "id exclusivo de regra de deduplicação"
 
-#: CRM/Dedupe/DAO/Rule.php
-msgid "Dedupe Rule Group"
-msgstr "Grupo de Regras de Deduplicação"
-
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "The id of the rule group this rule belongs to"
 msgstr "O ID do grupo de regras ao qual esta regra pertence"
 
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "Rule Table"
 msgstr "Tabela de Regras"
 
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "The name of the table this rule is about"
 msgstr "O nome da tabela a que se refere esta regra"
 
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "Rule Field"
 msgstr "Campo da Regra"
 
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "The name of the field of the table referenced in rule_table"
 msgstr "O nome do campo da tabela referenciada em rule_table"
 
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "Rule Length"
 msgstr "Tamanho de Regras"
 
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "The length of the matching substring"
 msgstr "O comprimento da substring correspondente"
 
-#: CRM/Dedupe/DAO/Rule.php
+#: CRM/Dedupe/DAO/DedupeRule.php
 msgid "The weight of the rule"
 msgstr "O peso da regra"
 
-#: CRM/Dedupe/DAO/RuleGroup.php
-msgid "Rule Groups"
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
+msgid "Dedupe Rule Groups"
 msgstr ""
 
-#: CRM/Dedupe/DAO/RuleGroup.php
-msgid "Rule Group"
-msgstr ""
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
+msgid "Dedupe Rule Group"
+msgstr "Grupo de Regras de Deduplicação"
 
-#: CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
 msgid "Rule Group ID"
 msgstr "ID do Grupo de Regra"
 
-#: CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
 msgid "Unique dedupe rule group id"
 msgstr "ID exclusivo do grupo de regras de deduplicação"
 
-#: CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
 msgid "The type of contacts this group applies to"
 msgstr "O tipo de contacto ao qual este grupo se aplica"
 
-#: CRM/Dedupe/DAO/RuleGroup.php templates/CRM/Contact/Page/DedupeFind.tpl
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
+#: templates/CRM/Contact/Page/DedupeFind.tpl
 msgid "Threshold"
 msgstr "Limiar"
 
-#: CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
 msgid ""
 "The weight threshold the sum of the rule weights has to cross to consider "
 "two contacts the same"
 msgstr "O limiar de peso que a soma dos pesos das regras deve ultrapassar para considerar dois contactos como sendo iguais"
 
-#: CRM/Dedupe/DAO/RuleGroup.php templates/CRM/Contact/Form/DedupeRules.tpl
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
+#: templates/CRM/Contact/Form/DedupeRules.tpl
 msgid "Length"
 msgstr "Comprimento"
 
-#: CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
 msgid ""
 "Whether the rule should be used for cases where usage is Unsupervised, "
 "Supervised OR General(programatically)"
 msgstr "Se a regra deve ser usada nos casos em que o uso não é supervisionado, supervisionado OU geral (programaticamente)"
 
-#: CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
 msgid "Name of the rule group"
 msgstr "Nome do grupo de regras"
 
-#: CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
 msgid "Label of the rule group"
 msgstr "R]otulo do grupo de regras"
 
-#: CRM/Dedupe/DAO/RuleGroup.php
+#: CRM/Dedupe/DAO/DedupeRuleGroup.php
 msgid ""
 "Is this a reserved rule - a rule group that has been optimized and cannot be"
 " changed by the admin"
@@ -14582,10 +14856,6 @@ msgstr "Pesquisa de Subvenções do CiviCRM"
 #: CRM/Export/BAO/ExportProcessor.php
 msgid "CiviCRM Search"
 msgstr "Pesquisa do CiviCRM"
-
-#: CRM/Export/BAO/ExportProcessor.php
-msgid "Campaign ID"
-msgstr "ID da Campanha"
 
 #: CRM/Export/BAO/ExportProcessor.php
 msgid "Household ID"
@@ -14919,12 +15189,6 @@ msgstr "O Grupo '%1' foi guardado."
 msgid "Add Parent"
 msgstr "Adicionar Ascendente"
 
-#: CRM/Group/Form/Search.php templates/CRM/Contact/Page/View/Note.tpl
-#: templates/CRM/Group/Form/Edit.tpl templates/CRM/Group/Form/Search.tpl
-#: templates/CRM/UF/Page/Group.tpl
-msgid "Created By"
-msgstr "Criado Por"
-
 #: CRM/Group/Form/Search.php
 msgid "Normal Group"
 msgstr ""
@@ -15001,6 +15265,10 @@ msgstr "Carregar Dados"
 #: CRM/Import/Form/MapField.php
 msgid "Match Fields"
 msgstr "Emparelhar Campos"
+
+#: CRM/Import/Form/MapField.php
+msgid "(Sum of all weights should be greater than or equal to threshold: %1)."
+msgstr "(A Soma de todos os pesos deve ser igual ou superior ao limiar: %1)."
 
 #: CRM/Import/Form/Preview.php
 msgid "Import Now"
@@ -15106,7 +15374,7 @@ msgstr "Desculpe, esta opção está actualmente esgotada."
 msgid "Text / Numeric Quantity"
 msgstr "Quantidade de texto/numeros"
 
-#: CRM/Price/BAO/PriceField.php
+#: CRM/Price/BAO/PriceField.php templates/CRM/Contact/Form/Search/Builder.js
 msgid "Select"
 msgstr "Selecionar"
 
@@ -15156,8 +15424,9 @@ msgid "Line Item Entity Type"
 msgstr "Tipo de Entidade de Item de Linha"
 
 #: CRM/Price/DAO/LineItem.php
-msgid "table which has the transaction"
-msgstr "tabela que possui a transação"
+msgid ""
+"May contain civicrm_contribution, civicrm_participant or civicrm_membership"
+msgstr ""
 
 #: CRM/Price/DAO/LineItem.php
 msgid "Line Item Entity"
@@ -15168,20 +15437,23 @@ msgid "entry in table"
 msgstr "entrada na tabela"
 
 #: CRM/Price/DAO/LineItem.php
-msgid "Line Item Contribution"
-msgstr "Contribuição de Item de Linha"
-
-#: CRM/Price/DAO/LineItem.php
 msgid "FK to civicrm_contribution"
 msgstr "Chave externa para civicrm_contribution"
 
-#: CRM/Price/DAO/LineItem.php
-msgid "Line Item Price Field"
-msgstr "Campo de Preço do Item de Linha"
+#: CRM/Price/DAO/LineItem.php CRM/Price/DAO/PriceField.php
+#: CRM/Price/DAO/PriceFieldValue.php
+msgid "Price Field ID"
+msgstr "ID do Campo de Preço"
 
 #: CRM/Price/DAO/LineItem.php CRM/Price/DAO/PriceFieldValue.php
 msgid "FK to civicrm_price_field"
 msgstr "Chave externa para civicrm_price_field"
+
+#: CRM/Price/DAO/LineItem.php CRM/Price/DAO/PriceField.php
+#: CRM/Price/DAO/PriceFieldValue.php CRM/Price/Form/Field.php
+#: CRM/Price/Page/Field.php
+msgid "Price Field"
+msgstr "Campo de Preço"
 
 #: CRM/Price/DAO/LineItem.php
 msgid "Line Item Label"
@@ -15225,14 +15497,15 @@ msgid "Participant count for field"
 msgstr "Contagem de participantes por campo"
 
 #: CRM/Price/DAO/LineItem.php
-msgid "Line Item Option"
-msgstr "Opção de Item de Linha"
-
-#: CRM/Price/DAO/LineItem.php
 msgid "FK to civicrm_price_field_value"
 msgstr "Chave Externa para civicrm_price_field_value"
 
 #: CRM/Price/DAO/LineItem.php
+msgid "Option"
+msgstr ""
+
+#: CRM/Price/DAO/LineItem.php CRM/Price/DAO/PriceFieldValue.php
+#: CRM/Price/DAO/PriceSet.php
 msgid "Financial Type ID"
 msgstr ""
 
@@ -15256,24 +15529,6 @@ msgstr "imposto sobre cada item"
 #: CRM/Price/DAO/PriceField.php CRM/Price/Page/Option.php
 msgid "Price Fields"
 msgstr "Campos de Preço"
-
-#: CRM/Price/DAO/PriceField.php CRM/Price/DAO/PriceFieldValue.php
-#: CRM/Price/Form/Field.php CRM/Price/Page/Field.php
-msgid "Price Field"
-msgstr "Campo de Preço"
-
-#: CRM/Price/DAO/PriceField.php
-msgid "Price Field ID"
-msgstr "ID do Campo de Preço"
-
-#: CRM/Price/DAO/PriceField.php CRM/Price/DAO/PriceSet.php
-#: CRM/Price/DAO/PriceSetEntity.php CRM/Price/Page/Set.php
-msgid "Price Set"
-msgstr "Conjunto de Preços"
-
-#: CRM/Price/DAO/PriceField.php
-msgid "Variable name/programmatic handle for this field."
-msgstr "Nome da variável/identificador programático para este campo."
 
 #: CRM/Price/DAO/PriceField.php
 msgid ""
@@ -15400,6 +15655,11 @@ msgstr "Postagem de Ajuda"
 msgid "Price field option post field help."
 msgstr "Texto de pós-ajuda da opção do Campo de Preço"
 
+#: CRM/Price/DAO/PriceFieldValue.php templates/CRM/Custom/Page/Group.hlp
+#: templates/CRM/Price/Page/Option.tpl
+msgid "Post Help"
+msgstr "Pós-Ajuda"
+
 #: CRM/Price/DAO/PriceFieldValue.php
 msgid "Price field option amount"
 msgstr "Montante da opção do Campo de Preço"
@@ -15425,6 +15685,10 @@ msgid "Order in which the field options should appear"
 msgstr "Ordem na qual as opções de campo devem aparecer"
 
 #: CRM/Price/DAO/PriceFieldValue.php
+msgid "Membership Type ID"
+msgstr ""
+
+#: CRM/Price/DAO/PriceFieldValue.php
 msgid "FK to Membership Type"
 msgstr "Chave Externa para Membership Type"
 
@@ -15435,6 +15699,10 @@ msgstr "Número de Termos de Membresia"
 #: CRM/Price/DAO/PriceFieldValue.php
 msgid "Number of terms for this membership"
 msgstr "Número de termos para esta membresia"
+
+#: CRM/Price/DAO/PriceFieldValue.php
+msgid "Number of terms"
+msgstr ""
 
 #: CRM/Price/DAO/PriceFieldValue.php
 msgid "Is Default Price Field Option?"
@@ -15460,10 +15728,6 @@ msgstr "Visibilidade da Opção de Campo de Preço"
 #: CRM/Price/Form/Set.php CRM/Price/Page/Set.php
 msgid "Price Sets"
 msgstr "Conjuntos de Preços"
-
-#: CRM/Price/DAO/PriceSet.php
-msgid "Price Set Domain"
-msgstr "Domínio do Conjunto de Preços"
 
 #: CRM/Price/DAO/PriceSet.php
 msgid "Which Domain is this price-set for"
@@ -16100,10 +16364,6 @@ msgstr "Pesquisar Perfil"
 msgid "This profile does not have the map feature turned on."
 msgstr "Este perfil não tem o recurso de mapa ligado."
 
-#: CRM/Profile/Page/MultipleRecordFieldsListing.php
-msgid "Copy %1"
-msgstr "Copiar %1"
-
 #: CRM/Profile/Page/Router.php
 msgid "Create Profile"
 msgstr "Criar Perfil"
@@ -16141,10 +16401,6 @@ msgstr ""
 #: CRM/SMS/DAO/Provider.php templates/CRM/Contact/Form/Task/SMS.hlp
 msgid "Provider"
 msgstr "Fornecedor"
-
-#: CRM/SMS/DAO/Provider.php
-msgid "SMS Provider ID"
-msgstr "ID do Provedor de SMS"
 
 #: CRM/SMS/DAO/Provider.php
 msgid "SMS Provider Name"
@@ -16199,10 +16455,6 @@ msgstr "O Provedor de SMS é Predefinido?"
 #: CRM/SMS/DAO/Provider.php
 msgid "SMS Provider is Active?"
 msgstr "O Provedor de SMS está Activo?"
-
-#: CRM/SMS/DAO/Provider.php
-msgid "SMS Domain"
-msgstr "Domínio de SMS"
 
 #: CRM/SMS/DAO/Provider.php
 msgid "Which Domain is this sms provider for"
@@ -17083,15 +17335,24 @@ msgstr "Por favor edite o ficheiro XML para o tipo de caso \"<em>%2</em>\" para 
 msgid "Case Role using display label instead of internal machine name"
 msgstr "Papel de Caso que usa um rótulo de exibição em vez de nome interno da máquina"
 
-#: CRM/Utils/Check/Component/Cms.php
+#: CRM/Utils/Check/Component/Case.php
 msgid ""
-"CiviCRM relies upon a <a href=\"%1%2\">base page in WordPress</a>, but it is"
-" not published."
+"Case Type \"<em>%1</em>\" has invalid characters in the internal machine "
+"name (<em>%2</em>). Only letters, numbers, and underscore are allowed."
+msgstr ""
+
+#: CRM/Utils/Check/Component/Case.php
+msgid "Invalid Case Type Name"
 msgstr ""
 
 #: CRM/Utils/Check/Component/Cms.php
 msgid ""
-"CiviCRM relies upon a base page in WordPress at %1%2, but it is missing."
+"CiviCRM relies upon a <a href=\"%1\">base page in WordPress</a>, but it is "
+"not published."
+msgstr ""
+
+#: CRM/Utils/Check/Component/Cms.php
+msgid "CiviCRM relies upon a base page in WordPress at %1, but it is missing."
 msgstr ""
 
 #: CRM/Utils/Check/Component/Cms.php
@@ -17101,7 +17362,7 @@ msgid ""
 msgstr ""
 
 #: CRM/Utils/Check/Component/Cms.php
-msgid "The default is %1%2, which <a href=\"%1%2\">does exist on this site</a>."
+msgid "The default is %1, which <a href=\"%1\">does exist on this site</a>."
 msgstr ""
 
 #: CRM/Utils/Check/Component/Cms.php
@@ -17109,7 +17370,7 @@ msgid "However, it is not published."
 msgstr ""
 
 #: CRM/Utils/Check/Component/Cms.php
-msgid "The default is %1%2, but that does not exist on this site either."
+msgid "The default is %1, but that does not exist on this site either."
 msgstr ""
 
 #: CRM/Utils/Check/Component/Cms.php
@@ -17773,18 +18034,6 @@ msgstr "Estado do Sistema: Informação"
 msgid "System Status: Ok"
 msgstr "Estado do Sistema: Ok"
 
-#: CRM/Utils/DeprecatedUtils.php
-msgid "Participant  id is not valid"
-msgstr "O ID do Participante não é válido"
-
-#: CRM/Utils/DeprecatedUtils.php
-msgid "Contact id is not valid"
-msgstr "O ID do Contacto não é válido"
-
-#: CRM/Utils/DeprecatedUtils.php
-msgid "Event templates are not meant to be registered."
-msgstr "Os Modelos de Eventos não são feitos para serem registados."
-
 #: CRM/Utils/File.php
 msgid "Unable to remove file %1"
 msgstr "Não foi possível remover o ficheiro %1"
@@ -18060,14 +18309,6 @@ msgstr " &lt;&lt; Primeiro"
 msgid "Last &gt;&gt;"
 msgstr "Último &gt;&gt;"
 
-#: CRM/Utils/ReCAPTCHA.php
-msgid "Please go back and complete the CAPTCHA at the bottom of this form."
-msgstr "Por favor volte para trás e complete o CAPTCHA no final deste formulário."
-
-#: CRM/Utils/Request.php
-msgid "Could not find valid value for %1"
-msgstr "Não foi possível encontrar um valor válido para %1"
-
 #: CRM/Utils/System/Backdrop.php CRM/Utils/System/Drupal.php
 #: CRM/Utils/System/Drupal6.php CRM/Utils/System/Joomla.php
 #: CRM/Utils/System/WordPress.php
@@ -18264,6 +18505,10 @@ msgstr ""
 msgid "Permanently Delete %1"
 msgstr ""
 
+#: ang/crmDashboard/crmDashboard.component.js
+msgid "Deleting"
+msgstr ""
+
 #: ang/crmDashboard/crmInactiveDashlet.component.js
 msgid ""
 "Do you want to remove this dashlet as an \"Available Dashlet\", AND delete "
@@ -18357,6 +18602,10 @@ msgstr "Apagar %1?"
 #: ang/crmUi.js
 msgid "Hello"
 msgstr "Olá"
+
+#: js/Common.js
+msgid "Select Current User"
+msgstr ""
 
 #: js/Common.js
 msgid "new tag"
@@ -19533,6 +19782,10 @@ msgstr "Primeiro Nome:"
 msgid "Last Name:"
 msgstr "Último Apelido:"
 
+#: templates/CRM/Block/Add.tpl
+msgid "Email:"
+msgstr "Email:"
+
 #: templates/CRM/Block/CreateNew.tpl
 msgid "Create New"
 msgstr "Criar Novo"
@@ -20488,7 +20741,6 @@ msgid "Display Results have been Reset"
 msgstr "A Exibição de Resultados foi reiniciada"
 
 #: templates/CRM/Contact/Form/Search/AdvancedCriteria.tpl
-#: templates/CRM/Contact/Form/Search/Builder.js
 msgid "Loading"
 msgstr "Carregando"
 
@@ -20786,10 +21038,6 @@ msgid "Client Name"
 msgstr "Nome do Cliente"
 
 #: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
-msgid "Case ID"
-msgstr "ID do Processo"
-
-#: templates/CRM/Contact/Form/Search/Custom/FullText.tpl
 msgid "Restore Case"
 msgstr "Restaurar o Processo"
 
@@ -21041,6 +21289,10 @@ msgid "This action cannot be undone."
 msgstr "Esta acção não poderá ser desfeita."
 
 #: templates/CRM/Contact/Form/Task/Email.hlp
+msgid "Find out more about CiviCRM Tokens"
+msgstr ""
+
+#: templates/CRM/Contact/Form/Task/Email.hlp
 msgid "From Address"
 msgstr "Endereço Emissor"
 
@@ -21074,6 +21326,28 @@ msgid ""
 "Email Addresses</a> to add or edit general email addresses. Make sure these "
 "email addresses are valid email accounts with your email service provider."
 msgstr "Vá para <a href='%1'>Administração --> Comunicações --> Endereços de Email Emissor DE</a> para adicionar ou editar endereços gerais de email. Certifique-se de que estes endereços de email são válidos junto do seu provedor de correio electrónico."
+
+#: templates/CRM/Contact/Form/Task/Email.hlp
+msgid "To Address"
+msgstr ""
+
+#: templates/CRM/Contact/Form/Task/Email.hlp
+msgid ""
+"Contacts in the \"To\" field will each receive one copy of this email, with "
+"any tokens respectively filled for their contact record."
+msgstr ""
+
+#: templates/CRM/Contact/Form/Task/Email.hlp
+msgid ""
+"\"To\" recipients will not see which other \"To\" recipients received an "
+"email, but they will see the list of \"Cc\" recipients."
+msgstr ""
+
+#: templates/CRM/Contact/Form/Task/Email.hlp
+msgid ""
+"Any contacts in the \"Cc\" or \"Bcc\" fields will receive a copy, one for "
+"each \"To\" email, but with the tokens filled for the \"To\" contact."
+msgstr ""
 
 #: templates/CRM/Contact/Form/Task/Email.hlp
 msgid "Subject Tokens"
@@ -21185,6 +21459,10 @@ msgid ""
 "this option cautiously unless you have a template format that has been "
 "tested with different web and desktop email programs."
 msgstr "As mensagens em HTML tem maior impacto visual, permitem  incluir imagens, e podem ser mais legíveis se você está incluindo links para páginas do site. No entanto, os programas de email podem interpretar o HTML de forma diferente - use esta opção com cautela a menos que tenha um modelo que tenha sido testado com diferentes navegadores web e programas desktop de email ."
+
+#: templates/CRM/Contact/Form/Task/Email.hlp
+msgid "$tokentext"
+msgstr ""
 
 #: templates/CRM/Contact/Form/Task/Email.tpl
 msgid ""
@@ -22170,10 +22448,6 @@ msgstr "Empregador"
 msgid "view current employer"
 msgstr "visualizar empregador actual"
 
-#: templates/CRM/Contact/Page/Inline/ContactInfo.tpl
-msgid "SIC Code"
-msgstr "Código SIC"
-
 #: templates/CRM/Contact/Page/Inline/ContactName.tpl
 msgid "Edit Contact Name"
 msgstr "Editar Nome do Contacto"
@@ -22223,10 +22497,6 @@ msgstr "Enviar email para %1"
 msgid "(signature)"
 msgstr "(assinatura)"
 
-#: templates/CRM/Contact/Page/Inline/Email.tpl
-msgid "Signature HTML"
-msgstr "Assinatura em HTML"
-
 #: templates/CRM/Contact/Page/Inline/IM.tpl
 msgid "Add or edit IM"
 msgstr "Adicionar ou editar Mensagem Instantânea"
@@ -22234,10 +22504,6 @@ msgstr "Adicionar ou editar Mensagem Instantânea"
 #: templates/CRM/Contact/Page/Inline/IM.tpl
 msgid "Add IM"
 msgstr "Adicionar Mensagem Instantânea"
-
-#: templates/CRM/Contact/Page/Inline/IM.tpl
-msgid "IM"
-msgstr "Mensagem Instantânea"
 
 #: templates/CRM/Contact/Page/Inline/OpenID.tpl
 msgid "Add or edit OpenID"
@@ -22461,6 +22727,10 @@ msgstr "Data de Alteração"
 #: xml/templates/message_templates/uf_notify_text.tpl
 msgid "Date:"
 msgstr "Data:"
+
+#: templates/CRM/Contact/Page/View/Note.tpl
+msgid "Modified Date:"
+msgstr ""
 
 #: templates/CRM/Contact/Page/View/Note.tpl
 msgid "Privacy:"
@@ -23213,17 +23483,9 @@ msgid ""
 "event receipts."
 msgstr "Marque esta caixa se desejar que ese grupo personalizado seja exibido em formulários públicos, por exemplo, Página de Informações de um evento. Somente grupos personalizados públicos serão incluídos nos recibos de eventos."
 
-#: templates/CRM/Custom/Page/Group.hlp templates/CRM/Price/Page/Option.tpl
-msgid "Pre Help"
-msgstr "Pré-Ajuda"
-
 #: templates/CRM/Custom/Page/Group.hlp
 msgid "Explanatory text displayed at the beginning of this sets of fields."
 msgstr "Texto explicativo a ser exibido no início deste conjunto de campos."
-
-#: templates/CRM/Custom/Page/Group.hlp templates/CRM/Price/Page/Option.tpl
-msgid "Post Help"
-msgstr "Pós-Ajuda"
 
 #: templates/CRM/Custom/Page/Group.hlp
 msgid "Explanatory text displayed below this set of fields."
@@ -24975,9 +25237,8 @@ msgid ""
 "To use reCAPTCHA you must sign up at <a href=\"%1\" "
 "target=\"_blank\">Google's reCaptcha site</a> to get your public and private"
 " keys. Then enter both keys in <a href=\"%2\">Administer CiviCRM &raquo; "
-"System Settings &raquo; Misc (Undelete, PDFs, Limits, Logging, Captcha, "
-"etc.)</a>."
-msgstr "Para usar o reCAPTCHA você precisa inscrever-se no <a href=\"%1\" target=\"_blank\">site do Google's reCaptcha</a> para obter as suas chaves pública e privada. Na posse delas, insira as chaves em <a href=\"%2\">Administração --> Configurações do Sistema --> Misc (Undelete, PDFs, Limits, Logging, Captcha, etc.)</a>."
+"Customize Data and Screens &raquo; reCAPTCHA settings</a>."
+msgstr ""
 
 #: templates/CRM/UF/Form/Group.hlp
 msgid ""
@@ -26738,10 +26999,6 @@ msgid "Tags and Groups"
 msgstr "Etiquetas e Grupos"
 
 #: xml/templates/civicrm_data.tpl
-msgid "Change"
-msgstr "Alterar"
-
-#: xml/templates/civicrm_data.tpl
 msgid "Mailing"
 msgstr "Correspondência"
 
@@ -28389,10 +28646,6 @@ msgid "Realex Payment"
 msgstr "Realex Payments"
 
 #: xml/templates/civicrm_data.tpl
-msgid "PayflowPro"
-msgstr "Fluxo de Pagamento (Payflow) Pro"
-
-#: xml/templates/civicrm_data.tpl
 msgid "FirstData (aka linkpoint)"
 msgstr "FirstData (antigamente LinkPoint)"
 
@@ -29914,6 +30167,18 @@ msgstr ""
 msgid "You can remove it from your extensions directory."
 msgstr ""
 
+#: CRM/Upgrade/Form.php
+msgid ""
+"A replacement extension %1 has been installed as you had the obsolete "
+"extension %2 installed"
+msgstr ""
+
+#: CRM/Upgrade/Form.php
+msgid ""
+"The replacement extension %1 could not be installed due to an error. It is "
+"recommended to enable this extension manually."
+msgstr ""
+
 #: CRM/Upgrade/Headless.php CRM/Upgrade/Page/Upgrade.php
 msgid "CiviCRM Upgrade Tasks"
 msgstr "Tarefas de actualização do CiviCRM"
@@ -30021,19 +30286,27 @@ msgstr ""
 msgid "Ensure that amount paid is shown even when fully paid"
 msgstr ""
 
-#: CRM/Upgrade/Incremental/php/FiveEighteen.php
-#: CRM/Upgrade/Incremental/php/FiveEleven.php
+#: CRM/Upgrade/Incremental/MessageTemplates.php
+msgid "Fix Petition Confirmation email having a blank space at the end of url"
+msgstr ""
+
+#: CRM/Upgrade/Incremental/MessageTemplates.php
+msgid ""
+"Fix Pledge and PCP urls to go to the front end site rather than backend site"
+msgstr ""
+
 #: CRM/Upgrade/Incremental/php/FiveFifteen.php
 #: CRM/Upgrade/Incremental/php/FiveFour.php
-#: CRM/Upgrade/Incremental/php/FiveFourteen.php
-#: CRM/Upgrade/Incremental/php/FiveNineteen.php
 #: CRM/Upgrade/Incremental/php/FiveSeventeen.php
-#: CRM/Upgrade/Incremental/php/FiveSix.php
 #: CRM/Upgrade/Incremental/php/FiveSixteen.php
 #: CRM/Upgrade/Incremental/php/FiveThirteen.php
 #: CRM/Upgrade/Incremental/php/FiveThirty.php
+#: CRM/Upgrade/Incremental/php/FiveThirtyEight.php
+#: CRM/Upgrade/Incremental/php/FiveThirtyFive.php
+#: CRM/Upgrade/Incremental/php/FiveThirtyFour.php
+#: CRM/Upgrade/Incremental/php/FiveThirtyNine.php
 #: CRM/Upgrade/Incremental/php/FiveThirtyOne.php
-#: CRM/Upgrade/Incremental/php/FiveThirtyThree.php
+#: CRM/Upgrade/Incremental/php/FiveThirtySeven.php
 #: CRM/Upgrade/Incremental/php/FiveThirtyTwo.php
 #: CRM/Upgrade/Incremental/php/FiveThree.php
 #: CRM/Upgrade/Incremental/php/FiveTwelve.php
@@ -30046,7 +30319,6 @@ msgstr ""
 #: CRM/Upgrade/Incremental/php/FiveTwentySeven.php
 #: CRM/Upgrade/Incremental/php/FiveTwentySix.php
 #: CRM/Upgrade/Incremental/php/FiveTwentyThree.php
-#: CRM/Upgrade/Incremental/php/FiveZero.php
 #: CRM/Upgrade/Incremental/php/FourFive.php
 #: CRM/Upgrade/Incremental/php/FourSeven.php
 #: CRM/Upgrade/Incremental/php/FourSix.php
@@ -30061,12 +30333,6 @@ msgstr ""
 
 #: CRM/Upgrade/Incremental/php/FiveFour.php
 msgid "save Report Criteria"
-msgstr ""
-
-#: CRM/Upgrade/Incremental/php/FiveFourteen.php
-msgid ""
-"Could not create the MySQL views for CiviCase. Your mysql user needs to have"
-" the 'CREATE VIEW' permission"
 msgstr ""
 
 #: CRM/Upgrade/Incremental/php/FiveNine.php
@@ -30117,6 +30383,64 @@ msgid ""
 "and it outputs or filters on campaigns, You will need to go back to that "
 "report and re-save the report after selecting and or setting the campaign "
 "filters up again"
+msgstr ""
+
+#: CRM/Upgrade/Incremental/php/FiveThirtyFour.php
+msgid ""
+"This system has an encrypted SMTP password. Encryption in v5.34+ requires "
+"CIVICRM_CRED_KEYS. You may <a href=\"%1\" target=\"_blank\">setup "
+"CIVICRM_CRED_KEYS</a> before or after upgrading. If you choose to wait, then"
+" the SMTP password will be stored as plain-text until you setup "
+"CIVICRM_CRED_KEYS."
+msgstr ""
+
+#: CRM/Upgrade/Incremental/php/FiveThirtyFour.php
+msgid ""
+"The SMTP password (%1) was previously stored in the database. It has "
+"unexpected content which cannot be migrated automatically. However, it "
+"appears to be inactive, so the upgrader will drop this value."
+msgstr ""
+
+#: CRM/Upgrade/Incremental/php/FiveThirtyFour.php
+msgid ""
+"The SMTP password (%1) has unusual content that cannot be stored as plain-"
+"text. It may be unreadable due to a previous misconfiguration, or it may "
+"rely on an unclear character-set. Your options are:"
+msgstr ""
+
+#: CRM/Upgrade/Incremental/php/FiveThirtyFour.php
+msgid ""
+"<a href=\"%1\" target=\"_blank\">Setup CIVICRM_CRED_KEYS</a> before "
+"upgrading. This warning will go away, and the current SMTP password will "
+"ultimately be preserved during upgrade."
+msgstr ""
+
+#: CRM/Upgrade/Incremental/php/FiveThirtyFour.php
+msgid ""
+"Proceed with upgrading in the current configuration. The SMTP password will "
+"be lost, but you may re-configure it after upgrade."
+msgstr ""
+
+#: CRM/Upgrade/Incremental/php/FiveThirtyFour.php
+msgid ""
+"This system has a PHP override for the SMTP password (%1). The override was "
+"most likely encrypted with an old mechanism. After upgrading, you must "
+"verify and/or revise this setting."
+msgstr ""
+
+#: CRM/Upgrade/Incremental/php/FiveThirtySeven.php
+msgid ""
+"Some mail-merge tokens may display differently when used with Scheduled "
+"Reminders, Mosaico templates, or PDF letters. For details, see <a "
+"href=\"%1\" target=\"_blank\">upgrade notes</a>."
+msgstr ""
+
+#: CRM/Upgrade/Incremental/php/FiveThirtySix.php
+msgid ""
+"CiviCRM v5.36 introduces a new configuration option to support digital "
+"signatures. You may <a href=\"%1\" target=\"_blank\">setup "
+"CIVICRM_SIGN_KEYS</a> before or after upgrading. The option is not critical "
+"in v5.36, but it may be required for extensions or future upgrades."
 msgstr ""
 
 #: CRM/Upgrade/Incremental/php/FiveThree.php
@@ -30499,91 +30823,322 @@ msgstr "Parabéns! Sua atualização foi um sucesso!"
 msgid "Upgrade failed to redirect"
 msgstr "A atualização falhou ao redirecionar"
 
-#: CRM/Core/DAO/ActionSchedule.php
-msgid "When was the scheduled reminder created."
+#: CRM/Activity/DAO/Activity.php
+msgid "Past or future actions concerning one or more contacts."
 msgstr ""
 
-#: CRM/Core/DAO/ActionSchedule.php
-msgid "When the reminder was created or modified."
+#: CRM/Contact/DAO/Contact.php
+msgid "Individuals, organizations, households, etc."
 msgstr ""
 
-#: CRM/Core/DAO/ActionSchedule.php
-msgid "Effective start date"
+#: CRM/Contact/Form/Task/EmailTrait.php CRM/Core/Form/Task/PDFLetterCommon.php
+msgid "Token %1 is no longer supported - use %2 instead"
 msgstr ""
 
-#: CRM/Core/DAO/ActionSchedule.php
-msgid "Earliest date to consider start events from."
+#: CRM/Contact/Tokens.php
+msgid "Organization name"
 msgstr ""
 
-#: CRM/Core/DAO/ActionSchedule.php
-msgid "Effective end date"
+#: CRM/Core/BAO/MessageTemplate.php
+msgid "No message template with workflow name %1."
 msgstr ""
 
-#: CRM/Core/DAO/ActionSchedule.php
-msgid "Latest date to consider end events from."
+#: CRM/Core/BAO/Translation.php
+msgid "Invalid status"
 msgstr ""
 
-#: CRM/Core/Permission/List.php
-msgid "CMS"
+#: CRM/Core/BAO/Translation.php
+msgid "Must specify all entity identification fields"
 msgstr ""
 
-#: CRM/Core/Permission/List.php
-msgid "View user accounts"
+#: CRM/Core/BAO/Translation.php
+msgid "Entity reference is malformed"
 msgstr ""
 
-#: CRM/Core/Permission/List.php
-msgid "View user accounts. (Synthetic permission - adapts to local CMS)"
+#: CRM/Core/BAO/Translation.php
+msgid "Entity reference specifies a non-existent or non-translatable table"
 msgstr ""
 
-#: CRM/Core/Permission/List.php
-msgid "Administer user accounts"
+#: CRM/Core/BAO/Translation.php
+msgid "Entity reference specifies a non-existent or non-translatable field"
 msgstr ""
 
-#: CRM/Core/Permission/List.php
-msgid "Administer user accounts. (Synthetic permission - adapts to local CMS)"
+#: CRM/Core/BAO/Translation.php
+msgid "Entity does not exist"
 msgstr ""
 
-#: CRM/Core/Permission/List.php
-msgid "Constant: Always deny"
+#: CRM/Core/DAO/LocBlock.php
+msgid "Locations"
 msgstr ""
 
-#: CRM/Core/Permission/List.php
-msgid "Constant: Always allow"
+#: CRM/Core/DAO/LocBlock.php
+msgid "Address 2 ID"
 msgstr ""
 
-#: CRM/Utils/Check/Component/Env.php
+#: CRM/Core/DAO/LocBlock.php
+msgid "Address 2"
+msgstr ""
+
+#: CRM/Core/DomainTokens.php
+msgid "Current time/date"
+msgstr ""
+
+#: CRM/Core/EntityTokens.php
+msgid "Machine name"
+msgstr ""
+
+#: CRM/Core/Form/RecurringEntity.php
+msgid "Error creating recurring list"
+msgstr ""
+
+#: CRM/Core/Form/ShortCode.php
+msgid "Setup a Personal Campaign Page"
+msgstr ""
+
+#: CRM/Core/Form/ShortCode.php
+msgid "Map View"
+msgstr ""
+
+#: CRM/Core/Invoke.php
+msgid "You do not have permission to execute this url"
+msgstr ""
+
+#: CRM/Core/ManagedEntities.php
+msgid "Managed Entity (%1) is missing field \"%2\": %3"
+msgstr ""
+
+#: CRM/Core/ManagedEntities.php
+msgid "Entity declaration references invalid or inactive module name [%1]"
+msgstr ""
+
+#: CRM/Core/Page/File.php
+msgid "URL for file is not valid"
+msgstr ""
+
+#: CRM/Core/Page/File.php
+msgid "Could not retrieve the file"
+msgstr ""
+
+#: CRM/Core/Page/File.php
 msgid ""
-"CiviCRM is configured to use the wkhtmltopdf package to produce PDFs however"
-" it is missing, as such the system will fall back to using the DOMPDF "
-"package, this may mean that the output is different to what was expected. "
-"You should resolve this by either clearing the setting at Administer -> "
-"System Settings -> Miscellaneous or by getting your system administrator to "
-"install the wkhtmltopdf package"
+"The file is either empty or you do not have permission to retrieve the file"
 msgstr ""
 
-#: CRM/Utils/Check/Component/Env.php
-msgid "Missing System Package: wkhtmltopdf"
+#: CRM/Core/Page/Redirect.php
+msgid "This page is configured as a redirect, but it does not have a target."
 msgstr ""
 
-#: CRM/Upgrade/Incremental/php/FiveTwentyEight.php
-msgid "5.29 Default:"
+#: CRM/Core/Permission.php
+msgid "render templates"
 msgstr ""
 
-#: CRM/Upgrade/Incremental/php/FiveTwentyEight.php
-msgid "5.28 Default:"
-msgstr ""
-
-#: CRM/Upgrade/Incremental/php/FiveTwentyEight.php
+#: CRM/Core/Permission.php
 msgid ""
-"Starting with version 5.29.0, CiviCRM on WordPress may make a subtle change in the calculation of <code>[civicrm.files]</code>.\n"
-"         To ensure a smooth upgrade, please review the following table. All paths and URLs should appear the same. If there is <strong><em>any</em></strong> discrepancy,\n"
-"         then consult <a href='%1' target='_blank'>the upgrade documentation</a>."
+"Render open-ended template content. (Additional constraints may apply to "
+"autoloaded records and specific notations.)"
 msgstr ""
 
-#: CRM/Upgrade/Incremental/php/FiveTwentySeven.php
+#: CRM/Core/SelectValues.php
+msgid "Membership Expiration Date"
+msgstr ""
+
+#: CRM/Core/SelectValues.php
+msgid "Case Subject"
+msgstr ""
+
+#: CRM/Core/SelectValues.php
+msgid "Case Start Date"
+msgstr ""
+
+#: CRM/Core/SelectValues.php
+msgid "Case End Date"
+msgstr ""
+
+#: CRM/Core/SelectValues.php
+msgid "Case is in the Trash"
+msgstr ""
+
+#: CRM/Price/DAO/LineItem.php
+msgid "Number of membership terms purchased"
+msgstr ""
+
+#: CRM/Price/DAO/LineItem.php
 msgid ""
-"Starting with version 5.28.0, CiviCRM will\n"
-"        require the PHP Internationalization extension (PHP-Intl).  In preparation\n"
-"        for this, the system check will show a warning beginning in 5.27.0 if your\n"
-"        site lacks this extension."
+"Number of terms for this membership (only supported in Order->Payment flow)."
+" If the field is NULL it means unknown and it will be assumed to be 1 during"
+" payment.create if entity_table is civicrm_membership"
+msgstr ""
+
+#: CRM/Profile/Page/Listings.php
+msgid "Unable to find matching UF Group"
+msgstr ""
+
+#: CRM/Utils/Check/Component/Schema.php
+msgid ""
+"Your database is missing a function to populate the 'Phone number' field "
+"with a numbers-only version of the phone."
+msgstr ""
+
+#: CRM/Utils/Check/Component/Schema.php
+msgid "Missing Phone numeric function"
+msgstr ""
+
+#: CRM/Utils/Check/Component/Schema.php
+msgid "Rebuild triggers (also re-builds the phone number function)"
+msgstr ""
+
+#: CRM/Utils/Check/Component/Schema.php
+msgid "Create missing function now? This may take few minutes."
+msgstr ""
+
+#: CRM/Utils/Check/Component/Tokens.php
+msgid ""
+"Please review your %1 message template and remove references to the token %2"
+" as it has been replaced by %3"
+msgstr ""
+
+#: CRM/Utils/Check/Component/Tokens.php
+msgid "You are using tokens that have been removed or deprecated."
+msgstr ""
+
+#: CRM/Utils/Check/Component/Tokens.php
+msgid "Outdated tokens in use"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "January"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "February"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "March"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "April"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "May"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "June"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "July"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "August"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "September"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "October"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "November"
+msgstr ""
+
+#: CRM/Utils/Date.php
+msgid "December"
+msgstr ""
+
+#: CRM/Utils/Mail.php
+msgid ""
+"Unable to send email. Please report this message to the site administrator"
+msgstr ""
+
+#: templates/CRM/Contact/Form/Search/Advanced.hlp
+msgid "Template Records"
+msgstr ""
+
+#: templates/CRM/Contact/Form/Search/Advanced.hlp
+msgid ""
+"Template contributions are used with recurring contribution to generate "
+"follow up contributions."
+msgstr ""
+
+#: templates/CRM/Contact/Form/Search/Advanced.hlp
+msgid ""
+"You can change the template contribution and the changes will occur as soon "
+"as new contribution is generated within the recurring series."
+msgstr ""
+
+#: templates/CRM/Contact/Form/Search/Intro.tpl
+msgid "Edit Group Settings"
+msgstr ""
+
+#: templates/CRM/Contact/Form/Task/SMS.hlp
+msgid ""
+"A single SMS message is typically 160 characters in length. If you want to "
+"send a message that is longer than 160 characters, it is split into multiple"
+" segments."
+msgstr ""
+
+#: templates/CRM/Contact/Form/Task/SMS.hlp
+msgid "The cost of sending SMS message is typically <em>per segment</em>."
+msgstr ""
+
+#: templates/CRM/Contact/Form/Task/SMS.hlp
+msgid ""
+"Certain characters like emoji or curly quotes can shorten the segment size "
+"to 96 characters, increasing the cost per message."
+msgstr ""
+
+#: templates/CRM/Contact/Form/Task/SMSCommon.tpl
+msgid ""
+"You can insert up to %1 characters. You have entered %2 characters, "
+"requiring %3 segments."
+msgstr ""
+
+#: templates/CRM/Contact/Form/Task/SMSCommon.tpl
+msgid "SMS body exceeding limit of %1 characters"
+msgstr ""
+
+#: templates/CRM/Contact/Page/Inline/Email.tpl
+msgid "primary"
+msgstr ""
+
+#: xml/templates/civicrm_data.tpl CRM/Upgrade/Incremental/php/FiveForty.php
+msgid "Note Used For"
+msgstr ""
+
+#: xml/templates/civicrm_data.tpl CRM/Upgrade/Incremental/php/FiveFortyTwo.php
+msgid "Entity Batch Extends"
+msgstr ""
+
+#: xml/templates/civicrm_data.tpl CRM/Upgrade/Incremental/php/FiveForty.php
+msgid "CKEditor 4"
+msgstr ""
+
+#: xml/templates/civicrm_data.tpl CRM/Upgrade/Incremental/php/FiveFortyTwo.php
+msgid "Financial Transactions"
+msgstr ""
+
+#: CRM/Upgrade/Incremental/MessageTemplates.php
+msgid "Missed templates from earlier versions"
+msgstr ""
+
+#: CRM/Upgrade/Incremental/php/FiveFortyOne.php
+msgid ""
+"A token has been updated in the %1 template. Check the system checks page to"
+" see if any action is required."
+msgstr ""
+
+#: CRM/Upgrade/Incremental/php/FiveFortyThree.php
+msgid ""
+"Minor changes have been made to how the tokens to render case.is_deleted, "
+"case.created_date and case.modified_date. See "
+"https://docs.civicrm.org/sysadmin/en/latest/upgrade/version-specific/ for "
+"more"
 msgstr ""
