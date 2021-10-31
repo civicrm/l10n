@@ -8,15 +8,20 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2021-01-07 11:47-0500\n"
-"PO-Revision-Date: 2021-02-04 13:03+0000\n"
-"Last-Translator: Betty Dolfing <betty.dolfing@civicoop.org>\n"
+"POT-Creation-Date: 2021-10-30 09:41-0400\n"
+"PO-Revision-Date: 2021-10-30 13:54+0000\n"
+"Last-Translator: Mathieu Lu <mathieu@bidon.ca>\n"
 "Language-Team: Dutch (http://www.transifex.com/civicrm/civicrm/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: CRM/Financial/BAO/EntityFinancialTrxn.php
+#: CRM/Financial/DAO/FinancialItem.php
+msgid "Financial Item"
+msgstr "Financieel item"
 
 #: CRM/Financial/BAO/ExportFormat.php
 msgid "Record:"
@@ -67,13 +72,9 @@ msgid ""
 "would result in the loss of financial data."
 msgstr "Het definitief verwijderen is niet mogelijk omdat er een of meer relaties bestaan met financiële transacties."
 
-#: CRM/Financial/BAO/FinancialType.php
-msgid ""
-"Changing the name of a Financial Type will result in losing the current permissions associated with that Financial Type.\n"
-"            Before making this change you should likely note the existing permissions at Administer > Users and Permissions > Permissions (Access Control),\n"
-"            then clicking the Access Control link for your Content Management System, then noting down the permissions for 'CiviCRM: {financial type name} view', etc.\n"
-"            Then after making the change of name, reset the permissions to the way they were."
-msgstr "Het wijzigen van de naam van het financieel type betekent dat de huidige rechten van dit type vervallen.\nBekijk daarom eerst vooraf de huidige rechten via Beheer > Gebruikers en rechten > Machtigingen (toegangsbeheer) \nklik dan op de link toegangsbeheer van het CMS, en zoek de rechten bij 'CiviCRM: {financieel type naam} view' op, enz.\n            Stel vervolgens na het wijzigen van de naam de rechten weer in zoals ze eerder waren toegekend."
+#: CRM/Financial/BAO/FinancialItem.php CRM/Financial/DAO/FinancialTrxn.php
+msgid "Financial Trxn"
+msgstr "Financiële transactie"
 
 #: CRM/Financial/BAO/FinancialType.php
 msgid "The following tables have an entry for this financial type: %1"
@@ -154,10 +155,6 @@ msgid "Currency ID"
 msgstr "Valuta-id"
 
 #: CRM/Financial/DAO/Currency.php
-msgid "Currency Id"
-msgstr "Valuta-id"
-
-#: CRM/Financial/DAO/Currency.php
 msgid "Currency Name"
 msgstr "Valuta-naam"
 
@@ -207,6 +204,11 @@ msgid "FK to a new civicrm_option_value (account_relationship)"
 msgstr "FK naar een nieuwe civicrm_option_value (account_relationship)"
 
 #: CRM/Financial/DAO/EntityFinancialAccount.php
+#: CRM/Financial/DAO/FinancialAccount.php CRM/Financial/DAO/FinancialItem.php
+msgid "Financial Account ID"
+msgstr "Financiële rekening-ID"
+
+#: CRM/Financial/DAO/EntityFinancialAccount.php
 msgid "FK to the financial_account_id"
 msgstr "FK naar de financial_account_id"
 
@@ -229,8 +231,13 @@ msgid ""
 msgstr "Kan o.a. civicrm_financial_item, civicrm_contribution, civicrm_financial_trxn of civicrm_grant bevatten"
 
 #: CRM/Financial/DAO/EntityFinancialTrxn.php
-msgid "Financial Transaction Id"
+#: CRM/Financial/DAO/FinancialTrxn.php
+msgid "Financial Transaction ID"
 msgstr "Financiële transactie-id"
+
+#: CRM/Financial/DAO/EntityFinancialTrxn.php
+msgid "Financial Transaction"
+msgstr ""
 
 #: CRM/Financial/DAO/EntityFinancialTrxn.php
 msgid "allocated amount of transaction to this entity"
@@ -241,10 +248,6 @@ msgstr "toegekende aantal transacties voor deze entiteit"
 #: templates/CRM/Financial/Page/FinancialType.tpl
 msgid "Financial Accounts"
 msgstr "Financiële rekeningen"
-
-#: CRM/Financial/DAO/FinancialAccount.php CRM/Financial/DAO/FinancialItem.php
-msgid "Financial Account ID"
-msgstr "Financiële rekening-ID"
 
 #: CRM/Financial/DAO/FinancialAccount.php
 msgid "Financial Account Name"
@@ -293,10 +296,6 @@ msgstr "Beschrijving financiële rekening"
 #: CRM/Financial/DAO/FinancialAccount.php CRM/Financial/DAO/FinancialType.php
 msgid "Financial Type Description."
 msgstr "Financieel type beschrijving."
-
-#: CRM/Financial/DAO/FinancialAccount.php
-msgid "Financial Account Parent"
-msgstr "Bovenliggende financiële rekening"
 
 #: CRM/Financial/DAO/FinancialAccount.php
 msgid "Parent ID in account hierarchy"
@@ -359,10 +358,6 @@ msgid "Financial Items"
 msgstr "Financieel items"
 
 #: CRM/Financial/DAO/FinancialItem.php
-msgid "Financial Item"
-msgstr "Financieel item"
-
-#: CRM/Financial/DAO/FinancialItem.php
 msgid "Financial Item Created Date"
 msgstr "Aanmaakdatum financiële item"
 
@@ -377,10 +372,6 @@ msgstr "Transactiedatum financiële item"
 #: CRM/Financial/DAO/FinancialItem.php
 msgid "Date and time of the source transaction"
 msgstr "Datum en tijd van de brontransactie"
-
-#: CRM/Financial/DAO/FinancialItem.php
-msgid "Financial Item Contact ID"
-msgstr "Contact-id financiële item"
 
 #: CRM/Financial/DAO/FinancialItem.php
 msgid "FK to Contact ID of contact the item is from"
@@ -421,8 +412,8 @@ msgid "Payment status: test, paid, part_paid, unpaid (if empty assume unpaid)"
 msgstr "Betalingsstatus: test, betaald, deels betaald, onbetaald (indien leeg waarschijnlijk onbetaald)"
 
 #: CRM/Financial/DAO/FinancialItem.php
-msgid "The table providing the source of this item such as civicrm_line_item"
-msgstr "De tabel met de bron van dit item, bijvoorbeeld: civicrm_line_item"
+msgid "May contain civicrm_line_item, civicrm_financial_trxn etc"
+msgstr ""
 
 #: CRM/Financial/DAO/FinancialItem.php
 msgid ""
@@ -435,28 +426,28 @@ msgid "Financial Trxns"
 msgstr "Financiële transacties"
 
 #: CRM/Financial/DAO/FinancialTrxn.php
-msgid "Financial Trxn"
-msgstr "Financiële transactie"
-
-#: CRM/Financial/DAO/FinancialTrxn.php
-msgid "Financial Transaction ID"
-msgstr "Financiële transactie-id"
-
-#: CRM/Financial/DAO/FinancialTrxn.php
-msgid "Financial Transaction From Account"
-msgstr "Financiële transactie van rekening"
+msgid "From Account ID"
+msgstr ""
 
 #: CRM/Financial/DAO/FinancialTrxn.php
 msgid "FK to financial_account table."
 msgstr "FK naar tabel financial_account."
 
 #: CRM/Financial/DAO/FinancialTrxn.php
-msgid "Financial Transaction To Account"
-msgstr "Financiële transactie naar rekening"
+msgid "From Account"
+msgstr ""
+
+#: CRM/Financial/DAO/FinancialTrxn.php
+msgid "To Account ID"
+msgstr ""
 
 #: CRM/Financial/DAO/FinancialTrxn.php
 msgid "FK to financial_financial_account table."
 msgstr "FK naar financial_account."
+
+#: CRM/Financial/DAO/FinancialTrxn.php
+msgid "To Account"
+msgstr ""
 
 #: CRM/Financial/DAO/FinancialTrxn.php
 msgid "Financial Transaction Date"
@@ -507,8 +498,8 @@ msgid "processor result code"
 msgstr "processor resultaatcode"
 
 #: CRM/Financial/DAO/FinancialTrxn.php
-msgid "Financial Transaction Status Id"
-msgstr "Financiële Transactie Status ID"
+msgid "Financial Transaction Status ID"
+msgstr ""
 
 #: CRM/Financial/DAO/FinancialTrxn.php
 msgid ""
@@ -590,10 +581,6 @@ msgid "Financial Type Is Active?"
 msgstr "Financieel type is actief?"
 
 #: CRM/Financial/DAO/PaymentProcessor.php
-msgid "Payment Processor Domain"
-msgstr "Betaalmethode domein"
-
-#: CRM/Financial/DAO/PaymentProcessor.php
 msgid "Payment Processor Name."
 msgstr "Betaalmethode Naam."
 
@@ -613,11 +600,6 @@ msgstr "Beschrijving"
 #: CRM/Financial/DAO/PaymentProcessorType.php
 msgid "Payment Processor Description."
 msgstr "Betaalmethode Beschrijving."
-
-#: CRM/Financial/DAO/PaymentProcessor.php
-#: CRM/Financial/DAO/PaymentProcessorType.php
-msgid "Payment Processor Type ID"
-msgstr "Betaalverwerking type ID"
 
 #: CRM/Financial/DAO/PaymentProcessor.php
 msgid "Processor is Active?"
@@ -685,6 +667,10 @@ msgstr "array met geaccepteerde creditcardtypes"
 #: CRM/Financial/DAO/PaymentProcessorType.php
 msgid "Payment Processor Types"
 msgstr "Betaalmethode Types"
+
+#: CRM/Financial/DAO/PaymentProcessorType.php
+msgid "Payment Processor Type ID"
+msgstr "Betaalverwerking type ID"
 
 #: CRM/Financial/DAO/PaymentProcessorType.php
 msgid "Payment Processor Type variable name to be used in code"
@@ -773,10 +759,6 @@ msgstr "Processortype Betaaltype"
 #: CRM/Financial/DAO/PaymentToken.php
 msgid "Payment Tokens"
 msgstr "Betaling Tokens"
-
-#: CRM/Financial/DAO/PaymentToken.php
-msgid "Payment Token"
-msgstr "Betaling Token"
 
 #: CRM/Financial/DAO/PaymentToken.php
 msgid "FK to Contact ID for the owner of the token"
@@ -1470,11 +1452,11 @@ msgid "Account Type (Code)"
 msgstr "Rekeningtype (code)"
 
 #: templates/CRM/Financial/Page/FinancialTypeAccount.tpl
-msgid "Owned By"
-msgstr "Eigenaar is"
-
-#: templates/CRM/Financial/Page/FinancialTypeAccount.tpl
 msgid ""
 "There are no financial accounts assigned to this financial type. You can <a "
 "href='%1'>assign one</a>."
 msgstr "Er is geen financiële rekening toegekend aan dit financieel type. U kunt er <a href='%1'>een toekennen</a>."
+
+#: CRM/Financial/Page/FinancialTypeAccount.php
+msgid "No Financial Accounts found for the Financial Type"
+msgstr ""
