@@ -7,15 +7,20 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2021-01-07 11:47-0500\n"
-"PO-Revision-Date: 2021-01-08 16:30+0000\n"
-"Last-Translator: Zoltán Reizinger <zreizinger@hdsnet.hu>\n"
+"POT-Creation-Date: 2021-10-30 09:41-0400\n"
+"PO-Revision-Date: 2021-10-30 13:54+0000\n"
+"Last-Translator: Mathieu Lu <mathieu@bidon.ca>\n"
 "Language-Team: Hungarian (http://www.transifex.com/civicrm/civicrm/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: CRM/Financial/BAO/EntityFinancialTrxn.php
+#: CRM/Financial/DAO/FinancialItem.php
+msgid "Financial Item"
+msgstr "Pénzügyi elem"
 
 #: CRM/Financial/BAO/ExportFormat.php
 msgid "Record:"
@@ -66,13 +71,9 @@ msgid ""
 "would result in the loss of financial data."
 msgstr "Ezeket a kapcsolat(oka)t nem lehet véglegesen törölni, mert a kapcsolat egy vagy több élő pénzügyi tranzakcióhoz kapcsolódik. A kapcsolat törlése a pénzügyi adat végleges elvesztését okozhatja. "
 
-#: CRM/Financial/BAO/FinancialType.php
-msgid ""
-"Changing the name of a Financial Type will result in losing the current permissions associated with that Financial Type.\n"
-"            Before making this change you should likely note the existing permissions at Administer > Users and Permissions > Permissions (Access Control),\n"
-"            then clicking the Access Control link for your Content Management System, then noting down the permissions for 'CiviCRM: {financial type name} view', etc.\n"
-"            Then after making the change of name, reset the permissions to the way they were."
-msgstr "A pénzügyi típus nevének megváltoztatása a pénzügyi típus jelenlegi beállításainak elvesztését okozza.\nEzen megváltoztatás előtt tekintse meg meg a meglévő beállításokat az Adminisztrálás > Felhasználók és jogosultságok > Jogosultságok (hozzáférés), \nutána kattintson a tartalomkezelő rendszer hozzáférés engedélyezés linkjére, majd görgessen le a 'CiviCRM: {fizetési típus neve} nézet', stb.\nMajd miután megváltoztatta a nevet, és állítsa vissza a jogosultságokat a korábbi beállításokra."
+#: CRM/Financial/BAO/FinancialItem.php CRM/Financial/DAO/FinancialTrxn.php
+msgid "Financial Trxn"
+msgstr "Pénzügyi tranzakció"
 
 #: CRM/Financial/BAO/FinancialType.php
 msgid "The following tables have an entry for this financial type: %1"
@@ -153,10 +154,6 @@ msgid "Currency ID"
 msgstr "Pénznem azonosító"
 
 #: CRM/Financial/DAO/Currency.php
-msgid "Currency Id"
-msgstr "Pénznem azonosító"
-
-#: CRM/Financial/DAO/Currency.php
 msgid "Currency Name"
 msgstr "Pénznem neve"
 
@@ -206,6 +203,11 @@ msgid "FK to a new civicrm_option_value (account_relationship)"
 msgstr "FK egy új civicrm_option_value (account_relationship)"
 
 #: CRM/Financial/DAO/EntityFinancialAccount.php
+#: CRM/Financial/DAO/FinancialAccount.php CRM/Financial/DAO/FinancialItem.php
+msgid "Financial Account ID"
+msgstr "Pénzügyi számla azonosító"
+
+#: CRM/Financial/DAO/EntityFinancialAccount.php
 msgid "FK to the financial_account_id"
 msgstr "FK  financial_account_id azonosítóhoz"
 
@@ -228,8 +230,13 @@ msgid ""
 msgstr "Tartalmazhat civicrm_financial_item, civicrm_contribution, civicrm_financial_trxn, civicrm_grant, stb."
 
 #: CRM/Financial/DAO/EntityFinancialTrxn.php
-msgid "Financial Transaction Id"
+#: CRM/Financial/DAO/FinancialTrxn.php
+msgid "Financial Transaction ID"
 msgstr "Pénzügyi tranzakció azonosító"
+
+#: CRM/Financial/DAO/EntityFinancialTrxn.php
+msgid "Financial Transaction"
+msgstr ""
 
 #: CRM/Financial/DAO/EntityFinancialTrxn.php
 msgid "allocated amount of transaction to this entity"
@@ -240,10 +247,6 @@ msgstr "Tranzakcióval ehhez az egyedhez hozzárendelt érték"
 #: templates/CRM/Financial/Page/FinancialType.tpl
 msgid "Financial Accounts"
 msgstr "Pénzügyi számlák"
-
-#: CRM/Financial/DAO/FinancialAccount.php CRM/Financial/DAO/FinancialItem.php
-msgid "Financial Account ID"
-msgstr "Pénzügyi számla azonosító"
 
 #: CRM/Financial/DAO/FinancialAccount.php
 msgid "Financial Account Name"
@@ -292,10 +295,6 @@ msgstr "Pénzügyi számla leírása"
 #: CRM/Financial/DAO/FinancialAccount.php CRM/Financial/DAO/FinancialType.php
 msgid "Financial Type Description."
 msgstr "Pénzügyi típus leírása"
-
-#: CRM/Financial/DAO/FinancialAccount.php
-msgid "Financial Account Parent"
-msgstr "Pénzügyi számla szülője"
 
 #: CRM/Financial/DAO/FinancialAccount.php
 msgid "Parent ID in account hierarchy"
@@ -358,10 +357,6 @@ msgid "Financial Items"
 msgstr "Pénzügyi elemek"
 
 #: CRM/Financial/DAO/FinancialItem.php
-msgid "Financial Item"
-msgstr "Pénzügyi elem"
-
-#: CRM/Financial/DAO/FinancialItem.php
 msgid "Financial Item Created Date"
 msgstr "Pénzügyi elem létrehozási dátuma"
 
@@ -376,10 +371,6 @@ msgstr "Pénzügyi elem tranzakció dátum"
 #: CRM/Financial/DAO/FinancialItem.php
 msgid "Date and time of the source transaction"
 msgstr "Forrás tranzakció dátuma és ideje."
-
-#: CRM/Financial/DAO/FinancialItem.php
-msgid "Financial Item Contact ID"
-msgstr "Pénzügyi elem kapcsolat azonosító"
 
 #: CRM/Financial/DAO/FinancialItem.php
 msgid "FK to Contact ID of contact the item is from"
@@ -420,8 +411,8 @@ msgid "Payment status: test, paid, part_paid, unpaid (if empty assume unpaid)"
 msgstr "Befizetési állapot: test, paid, part_paid, unpaid (ha üres unpaid feltételezett)"
 
 #: CRM/Financial/DAO/FinancialItem.php
-msgid "The table providing the source of this item such as civicrm_line_item"
-msgstr "A táblázat forrása az elem, például civicrm_line_item"
+msgid "May contain civicrm_line_item, civicrm_financial_trxn etc"
+msgstr ""
 
 #: CRM/Financial/DAO/FinancialItem.php
 msgid ""
@@ -434,28 +425,28 @@ msgid "Financial Trxns"
 msgstr "Pénzügyi tranzakciók"
 
 #: CRM/Financial/DAO/FinancialTrxn.php
-msgid "Financial Trxn"
-msgstr "Pénzügyi tranzakció"
-
-#: CRM/Financial/DAO/FinancialTrxn.php
-msgid "Financial Transaction ID"
-msgstr "Pénzügyi tranzakció azonosító"
-
-#: CRM/Financial/DAO/FinancialTrxn.php
-msgid "Financial Transaction From Account"
-msgstr "Pénzügyi tranzakció forrás számla"
+msgid "From Account ID"
+msgstr ""
 
 #: CRM/Financial/DAO/FinancialTrxn.php
 msgid "FK to financial_account table."
 msgstr "FK a financial_account table."
 
 #: CRM/Financial/DAO/FinancialTrxn.php
-msgid "Financial Transaction To Account"
-msgstr "Pénzügyi tranzakció célszámla"
+msgid "From Account"
+msgstr ""
+
+#: CRM/Financial/DAO/FinancialTrxn.php
+msgid "To Account ID"
+msgstr ""
 
 #: CRM/Financial/DAO/FinancialTrxn.php
 msgid "FK to financial_financial_account table."
 msgstr "FK a financial_financial_account table."
+
+#: CRM/Financial/DAO/FinancialTrxn.php
+msgid "To Account"
+msgstr ""
 
 #: CRM/Financial/DAO/FinancialTrxn.php
 msgid "Financial Transaction Date"
@@ -506,8 +497,8 @@ msgid "processor result code"
 msgstr "feldolgozó eredmény kódja"
 
 #: CRM/Financial/DAO/FinancialTrxn.php
-msgid "Financial Transaction Status Id"
-msgstr "Pénzügyi tranzakció állapot azonosító"
+msgid "Financial Transaction Status ID"
+msgstr ""
 
 #: CRM/Financial/DAO/FinancialTrxn.php
 msgid ""
@@ -589,10 +580,6 @@ msgid "Financial Type Is Active?"
 msgstr "Aktív pénzügyi típus?"
 
 #: CRM/Financial/DAO/PaymentProcessor.php
-msgid "Payment Processor Domain"
-msgstr "Fizetés feldolgozó domén"
-
-#: CRM/Financial/DAO/PaymentProcessor.php
 msgid "Payment Processor Name."
 msgstr "Fizetés feldolgozó neve"
 
@@ -612,11 +599,6 @@ msgstr "Feldolgozó leírása"
 #: CRM/Financial/DAO/PaymentProcessorType.php
 msgid "Payment Processor Description."
 msgstr "Fizetés feldolgozó leírása."
-
-#: CRM/Financial/DAO/PaymentProcessor.php
-#: CRM/Financial/DAO/PaymentProcessorType.php
-msgid "Payment Processor Type ID"
-msgstr "Fizetés feldolgozó típus azonosító"
 
 #: CRM/Financial/DAO/PaymentProcessor.php
 msgid "Processor is Active?"
@@ -684,6 +666,10 @@ msgstr "elfogadott bankkártya típusok tömbje "
 #: CRM/Financial/DAO/PaymentProcessorType.php
 msgid "Payment Processor Types"
 msgstr "Fizetés feldolgozó típusok"
+
+#: CRM/Financial/DAO/PaymentProcessorType.php
+msgid "Payment Processor Type ID"
+msgstr "Fizetés feldolgozó típus azonosító"
 
 #: CRM/Financial/DAO/PaymentProcessorType.php
 msgid "Payment Processor Type variable name to be used in code"
@@ -772,10 +758,6 @@ msgstr "Feldolgozó típus befizetés típus"
 #: CRM/Financial/DAO/PaymentToken.php
 msgid "Payment Tokens"
 msgstr "Fizetési tokenek"
-
-#: CRM/Financial/DAO/PaymentToken.php
-msgid "Payment Token"
-msgstr "Fizetési token"
 
 #: CRM/Financial/DAO/PaymentToken.php
 msgid "FK to Contact ID for the owner of the token"
@@ -1469,11 +1451,11 @@ msgid "Account Type (Code)"
 msgstr "Számla típus (Kód)"
 
 #: templates/CRM/Financial/Page/FinancialTypeAccount.tpl
-msgid "Owned By"
-msgstr "Tulajdonos"
-
-#: templates/CRM/Financial/Page/FinancialTypeAccount.tpl
 msgid ""
 "There are no financial accounts assigned to this financial type. You can <a "
 "href='%1'>assign one</a>."
 msgstr "Nem lett pénzügyi számla hozzárendelve ehhez a pénzügyi típushoz.<a href='%1'>Itt</a> hozzáadhat egyet."
+
+#: CRM/Financial/Page/FinancialTypeAccount.php
+msgid "No Financial Accounts found for the Financial Type"
+msgstr ""
