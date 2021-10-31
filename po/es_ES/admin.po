@@ -35,9 +35,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2021-02-05 10:11-0500\n"
-"PO-Revision-Date: 2021-09-01 16:09+0000\n"
-"Last-Translator: ixiam <info@ixiam.com>\n"
+"POT-Creation-Date: 2021-10-30 09:41-0400\n"
+"PO-Revision-Date: 2021-10-30 13:54+0000\n"
+"Last-Translator: Mathieu Lu <mathieu@bidon.ca>\n"
 "Language-Team: Spanish (http://www.transifex.com/civicrm/civicrm/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -194,12 +194,6 @@ msgstr "Extensión mejorada"
 #: CRM/Admin/Form/Extensions.php
 msgid "Extension Upgrade Failed"
 msgstr "Mejora fallida de extensión"
-
-#: CRM/Admin/Form/Generic.php CRM/Admin/Form/Setting.php
-msgid ""
-"Some fields are loaded as 'readonly' as they have been set (overridden) in "
-"civicrm.settings.php."
-msgstr "Algunos campos se cargan como 'sólo lectura' ya que han sido configurados (sustituidos) en civicrm.settings.php."
 
 #: CRM/Admin/Form/Generic.php CRM/Admin/Form/Preferences.php
 #: CRM/Admin/Form/Setting.php
@@ -1016,11 +1010,6 @@ msgstr "Configuración - CiviCase"
 msgid "You need to enable CiviContribute before enabling CiviPledge."
 msgstr "Necesita habilitar CiviContribute antes de habilitar CiviPledge."
 
-#: CRM/Admin/Form/Setting/Component.php
-msgid ""
-"CiviCase requires CREATE VIEW and DROP VIEW permissions for the database."
-msgstr "CiviCase requiere permisos de Crear y Eliminar Vistas en la base de datos"
-
 #: CRM/Admin/Form/Setting/Date.php
 msgid "Settings - Date"
 msgstr "Ajustes - Fecha"
@@ -1143,14 +1132,14 @@ msgstr "Los requisitos para Mapping requiera la versión de PHP 5 o superior"
 
 #: CRM/Admin/Form/Setting/Miscellaneous.php
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid "Misc (Undelete, PDFs, Limits, Logging, Captcha, etc.)"
-msgstr "Varios (No borrar, PDF's, Límites, Log, Captcha, etc.)"
+msgid "Misc (Undelete, PDFs, Limits, Logging, etc.)"
+msgstr ""
 
 #: CRM/Admin/Form/Setting/Miscellaneous.php
 msgid ""
-"Maximum file size cannot exceed Upload max size ('upload_max_filesize') as "
-"defined in PHP.ini."
-msgstr "El tamaño máximo del archivo no puede exceder el tamaño máximo del fichero de subida ('upload_max_filesize'), como se define en php.ini ."
+"Maximum file size cannot exceed limit defined in \"php.ini\" "
+"(\"upload_max_filesize=%1\")."
+msgstr ""
 
 #: CRM/Admin/Form/Setting/Miscellaneous.php
 msgid "Illegal stack size. Use values between 1 and %1."
@@ -1364,6 +1353,12 @@ msgid ""
 "You need to set up a secure server before you can use the Force Secure URLs "
 "option"
 msgstr "Necesita configurar un servidor seguro de usar la opción Forzar URLs Seguras"
+
+#: CRM/Admin/Form/SettingTrait.php
+msgid ""
+"Some fields are loaded as 'readonly' as they have been set (overridden) in "
+"civicrm.settings.php."
+msgstr "Algunos campos se cargan como 'sólo lectura' ya que han sido configurados (sustituidos) en civicrm.settings.php."
 
 #: CRM/Admin/Form/WordReplacements.php
 msgid "Please Enter the value for Replacement Word"
@@ -2241,15 +2236,16 @@ msgid ""
 msgstr "¿Cómo se pueden ordenar los tipos de actividad en la pantalla de \"Gestionar Caso\"? (Seleccione \"Predeterminado\" para cargar la configuración del archivo \"Settings.xml\" original.)"
 
 #: settings/Case.setting.php
-msgid "Enable Embedded Activity Revisions"
-msgstr "Activar revisiones de actividad embebidas"
+msgid "Enable deprecated Embedded Activity Revisions"
+msgstr ""
 
 #: settings/Case.setting.php
 msgid ""
 "Enable tracking of activity revisions embedded within the "
-"\"civicrm_activity\" table. Alternatively, see \"Administer => System "
-"Settings => Misc => Logging\"."
-msgstr "Activar el seguimiento de las revisiones de actividad dentro de la tabla \"civicrm_activity. O bien, véase \"Administrar => Configuración del sistema => Miscelánea => Registros\"."
+"\"civicrm_activity\" table. This should not be enabled on new installs and "
+"will be unsupported in the future. You should enable \"Administer => System "
+"Settings => Misc => Logging\" instead."
+msgstr ""
 
 #: settings/Case.setting.php
 msgid "Include case activities in general activity views."
@@ -2486,8 +2482,8 @@ msgid "Smart Group Refresh Mode"
 msgstr "Modo de Actualización del Grupo Inteligente"
 
 #: settings/Core.setting.php
-msgid "Should the smart groups be by cron jobs or user actions"
-msgstr "¿Deberían los grupos inteligentes ser por Crons o acciones de usuario?"
+msgid "Should the smart groups be flushed by cron jobs or user actions"
+msgstr ""
 
 #: settings/Core.setting.php
 msgid ""
@@ -2497,6 +2493,23 @@ msgid ""
 " caches; this can improve latency on form-submissions but requires more "
 "setup."
 msgstr "En el modo de \"Vaciado oportunista\", las cachés se vacían en respuesta a las acciones del usuario; este modo es ampliamente compatible, pero puede agregar latencia durante el envío de formularios. En el modo \"Cron Flush\", debe programar un trabajo cron para limpiar los cachés; esto puede mejorar la latencia en el envío de formularios, pero requiere más configuración."
+
+#: settings/Core.setting.php
+msgid "ACL Group Refresh Mode"
+msgstr ""
+
+#: settings/Core.setting.php
+msgid "Should the acl cache be by cron jobs or user actions"
+msgstr ""
+
+#: settings/Core.setting.php
+msgid ""
+"In \"Opportunistic Flush\" mode, caches are flushed in response to user "
+"actions; this mode is broadly compatible but may add latency during form-"
+"submissions. In \"Cron Flush\" mode, you should schedule a cron job to flush"
+" caches if your site uses ACLs; this can improve latency on form-submissions"
+" but requires more setup."
+msgstr ""
 
 #: settings/Core.setting.php
 msgid "System Installed"
@@ -2598,35 +2611,6 @@ msgstr "Al generar una carta (PDF/Word) mediante la fusión de correo, ¿cómo s
 #: settings/Core.setting.php
 msgid "Path to wkhtmltopdf executable"
 msgstr "Ruta al ejecutable \"wkhtmltopdf\""
-
-#: settings/Core.setting.php
-msgid "reCAPTCHA Options"
-msgstr "Opciones reCAPTCHA"
-
-#: settings/Core.setting.php
-msgid ""
-"You can specify the reCAPTCHA theme options as comma separated data.(eg: "
-"theme:'blackglass', lang : 'fr' ). Check the available options at <a "
-"href=\"https://developers.google.com/recaptcha/docs/display#config\">Customizing"
-" the Look and Feel of reCAPTCHA</a>."
-msgstr "Puede especificar las opciones del tema del reCAPTCHA separando los datos con comas (por ejemplo: theme:'blackglass', lang:'es' ). Verifique las opciones disponibles en <a href=\"https://developers.google.com/recaptcha/docs/display#config\">Personalización del aspecto y \"Look and Feel\" de reCAPTCHA</a>."
-
-#: settings/Core.setting.php
-msgid "reCAPTCHA Site Key"
-msgstr "Clave del sitio reCAPTCHA"
-
-#: settings/Core.setting.php
-msgid "Force reCAPTCHA on Contribution pages"
-msgstr "Forzar reCAPTCHA en las páginas de Contribución"
-
-#: settings/Core.setting.php
-#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
-msgid "If enabled, reCAPTCHA will show on all contribution pages."
-msgstr "Si está activado, reCAPTCHA se mostrará en todas las páginas de contribución."
-
-#: settings/Core.setting.php
-msgid "reCAPTCHA Secret Key"
-msgstr "Clave secreta de reCAPTCHA"
 
 #: settings/Core.setting.php
 msgid "Checksum Lifespan"
@@ -3658,6 +3642,14 @@ msgid ""
 "your custom field here? Make sure it is marked as Searchable."
 msgstr "¿Qué campos pueden ser utilizados en la búsqueda rápida del menú?¿No encuentra su campo personalizado aquí? Asegúrese de que está marcado como buscable."
 
+#: settings/Search.setting.php
+msgid "Default Search Pager size"
+msgstr ""
+
+#: settings/Search.setting.php
+msgid "What is the default number of records to show on a search"
+msgstr ""
+
 #: settings/Url.setting.php
 msgid "CiviCRM Resource URL"
 msgstr "Ajustes - Recursos URLs"
@@ -3937,10 +3929,6 @@ msgid ""
 msgstr "Componga un mensaje en pantalla para su uso general en correos electrónicos o en la salida de documentos, o cargue un documento precompuesto para la combinación de correspondencia."
 
 #: templates/CRM/Admin/Form/MessageTemplates.tpl
-msgid "Tokens may be included (%1)."
-msgstr "Se pueden incluir token (%1)."
-
-#: templates/CRM/Admin/Form/MessageTemplates.tpl
 msgid "Upload the document in .docx or .odt format."
 msgstr "Cargue el documento en formato .docx o .odt."
 
@@ -3957,10 +3945,6 @@ msgstr "Mensaje de texto formateado"
 #: templates/CRM/Admin/Form/MessageTemplates.tpl
 msgid "Page format to use when creating PDF files using this template."
 msgstr "Formato de página a utilizar cuando se creen archivos PDF con esta plantilla."
-
-#: templates/CRM/Admin/Form/MessageTemplates.tpl
-msgid "token documentation"
-msgstr "documentación de token"
 
 #: templates/CRM/Admin/Form/Navigation.hlp
 msgid ""
@@ -5028,34 +5012,6 @@ msgid ""
 " This is disabled by default to limit abuse."
 msgstr "Si está habilitado, CiviCRM permitirá a los usuarios enviar perfiles desde sitios externos. Esto está desactivado por defecto para limitar el abuso."
 
-#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
-msgid "reCAPTCHA v2"
-msgstr "reCAPTCHA v2"
-
-#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
-msgid ""
-"reCAPTCHA is a free service that helps prevent automated abuse of your site."
-" To use it on public-facing CiviCRM forms: sign up at <a %1>Google's "
-"reCaptcha site</a>; enter the provided public and private keys here; then "
-"enable reCAPTCHA under Advanced Settings in any Profile."
-msgstr "reCAPTCHA es un servicio gratis que ayuda a prevenir el abuso automático de su sitio. Par usar reCAPTCHA en formularios CiviCRM públicos: firme en <a href=\"%1\" \"target=_blank\">Google's reCaptcha site</a>; ingrese las claves provistas pública y privada reCAPTCHA aquí; luego habilite reCAPTCHA en Opciones avanzadas en cualquier perfil."
-
-#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
-msgid "Only the reCAPTCHA v2 checkbox type is supported."
-msgstr "Solo se soporta el tipo casilla de selección en reCAPTCHA v2."
-
-#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
-msgid ""
-"You can specify the reCAPTCHA theme options as comma separated data.(eg: "
-"theme:'blackglass', lang : 'fr' )."
-msgstr "Puede especificar las opciones de reCAPTCHA en función del tema  usando datos separados por comas (Ej: tema:'blackglass',lang:'es'). "
-
-#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
-msgid ""
-"Check the available options at <a %1>Customizing the Look and Feel of "
-"reCAPTCHA</a>."
-msgstr "Visualice las opciones disponibles <a %1>personalizando la vista y el sentido de reCAPTCHA</a>."
-
 #: templates/CRM/Admin/Form/Setting/Path.hlp
 msgid "Path Variables"
 msgstr "Variables de ruta"
@@ -5799,8 +5755,8 @@ msgid ""
 msgstr "Ajuste los comportamientos de búsqueda, incluyendo comodines, y los datos a incluir en los resultados de búsqueda rápidos. Ajustar la configuración de búsqueda puede mejorar el rendimiento para grandes conjuntos de datos."
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid "Version reporting and alerts, reCAPTCHA configuration and attachments."
-msgstr "Versión de reportes y alertas, configuración y archivos adjuntos de reCAPTCHA."
+msgid "Version reporting, alerts and attachments."
+msgstr ""
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
 msgid ""
@@ -5967,6 +5923,38 @@ msgstr "(conozca más...)"
 msgid "Organizing Your Data"
 msgstr "Organizando sus Datos"
 
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid "$componentTitles.CiviContribute"
+msgstr ""
+
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid "$componentTitles.CiviPledge"
+msgstr ""
+
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid "$componentTitles.CiviEvent"
+msgstr ""
+
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid "$componentTitles.CiviMember"
+msgstr ""
+
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid "$componentTitles.CiviMail"
+msgstr ""
+
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid "$componentTitles.CiviCampaign"
+msgstr ""
+
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid "$componentTitles.CiviCase"
+msgstr ""
+
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid "$componentTitles.CiviGrant"
+msgstr ""
+
 #: templates/CRM/Admin/Page/ContactType.hlp
 msgid ""
 "CiviCRM comes with 3 basic (built-in) contact types: Individual, Household, "
@@ -6094,6 +6082,16 @@ msgstr "No hay extensiones para mostrar, Por favor, haga clic en \"Refrescar\" p
 #: templates/CRM/Admin/Page/Extensions/Main.tpl
 msgid "Outdated"
 msgstr "Fuera de Fecha"
+
+#: templates/CRM/Admin/Page/Extensions/Main.tpl
+msgid ""
+"This is a pre-release version. For more details, see the expanded "
+"description."
+msgstr ""
+
+#: templates/CRM/Admin/Page/Extensions/Main.tpl
+msgid "This is a stable release version."
+msgstr ""
 
 #: templates/CRM/Admin/Page/Extensions/Main.tpl
 msgid ""
@@ -7326,9 +7324,9 @@ msgstr "Configuraciones Varias"
 
 #: templates/CRM/Admin/Page/Setting.tpl
 msgid ""
-"Dashboard caching time, move to trash / undelete, change logging, version "
-"checking and reCAPTCHA (prevents automated abuse of public forms)."
-msgstr "Tiempo para caching en el panel de control, mover a la basura/recuperar, modificar el registro, verificación de versión y reCAPTCHA (previene el abuso automatizado de las formas públicas)."
+"Dashboard caching time, move to trash / undelete, change logging and version"
+" checking."
+msgstr ""
 
 #: templates/CRM/Admin/Page/Setting.tpl
 msgid ""
@@ -7339,3 +7337,43 @@ msgstr "Habilitar características de depuración incluyendo mostrar las variabl
 #: templates/CRM/Admin/Page/Setting.tpl
 msgid "Administration Documentation"
 msgstr "Documentación de Administración"
+
+#: settings/Core.setting.php
+msgid "DOMPDF Font Folder"
+msgstr ""
+
+#: settings/Core.setting.php
+#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
+msgid "Additional folder where DOMPDF will look for fonts."
+msgstr ""
+
+#: settings/Core.setting.php
+msgid "DOMPDF Local Images Folder"
+msgstr ""
+
+#: settings/Core.setting.php
+#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
+msgid ""
+"Folder to restrict where DOMPDF looks when loading local images. By default "
+"it is the DOMPDF folder itself for security reasons. It will search in "
+"subfolders."
+msgstr ""
+
+#: settings/Core.setting.php
+msgid "DOMPDF Enable Remote Images"
+msgstr ""
+
+#: settings/Core.setting.php
+#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
+msgid ""
+"Enable the use of remote images. By default this is enabled, but if not "
+"using remote images you may wish to turn it off for security reasons."
+msgstr ""
+
+#: settings/Core.setting.php
+msgid "DOMPDF Log File"
+msgstr ""
+
+#: settings/Core.setting.php
+msgid "DOMPDF will log debugging output in this file."
+msgstr ""
