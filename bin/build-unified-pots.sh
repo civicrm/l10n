@@ -128,7 +128,7 @@ for rel in $releases; do
   if [ -f $temp/$rel/composer.json ]; then
     echo "Running composer install ..."
     cd $temp/$rel
-    composer install
+    composer install -v
   fi
 
   echo "Running GenCode.php ..."
