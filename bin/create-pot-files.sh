@@ -11,10 +11,10 @@ SRC=
 POTDIR=
 
 ## The component *.pot files are based roughly on CRM/Foo templates/CRM/Foo.
-COMPONENT_POTS="Admin Badge Batch Campaign Case Contribute Event Extension Financial Grant Mailing Member PCP Pledge Project Queue Report"
+COMPONENT_POTS="Admin Badge Batch Campaign Case Contribute Event Extension Financial Mailing Member PCP Pledge Project Queue Report"
 
 ## The adhoc *.pot files are based on clear file list (but may have some special/less predictable rules).
-ADHOC_POTS="common-base countries drupal-civicrm install menu provinces"
+ADHOC_POTS="common-base countries drupal-civicrm install menu provinces grant"
 
 ## The magic *.pot files are derived from other *.pot files.
 MAGIC_POTS="common-components"
@@ -174,6 +174,13 @@ function build_raw_pot() {
       _civistrings -o "$filepath" \
         drupal \
         CRM/Core/Permission.php
+      ;;
+
+    # This is an exception, because it would require moving the existing Transifex resource
+    # we will probably need to do so at some point, but for now the ext uses plain 'ts()' anyway
+    grant)
+      _civistrings -o "$filepath" \
+        ext/civigrant
       ;;
 
     install)
