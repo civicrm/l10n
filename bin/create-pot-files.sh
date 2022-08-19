@@ -68,7 +68,7 @@ EOT
 #####################################################################
 ## Assert that CLI dependencies are met
 function check_deps() {
-  for cmd in sponge civistrings msgcomm msguniq tempfile tr grep cut date sed ; do
+  for cmd in sponge civistrings msgcomm msguniq mktemp tr grep cut date sed ; do
     if ! which $cmd > /dev/null ; then
       echo "Missing required command: $cmd"
       echo
@@ -325,7 +325,7 @@ function build_final_pot() {
   local name="$1"
   local rawpath="$POTDIR/.raw-"$(echo $name | tr '[:upper:]' '[:lower:]').pot
   local finalpath="$POTDIR/"$(echo $name | tr '[:upper:]' '[:lower:]').pot
-  local tmpfile=`tempfile`
+  local tmpfile=`mktemp`
 
   echo "[[ Building final strings for ${name} ]]"
 
