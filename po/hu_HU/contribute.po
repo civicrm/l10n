@@ -11,15 +11,20 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2021-10-30 09:41-0400\n"
-"PO-Revision-Date: 2021-11-23 13:52+0000\n"
-"Last-Translator: Zoltán Reizinger <zreizinger@hdsnet.hu>\n"
+"POT-Creation-Date: 2022-08-19 10:34-0400\n"
+"PO-Revision-Date: 2011-03-28 14:19+0000\n"
+"Last-Translator: Zoltán Reizinger <zreizinger@hdsnet.hu>, 2013-2016,2018-2021\n"
 "Language-Team: Hungarian (http://www.transifex.com/civicrm/civicrm/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: CRM/Contribute/ActionMapping/ByPage.php
+#: CRM/Contribute/ActionMapping/ByType.php
+msgid "Thank You Date"
+msgstr ""
 
 #: CRM/Contribute/ActionMapping/ByType.php
 msgid "Contribution Type"
@@ -67,6 +72,7 @@ msgid "Online Contribution"
 msgstr "Online adomány"
 
 #: CRM/Contribute/BAO/Contribution.php
+#: CRM/Contribute/BAO/ContributionRecur.php
 msgid "Recurring contribution"
 msgstr "Ismétlődő adományozás"
 
@@ -80,6 +86,22 @@ msgid ""
 "contribution. Editing the financial type is not yet supported in this "
 "situation."
 msgstr "Egy vagy több tétel különböző pénzügyi típussal rendelkezik mint az adomány. Ebben a helyzetben még nem támogatott a pénzügyi típus szerkesztése."
+
+#: CRM/Contribute/BAO/Contribution.php
+msgid "day(s)"
+msgstr ""
+
+#: CRM/Contribute/BAO/Contribution.php
+msgid "week(s)"
+msgstr ""
+
+#: CRM/Contribute/BAO/Contribution.php
+msgid "month(s)"
+msgstr ""
+
+#: CRM/Contribute/BAO/Contribution.php
+msgid "year(s)"
+msgstr ""
 
 #: CRM/Contribute/BAO/ContributionPage.php
 msgid "Automatically Generated"
@@ -244,6 +266,10 @@ msgid "Contribution is a Test?"
 msgstr "Ez egy teszt adomány?"
 
 #: CRM/Contribute/BAO/Query.php
+msgid "Contribution is Template?"
+msgstr "Adomány az Sablon?"
+
+#: CRM/Contribute/BAO/Query.php
 msgid "Personal Campaign Page Honor Roll?"
 msgstr "Személyes kampányoldal büszkeségfal?"
 
@@ -292,6 +318,10 @@ msgid "Learn more."
 msgstr "Tudjon meg többet."
 
 #: CRM/Contribute/DAO/Contribution.php
+msgid "Financial records consisting of transactions, line-items, etc."
+msgstr "Pénzügyi nyilvántartások, amelyek tranzakciókat, sorokat stb. tartalmaznak."
+
+#: CRM/Contribute/DAO/Contribution.php
 msgid "FK to Financial Type for (total_amount - non_deductible_amount)."
 msgstr "FK a (total_amount - non_deductible_amount) pénzügyi típushoz"
 
@@ -322,7 +352,11 @@ msgid ""
 msgstr "Az adomány teljes összege. A nem pénzügyi adományoknál használja a piaci értéket."
 
 #: CRM/Contribute/DAO/Contribution.php
-#: CRM/Contribute/DAO/ContributionRecur.php
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+msgid "Net Amount"
+msgstr ""
+
+#: CRM/Contribute/DAO/Contribution.php
 msgid ""
 "unique transaction id. may be processor id, bank id + trans id, or account "
 "number + check number... depending on payment_method"
@@ -543,6 +577,11 @@ msgstr "Alapértelmezett érték"
 #: CRM/Contribute/DAO/ContributionPage.php
 msgid "if other amounts allowed, user can configure minimum allowed."
 msgstr "ha más összeg engedélyezett, a felhasználó beállíthatja a minimálisan engedélyezett összeget"
+
+#: CRM/Contribute/DAO/ContributionPage.php
+#: CRM/Contribute/Form/ContributionPage/Amount.php
+msgid "Maximum Amount"
+msgstr ""
 
 #: CRM/Contribute/DAO/ContributionPage.php
 msgid "if other amounts allowed, user can configure maximum allowed."
@@ -846,6 +885,10 @@ msgid ""
 "Optionally used to store a link to a payment token used for this recurring "
 "contribution."
 msgstr "Opcionálisan ehhez az ismétlődő adományhoz tartozó  befizetés token tárolására szolgál"
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "unique transaction id (deprecated - use processor_id)"
+msgstr ""
 
 #: CRM/Contribute/DAO/ContributionRecur.php
 #: templates/CRM/Contribute/Page/ContributionRecur.tpl
@@ -1389,6 +1432,11 @@ msgid "The recurring contribution looks to have been cancelled already."
 msgstr "Ezen ismétlődő adományozás automatikus megújítási opciója, úgy tűnik már korábban törlésre került."
 
 #: CRM/Contribute/Form/CancelSubscription.php
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Required information missing."
+msgstr "Szükséges  információ hiányzik."
+
+#: CRM/Contribute/Form/CancelSubscription.php
 msgid "Send cancellation request?"
 msgstr "Elküldjük a törlési igényt?"
 
@@ -1636,6 +1684,10 @@ msgid "Pay with Credit Card"
 msgstr "Bankkártyás fizetés"
 
 #: CRM/Contribute/Form/Contribution.php
+msgid "Template Contribution"
+msgstr "Adomány sablon"
+
+#: CRM/Contribute/Form/Contribution.php
 msgid "Credit Card Pledge Payment"
 msgstr "Felajánlás bankkártyás befizetés"
 
@@ -1765,6 +1817,14 @@ msgstr "Torta"
 #: CRM/Contribute/Form/ContributionCharts.php
 msgid "Select Year (for monthly breakdown)"
 msgstr "Válassza ki az évet (havi bontásban)"
+
+#: CRM/Contribute/Form/ContributionCharts.php
+msgid "By Month - %1"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionCharts.php
+msgid "By Year"
+msgstr ""
 
 #: CRM/Contribute/Form/ContributionPage/AddProduct.php
 msgid "Selected Premium Product has been removed from this Contribution Page."
@@ -2185,10 +2245,6 @@ msgstr "Előnézet - %1"
 msgid "Delete Page - %1"
 msgstr "Törlés Oldal"
 
-#: CRM/Contribute/Form/ContributionPage.php
-msgid "civicrm_contribution_page"
-msgstr "civicrm_contribution_page"
-
 #: CRM/Contribute/Form/ContributionRecur.php
 msgid ""
 "There is no valid processor for this subscription so it cannot be updated"
@@ -2199,8 +2255,31 @@ msgid "You do not have permission to cancel this recurring contribution."
 msgstr "Nincs jogosultsága ezen ismétlődő adomány törlésére."
 
 #: CRM/Contribute/Form/ContributionView.php
+msgid "Access to contribution not permitted"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionView.php
 msgid "View Contribution from"
 msgstr "Adomány megtekintése"
+
+#: CRM/Contribute/Form/ContributionView.php
+msgid "View Template Contribution from"
+msgstr "Adomány sablon megtekintése innen"
+
+#: CRM/Contribute/Form/ContributionView.php
+#: templates/CRM/Contribute/Page/UserDashboard.tpl
+msgid "Download Invoice"
+msgstr "Nyugta letöltése"
+
+#: CRM/Contribute/Form/ContributionView.php
+#: templates/CRM/Contribute/Page/UserDashboard.tpl
+msgid "Download Invoice and Credit Note"
+msgstr "Nyugta és jóváírási bizonylat letöltése"
+
+#: CRM/Contribute/Form/ContributionView.php
+#: CRM/Contribute/Form/Task/Invoice.php
+msgid "Email Invoice"
+msgstr "E-mail számla"
 
 #: CRM/Contribute/Form/ManagePremiums.php
 msgid "Premium Product"
@@ -2419,11 +2498,6 @@ msgid ""
 "Please select only contributions with Completed, Pending, Refunded, or "
 "Partially Paid status."
 msgstr "Kérem csak befejezett, függő, visszatérített, Részlegesen befizetett állapotú adományt válaszon ki."
-
-#: CRM/Contribute/Form/Task/Invoice.php
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "Email Invoice"
-msgstr "E-mail számla"
 
 #: CRM/Contribute/Form/Task/Invoice.php
 msgid "Print Contribution Invoice"
@@ -2675,13 +2749,8 @@ msgid "There was some problem updating the billing details."
 msgstr "Némi probléma lépett fel a számlázási adatok frissítésénél."
 
 #: CRM/Contribute/Form/UpdateBilling.php
-#: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Update Error"
 msgstr "Frissítési hiba"
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "Required information missing."
-msgstr "Szükséges  információ hiányzik."
 
 #: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Recurring Contribution Amount"
@@ -2758,20 +2827,25 @@ msgid "Duplicate Import Contribution Mapping Name"
 msgstr "Duplikált adomány import adatillesztési név"
 
 #: CRM/Contribute/Import/Parser/Contribution.php
-msgid "Receipt date"
-msgstr "Nyugta dátuma"
-
-#: CRM/Contribute/Import/Parser/Contribution.php
-msgid "Thankyou Date"
-msgstr "A köszönet dátuma"
+msgid "Contribution Import"
+msgstr ""
 
 #: CRM/Contribute/Import/Parser/Contribution.php
 msgid "Soft Credit %1 - %2 doesn't exist. Row was skipped."
 msgstr "Lágy jóváírás %1 - %2 nem létezik. Sor kihagyva."
 
-#: CRM/Contribute/Import/Parser.php
-msgid "View Contribution URL"
-msgstr "Adomány URL megtekintése"
+#: CRM/Contribute/Import/Parser/Contribution.php
+msgid "Invalid email address %1 provided for Soft Credit. Row was skipped"
+msgstr ""
+
+#: CRM/Contribute/Import/Parser/Contribution.php
+msgid ""
+"Invalid email address(doesn't exist) %1 for Soft Credit. Row was skipped"
+msgstr ""
+
+#: CRM/Contribute/Import/Parser/Contribution.php
+msgid "Invalid email address(duplicate) %1 for Soft Credit. Row was skipped"
+msgstr ""
 
 #: CRM/Contribute/Info.php CRM/Contribute/Page/DashBoard.php
 msgid "CiviContribute"
@@ -2904,6 +2978,14 @@ msgid "Contribution %%StatusMessage%%"
 msgstr "Adomány %%StatusMessage%%"
 
 #: CRM/Contribute/Page/ContributionRecur.php
+msgid "Recurring contribution not found"
+msgstr "Ismétlődő adományozást nem találtam"
+
+#: CRM/Contribute/Page/ContributionRecur.php
+msgid "Recurring contribution not found (ID: %1)"
+msgstr "Ismétlődő adományozást találtam (Azonosító: %1)"
+
+#: CRM/Contribute/Page/ContributionRecur.php
 msgid "View Recurring Contribution from"
 msgstr "Ismétlődő hozzájárulás megtekintése"
 
@@ -2949,6 +3031,14 @@ msgstr "Ismétlődő befizetés megtekintése"
 #: CRM/Contribute/Page/Tab.php
 msgid "Edit Recurring Payment"
 msgstr "Ismétlődő befizetés szerkesztése"
+
+#: CRM/Contribute/Page/Tab.php
+msgid "View Template"
+msgstr "Sablon megtekintése"
+
+#: CRM/Contribute/Page/Tab.php
+msgid "View Template Contribution"
+msgstr "Sablon adomány megtekintése"
 
 #: CRM/Contribute/Page/UserDashboard.php
 msgid "Pay Now"
@@ -2996,6 +3086,18 @@ msgstr "Köszönő levél - nyomtatás vagy e-mail"
 #: CRM/Contribute/Task.php
 msgid "Invoices - print or email"
 msgstr "Számlák - nyomtatás vagy e-mail"
+
+#: CRM/Contribute/WorkflowMessage/Contribution/BasicContribution.php
+msgid "Completed Contribution"
+msgstr ""
+
+#: CRM/Contribute/WorkflowMessage/RecurringEdit/AlexCancelled.php
+msgid "Recurring Edit: Alex, Cancelled"
+msgstr "Ismétlődés szerkesztése: Alex, törölve"
+
+#: CRM/Contribute/WorkflowMessage/RecurringEdit/BarbPending.php
+msgid "Recurring Edit: Barbara, Pending"
+msgstr "Ismétlődés szerkesztése: Barbara, függőben"
 
 #: templates/CRM/Contribute/Form/AcceptCreditCard.tpl
 msgid "New Credit Card"
@@ -3151,12 +3253,36 @@ msgid "I want to contribute this amount every %1 for %2 installments."
 msgstr "Ezt az összeget szeretném adományozni,  mindegyikben %1  %2 részletben."
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every %1 %2s."
-msgstr "%1 %2 gyakorisággal szeretném adományozni ezt az összegget."
+msgid "I want to contribute this amount every %1 days."
+msgstr "%1 nap gyakorisággal szeretném adományozni ezt az összeget."
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every %1."
-msgstr "%1 gyakorisággal szeretnék adományozni ezzel az összeggel."
+msgid "I want to contribute this amount every %1 weeks."
+msgstr "%1 hét gyakorisággal szeretném adományozni ezt az összeget."
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+msgid "I want to contribute this amount every %1 months."
+msgstr "%1 hónap gyakorisággal szeretném adományozni ezt az összeget."
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+msgid "I want to contribute this amount every %1 years."
+msgstr "%1  év gyakorisággal szeretném adományozni ezt az összeget."
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+msgid "I want to contribute this amount every day."
+msgstr "Naponta szeretnék adományozni ezzel az összeggel."
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+msgid "I want to contribute this amount every week."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+msgid "I want to contribute this amount every month."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+msgid "I want to contribute this amount every year."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 msgid ""
@@ -3384,8 +3510,23 @@ msgstr "Az ismétlődő adomány automatikusan feldolgozásra kerül minden %1  
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
-"This recurring contribution will be automatically processed every %1 %2s."
-msgstr "Ez az ismétlődő adomány automatikusan feldolgozásra kerül minden %1 %2."
+"This recurring contribution will be automatically processed every %1 days."
+msgstr "Ez az ismétlődő adomány automatikusan feldolgozásra kerül minden %1 nap."
+
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+msgid ""
+"This recurring contribution will be automatically processed every %1 weeks."
+msgstr "Ez az ismétlődő adomány automatikusan feldolgozásra kerül minden %1 héten."
+
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+msgid ""
+"This recurring contribution will be automatically processed every %1 months."
+msgstr "Ez az ismétlődő adomány automatikusan feldolgozásra kerül minden %1 hónapban."
+
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+msgid ""
+"This recurring contribution will be automatically processed every %1 years."
+msgstr "Ez az ismétlődő adomány automatikusan feldolgozásra kerül minden %1 évben."
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid "This contribution will be automatically processed every day."
@@ -3764,8 +3905,8 @@ msgid ""
 "Set is in use. (See the Memberships tab above.) Membership Price Sets may "
 "include additional fields for non-membership options that require an "
 "additional fee (e.g. magazine subscription) or an additional voluntary "
-"contribution.</span>"
-msgstr "Nem használhatja  a adományozási összeg szakaszt,  amikor a tagsági árlista  használatban van. (tekintsen a Tagságok fülre fentebb). A tagsági árlisták további mezőket is tartalmazhatnak a nem tagsági opciókra, amelyekhez kiegészítő befizetés tartozik (pl. folyóirat előfizetés) vagy egy kiegészítő önkéntes adományozás.</span>"
+"contribution."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.hlp
 msgid "Contributor Profiles"
@@ -3798,10 +3939,9 @@ msgstr "Ha korábban nem készített egyedi mezőket és egy profilt ehhez az ol
 
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.hlp
 msgid ""
-"Create a new profile by clicking the 'Create' button next to 'Include "
-"Profile' field below. Name your new profile (e.g. 'Contribution "
-"Information')."
-msgstr "Hozzon létre egy új profilt a 'Létrehozás' gombra kattintva a 'Profil beillesztés' mező mellett alul. Adjon nevet az új profilnak (pl. Adomány információ')."
+"Create a new profile by clicking the 'Create' button next to the 'Include "
+"Profile' field. Name your new profile (e.g. 'Contribution Information')."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.hlp
 msgid ""
@@ -3819,8 +3959,8 @@ msgstr "Ha új egyedi mezőt kell létrehoznia, a profil szerkesztőben hozzáad
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.hlp
 msgid ""
 "Save your profile to return to this screen. You can preview it from here by "
-"clicking the Preview (microsope) button."
-msgstr "Ehhez a képernyőhöz való visszatéréshez, mentse a profilját. Előnézetét a az Előnézet (mikroszkóp) gombra kattintva érheti el. "
+"clicking the Preview button."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.tpl
 #: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
@@ -4092,14 +4232,6 @@ msgid ""
 "Select the corresponding financial type for contributions made using this "
 "page."
 msgstr "Kérem válassza ki erre az adományoldalra a megfelelő pénzügyi típust."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"You must <a href=\"%1\">configure a valid organization profile</a> in order "
-"to allow individuals to contribute on behalf of an organization. Valid "
-"profiles include Contact and / or Organization fields, and may include "
-"Contribution and Membership fields."
-msgstr "Érvényes <a href=\"%1\">szervezeti profilt kell beállítani</a>, hogy a magánszemélyek tudjanak a szervezetek nevében adományozni. Az érvényes profil kapcsolat és /vagy szervezet mezőket tartalmaz, és tartalmazhat továbbá adomány és tagsági mezőket is."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
@@ -4470,16 +4602,6 @@ msgid "Edit Widget Colors"
 msgstr "Kisalkalmazás színeinek szerkesztése"
 
 #: templates/CRM/Contribute/Form/ContributionView.tpl
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Print Invoice"
-msgstr "Számla nyomtatása"
-
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Print Invoice and Credit Note"
-msgstr "Számla és jóváíró számla nyomtatása"
-
-#: templates/CRM/Contribute/Form/ContributionView.tpl
 msgid "not available"
 msgstr "nem áll rendelkezésre"
 
@@ -4490,6 +4612,10 @@ msgstr "(folyamatban)"
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 msgid "Interval"
 msgstr "Időtartomány"
+
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+msgid "Associated participants"
+msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 msgid "Received Into"
@@ -4566,6 +4692,10 @@ msgid ""
 "available at this time, you may also choose to display a 'No Image "
 "Available' icon by selecting the 'default image'."
 msgstr "A számítógépéről feltölthet képet VAGY megadhat a képre mutató URL-t ha már a interneten van a kép. Ha a képfeltöltést választja, egy 'bélyegkép' változat automatikusan készül. Ha nincs pillanatnyilag képe a termékről, kiválaszthatja a 'Nincs kép' ikont, az 'alapértelmezett kép' megadásával."
+
+#: templates/CRM/Contribute/Form/ManagePremiums.tpl
+msgid "Current Image Thumbnail"
+msgstr ""
 
 #: templates/CRM/Contribute/Form/ManagePremiums.tpl
 msgid ""
@@ -4694,6 +4824,10 @@ msgstr "Adományoldalak keresése"
 #: templates/CRM/Contribute/Form/SearchContribution.tpl
 msgid "Complete OR partial Contribution Page title."
 msgstr "Teljes VAGY részleges adományoldal címe."
+
+#: templates/CRM/Contribute/Form/Selector.tpl
+msgid "(Recurring Template)"
+msgstr "(Ismétlődő sablon)"
 
 #: templates/CRM/Contribute/Form/Selector.tpl
 msgid "(Recurring)"
@@ -4843,6 +4977,12 @@ msgstr "Használja ezt az űrlapot ennek az ismétlődő adományozáshoz tartoz
 msgid "WARNING: This recurring contribution is linked to membership:"
 msgstr "FIGYELMEZTETÉS: Ez az ismétlődő hozzájárulás a tagsághoz kapcsolódik:"
 
+#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
+msgid ""
+"To change the amount you need to edit the template contribution. Click on "
+"\"View Template\" and then \"Edit\" from the list of recurring contributions"
+msgstr ""
+
 #: templates/CRM/Contribute/Import/Form/DataSource.hlp
 msgid "Contact Records for Contributors"
 msgstr "Adományozók kapcsolati rekordjai"
@@ -4911,41 +5051,10 @@ msgstr "Ha BEILLESZTI az új adomány rekordokat, az adatfájljában lennie kell
 #: templates/CRM/Contribute/Import/Form/DataSource.hlp
 msgid ""
 "If you are UPDATING existing contributions, you will need to include a "
-"unique identifer to match to the existing contribution record. This can be "
+"unique identifier to match to the existing contribution record. This can be "
 "either the CiviCRM-assigned contribution ID, a unique Invoice ID, or a "
 "unique Transaction ID."
-msgstr "Ha FRISSÍTI a meglévő adományokat, meg kell adni az egyedi azonosítókat a meglévő adomány rekordok párosításához. Ezek lehetnek a CiviCRM által kijelölt  adomány azonosító, egyedi számla azonosító, vagy egyedi tranzakció azonosító."
-
-#: templates/CRM/Contribute/Import/Form/DataSource.tpl
-msgid ""
-"The Contribution Import Wizard allows you to easily upload contributions "
-"from other applications into CiviCRM."
-msgstr "Az adomány import tündér lehetővé teszi aaz adomány információk egyszerű feltöltését más alkalmazásokból a CiviCRM-be."
-
-#: templates/CRM/Contribute/Import/Form/DataSource.tpl
-msgid ""
-"Files to be imported must be in the 'comma-separated-values' format (CSV) "
-"and must contain data needed to match the contribution to an existing "
-"contact in your CiviCRM database."
-msgstr "Az importálandó fájlnak veszővel elválasztott értékek (CSV) formátumban kell lennie, és az adomány adatainak összeegyeztethetőnek kell lennie a CiviCRM-ban meglévő kapcsolat adataival."
-
-#: templates/CRM/Contribute/Import/Form/DataSource.tpl
-msgid ""
-"Select 'Individual' if you are importing contributions made by individual "
-"persons."
-msgstr "Válassza ki a 'egyén'-t ha egy személy adomány adatait kívánja importálni."
-
-#: templates/CRM/Contribute/Import/Form/DataSource.tpl
-msgid ""
-"Select 'Organization' or 'Household' if you are importing contributions made"
-" by contacts of that type. (NOTE: Some built-in contact types may not be "
-"enabled for your site.)"
-msgstr "Válassza ki a 'Szervezet'-t vagy 'Háztartás'-t ha ilyen típusú adomány adatokat importál. (MEGJEGYZÉS: Néhány beépített kapcsolat típus nem engedélyezett az ön weboldalán)."
-
-#: templates/CRM/Contribute/Import/Form/DataSource.tpl
-msgid ""
-"Select a saved field mapping if this file format matches a previous import."
-msgstr "Válassza ki a mentett illesztést ha a fájlformátum megegyezik az előző importtal."
+msgstr ""
 
 #: templates/CRM/Contribute/Import/Form/Preview.tpl
 msgid ""
@@ -4957,46 +5066,9 @@ msgid ""
 msgstr "A CiviCRM érvénytelen adatot vagy formázási hibát észlelet a %1 rekordban. Ha továbbfolytatja, ezek a rekordok ki lesznek hagyva. Letölthet egy fájlt csak ezekkel a problémás rekordokkal: <a href='%2'>Hibák letöltése</a>. Ezek után kijavíthatja őket az eredeti beviteli fájlban, majd törölje ezt az importálást és térjen vissza az első lépéshez."
 
 #: templates/CRM/Contribute/Import/Form/Preview.tpl
-msgid ""
-"CiviCRM has detected %1 records with conflicting transaction ids within this"
-" data file. If you continue, these records will be skipped.  You can "
-"download a file with just these problem records: <a href='%2'>Download "
-"Conflicts</a>.  If you wish, you can then correct them in the original "
-"import file, cancel this import and begin again at step 1."
-msgstr "A CiviCRM észlelte hogy a %1 rekordokban egymásnak ellentmondó tranzakciós azonosítók vannak ebben az adat fájlban. Ha  Ön folytatja, akkor ezek a rekordok ki lesznek hagyva. Letölthet egy fájlt csak ezekkel a problémás rekordokkal - <a href='%2'>Ellentmondások letöltése</a>. Ezek után kijavíthatja őket az eredeti beviteli fájlban, majd törölje ezt az importálást és térjen vissza az első lépéshez."
-
-#: templates/CRM/Contribute/Import/Form/Preview.tpl
 #: templates/CRM/Contribute/Import/Form/Summary.tpl
 msgid "Total rows (contribution records) in uploaded file."
 msgstr "Összes sor (adomány rekord) a feltöltött fájlban."
-
-#: templates/CRM/Contribute/Import/Form/Summary.tpl
-msgid ""
-"CiviCRM has detected mismatched contribution ID. This record has not been "
-"updated."
-msgid_plural ""
-"CiviCRM has detected mismatched contribution IDs. These records have not "
-"been Updated."
-msgstr[0] "CiviCRM össze nem illő adomány azonosítót észlelt. Ez a rekord nem került frissítésre. "
-msgstr[1] "CiviCRM össze nem illő adomány azonosítókat észlelt. Ezek a rekordok nem kerültek frissítésre. "
-
-#: templates/CRM/Contribute/Import/Form/Summary.tpl
-msgid ""
-"You can <a href='%1'>Download Mismatched Contributions</a>. You may then "
-"correct them, and import the new file with the corrected data."
-msgstr "A <a href='%1'>problémás adományokat letöltheti</a>. Később kijavíthatja őket, majd vissza importálhatja a kijavított adatokat."
-
-#: templates/CRM/Contribute/Import/Form/Summary.tpl
-msgid ""
-"CiviCRM has detected one record with conflicting transaction ID within this "
-"data file or relative to existing contribution records. This record has not "
-"been imported."
-msgid_plural ""
-"CiviCRM has detected %count records with conflicting transaction IDs within "
-"this data file or relative to existing contribution records. These records "
-"have not been imported."
-msgstr[0] "CiviCRM ebben a fájlban vagy a vonatkozó adomány rekordban konfliktusos tranzakciós azonosítókat észlelt  egy rekordban. Ez a rekord nem került importálásra."
-msgstr[1] "CiviCRM ebben a fájlban vagy a vonatkozó adomány rekordban konfliktusos tranzakciós azonosítókat észlelt  %count rekordban. Ezek a rekordok nem kerültek importálásra."
 
 #: templates/CRM/Contribute/Import/Form/Summary.tpl
 msgid ""
@@ -5007,6 +5079,13 @@ msgid_plural ""
 " contribution records."
 msgstr[0] "CiviCRM duplikált meglévő CiviCRM tevékenység rekordot észlelt  egy rekordban. "
 msgstr[1] "CiviCRM duplikált meglévő CiviCRM adomány rekordot észlelt  %count rekordban. "
+
+#: templates/CRM/Contribute/Import/Form/Summary.tpl
+msgid ""
+"You can <a href=\"%1\">Download Duplicates</a>. You may then review these "
+"records to determine if they are actually duplicates, and correct the "
+"transaction IDs for those that are not."
+msgstr ""
 
 #: templates/CRM/Contribute/Import/Form/Summary.tpl
 msgid ""
@@ -5047,14 +5126,6 @@ msgid ""
 "amount could not be matched to a pending pledge payment. These contribution "
 "rows have been skipped (not imported)."
 msgstr "Felajánlás befizetésnek jelölt sorok, ahol az adományozó és / vagy a adomány összeget nem lehet a függőben lévő felajánlás befizetéssel megfeleltetni. Ezek az adomány sorok átugorva (nem lettek importálva)."
-
-#: templates/CRM/Contribute/Import/Form/Summary.tpl
-msgid "Rows with mismatched contribution IDs... (NOT updated)."
-msgstr "A nem összeillő adomány azonosítójú sorok... (NEM frissültek)."
-
-#: templates/CRM/Contribute/Import/Form/Summary.tpl
-msgid "Download Mismatched Contributions"
-msgstr "Ellentmondó adományok letöltése"
 
 #: templates/CRM/Contribute/Import/Form/Summary.tpl
 msgid "Rows which are duplicates of existing CiviCRM contribution records."
@@ -5121,6 +5192,10 @@ msgid ""
 "No contribution pages have been created yet. Click <a accesskey=\"N\" "
 "href='%1'>here</a> to create a new contribution page."
 msgstr "Nincs még adományoldal létrehozva. Kattintson <a accesskey=\"N\" href='%1'>ide</a> egy új kampányoldal létrehozására."
+
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "every %1 %2"
+msgstr ""
 
 #: templates/CRM/Contribute/Page/ContributionRecur.tpl
 msgid "Cancel Reason"
@@ -5216,10 +5291,6 @@ msgstr "Ez a táblázat ad egy összefoglalót <strong>Összes Adomány</strong>
 #: templates/CRM/Contribute/Page/DashBoard.tpl
 msgid "(n/a)"
 msgstr "(n/a)"
-
-#: templates/CRM/Contribute/Page/DashBoard.tpl
-msgid "view details"
-msgstr "részletek megtekintése"
 
 #: templates/CRM/Contribute/Page/DashBoard.tpl
 msgid "Current Fiscal Year-To-Date"
@@ -5875,112 +5946,8 @@ msgid ""
 "This is a test-drive email. No live financial transaction has occurred."
 msgstr "Ez egy teszt e-mail. Nem történt élő pénzügyi tranzakció."
 
-#: CRM/Contribute/BAO/Query.php
-msgid "Contribution is Template?"
-msgstr "Adomány az Sablon?"
-
-#: CRM/Contribute/DAO/Contribution.php
-msgid "Financial records consisting of transactions, line-items, etc."
-msgstr "Pénzügyi nyilvántartások, amelyek tranzakciókat, sorokat stb. tartalmaznak."
-
-#: CRM/Contribute/Form/Contribution.php
-msgid "Template Contribution"
-msgstr "Adomány sablon"
-
-#: CRM/Contribute/Form/ContributionView.php
-msgid "View Template Contribution from"
-msgstr "Adomány sablon megtekintése innen"
-
-#: CRM/Contribute/Page/ContributionRecur.php
-msgid "Recurring contribution not found"
-msgstr "Ismétlődő adományozást nem találtam"
-
-#: CRM/Contribute/Page/ContributionRecur.php
-msgid "Recurring contribution not found (ID: %1)"
-msgstr "Ismétlődő adományozást találtam (Azonosító: %1)"
-
-#: CRM/Contribute/Page/Tab.php
-msgid "View Template"
-msgstr "Sablon megtekintése"
-
-#: CRM/Contribute/Page/Tab.php
-msgid "View Template Contribution"
-msgstr "Sablon adomány megtekintése"
-
-#: CRM/Contribute/WorkflowMessage/RecurringEdit/AlexCancelled.ex.php
-msgid "Recurring Edit: Alex, Cancelled"
-msgstr "Ismétlődés szerkesztése: Alex, törölve"
-
-#: CRM/Contribute/WorkflowMessage/RecurringEdit/BarbPending.ex.php
-msgid "Recurring Edit: Barbara, Pending"
-msgstr "Ismétlődés szerkesztése: Barbara, függőben"
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every %1 days."
-msgstr "%1 nap gyakorisággal szeretném adományozni ezt az összeget."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every %1 weeks."
-msgstr "%1 hét gyakorisággal szeretném adományozni ezt az összeget."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every %1 months."
-msgstr "%1 hónap gyakorisággal szeretném adományozni ezt az összeget."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every %1 years."
-msgstr "%1  év gyakorisággal szeretném adományozni ezt az összeget."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every day."
-msgstr "Naponta szeretnék adományozni ezzel az összeggel."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount processed every week."
-msgstr "Hetente szeretnék adományozni ezzel az összeggel."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount processed every month."
-msgstr "Havonta szeretnék adományozni ezzel az összeggel."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount processed every year."
-msgstr "Évente szeretnék adományozni ezzel az összeggel."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+#: templates/CRM/Contribute/Form/AdditionalPayment.tpl
 msgid ""
-"This recurring contribution will be automatically processed every %1 days."
-msgstr "Ez az ismétlődő adomány automatikusan feldolgozásra kerül minden %1 nap."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"This recurring contribution will be automatically processed every %1 weeks."
-msgstr "Ez az ismétlődő adomány automatikusan feldolgozásra kerül minden %1 héten."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"This recurring contribution will be automatically processed every %1 months."
-msgstr "Ez az ismétlődő adomány automatikusan feldolgozásra kerül minden %1 hónapban."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"This recurring contribution will be automatically processed every %1 years."
-msgstr "Ez az ismétlődő adomány automatikusan feldolgozásra kerül minden %1 évben."
-
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Download Invoice"
-msgstr "Nyugta letöltése"
-
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Download Invoice and Credit Note"
-msgstr "Nyugta és jóváírási bizonylat letöltése"
-
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "View Recurring Contribution"
-msgstr "Ismétlődő adományok megtekintése"
-
-#: templates/CRM/Contribute/Form/Selector.tpl
-msgid "(Recurring Template)"
-msgstr "(Ismétlődő sablon)"
+"Use this form to record a manual refund. If a payment processor was used to "
+"make payment it will not be notified."
+msgstr ""
