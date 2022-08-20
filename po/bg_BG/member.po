@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2021-10-30 09:41-0400\n"
+"POT-Creation-Date: 2022-08-19 10:34-0400\n"
 "PO-Revision-Date: 2011-03-28 14:20+0000\n"
 "Last-Translator: Alexander Petrov, 2022\n"
 "Language-Team: Bulgarian (http://www.transifex.com/civicrm/civicrm/language/bg/)\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: CRM/Member/ActionMapping.php
+msgid "Membership Join Date"
+msgstr ""
 
 #: CRM/Member/BAO/Membership.php CRM/Member/Form/MembershipView.php
 msgid "Membership Type:"
@@ -59,9 +63,9 @@ msgstr "%1 Текущото(ите) членство за този контак�
 
 #: CRM/Member/BAO/MembershipStatus.php
 msgid ""
-"This membership status cannot be deleted as memberships exist with this "
-"status"
-msgstr "Това състояние на членство не може да бъде изтрито, тъй като съществуват членства с този статус"
+"This membership status cannot be deleted. Memberships exist with this "
+"status."
+msgstr ""
 
 #: CRM/Member/BAO/MembershipType.php
 msgid "This membership type cannot be deleted due to following reason(s):"
@@ -170,6 +174,10 @@ msgstr "Членството е Тест?"
 #: CRM/Member/BAO/Query.php
 msgid "Membership Status Is Overriden?"
 msgstr "Статусът на Членство е Отменен?"
+
+#: CRM/Member/DAO/Membership.php
+msgid "Records of contacts belonging to an organization's membership program."
+msgstr "Записи на контакти, принадлежащи към програмата за членство на организация."
 
 #: CRM/Member/DAO/Membership.php
 msgid "Beginning of initial membership period (member since...)."
@@ -636,6 +644,12 @@ msgstr "Автоматично подновяване"
 #: CRM/Member/DAO/MembershipType.php
 msgid "Is this membership_type enabled"
 msgstr "Активиран ли е membership_type"
+
+#: CRM/Member/Form/Membership.php
+msgid ""
+"WARNING: Deleting this membership will also delete any related payment "
+"(contribution) records."
+msgstr "ПРЕДУПРЕЖДЕНИЕ: Изтриването на това членство ще изтрие и всички свързани записи за плащане (дарения)."
 
 #: CRM/Member/Form/Membership.php
 msgid ""
@@ -1391,9 +1405,13 @@ msgstr "(ИЛИ Идентификатор на членство, ако е ре
 msgid "Duplicate Import Membership Mapping Name"
 msgstr "Дублирано име за съпоставяне на членство за импортиране"
 
-#: CRM/Member/Import/Parser.php
-msgid "View Membership URL"
-msgstr "Вижте URL адреса за Членство"
+#: CRM/Member/Import/Parser/Membership.php
+msgid "Membership Import"
+msgstr ""
+
+#: CRM/Member/Import/Parser/Membership.php
+msgid "Missing required fields"
+msgstr ""
 
 #: CRM/Member/Info.php CRM/Member/Page/DashBoard.php
 msgid "CiviMember"
@@ -1480,10 +1498,6 @@ msgstr "%1 създаден"
 #: CRM/Member/Page/Tab.php
 msgid "%1 out of %2"
 msgstr "%1 от %2"
-
-#: CRM/Member/Page/Tab.php
-msgid "N/A"
-msgstr "N/A"
 
 #: CRM/Member/Page/Tab.php CRM/Member/Selector/Search.php
 msgid "View Membership"
@@ -2274,94 +2288,17 @@ msgid ""
 "existing membership records."
 msgstr "Ако АКТУАЛИЗИРАТЕ съществуващи членства, ще трябва да включите колона, съдържаща уникалния присвоен от CiviCRM идентификатор на членство, който да съответства на съществуващите записи за членство."
 
-#: templates/CRM/Member/Import/Form/DataSource.tpl
-msgid ""
-"The Membership Import Wizard allows you to easily upload memberships from "
-"other applications into CiviCRM."
-msgstr "Съветникът за импортиране на членство ви позволява лесно да качвате членства от други приложения в CiviCRM."
-
-#: templates/CRM/Member/Import/Form/DataSource.tpl
-msgid ""
-"Files to be imported must be in the 'comma-separated-values' format (CSV) "
-"and must contain data needed to match the membership data to an existing "
-"contact in your CiviCRM database."
-msgstr "Файловете, които трябва да бъдат импортирани, трябва да са във формат „стойности, разделени със запетая“ (CSV) и трябва да съдържат данни, необходими за съпоставяне на данните за членство със съществуващ контакт във Вашата база данни на CiviCRM."
-
-#: templates/CRM/Member/Import/Form/DataSource.tpl
-msgid ""
-"Select 'Individual' if you are importing memberships for individual persons."
-msgstr "Изберете „Индивидуално“, ако импортирате членства за отделни лица."
-
-#: templates/CRM/Member/Import/Form/DataSource.tpl
-msgid ""
-"Select 'Organization' or 'Household' if you are importing memberships made "
-"by contacts of that type. (NOTE: Some built-in contact types may not be "
-"enabled for your site.)"
-msgstr "Изберете „Организация“ или „Домакинство“, ако импортирате членства, направени от контакти от този тип. (ЗАБЕЛЕЖКА: Някои вградени типове контакти може да не са активирани за Вашия сайт.)"
-
-#: templates/CRM/Member/Import/Form/DataSource.tpl
-msgid ""
-"If you want to use a previously saved import field mapping - select it here."
-msgstr "Ако искате да използвате предварително запазено съпоставяне на полето за импортиране - изберете го тук."
-
 #: templates/CRM/Member/Import/Form/Preview.tpl
-#: templates/CRM/Member/Import/Form/Summary.tpl
 msgid "Total rows (membership records) in uploaded file."
 msgstr "Общо редове (записи за членство) в качения файл."
-
-#: templates/CRM/Member/Import/Form/Summary.tpl
-msgid ""
-"CiviCRM has detected mismatched membership ID. This record has not been "
-"updated."
-msgid_plural ""
-"CiviCRM has detected mismatched membership IDs. These records have not been "
-"Updated."
-msgstr[0] "CiviCRM е открил несъответстващи идентификатори на членство. Тези записи не са актуализирани."
-msgstr[1] "CiviCRM е открил несъответстващи идентификатори на членство. Тези записи не са актуализирани."
-
-#: templates/CRM/Member/Import/Form/Summary.tpl
-msgid ""
-"You can <a href='%1'>Download Mismatched Memberships</a>. You may then "
-"correct them, and import the new file with the corrected data."
-msgstr "Може да <a href='%1'>Изтеглите Несъответстващи Членства</a>. След това можете да ги коригирате и да импортирате новия файл с коригираните данни."
-
-#: templates/CRM/Member/Import/Form/Summary.tpl
-msgid ""
-"CiviCRM has detected one record with conflicting transaction ID within this "
-"data file or relative to existing membership records. This record has not "
-"been imported."
-msgid_plural ""
-"CiviCRM has detected %count records with conflicting transaction IDs within "
-"this data file or relative to existing membership records. These records "
-"have not been imported."
-msgstr[0] "CiviCRM е открил 1% запис с конфликтен ID на участник в този файл с данни или по отношение на съществуващи записи на участници. Този запис не е импортиран."
-msgstr[1] "CiviCRM е открил 1% запис с конфликтен ID на участник в този файл с данни или по отношение на съществуващи записи на участници. Този запис не е импортиран."
-
-#: templates/CRM/Member/Import/Form/Summary.tpl
-msgid ""
-"CiviCRM has detected one record which is a duplicate of existing CiviCRM "
-"membership record."
-msgid_plural ""
-"CiviCRM has detected %count records which are duplicates of existing CiviCRM"
-" membership records."
-msgstr[0] "CiviCRM е открил 1% записи, които са дубликати на съществуващи записи на участници в CiviCRM."
-msgstr[1] "CiviCRM е открил 1% записи, които са дубликати на съществуващи записи на участници в CiviCRM."
-
-#: templates/CRM/Member/Import/Form/Summary.tpl
-msgid "Rows with mismatched membership IDs... (NOT updated)."
-msgstr "Редове с несъответстващи идентификатори на членство... (НЕ са актуализирани)."
-
-#: templates/CRM/Member/Import/Form/Summary.tpl
-msgid "Download Mismatched Memberships"
-msgstr "Изтеглете Несъответстващи Членства"
-
-#: templates/CRM/Member/Import/Form/Summary.tpl
-msgid "Rows which are duplicates of existing CiviCRM membership records."
-msgstr "Редове, които са дубликати на съществуващи записи за членство в CiviCRM."
 
 #: templates/CRM/Member/Page/DashBoard.hlp
 msgid "Member Dashboard"
 msgstr "Табло за управление на Членовете"
+
+#: templates/CRM/Member/Page/DashBoard.hlp
+msgid "Refer to the online user guide for more information."
+msgstr "Вижте онлайн ръководството за потребителя за повече информация."
 
 #: templates/CRM/Member/Page/DashBoard.hlp
 msgid ""
@@ -2389,10 +2326,6 @@ msgid ""
 " You can also <a href=\"%2\">import batches of membership records</a> from "
 "other sources."
 msgstr "Можете също да въвеждате и проследявате регистрациите за членство офлайн. За да записвате ръчно членство за отделни контакти, използвайте <a href=\"%1\">Намери Контакти</a>, за да намерите контакта. След това изберете <strong>Преглед</strong>, за да отидете на тяхната страница с обобщение и кликнете на връзката <strong>Ново членство</strong>. Можете също да <a href=\"%2\">импортирате партиди записи за членство</a> от други източници."
-
-#: templates/CRM/Member/Page/DashBoard.hlp
-msgid "Refer to the online user guide for more information."
-msgstr "Вижте онлайн ръководството за потребителя за повече информация."
 
 #: templates/CRM/Member/Page/DashBoard.tpl
 msgid "Members by Type"
@@ -2735,13 +2668,3 @@ msgstr "Това членство ще бъде подновено автома�
 #: xml/templates/message_templates/membership_online_receipt_text.tpl
 msgid "You can cancel the auto-renewal option by visiting this web page: %1."
 msgstr "Можете да отмените опцията за автоматично подновяване, като посетите тази уеб страница: %1."
-
-#: CRM/Member/DAO/Membership.php
-msgid "Records of contacts belonging to an organization's membership program."
-msgstr "Записи на контакти, принадлежащи към програмата за членство на организация."
-
-#: CRM/Member/Form/Membership.php
-msgid ""
-"WARNING: Deleting this membership will also delete any related payment "
-"(contribution) records."
-msgstr "ПРЕДУПРЕЖДЕНИЕ: Изтриването на това членство ще изтрие и всички свързани записи за плащане (дарения)."
