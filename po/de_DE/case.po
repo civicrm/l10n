@@ -29,9 +29,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2021-10-30 09:41-0400\n"
-"PO-Revision-Date: 2022-01-20 10:18+0000\n"
-"Last-Translator: Andreas Howiller <andreas.howiller@civiservice.de>\n"
+"POT-Creation-Date: 2022-08-19 10:34-0400\n"
+"PO-Revision-Date: 2011-03-28 14:17+0000\n"
+"Last-Translator: Torben Bertram, 2020-2021\n"
 "Language-Team: German (http://www.transifex.com/civicrm/civicrm/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -159,6 +159,10 @@ msgstr "Nur meine Fälle"
 #: CRM/Case/BAO/Query.php
 msgid "Search Cases with Upcoming Activities"
 msgstr "Suche nach Fällen mit anstehenden Aktivitäten"
+
+#: CRM/Case/DAO/Case.php
+msgid "Collections of activities and relationships for a given purpose."
+msgstr "Zusammenstellung von Aktivitäten und Beziehungen für einen angenommenen Bedarf."
 
 #: CRM/Case/DAO/Case.php
 msgid "Unique Case ID"
@@ -323,6 +327,15 @@ msgid "New Start Date"
 msgstr "Neues Startdatum"
 
 #: CRM/Case/Form/Activity/ChangeCaseStartDate.php
+#: CRM/Case/Form/Activity/ChangeCaseType.php
+msgid "Required parameter missing for ChangeCaseType - end post processing"
+msgstr "Required parameter missing for ChangeCaseType - end post processing"
+
+#: CRM/Case/Form/Activity/ChangeCaseStartDate.php
+msgid "Unable to update Open Case activity"
+msgstr "Konnte die Aktivität offener Fall nicht aktualisieren"
+
+#: CRM/Case/Form/Activity/ChangeCaseStartDate.php
 msgid "Case Start Date changed successfully."
 msgstr "Anfangsdatum des Falls erfolgreich geändert."
 
@@ -351,12 +364,28 @@ msgid "Link To Case"
 msgstr "Link zu Fall"
 
 #: CRM/Case/Form/Activity/LinkCases.php
+msgid "The linked case ID is invalid."
+msgstr ""
+
+#: CRM/Case/Form/Activity/LinkCases.php
 msgid "Please select some other case to link."
 msgstr "Bitte wählen Sie einen anderen Fall zum verknüpfen."
 
 #: CRM/Case/Form/Activity/LinkCases.php
 msgid "Selected case is already linked."
 msgstr "Der ausgewählte Fall ist bereits verbunden."
+
+#: CRM/Case/Form/Activity/OpenCase.php
+msgid "Activity Duration"
+msgstr ""
+
+#: CRM/Case/Form/Activity/OpenCase.php
+msgid "Required parameter missing for OpenCase - end post processing"
+msgstr "Required parameter missing for OpenCase - end post processing"
+
+#: CRM/Case/Form/Activity/OpenCase.php
+msgid "client_id cannot be empty for OpenCase - end post processing"
+msgstr "client_id cannot be empty for OpenCase - end post processing"
 
 #: CRM/Case/Form/Activity/OpenCase.php
 msgid "Case opened successfully."
@@ -369,6 +398,10 @@ msgstr "Notwendige Werte fehlen."
 #: CRM/Case/Form/Activity.php CRM/Case/XMLProcessor/Report.php
 msgid "Reported By"
 msgstr "Gemeldet von"
+
+#: CRM/Case/Form/Activity.php CRM/Case/Form/CaseView.php
+msgid "- select activity type -"
+msgstr "- Aktivitätstyp wählen -"
 
 #: CRM/Case/Form/Activity.php CRM/Case/XMLProcessor/Report.php
 msgid "Medium"
@@ -503,10 +536,6 @@ msgstr "- beliebiger Berichterstatter -"
 #: CRM/Case/Form/CaseView.php templates/CRM/Case/Form/ActivityTab.tpl
 msgid "Reporter/Role"
 msgstr "Berichterstatter / Rolle"
-
-#: CRM/Case/Form/CaseView.php
-msgid "- select activity type -"
-msgstr "- Aktivitätstyp wählen -"
 
 #: CRM/Case/Form/CaseView.php
 msgid " - any status - "
@@ -669,13 +698,25 @@ msgid "You are not authorized to access all cases and activities."
 msgstr "Sie haben keine ausreichenden Benutzerrechte, um auf alle Fälle und Aktivitäten zuzugreifen."
 
 #: CRM/Case/Page/Tab.php
+msgid "Contact Id is required for view action."
+msgstr "Kontakt-ID wird benötigt um Aktionen zu zeigen."
+
+#: CRM/Case/Page/Tab.php
 msgid "Are you sure you want to delete this case?"
 msgstr "Sind Sie sicher, dass Sie diesen Fall löschen möchten?"
+
+#: CRM/Case/Page/Tab.php CRM/Case/Selector/Search.php
+msgid "Manage"
+msgstr ""
 
 #: CRM/Case/Page/Tab.php CRM/Case/Selector/Search.php
 #: templates/CRM/Case/Form/Case.tpl
 msgid "Delete Case"
 msgstr "Fall löschen"
+
+#: CRM/Case/Selector/Search.php templates/CRM/Case/Form/Case.tpl
+msgid "Restore Case"
+msgstr ""
 
 #: CRM/Case/Selector/Search.php templates/CRM/Case/Form/CaseView.tpl
 msgid "Assign to Another Client"
@@ -966,6 +1007,10 @@ msgstr "Aktuelles Eröffnungsdatum"
 msgid "Update Linked Cases Status?"
 msgstr "Verknüpften Fallstatus aktualisieren?"
 
+#: templates/CRM/Case/Form/Activity/ChangeCaseStatus.tpl
+msgid "Case Client"
+msgstr ""
+
 #: templates/CRM/Case/Form/Activity/LinkCases.tpl
 msgid "Create link between %1 - %2 (CaseID: %3) and %4 - %5 (CaseID: %6)"
 msgstr "Stelle eine Verbindung her zwischen %1 - %2 (CaseID: %3) und %4 - %5 (CaseID: %6)"
@@ -1007,6 +1052,10 @@ msgstr "Suchfilter"
 #: templates/CRM/Case/Form/ActivityTab.tpl
 msgid "Reporter"
 msgstr "Reporter"
+
+#: templates/CRM/Case/Form/ActivityTab.tpl
+msgid "Assignee"
+msgstr ""
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
 msgid "You can modify the activity subject before filing."
@@ -1171,6 +1220,10 @@ msgid "Change To"
 msgstr "Geändert nach"
 
 #: templates/CRM/Case/Form/CaseView.tpl
+msgid "Show Inactive relationships"
+msgstr "Zeige inaktive Beziehungen"
+
+#: templates/CRM/Case/Form/CaseView.tpl
 msgid "Are you sure you want to end this relationship?"
 msgstr "Sind Sie sicher, dass Sie diese Beziehung beenden möchten?"
 
@@ -1243,6 +1296,10 @@ msgid "Number of selected cases: %1"
 msgstr "Zahl der ausgewählten Fälle: %1"
 
 #: templates/CRM/Case/Page/ConfigureError.tpl
+msgid "CiviCase Setup documentation"
+msgstr "CiviCase Setup-Dokumentation"
+
+#: templates/CRM/Case/Page/ConfigureError.tpl
 msgid ""
 "You need to setup and load Case and Activity configuration files before you "
 "can begin using the CiviCase component."
@@ -1252,13 +1309,13 @@ msgstr "Bitte zuerst die Fall- und Aktivitäten-Konfigurationsdateien konfigurie
 msgid "Refer to the %1 to learn about this process."
 msgstr "Verweise auf %1 um über diesen Prozess zu lernen. "
 
-#: templates/CRM/Case/Page/ConfigureError.tpl
-msgid "CiviCase Setup documentation"
-msgstr "CiviCase Setup-Dokumentation"
-
 #: templates/CRM/Case/Page/DashBoard.tpl
 msgid "Find My Cases"
 msgstr "Meine Fälle finden"
+
+#: templates/CRM/Case/Page/DashBoard.tpl
+msgid "All Cases"
+msgstr "Alle Fälle"
 
 #: templates/CRM/Case/Page/DashBoard.tpl
 msgid "All Cases with Upcoming Activities"
@@ -1305,8 +1362,8 @@ msgid "Manager"
 msgstr "Manager"
 
 #: templates/CRM/Case/Page/Tab.tpl
-msgid "Oops, It looks like there are no active case types."
-msgstr "Es sieht so aus, als gäbe es keine aktiven Falltypen"
+msgid "It looks like there are no active case types yet."
+msgstr ""
 
 #: templates/CRM/Case/Page/Tab.tpl
 msgid "Enable <a href='%1'>case types</a>."
@@ -1333,36 +1390,3 @@ msgstr "Zusammenfassung der Aktivitäten"
 #: xml/templates/message_templates/case_activity_text.tpl
 msgid "Your Case Role(s)"
 msgstr "Meine Fallrolle(n)"
-
-#: CRM/Case/DAO/Case.php
-msgid "Collections of activities and relationships for a given purpose."
-msgstr "Zusammenstellung von Aktivitäten und Beziehungen für einen angenommenen Bedarf."
-
-#: CRM/Case/Form/Activity/ChangeCaseStartDate.php
-#: CRM/Case/Form/Activity/ChangeCaseType.php
-msgid "Required parameter missing for ChangeCaseType - end post processing"
-msgstr "Required parameter missing for ChangeCaseType - end post processing"
-
-#: CRM/Case/Form/Activity/ChangeCaseStartDate.php
-msgid "Unable to update Open Case activity"
-msgstr "Konnte die Aktivität offener Fall nicht aktualisieren"
-
-#: CRM/Case/Form/Activity/OpenCase.php
-msgid "Required parameter missing for OpenCase - end post processing"
-msgstr "Required parameter missing for OpenCase - end post processing"
-
-#: CRM/Case/Form/Activity/OpenCase.php
-msgid "client_id cannot be empty for OpenCase - end post processing"
-msgstr "client_id cannot be empty for OpenCase - end post processing"
-
-#: CRM/Case/Page/Tab.php
-msgid "Contact Id is required for view action."
-msgstr "Kontakt-ID wird benötigt um Aktionen zu zeigen."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Show Inactive relationships"
-msgstr "Zeige inaktive Beziehungen"
-
-#: templates/CRM/Case/Page/DashBoard.tpl
-msgid "All Cases"
-msgstr "Alle Fälle"
