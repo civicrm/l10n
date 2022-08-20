@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2021-10-30 09:41-0400\n"
+"POT-Creation-Date: 2022-08-19 10:34-0400\n"
 "PO-Revision-Date: 2011-03-28 14:19+0000\n"
 "Last-Translator: Alexander Petrov, 2022\n"
 "Language-Team: Bulgarian (http://www.transifex.com/civicrm/civicrm/language/bg/)\n"
@@ -17,6 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: CRM/Contribute/ActionMapping/ByPage.php
+#: CRM/Contribute/ActionMapping/ByType.php
+msgid "Thank You Date"
+msgstr ""
 
 #: CRM/Contribute/ActionMapping/ByType.php
 msgid "Contribution Type"
@@ -64,6 +69,7 @@ msgid "Online Contribution"
 msgstr "Онлайн принос"
 
 #: CRM/Contribute/BAO/Contribution.php
+#: CRM/Contribute/BAO/ContributionRecur.php
 msgid "Recurring contribution"
 msgstr "Повтарящ се принос"
 
@@ -77,6 +83,22 @@ msgid ""
 "contribution. Editing the financial type is not yet supported in this "
 "situation."
 msgstr "Една или повече редови позиции имат различен финансов тип от приноса. Редактирането на финансов тип все още не се поддържа в тази ситуация."
+
+#: CRM/Contribute/BAO/Contribution.php
+msgid "day(s)"
+msgstr ""
+
+#: CRM/Contribute/BAO/Contribution.php
+msgid "week(s)"
+msgstr ""
+
+#: CRM/Contribute/BAO/Contribution.php
+msgid "month(s)"
+msgstr ""
+
+#: CRM/Contribute/BAO/Contribution.php
+msgid "year(s)"
+msgstr ""
 
 #: CRM/Contribute/BAO/ContributionPage.php
 msgid "Automatically Generated"
@@ -241,6 +263,10 @@ msgid "Contribution is a Test?"
 msgstr "Приносът е тест?"
 
 #: CRM/Contribute/BAO/Query.php
+msgid "Contribution is Template?"
+msgstr "Приносът е шаблон?"
+
+#: CRM/Contribute/BAO/Query.php
 msgid "Personal Campaign Page Honor Roll?"
 msgstr "Почетен списък на личната страница на кампанията?"
 
@@ -289,6 +315,10 @@ msgid "Learn more."
 msgstr "Научете повече."
 
 #: CRM/Contribute/DAO/Contribution.php
+msgid "Financial records consisting of transactions, line-items, etc."
+msgstr "Финансови записи, състоящи се от транзакции, редови позиции и др."
+
+#: CRM/Contribute/DAO/Contribution.php
 msgid "FK to Financial Type for (total_amount - non_deductible_amount)."
 msgstr "FK към Финансов тип за (обща сума - неподлежаща на приспадане сума)."
 
@@ -319,7 +349,11 @@ msgid ""
 msgstr "Общата сума на тази вноска. Използвайте пазарна стойност за непарични подаръци."
 
 #: CRM/Contribute/DAO/Contribution.php
-#: CRM/Contribute/DAO/ContributionRecur.php
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+msgid "Net Amount"
+msgstr ""
+
+#: CRM/Contribute/DAO/Contribution.php
 msgid ""
 "unique transaction id. may be processor id, bank id + trans id, or account "
 "number + check number... depending on payment_method"
@@ -540,6 +574,11 @@ msgstr "Сума по подразбиране"
 #: CRM/Contribute/DAO/ContributionPage.php
 msgid "if other amounts allowed, user can configure minimum allowed."
 msgstr "ако са разрешени други суми, потребителят може да конфигурира минимално позволените."
+
+#: CRM/Contribute/DAO/ContributionPage.php
+#: CRM/Contribute/Form/ContributionPage/Amount.php
+msgid "Maximum Amount"
+msgstr ""
 
 #: CRM/Contribute/DAO/ContributionPage.php
 msgid "if other amounts allowed, user can configure maximum allowed."
@@ -843,6 +882,10 @@ msgid ""
 "Optionally used to store a link to a payment token used for this recurring "
 "contribution."
 msgstr "По желание се използва за съхраняване на връзка към токен за плащане, използван за това повтарящо се дарение."
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "unique transaction id (deprecated - use processor_id)"
+msgstr ""
 
 #: CRM/Contribute/DAO/ContributionRecur.php
 #: templates/CRM/Contribute/Page/ContributionRecur.tpl
@@ -1386,6 +1429,11 @@ msgid "The recurring contribution looks to have been cancelled already."
 msgstr "Периодичният принос изглежда вече е отменен."
 
 #: CRM/Contribute/Form/CancelSubscription.php
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Required information missing."
+msgstr "Липсва необходимата информация."
+
+#: CRM/Contribute/Form/CancelSubscription.php
 msgid "Send cancellation request?"
 msgstr "Изпращане на заявка за анулиране?"
 
@@ -1633,6 +1681,10 @@ msgid "Pay with Credit Card"
 msgstr "Плащане с кредитна карта"
 
 #: CRM/Contribute/Form/Contribution.php
+msgid "Template Contribution"
+msgstr "Принос на шаблон"
+
+#: CRM/Contribute/Form/Contribution.php
 msgid "Credit Card Pledge Payment"
 msgstr "Плащане на залог с кредитна карта"
 
@@ -1762,6 +1814,14 @@ msgstr "Торта"
 #: CRM/Contribute/Form/ContributionCharts.php
 msgid "Select Year (for monthly breakdown)"
 msgstr "Изберете година (за месечна разбивка)"
+
+#: CRM/Contribute/Form/ContributionCharts.php
+msgid "By Month - %1"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionCharts.php
+msgid "By Year"
+msgstr ""
 
 #: CRM/Contribute/Form/ContributionPage/AddProduct.php
 msgid "Selected Premium Product has been removed from this Contribution Page."
@@ -2182,10 +2242,6 @@ msgstr "Страница за визуализация - %1"
 msgid "Delete Page - %1"
 msgstr "Изтриване на страница - %1"
 
-#: CRM/Contribute/Form/ContributionPage.php
-msgid "civicrm_contribution_page"
-msgstr "civicrm_contribution_page"
-
 #: CRM/Contribute/Form/ContributionRecur.php
 msgid ""
 "There is no valid processor for this subscription so it cannot be updated"
@@ -2196,8 +2252,31 @@ msgid "You do not have permission to cancel this recurring contribution."
 msgstr "Нямате разрешение да анулирате това повтарящо се дарение."
 
 #: CRM/Contribute/Form/ContributionView.php
+msgid "Access to contribution not permitted"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionView.php
 msgid "View Contribution from"
 msgstr "Вижте приноса от"
+
+#: CRM/Contribute/Form/ContributionView.php
+msgid "View Template Contribution from"
+msgstr "Вижте приноса на шаблона от"
+
+#: CRM/Contribute/Form/ContributionView.php
+#: templates/CRM/Contribute/Page/UserDashboard.tpl
+msgid "Download Invoice"
+msgstr "Изтеглена фактура"
+
+#: CRM/Contribute/Form/ContributionView.php
+#: templates/CRM/Contribute/Page/UserDashboard.tpl
+msgid "Download Invoice and Credit Note"
+msgstr "Изтеглете фактура и кредитно известие"
+
+#: CRM/Contribute/Form/ContributionView.php
+#: CRM/Contribute/Form/Task/Invoice.php
+msgid "Email Invoice"
+msgstr "Фактура по имейл"
 
 #: CRM/Contribute/Form/ManagePremiums.php
 msgid "Premium Product"
@@ -2416,11 +2495,6 @@ msgid ""
 "Please select only contributions with Completed, Pending, Refunded, or "
 "Partially Paid status."
 msgstr "Моля, изберете само приноси със статус Завършено, Предстоящо, Възстановено или Частично платено."
-
-#: CRM/Contribute/Form/Task/Invoice.php
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "Email Invoice"
-msgstr "Фактура по имейл"
 
 #: CRM/Contribute/Form/Task/Invoice.php
 msgid "Print Contribution Invoice"
@@ -2672,13 +2746,8 @@ msgid "There was some problem updating the billing details."
 msgstr "Имаше някакъв проблем при актуализирането на данните за плащане."
 
 #: CRM/Contribute/Form/UpdateBilling.php
-#: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Update Error"
 msgstr "Грешка при актуализиране"
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "Required information missing."
-msgstr "Липсва необходимата информация."
 
 #: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Recurring Contribution Amount"
@@ -2755,20 +2824,25 @@ msgid "Duplicate Import Contribution Mapping Name"
 msgstr "Дублирано име за съпоставяне на принос за импортиране"
 
 #: CRM/Contribute/Import/Parser/Contribution.php
-msgid "Receipt date"
-msgstr "Дата на квитанцията"
-
-#: CRM/Contribute/Import/Parser/Contribution.php
-msgid "Thankyou Date"
-msgstr "Дата на Благодарност"
+msgid "Contribution Import"
+msgstr ""
 
 #: CRM/Contribute/Import/Parser/Contribution.php
 msgid "Soft Credit %1 - %2 doesn't exist. Row was skipped."
 msgstr "Мек кредит %1 - %2 не съществува. Редът беше пропуснат."
 
-#: CRM/Contribute/Import/Parser.php
-msgid "View Contribution URL"
-msgstr "Вижте URL адреса на приноса"
+#: CRM/Contribute/Import/Parser/Contribution.php
+msgid "Invalid email address %1 provided for Soft Credit. Row was skipped"
+msgstr ""
+
+#: CRM/Contribute/Import/Parser/Contribution.php
+msgid ""
+"Invalid email address(doesn't exist) %1 for Soft Credit. Row was skipped"
+msgstr ""
+
+#: CRM/Contribute/Import/Parser/Contribution.php
+msgid "Invalid email address(duplicate) %1 for Soft Credit. Row was skipped"
+msgstr ""
 
 #: CRM/Contribute/Info.php CRM/Contribute/Page/DashBoard.php
 msgid "CiviContribute"
@@ -2901,6 +2975,14 @@ msgid "Contribution %%StatusMessage%%"
 msgstr "Принос %%StatusMessage%%"
 
 #: CRM/Contribute/Page/ContributionRecur.php
+msgid "Recurring contribution not found"
+msgstr "Повтарящият се принос не е намерен"
+
+#: CRM/Contribute/Page/ContributionRecur.php
+msgid "Recurring contribution not found (ID: %1)"
+msgstr "Повтарящият се принос не е намерен (ID: %1)"
+
+#: CRM/Contribute/Page/ContributionRecur.php
 msgid "View Recurring Contribution from"
 msgstr "Вижте периодичния принос от"
 
@@ -2946,6 +3028,14 @@ msgstr "Преглед на периодично плащане"
 #: CRM/Contribute/Page/Tab.php
 msgid "Edit Recurring Payment"
 msgstr "Редактиране на периодично плащане"
+
+#: CRM/Contribute/Page/Tab.php
+msgid "View Template"
+msgstr "Преглед на шаблон"
+
+#: CRM/Contribute/Page/Tab.php
+msgid "View Template Contribution"
+msgstr "Вижте Шаблона на Приноса"
 
 #: CRM/Contribute/Page/UserDashboard.php
 msgid "Pay Now"
@@ -2993,6 +3083,18 @@ msgstr "Благодарствено писмо - отпечатайте или 
 #: CRM/Contribute/Task.php
 msgid "Invoices - print or email"
 msgstr "Фактури - печат или имейл"
+
+#: CRM/Contribute/WorkflowMessage/Contribution/BasicContribution.php
+msgid "Completed Contribution"
+msgstr ""
+
+#: CRM/Contribute/WorkflowMessage/RecurringEdit/AlexCancelled.php
+msgid "Recurring Edit: Alex, Cancelled"
+msgstr "Повтаряща се редакция: Алекс, отменено"
+
+#: CRM/Contribute/WorkflowMessage/RecurringEdit/BarbPending.php
+msgid "Recurring Edit: Barbara, Pending"
+msgstr "Повтаряща се редакция: Барбара, чакаща"
 
 #: templates/CRM/Contribute/Form/AcceptCreditCard.tpl
 msgid "New Credit Card"
@@ -3148,12 +3250,36 @@ msgid "I want to contribute this amount every %1 for %2 installments."
 msgstr "Искам да внасям тази сума на всеки %1 за %2 вноски."
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every %1 %2s."
-msgstr "Искам да внасям тази сума на всеки %1 %2s."
+msgid "I want to contribute this amount every %1 days."
+msgstr "Искам да внасям тази сума на всеки %1 дни."
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every %1."
-msgstr "Искам да дарявам тази сума на всеки %1."
+msgid "I want to contribute this amount every %1 weeks."
+msgstr "Искам да дарявам тази сума на всяка %1 седмица. "
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+msgid "I want to contribute this amount every %1 months."
+msgstr "Искам да дарявам тази сума на всеки %1 месеца."
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+msgid "I want to contribute this amount every %1 years."
+msgstr "Искам да внасям тази сума на всеки %1 години."
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+msgid "I want to contribute this amount every day."
+msgstr "Искам да внасям тази сума всеки ден."
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+msgid "I want to contribute this amount every week."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+msgid "I want to contribute this amount every month."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+msgid "I want to contribute this amount every year."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 msgid ""
@@ -3381,8 +3507,23 @@ msgstr "Тази периодична вноска ще се обработва 
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
-"This recurring contribution will be automatically processed every %1 %2s."
-msgstr "Това повтарящо се дарение ще се обработва автоматично на всеки %1%2s."
+"This recurring contribution will be automatically processed every %1 days."
+msgstr "Този повтарящ се принос ще се обработва автоматично на всеки %1 дни."
+
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+msgid ""
+"This recurring contribution will be automatically processed every %1 weeks."
+msgstr "Този повтарящ се принос ще се обработва автоматично на всеки %1 седмици."
+
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+msgid ""
+"This recurring contribution will be automatically processed every %1 months."
+msgstr "Това периодично дарение ще се начислява автоматично на всеки %1 месеца. "
+
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+msgid ""
+"This recurring contribution will be automatically processed every %1 years."
+msgstr "Този повтарящ се принос ще се обработва автоматично на всеки %1 години."
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid "This contribution will be automatically processed every day."
@@ -3761,8 +3902,8 @@ msgid ""
 "Set is in use. (See the Memberships tab above.) Membership Price Sets may "
 "include additional fields for non-membership options that require an "
 "additional fee (e.g. magazine subscription) or an additional voluntary "
-"contribution.</span>"
-msgstr "Не можете да активирате секцията Суми на вноските, когато се използва набор от цени за членство. (Вижте раздела „Членства“ по-горе.) Ценовите комплекти за членство може да включват допълнителни полета за опции без членство, които изискват допълнителна такса (напр. абонамент за списание) или допълнително доброволно дарение.</span>"
+"contribution."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.hlp
 msgid "Contributor Profiles"
@@ -3795,10 +3936,9 @@ msgstr "Ако все още не сте конфигурирали персон
 
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.hlp
 msgid ""
-"Create a new profile by clicking the 'Create' button next to 'Include "
-"Profile' field below. Name your new profile (e.g. 'Contribution "
-"Information')."
-msgstr "Създайте нов профил, като щракнете върху бутона „Създаване“ до полето „Включване на профил“ по-долу. Наименувайте новия си профил (напр. „Информация за принос“)."
+"Create a new profile by clicking the 'Create' button next to the 'Include "
+"Profile' field. Name your new profile (e.g. 'Contribution Information')."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.hlp
 msgid ""
@@ -3816,8 +3956,8 @@ msgstr "Ако трябва да създадете нови персонали�
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.hlp
 msgid ""
 "Save your profile to return to this screen. You can preview it from here by "
-"clicking the Preview (microsope) button."
-msgstr "Запазете своя профил, за да се върнете към този екран. Можете да го прегледате от тук, като щракнете върху бутона Преглед (микроскоп)."
+"clicking the Preview button."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.tpl
 #: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
@@ -4089,14 +4229,6 @@ msgid ""
 "Select the corresponding financial type for contributions made using this "
 "page."
 msgstr "Изберете съответния финансов тип за вноски, направени чрез тази страница."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"You must <a href=\"%1\">configure a valid organization profile</a> in order "
-"to allow individuals to contribute on behalf of an organization. Valid "
-"profiles include Contact and / or Organization fields, and may include "
-"Contribution and Membership fields."
-msgstr "Трябва да <a href=\"%1\">конфигурирате валиден профил</a> на организация, за да позволите на отделни лица да допринасят от името на организация. Валидните профили включват полета за контакт и/или организация и могат да включват полета за принос и членство."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
@@ -4467,16 +4599,6 @@ msgid "Edit Widget Colors"
 msgstr "Редактиране на цветовете на джаджи"
 
 #: templates/CRM/Contribute/Form/ContributionView.tpl
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Print Invoice"
-msgstr "Печат на фактура"
-
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Print Invoice and Credit Note"
-msgstr "Отпечатайте фактура и кредитно известие"
-
-#: templates/CRM/Contribute/Form/ContributionView.tpl
 msgid "not available"
 msgstr "Не е налично"
 
@@ -4487,6 +4609,10 @@ msgstr "(текущо)"
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 msgid "Interval"
 msgstr "Интервал"
+
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+msgid "Associated participants"
+msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 msgid "Received Into"
@@ -4563,6 +4689,10 @@ msgid ""
 "available at this time, you may also choose to display a 'No Image "
 "Available' icon by selecting the 'default image'."
 msgstr "Можете да качите изображение от Вашия компютър ИЛИ да въведете URL за изображение, което вече е в мрежата. Ако изберете да качите файл с изображение, за Вас автоматично ще бъде създадена „миниатюрна“ версия. Ако в момента нямате налично изображение, можете също да изберете да покажете икона „Няма налично изображение“, като изберете „изображение по подразбиране“."
+
+#: templates/CRM/Contribute/Form/ManagePremiums.tpl
+msgid "Current Image Thumbnail"
+msgstr ""
 
 #: templates/CRM/Contribute/Form/ManagePremiums.tpl
 msgid ""
@@ -4691,6 +4821,10 @@ msgstr "Намерете страници за принос"
 #: templates/CRM/Contribute/Form/SearchContribution.tpl
 msgid "Complete OR partial Contribution Page title."
 msgstr "Пълно ИЛИ частично заглавие на страницата за принос."
+
+#: templates/CRM/Contribute/Form/Selector.tpl
+msgid "(Recurring Template)"
+msgstr "(Повтарящ се шаблон)"
 
 #: templates/CRM/Contribute/Form/Selector.tpl
 msgid "(Recurring)"
@@ -4840,6 +4974,12 @@ msgstr "Използвайте този формуляр, за да актуал
 msgid "WARNING: This recurring contribution is linked to membership:"
 msgstr "ПРЕДУПРЕЖДЕНИЕ: Този периодичен принос е свързан с членство:"
 
+#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
+msgid ""
+"To change the amount you need to edit the template contribution. Click on "
+"\"View Template\" and then \"Edit\" from the list of recurring contributions"
+msgstr ""
+
 #: templates/CRM/Contribute/Import/Form/DataSource.hlp
 msgid "Contact Records for Contributors"
 msgstr "Записи за контакти за сътрудници"
@@ -4908,41 +5048,10 @@ msgstr "Ако ВМЪКВАТЕ нови приноси, ще трябва да 
 #: templates/CRM/Contribute/Import/Form/DataSource.hlp
 msgid ""
 "If you are UPDATING existing contributions, you will need to include a "
-"unique identifer to match to the existing contribution record. This can be "
+"unique identifier to match to the existing contribution record. This can be "
 "either the CiviCRM-assigned contribution ID, a unique Invoice ID, or a "
 "unique Transaction ID."
-msgstr "Ако АКТУАЛИЗИРАТЕ съществуващи приноси, ще трябва да включите уникален идентификатор, който да съответства на съществуващия запис на приноси. Това може да бъде или присвоеният от CiviCRM идентификатор на принос, уникален идентификатор на фактура или уникален идентификатор на транзакция."
-
-#: templates/CRM/Contribute/Import/Form/DataSource.tpl
-msgid ""
-"The Contribution Import Wizard allows you to easily upload contributions "
-"from other applications into CiviCRM."
-msgstr "Съветникът за импортиране на принос Ви позволява лесно да качвате приноси от други приложения в CiviCRM."
-
-#: templates/CRM/Contribute/Import/Form/DataSource.tpl
-msgid ""
-"Files to be imported must be in the 'comma-separated-values' format (CSV) "
-"and must contain data needed to match the contribution to an existing "
-"contact in your CiviCRM database."
-msgstr "Файловете, които ще бъдат импортирани, трябва да са във формат „стойности, разделени със запетая“ (CSV) и трябва да съдържат данни, необходими за съответствие на приноса със съществуващ контакт във Вашата база данни CiviCRM."
-
-#: templates/CRM/Contribute/Import/Form/DataSource.tpl
-msgid ""
-"Select 'Individual' if you are importing contributions made by individual "
-"persons."
-msgstr "Изберете „Индивидуално“, ако импортирате вноски, направени от отделни лица."
-
-#: templates/CRM/Contribute/Import/Form/DataSource.tpl
-msgid ""
-"Select 'Organization' or 'Household' if you are importing contributions made"
-" by contacts of that type. (NOTE: Some built-in contact types may not be "
-"enabled for your site.)"
-msgstr "Изберете „Организация“ или „Домакинство“, ако импортирате вноски, направени от контакти от този тип. (ЗАБЕЛЕЖКА: Някои вградени типове контакти може да не са активирани за Вашия сайт.)"
-
-#: templates/CRM/Contribute/Import/Form/DataSource.tpl
-msgid ""
-"Select a saved field mapping if this file format matches a previous import."
-msgstr "Изберете съпоставяне на запазено поле, ако този файлов формат съответства на предишно импортиране."
+msgstr ""
 
 #: templates/CRM/Contribute/Import/Form/Preview.tpl
 msgid ""
@@ -4954,46 +5063,9 @@ msgid ""
 msgstr "CiviCRM откри невалидни данни или грешки във форматирането в %1 записа. Ако продължите, тези записи ще бъдат пропуснати. Можете да изтеглите файл само с тези записи на проблеми: <a href='%2'>Изтегляне на грешки</a>. Ако желаете, след това можете да ги коригирате в оригиналния файл за импортиране, да отмените това импортиране и да започнете отново от стъпка 1."
 
 #: templates/CRM/Contribute/Import/Form/Preview.tpl
-msgid ""
-"CiviCRM has detected %1 records with conflicting transaction ids within this"
-" data file. If you continue, these records will be skipped.  You can "
-"download a file with just these problem records: <a href='%2'>Download "
-"Conflicts</a>.  If you wish, you can then correct them in the original "
-"import file, cancel this import and begin again at step 1."
-msgstr "CiviCRM е открил %1 запис с противоречиви идентификатори на транзакции в този файл с данни. Ако продължите, тези записи ще бъдат пропуснати. Можете да изтеглите файл само с тези записи на проблеми: <a href='%2'>Изтегляне на Конфликти</a>. Ако желаете, след това можете да ги коригирате в оригиналния файл за импортиране, да отмените това импортиране и да започнете отново от стъпка 1."
-
-#: templates/CRM/Contribute/Import/Form/Preview.tpl
 #: templates/CRM/Contribute/Import/Form/Summary.tpl
 msgid "Total rows (contribution records) in uploaded file."
 msgstr "Общо редове (записи за принос) в качения файл."
-
-#: templates/CRM/Contribute/Import/Form/Summary.tpl
-msgid ""
-"CiviCRM has detected mismatched contribution ID. This record has not been "
-"updated."
-msgid_plural ""
-"CiviCRM has detected mismatched contribution IDs. These records have not "
-"been Updated."
-msgstr[0] "CiviCRM откри несъответстващи идентификатори на принос. Тези записи не са актуализирани."
-msgstr[1] "CiviCRM откри несъответстващи идентификатори на принос. Тези записи не са актуализирани."
-
-#: templates/CRM/Contribute/Import/Form/Summary.tpl
-msgid ""
-"You can <a href='%1'>Download Mismatched Contributions</a>. You may then "
-"correct them, and import the new file with the corrected data."
-msgstr "Можете да <a href='%1'>Изтеглите несъответстващи приноси</a>. След това можете да ги коригирате и да импортирате новия файл с коригираните данни."
-
-#: templates/CRM/Contribute/Import/Form/Summary.tpl
-msgid ""
-"CiviCRM has detected one record with conflicting transaction ID within this "
-"data file or relative to existing contribution records. This record has not "
-"been imported."
-msgid_plural ""
-"CiviCRM has detected %count records with conflicting transaction IDs within "
-"this data file or relative to existing contribution records. These records "
-"have not been imported."
-msgstr[0] "CiviCRM е открил записи с противоречиви идентификатори на транзакции в този файл с данни или спрямо съществуващи записи за принос. Тези записи не са импортирани."
-msgstr[1] "CiviCRM е открил %c записи с противоречиви идентификатори на транзакции в този файл с данни или спрямо съществуващи записи за принос. Тези записи не са импортирани."
 
 #: templates/CRM/Contribute/Import/Form/Summary.tpl
 msgid ""
@@ -5004,6 +5076,13 @@ msgid_plural ""
 " contribution records."
 msgstr[0] "CiviCRM е открил записи, които са дубликати на съществуващи записи за принос на CiviCRM."
 msgstr[1] "CiviCRM е открил %c записи, които са дубликати на съществуващи записи за принос на CiviCRM."
+
+#: templates/CRM/Contribute/Import/Form/Summary.tpl
+msgid ""
+"You can <a href=\"%1\">Download Duplicates</a>. You may then review these "
+"records to determine if they are actually duplicates, and correct the "
+"transaction IDs for those that are not."
+msgstr ""
 
 #: templates/CRM/Contribute/Import/Form/Summary.tpl
 msgid ""
@@ -5044,14 +5123,6 @@ msgid ""
 "amount could not be matched to a pending pledge payment. These contribution "
 "rows have been skipped (not imported)."
 msgstr "Редове, маркирани като плащания по залог, при които сътрудникът и/или сумата на вноската не могат да бъдат съпоставени с чакащо плащане по залог. Тези редове за принос са пропуснати (не са импортирани)."
-
-#: templates/CRM/Contribute/Import/Form/Summary.tpl
-msgid "Rows with mismatched contribution IDs... (NOT updated)."
-msgstr "Редове с несъответстващи идентификатори на принос... (НЕ са актуализирани)."
-
-#: templates/CRM/Contribute/Import/Form/Summary.tpl
-msgid "Download Mismatched Contributions"
-msgstr "Изтегляне на несъответстващи приноси"
 
 #: templates/CRM/Contribute/Import/Form/Summary.tpl
 msgid "Rows which are duplicates of existing CiviCRM contribution records."
@@ -5118,6 +5189,10 @@ msgid ""
 "No contribution pages have been created yet. Click <a accesskey=\"N\" "
 "href='%1'>here</a> to create a new contribution page."
 msgstr "Все още не са създадени страници за принос. Щракнете <a accesskey=\"N\" href='%1'>тук</a>, за да създадете нова страница за принос."
+
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "every %1 %2"
+msgstr ""
 
 #: templates/CRM/Contribute/Page/ContributionRecur.tpl
 msgid "Cancel Reason"
@@ -5213,10 +5288,6 @@ msgstr "Таблицата с <strong>Обобщена информация за
 #: templates/CRM/Contribute/Page/DashBoard.tpl
 msgid "(n/a)"
 msgstr "(n/a)"
-
-#: templates/CRM/Contribute/Page/DashBoard.tpl
-msgid "view details"
-msgstr "виж детайлите"
 
 #: templates/CRM/Contribute/Page/DashBoard.tpl
 msgid "Current Fiscal Year-To-Date"
@@ -5872,112 +5943,8 @@ msgid ""
 "This is a test-drive email. No live financial transaction has occurred."
 msgstr "Това е имейл за тест. Не е извършена финансова транзакция на живо."
 
-#: CRM/Contribute/BAO/Query.php
-msgid "Contribution is Template?"
-msgstr "Приносът е шаблон?"
-
-#: CRM/Contribute/DAO/Contribution.php
-msgid "Financial records consisting of transactions, line-items, etc."
-msgstr "Финансови записи, състоящи се от транзакции, редови позиции и др."
-
-#: CRM/Contribute/Form/Contribution.php
-msgid "Template Contribution"
-msgstr "Принос на шаблон"
-
-#: CRM/Contribute/Form/ContributionView.php
-msgid "View Template Contribution from"
-msgstr "Вижте приноса на шаблона от"
-
-#: CRM/Contribute/Page/ContributionRecur.php
-msgid "Recurring contribution not found"
-msgstr "Повтарящият се принос не е намерен"
-
-#: CRM/Contribute/Page/ContributionRecur.php
-msgid "Recurring contribution not found (ID: %1)"
-msgstr "Повтарящият се принос не е намерен (ID: %1)"
-
-#: CRM/Contribute/Page/Tab.php
-msgid "View Template"
-msgstr "Преглед на шаблон"
-
-#: CRM/Contribute/Page/Tab.php
-msgid "View Template Contribution"
-msgstr "Вижте Шаблона на Приноса"
-
-#: CRM/Contribute/WorkflowMessage/RecurringEdit/AlexCancelled.ex.php
-msgid "Recurring Edit: Alex, Cancelled"
-msgstr "Повтаряща се редакция: Алекс, отменено"
-
-#: CRM/Contribute/WorkflowMessage/RecurringEdit/BarbPending.ex.php
-msgid "Recurring Edit: Barbara, Pending"
-msgstr "Повтаряща се редакция: Барбара, чакаща"
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every %1 days."
-msgstr "Искам да внасям тази сума на всеки %1 дни."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every %1 weeks."
-msgstr "Искам да дарявам тази сума на всяка %1 седмица. "
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every %1 months."
-msgstr "Искам да дарявам тази сума на всеки %1 месеца."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every %1 years."
-msgstr "Искам да внасям тази сума на всеки %1 години."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every day."
-msgstr "Искам да внасям тази сума всеки ден."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount processed every week."
-msgstr "Искам да внасям тази сума, обработвана всяка седмица."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount processed every month."
-msgstr "Искам да внасям тази сума, обработвана всеки месец."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount processed every year."
-msgstr "Искам да внасям тази сума, обработвана всяка година."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+#: templates/CRM/Contribute/Form/AdditionalPayment.tpl
 msgid ""
-"This recurring contribution will be automatically processed every %1 days."
-msgstr "Този повтарящ се принос ще се обработва автоматично на всеки %1 дни."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"This recurring contribution will be automatically processed every %1 weeks."
-msgstr "Този повтарящ се принос ще се обработва автоматично на всеки %1 седмици."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"This recurring contribution will be automatically processed every %1 months."
-msgstr "Това периодично дарение ще се начислява автоматично на всеки %1 месеца. "
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"This recurring contribution will be automatically processed every %1 years."
-msgstr "Този повтарящ се принос ще се обработва автоматично на всеки %1 години."
-
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Download Invoice"
-msgstr "Изтеглена фактура"
-
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Download Invoice and Credit Note"
-msgstr "Изтеглете фактура и кредитно известие"
-
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "View Recurring Contribution"
-msgstr "Прегледайте повтарящото се дарение"
-
-#: templates/CRM/Contribute/Form/Selector.tpl
-msgid "(Recurring Template)"
-msgstr "(Повтарящ се шаблон)"
+"Use this form to record a manual refund. If a payment processor was used to "
+"make payment it will not be notified."
+msgstr ""
