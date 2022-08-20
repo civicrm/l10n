@@ -15,7 +15,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2021-10-30 09:41-0400\n"
+"POT-Creation-Date: 2022-08-19 10:34-0400\n"
 "PO-Revision-Date: 2011-03-28 14:19+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>, 2021-2022\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/civicrm/civicrm/language/en_GB/)\n"
@@ -24,6 +24,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: CRM/Contribute/ActionMapping/ByPage.php
+#: CRM/Contribute/ActionMapping/ByType.php
+msgid "Thank You Date"
+msgstr ""
 
 #: CRM/Contribute/ActionMapping/ByType.php
 msgid "Contribution Type"
@@ -71,6 +76,7 @@ msgid "Online Contribution"
 msgstr "Online Contribution"
 
 #: CRM/Contribute/BAO/Contribution.php
+#: CRM/Contribute/BAO/ContributionRecur.php
 msgid "Recurring contribution"
 msgstr "Recurring contribution"
 
@@ -84,6 +90,22 @@ msgid ""
 "contribution. Editing the financial type is not yet supported in this "
 "situation."
 msgstr "One or more line items have a different financial type than the contribution. Editing the financial type is not yet supported in this situation."
+
+#: CRM/Contribute/BAO/Contribution.php
+msgid "day(s)"
+msgstr ""
+
+#: CRM/Contribute/BAO/Contribution.php
+msgid "week(s)"
+msgstr ""
+
+#: CRM/Contribute/BAO/Contribution.php
+msgid "month(s)"
+msgstr ""
+
+#: CRM/Contribute/BAO/Contribution.php
+msgid "year(s)"
+msgstr ""
 
 #: CRM/Contribute/BAO/ContributionPage.php
 msgid "Automatically Generated"
@@ -248,6 +270,10 @@ msgid "Contribution is a Test?"
 msgstr "Contribution is a Test?"
 
 #: CRM/Contribute/BAO/Query.php
+msgid "Contribution is Template?"
+msgstr "Contribution is Template?"
+
+#: CRM/Contribute/BAO/Query.php
 msgid "Personal Campaign Page Honor Roll?"
 msgstr "Personal Campaign Page Honour Roll?"
 
@@ -296,6 +322,10 @@ msgid "Learn more."
 msgstr "Learn more."
 
 #: CRM/Contribute/DAO/Contribution.php
+msgid "Financial records consisting of transactions, line-items, etc."
+msgstr "Financial records consisting of transactions, line-items, etc."
+
+#: CRM/Contribute/DAO/Contribution.php
 msgid "FK to Financial Type for (total_amount - non_deductible_amount)."
 msgstr "FK to Financial Type for (total_amount - non_deductible_amount)."
 
@@ -326,7 +356,11 @@ msgid ""
 msgstr "Total amount of this contribution. Use market value for non-monetary gifts."
 
 #: CRM/Contribute/DAO/Contribution.php
-#: CRM/Contribute/DAO/ContributionRecur.php
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+msgid "Net Amount"
+msgstr ""
+
+#: CRM/Contribute/DAO/Contribution.php
 msgid ""
 "unique transaction id. may be processor id, bank id + trans id, or account "
 "number + check number... depending on payment_method"
@@ -547,6 +581,11 @@ msgstr "Default Amount"
 #: CRM/Contribute/DAO/ContributionPage.php
 msgid "if other amounts allowed, user can configure minimum allowed."
 msgstr "if other amounts allowed, user can configure minimum allowed."
+
+#: CRM/Contribute/DAO/ContributionPage.php
+#: CRM/Contribute/Form/ContributionPage/Amount.php
+msgid "Maximum Amount"
+msgstr ""
 
 #: CRM/Contribute/DAO/ContributionPage.php
 msgid "if other amounts allowed, user can configure maximum allowed."
@@ -850,6 +889,10 @@ msgid ""
 "Optionally used to store a link to a payment token used for this recurring "
 "contribution."
 msgstr "Optionally used to store a link to a payment token used for this recurring contribution."
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+msgid "unique transaction id (deprecated - use processor_id)"
+msgstr ""
 
 #: CRM/Contribute/DAO/ContributionRecur.php
 #: templates/CRM/Contribute/Page/ContributionRecur.tpl
@@ -1393,6 +1436,11 @@ msgid "The recurring contribution looks to have been cancelled already."
 msgstr "The recurring contribution looks to have been cancelled already."
 
 #: CRM/Contribute/Form/CancelSubscription.php
+#: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Required information missing."
+msgstr "Required information missing."
+
+#: CRM/Contribute/Form/CancelSubscription.php
 msgid "Send cancellation request?"
 msgstr "Send cancellation request?"
 
@@ -1640,6 +1688,10 @@ msgid "Pay with Credit Card"
 msgstr "Pay with Credit Card"
 
 #: CRM/Contribute/Form/Contribution.php
+msgid "Template Contribution"
+msgstr "Template Contribution"
+
+#: CRM/Contribute/Form/Contribution.php
 msgid "Credit Card Pledge Payment"
 msgstr "Credit Card Pledge Payment"
 
@@ -1769,6 +1821,14 @@ msgstr "Pie"
 #: CRM/Contribute/Form/ContributionCharts.php
 msgid "Select Year (for monthly breakdown)"
 msgstr "Select Year (for monthly breakdown)"
+
+#: CRM/Contribute/Form/ContributionCharts.php
+msgid "By Month - %1"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionCharts.php
+msgid "By Year"
+msgstr ""
 
 #: CRM/Contribute/Form/ContributionPage/AddProduct.php
 msgid "Selected Premium Product has been removed from this Contribution Page."
@@ -2189,10 +2249,6 @@ msgstr "Preview Page - %1"
 msgid "Delete Page - %1"
 msgstr "Delete Page - %1"
 
-#: CRM/Contribute/Form/ContributionPage.php
-msgid "civicrm_contribution_page"
-msgstr "civicrm_contribution_page"
-
 #: CRM/Contribute/Form/ContributionRecur.php
 msgid ""
 "There is no valid processor for this subscription so it cannot be updated"
@@ -2203,8 +2259,31 @@ msgid "You do not have permission to cancel this recurring contribution."
 msgstr "You do not have permission to cancel this recurring contribution."
 
 #: CRM/Contribute/Form/ContributionView.php
+msgid "Access to contribution not permitted"
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionView.php
 msgid "View Contribution from"
 msgstr "View Contribution from"
+
+#: CRM/Contribute/Form/ContributionView.php
+msgid "View Template Contribution from"
+msgstr "View Template Contribution from"
+
+#: CRM/Contribute/Form/ContributionView.php
+#: templates/CRM/Contribute/Page/UserDashboard.tpl
+msgid "Download Invoice"
+msgstr "Download Invoice"
+
+#: CRM/Contribute/Form/ContributionView.php
+#: templates/CRM/Contribute/Page/UserDashboard.tpl
+msgid "Download Invoice and Credit Note"
+msgstr "Download Invoice and Credit Note"
+
+#: CRM/Contribute/Form/ContributionView.php
+#: CRM/Contribute/Form/Task/Invoice.php
+msgid "Email Invoice"
+msgstr "Email Invoice"
 
 #: CRM/Contribute/Form/ManagePremiums.php
 msgid "Premium Product"
@@ -2423,11 +2502,6 @@ msgid ""
 "Please select only contributions with Completed, Pending, Refunded, or "
 "Partially Paid status."
 msgstr "Please select only contributions with Completed, Pending, Refunded, or Partially Paid status."
-
-#: CRM/Contribute/Form/Task/Invoice.php
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "Email Invoice"
-msgstr "Email Invoice"
 
 #: CRM/Contribute/Form/Task/Invoice.php
 msgid "Print Contribution Invoice"
@@ -2679,13 +2753,8 @@ msgid "There was some problem updating the billing details."
 msgstr "There was some problem updating the billing details."
 
 #: CRM/Contribute/Form/UpdateBilling.php
-#: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Update Error"
 msgstr "Update Error"
-
-#: CRM/Contribute/Form/UpdateSubscription.php
-msgid "Required information missing."
-msgstr "Required information missing."
 
 #: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Recurring Contribution Amount"
@@ -2762,20 +2831,25 @@ msgid "Duplicate Import Contribution Mapping Name"
 msgstr "Duplicate Import Contribution Mapping Name"
 
 #: CRM/Contribute/Import/Parser/Contribution.php
-msgid "Receipt date"
-msgstr "Receipt date"
-
-#: CRM/Contribute/Import/Parser/Contribution.php
-msgid "Thankyou Date"
-msgstr "Thankyou Date"
+msgid "Contribution Import"
+msgstr ""
 
 #: CRM/Contribute/Import/Parser/Contribution.php
 msgid "Soft Credit %1 - %2 doesn't exist. Row was skipped."
 msgstr "Soft Credit %1 - %2 doesn't exist. Row was skipped."
 
-#: CRM/Contribute/Import/Parser.php
-msgid "View Contribution URL"
-msgstr "View Contribution URL"
+#: CRM/Contribute/Import/Parser/Contribution.php
+msgid "Invalid email address %1 provided for Soft Credit. Row was skipped"
+msgstr ""
+
+#: CRM/Contribute/Import/Parser/Contribution.php
+msgid ""
+"Invalid email address(doesn't exist) %1 for Soft Credit. Row was skipped"
+msgstr ""
+
+#: CRM/Contribute/Import/Parser/Contribution.php
+msgid "Invalid email address(duplicate) %1 for Soft Credit. Row was skipped"
+msgstr ""
 
 #: CRM/Contribute/Info.php CRM/Contribute/Page/DashBoard.php
 msgid "CiviContribute"
@@ -2908,6 +2982,14 @@ msgid "Contribution %%StatusMessage%%"
 msgstr "Contribution %%StatusMessage%%"
 
 #: CRM/Contribute/Page/ContributionRecur.php
+msgid "Recurring contribution not found"
+msgstr "Recurring contribution not found"
+
+#: CRM/Contribute/Page/ContributionRecur.php
+msgid "Recurring contribution not found (ID: %1)"
+msgstr "Recurring contribution not found (ID: %1)"
+
+#: CRM/Contribute/Page/ContributionRecur.php
 msgid "View Recurring Contribution from"
 msgstr "View Recurring Contribution from"
 
@@ -2953,6 +3035,14 @@ msgstr "View Recurring Payment"
 #: CRM/Contribute/Page/Tab.php
 msgid "Edit Recurring Payment"
 msgstr "Edit Recurring Payment"
+
+#: CRM/Contribute/Page/Tab.php
+msgid "View Template"
+msgstr "View Template"
+
+#: CRM/Contribute/Page/Tab.php
+msgid "View Template Contribution"
+msgstr "View Template Contribution"
 
 #: CRM/Contribute/Page/UserDashboard.php
 msgid "Pay Now"
@@ -3000,6 +3090,18 @@ msgstr "Thank-you letter - print or email"
 #: CRM/Contribute/Task.php
 msgid "Invoices - print or email"
 msgstr "Invoices - print or email"
+
+#: CRM/Contribute/WorkflowMessage/Contribution/BasicContribution.php
+msgid "Completed Contribution"
+msgstr ""
+
+#: CRM/Contribute/WorkflowMessage/RecurringEdit/AlexCancelled.php
+msgid "Recurring Edit: Alex, Cancelled"
+msgstr "Recurring Edit: Alex, Cancelled"
+
+#: CRM/Contribute/WorkflowMessage/RecurringEdit/BarbPending.php
+msgid "Recurring Edit: Barbara, Pending"
+msgstr "Recurring Edit: Barbara, Pending"
 
 #: templates/CRM/Contribute/Form/AcceptCreditCard.tpl
 msgid "New Credit Card"
@@ -3155,12 +3257,36 @@ msgid "I want to contribute this amount every %1 for %2 installments."
 msgstr "I want to contribute this amount every %1 for %2 installments."
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every %1 %2s."
-msgstr "I want to contribute this amount every %1 %2s."
+msgid "I want to contribute this amount every %1 days."
+msgstr "I want to contribute this amount every %1 days."
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every %1."
-msgstr "I want to contribute this amount every %1."
+msgid "I want to contribute this amount every %1 weeks."
+msgstr "I want to contribute this amount every %1 weeks."
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+msgid "I want to contribute this amount every %1 months."
+msgstr "I want to contribute this amount every %1 months."
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+msgid "I want to contribute this amount every %1 years."
+msgstr "I want to contribute this amount every %1 years."
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+msgid "I want to contribute this amount every day."
+msgstr "I want to contribute this amount every day."
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+msgid "I want to contribute this amount every week."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+msgid "I want to contribute this amount every month."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+msgid "I want to contribute this amount every year."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
 msgid ""
@@ -3388,8 +3514,23 @@ msgstr "This recurring contribution will be automatically processed every %1 for
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
-"This recurring contribution will be automatically processed every %1 %2s."
-msgstr "This recurring contribution will be automatically processed every %1 %2s."
+"This recurring contribution will be automatically processed every %1 days."
+msgstr "This recurring contribution will be automatically processed every %1 days."
+
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+msgid ""
+"This recurring contribution will be automatically processed every %1 weeks."
+msgstr "This recurring contribution will be automatically processed every %1 weeks."
+
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+msgid ""
+"This recurring contribution will be automatically processed every %1 months."
+msgstr "This recurring contribution will be automatically processed every %1 months."
+
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+msgid ""
+"This recurring contribution will be automatically processed every %1 years."
+msgstr "This recurring contribution will be automatically processed every %1 years."
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid "This contribution will be automatically processed every day."
@@ -3768,8 +3909,8 @@ msgid ""
 "Set is in use. (See the Memberships tab above.) Membership Price Sets may "
 "include additional fields for non-membership options that require an "
 "additional fee (e.g. magazine subscription) or an additional voluntary "
-"contribution.</span>"
-msgstr "You cannot enable the Contribution Amounts section when a Membership Price Set is in use. (See the Memberships tab above.) Membership Price Sets may include additional fields for non-membership options that require an additional fee (e.g. magazine subscription) or an additional voluntary contribution.</span>"
+"contribution."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.hlp
 msgid "Contributor Profiles"
@@ -3802,10 +3943,9 @@ msgstr "If you haven't already configured custom fields and a profile to collect
 
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.hlp
 msgid ""
-"Create a new profile by clicking the 'Create' button next to 'Include "
-"Profile' field below. Name your new profile (e.g. 'Contribution "
-"Information')."
-msgstr "Create a new profile by clicking the 'Create' button next to 'Include Profile' field below. Name your new profile (e.g. 'Contribution Information')."
+"Create a new profile by clicking the 'Create' button next to the 'Include "
+"Profile' field. Name your new profile (e.g. 'Contribution Information')."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.hlp
 msgid ""
@@ -3823,8 +3963,8 @@ msgstr "If you need to create new custom fields, you can also do that within the
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.hlp
 msgid ""
 "Save your profile to return to this screen. You can preview it from here by "
-"clicking the Preview (microsope) button."
-msgstr "Save your profile to return to this screen. You can preview it from here by clicking the Preview (microsope) button."
+"clicking the Preview button."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Custom.tpl
 #: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
@@ -4096,14 +4236,6 @@ msgid ""
 "Select the corresponding financial type for contributions made using this "
 "page."
 msgstr "Select the corresponding financial type for contributions made using this page."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"You must <a href=\"%1\">configure a valid organization profile</a> in order "
-"to allow individuals to contribute on behalf of an organization. Valid "
-"profiles include Contact and / or Organization fields, and may include "
-"Contribution and Membership fields."
-msgstr "You must <a href=\"%1\">configure a valid organisation profile</a> in order to allow individuals to contribute on behalf of an organisation. Valid profiles include Contact and / or Organisation fields, and may include Contribution and Membership fields."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
@@ -4474,16 +4606,6 @@ msgid "Edit Widget Colors"
 msgstr "Edit Widget Colors"
 
 #: templates/CRM/Contribute/Form/ContributionView.tpl
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Print Invoice"
-msgstr "Print Invoice"
-
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Print Invoice and Credit Note"
-msgstr "Print Invoice and Credit Note"
-
-#: templates/CRM/Contribute/Form/ContributionView.tpl
 msgid "not available"
 msgstr "not available"
 
@@ -4494,6 +4616,10 @@ msgstr "(ongoing)"
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 msgid "Interval"
 msgstr "Interval"
+
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+msgid "Associated participants"
+msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 msgid "Received Into"
@@ -4570,6 +4696,10 @@ msgid ""
 "available at this time, you may also choose to display a 'No Image "
 "Available' icon by selecting the 'default image'."
 msgstr "You can upload an image from your computer OR enter a URL for an image already on the Web. If you chose to upload an image file, a 'thumbnail' version will be automatically created for you. If you don't have an image available at this time, you may also choose to display a 'No Image Available' icon by selecting the 'default image'."
+
+#: templates/CRM/Contribute/Form/ManagePremiums.tpl
+msgid "Current Image Thumbnail"
+msgstr ""
 
 #: templates/CRM/Contribute/Form/ManagePremiums.tpl
 msgid ""
@@ -4698,6 +4828,10 @@ msgstr "Find Contribution Pages"
 #: templates/CRM/Contribute/Form/SearchContribution.tpl
 msgid "Complete OR partial Contribution Page title."
 msgstr "Complete OR partial Contribution Page title."
+
+#: templates/CRM/Contribute/Form/Selector.tpl
+msgid "(Recurring Template)"
+msgstr "(Recurring Template)"
 
 #: templates/CRM/Contribute/Form/Selector.tpl
 msgid "(Recurring)"
@@ -4847,6 +4981,12 @@ msgstr "Use this form to update the credit card and billing name and address use
 msgid "WARNING: This recurring contribution is linked to membership:"
 msgstr "WARNING: This recurring contribution is linked to membership:"
 
+#: templates/CRM/Contribute/Form/UpdateSubscription.tpl
+msgid ""
+"To change the amount you need to edit the template contribution. Click on "
+"\"View Template\" and then \"Edit\" from the list of recurring contributions"
+msgstr ""
+
 #: templates/CRM/Contribute/Import/Form/DataSource.hlp
 msgid "Contact Records for Contributors"
 msgstr "Contact Records for Contributors"
@@ -4915,41 +5055,10 @@ msgstr "If you are INSERTING new contributions, you will need to include a colum
 #: templates/CRM/Contribute/Import/Form/DataSource.hlp
 msgid ""
 "If you are UPDATING existing contributions, you will need to include a "
-"unique identifer to match to the existing contribution record. This can be "
+"unique identifier to match to the existing contribution record. This can be "
 "either the CiviCRM-assigned contribution ID, a unique Invoice ID, or a "
 "unique Transaction ID."
-msgstr "If you are UPDATING existing contributions, you will need to include a unique identifer to match to the existing contribution record. This can be either the CiviCRM-assigned contribution ID, a unique Invoice ID, or a unique Transaction ID."
-
-#: templates/CRM/Contribute/Import/Form/DataSource.tpl
-msgid ""
-"The Contribution Import Wizard allows you to easily upload contributions "
-"from other applications into CiviCRM."
-msgstr "The Contribution Import Wizard allows you to easily upload contributions from other applications into CiviCRM."
-
-#: templates/CRM/Contribute/Import/Form/DataSource.tpl
-msgid ""
-"Files to be imported must be in the 'comma-separated-values' format (CSV) "
-"and must contain data needed to match the contribution to an existing "
-"contact in your CiviCRM database."
-msgstr "Files to be imported must be in the 'comma-separated-values' format (CSV) and must contain data needed to match the contribution to an existing contact in your CiviCRM database."
-
-#: templates/CRM/Contribute/Import/Form/DataSource.tpl
-msgid ""
-"Select 'Individual' if you are importing contributions made by individual "
-"persons."
-msgstr "Select 'Individual' if you are importing contributions made by individual persons."
-
-#: templates/CRM/Contribute/Import/Form/DataSource.tpl
-msgid ""
-"Select 'Organization' or 'Household' if you are importing contributions made"
-" by contacts of that type. (NOTE: Some built-in contact types may not be "
-"enabled for your site.)"
-msgstr "Select 'Organisation' or 'Household' if you are importing contributions made by contacts of that type. (NOTE: Some built-in contact types may not be enabled for your site.)"
-
-#: templates/CRM/Contribute/Import/Form/DataSource.tpl
-msgid ""
-"Select a saved field mapping if this file format matches a previous import."
-msgstr "Select a saved field mapping if this file format matches a previous import."
+msgstr ""
 
 #: templates/CRM/Contribute/Import/Form/Preview.tpl
 msgid ""
@@ -4961,46 +5070,9 @@ msgid ""
 msgstr "CiviCRM has detected invalid data or formatting errors in %1 records. If you continue, these records will be skipped.  You can download a file with just these problem records: <a href='%2'>Download Errors</a>.  If you wish, you can then correct them in the original import file, cancel this import, and begin again at step 1."
 
 #: templates/CRM/Contribute/Import/Form/Preview.tpl
-msgid ""
-"CiviCRM has detected %1 records with conflicting transaction ids within this"
-" data file. If you continue, these records will be skipped.  You can "
-"download a file with just these problem records: <a href='%2'>Download "
-"Conflicts</a>.  If you wish, you can then correct them in the original "
-"import file, cancel this import and begin again at step 1."
-msgstr "CiviCRM has detected %1 records with conflicting transaction ids within this data file. If you continue, these records will be skipped.  You can download a file with just these problem records: <a href='%2'>Download Conflicts</a>.  If you wish, you can then correct them in the original import file, cancel this import and begin again at step 1."
-
-#: templates/CRM/Contribute/Import/Form/Preview.tpl
 #: templates/CRM/Contribute/Import/Form/Summary.tpl
 msgid "Total rows (contribution records) in uploaded file."
 msgstr "Total rows (contribution records) in uploaded file."
-
-#: templates/CRM/Contribute/Import/Form/Summary.tpl
-msgid ""
-"CiviCRM has detected mismatched contribution ID. This record has not been "
-"updated."
-msgid_plural ""
-"CiviCRM has detected mismatched contribution IDs. These records have not "
-"been Updated."
-msgstr[0] "CiviCRM has detected mismatched contribution ID. This record has not been updated."
-msgstr[1] "CiviCRM has detected mismatched contribution IDs. These records have not been Updated."
-
-#: templates/CRM/Contribute/Import/Form/Summary.tpl
-msgid ""
-"You can <a href='%1'>Download Mismatched Contributions</a>. You may then "
-"correct them, and import the new file with the corrected data."
-msgstr "You can <a href='%1'>Download Mismatched Contributions</a>. You may then correct them, and import the new file with the corrected data."
-
-#: templates/CRM/Contribute/Import/Form/Summary.tpl
-msgid ""
-"CiviCRM has detected one record with conflicting transaction ID within this "
-"data file or relative to existing contribution records. This record has not "
-"been imported."
-msgid_plural ""
-"CiviCRM has detected %count records with conflicting transaction IDs within "
-"this data file or relative to existing contribution records. These records "
-"have not been imported."
-msgstr[0] "CiviCRM has detected one record with conflicting transaction ID within this data file or relative to existing contribution records. This record has not been imported."
-msgstr[1] "CiviCRM has detected %count records with conflicting transaction IDs within this data file or relative to existing contribution records. These records have not been imported."
 
 #: templates/CRM/Contribute/Import/Form/Summary.tpl
 msgid ""
@@ -5011,6 +5083,13 @@ msgid_plural ""
 " contribution records."
 msgstr[0] "CiviCRM has detected one record which is a duplicate of existing CiviCRM contribution record."
 msgstr[1] "CiviCRM has detected %count records which are duplicates of existing CiviCRM contribution records."
+
+#: templates/CRM/Contribute/Import/Form/Summary.tpl
+msgid ""
+"You can <a href=\"%1\">Download Duplicates</a>. You may then review these "
+"records to determine if they are actually duplicates, and correct the "
+"transaction IDs for those that are not."
+msgstr ""
 
 #: templates/CRM/Contribute/Import/Form/Summary.tpl
 msgid ""
@@ -5051,14 +5130,6 @@ msgid ""
 "amount could not be matched to a pending pledge payment. These contribution "
 "rows have been skipped (not imported)."
 msgstr "Rows marked as pledge payments where the contributor and / or contribution amount could not be matched to a pending pledge payment. These contribution rows have been skipped (not imported)."
-
-#: templates/CRM/Contribute/Import/Form/Summary.tpl
-msgid "Rows with mismatched contribution IDs... (NOT updated)."
-msgstr "Rows with mismatched contribution IDs... (NOT updated)."
-
-#: templates/CRM/Contribute/Import/Form/Summary.tpl
-msgid "Download Mismatched Contributions"
-msgstr "Download Mismatched Contributions"
 
 #: templates/CRM/Contribute/Import/Form/Summary.tpl
 msgid "Rows which are duplicates of existing CiviCRM contribution records."
@@ -5125,6 +5196,10 @@ msgid ""
 "No contribution pages have been created yet. Click <a accesskey=\"N\" "
 "href='%1'>here</a> to create a new contribution page."
 msgstr "No contribution pages have been created yet. Click <a accesskey=\"N\" href='%1'>here</a> to create a new contribution page."
+
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "every %1 %2"
+msgstr ""
 
 #: templates/CRM/Contribute/Page/ContributionRecur.tpl
 msgid "Cancel Reason"
@@ -5220,10 +5295,6 @@ msgstr "The <strong>Contribution Summary</strong> table provides a summary of mo
 #: templates/CRM/Contribute/Page/DashBoard.tpl
 msgid "(n/a)"
 msgstr "(n/a)"
-
-#: templates/CRM/Contribute/Page/DashBoard.tpl
-msgid "view details"
-msgstr "view details"
 
 #: templates/CRM/Contribute/Page/DashBoard.tpl
 msgid "Current Fiscal Year-To-Date"
@@ -5879,112 +5950,8 @@ msgid ""
 "This is a test-drive email. No live financial transaction has occurred."
 msgstr "This is a test-drive email. No live financial transaction has occurred."
 
-#: CRM/Contribute/BAO/Query.php
-msgid "Contribution is Template?"
-msgstr "Contribution is Template?"
-
-#: CRM/Contribute/DAO/Contribution.php
-msgid "Financial records consisting of transactions, line-items, etc."
-msgstr "Financial records consisting of transactions, line-items, etc."
-
-#: CRM/Contribute/Form/Contribution.php
-msgid "Template Contribution"
-msgstr "Template Contribution"
-
-#: CRM/Contribute/Form/ContributionView.php
-msgid "View Template Contribution from"
-msgstr "View Template Contribution from"
-
-#: CRM/Contribute/Page/ContributionRecur.php
-msgid "Recurring contribution not found"
-msgstr "Recurring contribution not found"
-
-#: CRM/Contribute/Page/ContributionRecur.php
-msgid "Recurring contribution not found (ID: %1)"
-msgstr "Recurring contribution not found (ID: %1)"
-
-#: CRM/Contribute/Page/Tab.php
-msgid "View Template"
-msgstr "View Template"
-
-#: CRM/Contribute/Page/Tab.php
-msgid "View Template Contribution"
-msgstr "View Template Contribution"
-
-#: CRM/Contribute/WorkflowMessage/RecurringEdit/AlexCancelled.ex.php
-msgid "Recurring Edit: Alex, Cancelled"
-msgstr "Recurring Edit: Alex, Cancelled"
-
-#: CRM/Contribute/WorkflowMessage/RecurringEdit/BarbPending.ex.php
-msgid "Recurring Edit: Barbara, Pending"
-msgstr "Recurring Edit: Barbara, Pending"
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every %1 days."
-msgstr "I want to contribute this amount every %1 days."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every %1 weeks."
-msgstr "I want to contribute this amount every %1 weeks."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every %1 months."
-msgstr "I want to contribute this amount every %1 months."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every %1 years."
-msgstr "I want to contribute this amount every %1 years."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount every day."
-msgstr "I want to contribute this amount every day."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount processed every week."
-msgstr "I want to contribute this amount processed every week."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount processed every month."
-msgstr "I want to contribute this amount processed every month."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid "I want to contribute this amount processed every year."
-msgstr "I want to contribute this amount processed every year."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+#: templates/CRM/Contribute/Form/AdditionalPayment.tpl
 msgid ""
-"This recurring contribution will be automatically processed every %1 days."
-msgstr "This recurring contribution will be automatically processed every %1 days."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"This recurring contribution will be automatically processed every %1 weeks."
-msgstr "This recurring contribution will be automatically processed every %1 weeks."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"This recurring contribution will be automatically processed every %1 months."
-msgstr "This recurring contribution will be automatically processed every %1 months."
-
-#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
-msgid ""
-"This recurring contribution will be automatically processed every %1 years."
-msgstr "This recurring contribution will be automatically processed every %1 years."
-
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Download Invoice"
-msgstr "Download Invoice"
-
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Download Invoice and Credit Note"
-msgstr "Download Invoice and Credit Note"
-
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "View Recurring Contribution"
-msgstr "View Recurring Contribution"
-
-#: templates/CRM/Contribute/Form/Selector.tpl
-msgid "(Recurring Template)"
-msgstr "(Recurring Template)"
+"Use this form to record a manual refund. If a payment processor was used to "
+"make payment it will not be notified."
+msgstr ""
