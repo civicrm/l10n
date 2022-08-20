@@ -23,7 +23,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2021-10-30 09:41-0400\n"
+"POT-Creation-Date: 2022-08-19 10:34-0400\n"
 "PO-Revision-Date: 2011-03-28 14:20+0000\n"
 "Last-Translator: Usha Matisson <matisson@makoa.fr>, 2019-2022\n"
 "Language-Team: French (http://www.transifex.com/civicrm/civicrm/language/fr/)\n"
@@ -31,7 +31,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: CRM/Campaign/BAO/Campaign.php
 msgid "Current Campaigns"
@@ -102,6 +102,12 @@ msgstr "Annuler des réservations de personnes"
 #: CRM/Campaign/BAO/Survey.php
 msgid "View Survey Report"
 msgstr "Voir le rapport du sondage"
+
+#: CRM/Campaign/DAO/Campaign.php
+msgid ""
+"Campaigns link activities, contributions, mailings, etc. that share a "
+"programmatic goal."
+msgstr "Lien d'activités de campagne, contributions, mailings, etc. qui partagent un but commun programmé."
 
 #: CRM/Campaign/DAO/Campaign.php
 msgid "Unique Campaign ID."
@@ -404,13 +410,29 @@ msgstr "Incitation à voter (suivi des électeurs)"
 
 #: CRM/Campaign/Form/Gotv.php
 msgid ""
-"Oops. It looks like no surveys have been created. <a href='%1'>Click here to"
-" create a new survey.</a>"
-msgstr "Oups, il semble qu'aucune enquête n'ait été créé. Cliquez <a href='%1'>ici</a> pour en créer une nouvelle."
+"It looks like no surveys have been created yet. <a %1>Click here to create a"
+" new survey.</a>"
+msgstr ""
 
 #: CRM/Campaign/Form/Gotv.php CRM/Campaign/Form/Task/Interview.php
 msgid "Could not find Survey."
 msgstr "Impossible de trouver ce sondage."
+
+#: CRM/Campaign/Form/Petition/Signature.php
+msgid "Petition id is not valid. (it needs a \"sid\" in the url)."
+msgstr "L'Id. de la petition/sondage n'est pas valide. (besoin d'un paramètre \"sid\" dans l'url)."
+
+#: CRM/Campaign/Form/Petition/Signature.php
+msgid "Petition doesn't exist."
+msgstr "La pétition/sondage n'existe pas."
+
+#: CRM/Campaign/Form/Petition/Signature.php
+msgid "Petition is no longer active."
+msgstr "La pétition/sondage n'est plus active."
+
+#: CRM/Campaign/Form/Petition/Signature.php
+msgid "The contact profile needs to contain the primary email address field"
+msgstr "Le profil du contact doit contenir le champ \"Courriel principal\"."
 
 #: CRM/Campaign/Form/Petition/Signature.php
 msgid "Sign the Petition"
@@ -673,6 +695,7 @@ msgid "Respondent has been released."
 msgid_plural "%count respondents have been released."
 msgstr[0] "%1 contacts n'ont pas été libérés."
 msgstr[1] "%1 contact(s) ont été libérés."
+msgstr[2] "%1 contact(s) ont été libérés."
 
 #: CRM/Campaign/Form/Task/Release.php
 msgid "Released"
@@ -683,6 +706,7 @@ msgid "1 respondent did not release."
 msgid_plural "%count respondents did not release."
 msgstr[0] "1 contact n'a pas été libéré."
 msgstr[1] "%1 contacts n'ont pas été libérés."
+msgstr[2] "%1 contacts n'ont pas été libérés."
 
 #: CRM/Campaign/Form/Task/Reserve.php
 msgid "Could not find Survey Id."
@@ -703,6 +727,7 @@ msgid_plural ""
 "You can reserve a maximum of %count contacts at a time for this survey."
 msgstr[0] "Vous pouvez réserver au maximum 1 contact à la fois pour ce sondage."
 msgstr[1] "Vous pouvez réserver un maximum de %1 contact(s) à la fois pour ce sondage."
+msgstr[2] "Vous pouvez réserver un maximum de %1 contact(s) à la fois pour ce sondage."
 
 #: CRM/Campaign/Form/Task/Reserve.php
 #: templates/CRM/Campaign/Form/Task/Reserve.tpl
@@ -727,6 +752,7 @@ msgid "%count contact has been reserved."
 msgid_plural "%count contacts have been reserved."
 msgstr[0] "1 contact a été réservé."
 msgstr[1] "%1 contact(s) ont été réservés."
+msgstr[2] "%1 contact(s) ont été réservés."
 
 #: CRM/Campaign/Form/Task/Reserve.php
 msgid "They have been added to %1."
@@ -741,6 +767,7 @@ msgid "Reservation did not add for %count contact."
 msgid_plural "Reservation did not add for %count contacts."
 msgstr[0] "La réservation n'a pas pu être effectuée pour %count contact."
 msgstr[1] "La réservation n'a pas pu être effectuée pour %count contacts."
+msgstr[2] "La réservation n'a pas pu être effectuée pour %count contacts."
 
 #: CRM/Campaign/Info.php
 msgid "CiviCampaign"
@@ -876,6 +903,7 @@ msgid "1 Day"
 msgid_plural "%count Days"
 msgstr[0] "1 jour"
 msgstr[1] "%count jours"
+msgstr[2] "%count jours"
 
 #: CRM/Campaign/Page/DashBoard.php
 msgid "view result set"
@@ -1007,6 +1035,22 @@ msgstr "Est-ce que cette pétition est active ?"
 #: templates/CRM/Campaign/Form/Petition.tpl
 msgid "Is this the default petition?"
 msgstr "Est-ce la pétition par défaut ?"
+
+#: templates/CRM/Campaign/Form/Petition.tpl
+msgid "Links to sign this petition"
+msgstr ""
+
+#: templates/CRM/Campaign/Form/Petition.tpl
+msgid ""
+"Copy and paste the public link anywhere on the Internet, including social "
+"media. The CiviMail link should only be copied into a CiviMail message. It "
+"will pre-populate the profile with existing information for the person who "
+"receives the email."
+msgstr ""
+
+#: templates/CRM/Campaign/Form/Petition.tpl
+msgid "The links will be visible after you save the petition."
+msgstr ""
 
 #: templates/CRM/Campaign/Form/ResultOptions.tpl
 msgid ""
@@ -1217,9 +1261,9 @@ msgstr "<strong>%1 - votre adresse électronique « %2 » a été vérifiée ave
 
 #: templates/CRM/Campaign/Page/Petition/Confirm.tpl
 msgid ""
-"Oops. We encountered a problem in processing your email verification. Please"
-" contact the site administrator."
-msgstr "Oups! Nous avons rencontré un problème en vérifiant votre adresse électronique. Merci d'en notifier l'administrateur du site."
+"Unfortunately we encountered a problem in processing your email "
+"verification. Please contact the site administrator."
+msgstr ""
 
 #: templates/CRM/Campaign/Page/Petition/Confirm.tpl
 msgid "Thank you for signing the petition."
@@ -1282,25 +1326,3 @@ msgstr "Nombre de Contacts par Défaut"
 #: templates/CRM/Campaign/Page/SurveyType.tpl
 msgid "There are no survey types entered. You can <a href='%1'>add one</a>."
 msgstr "Aucun type de sondage n'a été créé. Vous pouvez <a href='%1'>en ajouter un</a>"
-
-#: CRM/Campaign/DAO/Campaign.php
-msgid ""
-"Campaigns link activities, contributions, mailings, etc. that share a "
-"programmatic goal."
-msgstr "Lien d'activités de campagne, contributions, mailings, etc. qui partagent un but commun programmé."
-
-#: CRM/Campaign/Form/Petition/Signature.php
-msgid "Petition id is not valid. (it needs a \"sid\" in the url)."
-msgstr "L'Id. de la petition/sondage n'est pas valide. (besoin d'un paramètre \"sid\" dans l'url)."
-
-#: CRM/Campaign/Form/Petition/Signature.php
-msgid "Petition doesn't exist."
-msgstr "La pétition/sondage n'existe pas."
-
-#: CRM/Campaign/Form/Petition/Signature.php
-msgid "Petition is no longer active."
-msgstr "La pétition/sondage n'est plus active."
-
-#: CRM/Campaign/Form/Petition/Signature.php
-msgid "The contact profile needs to contain the primary email address field"
-msgstr "Le profil du contact doit contenir le champ \"Courriel principal\"."
