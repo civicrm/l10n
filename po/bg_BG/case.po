@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2021-10-30 09:41-0400\n"
+"POT-Creation-Date: 2022-08-19 10:34-0400\n"
 "PO-Revision-Date: 2011-03-28 14:17+0000\n"
 "Last-Translator: Alexander Petrov, 2022\n"
 "Language-Team: Bulgarian (http://www.transifex.com/civicrm/civicrm/language/bg/)\n"
@@ -139,6 +139,10 @@ msgstr "Само моите случаи"
 #: CRM/Case/BAO/Query.php
 msgid "Search Cases with Upcoming Activities"
 msgstr "Случаи за търсене с предстоящи дейности"
+
+#: CRM/Case/DAO/Case.php
+msgid "Collections of activities and relationships for a given purpose."
+msgstr "Колекции от дейности и взаимоотношения за дадена цел."
 
 #: CRM/Case/DAO/Case.php
 msgid "Unique Case ID"
@@ -303,6 +307,15 @@ msgid "New Start Date"
 msgstr "Нова начална дата"
 
 #: CRM/Case/Form/Activity/ChangeCaseStartDate.php
+#: CRM/Case/Form/Activity/ChangeCaseType.php
+msgid "Required parameter missing for ChangeCaseType - end post processing"
+msgstr "Липсва задължителен параметър за ChangeCaseType - край на последващата обработка"
+
+#: CRM/Case/Form/Activity/ChangeCaseStartDate.php
+msgid "Unable to update Open Case activity"
+msgstr "Не може да се актуализира активността на Отваряне на Случай"
+
+#: CRM/Case/Form/Activity/ChangeCaseStartDate.php
 msgid "Case Start Date changed successfully."
 msgstr "Началната дата на случая е променена успешно."
 
@@ -331,12 +344,28 @@ msgid "Link To Case"
 msgstr "Връзка към Случай"
 
 #: CRM/Case/Form/Activity/LinkCases.php
+msgid "The linked case ID is invalid."
+msgstr ""
+
+#: CRM/Case/Form/Activity/LinkCases.php
 msgid "Please select some other case to link."
 msgstr "Моля, изберете друг случай за свързване."
 
 #: CRM/Case/Form/Activity/LinkCases.php
 msgid "Selected case is already linked."
 msgstr "Избраният случай вече е свързан."
+
+#: CRM/Case/Form/Activity/OpenCase.php
+msgid "Activity Duration"
+msgstr ""
+
+#: CRM/Case/Form/Activity/OpenCase.php
+msgid "Required parameter missing for OpenCase - end post processing"
+msgstr "Липсва задължителен параметър за OpenCase - край на последващата обработка"
+
+#: CRM/Case/Form/Activity/OpenCase.php
+msgid "client_id cannot be empty for OpenCase - end post processing"
+msgstr "client_id не може да бъде празен за OpenCase - край на последващата обработка"
 
 #: CRM/Case/Form/Activity/OpenCase.php
 msgid "Case opened successfully."
@@ -349,6 +378,10 @@ msgstr "липсват необходимите параметри."
 #: CRM/Case/Form/Activity.php CRM/Case/XMLProcessor/Report.php
 msgid "Reported By"
 msgstr "Докладвано от"
+
+#: CRM/Case/Form/Activity.php CRM/Case/Form/CaseView.php
+msgid "- select activity type -"
+msgstr "- изберете тип дейност -"
 
 #: CRM/Case/Form/Activity.php CRM/Case/XMLProcessor/Report.php
 msgid "Medium"
@@ -483,10 +516,6 @@ msgstr "- всеки репортер -"
 #: CRM/Case/Form/CaseView.php templates/CRM/Case/Form/ActivityTab.tpl
 msgid "Reporter/Role"
 msgstr "Репортер/Роля"
-
-#: CRM/Case/Form/CaseView.php
-msgid "- select activity type -"
-msgstr "- изберете тип дейност -"
 
 #: CRM/Case/Form/CaseView.php
 msgid " - any status - "
@@ -649,13 +678,25 @@ msgid "You are not authorized to access all cases and activities."
 msgstr "Не сте оторизирани за достъп до всички случаи и дейности."
 
 #: CRM/Case/Page/Tab.php
+msgid "Contact Id is required for view action."
+msgstr "Изисква се ID за контакт за действие за преглед."
+
+#: CRM/Case/Page/Tab.php
 msgid "Are you sure you want to delete this case?"
 msgstr "Сигурни ли сте, че искате да изтриете този случай?"
+
+#: CRM/Case/Page/Tab.php CRM/Case/Selector/Search.php
+msgid "Manage"
+msgstr ""
 
 #: CRM/Case/Page/Tab.php CRM/Case/Selector/Search.php
 #: templates/CRM/Case/Form/Case.tpl
 msgid "Delete Case"
 msgstr "Изтриване на случай"
+
+#: CRM/Case/Selector/Search.php templates/CRM/Case/Form/Case.tpl
+msgid "Restore Case"
+msgstr ""
 
 #: CRM/Case/Selector/Search.php templates/CRM/Case/Form/CaseView.tpl
 msgid "Assign to Another Client"
@@ -946,6 +987,10 @@ msgstr "Текуща начална дата"
 msgid "Update Linked Cases Status?"
 msgstr "Актуализиране на състоянието на свързаните случаи?"
 
+#: templates/CRM/Case/Form/Activity/ChangeCaseStatus.tpl
+msgid "Case Client"
+msgstr ""
+
 #: templates/CRM/Case/Form/Activity/LinkCases.tpl
 msgid "Create link between %1 - %2 (CaseID: %3) and %4 - %5 (CaseID: %6)"
 msgstr "Създаване на връзка между %1 - %2 (CaseID: %3) и %4 - %5 (CaseID: %6)"
@@ -987,6 +1032,10 @@ msgstr "Филтри за търсене"
 #: templates/CRM/Case/Form/ActivityTab.tpl
 msgid "Reporter"
 msgstr "Репортер"
+
+#: templates/CRM/Case/Form/ActivityTab.tpl
+msgid "Assignee"
+msgstr ""
 
 #: templates/CRM/Case/Form/ActivityToCase.tpl
 msgid "You can modify the activity subject before filing."
@@ -1151,6 +1200,10 @@ msgid "Change To"
 msgstr "Променено към"
 
 #: templates/CRM/Case/Form/CaseView.tpl
+msgid "Show Inactive relationships"
+msgstr "Показване на неактивни взаимоотношения"
+
+#: templates/CRM/Case/Form/CaseView.tpl
 msgid "Are you sure you want to end this relationship?"
 msgstr "Сигурни ли сте, че искате да прекратите това взаимоотноешние?"
 
@@ -1223,6 +1276,10 @@ msgid "Number of selected cases: %1"
 msgstr "Брой избрани случаи: %1"
 
 #: templates/CRM/Case/Page/ConfigureError.tpl
+msgid "CiviCase Setup documentation"
+msgstr "Документация за настройка на CiviCase"
+
+#: templates/CRM/Case/Page/ConfigureError.tpl
 msgid ""
 "You need to setup and load Case and Activity configuration files before you "
 "can begin using the CiviCase component."
@@ -1232,13 +1289,13 @@ msgstr "Трябва да настроите и заредите конфигу�
 msgid "Refer to the %1 to learn about this process."
 msgstr "Обърнете се към %1, за да научите за този процес."
 
-#: templates/CRM/Case/Page/ConfigureError.tpl
-msgid "CiviCase Setup documentation"
-msgstr "Документация за настройка на CiviCase"
-
 #: templates/CRM/Case/Page/DashBoard.tpl
 msgid "Find My Cases"
 msgstr "Намерете моите случаи"
+
+#: templates/CRM/Case/Page/DashBoard.tpl
+msgid "All Cases"
+msgstr "Всички Случаи"
 
 #: templates/CRM/Case/Page/DashBoard.tpl
 msgid "All Cases with Upcoming Activities"
@@ -1285,8 +1342,8 @@ msgid "Manager"
 msgstr "Управител"
 
 #: templates/CRM/Case/Page/Tab.tpl
-msgid "Oops, It looks like there are no active case types."
-msgstr "Ами сега! Изглежда, че няма активни типове случаи."
+msgid "It looks like there are no active case types yet."
+msgstr ""
 
 #: templates/CRM/Case/Page/Tab.tpl
 msgid "Enable <a href='%1'>case types</a>."
@@ -1313,36 +1370,3 @@ msgstr "Резюме на дейността"
 #: xml/templates/message_templates/case_activity_text.tpl
 msgid "Your Case Role(s)"
 msgstr "Вашата роля(и) в случая"
-
-#: CRM/Case/DAO/Case.php
-msgid "Collections of activities and relationships for a given purpose."
-msgstr "Колекции от дейности и взаимоотношения за дадена цел."
-
-#: CRM/Case/Form/Activity/ChangeCaseStartDate.php
-#: CRM/Case/Form/Activity/ChangeCaseType.php
-msgid "Required parameter missing for ChangeCaseType - end post processing"
-msgstr "Липсва задължителен параметър за ChangeCaseType - край на последващата обработка"
-
-#: CRM/Case/Form/Activity/ChangeCaseStartDate.php
-msgid "Unable to update Open Case activity"
-msgstr "Не може да се актуализира активността на Отваряне на Случай"
-
-#: CRM/Case/Form/Activity/OpenCase.php
-msgid "Required parameter missing for OpenCase - end post processing"
-msgstr "Липсва задължителен параметър за OpenCase - край на последващата обработка"
-
-#: CRM/Case/Form/Activity/OpenCase.php
-msgid "client_id cannot be empty for OpenCase - end post processing"
-msgstr "client_id не може да бъде празен за OpenCase - край на последващата обработка"
-
-#: CRM/Case/Page/Tab.php
-msgid "Contact Id is required for view action."
-msgstr "Изисква се ID за контакт за действие за преглед."
-
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Show Inactive relationships"
-msgstr "Показване на неактивни взаимоотношения"
-
-#: templates/CRM/Case/Page/DashBoard.tpl
-msgid "All Cases"
-msgstr "Всички Случаи"
