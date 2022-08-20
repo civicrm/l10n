@@ -28,15 +28,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2021-10-30 09:41-0400\n"
-"PO-Revision-Date: 2022-02-10 05:19+0000\n"
-"Last-Translator: Usha Matisson <matisson@makoa.fr>\n"
+"POT-Creation-Date: 2022-08-19 10:34-0400\n"
+"PO-Revision-Date: 2011-03-28 14:20+0000\n"
+"Last-Translator: Usha Matisson <matisson@makoa.fr>, 2019-2022\n"
 "Language-Team: French (http://www.transifex.com/civicrm/civicrm/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+#: CRM/Member/ActionMapping.php
+msgid "Membership Join Date"
+msgstr ""
 
 #: CRM/Member/BAO/Membership.php CRM/Member/Form/MembershipView.php
 msgid "Membership Type:"
@@ -79,9 +83,9 @@ msgstr "Les %1 adhésions(s) courante(s) pour ce contact ont reçu le statut \"D
 
 #: CRM/Member/BAO/MembershipStatus.php
 msgid ""
-"This membership status cannot be deleted as memberships exist with this "
-"status"
-msgstr "Ce statut d'adhésion ne peut être supprimé car il existe des adhésions ayant ce statut"
+"This membership status cannot be deleted. Memberships exist with this "
+"status."
+msgstr ""
 
 #: CRM/Member/BAO/MembershipType.php
 msgid "This membership type cannot be deleted due to following reason(s):"
@@ -190,6 +194,10 @@ msgstr "Membre est un Test ?"
 #: CRM/Member/BAO/Query.php
 msgid "Membership Status Is Overriden?"
 msgstr "Le statut de l'adhésion est outrepassé ?"
+
+#: CRM/Member/DAO/Membership.php
+msgid "Records of contacts belonging to an organization's membership program."
+msgstr "Enregistrements des contacts appartenant à un programme d'adhésion d'une organisation."
 
 #: CRM/Member/DAO/Membership.php
 msgid "Beginning of initial membership period (member since...)."
@@ -656,6 +664,12 @@ msgstr "Renouvellement automatique"
 #: CRM/Member/DAO/MembershipType.php
 msgid "Is this membership_type enabled"
 msgstr "Le type d'adhésion est il activé ?"
+
+#: CRM/Member/Form/Membership.php
+msgid ""
+"WARNING: Deleting this membership will also delete any related payment "
+"(contribution) records."
+msgstr "ATTENTION : La suppression de cette adhésion entraînera aussi la suppression des enregistrements de paiement associés (contributions)."
 
 #: CRM/Member/Form/Membership.php
 msgid ""
@@ -1355,6 +1369,7 @@ msgid "%count membership deleted."
 msgid_plural "%count memberships deleted."
 msgstr[0] "%count adhésion supprimée."
 msgstr[1] "%count adhésions supprimées."
+msgstr[2] "%count adhésions supprimées."
 
 #: CRM/Member/Form/Task/Label.php
 msgid "Print one label per Membership (rather than per contact)"
@@ -1411,9 +1426,13 @@ msgstr "(OU l'identifiant de l'adhésion lors d'une mise à jour)"
 msgid "Duplicate Import Membership Mapping Name"
 msgstr "Nom de correspondance d'import d'adhésions en double"
 
-#: CRM/Member/Import/Parser.php
-msgid "View Membership URL"
-msgstr "Voir l'URL d'adhésion"
+#: CRM/Member/Import/Parser/Membership.php
+msgid "Membership Import"
+msgstr ""
+
+#: CRM/Member/Import/Parser/Membership.php
+msgid "Missing required fields"
+msgstr ""
 
 #: CRM/Member/Info.php CRM/Member/Page/DashBoard.php
 msgid "CiviMember"
@@ -1500,10 +1519,6 @@ msgstr "%1 créé"
 #: CRM/Member/Page/Tab.php
 msgid "%1 out of %2"
 msgstr "%1 parmi %2"
-
-#: CRM/Member/Page/Tab.php
-msgid "N/A"
-msgstr "N/A"
 
 #: CRM/Member/Page/Tab.php CRM/Member/Selector/Search.php
 msgid "View Membership"
@@ -2294,94 +2309,17 @@ msgid ""
 "existing membership records."
 msgstr " Si vous METTEZ À JOUR des participants existants, vous devez ajouter une colonne contenant l'identifiant d'adhésion unique assigné par CiviCRM, afin d'assurer la mise en correspondance avec les enregistrements d'adhésion existants."
 
-#: templates/CRM/Member/Import/Form/DataSource.tpl
-msgid ""
-"The Membership Import Wizard allows you to easily upload memberships from "
-"other applications into CiviCRM."
-msgstr "L'assistant d'import d'adhésions vous permet d'importer facilement dans CiviCRM des informations d'adhésion issues d'autres applications."
-
-#: templates/CRM/Member/Import/Form/DataSource.tpl
-msgid ""
-"Files to be imported must be in the 'comma-separated-values' format (CSV) "
-"and must contain data needed to match the membership data to an existing "
-"contact in your CiviCRM database."
-msgstr "Les fichiers à importer doivent être au format CSV et contenir des données pour faire correspondre les données importées avec des contacts existants dans votre base de données CiviCRM."
-
-#: templates/CRM/Member/Import/Form/DataSource.tpl
-msgid ""
-"Select 'Individual' if you are importing memberships for individual persons."
-msgstr "Sélectionnez « Particulier » si vous importez des adhésions de personnes individuelles."
-
-#: templates/CRM/Member/Import/Form/DataSource.tpl
-msgid ""
-"Select 'Organization' or 'Household' if you are importing memberships made "
-"by contacts of that type. (NOTE: Some built-in contact types may not be "
-"enabled for your site.)"
-msgstr "Sélectionnez « Organisation » ou « Foyer » si vous importez des adhésions faites par des contacts de ce type. (NOTE : certains types de contacts de base peuvent ne pas être activés pour votre site.)"
-
-#: templates/CRM/Member/Import/Form/DataSource.tpl
-msgid ""
-"If you want to use a previously saved import field mapping - select it here."
-msgstr "Si vous voulez utiliser une table de correspondance enregistrée précédemment, sélectionnez-la ici."
-
 #: templates/CRM/Member/Import/Form/Preview.tpl
-#: templates/CRM/Member/Import/Form/Summary.tpl
 msgid "Total rows (membership records) in uploaded file."
 msgstr "Nombre total de lignes (adhésions) dans le fichier uploadé"
-
-#: templates/CRM/Member/Import/Form/Summary.tpl
-msgid ""
-"CiviCRM has detected mismatched membership ID. This record has not been "
-"updated."
-msgid_plural ""
-"CiviCRM has detected mismatched membership IDs. These records have not been "
-"Updated."
-msgstr[0] "CiviCRM a détecté un id d'adhésion qui ne correspond pas. Cet enregistrement n'a pas été mis à jour."
-msgstr[1] "CiviCRM a détecté des id d'adhésion qui ne correspondent pas. Ces enregistrements n'ont pas été mis à jour."
-
-#: templates/CRM/Member/Import/Form/Summary.tpl
-msgid ""
-"You can <a href='%1'>Download Mismatched Memberships</a>. You may then "
-"correct them, and import the new file with the corrected data."
-msgstr "Vous pouvez <a href='%1'>télécharger les adhésions qui ne correspondent pas</a>. Vous pourrez les coriger et importer le nouveau fichier avec les données corrigées."
-
-#: templates/CRM/Member/Import/Form/Summary.tpl
-msgid ""
-"CiviCRM has detected one record with conflicting transaction ID within this "
-"data file or relative to existing membership records. This record has not "
-"been imported."
-msgid_plural ""
-"CiviCRM has detected %count records with conflicting transaction IDs within "
-"this data file or relative to existing membership records. These records "
-"have not been imported."
-msgstr[0] "CiviCRM a détecté un enregistrement avec un identifiant de transaction conflictuel dans ce fichier ou liée à une adhésion existante. Cet enregistrement n'a pas été importé."
-msgstr[1] "CiviCRM a détecté %count enregistrements avec un identifiant de transaction conflictuel dans ce fichier ou liée à une adhésion existante. Ces enregistrements n'ont pas été importés."
-
-#: templates/CRM/Member/Import/Form/Summary.tpl
-msgid ""
-"CiviCRM has detected one record which is a duplicate of existing CiviCRM "
-"membership record."
-msgid_plural ""
-"CiviCRM has detected %count records which are duplicates of existing CiviCRM"
-" membership records."
-msgstr[0] "CiviCRM a détecté qu'un enregistrement est un double d'un enregistrement existant."
-msgstr[1] "CiviCRM a détecté que %count enregistrements sont des doubles d'enregistrements existants."
-
-#: templates/CRM/Member/Import/Form/Summary.tpl
-msgid "Rows with mismatched membership IDs... (NOT updated)."
-msgstr "Lignes avec des ID d'adhésion non concordantes (non mises à jour)"
-
-#: templates/CRM/Member/Import/Form/Summary.tpl
-msgid "Download Mismatched Memberships"
-msgstr "Télécharger les adhésions non concordantes"
-
-#: templates/CRM/Member/Import/Form/Summary.tpl
-msgid "Rows which are duplicates of existing CiviCRM membership records."
-msgstr "Lignes qui sont des doubles d'enregistrements existants"
 
 #: templates/CRM/Member/Page/DashBoard.hlp
 msgid "Member Dashboard"
 msgstr "Tableau de bord adhérents"
+
+#: templates/CRM/Member/Page/DashBoard.hlp
+msgid "Refer to the online user guide for more information."
+msgstr "Consultez le guide de l'utilisateur en ligne pour plus d'informations."
 
 #: templates/CRM/Member/Page/DashBoard.hlp
 msgid ""
@@ -2409,10 +2347,6 @@ msgid ""
 " You can also <a href=\"%2\">import batches of membership records</a> from "
 "other sources."
 msgstr "Vous pouvez également saisir et suivre les adhésions hors-ligne. Pour saisir une adhésion <a href=\"%1\">Trouver le contact</href>. Cliquez ensuite sur <strong>Consulter</strong> pour aller sur la fiche du contact et dans <strong>Actions</strong> cliquez sur <strong>Nouvelle adhésion</strong>. Vous pouvez également <a href=\"%2\"> Importer des adhésions massivement</a> depuis d'autres sources (tableur par exemple)."
-
-#: templates/CRM/Member/Page/DashBoard.hlp
-msgid "Refer to the online user guide for more information."
-msgstr "Consultez le guide de l'utilisateur en ligne pour plus d'informations."
 
 #: templates/CRM/Member/Page/DashBoard.tpl
 msgid "Members by Type"
@@ -2755,13 +2689,3 @@ msgstr "Cette adhésion sera renouvelée automatiquement."
 #: xml/templates/message_templates/membership_online_receipt_text.tpl
 msgid "You can cancel the auto-renewal option by visiting this web page: %1."
 msgstr "Vous pouvez annuler l'option d'auto-renouvellement en visitant cette page %1."
-
-#: CRM/Member/DAO/Membership.php
-msgid "Records of contacts belonging to an organization's membership program."
-msgstr "Enregistrements des contacts appartenant à un programme d'adhésion d'une organisation."
-
-#: CRM/Member/Form/Membership.php
-msgid ""
-"WARNING: Deleting this membership will also delete any related payment "
-"(contribution) records."
-msgstr "ATTENTION : La suppression de cette adhésion entraînera aussi la suppression des enregistrements de paiement associés (contributions)."
