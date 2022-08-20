@@ -37,7 +37,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2021-10-30 09:41-0400\n"
+"POT-Creation-Date: 2022-08-19 10:34-0400\n"
 "PO-Revision-Date: 2011-03-28 14:20+0000\n"
 "Last-Translator: Usha Matisson <matisson@makoa.fr>, 2019-2022\n"
 "Language-Team: French (http://www.transifex.com/civicrm/civicrm/language/fr/)\n"
@@ -45,7 +45,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: CRM/Mailing/ActionTokens.php
 msgid "Subscribe URL (Action)"
@@ -90,6 +90,13 @@ msgstr "URL de réinscription (Action)"
 #: CRM/Mailing/Event/DAO/Unsubscribe.php
 msgid "Event Queue ID"
 msgstr "Identifiant Evénement de la file d'attente "
+
+#: CRM/Mailing/BAO/Mailing.php
+msgid ""
+"You have selected an email Selection Method without specifying a Location "
+"Type. Please go back and change your recipient settings (using the wrench "
+"icon next to \"Recipients\")."
+msgstr "Vous avez sélectionné une Méthode de sélection sans spécifier un type d'adresse. Revenez en arrière s'il vous plait  et modifiez vos paramètres de destinataire (en utilisant l'icône à côté de Destinataires)."
 
 #: CRM/Mailing/BAO/Mailing.php
 msgid "CiviMail will not send email to a non-existent contact: %1"
@@ -302,6 +309,10 @@ msgid ""
 "bounce hold"
 msgstr "Nombre de rebonds de ce type requis avant la suspension de l'adresse de courriel"
 
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Mass emails sent from CiviMail."
+msgstr "Mailings de masse envoyé depuis CiviMail."
+
 #: CRM/Mailing/DAO/Mailing.php CRM/Mailing/DAO/MailingAB.php
 msgid "Which site is this mailing for"
 msgstr "Pour quel site ce mailing est fait ?"
@@ -502,6 +513,10 @@ msgstr "Programmé par (contact Id.)"
 #: CRM/Mailing/DAO/Mailing.php
 msgid "FK to Contact ID who scheduled this mailing"
 msgstr "FK de l'identifiant contact qui a planifié cet courriel"
+
+#: CRM/Mailing/DAO/Mailing.php
+msgid "Scheduled By"
+msgstr ""
 
 #: CRM/Mailing/DAO/Mailing.php CRM/Mailing/DAO/MailingJob.php
 msgid "Mailing Scheduled Date"
@@ -1182,7 +1197,7 @@ msgstr "Trackable Url"
 msgid "When this trackable URL open occurred."
 msgstr "When this trackable URL open occurred."
 
-#: CRM/Mailing/Event/DAO/Unsubscribe.php ang/crmMailing/services.js
+#: CRM/Mailing/Event/DAO/Unsubscribe.php
 msgid "Unsubscribes"
 msgstr "Désabonnements"
 
@@ -1268,12 +1283,14 @@ msgid "Mailing is not forwarded to the given email address."
 msgid_plural "Mailing is not forwarded to the given email addresses."
 msgstr[0] "Le publipostage n'a pas été transmis à l'adresse fournie."
 msgstr[1] "Le publipostage n'a pas été transmis aux adresses fournies."
+msgstr[2] "Le publipostage n'a pas été transmis aux adresses fournies."
 
 #: CRM/Mailing/Form/ForwardMailing.php
 msgid "Mailing is forwarded successfully to %count email address."
 msgid_plural "Mailing is forwarded successfully to %count email addresses."
 msgstr[0] "Le publipostage a été transmis à %count adresse courriel."
 msgstr[1] "Le publipostage a été transmis à %count adresses courriel."
+msgstr[2] "Le publipostage a été transmis à %count adresses courriel."
 
 #: CRM/Mailing/Form/Optout.php CRM/Mailing/Form/Unsubscribe.php
 #: CRM/Mailing/Page/Common.php
@@ -1285,20 +1302,8 @@ msgid "Opt Out Confirmation"
 msgstr "Confirmation d' Opt out"
 
 #: CRM/Mailing/Form/Optout.php
-msgid "Verify email address to opt out:"
-msgstr "Vérifier l'adresse électronique qui sera désabonnée des envois de courriels :"
-
-#: CRM/Mailing/Form/Optout.php
-msgid "Email address is required to opt out."
-msgstr "Une adresse email est requise pour être exclu des envois de mails."
-
-#: CRM/Mailing/Form/Optout.php
 msgid "%1 opt out confirmed."
 msgstr "%1 opt out confirmé."
-
-#: CRM/Mailing/Form/Optout.php
-msgid "%1 is not associated with this opt out request."
-msgstr "%1 n'est pas associée à la requête de désinscription (opt out)."
 
 #: CRM/Mailing/Form/Search.php CRM/Mailing/Selector/Browse.php
 msgid "SMS Name"
@@ -1345,28 +1350,16 @@ msgid "Missing Parameters"
 msgstr "Paramètres manquants"
 
 #: CRM/Mailing/Form/Unsubscribe.php
-msgid "%1 has been unsubscribed."
-msgstr "%1 s'est désabonné."
+msgid "%1 has already been unsubscribed."
+msgstr "%1 s'est déjà désabonné."
 
 #: CRM/Mailing/Form/Unsubscribe.php
 msgid "Unsubscribe Confirmation"
 msgstr "Confirmation de désabonnement"
 
 #: CRM/Mailing/Form/Unsubscribe.php
-msgid "Verify email address to unsubscribe:"
-msgstr "Merci de vérifier votre adresse électronique pour vous désinscrire de toutes les campagnes :"
-
-#: CRM/Mailing/Form/Unsubscribe.php
-msgid "Email address is required to unsubscribe."
-msgstr "Une adresse email est requise pour se désinscrire."
-
-#: CRM/Mailing/Form/Unsubscribe.php
-msgid "%1 is unsubscribed."
-msgstr "%1 est désabonné."
-
-#: CRM/Mailing/Form/Unsubscribe.php
-msgid "%1 is not associated with this unsubscribe request."
-msgstr "%1 n'est pas associé à cette demande de désabonnement."
+msgid "%1 has been unsubscribed successfully."
+msgstr "%1 s'est désabonné avec succès."
 
 #: CRM/Mailing/Info.php
 msgid "CiviCRM Mailing Engine"
@@ -1625,6 +1618,10 @@ msgid "%1 %%StatusMessage%%"
 msgstr "%1 %%Statuts Message%%"
 
 #: CRM/Mailing/Selector/Event.php
+msgid "Internal Contact ID"
+msgstr ""
+
+#: CRM/Mailing/Selector/Event.php
 msgid "Forwarded Email"
 msgstr "Email transféré"
 
@@ -1646,8 +1643,7 @@ msgstr "Réponses uniques"
 msgid "Unique Click-throughs"
 msgstr "Clics uniques"
 
-#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
-#: templates/CRM/Mailing/Page/Report.tpl
+#: CRM/Mailing/Selector/Event.php templates/CRM/Mailing/Page/Report.tpl
 msgid "Click-throughs"
 msgstr "Clics"
 
@@ -1914,12 +1910,6 @@ msgid "Review and Schedule"
 msgstr "Vérification et planification"
 
 #: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-msgid "Review"
-msgstr "Vérification"
-
-#: ang/crmMailing/EditMailingCtrl/2step.html
 #: ang/crmMailing/EditMailingCtrl/unified.html
 #: ang/crmMailing/EditMailingCtrl/unified2.html
 #: ang/crmMailing/EditMailingCtrl/wizard.html
@@ -1967,6 +1957,11 @@ msgstr "Soumettre et approuver le mailing"
 #: ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Submitting..."
 msgstr "Envoi..."
+
+#: ang/crmMailing/EditMailingCtrl.js ang/crmMailingAB/EditCtrl.js
+#: ang/crmMailingAB/WinnerDialogCtrl.js
+msgid "Submitted"
+msgstr ""
 
 #: ang/crmMailing/EditRecipCtrl.js
 msgid "Estimating..."
@@ -2115,8 +2110,8 @@ msgid "Sending..."
 msgstr "Envoi en cours..."
 
 #: ang/crmMailing/services.js
-msgid "Tracked Opens"
-msgstr "Ouvertures suivies"
+msgid "Unsubscribes & Opt-outs"
+msgstr ""
 
 #: ang/crmMailing/services.js
 msgid "Opt-Outs"
@@ -2273,10 +2268,6 @@ msgid "Browse events of type '%1'"
 msgstr "Parcourir les événements de type '%1'"
 
 #: ang/crmMailingAB/EditCtrl/report.html
-msgid "n/a"
-msgstr "n/a"
-
-#: ang/crmMailingAB/EditCtrl/report.html
 msgid "Reports for '%1'"
 msgstr "Rapports pour '%1'"
 
@@ -2386,6 +2377,10 @@ msgstr "Nouveau composant de publipostage"
 msgid "Total Recipients:"
 msgstr "Nombre total de destinataires :"
 
+#: templates/CRM/Mailing/Form/Count.tpl
+msgid "Contacts selected in the Find Contacts page"
+msgstr ""
+
 #: templates/CRM/Mailing/Form/ForwardMailing.tpl
 msgid "Please enter up to 5 email addresses to receive the mailing."
 msgstr "Veuillez saisir jusqu'à 5 adresses courriel pour recevoir le publipostage."
@@ -2400,12 +2395,17 @@ msgid ""
 msgstr "Vous souhaitez être désinscrit(e) de toutes les listes de diffusion :"
 
 #: templates/CRM/Mailing/Form/Optout.tpl
+#: templates/CRM/Mailing/Form/Unsubscribe.tpl
 msgid ""
 "If this is not your email address, there is no need to do anything. You have"
-" <i><b>not</b></i> been added to any mailing lists. If this is your email "
-"address and you <i><b>wish to opt out</b></i> please enter your email "
-"address below for verification purposes:"
-msgstr "Si ce n’est pas votre adresse, aucune action n’est requise de votre part. Vous <i><b>n’avez pas été</b></i> ajouté à une liste de diffusion.\nSi c’est votre adresse électronique et que vous <i><b>souhaitez vous désinscrire</b></i>, merci de la saisir ci-dessous pour que nous puissions la vérifier :"
+" <strong>not</strong> been added to any mailing lists."
+msgstr "Si ce n'est pas votre adresse courriel, aucune action n'est requise de votre part. Vous <strong>n'avez pas été</strong> ajouté à une liste de diffusion."
+
+#: templates/CRM/Mailing/Form/Optout.tpl
+msgid ""
+"If this is your email address and you <strong>wish to opt out</strong> "
+"please click the <strong>Opt Out</strong> button to confirm."
+msgstr "Si c'est votre adresse courriel et que vous <strong>souhaitez vous désinscrire</strong>, veuillez cliquer le bouton <strong>Exclusion des envois massifs</strong> pour confirmer."
 
 #: templates/CRM/Mailing/Form/Search.tpl
 msgid "SMS Status"
@@ -2442,11 +2442,9 @@ msgstr "Vous venez de demander à désinscrire l’adresse mail suivante :"
 
 #: templates/CRM/Mailing/Form/Unsubscribe.tpl
 msgid ""
-"If this is not your email address, there is no need to do anything. You have"
-" <i><b>not</b></i> been added to any mailing lists. If this is your email "
-"address and you <i><b>wish to unsubscribe</b></i> please enter your email "
-"address below for verification purposes:"
-msgstr "Si ce n’est pas votre adresse, aucune action n’est requise de votre part. Vous <i><b>n’avez pas été</b></i> ajouté à une liste de diffusion.\nSi c’est votre adresse mail et que vous <i><b>souhaitez vous désinscrire</b></i>, merci de la saisir ci-dessous pour que nous puissions la vérifier :"
+"If this is your email address and you <strong>wish to unsubscribe</strong> "
+"please click the <strong>Unsubscribe</strong> button to confirm."
+msgstr "Si c'est votre adresse courriel et que vous <strong>souhaitez vous désabonner</strong> veuillez cliquer le bouton <strong>Désabonnement</strong> pour confirmer."
 
 #: templates/CRM/Mailing/MailingUI.hlp
 msgid ""
@@ -2459,6 +2457,26 @@ msgstr "Attribuez un nom unique à chacun de vos publipostages. Adoptez une conv
 #: templates/CRM/Mailing/MailingUI.hlp
 msgid "General Monthly Newsletter: 200709"
 msgstr "Lettre d'information mensuelle : 09-2007"
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"Select the \"FROM\" Email Address for this mailing from the dropdown list. "
+"Available email addresses are configurable by users with Administer CiviCRM "
+"permission. EXAMPLE: \"Client Services\" &lt;clientservices@example.org&gt;"
+msgstr ""
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"Go to <a href='%1'>Administer CiviCRM &raquo; Communications &raquo; FROM "
+"Email Addresses</a> to add or edit email addresses. Make sure these email "
+"addresses are valid email accounts with your email service provider."
+msgstr ""
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"Contact your site administrator if you need to use a \"FROM\" Email Address "
+"which is not in the dropdown list."
+msgstr ""
 
 #: templates/CRM/Mailing/MailingUI.hlp
 msgid ""
@@ -2650,9 +2668,9 @@ msgstr "<strong>%1 (%2)</strong> a bien été inscrit(e) à la liste de diffusio
 
 #: templates/CRM/Mailing/Page/Confirm.tpl
 msgid ""
-"Oops. We encountered a problem in processing your subscription confirmation."
-" Please contact the site administrator."
-msgstr "Désolé ! Nous avons rencontré un problème en procédant à la confirmation de votre inscription. Merci de contacter l'administrateur du site."
+"Unfortunately we encountered a problem in processing your subscription "
+"confirmation. Please contact the site administrator."
+msgstr ""
 
 #: templates/CRM/Mailing/Page/Event.tpl
 msgid "There are currently no %1."
@@ -2711,10 +2729,6 @@ msgid "Forward replies"
 msgstr "Transmettre les réponses"
 
 #: templates/CRM/Mailing/Page/Report.tpl
-msgid "Off"
-msgstr "Non"
-
-#: templates/CRM/Mailing/Page/Report.tpl
 msgid "Auto-respond to replies"
 msgstr "Répondre automatiquement aux réponses"
 
@@ -2741,41 +2755,3 @@ msgstr "Êtes-vous sûr de vouloir vous inscrire à nouveau : %1 (%2) ?"
 #: templates/CRM/Mailing/Page/Tab.tpl
 msgid "Opens/ Clicks"
 msgstr "Ouvertures / Clics"
-
-#: CRM/Mailing/BAO/Mailing.php
-msgid ""
-"You have selected an email Selection Method without specifying a Location "
-"Type. Please go back and change your recipient settings (using the wrench "
-"icon next to \"Recipients\")."
-msgstr "Vous avez sélectionné une Méthode de sélection sans spécifier un type d'adresse. Revenez en arrière s'il vous plait  et modifiez vos paramètres de destinataire (en utilisant l'icône à côté de Destinataires)."
-
-#: CRM/Mailing/DAO/Mailing.php
-msgid "Mass emails sent from CiviMail."
-msgstr "Mailings de masse envoyé depuis CiviMail."
-
-#: CRM/Mailing/Form/Unsubscribe.php
-msgid "%1 has already been unsubscribed."
-msgstr "%1 s'est déjà désabonné."
-
-#: CRM/Mailing/Form/Unsubscribe.php
-msgid "%1 has been unsubscribed successfully."
-msgstr "%1 s'est désabonné avec succès."
-
-#: templates/CRM/Mailing/Form/Optout.tpl
-#: templates/CRM/Mailing/Form/Unsubscribe.tpl
-msgid ""
-"If this is not your email address, there is no need to do anything. You have"
-" <strong>not</strong> been added to any mailing lists."
-msgstr "Si ce n'est pas votre adresse courriel, aucune action n'est requise de votre part. Vous <strong>n'avez pas été</strong> ajouté à une liste de diffusion."
-
-#: templates/CRM/Mailing/Form/Optout.tpl
-msgid ""
-"If this is your email address and you <strong>wish to opt out</strong> "
-"please click the <strong>Opt Out</strong> button to confirm."
-msgstr "Si c'est votre adresse courriel et que vous <strong>souhaitez vous désinscrire</strong>, veuillez cliquer le bouton <strong>Exclusion des envois massifs</strong> pour confirmer."
-
-#: templates/CRM/Mailing/Form/Unsubscribe.tpl
-msgid ""
-"If this is your email address and you <strong>wish to unsubscribe</strong> "
-"please click the <strong>Unsubscribe</strong> button to confirm."
-msgstr "Si c'est votre adresse courriel et que vous <strong>souhaitez vous désabonner</strong> veuillez cliquer le bouton <strong>Désabonnement</strong> pour confirmer."
