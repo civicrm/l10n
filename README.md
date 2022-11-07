@@ -5,9 +5,8 @@ How to localise your CiviCRM installation
 
 aka "using CiviCRM in another language than US-English"
 
-Documentation on how to localise your installation of CiviCRM:
-* http://wiki.civicrm.org/confluence/pages/viewpage.action?pageId=88408149
-* http://wiki.civicrm.org/confluence/display/CRMDOC/i18n+Administrator%27s+Guide
+CiviCRM Translation:
+* https://lab.civicrm.org/dev/translation/-/wikis/home
 
 How to participate in a translation team
 ========================================
