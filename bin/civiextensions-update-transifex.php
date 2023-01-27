@@ -71,25 +71,30 @@ function main() {
   $gitrepos_raw = file_get_contents(CIVIEXTENSIONS_REPO_LIST);
 
   if (! $gitrepos_raw) {
-    echo "ERROR: could not read the list of repositories for extensions.";
+    echo "ERROR: could not read the list of repositories for extensions (" . CIVIEXTENSIONS_REPO_LIST . "). It returned empty.\n";
     exit(1);
   }
 
-  $gitrepos = json_decode($gitrepos_raw);
+  $gitrepos = json_decode($gitrepos_raw, TRUE);
+
+  if (!is_countable($gitrepos) || count($gitrepos) < 5) {
+    echo "ERROR: could not read the list of repositories for extensions (" . CIVIEXTENSIONS_REPO_LIST . "). Expected an array with more than 5 items.\n";
+    exit(1);
+  }
 
   foreach ($gitrepos as $gitinfo) {
     // Only extract extensions that are ready for automatic distribution
-    if ($gitinfo->ready != 'ready') {
+    if ($gitinfo['ready'] != 'ready') {
       continue;
     }
 
     // Risky security
-    if (! preg_match('/^[-_0-9-a-zA-Z\.:\/]+$/', $gitinfo->git_url)) {
-      echo "Skipping suspicious repo URL: {$gitinfo->git_url}\n";
+    if (! preg_match('/^[-_0-9-a-zA-Z\.:\/]+$/', $gitinfo['git_url'])) {
+      echo "Skipping suspicious repo URL: {$gitinfo['git_url']}\n";
       continue;
     }
 
-    $reponame = basename($gitinfo->git_url);
+    $reponame = basename($gitinfo['git_url']);
     $reponame = preg_replace('/\.git$/', '', $reponame);
 
     $extdir = escapeshellarg("$download_dir/$reponame");
@@ -103,7 +108,7 @@ function main() {
     else {
       // Runs: git clone git://example.org/foo.git ~/repositories/foo-hash
       echo "* New repo (or not in cache), cloning it...\n";
-      system('git clone ' . escapeshellarg($gitinfo->git_url) . ' ' . $extdir);
+      system('git clone ' . escapeshellarg($gitinfo['git_url']) . ' ' . $extdir);
     }
 
     // Get the short name from the info.xml
