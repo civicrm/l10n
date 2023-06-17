@@ -196,6 +196,12 @@ function build_raw_pot() {
           echo -e "msgctxt \"menu\"\nmsgid \"$entry\"\nmsgstr \"\"\n"
         done \
         >> "$filepath"
+      grep -h '<desc>' CRM/*/xml/Menu/*.xml \
+        | sed 's/^.*<desc>\(.*\)<\/desc>.*$/\1/' \
+        | while read entry; do
+          echo -e "msgctxt \"menu\"\nmsgid \"${entry//\"/\\\"}\"\nmsgstr \"\"\n"
+        done \
+        >> "$filepath"
       _civistrings --msgctxt=menu xml/templates/civicrm_navigation.tpl -ao "$filepath"
       ;;
 
