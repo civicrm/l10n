@@ -12,10 +12,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2022-12-19 14:12-0500\n"
+"POT-Creation-Date: 2023-06-17 15:56-0400\n"
 "PO-Revision-Date: 2011-03-28 14:20+0000\n"
 "Last-Translator: Zoltán Reizinger <zreizinger@hdsnet.hu>, 2013-2021,2023\n"
-"Language-Team: Hungarian (http://www.transifex.com/civicrm/civicrm/language/hu/)\n"
+"Language-Team: Hungarian (http://app.transifex.com/civicrm/civicrm/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -58,11 +58,13 @@ msgstr "Újra feliratkozás (Akció)"
 msgid "Resubscribe URL (Action)"
 msgstr "Újra feliratkozás URL (Akció)"
 
-#: CRM/Mailing/ActionTokens.php CRM/Mailing/Event/DAO/Bounce.php
-#: CRM/Mailing/Event/DAO/Delivered.php CRM/Mailing/Event/DAO/Forward.php
-#: CRM/Mailing/Event/DAO/Opened.php CRM/Mailing/Event/DAO/Reply.php
-#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
+#: CRM/Mailing/ActionTokens.php CRM/Mailing/Event/DAO/MailingEventBounce.php
+#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
+#: CRM/Mailing/Event/DAO/MailingEventDelivered.php
+#: CRM/Mailing/Event/DAO/MailingEventForward.php
+#: CRM/Mailing/Event/DAO/MailingEventOpened.php
+#: CRM/Mailing/Event/DAO/MailingEventReply.php
+#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "Event Queue ID"
 msgstr "Esemény sorbaállás azonosító"
 
@@ -108,14 +110,6 @@ msgid "You do not have permission to access this mailing report"
 msgstr "Önnek nincs elég jogosultsága, hogy hozzáférjen a postázási jelentésekhez."
 
 #: CRM/Mailing/BAO/Mailing.php
-msgid "No id passed to mailing del function"
-msgstr "A levelezés törléséhez nem került átadásra az azonosító"
-
-#: CRM/Mailing/BAO/Mailing.php CRM/Mailing/BAO/MailingAB.php
-msgid "Selected mailing has been deleted."
-msgstr "A kiválasztott levelek törlésre kerültek."
-
-#: CRM/Mailing/BAO/Mailing.php
 msgid "No id passed to mailing delJob function"
 msgstr "Nem lett azonosító a delJob funkciónak átadva"
 
@@ -149,10 +143,6 @@ msgstr "Az <a href=\"%1\">alapértelmezett postafiók </a> nincs beállítva. To
 msgid "View Mailing"
 msgstr "Levelek megtekintése"
 
-#: CRM/Mailing/BAO/MailingAB.php
-msgid "No id passed to MailingAB del function"
-msgstr "Nem lett azonosító a MailingAB törlés funkciónak átadva"
-
 #: CRM/Mailing/BAO/MailingJob.php
 msgid "[CiviMail Draft]"
 msgstr "[CiviKörlevél piszkozat]"
@@ -167,7 +157,7 @@ msgid ""
 "Activity"
 msgstr "Nem találtunk releváns tevékenység típust amikor a levelezési esemény kézbesítési tevékenységet rögzítettünk"
 
-#: CRM/Mailing/BAO/Query.php
+#: CRM/Mailing/BAO/Query.php CRM/Mailing/Event/DAO/MailingEventDelivered.php
 msgid "Mailing Delivery"
 msgstr "Levél elküldés"
 
@@ -247,6 +237,7 @@ msgid "Bounce Pattern ID"
 msgstr "Visszapattintási mintázat azonosító"
 
 #: CRM/Mailing/DAO/BouncePattern.php CRM/Mailing/DAO/BounceType.php
+#: CRM/Mailing/Event/DAO/MailingEventBounce.php
 msgid "Bounce Type ID"
 msgstr "Visszapattanási típus azonosító"
 
@@ -308,7 +299,7 @@ msgstr "Lábléc azonosító"
 msgid "FK to the footer component."
 msgstr "Lábléc komponens FK"
 
-#: CRM/Mailing/DAO/Mailing.php CRM/Mailing/Event/DAO/Reply.php
+#: CRM/Mailing/DAO/Mailing.php CRM/Mailing/Event/DAO/MailingEventReply.php
 msgid "Reply ID"
 msgstr "Válasz azonosító"
 
@@ -316,7 +307,8 @@ msgstr "Válasz azonosító"
 msgid "FK to the auto-responder component."
 msgstr "az automatikus válasz komponens FK"
 
-#: CRM/Mailing/DAO/Mailing.php CRM/Mailing/Event/DAO/Unsubscribe.php
+#: CRM/Mailing/DAO/Mailing.php
+#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "Unsubscribe ID"
 msgstr "Leiratkozás azonosító"
 
@@ -771,18 +763,22 @@ msgid "The arguments to be sent to the search function"
 msgstr "A keresés részére átküldött változók."
 
 #: CRM/Mailing/DAO/MailingJob.php
-msgid "Mailing Jobs"
-msgstr "Levelezési feladatok"
+msgid "Outbound Mailings"
+msgstr "Kimenő e-mail beállítások"
+
+#: CRM/Mailing/DAO/MailingJob.php CRM/Mailing/Event/DAO/MailingEventQueue.php
+msgid "Outbound Mailing"
+msgstr "Kimenő e-mail beállítás"
 
 #: CRM/Mailing/DAO/MailingJob.php
-msgid "Mailing Job"
-msgstr "Levelezési feladat"
+msgid "Attempted delivery of a mailing."
+msgstr "Levél kiküldési próbálkozás."
 
 #: CRM/Mailing/DAO/MailingJob.php
 msgid "Mailing Job ID"
 msgstr "Körlevél munka azonosító"
 
-#: CRM/Mailing/DAO/MailingJob.php CRM/Mailing/DAO/Recipients.php
+#: CRM/Mailing/DAO/MailingJob.php CRM/Mailing/DAO/MailingRecipients.php
 msgid "The ID of the mailing this Job will send."
 msgstr "A feladat által elküldendő körlevél azonosítója. "
 
@@ -850,24 +846,32 @@ msgstr "Körlevél feladat korlát"
 msgid "Queue size limit for each child job"
 msgstr "Sorban állás méret határa az egyes gyermek feladatokhoz"
 
-#: CRM/Mailing/DAO/Recipients.php
+#: CRM/Mailing/DAO/MailingRecipients.php
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php CRM/Mailing/Selector/Search.php
+msgid "Mailing Recipient"
+msgstr "Levél címzettje"
+
+#: CRM/Mailing/DAO/MailingRecipients.php
 msgid "Mailing Recipients ID"
 msgstr "Körlevél címzettek azonosítója"
 
-#: CRM/Mailing/DAO/Recipients.php
+#: CRM/Mailing/DAO/MailingRecipients.php
 msgid "Recipient ID"
 msgstr "Címzett azonosító"
 
-#: CRM/Mailing/DAO/Recipients.php CRM/Mailing/Event/DAO/Queue.php
-#: CRM/Mailing/Event/DAO/Subscribe.php
+#: CRM/Mailing/DAO/MailingRecipients.php
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
+#: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
 msgid "FK to Contact"
 msgstr "FK a Kapcsolathoz"
 
-#: CRM/Mailing/DAO/Recipients.php CRM/Mailing/Event/DAO/Queue.php
+#: CRM/Mailing/DAO/MailingRecipients.php
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
 msgid "FK to Email"
 msgstr "FK az E-mailhez"
 
-#: CRM/Mailing/DAO/Recipients.php CRM/Mailing/Event/DAO/Queue.php
+#: CRM/Mailing/DAO/MailingRecipients.php
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
 msgid "FK to Phone"
 msgstr "FK a telefonszámhoz"
 
@@ -935,256 +939,258 @@ msgstr "A követett URL."
 msgid "FK to the mailing"
 msgstr "FK a körlevélhez"
 
-#: CRM/Mailing/Event/BAO/Bounce.php
+#: CRM/Mailing/Event/BAO/MailingEventBounce.php
 msgid "Unknown bounce type: Could not parse bounce email"
 msgstr "Ismeretlen visszapattanási típus: Nem lehet feldogozni a visszapattant leveket. "
 
-#: CRM/Mailing/Event/BAO/Subscribe.php
+#: CRM/Mailing/Event/BAO/MailingEventSubscribe.php
 msgid "You are already subscribed in %1, your subscription is %2."
 msgstr "Már feliratkozott a %1 listára a feliratkozása: %2.  "
 
-#: CRM/Mailing/Event/BAO/Subscribe.php
+#: CRM/Mailing/Event/BAO/MailingEventSubscribe.php
 msgid ""
 "Your subscription request has been submitted for %1. Check your inbox "
 "shortly for the confirmation email(s). If you do not see a confirmation "
 "email, please check your spam/junk mail folder."
 msgstr "A %1 feliratkozási kérelme továbbításra került.  Kérem rövidesen ellenőrizze a postafiókját a megerősítő email(ek) megérkezéséről. Ha nem találja a megerősítő emailt, kérem ellenőrizze a Szemetek mappáját."
 
-#: CRM/Mailing/Event/BAO/Subscribe.php
+#: CRM/Mailing/Event/BAO/MailingEventSubscribe.php
 msgid ""
 "We had a problem processing your subscription request for %1. You have tried"
 " to subscribe to a private group and/or we encountered a database error. "
 "Please contact the site administrator."
 msgstr "A %1 feliratkozásának folyamata problémába ütközött. Vagy zárt csoportba próbált meg feliratkozni, és/vagy adatbázis hiba történt nálunk. Kérjük lépjen kapcsolatba az oldal adminisztrátorával. "
 
-#: CRM/Mailing/Event/DAO/Bounce.php
-msgid "Mailing Bounce Events"
-msgstr "Körlevél visszapattanási események"
+#: CRM/Mailing/Event/DAO/MailingEventBounce.php
+msgid "Mailing Bounces"
+msgstr "Levél visszapattanások"
 
-#: CRM/Mailing/Event/DAO/Bounce.php
-msgid "Mailing Bounce Event"
-msgstr "Körlevél visszapattanási esemény"
+#: CRM/Mailing/Event/DAO/MailingEventBounce.php
+msgid "Mailing Bounce"
+msgstr "Levél visszapattanás"
 
-#: CRM/Mailing/Event/DAO/Bounce.php
+#: CRM/Mailing/Event/DAO/MailingEventBounce.php
+msgid "Mailings that failed to reach the inbox of the recipient."
+msgstr "A címzett postafiókját el nem ért levelek."
+
+#: CRM/Mailing/Event/DAO/MailingEventBounce.php
 msgid "Bounce ID"
 msgstr "Visszapattanás azonosítója"
 
-#: CRM/Mailing/Event/DAO/Bounce.php CRM/Mailing/Event/DAO/Delivered.php
-#: CRM/Mailing/Event/DAO/Forward.php CRM/Mailing/Event/DAO/Opened.php
-#: CRM/Mailing/Event/DAO/Reply.php CRM/Mailing/Event/DAO/TrackableURLOpen.php
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
+#: CRM/Mailing/Event/DAO/MailingEventBounce.php
+#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
+#: CRM/Mailing/Event/DAO/MailingEventDelivered.php
+#: CRM/Mailing/Event/DAO/MailingEventForward.php
+#: CRM/Mailing/Event/DAO/MailingEventOpened.php
+#: CRM/Mailing/Event/DAO/MailingEventReply.php
+#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "FK to EventQueue"
 msgstr "FK a EventQueue-hez"
 
-#: CRM/Mailing/Event/DAO/Bounce.php CRM/Mailing/Event/DAO/Delivered.php
-#: CRM/Mailing/Event/DAO/Forward.php CRM/Mailing/Event/DAO/Opened.php
-#: CRM/Mailing/Event/DAO/Reply.php CRM/Mailing/Event/DAO/TrackableURLOpen.php
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
-msgid "Event Queue"
-msgstr "Esemény sorbanállása"
-
-#: CRM/Mailing/Event/DAO/Bounce.php
+#: CRM/Mailing/Event/DAO/MailingEventBounce.php
 msgid "What type of bounce was it?"
 msgstr "Milyen típusú visszapattanás volt?"
 
-#: CRM/Mailing/Event/DAO/Bounce.php
+#: CRM/Mailing/Event/DAO/MailingEventBounce.php
 msgid "The reason the email bounced."
 msgstr "A visszapattanás oka."
 
-#: CRM/Mailing/Event/DAO/Bounce.php
+#: CRM/Mailing/Event/DAO/MailingEventBounce.php
 msgid "When this bounce event occurred."
 msgstr "Mikor történt a visszapattanás?"
 
-#: CRM/Mailing/Event/DAO/Confirm.php
-msgid "Mailing Contribution Events"
-msgstr "Körlevél adományozási események"
+#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
+msgid "Mailing Event Click Throughs"
+msgstr "Levelezési esemény áttkantintások"
 
-#: CRM/Mailing/Event/DAO/Confirm.php
-msgid "Mailing Confirmation Event"
-msgstr "Körlevél adományozási esemény"
+#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
+msgid "Mailing Event Click Through"
+msgstr "Levelezés esemény átkattintás"
 
-#: CRM/Mailing/Event/DAO/Confirm.php
-msgid "Mailing Confirmation ID"
-msgstr "Körlevél megerősítés azonosító"
-
-#: CRM/Mailing/Event/DAO/Confirm.php CRM/Mailing/Event/DAO/Subscribe.php
-msgid "Mailing Subscribe ID"
-msgstr "Körlevél feliratkozás azonosító"
-
-#: CRM/Mailing/Event/DAO/Confirm.php
-msgid "FK to civicrm_mailing_event_subscribe"
-msgstr "FK a civicrm_mailing_event_subscribe-hez"
-
-#: CRM/Mailing/Event/DAO/Confirm.php
-msgid "Mailing Subscribe"
-msgstr "Levelezési feliratkozás"
-
-#: CRM/Mailing/Event/DAO/Confirm.php
-msgid "Confirm Timestamp"
-msgstr "Időbélyeg megerősítése"
-
-#: CRM/Mailing/Event/DAO/Confirm.php
-msgid "When this confirmation event occurred."
-msgstr "Mikor történt ez a megerősítési esemény."
-
-#: CRM/Mailing/Event/DAO/Delivered.php
-msgid "Mailing Delivery Events"
-msgstr "Körlevél kiküldési események"
-
-#: CRM/Mailing/Event/DAO/Delivered.php
-msgid "Mailing Delivery Event"
-msgstr "Körlevél kiküldési esemény"
-
-#: CRM/Mailing/Event/DAO/Delivered.php
-msgid "Delivered ID"
-msgstr "Elküldési azonosító"
-
-#: CRM/Mailing/Event/DAO/Delivered.php CRM/Mailing/Event/DAO/Unsubscribe.php
-msgid "When this delivery event occurred."
-msgstr "Mikor történt ez a kiszállítási esemény."
-
-#: CRM/Mailing/Event/DAO/Forward.php
-msgid "Mailing Forwarded Events"
-msgstr "Körlevél továbbítási események"
-
-#: CRM/Mailing/Event/DAO/Forward.php
-msgid "Mailing Forwarded Event"
-msgstr "Körlevél továbbítási esemény"
-
-#: CRM/Mailing/Event/DAO/Forward.php
-msgid "Forward ID"
-msgstr "Továbbítási azonosító"
-
-#: CRM/Mailing/Event/DAO/Forward.php
-msgid "Destination Queue ID"
-msgstr "Cél sorban állási azonosító"
-
-#: CRM/Mailing/Event/DAO/Forward.php
-msgid "FK to EventQueue for destination"
-msgstr "FK a cél EventQueue -hez"
-
-#: CRM/Mailing/Event/DAO/Forward.php
-msgid "Destination Queue"
-msgstr "Cél sorbanállás"
-
-#: CRM/Mailing/Event/DAO/Forward.php
-msgid "When this forward event occurred."
-msgstr "Mikor történt a továbbítási esemény."
-
-#: CRM/Mailing/Event/DAO/Opened.php
-msgid "Mailing Opened Events"
-msgstr "Körlevél megnyitási események"
-
-#: CRM/Mailing/Event/DAO/Opened.php
-msgid "Mailing Opened Event"
-msgstr "Körlevél megnyitási esemény"
-
-#: CRM/Mailing/Event/DAO/Opened.php
-msgid "Mailing Opened ID"
-msgstr "Megnyitott körlevél azonosító"
-
-#: CRM/Mailing/Event/DAO/Opened.php
-msgid "When this open event occurred."
-msgstr "Mikor történt a megnyitási esemény."
-
-#: CRM/Mailing/Event/DAO/Queue.php
-msgid "Mailing Queue Events"
-msgstr "Körlevél sorban állási események"
-
-#: CRM/Mailing/Event/DAO/Queue.php
-msgid "Mailing Queue Event"
-msgstr "Körlevél sorban állási esemény"
-
-#: CRM/Mailing/Event/DAO/Queue.php
-msgid "Mailing Event Queue ID"
-msgstr "Körlevél esemény sorban állás azonosító "
-
-#: CRM/Mailing/Event/DAO/Queue.php
-msgid "FK to Job"
-msgstr "FK a feladathoz"
-
-#: CRM/Mailing/Event/DAO/Queue.php
-msgid "Security Hash"
-msgstr "Biztonsági hash"
-
-#: CRM/Mailing/Event/DAO/Queue.php CRM/Mailing/Event/DAO/Subscribe.php
-msgid "Security hash"
-msgstr "Biztonsági hash"
-
-#: CRM/Mailing/Event/DAO/Reply.php CRM/Mailing/Selector/Event.php
-#: ang/crmMailing/services.js templates/CRM/Mailing/Page/Report.tpl
-msgid "Replies"
-msgstr "Válaszok"
-
-#: CRM/Mailing/Event/DAO/Reply.php
-msgid "Reply Timestamp"
-msgstr "Válasz időbélyeg"
-
-#: CRM/Mailing/Event/DAO/Reply.php
-msgid "When this reply event occurred."
-msgstr "Mikor történt a válasz esemény."
-
-#: CRM/Mailing/Event/DAO/Subscribe.php
-msgid "Subscribes"
-msgstr "Feliratkozók"
-
-#: CRM/Mailing/Event/DAO/Subscribe.php CRM/Mailing/Form/Subscribe.php
-msgid "Subscribe"
-msgstr "Feliratkozás"
-
-#: CRM/Mailing/Event/DAO/Subscribe.php
-msgid "Mailing Subscribe Hash"
-msgstr "Körlevél feliratkozó hash"
-
-#: CRM/Mailing/Event/DAO/Subscribe.php
-msgid "Mailing Subscribe Timestamp"
-msgstr "Körlevél feliratkozás időbélyeg"
-
-#: CRM/Mailing/Event/DAO/Subscribe.php
-msgid "When this subscription event occurred."
-msgstr "Mikor történt a feliratkozási esemény."
-
-#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
-msgid "Trackable URLOpens"
-msgstr "Követhető URL megnyitások"
-
-#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
-msgid "Trackable URLOpen"
-msgstr "Követhető URL megnyitás"
-
-#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
+#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
 msgid "Trackable URL Open ID"
 msgstr "Követhető URL megnyitás azonosítója"
 
-#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
+#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
 msgid "Trackable Url ID"
 msgstr "Követhető URL azonosítója"
 
-#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
+#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
 msgid "FK to TrackableURL"
 msgstr "FK a TrackableURL -hez"
 
-#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
+#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
 msgid "Trackable Url"
 msgstr "Követhető URL"
 
-#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
+#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
 msgid "When this trackable URL open occurred."
 msgstr "Mikor történt a követhető URL megnyitása."
 
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
-msgid "Unsubscribes"
-msgstr "Leiratkozók"
+#: CRM/Mailing/Event/DAO/MailingEventConfirm.php
+msgid "Mailing Opt-In Confirmations"
+msgstr "Leiratkozás megerősítések"
 
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
+#: CRM/Mailing/Event/DAO/MailingEventConfirm.php
+msgid "Mailing Opt-In Confirmation"
+msgstr "Leiratkozás megerősítés"
+
+#: CRM/Mailing/Event/DAO/MailingEventConfirm.php
+msgid "Mailing Confirmation ID"
+msgstr "Körlevél megerősítés azonosító"
+
+#: CRM/Mailing/Event/DAO/MailingEventConfirm.php
+#: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
+msgid "Mailing Subscribe ID"
+msgstr "Körlevél feliratkozás azonosító"
+
+#: CRM/Mailing/Event/DAO/MailingEventConfirm.php
+msgid "FK to civicrm_mailing_event_subscribe"
+msgstr "FK a civicrm_mailing_event_subscribe-hez"
+
+#: CRM/Mailing/Event/DAO/MailingEventConfirm.php
+msgid "Mailing Subscribe"
+msgstr "Levelezési feliratkozás"
+
+#: CRM/Mailing/Event/DAO/MailingEventConfirm.php
+msgid "Confirm Timestamp"
+msgstr "Időbélyeg megerősítése"
+
+#: CRM/Mailing/Event/DAO/MailingEventConfirm.php
+msgid "When this confirmation event occurred."
+msgstr "Mikor történt ez a megerősítési esemény."
+
+#: CRM/Mailing/Event/DAO/MailingEventDelivered.php
+msgid "Mailing Deliveries"
+msgstr "Levelezés kiküldések"
+
+#: CRM/Mailing/Event/DAO/MailingEventDelivered.php
+msgid "Delivered ID"
+msgstr "Elküldési azonosító"
+
+#: CRM/Mailing/Event/DAO/MailingEventDelivered.php
+#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
+msgid "When this delivery event occurred."
+msgstr "Mikor történt ez a kiszállítási esemény."
+
+#: CRM/Mailing/Event/DAO/MailingEventForward.php
+msgid "Mailing Forwards"
+msgstr "Levél továbbítások"
+
+#: CRM/Mailing/Event/DAO/MailingEventForward.php
+msgid "Mailing Forward"
+msgstr "Levél továbbítás"
+
+#: CRM/Mailing/Event/DAO/MailingEventForward.php
+msgid "Forward ID"
+msgstr "Továbbítási azonosító"
+
+#: CRM/Mailing/Event/DAO/MailingEventForward.php
+msgid "Destination Queue ID"
+msgstr "Cél sorban állási azonosító"
+
+#: CRM/Mailing/Event/DAO/MailingEventForward.php
+msgid "FK to EventQueue for destination"
+msgstr "FK a cél EventQueue -hez"
+
+#: CRM/Mailing/Event/DAO/MailingEventForward.php
+msgid "Destination Queue"
+msgstr "Cél sorbanállás"
+
+#: CRM/Mailing/Event/DAO/MailingEventForward.php
+msgid "When this forward event occurred."
+msgstr "Mikor történt a továbbítási esemény."
+
+#: CRM/Mailing/Event/DAO/MailingEventOpened.php
+msgid "Mailings Opened"
+msgstr "Megnyitott levelek"
+
+#: CRM/Mailing/Event/DAO/MailingEventOpened.php
+msgid "Mailing Opened"
+msgstr "Megnyitott levél"
+
+#: CRM/Mailing/Event/DAO/MailingEventOpened.php
+msgid "Mailing Opened ID"
+msgstr "Megnyitott körlevél azonosító"
+
+#: CRM/Mailing/Event/DAO/MailingEventOpened.php
+msgid "When this open event occurred."
+msgstr "Mikor történt a megnyitási esemény."
+
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
+msgid "Intended recipients of a mailing."
+msgstr "A levelezés tervezett címzettjei."
+
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
+msgid "Mailing Event Queue ID"
+msgstr "Körlevél esemény sorban állás azonosító "
+
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
+msgid "Mailing Job"
+msgstr "Levelezési feladat"
+
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
+msgid "Security Hash"
+msgstr "Biztonsági hash"
+
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
+#: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
+msgid "Security hash"
+msgstr "Biztonsági hash"
+
+#: CRM/Mailing/Event/DAO/MailingEventReply.php
+msgid "Mailing Replies"
+msgstr "Levelezési válaszok"
+
+#: CRM/Mailing/Event/DAO/MailingEventReply.php
+msgid "Mailing Reply"
+msgstr "Levelezési válasz"
+
+#: CRM/Mailing/Event/DAO/MailingEventReply.php
+msgid "Reply Timestamp"
+msgstr "Válasz időbélyeg"
+
+#: CRM/Mailing/Event/DAO/MailingEventReply.php
+msgid "When this reply event occurred."
+msgstr "Mikor történt a válasz esemény."
+
+#: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
+msgid "Mailing Opt-Ins"
+msgstr "Levelezési leiratkozások"
+
+#: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
+msgid "Mailing Opt-In"
+msgstr "Levelezési leiratkozás"
+
+#: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
+msgid "Mailing Subscribe Hash"
+msgstr "Körlevél feliratkozó hash"
+
+#: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
+msgid "Mailing Subscribe Timestamp"
+msgstr "Körlevél feliratkozás időbélyeg"
+
+#: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
+msgid "When this subscription event occurred."
+msgstr "Mikor történt a feliratkozási esemény."
+
+#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
+msgid "Mailing Unsubscribes"
+msgstr "Levelezési leiratkozások"
+
+#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
+msgid "Mailing Unsubscribe"
+msgstr "Levelezési leiratkozás"
+
+#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "Unsubscribe is for Organization?"
 msgstr "Szervezet leiratkozása? "
 
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
+#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "Unsubscribe at org- or group-level"
 msgstr "szervezeti vagy csoport szintű leiratkozás"
 
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
+#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "Unsubscribe Timestamp"
 msgstr "Leiratkozás időbélyeg"
 
@@ -1199,6 +1205,10 @@ msgstr "Jóváhagyási/elutasítási megjegyzés."
 #: CRM/Mailing/Form/Approve.php
 msgid "No mailing id has been able to be determined"
 msgstr "Nem tudtam levelezési azonosítót meghatározni"
+
+#: CRM/Mailing/Form/Browse.php CRM/Mailing/Page/Browse.php
+msgid "Selected mailing has been deleted."
+msgstr "A kiválasztott levelek törlésre kerültek."
 
 #: CRM/Mailing/Form/Browse.php CRM/Mailing/Page/Browse.php
 msgid "The mailing has been canceled."
@@ -1313,6 +1323,10 @@ msgstr "Levelezési feliratkozások"
 #: CRM/Mailing/Form/Subscribe.php
 msgid "There are no public mailing list groups to display."
 msgstr "Nincs kijelezhető nyilvános levelezési lista csoport."
+
+#: CRM/Mailing/Form/Subscribe.php
+msgid "Subscribe"
+msgstr "Feliratkozás"
 
 #: CRM/Mailing/Form/Task/Print.php CRM/Mailing/Task.php
 msgid "Print Mailing Recipients"
@@ -1612,6 +1626,11 @@ msgstr "Visszapattanások"
 msgid "Unique Replies"
 msgstr "Egyedi válaszok"
 
+#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: templates/CRM/Mailing/Page/Report.tpl
+msgid "Replies"
+msgstr "Válaszok"
+
 #: CRM/Mailing/Selector/Event.php
 msgid "Unique Click-throughs"
 msgstr "Egyedi átkattintások"
@@ -1627,10 +1646,6 @@ msgstr "Egyedi követett megnyitások"
 #: CRM/Mailing/Selector/Event.php
 msgid "Total Tracked Opens"
 msgstr "Összes követett megnyitások"
-
-#: CRM/Mailing/Selector/Search.php
-msgid "Mailing Recipient"
-msgstr "Levél címzettje"
 
 #: CRM/Mailing/Selector/Search.php templates/CRM/Mailing/Form/Task/Print.tpl
 msgid "Completed Date"
@@ -2729,90 +2744,19 @@ msgstr "Biztos abban, hogy újra feliratkozik: %1 (%2)"
 msgid "Opens/ Clicks"
 msgstr "Megnyitások/ kattintások"
 
-#: CRM/Mailing/DAO/MailingJob.php
-msgid "Outbound Mailings"
-msgstr "Kimenő e-mail beállítások"
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+msgid "Mailing Links"
+msgstr ""
 
-#: CRM/Mailing/DAO/MailingJob.php CRM/Mailing/Event/DAO/MailingEventQueue.php
-msgid "Outbound Mailing"
-msgstr "Kimenő e-mail beállítás"
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Mailing Link"
+msgstr ""
 
-#: CRM/Mailing/DAO/MailingJob.php
-msgid "Attempted delivery of a mailing."
-msgstr "Levél kiküldési próbálkozás."
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Mailing Link Clickthroughs"
+msgstr ""
 
-#: CRM/Mailing/Event/DAO/MailingEventBounce.php
-msgid "Mailing Bounces"
-msgstr "Levél visszapattanások"
-
-#: CRM/Mailing/Event/DAO/MailingEventBounce.php
-msgid "Mailing Bounce"
-msgstr "Levél visszapattanás"
-
-#: CRM/Mailing/Event/DAO/MailingEventBounce.php
-msgid "Mailings that failed to reach the inbox of the recipient."
-msgstr "A címzett postafiókját el nem ért levelek."
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Mailing Event Click Throughs"
-msgstr "Levelezési esemény áttkantintások"
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Mailing Event Click Through"
-msgstr "Levelezés esemény átkattintás"
-
-#: CRM/Mailing/Event/DAO/MailingEventConfirm.php
-msgid "Mailing Opt-In Confirmations"
-msgstr "Leiratkozás megerősítések"
-
-#: CRM/Mailing/Event/DAO/MailingEventConfirm.php
-msgid "Mailing Opt-In Confirmation"
-msgstr "Leiratkozás megerősítés"
-
-#: CRM/Mailing/Event/DAO/MailingEventDelivered.php
-msgid "Mailing Deliveries"
-msgstr "Levelezés kiküldések"
-
-#: CRM/Mailing/Event/DAO/MailingEventForward.php
-msgid "Mailing Forwards"
-msgstr "Levél továbbítások"
-
-#: CRM/Mailing/Event/DAO/MailingEventForward.php
-msgid "Mailing Forward"
-msgstr "Levél továbbítás"
-
-#: CRM/Mailing/Event/DAO/MailingEventOpened.php
-msgid "Mailings Opened"
-msgstr "Megnyitott levelek"
-
-#: CRM/Mailing/Event/DAO/MailingEventOpened.php
-msgid "Mailing Opened"
-msgstr "Megnyitott levél"
-
-#: CRM/Mailing/Event/DAO/MailingEventQueue.php
-msgid "Intended recipients of a mailing."
-msgstr "A levelezés tervezett címzettjei."
-
-#: CRM/Mailing/Event/DAO/MailingEventReply.php
-msgid "Mailing Replies"
-msgstr "Levelezési válaszok"
-
-#: CRM/Mailing/Event/DAO/MailingEventReply.php
-msgid "Mailing Reply"
-msgstr "Levelezési válasz"
-
-#: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
-msgid "Mailing Opt-Ins"
-msgstr "Levelezési leiratkozások"
-
-#: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
-msgid "Mailing Opt-In"
-msgstr "Levelezési leiratkozás"
-
-#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
-msgid "Mailing Unsubscribes"
-msgstr "Levelezési leiratkozások"
-
-#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
-msgid "Mailing Unsubscribe"
-msgstr "Levelezési leiratkozás"
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Mailing Link Clickthrough"
+msgstr ""
