@@ -7,10 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2022-08-19 10:34-0400\n"
+"POT-Creation-Date: 2023-06-17 15:56-0400\n"
 "PO-Revision-Date: 2011-03-28 14:20+0000\n"
 "Last-Translator: Zaruhi Andreasyan <zandreasyan@yahoo.com>, 2019\n"
-"Language-Team: Armenian (http://www.transifex.com/civicrm/civicrm/language/hy/)\n"
+"Language-Team: Armenian (http://app.transifex.com/civicrm/civicrm/language/hy/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -53,11 +53,13 @@ msgstr "Վերաբաժանորդագրվել (Գործողություն)"
 msgid "Resubscribe URL (Action)"
 msgstr "Վերաբաժանորդագրվել URL (Գործողություն)"
 
-#: CRM/Mailing/ActionTokens.php CRM/Mailing/Event/DAO/Bounce.php
-#: CRM/Mailing/Event/DAO/Delivered.php CRM/Mailing/Event/DAO/Forward.php
-#: CRM/Mailing/Event/DAO/Opened.php CRM/Mailing/Event/DAO/Reply.php
-#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
+#: CRM/Mailing/ActionTokens.php CRM/Mailing/Event/DAO/MailingEventBounce.php
+#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
+#: CRM/Mailing/Event/DAO/MailingEventDelivered.php
+#: CRM/Mailing/Event/DAO/MailingEventForward.php
+#: CRM/Mailing/Event/DAO/MailingEventOpened.php
+#: CRM/Mailing/Event/DAO/MailingEventReply.php
+#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "Event Queue ID"
 msgstr "Միջոցառման հերթի նույնականացուցիչը"
 
@@ -103,14 +105,6 @@ msgid "You do not have permission to access this mailing report"
 msgstr "Դուք փոստային առաքումների վերաբերյալ այս հաշվետվություն մուտք գործելու  թույլտվություն չունեք "
 
 #: CRM/Mailing/BAO/Mailing.php
-msgid "No id passed to mailing del function"
-msgstr ""
-
-#: CRM/Mailing/BAO/Mailing.php CRM/Mailing/BAO/MailingAB.php
-msgid "Selected mailing has been deleted."
-msgstr "Ընտրված փոստային առաքումը ջնջվել է:"
-
-#: CRM/Mailing/BAO/Mailing.php
 msgid "No id passed to mailing delJob function"
 msgstr ""
 
@@ -144,10 +138,6 @@ msgstr "1 հիմնական փոստարկղը կազմաձևած չէ: Դուք 
 msgid "View Mailing"
 msgstr "Դիտել փոստային առաքումները"
 
-#: CRM/Mailing/BAO/MailingAB.php
-msgid "No id passed to MailingAB del function"
-msgstr ""
-
 #: CRM/Mailing/BAO/MailingJob.php
 msgid "[CiviMail Draft]"
 msgstr "[CiviMail նախագիծ]"
@@ -162,7 +152,7 @@ msgid ""
 "Activity"
 msgstr ""
 
-#: CRM/Mailing/BAO/Query.php
+#: CRM/Mailing/BAO/Query.php CRM/Mailing/Event/DAO/MailingEventDelivered.php
 msgid "Mailing Delivery"
 msgstr "Փոստի առաքում"
 
@@ -242,6 +232,7 @@ msgid "Bounce Pattern ID"
 msgstr "Հետ եկած նմուշի նույնականացուցիչը"
 
 #: CRM/Mailing/DAO/BouncePattern.php CRM/Mailing/DAO/BounceType.php
+#: CRM/Mailing/Event/DAO/MailingEventBounce.php
 msgid "Bounce Type ID"
 msgstr "Հետ եկածի տեսակի նույնականացուցիչը"
 
@@ -303,7 +294,7 @@ msgstr ""
 msgid "FK to the footer component."
 msgstr "Էջատակայյին նշման FK"
 
-#: CRM/Mailing/DAO/Mailing.php CRM/Mailing/Event/DAO/Reply.php
+#: CRM/Mailing/DAO/Mailing.php CRM/Mailing/Event/DAO/MailingEventReply.php
 msgid "Reply ID"
 msgstr "Պատասխանի նույնականացուցիչ"
 
@@ -311,7 +302,8 @@ msgstr "Պատասխանի նույնականացուցիչ"
 msgid "FK to the auto-responder component."
 msgstr "Ինքնապատասխանիչի բաղադրիչի FK"
 
-#: CRM/Mailing/DAO/Mailing.php CRM/Mailing/Event/DAO/Unsubscribe.php
+#: CRM/Mailing/DAO/Mailing.php
+#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "Unsubscribe ID"
 msgstr "Բաժանորդագրությունից դուրս գալու նույնականացուցիչ"
 
@@ -766,18 +758,22 @@ msgid "The arguments to be sent to the search function"
 msgstr "Փաստարկներ, որոնք պետք է ուղարկվեն որոնում գործառույթ"
 
 #: CRM/Mailing/DAO/MailingJob.php
-msgid "Mailing Jobs"
+msgid "Outbound Mailings"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingJob.php CRM/Mailing/Event/DAO/MailingEventQueue.php
+msgid "Outbound Mailing"
 msgstr ""
 
 #: CRM/Mailing/DAO/MailingJob.php
-msgid "Mailing Job"
-msgstr "Փոստային առաքման գործ"
+msgid "Attempted delivery of a mailing."
+msgstr ""
 
 #: CRM/Mailing/DAO/MailingJob.php
 msgid "Mailing Job ID"
 msgstr "Փոստային առաքման գործի նույնականացուցիչը"
 
-#: CRM/Mailing/DAO/MailingJob.php CRM/Mailing/DAO/Recipients.php
+#: CRM/Mailing/DAO/MailingJob.php CRM/Mailing/DAO/MailingRecipients.php
 msgid "The ID of the mailing this Job will send."
 msgstr ""
 
@@ -845,24 +841,32 @@ msgstr "Փոստային առաքման գործի սահմանափակում"
 msgid "Queue size limit for each child job"
 msgstr ""
 
-#: CRM/Mailing/DAO/Recipients.php
+#: CRM/Mailing/DAO/MailingRecipients.php
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php CRM/Mailing/Selector/Search.php
+msgid "Mailing Recipient"
+msgstr "Փոստային առաքման ստացող"
+
+#: CRM/Mailing/DAO/MailingRecipients.php
 msgid "Mailing Recipients ID"
 msgstr "Փոստային առաքման ստացողի նույնականացուցիչը"
 
-#: CRM/Mailing/DAO/Recipients.php
+#: CRM/Mailing/DAO/MailingRecipients.php
 msgid "Recipient ID"
 msgstr ""
 
-#: CRM/Mailing/DAO/Recipients.php CRM/Mailing/Event/DAO/Queue.php
-#: CRM/Mailing/Event/DAO/Subscribe.php
+#: CRM/Mailing/DAO/MailingRecipients.php
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
+#: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
 msgid "FK to Contact"
 msgstr ""
 
-#: CRM/Mailing/DAO/Recipients.php CRM/Mailing/Event/DAO/Queue.php
+#: CRM/Mailing/DAO/MailingRecipients.php
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
 msgid "FK to Email"
 msgstr ""
 
-#: CRM/Mailing/DAO/Recipients.php CRM/Mailing/Event/DAO/Queue.php
+#: CRM/Mailing/DAO/MailingRecipients.php
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
 msgid "FK to Phone"
 msgstr ""
 
@@ -930,256 +934,258 @@ msgstr "Հետևելու համար անհրաժեշտ URL-ն"
 msgid "FK to the mailing"
 msgstr ""
 
-#: CRM/Mailing/Event/BAO/Bounce.php
+#: CRM/Mailing/Event/BAO/MailingEventBounce.php
 msgid "Unknown bounce type: Could not parse bounce email"
 msgstr "Մերժման անհայտ տեսակ․ Հնարավոր չէր վերլուծել մերժման մասին նամակը"
 
-#: CRM/Mailing/Event/BAO/Subscribe.php
+#: CRM/Mailing/Event/BAO/MailingEventSubscribe.php
 msgid "You are already subscribed in %1, your subscription is %2."
 msgstr "Դուք արդեն բաժանորդագրված ե ք%1-ում, ձեր բաժանորդագրությունը `% 2 է:"
 
-#: CRM/Mailing/Event/BAO/Subscribe.php
+#: CRM/Mailing/Event/BAO/MailingEventSubscribe.php
 msgid ""
 "Your subscription request has been submitted for %1. Check your inbox "
 "shortly for the confirmation email(s). If you do not see a confirmation "
 "email, please check your spam/junk mail folder."
 msgstr "Ձեր բաժանորդագրության հարցումն ուղարկվել է% 1: Ստուգեք ձեր էլ․ փոստի մուտքային պահոցը հաստատող էլ․նամակ(ներ)ի համար: Եթե չեք տեսնում հաստատման նամակը, խնդրում ենք ստուգել ձեր spam / junk փոստային թղթապանակը:"
 
-#: CRM/Mailing/Event/BAO/Subscribe.php
+#: CRM/Mailing/Event/BAO/MailingEventSubscribe.php
 msgid ""
 "We had a problem processing your subscription request for %1. You have tried"
 " to subscribe to a private group and/or we encountered a database error. "
 "Please contact the site administrator."
 msgstr "% 1-ի համար ձեր բաժանորդագրության հարցումը մշակման ժամանկ խնդիր առաջացավ: Դուք փորձել եք բաժանորդագրվել մասնավոր խմբի և / կամ  տվյալների բազայի սխալ հետ կապված է տեղի ունեցել: Խնդրում ենք դիմել կայքի ադմինիստրատորին:"
 
-#: CRM/Mailing/Event/DAO/Bounce.php
-msgid "Mailing Bounce Events"
+#: CRM/Mailing/Event/DAO/MailingEventBounce.php
+msgid "Mailing Bounces"
 msgstr ""
 
-#: CRM/Mailing/Event/DAO/Bounce.php
-msgid "Mailing Bounce Event"
+#: CRM/Mailing/Event/DAO/MailingEventBounce.php
+msgid "Mailing Bounce"
 msgstr ""
 
-#: CRM/Mailing/Event/DAO/Bounce.php
+#: CRM/Mailing/Event/DAO/MailingEventBounce.php
+msgid "Mailings that failed to reach the inbox of the recipient."
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventBounce.php
 msgid "Bounce ID"
 msgstr "Մերշման նույնականացուցիչ"
 
-#: CRM/Mailing/Event/DAO/Bounce.php CRM/Mailing/Event/DAO/Delivered.php
-#: CRM/Mailing/Event/DAO/Forward.php CRM/Mailing/Event/DAO/Opened.php
-#: CRM/Mailing/Event/DAO/Reply.php CRM/Mailing/Event/DAO/TrackableURLOpen.php
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
+#: CRM/Mailing/Event/DAO/MailingEventBounce.php
+#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
+#: CRM/Mailing/Event/DAO/MailingEventDelivered.php
+#: CRM/Mailing/Event/DAO/MailingEventForward.php
+#: CRM/Mailing/Event/DAO/MailingEventOpened.php
+#: CRM/Mailing/Event/DAO/MailingEventReply.php
+#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "FK to EventQueue"
 msgstr ""
 
-#: CRM/Mailing/Event/DAO/Bounce.php CRM/Mailing/Event/DAO/Delivered.php
-#: CRM/Mailing/Event/DAO/Forward.php CRM/Mailing/Event/DAO/Opened.php
-#: CRM/Mailing/Event/DAO/Reply.php CRM/Mailing/Event/DAO/TrackableURLOpen.php
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
-msgid "Event Queue"
-msgstr "Միջոցառման հերթ"
-
-#: CRM/Mailing/Event/DAO/Bounce.php
+#: CRM/Mailing/Event/DAO/MailingEventBounce.php
 msgid "What type of bounce was it?"
 msgstr "Ի\"նչ տեսակի մերժում էր դա։"
 
-#: CRM/Mailing/Event/DAO/Bounce.php
+#: CRM/Mailing/Event/DAO/MailingEventBounce.php
 msgid "The reason the email bounced."
 msgstr "Էլ․ նամակի հետ վերադարձի պատճառը"
 
-#: CRM/Mailing/Event/DAO/Bounce.php
+#: CRM/Mailing/Event/DAO/MailingEventBounce.php
 msgid "When this bounce event occurred."
 msgstr "Ե՞րբ է տեղի ունեցել տվյալ նամակի մերժումը "
 
-#: CRM/Mailing/Event/DAO/Confirm.php
-msgid "Mailing Contribution Events"
+#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
+msgid "Mailing Event Click Throughs"
 msgstr ""
 
-#: CRM/Mailing/Event/DAO/Confirm.php
-msgid "Mailing Confirmation Event"
+#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
+msgid "Mailing Event Click Through"
 msgstr ""
 
-#: CRM/Mailing/Event/DAO/Confirm.php
-msgid "Mailing Confirmation ID"
-msgstr "Փոստային առաքման հաստատման նույնականացուցիչը"
-
-#: CRM/Mailing/Event/DAO/Confirm.php CRM/Mailing/Event/DAO/Subscribe.php
-msgid "Mailing Subscribe ID"
-msgstr "Փոստային բաժանորդագրության նույնականացուցիչը"
-
-#: CRM/Mailing/Event/DAO/Confirm.php
-msgid "FK to civicrm_mailing_event_subscribe"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/Confirm.php
-msgid "Mailing Subscribe"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/Confirm.php
-msgid "Confirm Timestamp"
-msgstr "Հաստատել ժամանակը ցույց տվող կնիքը"
-
-#: CRM/Mailing/Event/DAO/Confirm.php
-msgid "When this confirmation event occurred."
-msgstr "Ե՞րբ է տեղի ունեցել հաստատումը"
-
-#: CRM/Mailing/Event/DAO/Delivered.php
-msgid "Mailing Delivery Events"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/Delivered.php
-msgid "Mailing Delivery Event"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/Delivered.php
-msgid "Delivered ID"
-msgstr "Առաքված նույնականացուցիչ"
-
-#: CRM/Mailing/Event/DAO/Delivered.php CRM/Mailing/Event/DAO/Unsubscribe.php
-msgid "When this delivery event occurred."
-msgstr "Ե՞րբ է կատարվել այս առաքումը"
-
-#: CRM/Mailing/Event/DAO/Forward.php
-msgid "Mailing Forwarded Events"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/Forward.php
-msgid "Mailing Forwarded Event"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/Forward.php
-msgid "Forward ID"
-msgstr "Փոխանցել նույնականացուցիչը"
-
-#: CRM/Mailing/Event/DAO/Forward.php
-msgid "Destination Queue ID"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/Forward.php
-msgid "FK to EventQueue for destination"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/Forward.php
-msgid "Destination Queue"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/Forward.php
-msgid "When this forward event occurred."
-msgstr "Ե՞րբ է տեղի ունեցել փոխանցումը"
-
-#: CRM/Mailing/Event/DAO/Opened.php
-msgid "Mailing Opened Events"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/Opened.php
-msgid "Mailing Opened Event"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/Opened.php
-msgid "Mailing Opened ID"
-msgstr "Բացված նամակի նույնականացուցիչ"
-
-#: CRM/Mailing/Event/DAO/Opened.php
-msgid "When this open event occurred."
-msgstr "Ե՞րբ է բացվել նամակը "
-
-#: CRM/Mailing/Event/DAO/Queue.php
-msgid "Mailing Queue Events"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/Queue.php
-msgid "Mailing Queue Event"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/Queue.php
-msgid "Mailing Event Queue ID"
-msgstr "Փոստային առաքման հերթի նույնականացուցիչ"
-
-#: CRM/Mailing/Event/DAO/Queue.php
-msgid "FK to Job"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/Queue.php
-msgid "Security Hash"
-msgstr "Անվտանգության խաթարում"
-
-#: CRM/Mailing/Event/DAO/Queue.php CRM/Mailing/Event/DAO/Subscribe.php
-msgid "Security hash"
-msgstr "Անվտանգության խաթարում"
-
-#: CRM/Mailing/Event/DAO/Reply.php CRM/Mailing/Selector/Event.php
-#: ang/crmMailing/services.js templates/CRM/Mailing/Page/Report.tpl
-msgid "Replies"
-msgstr "Պատասխաններ"
-
-#: CRM/Mailing/Event/DAO/Reply.php
-msgid "Reply Timestamp"
-msgstr "Պատասխանի ժամանակը ցույց տվող կնիք"
-
-#: CRM/Mailing/Event/DAO/Reply.php
-msgid "When this reply event occurred."
-msgstr "Ե՞րբ է ուղարկվել պատասխանը"
-
-#: CRM/Mailing/Event/DAO/Subscribe.php
-msgid "Subscribes"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/Subscribe.php CRM/Mailing/Form/Subscribe.php
-msgid "Subscribe"
-msgstr "Գրանցվել"
-
-#: CRM/Mailing/Event/DAO/Subscribe.php
-msgid "Mailing Subscribe Hash"
-msgstr "Փոստային բաժանորդագրության խառնաշփոթ"
-
-#: CRM/Mailing/Event/DAO/Subscribe.php
-msgid "Mailing Subscribe Timestamp"
-msgstr "Փոստային բաժանորդագրության ժամկետը ցույց տվող կնիք"
-
-#: CRM/Mailing/Event/DAO/Subscribe.php
-msgid "When this subscription event occurred."
-msgstr "Ե՞րբ է տեղի ունեցել բաժանորդագրությունը"
-
-#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
-msgid "Trackable URLOpens"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
-msgid "Trackable URLOpen"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
+#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
 msgid "Trackable URL Open ID"
 msgstr ""
 
-#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
+#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
 msgid "Trackable Url ID"
 msgstr ""
 
-#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
+#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
 msgid "FK to TrackableURL"
 msgstr ""
 
-#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
+#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
 msgid "Trackable Url"
 msgstr "Հետագծելի Url"
 
-#: CRM/Mailing/Event/DAO/TrackableURLOpen.php
+#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
 msgid "When this trackable URL open occurred."
 msgstr "Ե՞րբ է բացվել հետագծելի URL-ն"
 
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
-msgid "Unsubscribes"
-msgstr "Գրանցումից դուրս եկածներ"
+#: CRM/Mailing/Event/DAO/MailingEventConfirm.php
+msgid "Mailing Opt-In Confirmations"
+msgstr ""
 
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
+#: CRM/Mailing/Event/DAO/MailingEventConfirm.php
+msgid "Mailing Opt-In Confirmation"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventConfirm.php
+msgid "Mailing Confirmation ID"
+msgstr "Փոստային առաքման հաստատման նույնականացուցիչը"
+
+#: CRM/Mailing/Event/DAO/MailingEventConfirm.php
+#: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
+msgid "Mailing Subscribe ID"
+msgstr "Փոստային բաժանորդագրության նույնականացուցիչը"
+
+#: CRM/Mailing/Event/DAO/MailingEventConfirm.php
+msgid "FK to civicrm_mailing_event_subscribe"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventConfirm.php
+msgid "Mailing Subscribe"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventConfirm.php
+msgid "Confirm Timestamp"
+msgstr "Հաստատել ժամանակը ցույց տվող կնիքը"
+
+#: CRM/Mailing/Event/DAO/MailingEventConfirm.php
+msgid "When this confirmation event occurred."
+msgstr "Ե՞րբ է տեղի ունեցել հաստատումը"
+
+#: CRM/Mailing/Event/DAO/MailingEventDelivered.php
+msgid "Mailing Deliveries"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventDelivered.php
+msgid "Delivered ID"
+msgstr "Առաքված նույնականացուցիչ"
+
+#: CRM/Mailing/Event/DAO/MailingEventDelivered.php
+#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
+msgid "When this delivery event occurred."
+msgstr "Ե՞րբ է կատարվել այս առաքումը"
+
+#: CRM/Mailing/Event/DAO/MailingEventForward.php
+msgid "Mailing Forwards"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventForward.php
+msgid "Mailing Forward"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventForward.php
+msgid "Forward ID"
+msgstr "Փոխանցել նույնականացուցիչը"
+
+#: CRM/Mailing/Event/DAO/MailingEventForward.php
+msgid "Destination Queue ID"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventForward.php
+msgid "FK to EventQueue for destination"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventForward.php
+msgid "Destination Queue"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventForward.php
+msgid "When this forward event occurred."
+msgstr "Ե՞րբ է տեղի ունեցել փոխանցումը"
+
+#: CRM/Mailing/Event/DAO/MailingEventOpened.php
+msgid "Mailings Opened"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventOpened.php
+msgid "Mailing Opened"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventOpened.php
+msgid "Mailing Opened ID"
+msgstr "Բացված նամակի նույնականացուցիչ"
+
+#: CRM/Mailing/Event/DAO/MailingEventOpened.php
+msgid "When this open event occurred."
+msgstr "Ե՞րբ է բացվել նամակը "
+
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
+msgid "Intended recipients of a mailing."
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
+msgid "Mailing Event Queue ID"
+msgstr "Փոստային առաքման հերթի նույնականացուցիչ"
+
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
+msgid "Mailing Job"
+msgstr "Փոստային առաքման գործ"
+
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
+msgid "Security Hash"
+msgstr "Անվտանգության խաթարում"
+
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
+#: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
+msgid "Security hash"
+msgstr "Անվտանգության խաթարում"
+
+#: CRM/Mailing/Event/DAO/MailingEventReply.php
+msgid "Mailing Replies"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventReply.php
+msgid "Mailing Reply"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventReply.php
+msgid "Reply Timestamp"
+msgstr "Պատասխանի ժամանակը ցույց տվող կնիք"
+
+#: CRM/Mailing/Event/DAO/MailingEventReply.php
+msgid "When this reply event occurred."
+msgstr "Ե՞րբ է ուղարկվել պատասխանը"
+
+#: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
+msgid "Mailing Opt-Ins"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
+msgid "Mailing Opt-In"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
+msgid "Mailing Subscribe Hash"
+msgstr "Փոստային բաժանորդագրության խառնաշփոթ"
+
+#: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
+msgid "Mailing Subscribe Timestamp"
+msgstr "Փոստային բաժանորդագրության ժամկետը ցույց տվող կնիք"
+
+#: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
+msgid "When this subscription event occurred."
+msgstr "Ե՞րբ է տեղի ունեցել բաժանորդագրությունը"
+
+#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
+msgid "Mailing Unsubscribes"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
+msgid "Mailing Unsubscribe"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "Unsubscribe is for Organization?"
 msgstr ""
 
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
+#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "Unsubscribe at org- or group-level"
 msgstr "Հրաժարվել բաժանորդագրությունից կազմակերպության կամ խմբի մակարդակով"
 
-#: CRM/Mailing/Event/DAO/Unsubscribe.php
+#: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "Unsubscribe Timestamp"
 msgstr ""
 
@@ -1194,6 +1200,10 @@ msgstr "Հաստատել/մերժել նշումը"
 #: CRM/Mailing/Form/Approve.php
 msgid "No mailing id has been able to be determined"
 msgstr ""
+
+#: CRM/Mailing/Form/Browse.php CRM/Mailing/Page/Browse.php
+msgid "Selected mailing has been deleted."
+msgstr "Ընտրված փոստային առաքումը ջնջվել է:"
 
 #: CRM/Mailing/Form/Browse.php CRM/Mailing/Page/Browse.php
 msgid "The mailing has been canceled."
@@ -1308,6 +1318,10 @@ msgstr "Փոստային տարածման ցանկի գրանցում"
 #: CRM/Mailing/Form/Subscribe.php
 msgid "There are no public mailing list groups to display."
 msgstr ""
+
+#: CRM/Mailing/Form/Subscribe.php
+msgid "Subscribe"
+msgstr "Գրանցվել"
 
 #: CRM/Mailing/Form/Task/Print.php CRM/Mailing/Task.php
 msgid "Print Mailing Recipients"
@@ -1607,6 +1621,11 @@ msgstr "Մերժված/հետ վերադարձած"
 msgid "Unique Replies"
 msgstr "Յուրօրինակ պատասխաններ"
 
+#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: templates/CRM/Mailing/Page/Report.tpl
+msgid "Replies"
+msgstr "Պատասխաններ"
+
 #: CRM/Mailing/Selector/Event.php
 msgid "Unique Click-throughs"
 msgstr ""
@@ -1622,10 +1641,6 @@ msgstr ""
 #: CRM/Mailing/Selector/Event.php
 msgid "Total Tracked Opens"
 msgstr ""
-
-#: CRM/Mailing/Selector/Search.php
-msgid "Mailing Recipient"
-msgstr "Փոստային առաքման ստացող"
 
 #: CRM/Mailing/Selector/Search.php templates/CRM/Mailing/Form/Task/Print.tpl
 msgid "Completed Date"
@@ -2722,4 +2737,21 @@ msgstr "Համոզված ե՞ք, որ ցանկանում եք վերագրանց
 
 #: templates/CRM/Mailing/Page/Tab.tpl
 msgid "Opens/ Clicks"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+msgid "Mailing Links"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Mailing Link"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Mailing Link Clickthroughs"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Mailing Link Clickthrough"
 msgstr ""
