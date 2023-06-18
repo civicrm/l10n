@@ -9,10 +9,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2022-08-19 10:34-0400\n"
+"POT-Creation-Date: 2023-06-17 15:56-0400\n"
 "PO-Revision-Date: 2011-03-28 14:22+0000\n"
 "Last-Translator: Đorđe Kolaković <djordje@catalystbalkans.org>, 2016-2017,2019\n"
-"Language-Team: Serbian (Latin) (Serbia) (http://www.transifex.com/civicrm/civicrm/language/sr_RS@latin/)\n"
+"Language-Team: Serbian (Latin) (Serbia) (http://app.transifex.com/civicrm/civicrm/language/sr_RS@latin/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -54,27 +54,27 @@ msgid "Cannot find participant ID"
 msgstr "Nemoguće je naći ID učesnika"
 
 #: CRM/Event/BAO/Event.php
-msgid "HTML listing of current and future public events."
-msgstr "HTML listing sadašnjih i budućih javnih događaja."
-
-#: CRM/Event/BAO/Event.php
-msgid "Get RSS 2.0 feed for current and future public events."
-msgstr "Preuzmi RSS 2.0 feed za sadašnje i buduće javne događaje."
-
-#: CRM/Event/BAO/Event.php
+#: xml/templates/message_templates/event_offline_receipt_html.tpl
+#: xml/templates/message_templates/event_offline_receipt_text.tpl
+#: xml/templates/message_templates/event_online_receipt_html.tpl
+#: xml/templates/message_templates/event_online_receipt_text.tpl
+#: xml/templates/message_templates/participant_confirm_html.tpl
+#: xml/templates/message_templates/participant_confirm_text.tpl
 msgid "Download iCalendar entry for this event."
 msgstr "Preuzmite iCalendar unos za ovaj događaj."
 
 #: CRM/Event/BAO/Event.php
-msgid "Download iCalendar entry for current and future public events."
+#: xml/templates/message_templates/event_offline_receipt_html.tpl
+#: xml/templates/message_templates/event_offline_receipt_text.tpl
+#: xml/templates/message_templates/event_online_receipt_html.tpl
+#: xml/templates/message_templates/event_online_receipt_text.tpl
+#: xml/templates/message_templates/participant_confirm_html.tpl
+#: xml/templates/message_templates/participant_confirm_text.tpl
+msgid "Add event to Google Calendar"
 msgstr ""
 
 #: CRM/Event/BAO/Event.php
-msgid "iCalendar feed for this event."
-msgstr "iCalendar feed za ovaj događaj"
-
-#: CRM/Event/BAO/Event.php
-msgid "iCalendar feed for current and future public events."
+msgid "iCalendar feed for current and future public events"
 msgstr ""
 
 #: CRM/Event/BAO/Participant.php
@@ -284,6 +284,12 @@ msgstr "Je onlajn registracija"
 msgid "If true, include registration link on Event Info page."
 msgstr ""
 
+#: CRM/Event/DAO/Event.php CRM/Event/Form/ManageEvent/Registration.php
+#: CRM/Event/Form/ManageEvent/TabHeader.php CRM/Event/Page/ManageEvent.php
+#: templates/CRM/Event/Form/ManageEvent/Tab.hlp
+msgid "Online Registration"
+msgstr "Onlajn registracija"
+
 #: CRM/Event/DAO/Event.php
 msgid "Event Registration Link Text"
 msgstr "Tekst za registracioni link za događaj"
@@ -328,6 +334,10 @@ msgid ""
 "Registration form if maximum participants are signed up. Can include email "
 "address/info about getting on a waiting list, etc. Text and html allowed."
 msgstr "Poruka za prikaz na stranici sa informacijama o događaju i umesto formulara za registraciju ukoliko je prijavljen maksimalan broj učesnika. Može sadržati email adresu/informacije o listi čekanja itd. Dozvoljen tekst i html."
+
+#: CRM/Event/DAO/Event.php
+msgid "Event Full Message"
+msgstr ""
 
 #: CRM/Event/DAO/Event.php
 msgid "Is this a PAID event?"
@@ -709,10 +719,6 @@ msgid "When did contact register for event?"
 msgstr "Kada je kontakt registrovan za ovaj događaj?"
 
 #: CRM/Event/DAO/Participant.php
-msgid "Participant Source"
-msgstr "Izvor učesnika"
-
-#: CRM/Event/DAO/Participant.php
 msgid "Source of this event registration."
 msgstr "Izvor registracije za ovaj događaj"
 
@@ -730,10 +736,9 @@ msgstr ""
 msgid "FK to Participant ID"
 msgstr ""
 
-#: CRM/Event/DAO/Participant.php templates/CRM/Event/Form/Participant.tpl
-#: templates/CRM/Event/Form/ParticipantView.tpl
-msgid "Registered By"
-msgstr "Registrovao/la"
+#: CRM/Event/DAO/Participant.php
+msgid "Registered By Participant"
+msgstr ""
 
 #: CRM/Event/DAO/Participant.php
 msgid "FK to Discount ID"
@@ -773,6 +778,14 @@ msgstr "Prenešeno na Kontakt ID"
 
 #: CRM/Event/DAO/Participant.php
 msgid "Transferred to"
+msgstr ""
+
+#: CRM/Event/DAO/Participant.php
+msgid "Created by Contact ID"
+msgstr ""
+
+#: CRM/Event/DAO/Participant.php
+msgid "Contact responsible for registering this participant"
 msgstr ""
 
 #: CRM/Event/DAO/ParticipantPayment.php
@@ -1119,8 +1132,8 @@ msgid "Maximum additional participants"
 msgstr "Maksimum dodatnih učesnika"
 
 #: CRM/Event/Form/ManageEvent/Registration.php
-msgid "Same email address?"
-msgstr "Ista email adresa?"
+msgid "Allow same email and multiple registrations?"
+msgstr ""
 
 #: CRM/Event/Form/ManageEvent/Registration.php
 msgid "- Unsupervised rule -"
@@ -1242,11 +1255,9 @@ msgid ""
 "required.  This may result in duplicate contacts."
 msgstr "Odabrani profili mogu da prikupe dovoljno informacija za proveru registracija dodatnih učesnika i postojećih kontakata, ali neka polja nisu označena kao obavezna. Ovo može dovesti do dupliranja kontakata."
 
-#: CRM/Event/Form/ManageEvent/Registration.php
-#: CRM/Event/Form/ManageEvent/TabHeader.php CRM/Event/Page/ManageEvent.php
-#: templates/CRM/Event/Form/ManageEvent/Tab.hlp
-msgid "Online Registration"
-msgstr "Onlajn registracija"
+#: CRM/Event/Form/ManageEvent/Repeat.php
+msgid "Could not find Event ID"
+msgstr ""
 
 #: CRM/Event/Form/ManageEvent/TabHeader.php CRM/Event/Page/ManageEvent.php
 msgid "Info and Settings"
@@ -1511,10 +1522,6 @@ msgstr "Molimo vas da se vratite na naslovnu stranicu registracije, i popunite i
 #: CRM/Event/Form/Registration/AdditionalParticipant.php
 msgid "Skip Participant"
 msgstr "Preskoči učesnika"
-
-#: CRM/Event/Form/Registration/AdditionalParticipant.php
-msgid "A person is already registered for this event."
-msgstr "Jedna osoba je već registrovana za ovaj događaj."
 
 #: CRM/Event/Form/Registration/AdditionalParticipant.php
 msgid "A person with this email address is already registered for this event."
@@ -1998,6 +2005,10 @@ msgstr ""
 msgid "Print Participant List"
 msgstr "Štampa liste učesnika"
 
+#: CRM/Event/ICalendar.php
+msgid "View %1 Details"
+msgstr ""
+
 #: CRM/Event/Import/Form/DataSource.php
 msgid "On Duplicate Entries"
 msgstr "O dupliranim unosima"
@@ -2013,10 +2024,6 @@ msgstr "ili unesite ID kontakta ili eksterni ID"
 #: CRM/Event/Import/Form/MapField.php
 msgid "Missing required field: Provide %1 or %2"
 msgstr ""
-
-#: CRM/Event/Import/Form/MapField.php
-msgid "Duplicate Import Participant Mapping Name"
-msgstr "Duplikat imena za mapiranje importa učesnika"
 
 #: CRM/Event/Import/Parser/Participant.php
 msgid "Participant Import"
@@ -2284,6 +2291,10 @@ msgstr ""
 
 #: CRM/Event/Tokens.php
 msgid "Event Contact Phone"
+msgstr ""
+
+#: CRM/Event/WorkflowMessage/EventExamples.php
+msgid "Completed Registration"
 msgstr ""
 
 #: templates/CRM/Event/Form/EventFees.tpl
@@ -2878,6 +2889,12 @@ msgid ""
 msgstr "Štiklirajte ovu kućicu da biste dozvolili mogućnost da jedan korisnik registruje veći broj učesnika koristeći jednu email adresu. Međutim, ukoliko želite da se dodatni učesnici registruju, <strong>a da email adresa ne mora da se unosi zasebno za svaku osobu</strong> -  štiklirajte opciju \"Registruj više učesnika\", i u ovaj formular za registraciju uključite profil koji <strong>sadrži polja za unošenje Imena i Prezimena</strong>."
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.hlp
+msgid ""
+"Checking this box will also allow the <strong>same contact to register for "
+"this event multiple times</strong>, which is otherwise not possible."
+msgstr ""
+
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
 msgid "Duplicate Matching Rule"
 msgstr "Pravilo za pronalaženje duplikata"
 
@@ -3235,6 +3252,11 @@ msgstr "Ovaj učesnik je registrovao i"
 #: templates/CRM/Event/Form/ParticipantView.tpl
 msgid "view additional participant"
 msgstr "vidi dodatne učesnike"
+
+#: templates/CRM/Event/Form/Participant.tpl
+#: templates/CRM/Event/Form/ParticipantView.tpl
+msgid "Registered By"
+msgstr "Registrovao/la"
 
 #: templates/CRM/Event/Form/Participant.tpl
 #: templates/CRM/Event/Form/ParticipantView.tpl
@@ -3720,31 +3742,8 @@ msgid ""
 msgstr "Ukoliko ažurirate postojeće učesnike, neophodno je da uključite kolonu koja sadrži jedinstveni ID učesnika koji dodeljuje CiviCRM koji se slaže sa postojećim zapisom o učesniku."
 
 #: templates/CRM/Event/Import/Form/Preview.tpl
-#: templates/CRM/Event/Import/Form/Summary.tpl
 msgid "Total rows (participant records) in uploaded file."
 msgstr "Ukupno redova (zapisa o učesnicima) u postavljenom fajlu."
-
-#: templates/CRM/Event/Import/Form/Summary.tpl
-msgid ""
-"CiviCRM has detected one record which is a duplicate of existing CiviCRM "
-"participant record."
-msgid_plural ""
-"CiviCRM has detected %count records which are duplicates of existing CiviCRM"
-" participant records."
-msgstr[0] "CiviCRM je prepoznao jednu registraciju koja je duplikat već postojeće CiviCRM registracije učesnika."
-msgstr[1] "CiviCRM je prepoznao %count registracije koje su duplikati već postojećih CiviCRM registracija učesnika."
-msgstr[2] "CiviCRM je prepoznao %count registracija koje su duplikati već postojećih CiviCRM registracija učesnika."
-
-#: templates/CRM/Event/Import/Form/Summary.tpl
-msgid ""
-"You can <a href=\"%1\">Download Duplicates</a>. You may then review these "
-"records to determine if they are actually duplicates, and correct the "
-"participant IDs for those that are not."
-msgstr "Možete <a href=\"%1\">Preuzeti duplikate</a>. Možete pregledati ove zapise da utvrdite da li su zapravo duplikati, i ispravite ID učesnika za one koji nisu."
-
-#: templates/CRM/Event/Import/Form/Summary.tpl
-msgid "Rows which are duplicates of existing CiviCRM participant records."
-msgstr "Redovi koji su duplikati postojećih zapisa učesnika u CiviCRMu."
 
 #: templates/CRM/Event/Page/DashBoard.hlp
 msgid "Event Dashboard"
@@ -3845,6 +3844,14 @@ msgstr "Lista prebrojanih učesnika"
 #: templates/CRM/Event/Page/EventInfo.tpl
 msgid "List uncounted participants"
 msgstr "Lista neprebrojanih učesnika"
+
+#: templates/CRM/Event/Page/EventInfo.tpl
+msgid "from"
+msgstr ""
+
+#: templates/CRM/Event/Page/EventInfo.tpl
+msgid "to"
+msgstr ""
 
 #: templates/CRM/Event/Page/EventInfo.tpl
 msgid "Show large map"
@@ -3960,6 +3967,14 @@ msgid "Add Event"
 msgstr "Dodaj događaj"
 
 #: templates/CRM/Event/Page/ManageEvent.tpl
+msgid "Counted Participants"
+msgstr ""
+
+#: templates/CRM/Event/Page/ManageEvent.tpl
+msgid "Participants Not Counted"
+msgstr ""
+
+#: templates/CRM/Event/Page/ManageEvent.tpl
 msgid "No available Events match your search criteria. Suggestions:"
 msgstr "Nijedan od dostupnih događaja ne odgovara vašim kriterijumima za pretraživanje. Predlozi:"
 
@@ -4020,12 +4035,6 @@ msgid "You are not registered for any current or upcoming Events."
 msgstr "Niste registrovani ni za jedan trenutni ili predstojeći događaj."
 
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_online_receipt_html.tpl
-#: xml/templates/message_templates/participant_confirm_html.tpl
-msgid "Download iCalendar File"
-msgstr "Preuzmi iCalendar fajl"
-
-#: xml/templates/message_templates/event_offline_receipt_html.tpl
 #: xml/templates/message_templates/event_offline_receipt_text.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 msgid "Participant Information - Participant %1"
@@ -4034,12 +4043,6 @@ msgstr "Informacije o učesniku - Učesnik %1"
 #: xml/templates/message_templates/event_offline_receipt_subject.tpl
 msgid "Event Confirmation"
 msgstr "Potvrda za događaj"
-
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
-#: xml/templates/message_templates/event_online_receipt_text.tpl
-#: xml/templates/message_templates/participant_confirm_text.tpl
-msgid "Download iCalendar File:"
-msgstr "Preuzmi iCalendar fajl:"
 
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
@@ -4185,23 +4188,89 @@ msgid "Your Event Registration has been transferred to %1."
 msgstr "Vaša registracija za događaj je transferovana na %1."
 
 #: CRM/Event/BAO/Event.php
-#: xml/templates/message_templates/event_offline_receipt_html.tpl
+msgid "- all -"
+msgstr ""
+
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid "Please enter Registration Link Text"
+msgstr ""
+
+#: CRM/Event/Form/SelfSvcTransfer.php
+msgid "%1 is already registered for this event"
+msgstr ""
+
+#: CRM/Event/Form/SelfSvcUpdate.php
+msgid "Send confirmation email?"
+msgstr ""
+
+#: CRM/Event/Form/SelfSvcUpdate.php
+msgid "Event registration for %1 has been cancelled."
+msgstr ""
+
+#: CRM/Event/Tokens.php
+msgid "Event Contact Email 2"
+msgstr ""
+
+#: CRM/Event/Tokens.php
+msgid "Event Contact Phone Extension"
+msgstr ""
+
+#: CRM/Event/Tokens.php
+msgid "Event Contact Phone 2"
+msgstr ""
+
+#: CRM/Event/Tokens.php
+msgid "Event Contact Phone 2 Extension"
+msgstr ""
+
+#: templates/CRM/Event/Form/EventFees.tpl
+msgid ""
+"Enter a message you want included at the beginning of the confirmation "
+"email."
+msgstr ""
+
+#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
+msgid ""
+"Select a Price Set to offer multiple individually priced options for event "
+"registrants. Otherwise, leave this empty and enter fixed fee levels below."
+msgstr ""
+
+#: templates/CRM/Event/Form/Registration/Confirm.tpl
+msgid "Please verify your information."
+msgstr ""
+
+#: templates/CRM/Event/Form/Registration/Confirm.tpl
+msgid ""
+"If space becomes available you will receive an email with a link to complete"
+" your registration."
+msgstr ""
+
+#: templates/CRM/Event/Form/Registration/Confirm.tpl
+msgid "Click <strong>%1</strong> to be added to the WAIT LIST for this event."
+msgstr ""
+
+#: templates/CRM/Event/Form/Registration/Confirm.tpl
+msgid ""
+"Once approved, you will receive an email with a link to complete the "
+"registration process."
+msgstr ""
+
+#: templates/CRM/Event/Form/Registration/Confirm.tpl
+msgid "Click <strong>%1</strong> to submit your registration for approval."
+msgstr ""
+
+#: templates/CRM/Event/Form/Registration/Confirm.tpl
+msgid "Click <strong>%1</strong> to checkout with %2."
+msgstr ""
+
+#: templates/CRM/Event/Form/Registration/Confirm.tpl
+msgid "Click <strong>%1</strong> to complete your registration."
+msgstr ""
+
+#: templates/CRM/Event/Form/Registration/Confirm.tpl
+msgid "Payment details"
+msgstr ""
+
 #: xml/templates/message_templates/event_offline_receipt_text.tpl
-#: xml/templates/message_templates/event_online_receipt_html.tpl
-#: xml/templates/message_templates/event_online_receipt_text.tpl
-#: xml/templates/message_templates/participant_confirm_html.tpl
-#: xml/templates/message_templates/participant_confirm_text.tpl
-msgid "Add event to Google Calendar"
-msgstr ""
-
-#: CRM/Event/BAO/Event.php
-msgid "iCalendar feed for current and future public events"
-msgstr ""
-
-#: CRM/Event/ICalendar.php
-msgid "Expected one %1, found %2"
-msgstr ""
-
-#: CRM/Event/ICalendar.php
-msgid "View %1 Details"
+msgid "Email "
 msgstr ""
