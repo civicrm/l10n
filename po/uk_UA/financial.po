@@ -11,15 +11,33 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2022-08-19 10:34-0400\n"
+"POT-Creation-Date: 2023-06-17 15:56-0400\n"
 "PO-Revision-Date: 2013-05-31 19:17+0000\n"
 "Last-Translator: Daria Uvarova, 2022\n"
-"Language-Team: Ukrainian (http://www.transifex.com/civicrm/civicrm/language/uk/)\n"
+"Language-Team: Ukrainian (http://app.transifex.com/civicrm/civicrm/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: CRM/Financial/BAO/EntityFinancialAccount.php
+msgid ""
+"You cannot remove an account with a %1 relationship while the Financial Type"
+" is used for a Premium."
+msgstr "Ви не можете видалити обліковий запис з % 1 відносин, тому що фінансовий тип використовується для Преміум."
+
+#: CRM/Financial/BAO/EntityFinancialAccount.php
+msgid ""
+"You cannot remove an account with a %1 relationship because it is being "
+"referenced by one or more of the following types of records: Contributions, "
+"Contribution Pages, or Membership Types. Consider disabling this type "
+"instead if you no longer want it used."
+msgstr "Ви не можете видалити обліковий запис з% 1 відносин, тому що на нього є посилання в одному чи кількох наступних видах записів: Внески, Сторінки Внеску чи Типи Членства. Замість цього спробуйте його відмінити, якщо не хочете більше ним користуватися."
+
+#: CRM/Financial/BAO/EntityFinancialAccount.php
+msgid "This financial account cannot have '%1' relationship."
+msgstr "Ці фінансові облікові записи не можуть мати '%1' відносин."
 
 #: CRM/Financial/BAO/EntityFinancialTrxn.php
 #: CRM/Financial/DAO/FinancialItem.php
@@ -86,30 +104,6 @@ msgstr ""
 #: CRM/Financial/BAO/FinancialType.php
 msgid "The following tables have an entry for this financial type: %1"
 msgstr "Наступні таблиці мають запис для цього фінансового типу: %1"
-
-#: CRM/Financial/BAO/FinancialTypeAccount.php
-msgid ""
-"You cannot remove an account with a %1 relationship while the Financial Type"
-" is used for a Premium."
-msgstr "Ви не можете видалити обліковий запис з % 1 відносин, тому що фінансовий тип використовується для Преміум."
-
-#: CRM/Financial/BAO/FinancialTypeAccount.php
-msgid ""
-"You cannot remove an account with a %1 relationship because it is being "
-"referenced by one or more of the following types of records: Contributions, "
-"Contribution Pages, or Membership Types. Consider disabling this type "
-"instead if you no longer want it used."
-msgstr "Ви не можете видалити обліковий запис з% 1 відносин, тому що на нього є посилання в одному чи кількох наступних видах записів: Внески, Сторінки Внеску чи Типи Членства. Замість цього спробуйте його відмінити, якщо не хочете більше ним користуватися."
-
-#: CRM/Financial/BAO/FinancialTypeAccount.php
-msgid ""
-"Unbalanced transactions may be created if you delete the account of type: "
-"%1."
-msgstr "Незбалансовані угоди можуть бути створені, якщо видалити обліковий запис типу:% 1."
-
-#: CRM/Financial/BAO/FinancialTypeAccount.php
-msgid "This financial account cannot have '%1' relationship."
-msgstr "Ці фінансові облікові записи не можуть мати '%1' відносин."
 
 #: CRM/Financial/BAO/Payment.php
 msgid "notification"
@@ -1199,10 +1193,6 @@ msgid ""
 msgstr "Чи є це рахунок, який буде використовуватися в якості облікового запису за умовчанням для його типу фінансового рахунку при спілкуванні фінансової звітності з фінансовим типом?"
 
 #: templates/CRM/Financial/Form/FinancialBatch.tpl
-msgid "Opened Date"
-msgstr "Відкрита дата"
-
-#: templates/CRM/Financial/Form/FinancialBatch.tpl
 msgid "Optional Constraints"
 msgstr "Опціональні обмеження"
 
@@ -1345,6 +1335,14 @@ msgstr "Ви впевнені, що хочете закрити цю групу?
 msgid "Are you sure you want to close and export this batch?"
 msgstr "Ви впевені, що хочете закрити та експортувати цю групу?"
 
+#: templates/CRM/Financial/Page/BatchTransaction.tpl
+msgid "Error removing from batch."
+msgstr ""
+
+#: templates/CRM/Financial/Page/BatchTransaction.tpl
+msgid "Api Error"
+msgstr ""
+
 #: templates/CRM/Financial/Page/FinancialAccount.tpl
 msgid ""
 "Financial accounts correspond to those in your accounting system.  <a "
@@ -1437,10 +1435,38 @@ msgid ""
 "href='%1'>assign one</a>."
 msgstr "Там немає фінансових рахунків, присвоєні цьому фінансовому типу. Ви можете <a href='%1'> призначити один </a>."
 
-#: templates/CRM/Financial/Page/BatchTransaction.tpl
-msgid "Error removing from batch."
+#: CRM/Financial/BAO/PaymentProcessor.php
+msgid "Pay later"
 msgstr ""
 
-#: templates/CRM/Financial/Page/BatchTransaction.tpl
-msgid "Api Error"
+#: CRM/Financial/DAO/PaymentProcessor.php
+msgid "Payment Processor Name"
+msgstr ""
+
+#: CRM/Financial/DAO/PaymentProcessor.php
+msgid "Machine Name"
+msgstr ""
+
+#: CRM/Financial/DAO/PaymentProcessor.php
+msgid "Name of processor when shown to CiviCRM administrators."
+msgstr ""
+
+#: CRM/Financial/DAO/PaymentProcessor.php
+msgid "Backend Title"
+msgstr ""
+
+#: CRM/Financial/DAO/PaymentProcessor.php
+msgid "Payment Processor Frontend Title"
+msgstr ""
+
+#: CRM/Financial/DAO/PaymentProcessor.php
+msgid "Name of processor when shown to users making a payment."
+msgstr ""
+
+#: CRM/Financial/DAO/PaymentProcessor.php
+msgid "Frontend Title"
+msgstr ""
+
+#: CRM/Financial/DAO/PaymentProcessor.php
+msgid "Additional processor information shown to administrators."
 msgstr ""
