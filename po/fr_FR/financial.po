@@ -12,7 +12,7 @@
 # b85c04ff3f45f3be5e4da20bc69a445d_5df0501 <aee6fa651a5da25e36192fa458ea3430_385238>, 2016
 # b85c04ff3f45f3be5e4da20bc69a445d_5df0501 <aee6fa651a5da25e36192fa458ea3430_385238>, 2016
 # Barnicol Georges <g.barnicol@gmail.com>, 2015
-# BFPTC <webmaster@bienfaitpourta.com>, 2016
+# d432058d2a64e9c253aac1bd4daed1d6_145880c <fe75b0d4633e6aadad5f7526dc40342c_477497>, 2016
 # Brodziak jean jacques <jj.brodziak@cpe31.com>, 2016
 # Bruno Verrier <bruno.verrier@worldonline.fr>, 2016
 # Camille Baldock <mademoisellegeek42@gmail.com>, 2011
@@ -50,7 +50,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2022-12-19 14:12-0500\n"
+"POT-Creation-Date: 2023-06-17 15:56-0400\n"
 "PO-Revision-Date: 2013-05-31 19:17+0000\n"
 "Last-Translator: Usha Matisson <matisson@makoa.fr>, 2019-2023\n"
 "Language-Team: French (http://app.transifex.com/civicrm/civicrm/language/fr/)\n"
@@ -59,6 +59,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+#: CRM/Financial/BAO/EntityFinancialAccount.php
+msgid ""
+"You cannot remove an account with a %1 relationship while the Financial Type"
+" is used for a Premium."
+msgstr "Il n'est pas possible de supprimer un compte avec une relation %1 si le type d'opération est utilisé pour un cadeau."
+
+#: CRM/Financial/BAO/EntityFinancialAccount.php
+msgid ""
+"You cannot remove an account with a %1 relationship because it is being "
+"referenced by one or more of the following types of records: Contributions, "
+"Contribution Pages, or Membership Types. Consider disabling this type "
+"instead if you no longer want it used."
+msgstr "Il n'est pas possible de supprimer un compte avec une relation %1 car il est référencé par l'un ou plusieurs des types suivants de données : contribution, page de contribution, type d'adhésion. Vous pouvez par contre le désactiver."
+
+#: CRM/Financial/BAO/EntityFinancialAccount.php
+msgid "This financial account cannot have '%1' relationship."
+msgstr "Ce compte comptable ne peut pas avoir \"%1\" relation."
 
 #: CRM/Financial/BAO/EntityFinancialTrxn.php
 #: CRM/Financial/DAO/FinancialItem.php
@@ -125,30 +143,6 @@ msgstr "Opération comptable"
 #: CRM/Financial/BAO/FinancialType.php
 msgid "The following tables have an entry for this financial type: %1"
 msgstr "Les tables suivantes ont des données pour ce type d'opération comptable : %1"
-
-#: CRM/Financial/BAO/FinancialTypeAccount.php
-msgid ""
-"You cannot remove an account with a %1 relationship while the Financial Type"
-" is used for a Premium."
-msgstr "Il n'est pas possible de supprimer un compte avec une relation %1 si le type d'opération est utilisé pour un cadeau."
-
-#: CRM/Financial/BAO/FinancialTypeAccount.php
-msgid ""
-"You cannot remove an account with a %1 relationship because it is being "
-"referenced by one or more of the following types of records: Contributions, "
-"Contribution Pages, or Membership Types. Consider disabling this type "
-"instead if you no longer want it used."
-msgstr "Il n'est pas possible de supprimer un compte avec une relation %1 car il est référencé par l'un ou plusieurs des types suivants de données : contribution, page de contribution, type d'adhésion. Vous pouvez par contre le désactiver."
-
-#: CRM/Financial/BAO/FinancialTypeAccount.php
-msgid ""
-"Unbalanced transactions may be created if you delete the account of type: "
-"%1."
-msgstr "Des écritures non équilibrées pourraient être générées si vous supprimez le compte de type %1."
-
-#: CRM/Financial/BAO/FinancialTypeAccount.php
-msgid "This financial account cannot have '%1' relationship."
-msgstr "Ce compte comptable ne peut pas avoir \"%1\" relation."
 
 #: CRM/Financial/BAO/Payment.php
 msgid "notification"
@@ -1238,10 +1232,6 @@ msgid ""
 msgstr "Ce compte est-il destiné à être le compte par défaut dans son journal ? "
 
 #: templates/CRM/Financial/Form/FinancialBatch.tpl
-msgid "Opened Date"
-msgstr "Date d'ouverture"
-
-#: templates/CRM/Financial/Form/FinancialBatch.tpl
 msgid "Optional Constraints"
 msgstr "Contraintes optionnelles"
 
@@ -1384,6 +1374,14 @@ msgstr "êtes vous sur de vouloir fermer cet lot?"
 msgid "Are you sure you want to close and export this batch?"
 msgstr "êtes vous sur de vouloir fermer et exporter cet lot?"
 
+#: templates/CRM/Financial/Page/BatchTransaction.tpl
+msgid "Error removing from batch."
+msgstr "Erreur lors de la suppression depuis le lot/batch"
+
+#: templates/CRM/Financial/Page/BatchTransaction.tpl
+msgid "Api Error"
+msgstr "Erreur API"
+
 #: templates/CRM/Financial/Page/FinancialAccount.tpl
 msgid ""
 "Financial accounts correspond to those in your accounting system.  <a "
@@ -1476,10 +1474,38 @@ msgid ""
 "href='%1'>assign one</a>."
 msgstr "Aucun compte comptable n'est assigné à ce type d'opération. Vous pouvez <a href=\"%1\">en assigner un</a>."
 
-#: templates/CRM/Financial/Page/BatchTransaction.tpl
-msgid "Error removing from batch."
-msgstr "Erreur lors de la suppression depuis le lot/batch"
+#: CRM/Financial/BAO/PaymentProcessor.php
+msgid "Pay later"
+msgstr ""
 
-#: templates/CRM/Financial/Page/BatchTransaction.tpl
-msgid "Api Error"
-msgstr "Erreur API"
+#: CRM/Financial/DAO/PaymentProcessor.php
+msgid "Payment Processor Name"
+msgstr ""
+
+#: CRM/Financial/DAO/PaymentProcessor.php
+msgid "Machine Name"
+msgstr ""
+
+#: CRM/Financial/DAO/PaymentProcessor.php
+msgid "Name of processor when shown to CiviCRM administrators."
+msgstr ""
+
+#: CRM/Financial/DAO/PaymentProcessor.php
+msgid "Backend Title"
+msgstr ""
+
+#: CRM/Financial/DAO/PaymentProcessor.php
+msgid "Payment Processor Frontend Title"
+msgstr ""
+
+#: CRM/Financial/DAO/PaymentProcessor.php
+msgid "Name of processor when shown to users making a payment."
+msgstr ""
+
+#: CRM/Financial/DAO/PaymentProcessor.php
+msgid "Frontend Title"
+msgstr ""
+
+#: CRM/Financial/DAO/PaymentProcessor.php
+msgid "Additional processor information shown to administrators."
+msgstr ""
