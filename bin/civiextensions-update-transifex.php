@@ -63,8 +63,17 @@ function main() {
   $l10n_repo_dir = CIVIEXTENSIONS_L10N_REPO_DIR;
 
   if (!file_exists($l10n_repo_dir)) {
-    echo "$l10n_repo_dir: directory does not exist. You need to clone the civicrm-l10n-extensions repo first in $l10n_repo_dir.\n";
-    exit(1);
+    echo "$l10n_repo_dir: directory does not exist.\n";
+    // If we are running from a Gitlab Pipeline, presumably in Docker, then clone it. Otherwise let them do it.
+    if (getenv('CI_JOB_NAME')) {
+      $parent_dir = dirname($l10n_repo_dir);
+      system("mkdir $parent_dir");
+      system("git clone https://github.com/civicrm/civicrm-l10n-extensions.git");
+    }
+    else {
+      echo "You need to clone the civicrm-l10n-extensions repo first in $l10n_repo_dir.\n";
+      exit(1);
+    }
   }
 
   // Fetch the list of repos and clone locally
