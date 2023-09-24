@@ -67,7 +67,7 @@ function main() {
     // If we are running from a Gitlab Pipeline, presumably in Docker, then clone it. Otherwise let them do it.
     if (getenv('CI_JOB_NAME')) {
       $parent_dir = dirname($l10n_repo_dir);
-      system("mkdir $parent_dir");
+      mkdir("$parent_dir, 0755, TRUE);
       system("git clone https://github.com/civicrm/civicrm-l10n-extensions.git");
     }
     else {
@@ -93,7 +93,7 @@ function main() {
 
   // Check for command-line arguments (based on: https://stackoverflow.com/a/26520115)
   $command_args = [];
-  for ($i = 1; $i < count($argv); $i++) {
+  for ($i = 1; $i < count($_SERVER['argv']); $i++) {
     if (preg_match('/^--([^=]+)=(.*)/', $argv[$i], $match)) {
       $command_args[$match[1]] = $match[2];
     }

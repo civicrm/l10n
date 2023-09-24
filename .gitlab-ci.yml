@@ -8,6 +8,10 @@ variables:
     value: ""
     description: "Release tag to process"
 
+before_script:
+  - apt -qq update && apt -qq isntall -y moreutils
+  - curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash
+
 update_transifex_extension:
   stage: build
   script:
