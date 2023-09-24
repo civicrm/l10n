@@ -65,13 +65,8 @@ function main() {
   if (!file_exists($l10n_repo_dir)) {
     // If we are running from a Gitlab Pipeline, presumably in Docker, then clone it. Otherwise let them do it.
     if (getenv('CI_JOB_NAME')) {
-      $parent_dir = dirname($l10n_repo_dir);
-      if (!file_exists($parent_dir)) {
-        echo "Creating $parent_dir\n";
-        mkdir($parent_dir, 0755, TRUE);
-      }
-      echo "Cloning civicrm-l10n-extensions repo\n";
-      system("git clone https://github.com/civicrm/civicrm-l10n-extensions.git");
+      // The repo will have been cloned in gitlab-ci.yml in the root of this repo
+      $l10n_repo_dir = dirname(__DIR__) . '/civicrm-l10n-extensions';
     }
     else {
       echo "$l10n_repo_dir: directory does not exist.\n";

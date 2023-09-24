@@ -15,8 +15,16 @@ before_script:
 
 update_transifex_extension:
   stage: build
+  cache:
+    - key:
+      paths:
+        - civicrm-l10n-extensions/
   script:
     - tx --version
+    - git clone https://github.com/civicrm/civicrm-l10n-extensions.git || true
+    - cd civicrm-l10n-extensions
+    - git pull origin master
+    - cd ..
     - php bin/civiextensions-update-transifex.php --extkey="${CIVICRM_EXT_KEY}" --exttag="${CIVICRM_EXT_TAG}"
   when: manual
   tags:
