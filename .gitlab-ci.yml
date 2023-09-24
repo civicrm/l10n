@@ -23,7 +23,7 @@ update_transifex_extension:
         - civicrm-l10n-extensions/
   script:
     - tx --version
-    - git clone https://github.com/civicrm/civicrm-l10n-extensions.git || true
+    - git clone https://mlutfy-civicrm:${GITHUB_TOKEN}@github.com/civicrm/civicrm-l10n-extensions.git || true
     - cd civicrm-l10n-extensions
     - git pull origin master
     - php ../bin/civiextensions-update-transifex.php --extkey="${CIVICRM_EXT_KEY}" --exttag="${CIVICRM_EXT_TAG}"
@@ -41,6 +41,9 @@ commit_to_git:
   script:
     - cd civicrm-l10n-extensions
     - git diff
+    - git add po
+    - git commit -m "Automatic commit (key=${CIVICRM_EXT_KEY:-all}, tag=${CIVICRM_EXT_TAG:-all})"
+    - git push origin master
   when: manual
   tags:
     - test-1-docker
