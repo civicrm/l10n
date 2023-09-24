@@ -1,0 +1,17 @@
+image: michaelmcandrew:civicrm-buildkit
+
+variables:
+  CIVICRM_EXT_KEY:
+    value: ""
+    description: "The extension key (in long-form, if it uses the old style, ex: org.example.myext)"
+  CIVICRM_EXT_TAG:
+    value: ""
+    description: "Release tag to process"
+
+update_transifex_extension:
+  stage: build
+  script:
+    - echo "Hello, world, {$CIVICRM_EXT_TAG} / {$CIVICRM_EXT_KEY}"
+    - echo "$PATH"
+    - civistrings
+    - pwd
