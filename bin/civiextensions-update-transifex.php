@@ -92,8 +92,9 @@ function main() {
   }
 
   // Check for command-line arguments (based on: https://stackoverflow.com/a/26520115)
+  global $argv;
   $command_args = [];
-  for ($i = 1; $i < count($_SERVER['argv']); $i++) {
+  for ($i = 1; $i < count($argv); $i++) {
     if (preg_match('/^--([^=]+)=(.*)/', $argv[$i], $match)) {
       $command_args[$match[1]] = $match[2];
     }
