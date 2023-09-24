@@ -67,7 +67,7 @@ function main() {
     // If we are running from a Gitlab Pipeline, presumably in Docker, then clone it. Otherwise let them do it.
     if (getenv('CI_JOB_NAME')) {
       $parent_dir = dirname($l10n_repo_dir);
-      mkdir("$parent_dir, 0755, TRUE);
+      mkdir($parent_dir, 0755, TRUE);
       system("git clone https://github.com/civicrm/civicrm-l10n-extensions.git");
     }
     else {
