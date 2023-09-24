@@ -62,7 +62,7 @@ function main() {
   // i.e.: po/[shortname]/xx_XX/[shortname].po
   $l10n_repo_dir = CIVIEXTENSIONS_L10N_REPO_DIR;
 
-  if (! file_exists($l10n_repo_dir)) {
+  if (!file_exists($l10n_repo_dir)) {
     echo "$l10n_repo_dir: directory does not exist. You need to clone the civicrm-l10n-extensions repo first in $l10n_repo_dir.\n";
     exit(1);
   }
@@ -82,92 +82,114 @@ function main() {
     exit(1);
   }
 
-  foreach ($gitrepos as $gitinfo) {
-    // Only extract extensions that are ready for automatic distribution
-    if ($gitinfo['ready'] != 'ready') {
-      continue;
+  // Check for command-line arguments (based on: https://stackoverflow.com/a/26520115)
+  $command_args = [];
+  for ($i = 1; $i < count($argv); $i++) {
+    if (preg_match('/^--([^=]+)=(.*)/', $argv[$i], $match)) {
+      $command_args[$match[1]] = $match[2];
     }
-
-    // Risky security
-    if (! preg_match('/^[-_0-9-a-zA-Z\.:\/]+$/', $gitinfo['git_url'])) {
-      echo "Skipping suspicious repo URL: {$gitinfo['git_url']}\n";
-      continue;
-    }
-
-    $reponame = basename($gitinfo['git_url']);
-    $reponame = preg_replace('/\.git$/', '', $reponame);
-
-    $extdir = escapeshellarg("$download_dir/$reponame");
-
-    echo "Repo: $extdir\n";
-
-    if (file_exists("$download_dir/$reponame")) {
-      echo "* Updating with git fetch --all..\n";
-      system("cd $extdir; git fetch -q --all");
-    }
-    else {
-      // Runs: git clone git://example.org/foo.git ~/repositories/foo-hash
-      echo "* New repo (or not in cache), cloning it...\n";
-      system('git clone ' . escapeshellarg($gitinfo['git_url']) . ' ' . $extdir);
-    }
-
-    // Get the short name from the info.xml
-    // TODO: fix civihr use-case (packages).
-    // NB: do not use $extdir, since it is a shell-escaped variable.
-    $shortname = civiextensions_getname_from_xml("$download_dir/$reponame");
-
-    if (! $shortname) {
-      print "Info: could not get short name for $reponame, skipping.\n";
-      continue;
-    }
-
-    // NB: we check for tags having the format: v1.0 1.0 1.0.0
-    // meaning that we ignore anything such as 1.0-beta1
-    // since the alphabetical sort would not make sense, and we
-    // cannot predict what funky tags people may use.
-    $tag = system("cd $extdir; git tag | grep -E '^v?[-\.0-9]+$' | sort -n | tail -1");
-
-    // Do not process the extension unless it is a new tag
-    $last_processed_tag = civiextensions_get_last_processed_tag($shortname);
-
-    if ($tag <= $last_processed_tag) {
-      echo "* Skipping: tag already processed: $tag\n";
-      continue;
-    }
-
-    echo "* Processing tag: $tag ...\n";
-    system("cd $extdir; git checkout tags/" . $tag);
-
-    // If the directory does not exists, we assume that it means
-    // that we also need to create the resource in Transifex.
-    // If it's a new resource, it needs to be added after pot generation.
-    $add_to_transifex = FALSE;
-
-    if (! file_exists("$l10n_repo_dir/po/$shortname")) {
-      $add_to_transifex = TRUE;
-    }
-
-    // Extract the ts() strings
-    system("cd $extdir; env POTDIR=$l10n_repo_dir/po CIVI_KEEP_IT_QUIET=1 ~/l10n/civicrm-l10n-core/bin/create-pot-files-extensions.sh");
-
-    // Send strings to Transifex, add new resource if necessary
-    // NB: we do not pull the strings at this point, it will be done
-    // by another script that pulls in translations every day.
-    if ($add_to_transifex) {
-      print "Adding Transifex resource: $shortname\n";
-      system("cd $l10n_repo_dir; tx set --auto-local -r civicrm_extensions.$shortname 'po/$shortname/<lang>/$shortname.po' --source-lang en --source-file po/$shortname/pot/$shortname.pot --execute");
-      system("cd $l10n_repo_dir; git add .tx/config; git commit -m 'Adding new extension: $shortname'");
-    }
-
-    system("cd $l10n_repo_dir; tx push -s -r civicrm_extensions.$shortname");
-
-    // Commit to civicrm-l10n-extensions repo and push
-    system("cd $l10n_repo_dir; git add $l10n_repo_dir/po/$shortname; git commit -m 'Automatic commit for version $tag of extension $shortname'");
-    system("cd $l10n_repo_dir; git push origin master");
-
-    civiextensions_set_last_processed_tag($shortname, $tag);
-    echo "* Done, yay!\n\n";
   }
+
+  if (!empty($command_args['extkey'])) {
+     $extkey = $command_args['extkey'];
+     if (!empty($gitrepos[$extkey])) {
+       civiextensions_process_ext($extkey, $gitrepos[$extkey], $download_dir, $l10n_repo_dir);
+     }
+     else {
+       echo "Error: unknown ext: {$extkey}\n";
+       exit(1);
+     }
+  }
+  else {
+    // Process all extensions
+    foreach ($gitrepos as $extkey => $gitinfo) {
+      civiextensions_process_ext($extkey, $gitinfo, $download_dir, $l10n_repo_dir);
+    }
+  }
+}
+
+function civiextensions_process_ext(String $extkey, Array $gitinfo, $download_dir) {
+  // Only extract extensions that are ready for automatic distribution
+  if ($gitinfo['ready'] != 'ready') {
+    continue;
+  }
+
+  // Risky security
+  if (! preg_match('/^[-_0-9-a-zA-Z\.:\/]+$/', $gitinfo['git_url'])) {
+    echo "Skipping suspicious repo URL: {$gitinfo['git_url']}\n";
+    continue;
+  }
+
+  $reponame = basename($gitinfo['git_url']);
+  $reponame = preg_replace('/\.git$/', '', $reponame);
+
+  $extdir = escapeshellarg("$download_dir/$reponame");
+
+  echo "Repo: $extdir\n";
+
+  if (file_exists("$download_dir/$reponame")) {
+    echo "* Updating with git fetch --all..\n";
+    system("cd $extdir; git fetch -q --all");
+  }
+  else {
+    // Runs: git clone git://example.org/foo.git ~/repositories/foo-hash
+    echo "* New repo (or not in cache), cloning it...\n";
+    system('git clone ' . escapeshellarg($gitinfo['git_url']) . ' ' . $extdir);
+  }
+
+  // Get the short name from the info.xml
+  // TODO: fix civihr use-case (packages).
+  // NB: do not use $extdir, since it is a shell-escaped variable.
+  $shortname = civiextensions_getname_from_xml("$download_dir/$reponame");
+
+  if (!$shortname) {
+    print "Info: could not get short name for $reponame, skipping.\n";
+    continue;
+  }
+
+  // NB: we check for tags having the format: v1.0 1.0 1.0.0
+  // meaning that we ignore anything such as 1.0-beta1
+  // since the alphabetical sort would not make sense, and we
+  // cannot predict what funky tags people may use.
+  $tag = system("cd $extdir; git tag | grep -E '^v?[-\.0-9]+$' | sort -n | tail -1");
+
+  // Do not process the extension unless it is a new tag
+  $last_processed_tag = civiextensions_get_last_processed_tag($shortname);
+
+  if ($tag <= $last_processed_tag) {
+    echo "* Skipping: tag already processed: $tag\n";
+    continue;
+  }
+
+  echo "* Processing tag: $tag ...\n";
+  system("cd $extdir; git checkout tags/" . $tag);
+
+  // If the directory does not exists, we assume that it means
+  // that we also need to create the resource in Transifex.
+  // If it's a new resource, it needs to be added after pot generation.
+  $add_to_transifex = !file_exists("$l10n_repo_dir/po/$shortname");
+
+  // Extract the ts() strings
+  $script_path = __DIR__ . '/create-pot-files-extensions.sh';
+  system("cd $extdir; env POTDIR=$l10n_repo_dir/po CIVI_KEEP_IT_QUIET=1 $script_path");
+
+  // Send strings to Transifex, add new resource if necessary
+  // NB: we do not pull the strings at this point, it will be done
+  // by another script that pulls in translations every day.
+  if ($add_to_transifex) {
+    print "Adding Transifex resource: $shortname\n";
+    system("cd $l10n_repo_dir; tx set --auto-local -r civicrm_extensions.$shortname 'po/$shortname/<lang>/$shortname.po' --source-lang en --source-file po/$shortname/pot/$shortname.pot --execute");
+    system("cd $l10n_repo_dir; git add .tx/config; git commit -m 'Adding new extension: $shortname'");
+  }
+
+  system("cd $l10n_repo_dir; tx push -s -r civicrm_extensions.$shortname");
+
+  // Commit to civicrm-l10n-extensions repo and push
+  system("cd $l10n_repo_dir; git add $l10n_repo_dir/po/$shortname; git commit -m 'Automatic commit for version $tag of extension $shortname'");
+  system("cd $l10n_repo_dir; git push origin master");
+
+  civiextensions_set_last_processed_tag($shortname, $tag);
+  echo "* Done, yay!\n\n";
 }
 
 /**

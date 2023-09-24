@@ -11,9 +11,9 @@ variables:
 update_transifex_extension:
   stage: build
   script:
-    - echo "Hello, world, {$CIVICRM_EXT_TAG} / {$CIVICRM_EXT_KEY}"
+    - echo "Hello, world, ${CIVICRM_EXT_TAG} / ${CIVICRM_EXT_KEY}"
     - echo "$PATH"
-    - civistrings
-    - pwd
+    - php bin/civiextensions-update-transifex.php --extkey="${CIVICRM_EXT_KEY}" --exttag="${CIVICRM_EXT_TAG}"
+  when: manual
   tags:
     - test-1-docker
