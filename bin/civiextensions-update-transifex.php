@@ -12,7 +12,7 @@
  * - push the source strings to Transifex (project/civicrm_extensions),
  * - pull translated strings from Transifex
  * - add the new extensions to git.
- * - TODO: commit new translated strings for all extensions (using commit-to-git.sh).
+ * - Done by CiviCRM's Jenkins: commit new translated strings for all extensions (using commit-to-git.sh).
  *
  * Depends on packages: php5-cli, moreutils, gettext.
  * Depends on repositories: l10n (until those scripts are moved to civix).
@@ -67,7 +67,9 @@ function main() {
     // If we are running from a Gitlab Pipeline, presumably in Docker, then clone it. Otherwise let them do it.
     if (getenv('CI_JOB_NAME')) {
       $parent_dir = dirname($l10n_repo_dir);
-      mkdir($parent_dir, 0755, TRUE);
+      if (!file_exists($parent_dir)) {
+        mkdir($parent_dir, 0755, TRUE);
+      }
       system("git clone https://github.com/civicrm/civicrm-l10n-extensions.git");
     }
     else {
@@ -103,7 +105,7 @@ function main() {
   if (!empty($command_args['extkey'])) {
      $extkey = $command_args['extkey'];
      if (!empty($gitrepos[$extkey])) {
-       civiextensions_process_ext($extkey, $gitrepos[$extkey], $download_dir, $l10n_repo_dir);
+       civiextensions_process_ext($extkey, $gitrepos[$extkey], $command_args['exttag'] ?? NULL, $download_dir, $l10n_repo_dir);
      }
      else {
        echo "Error: unknown ext: {$extkey}\n";
@@ -113,12 +115,12 @@ function main() {
   else {
     // Process all extensions
     foreach ($gitrepos as $extkey => $gitinfo) {
-      civiextensions_process_ext($extkey, $gitinfo, $download_dir, $l10n_repo_dir);
+      civiextensions_process_ext($extkey, $gitinfo, NULL, $download_dir, $l10n_repo_dir);
     }
   }
 }
 
-function civiextensions_process_ext(String $extkey, Array $gitinfo, $download_dir) {
+function civiextensions_process_ext(String $extkey, Array $gitinfo, $tag, $download_dir, $l10n_repo_dir) {
   // Only extract extensions that are ready for automatic distribution
   if ($gitinfo['ready'] != 'ready') {
     return;
@@ -161,14 +163,16 @@ function civiextensions_process_ext(String $extkey, Array $gitinfo, $download_di
   // meaning that we ignore anything such as 1.0-beta1
   // since the alphabetical sort would not make sense, and we
   // cannot predict what funky tags people may use.
-  $tag = system("cd $extdir; git tag | grep -E '^v?[-\.0-9]+$' | sort -n | tail -1");
+  if (!$tag) {
+    $tag = system("cd $extdir; git tag | grep -E '^v?[-\.0-9]+$' | sort -n | tail -1");
 
-  // Do not process the extension unless it is a new tag
-  $last_processed_tag = civiextensions_get_last_processed_tag($shortname);
+    // Do not process the extension unless it is a new tag
+    $last_processed_tag = civiextensions_get_last_processed_tag($shortname);
 
-  if ($tag <= $last_processed_tag) {
-    echo "* Skipping: tag already processed: $tag\n";
-    return;
+    if ($tag <= $last_processed_tag) {
+      echo "* Skipping: tag already processed: $tag\n";
+      return;
+    }
   }
 
   echo "* Processing tag: $tag ...\n";
