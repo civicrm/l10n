@@ -111,13 +111,13 @@ function main() {
 function civiextensions_process_ext(String $extkey, Array $gitinfo, $download_dir) {
   // Only extract extensions that are ready for automatic distribution
   if ($gitinfo['ready'] != 'ready') {
-    continue;
+    return;
   }
 
   // Risky security
   if (! preg_match('/^[-_0-9-a-zA-Z\.:\/]+$/', $gitinfo['git_url'])) {
     echo "Skipping suspicious repo URL: {$gitinfo['git_url']}\n";
-    continue;
+    return;
   }
 
   $reponame = basename($gitinfo['git_url']);
@@ -144,7 +144,7 @@ function civiextensions_process_ext(String $extkey, Array $gitinfo, $download_di
 
   if (!$shortname) {
     print "Info: could not get short name for $reponame, skipping.\n";
-    continue;
+    return;
   }
 
   // NB: we check for tags having the format: v1.0 1.0 1.0.0
@@ -158,7 +158,7 @@ function civiextensions_process_ext(String $extkey, Array $gitinfo, $download_di
 
   if ($tag <= $last_processed_tag) {
     echo "* Skipping: tag already processed: $tag\n";
-    continue;
+    return;
   }
 
   echo "* Processing tag: $tag ...\n";
