@@ -178,7 +178,9 @@ function civiextensions_process_ext(String $extkey, Array $gitinfo, $tag, $downl
   }
 
   echo "* Processing tag: $tag ...\n";
-  if (!system("cd $extdir; git checkout tags/" . $tag)) {
+  $ret = 0;
+  system("cd $extdir; git checkout tags/" . $tag, $ret);
+  if ($ret !== 0) {
     echo "Error during git checkout {$tag}, exiting\n";
     exit(1);
   }
