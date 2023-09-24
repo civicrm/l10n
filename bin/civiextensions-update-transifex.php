@@ -203,8 +203,11 @@ function civiextensions_process_ext(String $extkey, Array $gitinfo, $tag, $downl
   system("cd $l10n_repo_dir; tx push -s -r civicrm_extensions.$shortname");
 
   // Commit to civicrm-l10n-extensions repo and push
-  system("cd $l10n_repo_dir; git add $l10n_repo_dir/po/$shortname; git commit -m 'Automatic commit for version $tag of extension $shortname'");
-  system("cd $l10n_repo_dir; git push origin master");
+  // @todo Moving this to gitlab-ci.yml for better logging, but still keeping Jenkins compatibility
+  if (!getenv('CI_JOB_NAME')) {
+    system("cd $l10n_repo_dir; git add $l10n_repo_dir/po/$shortname; git commit -m 'Automatic commit for version $tag of extension $shortname'");
+    system("cd $l10n_repo_dir; git push origin master");
+  }
 
   civiextensions_set_last_processed_tag($shortname, $tag);
   echo "* Done, yay!\n\n";
