@@ -63,16 +63,18 @@ function main() {
   $l10n_repo_dir = CIVIEXTENSIONS_L10N_REPO_DIR;
 
   if (!file_exists($l10n_repo_dir)) {
-    echo "$l10n_repo_dir: directory does not exist.\n";
     // If we are running from a Gitlab Pipeline, presumably in Docker, then clone it. Otherwise let them do it.
     if (getenv('CI_JOB_NAME')) {
       $parent_dir = dirname($l10n_repo_dir);
       if (!file_exists($parent_dir)) {
+        echo "Creating $parent_dir\n";
         mkdir($parent_dir, 0755, TRUE);
       }
+      echo "Cloning civicrm-l10n-extensions repo\n";
       system("git clone https://github.com/civicrm/civicrm-l10n-extensions.git");
     }
     else {
+      echo "$l10n_repo_dir: directory does not exist.\n";
       echo "You need to clone the civicrm-l10n-extensions repo first in $l10n_repo_dir.\n";
       exit(1);
     }
@@ -176,7 +178,10 @@ function civiextensions_process_ext(String $extkey, Array $gitinfo, $tag, $downl
   }
 
   echo "* Processing tag: $tag ...\n";
-  system("cd $extdir; git checkout tags/" . $tag);
+  if (!system("cd $extdir; git checkout tags/" . $tag)) {
+    echo "Error during git checkout {$tag}, exiting\n";
+    exit(1);
+  }
 
   // If the directory does not exists, we assume that it means
   // that we also need to create the resource in Transifex.
@@ -185,7 +190,9 @@ function civiextensions_process_ext(String $extkey, Array $gitinfo, $tag, $downl
 
   // Extract the ts() strings
   $script_path = __DIR__ . '/create-pot-files-extensions.sh';
-  system("cd $extdir; env POTDIR=$l10n_repo_dir/po CIVI_KEEP_IT_QUIET=1 $script_path");
+  $create_pot_command = "cd $extdir; env POTDIR=$l10n_repo_dir/po CIVI_KEEP_IT_QUIET=1 $script_path";
+  echo "Running: $create_pot_command\n";
+  system($create_pot_command);
 
   // Send strings to Transifex, add new resource if necessary
   // NB: we do not pull the strings at this point, it will be done
