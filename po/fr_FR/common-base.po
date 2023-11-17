@@ -5896,7 +5896,7 @@ msgstr "Source des données"
 
 #: CRM/Contact/Import/Form/DataSource.php
 msgid "For Duplicate Contacts"
-msgstr "Pour les doublons (de contacts)"
+msgstr "En cas de doublon"
 
 #: CRM/Contact/Import/Form/DataSource.php
 msgid "Skip"
@@ -5909,15 +5909,15 @@ msgstr "Mettre à jour"
 
 #: CRM/Contact/Import/Form/DataSource.php
 msgid "Fill"
-msgstr "Remplir"
+msgstr "Remplir les champs vides"
 
 #: CRM/Contact/Import/Form/DataSource.php
 msgid "No Duplicate Checking"
-msgstr "Pas de vérification des doublons"
+msgstr "Toujours créer"
 
 #: CRM/Contact/Import/Form/DataSource.php CRM/Import/Form/DataSource.php
 msgid "Saved Field Mapping"
-msgstr "Correspondance de champ enregistrée"
+msgstr "Modèle d'import"
 
 #: CRM/Contact/Import/Form/DataSource.php CRM/Import/Form/DataSource.php
 #: CRM/UF/Page/ProfileEditor.php templates/CRM/UF/Page/ProfileTemplates.tpl
@@ -5946,7 +5946,7 @@ msgstr "Géolocaliser les adresses durant l'import ?"
 
 #: CRM/Contact/Import/Form/DataSource.php CRM/Import/Form/DataSource.php
 msgid "Import Field Separator"
-msgstr "Séparateur de champ importé"
+msgstr "Séparateur de champs"
 
 #: CRM/Contact/Import/Form/DataSource.php
 msgid "Disable USPS address validation during import?"
@@ -10408,7 +10408,7 @@ msgstr "Le décalage de fin par rapport à l'année en cours, peut être négati
 #: CRM/Core/DAO/PreferencesDate.php CRM/Core/Form/Date.php
 #: CRM/Custom/Form/Field.php
 msgid "Date Format"
-msgstr "Format de la date"
+msgstr "Format des dates"
 
 #: CRM/Core/DAO/PreferencesDate.php
 msgid "The date type"
@@ -14947,7 +14947,7 @@ msgstr "Valeurs séparées par des virgules (CSV)"
 
 #: CRM/Import/DataSource/CSV.php CRM/Import/Form/DataSource.php
 msgid "Import Data File"
-msgstr "Importer un fichier de données"
+msgstr "Fichier à importer"
 
 #: CRM/Import/DataSource/CSV.php CRM/Import/Form/DataSource.php
 msgid "File size should be less than %1 MBytes (%2 bytes)"
@@ -21411,7 +21411,7 @@ msgstr "Envoyer un fichier CSV"
 msgid ""
 "File format must be comma-separated-values (CSV). File must be UTF8 encoded "
 "if it contains special characters (e.g. accented letters, etc.)."
-msgstr "Le fichier doit être dans le format « valeurs séparées par des virgules (CSV) » et doit être encodé en UTF8 s'il contient des caractères spéciaux, des lettres accentuées, etc."
+msgstr "Le fichier doit être au format « valeurs séparées par des virgules (CSV) » et encodé en UTF8 (s'il contient des caractères spéciaux, accentués, etc)."
 
 #: templates/CRM/Contact/Import/Form/CSV.tpl
 #: templates/CRM/Import/Form/DataSource.tpl
@@ -21434,7 +21434,7 @@ msgid ""
 "applications into CiviCRM. For example, if your organization has contacts in"
 " MS Access&copy; or Excel&copy;, and you want to start using CiviCRM to "
 "store these contacts, you can 'import' them here."
-msgstr "L'assistant d'import vous permet d'ajouter facilement à CiviCRM des enregistrements de contacts issus d'autres logiciels. Par exemple, si votre organisation a des contacts dans MS Access&copy; ou Excel&copy;, et que vous voulez dorénavant les gérer avec CiviCRM, vous pouvez les « importer » ici."
+msgstr "L'assistant d'import vous permet d'ajouter facilement à CiviCRM des enregistrements de contacts issus d'autres logiciels. Par exemple, si votre organisation a des contacts dans une base SQL ou dans Excel&copy;, et que vous voulez dorénavant les gérer avec CiviCRM, vous pouvez les « importer » ici."
 
 #: templates/CRM/Contact/Import/Form/DataSource.hlp
 msgid ""
@@ -21527,32 +21527,32 @@ msgstr "Si un contact dans le fichier à importer semble être un doublon d'un c
 msgid ""
 "<strong>Skip:</strong> Reports and then Skips duplicate import file rows - "
 "leaving the matching record in the database as-is (default)."
-msgstr "<strong>Ignorer :</strong> Ignore les entrées du fichier d'import en double, laissant ainsi inchangé l'enregistrement correspondant dans la base de données (par défaut)."
+msgstr "<strong>Ne pas importer (par défaut) :</strong>Le contact qui existe déjà dans CiviCRM reste tel quel, sans modification. Le contact du fichier d'import est tout simplement ignoré dès qu'il est considéré comme un doublon. Si aucun contact existant ne correspond au contact du fichier à importer, le nouveau contact est créé dans CiviCRM."
 
 #: templates/CRM/Contact/Import/Form/DataSource.hlp
 msgid ""
 "<strong>Update:</strong> Updates database fields with available import data."
 " Fields in the database which are NOT included in the import row are left "
 "as-is."
-msgstr "<strong>Mettre à jour :</strong> Met à jour la base de données avec les données importées. Les champs de la base de données qui ne font pas partie des champs importés sont laissés en l'état."
+msgstr "<strong>Mettre à jour :</strong> Les données de CiviCRM sont remplacées par les valeurs importées. Seuls les champs importés sont impactés. Une valeur dans un autre champ restera en l'état. (exemple : un contact dans CiviCRM a déjà un courriel et un téléphone. Le fichier d'import contient une colonne courriel et un courriel différent pour ce contact, c'est ce nouveau courriel importé qui sera choisi. Par contre dans le fichier d'import aucune colonne téléphone n'est importée, le téléphone existant dans CiviCRM sera conservé)."
 
 #: templates/CRM/Contact/Import/Form/DataSource.hlp
 msgid ""
 "<strong>Fill:</strong> Fills in additional contact data only. Database "
 "fields which currently have values are left as-is."
-msgstr "<strong>Ajouter :</strong> Ajoute seulement des données de contact supplémentaires. Les champs de la base de données qui ont actuellement des valeurs ne sont pas modifiés."
+msgstr "<strong>Remplir les champs vides :</strong> Si le contact existe dans CiviCRM ses champs vides sont remplis avec les valeurs importées. Par contre les champs du contact qui ont déjà des valeurs restent telles quelles. Si le contact importé n'existe pas dans CiviCRM il est créé avec toutes les valeurs. (exemples : le courriel du contact est déjà renseigné dans CiviCRM il ne sera pas modifié meme si un autre courriel est renseigné dans le fichier d'import. Le téléphone est vide dans CiviCRM il sera renseigné à partir de la colonne téléphone du fichier d'import)."
 
 #: templates/CRM/Contact/Import/Form/DataSource.hlp
 msgid ""
 "<strong>No Duplicate Checking:</strong> Inserts all valid records without "
 "comparing them to existing contact records for possible duplicates."
-msgstr "<strong>Pas de recherche des doublons :</strong> Insère tous les enregistrements valides sans effectuer de recherche de doublons avec des enregistrements de contacts existants."
+msgstr "<strong>Toujours créer :</strong> Tous les contacts valides du fichier d'import seront créés dans CiviCRM (sans vérifier s'ils correspondent à des contacts existants dans CiviCRM). Même si un contact qui correspond existe déjà, un doublon est créé systématiquement avec les données du fichier à importer."
 
 #: templates/CRM/Contact/Import/Form/DataSource.hlp
 msgid ""
 "Select the source of the imported data. By default the following choices are"
 " possible:"
-msgstr "Sélectionner la source des données importées. Par défaut les choix suivants sont possibles :"
+msgstr "Sélectionner la source de données à importer. Par défaut les choix suivants sont possibles :"
 
 #: templates/CRM/Contact/Import/Form/DataSource.hlp
 msgid ""
@@ -21596,7 +21596,7 @@ msgstr "Lorsque vous sélectionnez une règle de dédoublonnage, veillez à choi
 
 #: templates/CRM/Contact/Import/Form/DataSource.hlp
 msgid "Field Separator"
-msgstr "Séparateur de champ"
+msgstr "Séparateur de champs"
 
 #: templates/CRM/Contact/Import/Form/DataSource.hlp
 msgid ""
@@ -21604,7 +21604,7 @@ msgid ""
 "default, the field will populate with the separator defined in your global "
 "settings. Common values include a comma, semicolon, or pipe character. To "
 "import a tab separated file, enter \"tab\" (without quotes) in the field."
-msgstr "Entrez le caractère utilisé comme séparateur de colonnes de données dans votre fichier d'importation. Par défaut, ce champ sera rempli avec le caractère défini dans vos paramètres généraux. Les caractères utilisés communément sont la virgule, le point-virgule ou la barre verticale. Pour importer un fichier utilisant la tabulation comme caractère séparateur, entrez « tab » (sans les guillemets) dans ce champ."
+msgstr "Saisissez le caractère utilisé comme séparateur de colonnes de données dans votre fichier d'importation. Par défaut, ce champ sera rempli avec le caractère défini dans vos paramètres généraux. Les caractères utilisés communément sont la virgule, le point-virgule ou la barre verticale. Pour importer un fichier utilisant la tabulation comme caractère séparateur, entrez « tab » (sans les guillemets) dans ce champ."
 
 #: templates/CRM/Contact/Import/Form/DataSource.tpl
 msgid ""
@@ -22629,7 +22629,7 @@ msgstr "Groupe multi-organisation associé"
 
 #: templates/CRM/Contact/Page/View/Summary.tpl
 msgid "Ignore"
-msgstr "Ignorer"
+msgstr "Ne pas importer"
 
 #: templates/CRM/Contact/Page/View/UserDashBoard/GroupContact.tpl
 msgid "You are not currently subscribed to any Groups."
@@ -23759,7 +23759,7 @@ msgstr "Utilisez les groupes pour organiser les contacts (par exemple un groupe 
 msgid ""
 "The %1 Import Wizard allows you to easily upload %2 from other applications "
 "into CiviCRM."
-msgstr "L'assistant d'import %1de vous permet d'importer facilement %2 dans CiviCRM depuis d'autres applications."
+msgstr "L'assistant d'import de %1 vous permet d'importer facilement  des %2s dans CiviCRM depuis d'autres applications."
 
 #: templates/CRM/Import/Form/DataSource.tpl
 msgid ""
