@@ -184,7 +184,8 @@ function civiextensions_process_ext(String $extkey, Array $gitinfo, $tag, $downl
   // that we also need to create the resource in Transifex.
   // If it's a new resource, it needs to be added after pot generation.
   // note: 'grep -q' will return 1 (error) in $add_to_transifex if the ext is missing
-  system("grep -q  '\\[o:civicrm:p:civicrm_extensions:r:$shortname]' $l10n_repo_dir/.tx/config", $add_to_transifex);
+  system("grep -q  \"\\[o:civicrm:p:civicrm_extensions:r:$shortname]\" $l10n_repo_dir/.tx/config", $add_to_transifex);
+  echo "add_to_transifex for $shortname = $add_to_transifex\n";
 
   // Extract the ts() strings
   $script_path = __DIR__ . '/create-pot-files-extensions.sh';
