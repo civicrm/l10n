@@ -25,6 +25,7 @@ update_transifex_extension:
     - tx --version
     - git clone https://mlutfy-civicrm:${GITHUB_TOKEN}@github.com/civicrm/civicrm-l10n-extensions.git || true
     - cd civicrm-l10n-extensions
+    - git checkout -- .
     - git pull origin master
     - php ../bin/civiextensions-update-transifex.php --extkey="${CIVICRM_EXT_KEY}" --exttag="${CIVICRM_EXT_TAG}"
     - git diff
