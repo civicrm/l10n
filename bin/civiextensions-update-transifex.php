@@ -197,7 +197,7 @@ function civiextensions_process_ext(String $extkey, Array $gitinfo, $tag, $downl
   // by another script that pulls in translations every day.
   if ($add_to_transifex) {
     print "Adding Transifex resource: $shortname\n";
-    system("cd $l10n_repo_dir; tx add --file-filter='po/$shortname/<lang>/$shortname.po' --organization=civicrm --project=civicrm_extensions --resource=$shortname --resource-name='$shortname' --type=pot po/$shortname/pot/$shortname.pot");
+    system("cd $l10n_repo_dir; tx add --file-filter='po/$shortname/<lang>/$shortname.po' --organization=civicrm --project=civicrm_extensions --resource=$shortname --resource-name='$shortname' --type=POT po/$shortname/pot/$shortname.pot");
     system("cd $l10n_repo_dir; git add .tx/config; git commit -m 'Adding new extension: $shortname'");
   }
 
