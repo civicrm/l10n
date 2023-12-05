@@ -105,7 +105,7 @@ function main() {
        civiextensions_process_ext($extkey, $gitrepos[$extkey], $command_args['exttag'] ?? NULL, $download_dir, $l10n_repo_dir);
      }
      else {
-       echo "Error: unknown ext: {$extkey}\n";
+       echo "Error: unknown ext: {$extkey} (not found in " . CIVIEXTENSIONS_REPO_LIST . ")\n";
        exit(1);
      }
   }
@@ -183,7 +183,8 @@ function civiextensions_process_ext(String $extkey, Array $gitinfo, $tag, $downl
   // If the directory does not exists, we assume that it means
   // that we also need to create the resource in Transifex.
   // If it's a new resource, it needs to be added after pot generation.
-  $add_to_transifex = !file_exists("$l10n_repo_dir/po/$shortname");
+  // note: 'grep -q' will return 1 (error) in $add_to_transifex if the ext is missing
+  system("grep -q  '\\[o:civicrm:p:civicrm_extensions:r:$shortname]' $l10n_repo_dir/.tx/config", $add_to_transifex);
 
   // Extract the ts() strings
   $script_path = __DIR__ . '/create-pot-files-extensions.sh';
@@ -196,7 +197,7 @@ function civiextensions_process_ext(String $extkey, Array $gitinfo, $tag, $downl
   // by another script that pulls in translations every day.
   if ($add_to_transifex) {
     print "Adding Transifex resource: $shortname\n";
-    system("cd $l10n_repo_dir; tx set --auto-local -r civicrm_extensions.$shortname 'po/$shortname/<lang>/$shortname.po' --source-lang en --source-file po/$shortname/pot/$shortname.pot --execute");
+    system("cd $l10n_repo_dir; tx add --file-filter='po/$shortname/<lang>/$shortname.po' --organization=civicrm --project=civicrm_extensions --resource=$shortname --resource-name='$shortname' --type=pot po/$shortname/pot/$shortname.pot");
     system("cd $l10n_repo_dir; git add .tx/config; git commit -m 'Adding new extension: $shortname'");
   }
 
