@@ -27,6 +27,9 @@ update_transifex_extension:
     - civistrings --version
     - git clone https://mlutfy-civicrm:${GITHUB_TOKEN}@github.com/civicrm/civicrm-l10n-extensions.git || true
     - cd civicrm-l10n-extensions
+    # This is just a precaution if the repo is cached and the token changed
+    - git remote rm origin
+    - git remote add origin https://mlutfy-civicrm:${GITHUB_TOKEN}@github.com/civicrm/civicrm-l10n-extensions.git
     - git checkout -- .
     - git pull origin master
     - php ../bin/civiextensions-update-transifex.php --extkey="${CIVICRM_EXT_KEY}" --exttag="${CIVICRM_EXT_TAG}"
