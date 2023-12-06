@@ -30,9 +30,11 @@ update_transifex_extension:
     - git checkout -- .
     - git pull origin master
     - php ../bin/civiextensions-update-transifex.php --extkey="${CIVICRM_EXT_KEY}" --exttag="${CIVICRM_EXT_TAG}"
+    - git status
     - git diff
     - git add po
     - git commit -m "Automatic commit (key=${CIVICRM_EXT_KEY:-all}, tag=${CIVICRM_EXT_TAG:-all})"
+    - git remote -v
     - git push origin master
   when: manual
   tags:
