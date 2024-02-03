@@ -236,6 +236,7 @@ function build_raw_pot() {
     Campaign)
       _civistrings -o "$filepath" \
         {CRM,templates/CRM}/$name \
+        ext/civi_campaign \
         xml/templates/message_templates/petition_*
       ;;
 
@@ -243,12 +244,14 @@ function build_raw_pot() {
       _civistrings -o "$filepath" \
         {CRM,templates/CRM}/$name \
         ang/crmCase* \
+        ext/civi_case \
         xml/templates/message_templates/case_*
       ;;
 
     Contribute)
       _civistrings -o "$filepath" \
         {CRM,templates/CRM}/$name \
+        ext/civi_contribute \
         xml/templates/message_templates/contribution_* \
         xml/templates/message_templates/payment_* \
         xml/templates/message_templates/test_*
@@ -257,6 +260,7 @@ function build_raw_pot() {
     Event)
       _civistrings -o "$filepath" \
         {CRM,templates/CRM}/$name \
+        ext/civi_event \
         xml/templates/message_templates/event_* \
         xml/templates/message_templates/participant_*
       ;;
@@ -264,12 +268,14 @@ function build_raw_pot() {
     Mailing)
       _civistrings -o "$filepath" \
         {CRM,templates/CRM}/$name \
+        ext/civi_mail \
         ang/crmMailing*
       ;;
 
     Member)
       _civistrings -o "$filepath" \
         {CRM,templates/CRM}/$name \
+        ext/civi_member \
         xml/templates/message_templates/membership_*
       ;;
 
