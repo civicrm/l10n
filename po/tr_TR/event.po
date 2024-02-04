@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2023-06-17 15:56-0400\n"
+"POT-Creation-Date: 2024-02-03 10:37-0500\n"
 "PO-Revision-Date: 2011-03-28 14:22+0000\n"
 "Last-Translator: Kaya Zeren <kayazeren@gmail.com>, 2015-2016,2018-2019,2021-2023\n"
 "Language-Team: Turkish (http://app.transifex.com/civicrm/civicrm/language/tr/)\n"
@@ -20,12 +20,8 @@ msgstr ""
 "Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: CRM/Event/ActionMapping.php CRM/Event/BAO/Query.php
-#: CRM/Event/Form/SearchEvent.php
-msgid "Event Name"
-msgstr "Etkinlik adı"
-
-#: CRM/Event/ActionMapping.php
+#: CRM/Event/ActionMapping/ByTemplate.php
+#: ext/civi_event/Civi/Api4/Service/Spec/Provider/EventCreationSpecProvider.php
 msgid "Event Template"
 msgstr "Etkinlik kalıbı"
 
@@ -45,6 +41,18 @@ msgstr "Kayıt başlangıcı"
 msgid "Registration End"
 msgstr "Kayıt bitişi"
 
+#: CRM/Event/BAO/Event.php
+msgid "- all -"
+msgstr "- Tümü -"
+
+#: CRM/Event/BAO/Event.php
+msgid "after"
+msgstr ""
+
+#: CRM/Event/BAO/Event.php
+msgid "before"
+msgstr ""
+
 #: CRM/Event/BAO/Event.php CRM/Event/Form/Participant.php
 #: CRM/Event/Form/ParticipantFeeSelection.php
 msgid "confirmation"
@@ -56,7 +64,6 @@ msgstr "Katılımcı kimliği bulunamadı"
 
 #: CRM/Event/BAO/Event.php
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 #: xml/templates/message_templates/participant_confirm_html.tpl
@@ -66,7 +73,6 @@ msgstr "Bu etkinliğin iCalendar kaydını indirin."
 
 #: CRM/Event/BAO/Event.php
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 #: xml/templates/message_templates/participant_confirm_html.tpl
@@ -122,6 +128,10 @@ msgid ""
 msgstr "Bu etkinliğin bekleme listesinde %2 kişi var. <a href='%1'>Bekleyen kayıtları görüntüleyebilir</a> ya da bu formu kullanarak bu sınırın üzerine çıkarak ek katılımcılar ekleyebilirsiniz"
 
 #: CRM/Event/BAO/Participant.php
+msgid "Registration selections changed for %1"
+msgstr ""
+
+#: CRM/Event/BAO/Participant.php
 msgid ""
 "This event registration can not be transferred or cancelled. Contact the "
 "event organizer if you have questions."
@@ -163,6 +173,10 @@ msgstr "Katılımcı %1"
 #: CRM/Event/BAO/Query.php CRM/Event/DAO/Participant.php
 msgid "Fee level"
 msgstr "Ücret düzeyi"
+
+#: CRM/Event/BAO/Query.php CRM/Event/Form/SearchEvent.php
+msgid "Event Name"
+msgstr "Etkinlik adı"
 
 #: CRM/Event/BAO/Query.php
 msgid "Include participants from all events in the %1 series"
@@ -685,9 +699,9 @@ msgstr "Alt etkinlik aralığı etiketi kimliği"
 
 #: CRM/Event/DAO/Event.php
 msgid ""
-"Subevent slot label. Implicit FK to civicrm_option_value where option_group "
-"= conference_slot."
-msgstr "Alt etkinlik türü aralığı kodu. option_group = conference_slot olduğunda civicrm_option_value alanına yazılacak dış anahtar."
+"Needs to be moved to Event cart extension. Subevent slot label. Implicit FK "
+"to civicrm_option_value where option_group = conference_slot."
+msgstr ""
 
 #: CRM/Event/DAO/Event.php
 msgid "Rule to use when matching registrations for this event"
@@ -696,6 +710,14 @@ msgstr "Bu etkinlik ile eşleşen kayıtlar için kullanılacak kural"
 #: CRM/Event/DAO/Event.php
 msgid "if true than billing block is required this event"
 msgstr "Bu seçenek etkinleştirildiğinde, bu etkinlik için faturalama bloğu kullanılır"
+
+#: CRM/Event/DAO/Event.php
+msgid "Are calendar links shown?"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "If true then calendar links are shown for this event."
+msgstr ""
 
 #: CRM/Event/DAO/Participant.php
 msgid "Records of contacts' attendance and roles in events."
@@ -879,15 +901,6 @@ msgid ""
 " option_value.value related to the `visibility` option_group"
 msgstr "durum türünün herkese açık olup olmadığı, `görünürlük` option_group ile ilgili option_group.value değerinin örtülü dış anahtarı"
 
-#: CRM/Event/Form/ManageEvent/Conference.php
-msgid "Parent Event"
-msgstr "Üst etkinlik"
-
-#: CRM/Event/Form/ManageEvent/Conference.php
-#: CRM/Event/Form/ManageEvent/TabHeader.php CRM/Event/Page/ManageEvent.php
-msgid "Conference Slots"
-msgstr "Konferans aralıkları"
-
 #: CRM/Event/Form/ManageEvent/Delete.php CRM/Event/Page/ManageEvent.php
 msgid "Delete Event"
 msgstr "Etkinliği sil"
@@ -943,6 +956,10 @@ msgid "Include Map to Event Location"
 msgstr "Etkinliğe konum haritası eklensin"
 
 #: CRM/Event/Form/ManageEvent/EventInfo.php
+msgid "Show Calendar Links"
+msgstr ""
+
+#: CRM/Event/Form/ManageEvent/EventInfo.php
 msgid "Max Number of Participants"
 msgstr "En fazla katılımcı sayısı"
 
@@ -967,10 +984,6 @@ msgid "Is this Event Active?"
 msgstr "Etkinlik etkin"
 
 #: CRM/Event/Form/ManageEvent/EventInfo.php
-msgid "Please do not use '/' in Event Title."
-msgstr "Lütfen etkinlik başlığında \"/\" karakterini kullanmayın."
-
-#: CRM/Event/Form/ManageEvent/EventInfo.php
 #: templates/CRM/Event/Form/ManageEvent/Tab.hlp
 msgid "Event Information and Settings"
 msgstr "Etkinlik bilgileri ve ayarları"
@@ -979,10 +992,6 @@ msgstr "Etkinlik bilgileri ve ayarları"
 #: CRM/Event/Form/Registration/Register.php
 msgid "Event Fee(s)"
 msgstr "Etkinlik ücretleri"
-
-#: CRM/Event/Form/ManageEvent/Fee.php
-msgid "Enable Pay Later option?"
-msgstr "Sonra ödenecek seçeneği kullanılsın"
 
 #: CRM/Event/Form/ManageEvent/Fee.php
 msgid "Pay Later Label"
@@ -1177,16 +1186,23 @@ msgid "Use a confirmation screen?"
 msgstr "Onay sayfası kullanılsın"
 
 #: CRM/Event/Form/ManageEvent/Registration.php
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
 msgid "Send Confirmation Email?"
 msgstr "Onay e-postası gönderilsin"
 
 #: CRM/Event/Form/ManageEvent/Registration.php
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
 msgid "CC Confirmation To"
 msgstr "Onay kopyasının gönderileceği adres"
 
 #: CRM/Event/Form/ManageEvent/Registration.php
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
 msgid "BCC Confirmation To"
 msgstr "Onay gizli kopyasının gönderileceği adres"
+
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid "Please enter Registration Link Text"
+msgstr "Lütfen kayıt bağlantısı metnini yazın"
 
 #: CRM/Event/Form/ManageEvent/Registration.php
 msgid "Please enter a Title for the registration Confirmation Page"
@@ -1294,80 +1310,66 @@ msgstr "Etkinlik yönetimi"
 msgid "Manage Event Templates"
 msgstr "Etkinlik kalıpları yönetimi"
 
-#: CRM/Event/Form/Participant.php
-msgid "Event Registration for %1"
-msgstr "%1 için etkinlik kaydı"
+#: CRM/Event/Form/Participant/Delete.php
+msgid "Delete participant record for %1"
+msgstr ""
 
-#: CRM/Event/Form/Participant.php
+#: CRM/Event/Form/Participant/Delete.php
 msgid ""
 "This Participant is linked to a contribution. You must have 'delete in "
 "CiviContribute' permission in order to delete this record."
 msgstr "Bu katılımcı bir katkı ile bağlantılı. Bu kaydı silebilmek için size \"CiviContribute silme\" izni verilmiş olmalıdır."
 
-#: CRM/Event/Form/Participant.php CRM/Event/Form/Task/Delete.php
+#: CRM/Event/Form/Participant/Delete.php CRM/Event/Form/Task/Delete.php
 msgid ""
 "Delete this participant record along with associated participant record(s)."
 msgstr "Bu katılımcı kaydı ile ilişkili katılımcı kayıtları da silinsin."
 
-#: CRM/Event/Form/Participant.php CRM/Event/Form/Task/Delete.php
+#: CRM/Event/Form/Participant/Delete.php CRM/Event/Form/Task/Delete.php
 msgid "Delete only this participant record."
 msgstr "Yalnızca bu katılımcının kaydı silinsin."
 
-#: CRM/Event/Form/Participant.php
-msgid "Send Notification"
-msgstr "Bildirim gönder"
-
-#: CRM/Event/Form/Participant.php
-msgid "Please enter the associated Financial Type"
-msgstr "Lütfen ilişkili mali türü yazın"
-
-#: CRM/Event/Form/Participant.php
-msgid "Please select a valid payment status before updating."
-msgstr "Lütfen güncellemeden önce geçerli bir ödeme durumu seçin."
-
-#: CRM/Event/Form/Participant.php
-msgid "This contact has already been assigned to this event."
-msgstr "Bu kişi bu etkinliğe zaten eklenmiş."
-
-#: CRM/Event/Form/Participant.php
+#: CRM/Event/Form/Participant/Delete.php
 msgid "Selected participant was deleted successfully."
 msgstr "Seçilmiş katılımcı silindi."
 
-#: CRM/Event/Form/Participant.php CRM/Event/Form/Task/Delete.php
+#: CRM/Event/Form/Participant/Delete.php CRM/Event/Form/Task/Delete.php
 msgid ""
 "The following participants no longer have an event fee recorded. You can "
 "edit their registration and record a replacement contribution by clicking "
 "the links below:"
 msgstr "Şu katılımcılar için etkinlik ücreti kaydı bulunamadı. Kayıtlarını düzenleyebilir ve aşağıdaki bağlantıya tıklayarak katkı değişikliği kaydı yapabilirsiniz:"
 
-#: CRM/Event/Form/Participant.php
+#: CRM/Event/Form/Participant/Delete.php
 msgid "Group Payment Deleted"
 msgstr "Grup ödemesi silindi"
 
 #: CRM/Event/Form/Participant.php
-msgid ""
-"%1 contacts have already been assigned to this event. They were not added a "
-"second time."
-msgstr "%1 kişi zaten bu etkinliğe eklenmiş. İkinci kez eklenmeyecekler."
+msgid "Event Registration for %1"
+msgstr "%1 için etkinlik kaydı"
+
+#: CRM/Event/Form/Participant.php CRM/Event/Info.php
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
+msgid "Event Registration"
+msgstr ""
 
 #: CRM/Event/Form/Participant.php
-msgid "No participants were added."
-msgstr "Herhangi bir katılımcı eklenmedi."
+msgid "Send Notification"
+msgstr "Bildirim gönder"
+
+#: CRM/Event/Form/Participant.php CRM/Event/Form/Task/Register.php
+msgid "Please enter the associated Financial Type"
+msgstr "Lütfen ilişkili mali türü yazın"
+
+#: CRM/Event/Form/Participant.php
+msgid "This contact has already been assigned to this event."
+msgstr "Bu kişi bu etkinliğe zaten eklenmiş."
 
 #: CRM/Event/Form/Participant.php
 msgid "Selected Event is not Paid Event "
 msgstr "Seçilmiş etkinlik ücretsiz"
 
-#: CRM/Event/Form/Participant.php
-msgid "Offline Registration for Event: %2 by: %1"
-msgstr "%1 tarafından düzenlenen %2 etkinliği için çevrim dışı kayıt"
-
-#: CRM/Event/Form/Participant.php
-msgid "%1 : Offline registration (by %2)"
-msgstr "%1 : Çevrim dışı kayıt (%2 tarafından)"
-
 #: CRM/Event/Form/Participant.php CRM/Event/Form/SelfSvcTransfer.php
-#: CRM/Event/Form/SelfSvcUpdate.php
 msgid "Event registration information for %1 has been updated."
 msgstr "%1 etkinlik kaydı bilgileri güncellendi."
 
@@ -1382,20 +1384,6 @@ msgstr "%1 etkinlik kaydı eklendi."
 #: CRM/Event/Form/Participant.php CRM/Event/Form/SelfSvcTransfer.php
 msgid "A confirmation email has been sent to %1."
 msgstr "%1 adresine onay e-postası gönderildi."
-
-#: CRM/Event/Form/Participant.php
-msgid "Total Participant(s) added to event: %1."
-msgstr "Etkinliğe eklenmiş toplam katılımcı sayısı: %1."
-
-#: CRM/Event/Form/Participant.php
-msgid ""
-"Email has NOT been sent to %1 contact(s) - communication preferences specify"
-" DO NOT EMAIL OR valid Email is NOT present. "
-msgstr "E-posta %1 kişiye GÖNDERİLEMEDİ. E-posta adresi YOK ya da iletişim tercihi olarak POSTA GÖNDERİLMESİN seçilmiş."
-
-#: CRM/Event/Form/Participant.php
-msgid "A confirmation email has been sent to ALL participants"
-msgstr "TÜM katılımcılara onay e-postası gönderildi"
 
 #: CRM/Event/Form/Participant.php templates/CRM/Event/Form/EventFees.tpl
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
@@ -1413,6 +1401,10 @@ msgstr "Onay gönderilsin"
 #: CRM/Event/Form/Participant.php
 msgid "CiviEvent Dashboard"
 msgstr "CiviEvent panosu"
+
+#: CRM/Event/Form/Participant.php
+msgid "Offline Registration for Event: %2 by: %1"
+msgstr "%1 tarafından düzenlenen %2 etkinliği için çevrim dışı kayıt"
 
 #: CRM/Event/Form/ParticipantFeeSelection.php
 msgid "Change selections for %1"
@@ -1610,6 +1602,11 @@ msgid "Sold out:"
 msgstr "Yer kalmamış:"
 
 #: CRM/Event/Form/Registration/Confirm.php
+#: CRM/Event/Form/Registration/Register.php
+msgid "Please select a Payment Method"
+msgstr "Lütfen bir ödeme yöntemi seçin"
+
+#: CRM/Event/Form/Registration/Confirm.php
 msgid ""
 "The system did not record payment details for this payment and so could not "
 "process the transaction. Please report this error to the site administrator."
@@ -1654,7 +1651,6 @@ msgid ""
 msgstr "Başlamak için \"Kaydı onayla\" üzerine ya da bu etkinliğe katılmaktan vazgeçtiyseniz \"Kaydı iptal et\" üzerine tıklayın."
 
 #: CRM/Event/Form/Registration/ParticipantConfirm.php
-#: templates/CRM/Event/Page/UserDashboard.tpl
 msgid "Confirm Registration"
 msgstr "Kaydı onayla"
 
@@ -1718,10 +1714,6 @@ msgid ""
 " can complete the registration process."
 msgstr "Bu etkinliğe katılmak için onay gerekiyor. Kaydınız onaylandığında kayıt işlemini tamamlayabileceğiniz site sayfası bağlantısını içeren bir e-posta alacaksınız."
 
-#: CRM/Event/Form/Registration/Register.php templates/CRM/Event/Page/List.tpl
-msgid "Register"
-msgstr "Kayıt olun"
-
 #: CRM/Event/Form/Registration/Register.php
 msgid "Fee Level is a required field."
 msgstr "Ücret düzeyi alanının doldurulması zorunludur."
@@ -1761,10 +1753,6 @@ msgstr "Etkinlik ücretleri sıfır değerinden küçük olamaz. Lütfen uygun b
 #: CRM/Event/Form/Registration/Register.php
 msgid "A minimum amount of %1 should be selected from Event Fee(s)."
 msgstr "Etkinlik ücretlerinden en az %1 değerinde bir tutar seçilmelidir."
-
-#: CRM/Event/Form/Registration/Register.php
-msgid "Please select a Payment Method"
-msgstr "Lütfen bir ödeme yöntemi seçin"
 
 #: CRM/Event/Form/Registration/Register.php CRM/Event/Form/SelfSvcTransfer.php
 msgid ""
@@ -1910,8 +1898,8 @@ msgid "Enter valid email address."
 msgstr "Geçerli bir e-posta adresi yazın."
 
 #: CRM/Event/Form/SelfSvcTransfer.php
-msgid " is already registered for this event"
-msgstr "bu etkinlik için zaten kayıt olmuş"
+msgid "%1 is already registered for this event"
+msgstr "%1 bu etkinlik için zaten kayıt olmuş"
 
 #: CRM/Event/Form/SelfSvcTransfer.php
 msgid "Contact does not exist."
@@ -1938,12 +1926,24 @@ msgid "Transfer"
 msgstr "Aktar"
 
 #: CRM/Event/Form/SelfSvcUpdate.php
+msgid "Send confirmation email?"
+msgstr "Onay e-postası gönderilsin"
+
+#: CRM/Event/Form/SelfSvcUpdate.php
 msgid "Please select Transfer OR Cancel action."
 msgstr "Lütfen aktarma ya da İptal işlemini seçin."
+
+#: CRM/Event/Form/SelfSvcUpdate.php
+msgid "Event registration for %1 has been cancelled."
+msgstr "%1 için etkinlik kaydı iptal edildi."
 
 #: CRM/Event/Form/Task/Badge.php
 msgid "Make Name Badges"
 msgstr "Yaka kartlarını oluştur"
+
+#: CRM/Event/Form/Task/Badge.php
+msgid "Name Badge Format"
+msgstr ""
 
 #: CRM/Event/Form/Task/Batch.php CRM/Event/Form/Task/PickProfile.php
 #: CRM/Event/Task.php
@@ -2005,6 +2005,36 @@ msgstr "Birden çok katılımcıyı güncellemek için, yalnızca \"Katılımcı
 msgid "Print Participant List"
 msgstr "Katılımcı listesini yazdır"
 
+#: CRM/Event/Form/Task/Register.php
+msgid ""
+"%1 contacts were already registered for this event, but have been added a "
+"second time."
+msgstr ""
+
+#: CRM/Event/Form/Task/Register.php
+msgid ""
+"%1 contacts have already been assigned to this event. They were not added a "
+"second time."
+msgstr "%1 kişi zaten bu etkinliğe eklenmiş. İkinci kez eklenmeyecekler."
+
+#: CRM/Event/Form/Task/Register.php
+msgid "No participants were added."
+msgstr "Herhangi bir katılımcı eklenmedi."
+
+#: CRM/Event/Form/Task/Register.php
+msgid "Total Participant(s) added to event: %1."
+msgstr "Etkinliğe eklenmiş toplam katılımcı sayısı: %1."
+
+#: CRM/Event/Form/Task/Register.php
+msgid ""
+"Email has NOT been sent to %1 contact(s) - communication preferences specify"
+" DO NOT EMAIL OR valid Email is NOT present. "
+msgstr "E-posta %1 kişiye GÖNDERİLEMEDİ. E-posta adresi YOK ya da iletişim tercihi olarak POSTA GÖNDERİLMESİN seçilmiş."
+
+#: CRM/Event/Form/Task/Register.php
+msgid "A confirmation email has been sent to ALL participants"
+msgstr "TÜM katılımcılara onay e-postası gönderildi"
+
 #: CRM/Event/ICalendar.php
 msgid "View %1 Details"
 msgstr "%1 ayrıntılarını görüntüle"
@@ -2036,6 +2066,10 @@ msgstr "Katılımcı kimliği geçersiz"
 #: CRM/Event/Import/Parser/Participant.php
 msgid "Contact id is not valid"
 msgstr "Kişi kimliği geçersiz"
+
+#: CRM/Event/Info.php CRM/Event/Page/DashBoard.php
+msgid "CiviEvent"
+msgstr ""
 
 #: CRM/Event/Info.php
 msgid "CiviCRM Event Engine"
@@ -2209,10 +2243,6 @@ msgstr "Katılımcı listeleme kodu dosyası: %1 bulunamadı. Lütfen CiviCRM y�
 msgid "View Participant"
 msgstr "Katılımcıyı görüntüle"
 
-#: CRM/Event/Page/Tab.php
-msgid "Delete Participant"
-msgstr "Katılımcıyı sil"
-
 #: CRM/Event/ParticipantTokens.php
 msgid "Event Balance"
 msgstr "Etkinlik bakiyesi"
@@ -2244,6 +2274,11 @@ msgstr "Katılımı sil"
 #: CRM/Event/Selector/Search.php templates/CRM/Event/Form/ParticipantView.tpl
 msgid "Transfer or Cancel"
 msgstr "Aktar ya da iptal et"
+
+#: CRM/Event/Selector/Search.php templates/CRM/Event/Form/SelfSvcTransfer.tpl
+#: templates/CRM/Event/Form/SelfSvcUpdate.tpl
+msgid "Registered"
+msgstr ""
 
 #: CRM/Event/Selector/Search.php templates/CRM/Event/Page/UserDashboard.tpl
 msgid "Event Date(s)"
@@ -2290,12 +2325,52 @@ msgid "Event Contact Email"
 msgstr "Etkinlik ilgilisinin e-posta adresi"
 
 #: CRM/Event/Tokens.php
+msgid "Event Contact Email 2"
+msgstr "Etkinlik ilgilisinin 2. e-posta adresi"
+
+#: CRM/Event/Tokens.php
 msgid "Event Contact Phone"
 msgstr "Etkinlik ilgilisinin telefonu"
+
+#: CRM/Event/Tokens.php
+msgid "Event Contact Phone Extension"
+msgstr "Etkinlik ilgilisinin dahili telefonu"
+
+#: CRM/Event/Tokens.php
+msgid "Event Contact Phone 2"
+msgstr "Etkinlik ilgilisinin 2. telefonu"
+
+#: CRM/Event/Tokens.php
+msgid "Event Contact Phone 2 Extension"
+msgstr "Etkinlik ilgilisinin 2. dahili telefonu"
 
 #: CRM/Event/WorkflowMessage/EventExamples.php
 msgid "Completed Registration"
 msgstr "Tamamlanmış kayıt"
+
+#: CRM/Event/WorkflowMessage/EventExamples.php
+msgid "primary participant"
+msgstr ""
+
+#: CRM/Event/WorkflowMessage/EventExamples.php
+msgid "Partially Paid Registration"
+msgstr ""
+
+#: CRM/Event/WorkflowMessage/EventExamples.php
+msgid "additional participant"
+msgstr ""
+
+#: ext/civi_event/Civi/Api4/Service/Spec/Provider/EventCreationSpecProvider.php
+msgid "Template on which to base this new event"
+msgstr ""
+
+#: ext/civi_event/Civi/Api4/Service/Spec/Provider/EventGetSpecProvider.php
+msgid "Remaining Participants"
+msgstr ""
+
+#: ext/civi_event/Civi/Api4/Service/Spec/Provider/EventGetSpecProvider.php
+msgid "Maximum participants minus registered participants"
+msgstr ""
 
 #: templates/CRM/Event/Form/EventFees.tpl
 #: templates/CRM/Event/Form/ParticipantView.tpl
@@ -2351,8 +2426,8 @@ msgstr "Otomatik onay e-postası %1 adresine gönderilsin"
 #: templates/CRM/Event/Form/EventFees.tpl
 msgid ""
 "Enter a message you want included at the beginning of the confirmation "
-"email. EXAMPLE: 'Thanks for registering for this event.'"
-msgstr "Onay e-postasının başlangıcına eklenmesini istediğiniz metni yazın. Örnek: \"Etkinliğimize kayıt olduğunuz için teşekkürler.\""
+"email."
+msgstr "Onay e-postasının başlangıcına eklenmesini istediğiniz metni yazın."
 
 #: templates/CRM/Event/Form/EventFees.tpl
 msgid ""
@@ -2585,11 +2660,6 @@ msgid ""
 msgstr "Etkinlik bilgileri, Teşekkürler, (etkinleştirilmiş ise) arkadaşına İlet sayfalarında ve etkinlik onay e-postalarında görüntülenecek sosyal ağ bağlantıları. "
 
 #: templates/CRM/Event/Form/ManageEvent/EventInfo.tpl
-msgid ""
-"Please use only alphanumeric, spaces, hyphens and dashes for event names."
-msgstr "Lütfen etkinlik adlarında yalnızca harf, rakam, boşluk ve tire karakterlerini kullanın."
-
-#: templates/CRM/Event/Form/ManageEvent/EventInfo.tpl
 msgid "Edit Participant Status Options"
 msgstr "Katılımcı durumu seçeneklerini düzenle"
 
@@ -2606,6 +2676,40 @@ msgid ""
 "enter <strong>%1</strong> for the Event ID."
 msgstr "Bu etkinlik etkin olduğunda, menü yönetimi bölümünden ön yüz için etkinlik bilgileri sayfası bağlantısını ekleyebilirsiniz. Menü ögesi olarak <strong>etkinlik bilgileri sayfası</strong>, etkinlik kimliği olarak <strong>%1</strong> yazın."
 
+#: templates/CRM/Event/Form/ManageEvent/Fee.hlp
+msgid ""
+"If this is a paid event and you want users to be able to register and pay "
+"online, select a payment processor to use."
+msgstr "Bu etkinlik ücretli ise ve çevrim içi kayıt ve ödeme işlemleri yapmak istiyorsanız kullanılacak ödeme aracısını seçin."
+
+#: templates/CRM/Event/Form/ManageEvent/Fee.hlp
+msgid ""
+"NOTE: Alternatively, you can enable the <strong>Pay Later</strong> feature "
+"below without setting up a payment processor. All users will then be asked "
+"to submit payment offline (e.g. mail in a check, call in a credit card, "
+"etc.)."
+msgstr "Not: Alternatif olarak, bir ödeme aracısı kullanmadan <strong>sonra ödenecek</strong> seçeneğini kullanabilirsiniz. Bu durumda tüm kullanıcıların ödemelerini çevrim dışı olarak (örneğin çek ile ya da telefon üzerinden kredi kartı ile) istenir."
+
+#: templates/CRM/Event/Form/ManageEvent/Fee.hlp
+msgid ""
+"Text displayed next to the checkbox for the 'pay later' option on the "
+"contribution form. You may include HTML formatting tags."
+msgstr ""
+
+#: templates/CRM/Event/Form/ManageEvent/Fee.hlp
+msgid ""
+"This financial type will be assigned to payments made by participants when "
+"they register online. If using a price set below note that the contribution "
+"record will have this financial type, however line items will be processed "
+"using the actual financial type selected for the price set item."
+msgstr "Çevrim içi kayıt olan katılımcılar tarafından yapılan ödemelere bu mali atanır. Aşağıda fiyat paketlerinden biri kullanıldığında katkı kaydına bu mali türün atanacağını unutmayın. Bununla birlikte tek tek satır ögeleri fiyat paketi ögesinde seçilmiş mali tür kullanılarak işlenir."
+
+#: templates/CRM/Event/Form/ManageEvent/Fee.hlp
+msgid ""
+"Check this box if you want to offer discounted fees based on registration "
+"date (e.g. 'early-registration discounts')."
+msgstr "Kayıt tarihine göre indirimli ücretler sunmak istiyorsanız bu seçeneği işaretleyin (yıllık kayıt indirimi gibi)."
+
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid ""
 "No Payment Processor has been configured / enabled for your site. If this is"
@@ -2616,59 +2720,10 @@ msgid ""
 msgstr "Siteniz için yapılandırılmış ya da etkinleştirilmiş bir \"Ödeme aracısı\" bulunamadı. <strong>Bu etkinlik ücretli ise</strong> ve <strong>çevrim içi kayıt ve ödeme</strong> işlemleri yapmak istiyorsanız bir <a href='%1'>Ödeme aracısı</a> yapılandırmanız gerekir. Ardından bu sayfaya geri dönerek bu etkinlik için ödeme aracısını atayabilirsiniz."
 
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid "Select the currency to be used for event registration."
-msgstr "Etkinlik kaydında kullanılacak para birimini seçin."
-
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid ""
-"If this is a paid event and you want users to be able to register and pay "
-"online, select a payment processor to use."
-msgstr "Bu etkinlik ücretli ise ve çevrim içi kayıt ve ödeme işlemleri yapmak istiyorsanız kullanılacak ödeme aracısını seçin."
-
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid ""
-"NOTE: Alternatively, you can enable the <strong>Pay Later</strong> feature "
-"below without setting up a payment processor. All users will then be asked "
-"to submit payment offline (e.g. mail in a check, call in a credit card, "
-"etc.)."
-msgstr "Not: Alternatif olarak, bir ödeme aracısı kullanmadan <strong>sonra ödenecek</strong> seçeneğini kullanabilirsiniz. Bu durumda tüm kullanıcıların ödemelerini çevrim dışı olarak (örneğin çek ile ya da telefon üzerinden kredi kartı ile) istenir."
-
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid ""
-"Instructions added to Confirmation and Thank-you pages when the user selects"
-" the 'pay later' option (e.g. 'Mail your check to ... within 3 business "
-"days.')."
-msgstr "Kullanıcı \"Sonra ödenecek\" seçeneğini seçtiğinde onay ve teşekkürler sayfalarına eklenecek bilgiler (\"Çekinizi ... adresine 3 iş günü içinde gönderin\" gibi)."
-
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid ""
-"This label is displayed with the list of event fees. When using a Price Set,"
-" this label is the title for the section containing the price fields."
-msgstr "Etkinlik ücretleri ile birlikte görüntülenecek etiket metni. Bir fiyat paketi kullanıldığında, bu etiket fiyat alanlarını içeren bölümün başlığı olarak görüntülenir."
-
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid ""
-"This financial type will be assigned to payments made by participants when "
-"they register online. If using a price set below note that the contribution "
-"record will have this financial type, however line items will be processed "
-"using the actual financial type selected for the price set item."
-msgstr "Çevrim içi kayıt olan katılımcılar tarafından yapılan ödemelere bu mali atanır. Aşağıda fiyat paketlerinden biri kullanıldığında katkı kaydına bu mali türün atanacağını unutmayın. Bununla birlikte tek tek satır ögeleri fiyat paketi ögesinde seçilmiş mali tür kullanılarak işlenir."
-
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid ""
-"No Price Set has been configured / enabled for your site. Price sets allow "
-"you to meet the complex demands of your event registration structure.(e.g. "
-"\"Pay $15 more for lunch.\"). Click <a href='%1'>here</a> if you want to "
-"configure price sets for your site."
-msgstr "Siteniz için henüz bir \"Fiyat paketi\" yapılandırılmamış ya da etkinleştirilmemiş. Fiyat paketlerini kullanarak daha ayrıntılı etkinlik kaydı seçenekleri sunabiliriniz (\"15 lira daha katkıda bulunarak öğle yemeği alabilirsiniz\" gibi). Fiyat paketlerini yapılandırmak için <a href='%1'>buraya tıklayın</a>."
-
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid ""
-"Select a pre-configured Price Set to offer multiple individually priced "
-"options for event registrants. Otherwise, select &quot;-none-&quot; and "
-"enter one or more fee levels in the table below. Create or edit Price Sets "
-"<a href='%1'>here</a>."
-msgstr "Etkinlik katılımcılarına önceden yapılandırılmış ve ayrı ayrı fiyatlandırılmış  birden çok seçenek sunmak için bir \"Fiyat paketi\" seçin. Bunun dışında &quot;-yok-&quot; olarak seçin ve aşağıdaki tabloya bir ya da birkaç ücret düzeyi seçeneği yazın. Fiyat paketlerini <a href='%1'>buraya tıklayarak</a> ayarlayıp düzenleyebilirsiniz."
+"Select a Price Set to offer multiple individually priced options for event "
+"registrants. Otherwise, leave this empty and enter fixed fee levels below."
+msgstr "Etkinliğe kayıt olanlara birden fazla ayrı ayrı fiyatlandırılmış seçenek sunmak için bir fiyat paketi seçin. Yoksa, burayı boş bırakın ve aşağıdaki sabit fiyat düzeylerini yazın."
 
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid "Regular Fees"
@@ -2691,12 +2746,6 @@ msgid ""
 msgstr "Bir fiyat paketinin altında \"Normal ücretler\" yapılandırarak esnek ve ayrıntılı seçenekler sunmak için <a id='memQuickconfig' href='#'>buraya tıklayın</a>."
 
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid ""
-"Check this box if you want to offer discounted fees based on registration "
-"date (e.g. 'early-registration discounts')."
-msgstr "Kayıt tarihine göre indirimli ücretler sunmak istiyorsanız bu seçeneği işaretleyin (yıllık kayıt indirimi gibi)."
-
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid "remove discount set"
 msgstr "indirim paketini kaldır"
 
@@ -2707,13 +2756,6 @@ msgstr "başka bir indirim paketi"
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid "Discounted Fees"
 msgstr "İndirimli ücretler"
-
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid ""
-"Use the table below to enter descriptive labels and amounts for up to ten "
-"discounted event fees for each discount set. <strong>Don't forget to click "
-"'Save' when you are finished.</strong>"
-msgstr "Aşağıdaki tabloya on taneye kadar indirimli ücret düzeyi eklenebilir. <strong>İşlemi tamamladığınızda \"Kayıt\" üzerine tıklamayı unutmayın.</strong>"
 
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid ""
@@ -2963,6 +3005,28 @@ msgid ""
 " up until the event has started."
 msgstr "Kendi kendine iptal ya da aktarım işlemlerinin etkinlik başlangıç zamanından kaç saat öncesine kadar yapılabileceği. Etkinlik başladıktan sonra iptal işlemi yapılabilmesi için saat olarak negatif bir sayı yazın. Etkinlik başlama zamanına kadar iptal ya da aktarım işlemlerinin yapılabilmesi için 0 yazın (ya da boş bırakın)."
 
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
+msgid ""
+"Do you want a registration confirmation email sent automatically to the "
+"user? This email includes event date(s), location and contact information. "
+"For paid events, this email is also a receipt for their payment."
+msgstr "Bu seçenek etkinleştirildiğinde, kullanıcıya bir etkinlik kaydı onay e-postası gönderilir. E-posta içeriğinde etkinlik ile ilgili tarih, konum ve iletişim bilgileri bulunur. Ücretli etkinliklerde e-postaya ödeme alındısı da eklenir."
+
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
+msgid ""
+"You can notify event organizers of each online registration by specifying "
+"one or more email addresses to receive a carbon copy (cc). Multiple email "
+"addresses should be separated by a comma (e.g. jane@example.org, "
+"paula@example.org)."
+msgstr "Çevrim içi kayıt bildirimi kopyasının iletilmesini istediğiniz etkinlik yöneticilerinin e-posta adreslerini yazın. Virgül ile ayırarak birden çok e-posta adresi yazılabilir (örnek ali@ornek.org, ayse@ornek.org)."
+
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
+msgid ""
+"You may specify one or more email addresses to receive a blind carbon copy "
+"(bcc) of the confirmation email. Multiple email addresses should be "
+"separated by a comma (e.g. jane@example.org, paula@example.org)."
+msgstr "Onay bildiriminin gizli kopyasının iletilmesini istediğiniz e-posta adreslerini yazın. Virgül ile ayırarak birden çok e-posta adresi yazılabilir (örnek ali@ornek.org, ayse@ornek.org)."
+
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid "remove profile"
 msgstr "profili kaldır"
@@ -2973,46 +3037,13 @@ msgstr "başka bir profil ekle (sayfanın altına)"
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid ""
-"Change this if you want to use a different profile for additional "
-"participants."
-msgstr "Ek katılımcılar için farklı bir profil kullanmak istiyorsanız bunu değiştirin"
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"Include additional fields on this registration form by selecting and "
-"configuring a CiviCRM Profile to be included at the bottom of the page."
-msgstr "Bir CiviCRM profili seçip yapılandırarak bu etkinlik kayıt formu sayfasının altına yeni alanlar ekleyebilirsiniz."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
 "If you want to provide an Online Registration page for this event, check the"
 " first box below and then complete the fields on this form."
 msgstr "Bu etkinlik için bir çevrim içi kayıt sayfası sunmak isyiyorsanız aşağıdaki ilk seçeneği işaretleyerek formdaki alanları doldurun."
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid "Online registration enabled?"
-msgstr "Çevrim içi kayıt kullanılsın"
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid "Registration Screen"
 msgstr "Kayıt sayfası"
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"Introductory message / instructions for online event registration page (may "
-"include HTML formatting tags)."
-msgstr "Kullanıcılara çevrim içi etkinlik kaydı ile ilgili olarak görüntülenecek açıklayıcı metin (HTML biçimlendirme kodları kullanılabilir)."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid "Optional footer text for registration screen."
-msgstr "Kayıt sayfası için isteğe bağlı alt bilgi metni."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"Include additional fields on this registration form by selecting and "
-"configuring a CiviCRM Profile to be included at the top of the page "
-"(immediately after the introductory message)."
-msgstr "Bir CiviCRM profili seçip yapılandırarak bu etkinlik kayıt formu sayfasının üstüne yeni alanlar ekleyebilirsiniz (açıklama metninden hemen sonra)."
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid "Confirmation Screen"
@@ -3023,76 +3054,16 @@ msgid "Optionally hide the confirmation screen for free events."
 msgstr "Ücretsiz etkinliklerde isteğe bağlı olarak onay sayfası gizlenebilir."
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"Page title for screen where user reviews and confirms their registration "
-"information."
-msgstr "Kullanıcıların yazdıkları kayıt bilgilerini gözden geçirip onaylayacağı sayfanın başlığını yazın."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid "Optional instructions / message for Confirmation screen."
-msgstr "Onay sayfası için isteğe bağlı açıklama ve bilgi metni."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid "Optional page footer text for Confirmation screen."
-msgstr "Onay sayfası için isteğe bağlı alt bilgi metni."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid "Thank-you Screen"
 msgstr "Teşekkür sayfası"
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid "Page title for registration Thank-you screen."
-msgstr "Etkinlik kaydı teşekkür sayfasının başlığını yazın."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid "Optional message for Thank-you screen (may include HTML formatting)."
-msgstr "İsteğe bağlı olarak teşekkür sayfasında görüntülenecek metin (HTML biçimlendirme kodları kullanılabilir)."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"Optional footer text for Thank-you screen (often used to include links to "
-"other pages/activities on your site)."
-msgstr "İsteğe bağlı olarak teşekkür sayfasında görüntülenecek alt bilgi metni (genellikle sitedeki diğer sayfa ve etkinlik bağlantılarını görüntülemek için kullanılır)."
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid "Confirmation Email"
 msgstr "Onay e-postası"
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"Do you want a registration confirmation email sent automatically to the "
-"user? This email includes event date(s), location and contact information. "
-"For paid events, this email is also a receipt for their payment."
-msgstr "Bu seçenek etkinleştirildiğinde, kullanıcıya bir etkinlik kaydı onay e-postası gönderilir. E-posta içeriğinde etkinlik ile ilgili tarih, konum ve iletişim bilgileri bulunur. Ücretli etkinliklerde e-postaya ödeme alındısı da eklenir."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid "Additional message or instructions to include in confirmation email."
 msgstr "Onay sayfası için isteğe bağlı açıklama ve bilgi metni."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid "FROM name for email."
-msgstr "E-postanın \"Kimden\" adı."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"FROM email address (this must be a valid email account with your SMTP email "
-"service provider)."
-msgstr "\"Kimden\" e-posta adresi (e-posta hizmeti sağlayıcınız üzerinde geçerli bir e-posta hesabı olmalıdır)."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"You can notify event organizers of each online registration by specifying "
-"one or more email addresses to receive a carbon copy (cc). Multiple email "
-"addresses should be separated by a comma (e.g. jane@example.org, "
-"paula@example.org)."
-msgstr "Çevrim içi kayıt bildirimi kopyasının iletilmesini istediğiniz etkinlik yöneticilerinin e-posta adreslerini yazın. Virgül ile ayırarak birden çok e-posta adresi yazılabilir (örnek ali@ornek.org, ayse@ornek.org)."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"You may specify one or more email addresses to receive a blind carbon copy "
-"(bcc) of the confirmation email. Multiple email addresses should be "
-"separated by a comma (e.g. jane@example.org, paula@example.org)."
-msgstr "Onay bildiriminin gizli kopyasının iletilmesini istediğiniz e-posta adreslerini yazın. Virgül ile ayırarak birden çok e-posta adresi yazılabilir (örnek ali@ornek.org, ayse@ornek.org)."
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid "- same as for main contact -"
@@ -3216,6 +3187,16 @@ msgstr "Özelleştirilmiş <strong>CANLI</strong> çevrim içi etkinlik kayıt s
 msgid "Public Participant Listing"
 msgstr "Herkese açık katılımcı listeleme"
 
+#: templates/CRM/Event/Form/Participant/Delete.tpl
+msgid ""
+"WARNING: Deleting this registration will result in the loss of related "
+"payment records (if any)."
+msgstr "UYARI: Bu kayıt silinirse, ilgili tüm ödeme kayıtları (varsa) kaybolacak."
+
+#: templates/CRM/Event/Form/Participant/Delete.tpl
+msgid " There are %1 more Participant(s) registered by this participant."
+msgstr "Bu katılımcı tarafından kaydedilmiş %1 katılımcı var."
+
 #: templates/CRM/Event/Form/Participant.tpl
 msgid "submit credit card event registration"
 msgstr "kredi kartı etkinlik kaydını gönder"
@@ -3225,23 +3206,6 @@ msgid ""
 "Use this form to submit an event registration on behalf of %1. <strong>A %2 "
 "transaction will be submitted</strong> using the selected payment processor."
 msgstr "Bu formu kullanarak %1 adına bir etkinliğe kayıt olabilirsiniz. Seçilmiş ödeme aracısı kullanılarak <strong>bir %2 hesap hareketi gönderilecek</strong>."
-
-#: templates/CRM/Event/Form/Participant.tpl
-msgid ""
-"If you are accepting offline payment from this participant, check "
-"<strong>Record Payment</strong>. You will be able to fill in the payment "
-"information, and optionally send a receipt."
-msgstr "Bu katılımcıdan çevrim dışı ödemeleri kabul ediyorsanız <strong>Ödeme kaydet</strong> seçeneğini işaretleyin. Böylece ödeme bilgilerini yazarak isteğe bağlı bir alındı gönderebilirsiniz."
-
-#: templates/CRM/Event/Form/Participant.tpl
-msgid ""
-"WARNING: Deleting this registration will result in the loss of related "
-"payment records (if any)."
-msgstr "UYARI: Bu kayıt silinirse, ilgili tüm ödeme kayıtları (varsa) kaybolacak."
-
-#: templates/CRM/Event/Form/Participant.tpl
-msgid " There are %1 more Participant(s) registered by this participant."
-msgstr "Bu katılımcı tarafından kaydedilmiş %1 katılımcı var."
 
 #: templates/CRM/Event/Form/Participant.tpl
 #: templates/CRM/Event/Form/ParticipantView.tpl
@@ -3262,10 +3226,6 @@ msgstr "Kayıt eden"
 #: templates/CRM/Event/Form/ParticipantView.tpl
 msgid "view primary participant"
 msgstr "birincil katılımcıyı görüntüle"
-
-#: templates/CRM/Event/Form/Participant.tpl
-msgid "Source for this registration (if applicable)."
-msgstr "Bu kayıt için kaynaklar (varsa)."
 
 #: templates/CRM/Event/Form/ParticipantFeeSelection.tpl
 msgid "Change Registration Selections"
@@ -3299,16 +3259,8 @@ msgid "Configure this event"
 msgstr "Bu etkinliği yapılandır"
 
 #: templates/CRM/Event/Form/ParticipantView.tpl
-msgid "Registration Date and Time"
-msgstr "Kayıt tarih ve saati"
-
-#: templates/CRM/Event/Form/ParticipantView.tpl
 msgid "View this Participant"
 msgstr "Bu katılımcıyı görüntüle"
-
-#: templates/CRM/Event/Form/ParticipantView.tpl
-msgid "Event Source"
-msgstr "Etkinlik kaynağı"
 
 #: templates/CRM/Event/Form/Registration/AdditionalParticipant.tpl
 msgid "Total Participants : %1"
@@ -3319,46 +3271,32 @@ msgid "Event Availability : %1"
 msgstr "Etkinliğin uygunluğu : %1"
 
 #: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid ""
-"Please verify the information below. <span class=\"bold\">Then click "
-"'Continue' to be added to the WAIT LIST for this event</span>. If space "
-"becomes available you will receive an email with a link to a web page where "
-"you can complete your registration."
-msgstr "Lütfen aşağıdaki bilgileri denetleyin. <span class=\"bold\">BEKLEME LİSTESİNE eklenmek için \"İlerle\" üzerine tıklayın</span>. Katılımınız onaylandığında kayıt işlemini tamamlayabileceğiniz site sayfası bağlantısını içeren bir e-posta alacaksınız."
+msgid "Please verify your information."
+msgstr "Lütfen bilgilerinizi doğrulayın."
 
 #: templates/CRM/Event/Form/Registration/Confirm.tpl
 msgid ""
-"Please verify the information below. Then click 'Continue' to submit your "
-"registration. <span class=\"bold\">Once approved, you will receive an email "
-"with a link to a web page where you can complete the registration "
-"process.</span>"
-msgstr "Lütfen aşağıdaki bilgileri denetleyin ve kaydınızı göndermek için \"İlerle\" üzerine tıklayın. <span class=\"bold\">Katılımınız onaylandığında kayıt işlemini tamamlayabileceğiniz site sayfası bağlantısını içeren bir e-posta alacaksınız.</span>"
+"If space becomes available you will receive an email with a link to complete"
+" your registration."
+msgstr "Yer açıldığında, kayıt işlemini tamamlayabileceğiniz bağlantıyı bulabileceğiniz bir e-posta alacaksınız."
+
+#: templates/CRM/Event/Form/Registration/Confirm.tpl
+msgid "Click <strong>%1</strong> to be added to the WAIT LIST for this event."
+msgstr "Bu etkinliğin BEKLEME LİSTESİNE eklenmek için <strong>%1</strong> üzerine tıklayın."
 
 #: templates/CRM/Event/Form/Registration/Confirm.tpl
 msgid ""
-"Please verify the information below. Click the <strong>Go Back</strong> "
-"button below if you need to make changes."
-msgstr "Lütfen aşağıdaki bilgileri denetleyin. Değişiklik yapmanız gerekiyorsa <strong>Geri dön</strong> üzerine tıklayın."
+"Once approved, you will receive an email with a link to complete the "
+"registration process."
+msgstr "Onaylandığında, kayıt işlemini tamamlayabileceğiniz bağlantıyı bulabileceğiniz bir e-posta alacaksınız."
 
 #: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid ""
-"Click the <strong>Continue</strong> button to checkout to %1, where you will"
-" select your payment method and complete the registration."
-msgstr "%1 üzerinden ödeme yöntemini seçmek ve kaydınızı tamamlamak için <strong>İlerle</strong> üzerine tıklayın."
+msgid "Click <strong>%1</strong> to submit your registration for approval."
+msgstr "Kaydınızı onaya göndermek için <strong>%1</strong> üzerine tıklayın."
 
 #: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid ""
-"Otherwise, click the <strong>Continue</strong> button below to complete your"
-" registration."
-msgstr "Tüm bilgiler doğruysa kaydınızı tamamlamak için <strong>İlerle</strong> üzerine tıklayın."
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid ""
-"Your registration will not be submitted until you click the "
-"<strong>Continue</strong> button. Please click the button one time only. If "
-"you need to change any details, click the Go Back button below to return to "
-"the previous screen."
-msgstr "<strong>İlerle</strong> üzerine tıkladığınızda kaydınız gönderilir. Lütfen bu düğmeye yalnızca bir kez tıklayıp bekleyin. Bilgilerinizde değişik yapmanız gerekiyorsa aşağıdaki \"Geri dön\" üzerine tıklayarak önceki sayfaya dönebilirsiniz."
+msgid "Payment details"
+msgstr "Ödeme bilgileri"
 
 #: templates/CRM/Event/Form/Registration/DisplayProfile.tpl
 msgid "Participant 1"
@@ -3369,8 +3307,6 @@ msgid "Participant Information"
 msgstr "Katılımcı bilgileri"
 
 #: templates/CRM/Event/Form/Registration/DisplayProfile.tpl
-#: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 msgid "Participant %1"
@@ -3425,7 +3361,6 @@ msgstr "Bu sayfadaki kayıt bilgilerini doldurun. Ek kişiler kaydedecekseniz, o
 
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 msgid "You have been added to the WAIT LIST for this event."
@@ -3433,7 +3368,6 @@ msgstr "Bu etkinliğin BEKLEME LİSTESİNE eklendiniz."
 
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 msgid ""
@@ -3443,7 +3377,6 @@ msgstr "Yer açıldığında, kayıt işlemini tamamlayabileceğiniz site sayfas
 
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 msgid "Your registration has been submitted."
@@ -3451,7 +3384,6 @@ msgstr "Kaydınız alındı."
 
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 msgid ""
@@ -3462,16 +3394,6 @@ msgstr "Kaydınız onaylandığında kayıt işlemini tamamlayabileceğiniz site
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
 msgid "An email with event details has been sent to %1."
 msgstr "%1 adresine etkinlik ayrıntılarını içeren bir e-posta gönderildi."
-
-#: templates/CRM/Event/Form/Registration/ThankYou.tpl
-msgid "Your registration payment has been submitted to %1 for processing."
-msgstr "Etkinlik kaydınız işlenmesi için %1 üzerine gönderildi."
-
-#: templates/CRM/Event/Form/Registration/ThankYou.tpl
-msgid ""
-"A registration confirmation email will be sent to %1 once the transaction is"
-" processed successfully."
-msgstr "Hesap hareketi tamamlandığında %1 adresine bir kayıt onayı e-postası gönderilecek."
 
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
 msgid "Your registration has been processed successfully."
@@ -3514,10 +3436,6 @@ msgstr "Bu değer, fiyat paketi alanlarını kullanan etkinliklerdeki katılımc
 #: templates/CRM/Event/Form/SearchEvent.tpl
 msgid "Find Events"
 msgstr "Etkinlik arama"
-
-#: templates/CRM/Event/Form/SearchEvent.tpl
-msgid "Complete OR partial Event name."
-msgstr "Etkinlik adının tamamı YA DA bir bölümü."
 
 #: templates/CRM/Event/Form/Selector.tpl
 msgid "List participants for this event (all statuses)"
@@ -3606,6 +3524,10 @@ msgid ""
 "associated with these participations."
 msgstr "Seçilmiş katılım kayıtlarını silmek istediğinize emin misiniz? Silme işlemi geri alınamaz ve bu katılım kayıtları ile ilişkili tüm hesap hareketi ve işlemler de silinir."
 
+#: templates/CRM/Event/Form/Task/Delete.tpl templates/CRM/Event/Form/Task.tpl
+msgid "Number of selected participants: %1"
+msgstr "Seçilmiş katılımcı sayısı: %1"
+
 #: templates/CRM/Event/Form/Task/ParticipantStatus.hlp
 msgid "Enabling Waitlisting and Registration Approval"
 msgstr "Bekleme listesi ve kayıt onayı etkinleştiriliyor"
@@ -3641,81 +3563,6 @@ msgid ""
 "NOTE: Contacts selected on the search results are not relevant here; all "
 "contacts that meet the following criteria will be in the group."
 msgstr "Not: Arama sonuçlarından seçilmiş kişiler burası ile ilişkili değil. Şu ölçütü karşılayan tüm kişiler gruba eklenir."
-
-#: templates/CRM/Event/Form/Task.tpl
-msgid "Number of selected participants: %1"
-msgstr "Seçilmiş katılımcı sayısı: %1"
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid "Required Participant Data"
-msgstr "Zorunlu katılımcı bilgileri"
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid "Participant import data MUST include the following columns:"
-msgstr "Alınacak katılımcı verilerinde şu sütunlar BULUNMALIDIR:"
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid ""
-"Event Title OR Event ID (a unique integer assigned by CiviEvent, displayed "
-"in the Manage Events listing)"
-msgstr "Etkinlik başlığı YA DA etkinlik kimliği (etkinlik yönetimi listelerinde görüntülenen ve CiviEvent tarafından belirlenen benzersiz bir tam sayı)"
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid "Participant Status (ie. Registered, Attended, Cancelled, etc.)"
-msgstr "Katılımcı durumu (kayıt oldu, katıldı, iptal edildi gibi)."
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid ""
-"The event's default Participant Role (usually Attendee) will be assigned if "
-"you do not include a value for role. Valid values for Status and Role can be"
-" found in the CiviEvent section of the Administer CiviCRM screen. You can "
-"also import Fee Level, Registration Date and any other standard or custom "
-"Participant fields."
-msgstr "Rol için bir değer belirtilmemiş ise etkinliğin varsayılan katılımcı rolü (genellikle katılımcı) kullanılır. Durum ve rol için geçerli değerler \"Yönetim\" > \"CiviEvent\" bölümünde bulunabilir. Ayrıca ücret düzeyi, kayıt tarihi ve diğer standart ya da özel alanlardaki veriler içe aktarılabilir."
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid "Contact Records for Event Participants"
-msgstr "Etkinlik katılımcıları için kişi kayıtları"
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid ""
-"Participant import requires that each person, household or organization "
-"already exists as a contact record in your CiviCRM database. If you need to "
-"import participant information for contact records which haven't been added "
-"to CiviCRM yet - you will do this in 2 steps. First, use <strong>Import "
-"Contacts</strong> to add the contact records. If possible, include a unique "
-"'External ID' for each new contact which you can then use to match "
-"participant info such as event registration to the corresponding contact "
-"record. Then return to this screen and import the participant records."
-msgstr "Katılımcı kayıtlarını içe aktarabilmek için, önceden CiviCRM veri tabanında her bir kişi, hane halkı ya da kuruluşla ilgili bir kişi kaydı bulunmalıdır. Henüz CiviCRM üzerinde kişi kaydı bulunmayan katılımcı bilgilerini içe aktarmanız gerekiyorsa, bu işlemi 2 adımda yapabilirsiniz. Önce kişi kayıtlarını eklemek için <strong>Kişileri içe aktarın</strong>. Olabiliyorsa her kişi kaydına etkinlik kayıtları ile kişileri eşleştirebilmek için bir \"Dış kimlik\" ekleyin. Ardından bu sayfaya geri dönerek katılımcı kayıtlarını içe aktarın."
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid "Matching Participant Data to Contacts"
-msgstr "Katılımcı kayıtları ile kişi kayıtlarını eşleştirme"
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid ""
-"Participant import files must contain data needed to <strong>match the "
-"participant to a contact record in your CiviCRM database</strong>. This "
-"'matching' can be handled in several different ways:"
-msgstr "Katılımcı bilgilerinin içe aktarılacağı dosyada <strong>katılımcı kayıtları ile CiviCRM üzerindeki kişi kayıtlarını eşleştirecek</strong> bir veri bulunmalıdır. Bu \"eşleştirme\" birkaç şekilde yapılabilir:"
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid ""
-"If you've stored a unique <strong>External Identifier</strong> for each "
-"contact in CiviCRM, you can include that value as a column in your import "
-"file. Participant data will then be matched to contact records using their "
-"External ID. Please note that you must use an \"On Duplicate Entries\" "
-"setting of \"Skip\" or \"No Duplicate Checking\" to be able to upload using "
-"the External ID field."
-msgstr "CiviCRM içinde her bir kişi kaydı için bir <strong>Dış kimlik</strong> değeri varsa, bu değeri içe aktaracağınız dosyada bir sütuna ekleyebilirsiniz. Katılımcı kayıtları ile kişi kayıtları bu dış kimliğe göre eşleştirilerek içe aktarılır. Dış kimlik alanını kullanarak bilgileri yükleyebilmek için \"Çift kayıtlar\" seçeneğinin \"Atlansın\" ya da \"Çift kayıtlar ayıklanmasın\" şeklinde ayarlanması gerekir."
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid ""
-"Save the CSV file with your participant data and 'contact matching' data to "
-"your local hard drive (or an accessible drive on your network) - and you are"
-" now ready for step 1 (Upload Data)."
-msgstr "Katılımcı ve \"kişi eşleştirme\" verilerinin bulunduğu CSV dosyasını bilgisayarınıza (ya da ağdan erişebildiğiniz bir yere) kaydedin. Böylece 1. adım (verileri yükleme) için hazır olursunuz."
 
 #: templates/CRM/Event/Import/Form/DataSource.hlp
 msgid ""
@@ -4035,10 +3882,9 @@ msgid "You are not registered for any current or upcoming Events."
 msgstr "Herhangi bir güncel ya da yaklaşan etkinlik için kaydınız yok."
 
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
-#: xml/templates/message_templates/event_online_receipt_text.tpl
-msgid "Participant Information - Participant %1"
-msgstr "Katılımcı bilgileri - Katılımcı %1"
+#: xml/templates/message_templates/event_online_receipt_html.tpl
+msgid "Total for %1"
+msgstr ""
 
 #: xml/templates/message_templates/event_offline_receipt_subject.tpl
 msgid "Event Confirmation"
@@ -4052,14 +3898,14 @@ msgstr "Kayıt olduğunuz için teşekkürler."
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 msgid ""
 "This is a confirmation that your registration has been received and your "
-"status has been updated to <strong> %1</strong>."
-msgstr "Bu ileti kaydınızın alındığını ve durumunuzun <strong> %1</strong> olarak değiştirildiğini bildirmek için gönderilmiştir."
+"status has been updated to<strong> %1</strong>."
+msgstr ""
 
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 msgid ""
 "This is a confirmation that your registration has been received and your "
-"status has been updated to <strong>waitlisted</strong>."
-msgstr "Bu ileti kaydınızın alındığını ve durumunuzun <strong>bekleme listesinde</strong> olarak değiştirildiğini bildirmek için gönderilmiştir."
+"status has been updated to<strong>waitlisted</strong>."
+msgstr ""
 
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 msgid ""
@@ -4068,24 +3914,8 @@ msgid ""
 msgstr "Bu ileti kaydınızın alındığını ve durumunuzun <strong>kayıt edildi</strong> olarak değiştirildiğini bildirmek için gönderilmiştir."
 
 #: xml/templates/message_templates/event_online_receipt_html.tpl
-#: xml/templates/message_templates/event_online_receipt_text.tpl
-#: xml/templates/message_templates/participant_confirm_html.tpl
-#: xml/templates/message_templates/participant_confirm_text.tpl
-msgid "Your schedule:"
-msgstr "Zamanlamanız:"
-
-#: xml/templates/message_templates/event_online_receipt_html.tpl
 msgid "You were registered by:"
 msgstr "Sizi kayıt eden:"
-
-#: xml/templates/message_templates/event_online_receipt_html.tpl
-#: xml/templates/message_templates/event_online_receipt_text.tpl
-msgid "Participant Total"
-msgstr "Katılımcı toplamı"
-
-#: xml/templates/message_templates/event_online_receipt_html.tpl
-msgid " Amount Before Tax: "
-msgstr "Vergi hariç tutar:"
 
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
@@ -4126,6 +3956,18 @@ msgid ""
 "This is a confirmation that your registration has been received and your "
 "status has been updated to registered."
 msgstr "Bu ileti kaydınızın alındığını ve durumunuzun kayıt edildi olarak değiştirildiğini bildirmek için gönderilmiştir."
+
+#: xml/templates/message_templates/event_online_receipt_text.tpl
+msgid "Email "
+msgstr "E-posta"
+
+#: xml/templates/message_templates/event_online_receipt_text.tpl
+msgid "Participant Total"
+msgstr "Katılımcı toplamı"
+
+#: xml/templates/message_templates/event_online_receipt_text.tpl
+msgid "Participant Information - Participant %1"
+msgstr "Katılımcı bilgileri - Katılımcı %1"
 
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 #: xml/templates/message_templates/participant_confirm_text.tpl
@@ -4187,90 +4029,12 @@ msgstr "%1 etkinlik kaydı aktarıldı"
 msgid "Your Event Registration has been transferred to %1."
 msgstr "Etkinlik kaydınız %1 üzerine aktarıldı."
 
-#: CRM/Event/BAO/Event.php
-msgid "- all -"
-msgstr "- Tümü -"
-
-#: CRM/Event/Form/ManageEvent/Registration.php
-msgid "Please enter Registration Link Text"
-msgstr "Lütfen kayıt bağlantısı metnini yazın"
-
-#: CRM/Event/Form/SelfSvcTransfer.php
-msgid "%1 is already registered for this event"
-msgstr "%1 bu etkinlik için zaten kayıt olmuş"
-
-#: CRM/Event/Form/SelfSvcUpdate.php
-msgid "Send confirmation email?"
-msgstr "Onay e-postası gönderilsin"
-
-#: CRM/Event/Form/SelfSvcUpdate.php
-msgid "Event registration for %1 has been cancelled."
-msgstr "%1 için etkinlik kaydı iptal edildi."
-
-#: CRM/Event/Tokens.php
-msgid "Event Contact Email 2"
-msgstr "Etkinlik ilgilisinin 2. e-posta adresi"
-
-#: CRM/Event/Tokens.php
-msgid "Event Contact Phone Extension"
-msgstr "Etkinlik ilgilisinin dahili telefonu"
-
-#: CRM/Event/Tokens.php
-msgid "Event Contact Phone 2"
-msgstr "Etkinlik ilgilisinin 2. telefonu"
-
-#: CRM/Event/Tokens.php
-msgid "Event Contact Phone 2 Extension"
-msgstr "Etkinlik ilgilisinin 2. dahili telefonu"
-
-#: templates/CRM/Event/Form/EventFees.tpl
+#: xml/templates/message_templates/event_online_receipt_html.tpl
 msgid ""
-"Enter a message you want included at the beginning of the confirmation "
-"email."
-msgstr "Onay e-postasının başlangıcına eklenmesini istediğiniz metni yazın."
+" 2=$selfservice_preposition}You may transfer your registration to another "
+"participant or cancel your registration up to %1 hours %2 the event."
+msgstr ""
 
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid ""
-"Select a Price Set to offer multiple individually priced options for event "
-"registrants. Otherwise, leave this empty and enter fixed fee levels below."
-msgstr "Etkinliğe kayıt olanlara birden fazla ayrı ayrı fiyatlandırılmış seçenek sunmak için bir fiyat paketi seçin. Yoksa, burayı boş bırakın ve aşağıdaki sabit fiyat düzeylerini yazın."
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid "Please verify your information."
-msgstr "Lütfen bilgilerinizi doğrulayın."
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid ""
-"If space becomes available you will receive an email with a link to complete"
-" your registration."
-msgstr "Yer açıldığında, kayıt işlemini tamamlayabileceğiniz bağlantıyı bulabileceğiniz bir e-posta alacaksınız."
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid "Click <strong>%1</strong> to be added to the WAIT LIST for this event."
-msgstr "Bu etkinliğin BEKLEME LİSTESİNE eklenmek için <strong>%1</strong> üzerine tıklayın."
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid ""
-"Once approved, you will receive an email with a link to complete the "
-"registration process."
-msgstr "Onaylandığında, kayıt işlemini tamamlayabileceğiniz bağlantıyı bulabileceğiniz bir e-posta alacaksınız."
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid "Click <strong>%1</strong> to submit your registration for approval."
-msgstr "Kaydınızı onaya göndermek için <strong>%1</strong> üzerine tıklayın."
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid "Click <strong>%1</strong> to checkout with %2."
-msgstr "%2 ile ödeme yapmak için <strong>%1</strong> üzerine tıklayın."
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid "Click <strong>%1</strong> to complete your registration."
-msgstr "Kaydınızı tamamlamak için <strong>%1</strong> üzerine tıklayın."
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid "Payment details"
-msgstr "Ödeme bilgileri"
-
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
-msgid "Email "
-msgstr "E-posta"
+#: xml/templates/message_templates/participant_cancelled_subject.tpl
+msgid "\"}Event Registration Cancelled for %1"
+msgstr ""
