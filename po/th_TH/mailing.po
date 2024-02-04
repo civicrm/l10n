@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2023-06-17 15:56-0400\n"
+"POT-Creation-Date: 2024-02-03 10:37-0500\n"
 "PO-Revision-Date: 2011-03-28 14:20+0000\n"
 "Last-Translator: Mathieu Lu <mathieu@bidon.ca>, 2024\n"
 "Language-Team: Thai (Thailand) (http://app.transifex.com/civicrm/civicrm/language/th_TH/)\n"
@@ -56,11 +56,11 @@ msgid "Resubscribe URL (Action)"
 msgstr "URL สำหรับการสมัครเป็นสมาชิกอีกครั้ง (ดำเนินการ)"
 
 #: CRM/Mailing/ActionTokens.php CRM/Mailing/Event/DAO/MailingEventBounce.php
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
 #: CRM/Mailing/Event/DAO/MailingEventDelivered.php
 #: CRM/Mailing/Event/DAO/MailingEventForward.php
 #: CRM/Mailing/Event/DAO/MailingEventOpened.php
 #: CRM/Mailing/Event/DAO/MailingEventReply.php
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
 #: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "Event Queue ID"
 msgstr "รหัสคิวกิจกรรม"
@@ -96,8 +96,8 @@ msgstr "ข้อความนี้ไม่มีโทเค็นที่
 msgid "Opt-Out"
 msgstr "เลือกไม่รับ"
 
-#: CRM/Mailing/BAO/Mailing.php ang/crmMailing/BlockReview.html
-#: ang/crmMailingAB/EditCtrl/report.html
+#: CRM/Mailing/BAO/Mailing.php ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 #: templates/CRM/Mailing/Page/Resubscribe.tpl
 msgid "Resubscribe"
 msgstr "สมัครสมาชิกใหม่อีกครั้ง"
@@ -189,7 +189,8 @@ msgid "Unsubscribe Requests"
 msgstr "คำขอยกเลิกการสมัครสมาชิก"
 
 #: CRM/Mailing/BAO/Query.php CRM/Mailing/Selector/Event.php
-#: ang/crmMailing/services.js templates/CRM/Mailing/Page/Report.tpl
+#: ext/civi_mail/ang/crmMailing/services.js
+#: templates/CRM/Mailing/Page/Report.tpl
 msgid "Forwards"
 msgstr "การส่งต่อ"
 
@@ -213,7 +214,7 @@ msgstr "ประเภทการตีกลับ"
 msgid "Trackable Opens"
 msgstr "การเปิดที่ติดตามได้"
 
-#: CRM/Mailing/BAO/Query.php CRM/Mailing/DAO/TrackableURL.php
+#: CRM/Mailing/BAO/Query.php
 msgid "Trackable URLs"
 msgstr "URL ที่ติดตามได้"
 
@@ -403,8 +404,10 @@ msgstr "การติดตาม URL"
 msgid "Should we track URL click-throughs for this mailing?"
 msgstr "เราควรติดตามการคลิกผ่าน URL สำหรับการส่งจดหมายนี้หรือไม่"
 
-#: CRM/Mailing/DAO/Mailing.php ang/crmMailing/BlockResponses.html
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: CRM/Mailing/DAO/Mailing.php
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Forward Replies"
 msgstr "ส่งต่อการตอบกลับ"
 
@@ -534,7 +537,8 @@ msgstr "การส่งจดหมายถูกเก็บถาวรห
 msgid "Is this mailing archived?"
 msgstr "การส่งจดหมายนี้ถูกเก็บถาวรหรือไม่"
 
-#: CRM/Mailing/DAO/Mailing.php ang/crmMailing/BlockPublication.html
+#: CRM/Mailing/DAO/Mailing.php
+#: ext/civi_mail/ang/crmMailing/BlockPublication.html
 msgid "Mailing Visibility"
 msgstr "การมองเห็นการส่งจดหมาย"
 
@@ -816,6 +820,10 @@ msgid "Is this job for a test mail?"
 msgstr "นี่เป็นงานสำหรับใช้ทดสอบอีเมลหรือไม่"
 
 #: CRM/Mailing/DAO/MailingJob.php
+msgid "Test Mailing"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingJob.php
 msgid "Mailing Job Type"
 msgstr "ประเภทงานในการส่งจดหมาย"
 
@@ -872,6 +880,27 @@ msgstr "คีย์นอกไปยังอีเมล"
 msgid "FK to Phone"
 msgstr "คีย์นอกไปยังโทรศัพท์"
 
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+msgid "Mailing Links"
+msgstr "ลิงก์จดหมาย"
+
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Mailing Link"
+msgstr "ลิงก์จดหมาย"
+
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+msgid "Trackable URL ID"
+msgstr "รหัส URL ที่ติดตามได้"
+
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+msgid "The URL to be tracked."
+msgstr "URL ที่จะทำการติดตาม"
+
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+msgid "FK to the mailing"
+msgstr "คีย์นอกไปยังการส่งจดหมาย"
+
 #: CRM/Mailing/DAO/Spool.php
 msgid "Spools"
 msgstr ""
@@ -920,22 +949,6 @@ msgstr "วันที่ที่มีการเพิ่มงานนี
 msgid "date on which this job was removed."
 msgstr "วันที่ที่งานนี้ถูกลบ"
 
-#: CRM/Mailing/DAO/TrackableURL.php
-msgid "Trackable URL"
-msgstr "URL ที่ติดตามได้"
-
-#: CRM/Mailing/DAO/TrackableURL.php
-msgid "Trackable URL ID"
-msgstr "รหัส URL ที่ติดตามได้"
-
-#: CRM/Mailing/DAO/TrackableURL.php
-msgid "The URL to be tracked."
-msgstr "URL ที่จะทำการติดตาม"
-
-#: CRM/Mailing/DAO/TrackableURL.php
-msgid "FK to the mailing"
-msgstr "คีย์นอกไปยังการส่งจดหมาย"
-
 #: CRM/Mailing/Event/BAO/MailingEventBounce.php
 msgid "Unknown bounce type: Could not parse bounce email"
 msgstr "ประเภทการตีกลับที่ไม่รู้จัก: ไม่สามารถแยกองค์ประกอบอีเมลที่ถูกตีกลับได้"
@@ -975,11 +988,11 @@ msgid "Bounce ID"
 msgstr "รหัสการตีกลับ"
 
 #: CRM/Mailing/Event/DAO/MailingEventBounce.php
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
 #: CRM/Mailing/Event/DAO/MailingEventDelivered.php
 #: CRM/Mailing/Event/DAO/MailingEventForward.php
 #: CRM/Mailing/Event/DAO/MailingEventOpened.php
 #: CRM/Mailing/Event/DAO/MailingEventReply.php
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
 #: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "FK to EventQueue"
 msgstr "คีย์นอกไปยังคิวกิจกรรม"
@@ -995,34 +1008,6 @@ msgstr "สาเหตุที่อีเมลถูกตีกลับ"
 #: CRM/Mailing/Event/DAO/MailingEventBounce.php
 msgid "When this bounce event occurred."
 msgstr "ช่วงเวลาที่เกิดการตีกลับนี้"
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Mailing Event Click Throughs"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Mailing Event Click Through"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Trackable URL Open ID"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Trackable Url ID"
-msgstr "รหัส Url ที่ติดตามได้"
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "FK to TrackableURL"
-msgstr "คีย์นอกไปยัง URL ที่ติดตามได้"
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Trackable Url"
-msgstr "Url ที่ติดตามได้"
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "When this trackable URL open occurred."
-msgstr ""
 
 #: CRM/Mailing/Event/DAO/MailingEventConfirm.php
 msgid "Mailing Opt-In Confirmations"
@@ -1127,6 +1112,10 @@ msgid "Mailing Job"
 msgstr "งานในการส่งจดหมาย"
 
 #: CRM/Mailing/Event/DAO/MailingEventQueue.php
+msgid "Related mailing. Used for reporting on mailing success, if present."
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
 msgid "Security Hash"
 msgstr ""
 
@@ -1170,6 +1159,30 @@ msgstr "การประทับเวลาการสมัครรับ
 #: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
 msgid "When this subscription event occurred."
 msgstr "ช่วงเวลาของการสมัครรับจดหมาย"
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Mailing Link Clickthroughs"
+msgstr "การคลิกลิงก์จดหมาย"
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Mailing Link Clickthrough"
+msgstr "การคลิกลิงก์จดหมาย"
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Trackable URL Open ID"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Trackable Url ID"
+msgstr "รหัส Url ที่ติดตามได้"
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "FK to TrackableURL"
+msgstr "คีย์นอกไปยัง URL ที่ติดตามได้"
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "When this trackable URL open occurred."
+msgstr ""
 
 #: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "Mailing Unsubscribes"
@@ -1271,9 +1284,13 @@ msgid_plural "Mailing is forwarded successfully to %count email addresses."
 msgstr[0] "จดหมายถูกส่งต่อให้กับที่อยู่อีเมลจำนวน %count แล้ว"
 
 #: CRM/Mailing/Form/Optout.php CRM/Mailing/Form/Unsubscribe.php
-#: CRM/Mailing/Page/Common.php
-msgid "There was an error in your request"
-msgstr "มีข้อผิดพลาดในคำขอของคุณ"
+msgid "Invalid request: missing parameters"
+msgstr ""
+
+#: CRM/Mailing/Form/Optout.php CRM/Mailing/Form/Unsubscribe.php
+#: CRM/Mailing/Page/Unsubscribe.php
+msgid "Invalid request: bad parameters"
+msgstr ""
 
 #: CRM/Mailing/Form/Optout.php
 msgid "Opt Out Confirmation"
@@ -1328,10 +1345,6 @@ msgid "Print Mailing Recipients"
 msgstr "พิมพ์รายชื่อผู้รับจดหมาย"
 
 #: CRM/Mailing/Form/Unsubscribe.php
-msgid "Missing Parameters"
-msgstr "ไม่มีพารามิเตอร์"
-
-#: CRM/Mailing/Form/Unsubscribe.php
 msgid "%1 has already been unsubscribed."
 msgstr "%1 ยกเลิกการสมัครสมาชิกแล้ว"
 
@@ -1384,6 +1397,10 @@ msgstr "กำหนดเวลาการส่งจดหมาย"
 msgid "approve mailings"
 msgstr "อนุมัติการส่งจดหมาย"
 
+#: CRM/Mailing/MailStore/Localdir.php
+msgid "%1 could not be parsed"
+msgstr ""
+
 #: CRM/Mailing/Page/Browse.php
 msgid "You do not have permission to send SMS"
 msgstr "คุณไม่ได้รับสิทธิ์ในการส่ง SMS"
@@ -1422,17 +1439,9 @@ msgstr "ค้นหา SMS แบบกลุ่ม"
 msgid "Search Mailings"
 msgstr "ค้นหาการส่งจดหมาย"
 
-#: CRM/Mailing/Page/Component.php templates/CRM/Mailing/Form/Component.tpl
-msgid "Edit Mailing Component"
-msgstr "แก้ไของค์ประกอบการส่งจดหมาย"
-
-#: CRM/Mailing/Page/Component.php
-msgid "Disable Mailing Component"
-msgstr "ปิดใช้งานองค์ประกอบการส่งจดหมาย"
-
-#: CRM/Mailing/Page/Component.php
-msgid "Enable Mailing Component"
-msgstr "เปิดใช้งานองค์ประกอบการส่งจดหมาย"
+#: CRM/Mailing/Page/Common.php
+msgid "There was an error in your request"
+msgstr "มีข้อผิดพลาดในคำขอของคุณ"
 
 #: CRM/Mailing/Page/Event.php CRM/Mailing/Page/Report.php
 msgid "Back to Activities"
@@ -1462,24 +1471,26 @@ msgstr "รายงาน CiviMail: %1"
 msgid "Mailings sent to %1"
 msgstr "จดหมายถูกส่งไปที่ %1"
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Testing"
 msgstr ""
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/EditCtrl/report.html
-#: ang/crmMailingAB/ReportCtrl.js ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/ReportCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Final"
 msgstr ""
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Test different \"Subject\" lines"
 msgstr ""
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Test different \"From\" lines"
 msgstr ""
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Test entirely different emails"
 msgstr ""
 
@@ -1607,12 +1618,12 @@ msgstr "รหัสผู้ติดต่อภายใน"
 msgid "Forwarded Email"
 msgstr ""
 
-#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: CRM/Mailing/Selector/Event.php ext/civi_mail/ang/crmMailing/services.js
 #: templates/CRM/Mailing/Page/Report.tpl
 msgid "Successful Deliveries"
 msgstr ""
 
-#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: CRM/Mailing/Selector/Event.php ext/civi_mail/ang/crmMailing/services.js
 #: templates/CRM/Mailing/Page/Report.tpl
 msgid "Bounces"
 msgstr ""
@@ -1621,7 +1632,7 @@ msgstr ""
 msgid "Unique Replies"
 msgstr ""
 
-#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: CRM/Mailing/Selector/Event.php ext/civi_mail/ang/crmMailing/services.js
 #: templates/CRM/Mailing/Page/Report.tpl
 msgid "Replies"
 msgstr "การตอบกลับ"
@@ -1649,6 +1660,18 @@ msgstr ""
 #: CRM/Mailing/Selector/Search.php
 msgid "CiviCRM Mailing Search"
 msgstr "ค้นหาการส่งจดหมาย CiviCRM"
+
+#: CRM/Mailing/Service/ListUnsubscribe.php
+msgid "Mailto"
+msgstr ""
+
+#: CRM/Mailing/Service/ListUnsubscribe.php
+msgid "HTTP(S) Web-Form"
+msgstr ""
+
+#: CRM/Mailing/Service/ListUnsubscribe.php
+msgid "HTTP(S) One-Click"
+msgstr ""
 
 #: CRM/Mailing/Tokens.php
 msgid "Mailing Key"
@@ -1694,642 +1717,724 @@ msgstr "ผู้สร้างการส่งจดหมาย (ชื่�
 msgid "Mailing Creator (Email)"
 msgstr "ผู้สร้างการส่งจดหมาย (อีเมล)"
 
-#: ang/crmMailing/BlockApprove.html
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "Failed to connect"
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "(See log for more details.)"
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "The mail service was not instantiated."
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "Failed to read test message"
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "Connection succeeded."
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "No new messages found."
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "Found at least %1 new messages."
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/BlockApprove.html
 msgid "Unreviewed"
 msgstr ""
 
-#: ang/crmMailing/BlockMailing.html ang/crmMailing/EmailAddrCtrl.js
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/BlockHeaderFooter.html
+msgid "Mailing Header"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/BlockHeaderFooter.html
+msgid "Mailing Footer"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/EmailAddrCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Reply-To"
 msgstr ""
 
-#: ang/crmMailing/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/BlockMailing.html
 msgid "Unsubscribe Group"
 msgstr ""
 
-#: ang/crmMailing/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/BlockMailing.html
 msgid "- choose language -"
 msgstr "- เลือกภาษา -"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "No content to preview"
 msgstr "ไม่มีเนื้อหาสำหรับการแสดงตัวอย่าง"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Preview as HTML"
 msgstr "ดูตัวอย่างเป็น HTML"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Preview as Plain Text"
 msgstr "ดูตัวอย่างเป็นข้อความ"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test email to:"
 msgstr "ส่งอีเมลทดสอบไปที่:"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Test Email"
 msgstr "อีเมลทดสอบ"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test message to %1"
 msgstr "ส่งข้อความทดสอบไปที่ %1"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test"
 msgstr ""
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test email to group:"
 msgstr "ส่งอีเมลทดสอบไปที่กลุ่ม:"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test message to group"
 msgstr "ส่งข้อความทดสอบไปที่กลุ่ม"
 
-#: ang/crmMailing/BlockPreview.js
+#: ext/civi_mail/ang/crmMailing/BlockPreview.js
 msgid "Send to %1"
 msgstr "ส่งไปที่ %1"
 
-#: ang/crmMailing/BlockPreview.js
+#: ext/civi_mail/ang/crmMailing/BlockPreview.js
 msgid "A test message will be sent to %1 people:"
 msgstr "ข้อความทดสอบจะถูกส่งไปให้คน %1 ราย:"
 
-#: ang/crmMailing/BlockPreview.js
+#: ext/civi_mail/ang/crmMailing/BlockPreview.js
 msgid "None of the contacts in this group have an email address."
 msgstr "ผู้ติดต่อทั้งหมดในกลุ่มนี้ไม่มีที่อยู่อีเมล"
 
-#: ang/crmMailing/BlockPreview.js
+#: ext/civi_mail/ang/crmMailing/BlockPreview.js
 msgid "Group is empty."
 msgstr "กลุ่มว่างเปล่า"
 
-#: ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipientsMultiline.html
 msgid "Edit Recipient Options"
 msgstr "แก้ไขตัวเลือกผู้รับ"
 
-#: ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipientsMultiline.html
 msgid "Click to refresh recipient count"
 msgstr "คลิกเพื่อรีเฟรชการนับจำนวนผู้รับ"
 
-#: ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipientsMultiline.html
 msgid "Preview a List of Recipients"
 msgstr "ดูตัวอย่างรายชื่อผู้รับ"
 
-#: ang/crmMailing/BlockResponses.html ang/crmMailing/BlockReview.html
-#: ang/crmMailing/EmailAddrCtrl.js ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EmailAddrCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Track Replies"
 msgstr "ติดตามการตอบกลับ"
 
-#: ang/crmMailing/BlockResponses.html
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
 msgid "Auto-Respond to Replies"
 msgstr "ตอบกลับอัตโนมัติ"
 
-#: ang/crmMailing/BlockResponses.html
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
 msgid "Auto-Respond Message"
 msgstr "ข้อความการตอบกลับอัตโนมัติ"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Include:"
 msgstr ""
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Exclude:"
 msgstr ""
 
-#: ang/crmMailing/BlockReview.html ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
+#: templates/CRM/Mailing/Page/Report.tpl
 msgid "Content"
 msgstr "เนื้อหา"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailing/PreviewComponentDialogCtrl.html
-#: ang/crmMailing/PreviewMgr/full.html ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailing/PreviewComponentDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewMgr/full.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Plain Text"
 msgstr "ข้อความ"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Tracking"
 msgstr "กำลังติดตาม"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Click-Throughs"
 msgstr ""
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Opens"
 msgstr ""
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Responding"
 msgstr ""
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Auto-Respond"
 msgstr ""
 
-#: ang/crmMailing/BlockReview.html ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Publication"
 msgstr ""
 
-#: ang/crmMailing/BlockSummary.html ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailing/BlockSummary.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Select Campaign"
 msgstr "เลือกแคมเปญ"
 
-#: ang/crmMailing/BlockTemplates.html ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/BlockTemplates.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Save As"
 msgstr "บันทึกเป็น"
 
-#: ang/crmMailing/BlockTracking.html
+#: ext/civi_mail/ang/crmMailing/BlockTracking.html
 msgid "Track Click-Throughs"
 msgstr "ติดตามการคลิกผ่าน"
 
-#: ang/crmMailing/BlockTracking.html
+#: ext/civi_mail/ang/crmMailing/BlockTracking.html
 msgid "Track Opens"
 msgstr "ติดตามการเปิด"
 
-#: ang/crmMailing/BodyHtml.html ang/crmMailing/BodyText.html
+#: ext/civi_mail/ang/crmMailing/BodyHtml.html
+#: ext/civi_mail/ang/crmMailing/BodyText.html
 msgid "Required tokens are missing."
 msgstr "ไม่พบโทเค็นที่จำเป็น"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
 msgid "Define Mailing"
 msgstr "นิยามการส่งจดหมาย"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Header and Footer"
 msgstr "ส่วนหัวและส่วนท้าย"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Responses"
 msgstr "การตอบกลับ"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
 msgid "Review and Schedule"
 msgstr "ตรวจสอบและกำหนดเวลา"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Submit Mailing"
 msgstr "ส่งจดหมาย"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Delete Draft"
 msgstr "ลบแบบร่าง"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Are you sure you want to permanently delete this mailing?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบการส่งจดหมายนี้อย่างถาวร"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Save Draft"
 msgstr "บันทึกแบบร่าง"
 
-#: ang/crmMailing/EditMailingCtrl/base.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/base.html
 msgid "This mailing has been submitted."
 msgstr ""
 
-#: ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
 msgid "Submit and Approve Mailing"
 msgstr ""
 
-#: ang/crmMailing/EditMailingCtrl.js ang/crmMailingAB/EditCtrl.js
-#: ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Submitting..."
 msgstr "กำลังส่ง…"
 
-#: ang/crmMailing/EditMailingCtrl.js ang/crmMailingAB/EditCtrl.js
-#: ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Submitted"
 msgstr "ส่งแล้ว"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "Estimating..."
 msgstr ""
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "Estimate recipient count"
 msgstr "ประมาณจำนวนผู้รับ"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "Refresh recipient count"
 msgstr "รีเฟรชจำนวนผู้รับ"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "No Recipients"
 msgstr "ไม่มีผู้รับ"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "~%1 recipients"
 msgstr "ผู้รับ ~%1"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "(unknown)"
 msgstr "(ไม่ทราบ)"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "Preview (%1)"
 msgstr "ดูตัวอย่าง (%1)"
 
-#: ang/crmMailing/EditRecipCtrl.js ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Previewing..."
 msgstr "กำลังดูตัวอย่าง…"
 
-#: ang/crmMailing/EditRecipOptionsDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/EditRecipOptionsDialogCtrl.html
 msgid "Dedupe by email"
 msgstr "ลบข้อมูลซ้ำซ้อนทางอีเมล"
 
-#: ang/crmMailing/EditRecipOptionsDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/EditRecipOptionsDialogCtrl.html
 msgid "Selection Method"
 msgstr "วิธีการคัดเลือก"
 
-#: ang/crmMailing/EmailAddrCtrl.js
+#: ext/civi_mail/ang/crmMailing/EmailAddrCtrl.js
 msgid "Conflict"
 msgstr ""
 
-#: ang/crmMailing/EmailAddrCtrl.js
+#: ext/civi_mail/ang/crmMailing/EmailAddrCtrl.js
 msgid ""
 "The \"%1\" option conflicts with the \"%2\" option. The \"%2\" option has "
 "been disabled."
 msgstr "ตัวเลือก \"%1\" ขัดแย้งกับตัวเลือก \"%2\" ตัวเลือก \"%2\" ถูกปิดใช้งานแล้ว"
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid ""
 "The mailing must include the street address of the organization. Please "
 "insert the %1 token."
 msgstr "การส่งจดหมายต้องระบุที่อยู่ขององค์กร กรุณาใส่โทเค็น %1"
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid ""
 "The mailing must allow recipients to (a) unsubscribe from the mailing-list "
 "or (b) completely opt-out from all mailings. Please insert an unsubscribe or"
 " opt-out token."
 msgstr "การส่งจดหมายจะต้องอนุญาตให้ผู้รับ (ก) ยกเลิกการสมัครจากรายชื่อผู้รับจดหมายหรือ (ข) ยกเลิกการส่งจดหมายทั้งหมดโดย กรุณาใส่โทเค็นการยกเลิกการสมัครหรือการเลือกไม่รับ"
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid "Via Web"
 msgstr "ผ่านทางเว็บไซต์"
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid "Via Email"
 msgstr "ผ่านทางอีเมล"
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid ""
 "Alternatively, you may select a header or footer which includes the required"
 " tokens."
 msgstr "คุณสามารถเลือกส่วนหัวหรือส่วนท้ายที่มีโทเค็นที่จำเป็นได้"
 
-#: ang/crmMailing/EmailBodyCtrl.js
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl.js
 msgid "Required tokens"
 msgstr "โทเค็นที่จำเป็น"
 
-#: ang/crmMailing/MsgTemplateCtrl.js
+#: ext/civi_mail/ang/crmMailing/MsgTemplateCtrl.js
 msgid "Save Template"
 msgstr "บันทึกเทมเพลต"
 
-#: ang/crmMailing/PreviewComponentCtrl.js
+#: ext/civi_mail/ang/crmMailing/PreviewComponentCtrl.js
 msgid "Invalid component ID (%1)"
 msgstr "รหัสองค์ประกอบไม่ถูกต้อง (%1)"
 
-#: ang/crmMailing/PreviewRecipCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewRecipCtrl.html
 msgid ""
 "Based on current data, approximately %1 contacts will receive a copy of the "
 "mailing."
 msgstr "จากข้อมูลปัจจุบัน ผู้ติดต่อประมาณ %1 รายจะได้รับสำเนาการส่งจดหมาย"
 
-#: ang/crmMailing/PreviewRecipCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewRecipCtrl.html
 msgid "Below is a sample of the first %1 recipients."
 msgstr "ด้านล่างนี้เป็นตัวอย่างของผู้รับ %1 คนแรก"
 
-#: ang/crmMailing/PreviewRecipCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewRecipCtrl.html
 msgid ""
 "If individual contacts are separately modified, added, or removed, then the "
 "final list may change."
 msgstr "หากผู้ติดต่อแต่ละรายได้รับการแก้ไข เพิ่ม หรือลบออกแยกจากกัน รายชื่อสุดท้ายอาจมีการเปลี่ยนแปลง"
 
-#: ang/crmMailing/PreviewRecipCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewRecipCtrl.html
 msgid "No recipients"
 msgstr "ไม่มีผู้รับ"
 
-#: ang/crmMailing/RadioDate.js
+#: ext/civi_mail/ang/crmMailing/RadioDate.js
 msgid "The scheduled date and time is in the past"
 msgstr "วันที่และเวลาที่กำหนดเป็นเวลาในอดีต"
 
-#: ang/crmMailing/Recipients.js
-msgid ""
-"This mailing was generated based on search results. The search results "
-"cannot be removed."
-msgstr "การส่งจดหมายนี้สร้างขึ้นจากผลการค้นหา ไม่สามารถลบผลการค้นหาออกได้"
-
-#: ang/crmMailing/SaveMsgTemplateDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/SaveMsgTemplateDialogCtrl.html
 msgid "Save the current mailing as a template."
 msgstr "บันทึกการส่งจดหมายปัจจุบันเป็นเทมเพลต"
 
-#: ang/crmMailing/SaveMsgTemplateDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/SaveMsgTemplateDialogCtrl.html
 msgid "Update \"%1\""
 msgstr "อัปเดต \"%1\""
 
-#: ang/crmMailing/SaveMsgTemplateDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/SaveMsgTemplateDialogCtrl.html
 msgid "Save as:"
 msgstr "บันทึกเป็น"
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/crmMailingRecipientsAutocomplete.component.js
+msgid "Include Groups & Mailings"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/crmMailingRecipientsAutocomplete.component.js
+msgid "Exclude Groups & Mailings"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/crmMailingRecipientsAutocomplete.component.js
+msgid "Include recipents from groups and past mailings."
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/crmMailingRecipientsAutocomplete.component.js
+msgid "Exclude recipents from groups and past mailings."
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Subject: %1"
 msgstr "หัวเรื่อง: %1"
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid ""
 "Could not identify any recipients. Perhaps your test group is empty, or you "
 "tried sending to contacts that do not exist and you have no permission to "
 "add contacts."
 msgstr "ไม่สามารถระบุผู้รับได้ กลุ่มทดสอบของคุณอาจว่างเปล่า หรือคุณอาจพยายามส่งจดหมายไปยังผู้ติดต่อที่ไม่มีอยู่ และคุณไม่ได้รับสิทธิ์ในการเพิ่มผู้ติดต่อ"
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Sending..."
 msgstr "กำลังส่ง…"
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Unsubscribes & Opt-outs"
 msgstr "ยกเลิกการสมัครสมาชิกและเลือกไม่รับ"
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Opt-Outs"
 msgstr "เลือกไม่รับ"
 
-#: ang/crmMailing.js ang/crmMailingAB.js
+#: ext/civi_mail/ang/crmMailing.js ext/civi_mail/ang/crmMailingAB.js
 msgid "Initializing..."
 msgstr "กำลังเริ่มดำเนินการ..."
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Template (A)"
 msgstr "เทมเพลต (A)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Template (B)"
 msgstr "เทมเพลต (B)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "From (A)"
 msgstr "จาก (A)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "From (B)"
 msgstr "จาก (B)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Reply-To (A)"
 msgstr "ตอบกลับ (A)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Reply-To (B)"
 msgstr "ตอบกลับ (B)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Subject (A)"
 msgstr "หัวเรื่อง (A)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Subject (B)"
 msgstr "หัวเรื่อง (B)"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid ""
 "A/B testing allows you to send two test mailings to a random subset of your "
 "recipients. After collecting and comparing metrics, the more successful "
 "mailing will be sent to the remaining recipients."
 msgstr "การทดสอบ A/B ช่วยให้คุณสามารถส่งจดหมายทดสอบสองครั้งไปยังผู้รับกลุ่มย่อยแบบสุ่มได้ หลังจากทำการรวบรวมและเปรียบเทียบตัวชี้วัดแล้ว การส่งอีเมลไปยังผู้รับที่เหลือจะยิ่งมีโอกาสสำเร็จมากขึ้น"
 
-#: ang/crmMailingAB/BlockSetup.html ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "Test Type"
 msgstr "ประเภทการทดสอบ"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Distribution"
 msgstr ""
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Send"
 msgstr "ส่ง"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Send A/B test immediately"
 msgstr "ส่งการทดสอบ A/B ทันที"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Send A/B test at:"
 msgstr "ส่งการทดสอบ A/B ที่:"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Assess"
 msgstr "ประเมินผล"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Assess A/B results on an on-going basis"
 msgstr "ประเมินผล A/B อย่างต่อเนื่อง"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Assess A/B test at:"
 msgstr "ประเมินผลการทดสอบ A/B ที่:"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Setup"
 msgstr "การตั้งค่า"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Target"
 msgstr "เป้าหมาย"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Compose"
 msgstr "เขียน"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Preview (A)"
 msgstr "ดูตัวอย่าง (A)"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Preview (B)"
 msgstr "ดูตัวอย่าง (B)"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Compose (A)"
 msgstr "เขียน (A)"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Compose (B)"
 msgstr "เขียน (B)"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "A/B Test Results"
 msgstr "ผลการทดสอบ A/B"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid ""
 "This report displays the current results for your A/B test. You can return "
 "to this page to view the latest statistics by navigating to \"Manage A/B "
 "Tests\" and clicking \"Results\"."
 msgstr "รายงานนี้แสดงผลปัจจุบันสำหรับการทดสอบ A/B ของคุณ คุณสามารถกลับมาที่หน้านี้เพื่อดูสถิติล่าสุดโดยไปที่ \"จัดการการทดสอบ A/B\" และคลิก \"ผลลัพธ์\""
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Select as Final"
 msgstr ""
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Delivery"
 msgstr "การส่ง"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Not selected"
 msgstr "ไม่ได้เลือก"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Started at"
 msgstr "เริ่มต้นที่"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Not started"
 msgstr "ยังไม่เริ่ม"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Completed at"
 msgstr "เสร็จสิ้นที่"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Not completed"
 msgstr "ยังไม่เสร็จสิ้น"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
+msgid "Performance"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Search for contacts using '%1'"
 msgstr "ค้นหาผู้ติดต่อโดยใช้ '%1'"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Browse events of type '%1'"
 msgstr "เรียกดูกิจกรรมประเภท '%1'"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Reports for '%1'"
 msgstr "รายงานสำหรับ '%1'"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Opens (WIP)"
 msgstr ""
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Total Clicks (WIP)"
 msgstr "จำนวนการคลิกทั้งหมด (WIP)"
 
-#: ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
 msgid "Test A (%1)"
 msgstr "การทดสอบ A (%1)"
 
-#: ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
 msgid "Test B (%1)"
 msgstr "การทดสอบ B (%1)"
 
-#: ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
 msgid "Final (%1)"
 msgstr ""
 
-#: ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
 msgid "Select Final Mailing (Test %1)"
 msgstr ""
 
-#: ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "- Status -"
 msgstr "- สถานะ -"
 
-#: ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "- Test Type -"
 msgstr "- ประเภทการทดสอบ -"
 
-#: ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "You have no A/B mailings"
 msgstr ""
 
-#: ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "New A/B Test"
 msgstr "ทดสอบ A/B ใหม่"
 
-#: ang/crmMailingAB/ReportCtrl.js ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/ReportCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Mailing A"
 msgstr "การส่งจดหมาย A"
 
-#: ang/crmMailingAB/ReportCtrl.js ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/ReportCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Mailing B"
 msgstr "การส่งจดหมาย B"
 
-#: ang/crmMailingAB/Slider.html
+#: ext/civi_mail/ang/crmMailingAB/Slider.html
 msgid "Test Mailing A"
 msgstr "การส่งจดหมายทดสอบ A"
 
-#: ang/crmMailingAB/Slider.html
+#: ext/civi_mail/ang/crmMailingAB/Slider.html
 msgid "Test Mailing B"
 msgstr "การส่งจดหมายทดสอบ B"
 
-#: ang/crmMailingAB/Slider.html
+#: ext/civi_mail/ang/crmMailingAB/Slider.html
 msgid "Final Mailing"
 msgstr ""
 
-#: ang/crmMailingAB/WinnerDialogCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.html
 msgid ""
 "After selecting %1 as the winner, one must schedule the delivery for the "
 "final mailing."
 msgstr ""
 
-#: ang/crmMailingAB/WinnerDialogCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.html
 msgid "Send final mailing immediately"
 msgstr ""
 
-#: ang/crmMailingAB/WinnerDialogCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.html
 msgid "Send final mailing at:"
 msgstr ""
 
-#: ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Submit final mailing"
+msgstr ""
+
+#: ext/civi_mail/managed/SavedSearch_Email_Bounce_History.mgd.php
+msgid "Email_Bounce_History"
 msgstr ""
 
 #: templates/CRM/Mailing/Form/Approve.tpl
@@ -2356,6 +2461,10 @@ msgstr "ข้อความการส่งจดหมาย:"
 msgid "New Mailing Component"
 msgstr "องค์ประกอบใหม่ของการส่งจดหมาย"
 
+#: templates/CRM/Mailing/Form/Component.tpl
+msgid "Edit Mailing Component"
+msgstr "แก้ไของค์ประกอบการส่งจดหมาย"
+
 #: templates/CRM/Mailing/Form/Count.tpl
 msgid "Total Recipients:"
 msgstr "จำนวนผู้รับทั้งหมด:"
@@ -2369,6 +2478,10 @@ msgid "Please enter up to 5 email addresses to receive the mailing."
 msgstr "กรุณากรอกที่อยู่อีเมลสูงสุด 5 ที่อยู่เพื่อรับจดหมาย"
 
 #: templates/CRM/Mailing/Form/ForwardMailing.tpl
+msgid "Add Comment"
+msgstr ""
+
+#: templates/CRM/Mailing/Form/ForwardMailing.tpl
 msgid "close section"
 msgstr ""
 
@@ -2376,13 +2489,6 @@ msgstr ""
 msgid ""
 "You are requesting to opt out this email address from all mailing lists:"
 msgstr "คุณกำลังขอยกเลิกที่อยู่อีเมลนี้จากรายชื่อผู้รับจดหมายทั้งหมด:"
-
-#: templates/CRM/Mailing/Form/Optout.tpl
-#: templates/CRM/Mailing/Form/Unsubscribe.tpl
-msgid ""
-"If this is not your email address, there is no need to do anything. You have"
-" <strong>not</strong> been added to any mailing lists."
-msgstr "หากนี่ไม่ใช่ที่อยู่อีเมลของคุณ ก็ไม่จำเป็นต้องดำเนินการใด ๆ คุณยัง <strong>ไม่ได้</strong> รับการเพิ่มเข้าในรายชื่อผู้รับจดหมายใด ๆ"
 
 #: templates/CRM/Mailing/Form/Optout.tpl
 msgid ""
@@ -2416,12 +2522,14 @@ msgstr "จำนวนผู้รับจดหมายที่เลือ
 
 #: templates/CRM/Mailing/Form/Unsubscribe.tpl
 msgid ""
-"Are you sure you want to be removed from the mailing list(s) shown below:"
-msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบชื่อของคุณออกจากรายการการส่งจดหมายที่แสดงทางด้านล่าง:"
+"Are you sure you want to remove %1 from the mailing list(s) shown below:"
+msgstr ""
 
 #: templates/CRM/Mailing/Form/Unsubscribe.tpl
-msgid "You are requesting to unsubscribe this email address:"
-msgstr "คุณกำลังขอยกเลิกการสมัครของที่อยู่อีเมลนี้:"
+msgid ""
+"You are requesting to unsubscribe <strong>all email addresses for "
+"%1</strong> from the above mailing list."
+msgstr ""
 
 #: templates/CRM/Mailing/Form/Unsubscribe.tpl
 msgid ""
@@ -2460,6 +2568,23 @@ msgid ""
 "Contact your site administrator if you need to use a \"FROM\" Email Address "
 "which is not in the dropdown list."
 msgstr "ติดต่อผู้ดูแลระบบเว็บไซต์ของคุณหากคุณต้องการใช้ที่อยู่อีเมล \"ต้นทาง\" ซึ่งไม่อยู่ในรายการแบบเลื่อนลง"
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"You can send your email as a simple text-only message, as an HTML formatted "
+"message, or both. Text-only messages are sufficient for most email "
+"communication - and some recipients may prefer not to receive HTML formatted"
+" messages."
+msgstr ""
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"HTML messages have more visual impact, allow you to include images, and may "
+"be more readable if you are including links to website pages. However, "
+"different email programs may interpret HTML formats differently - so use "
+"this option cautiously unless you have a template format that has been "
+"tested with different web and desktop email programs."
+msgstr ""
 
 #: templates/CRM/Mailing/MailingUI.hlp
 msgid ""
@@ -2738,20 +2863,3 @@ msgstr "คุณแน่ใจหรือไม่ว่าต้องกา
 #: templates/CRM/Mailing/Page/Tab.tpl
 msgid "Opens/ Clicks"
 msgstr "เปิด/คลิก"
-
-#: CRM/Mailing/DAO/MailingTrackableURL.php
-msgid "Mailing Links"
-msgstr "ลิงก์จดหมาย"
-
-#: CRM/Mailing/DAO/MailingTrackableURL.php
-#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
-msgid "Mailing Link"
-msgstr "ลิงก์จดหมาย"
-
-#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
-msgid "Mailing Link Clickthroughs"
-msgstr "การคลิกลิงก์จดหมาย"
-
-#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
-msgid "Mailing Link Clickthrough"
-msgstr "การคลิกลิงก์จดหมาย"
