@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2023-06-17 15:56-0400\n"
+"POT-Creation-Date: 2024-02-03 10:37-0500\n"
 "PO-Revision-Date: 2011-03-28 14:17+0000\n"
 "Last-Translator: Mathieu Lu <mathieu@bidon.ca>, 2024\n"
 "Language-Team: Thai (Thailand) (http://app.transifex.com/civicrm/civicrm/language/th_TH/)\n"
@@ -229,7 +229,7 @@ msgstr "รหัสกรณีปัญหาของการเชื่อ
 msgid "Contact ID of contact record given case belongs to."
 msgstr "รหัสผู้ติดต่อจากบันทึกผู้ติดต่อสำหรับกรณีปัญหาที่ระบุ"
 
-#: CRM/Case/DAO/CaseType.php ang/crmCaseType/list.html
+#: CRM/Case/DAO/CaseType.php ext/civi_case/ang/crmCaseType/list.html
 msgid "Case Types"
 msgstr "ประเภทของกรณีปัญหา"
 
@@ -355,6 +355,7 @@ msgid "Selected case is already linked."
 msgstr "กรณีปัญหาที่เลือกมีการเชื่อมต่อแล้ว"
 
 #: CRM/Case/Form/Activity/OpenCase.php
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
 msgid "Activity Duration"
 msgstr "ระยะเวลาการดำเนินกิจกรรม"
 
@@ -381,10 +382,6 @@ msgstr "รายงานโดย"
 #: CRM/Case/Form/Activity.php CRM/Case/Form/CaseView.php
 msgid "- select activity type -"
 msgstr "- เลือกประเภทกิจกรรม -"
-
-#: CRM/Case/Form/Activity.php CRM/Case/XMLProcessor/Report.php
-msgid "Medium"
-msgstr "สื่อกลาง"
 
 #: CRM/Case/Form/Activity.php
 msgid ""
@@ -440,6 +437,10 @@ msgstr "แนบข้อมูลผู้ติดต่อ"
 #: CRM/Case/Form/ActivityView.php
 msgid "Activity Revision History"
 msgstr "ประวัติการแก้ไขกิจกรรม"
+
+#: CRM/Case/Form/ActivityView.php
+msgid "Home"
+msgstr ""
 
 #: CRM/Case/Form/ActivityView.php CRM/Case/Page/DashBoard.php
 msgid "CiviCase Dashboard"
@@ -538,6 +539,18 @@ msgstr "เลือกกรณีปัญหาเพื่อทำการ
 #: CRM/Case/Form/CaseView.php
 msgid "- select case -"
 msgstr "- เลือกกรณีปัญหา -"
+
+#: CRM/Case/Form/DeleteClient.php
+msgid "Cannot Remove Client from case as is the only client on the case"
+msgstr ""
+
+#: CRM/Case/Form/DeleteClient.php
+msgid "Remove Client from Case"
+msgstr ""
+
+#: CRM/Case/Form/DeleteClient.php
+msgid "Case Client Removed"
+msgstr ""
 
 #: CRM/Case/Form/EditClient.php
 msgid "Reassign Case"
@@ -668,16 +681,16 @@ msgid "Alphabetical order"
 msgstr "ลำดับตัวอักษร"
 
 #: CRM/Case/Page/AJAX.php
+msgid "Change Case Tags"
+msgstr ""
+
+#: CRM/Case/Page/AJAX.php
 msgid "Client Added To Case"
 msgstr "เพิ่มลูกค้าไว้ในกรณีปัญหาแล้ว"
 
 #: CRM/Case/Page/DashBoard.php
 msgid "You are not authorized to access all cases and activities."
 msgstr "คุณไม่ได้รับสิทธิ์ในการเข้าถึงกรณีปัญหาและกิจกรรมทั้งหมด"
-
-#: CRM/Case/Page/Tab.php
-msgid "Contact Id is required for view action."
-msgstr "โปรดระบุรหัสผู้ติดต่อเพื่อดูข้อมูล"
 
 #: CRM/Case/Page/Tab.php
 msgid "Are you sure you want to delete this case?"
@@ -753,6 +766,10 @@ msgid ""
 "Activity type %1, found in case configuration file, is not present in the "
 "database %2"
 msgstr "ประเภทกิจกรรม %1 ที่พบในไฟล์การตั้งค่ากรณีปัญหาไม่ปรากฎในฐานข้อมูล %2"
+
+#: CRM/Case/XMLProcessor/Report.php
+msgid "Medium"
+msgstr "สื่อกลาง"
 
 #: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
 msgid "Housing Support"
@@ -830,120 +847,153 @@ msgstr "ผู้เชี่ยวชาญด้านสิทธิประ
 msgid "Case Resources"
 msgstr "ทรัพยากรของกรณีปัญหา"
 
-#: ang/crmCaseType/activityTypesTable.html
+#: ext/civi_case/Civi/Api4/CaseContact.php
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
+msgid "Case Clients"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/CaseContact.php
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
+#: templates/CRM/Case/Form/Activity/ChangeCaseStatus.tpl
+msgid "Case Client"
+msgstr "ลูกค้ากรณีปัญหา"
+
+#: ext/civi_case/Civi/Api4/CaseContact.php
+msgid "Clients"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/CaseContact.php
+msgid "Cases with this contact as a client"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/CaseContact.php
+msgid "Clients for this case"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
+msgid "Case Creator"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
+msgid "Activity Location"
+msgstr ""
+
+#: ext/civi_case/ang/crmCaseType/activityTypesTable.html
 msgid "Max Instances"
 msgstr "จำนวนกรณีสูงสุด"
 
-#: ang/crmCaseType/activityTypesTable.html
+#: ext/civi_case/ang/crmCaseType/activityTypesTable.html
 msgid "Add activity type"
 msgstr "เพิ่มประเภทกิจกรรม"
 
-#: ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
 msgid "WARNING: The case type name includes deprecated characters."
 msgstr "คำเตือน: ชื่อประเภทกรณีปัญหามีตัวอักษรที่เลิกใช้แล้ว"
 
-#: ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
 msgid ""
 "WARNING: If any external files or programs reference the old \"Name\", then "
 "they must be updated manually."
 msgstr "คำเตือน: หากไฟล์หรือโปรแกรมภายนอกใด ๆ มีการอ้างอิงถึง \"ชื่อ\" เก่า คุณจะต้องอัปเดตไฟล์หรือโปรแกรมเหล่านั้นด้วยตนเอง"
 
-#: ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
 msgid "Activity assignment settings"
 msgstr "การตั้งค่าการมอบหมายกิจกรรม"
 
-#: ang/crmCaseType/caseTypeDetails.html ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Restrict to Groups"
 msgstr "จำกัดเฉพาะกลุ่ม"
 
-#: ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
 msgid "Restrict to Website Users"
 msgstr "จำกัดเฉพาะผู้ใช้เว็บไซต์"
 
-#: ang/crmCaseType/edit.html ang/crmCaseType/list.html
+#: ext/civi_case/ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/list.html
 msgid "New Case Type"
 msgstr "ประเภทกรณีปัญหาใหม่"
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid ""
 "Use this screen to define or update the Case Roles, Activity Types, and "
 "Timelines for a case type."
 msgstr "ใช้หน้าจอนี้เพื่อกำหนดหรืออัปเดตบทบาทของกรณีปัญหา ประเภทกิจกรรม และไทม์ไลน์สำหรับประเภทกรณีปัญหา"
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Learn more..."
 msgstr "เรียนรู้เพิ่มเติม..."
 
-#: ang/crmCaseType/edit.html templates/CRM/Case/Audit/Report.tpl
+#: ext/civi_case/ang/crmCaseType/edit.html templates/CRM/Case/Audit/Report.tpl
 msgid "Case Roles"
 msgstr "บทบาทหน้าที่ของกรณีปัญหา"
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Case Statuses"
 msgstr "สถานะของกรณีปัญหา"
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Add..."
 msgstr "เพิ่ม..."
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Timeline"
 msgstr "ไทม์ไลน์"
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Sequence"
 msgstr "ลำดับ"
 
-#: ang/crmCaseType/list.html
+#: ext/civi_case/ang/crmCaseType/list.html
 msgid ""
 "A Case Type describes a group of related tasks, interactions, or processes."
 msgstr "ประเภทกรณีปัญหาอธิบายถึงกลุ่มงาน การโต้ตอบ หรือกระบวนการที่เกี่ยวข้อง"
 
-#: ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Display Label"
 msgstr "แสดงป้ายกำกับ"
 
-#: ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Assign to Creator"
 msgstr "มอบหมายให้ผู้สร้าง"
 
-#: ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Is Manager"
 msgstr "เป็นผู้จัดการ"
 
-#: ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Add role"
 msgstr "เพิ่มบทบาทหน้าที่"
 
-#: ang/crmCaseType/statusTable.html
+#: ext/civi_case/ang/crmCaseType/statusTable.html
 msgid "New Status"
 msgstr "สถานะใหม่"
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Reference"
 msgstr "การอ้างอิง"
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Offset"
 msgstr "ออฟเซ็ต"
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Default assignee"
 msgstr "ผู้รับมอบหมายเริ่มต้น"
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Newest"
 msgstr "ใหม่ล่าสุด"
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Oldest"
 msgstr "เก่าที่สุด"
 
-#: ang/crmCaseType.js
+#: ext/civi_case/ang/crmCaseType.js
 msgid "new"
 msgstr "สร้างใหม่"
 
-#: ang/crmCaseType.js
+#: ext/civi_case/ang/crmCaseType.js
 msgid ""
 "The CiviCase XML file for this case-type prohibits editing the definition."
 msgstr "ไฟล์ CiviCase XML สำหรับประเภทกรณีปัญหานี้ห้ามไม่ให้แก้ไขคำจำกัดความ"
@@ -984,10 +1034,6 @@ msgstr "วันที่เริ่มต้นในปัจจุบัน
 #: templates/CRM/Case/Form/Activity/ChangeCaseStatus.tpl
 msgid "Update Linked Cases Status?"
 msgstr "อัปเดตสถานะกรณีปัญหาที่มีการเชื่อมต่อหรือไม่"
-
-#: templates/CRM/Case/Form/Activity/ChangeCaseStatus.tpl
-msgid "Case Client"
-msgstr "ลูกค้ากรณีปัญหา"
 
 #: templates/CRM/Case/Form/Activity/LinkCases.tpl
 msgid "Create link between %1 - %2 (CaseID: %3) and %4 - %5 (CaseID: %6)"
@@ -1154,6 +1200,10 @@ msgid "Clients:"
 msgstr "ลูกค้า:"
 
 #: templates/CRM/Case/Form/CaseView.tpl
+msgid "Remove Client"
+msgstr ""
+
+#: templates/CRM/Case/Form/CaseView.tpl
 msgid "Add Client"
 msgstr "เพิ่มลูกค้า"
 
@@ -1180,6 +1230,10 @@ msgstr "เปลี่ยนวันที่เริ่มกรณีปั
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Export Document"
 msgstr "ส่งออกเอกสาร"
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Merge Case"
+msgstr ""
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Roles"
@@ -1232,6 +1286,10 @@ msgstr "ขณะนี้ไม่มีการกำหนดแท็กใ
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Add Tags"
 msgstr "เพิ่มแท็ก"
+
+#: templates/CRM/Case/Form/DeleteClient.tpl
+msgid "Remove Client %1 from case %2"
+msgstr ""
 
 #: templates/CRM/Case/Form/EditClient.tpl
 msgid "This is case is currently assigned to %1."
