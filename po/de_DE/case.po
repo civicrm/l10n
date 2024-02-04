@@ -11,7 +11,7 @@
 # Fabian <schuttenberg@systopia.de>, 2014,2016-2017
 # ef1cb6e72d149b184cc241037203f60b_292341a <63356f0cd7cd6526e86739e801856434_34150>, 2012
 # Finn Freiday (Freiday) <finn@freisturz.de>, 2016
-# Freddy Koschinsky <schollator@burning.name>, 2020
+# 1fba6d0e2d56919dcbde1015bfc75c29_0c9227b <2e2b6a2102cea71e2d4b22368a7d737b_103193>, 2020
 # lbl_knts <git@rlkd.de>, 2019-2020,2023
 # Martin Peth <peth@systopia.de>, 2013-2015,2017-2018,2022-2023
 # Martin Peth <peth@systopia.de>, 2012
@@ -29,7 +29,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2022-12-19 14:12-0500\n"
+"POT-Creation-Date: 2024-02-03 10:37-0500\n"
 "PO-Revision-Date: 2011-03-28 14:17+0000\n"
 "Last-Translator: Martin Peth <peth@systopia.de>, 2013-2015,2017-2018,2022-2023\n"
 "Language-Team: German (http://app.transifex.com/civicrm/civicrm/language/de/)\n"
@@ -250,7 +250,7 @@ msgstr "Fall ID der Fall-Kontakt-Verbindung."
 msgid "Contact ID of contact record given case belongs to."
 msgstr "Kontakt-ID des Kontakts zu dem der Fall gehört."
 
-#: CRM/Case/DAO/CaseType.php ang/crmCaseType/list.html
+#: CRM/Case/DAO/CaseType.php ext/civi_case/ang/crmCaseType/list.html
 msgid "Case Types"
 msgstr "Falltypen"
 
@@ -376,6 +376,7 @@ msgid "Selected case is already linked."
 msgstr "Der ausgewählte Fall ist bereits verbunden."
 
 #: CRM/Case/Form/Activity/OpenCase.php
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
 msgid "Activity Duration"
 msgstr "Dauer der Aktivität"
 
@@ -402,10 +403,6 @@ msgstr "Gemeldet von"
 #: CRM/Case/Form/Activity.php CRM/Case/Form/CaseView.php
 msgid "- select activity type -"
 msgstr "- Aktivitätstyp wählen -"
-
-#: CRM/Case/Form/Activity.php CRM/Case/XMLProcessor/Report.php
-msgid "Medium"
-msgstr "Medium"
 
 #: CRM/Case/Form/Activity.php
 msgid ""
@@ -461,6 +458,10 @@ msgstr "Mit Kontakt(en)"
 #: CRM/Case/Form/ActivityView.php
 msgid "Activity Revision History"
 msgstr "Historie der Aktivitäten (Versionen)"
+
+#: CRM/Case/Form/ActivityView.php
+msgid "Home"
+msgstr ""
 
 #: CRM/Case/Form/ActivityView.php CRM/Case/Page/DashBoard.php
 msgid "CiviCase Dashboard"
@@ -560,6 +561,18 @@ msgstr "Fall zum Zusammenführen auswählen"
 #: CRM/Case/Form/CaseView.php
 msgid "- select case -"
 msgstr "- Fall wählen -"
+
+#: CRM/Case/Form/DeleteClient.php
+msgid "Cannot Remove Client from case as is the only client on the case"
+msgstr ""
+
+#: CRM/Case/Form/DeleteClient.php
+msgid "Remove Client from Case"
+msgstr ""
+
+#: CRM/Case/Form/DeleteClient.php
+msgid "Case Client Removed"
+msgstr ""
 
 #: CRM/Case/Form/EditClient.php
 msgid "Reassign Case"
@@ -693,13 +706,17 @@ msgstr "Reihenfolge nach Definition"
 msgid "Alphabetical order"
 msgstr "Alphabetische Reihenfolge"
 
+#: CRM/Case/Page/AJAX.php
+msgid "Change Case Tags"
+msgstr ""
+
+#: CRM/Case/Page/AJAX.php
+msgid "Client Added To Case"
+msgstr "Klient:in wurde zum Fall hinzugefügt"
+
 #: CRM/Case/Page/DashBoard.php
 msgid "You are not authorized to access all cases and activities."
 msgstr "Sie haben keine ausreichenden Benutzerrechte, um auf alle Fälle und Aktivitäten zuzugreifen."
-
-#: CRM/Case/Page/Tab.php
-msgid "Contact Id is required for view action."
-msgstr "Kontakt-ID wird benötigt um Aktionen zu zeigen."
 
 #: CRM/Case/Page/Tab.php
 msgid "Are you sure you want to delete this case?"
@@ -775,6 +792,10 @@ msgid ""
 "Activity type %1, found in case configuration file, is not present in the "
 "database %2"
 msgstr "Der in der Konfiguration angegebene Aktivitätstyp %1 ist in der Datenbank %2 nicht vorhanden."
+
+#: CRM/Case/XMLProcessor/Report.php
+msgid "Medium"
+msgstr "Medium"
 
 #: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
 msgid "Housing Support"
@@ -852,120 +873,153 @@ msgstr "Spezialist Leistungen"
 msgid "Case Resources"
 msgstr "Fallressourcen"
 
-#: ang/crmCaseType/activityTypesTable.html
+#: ext/civi_case/Civi/Api4/CaseContact.php
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
+msgid "Case Clients"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/CaseContact.php
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
+#: templates/CRM/Case/Form/Activity/ChangeCaseStatus.tpl
+msgid "Case Client"
+msgstr "Fallklient:in"
+
+#: ext/civi_case/Civi/Api4/CaseContact.php
+msgid "Clients"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/CaseContact.php
+msgid "Cases with this contact as a client"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/CaseContact.php
+msgid "Clients for this case"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
+msgid "Case Creator"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
+msgid "Activity Location"
+msgstr ""
+
+#: ext/civi_case/ang/crmCaseType/activityTypesTable.html
 msgid "Max Instances"
 msgstr "Höchstzahl pro Fall"
 
-#: ang/crmCaseType/activityTypesTable.html
+#: ext/civi_case/ang/crmCaseType/activityTypesTable.html
 msgid "Add activity type"
 msgstr "Aktivitätstyp hinzufügen"
 
-#: ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
 msgid "WARNING: The case type name includes deprecated characters."
 msgstr "WARNUNG: Der Falltypname enthält unzulässige Zeichen."
 
-#: ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
 msgid ""
 "WARNING: If any external files or programs reference the old \"Name\", then "
 "they must be updated manually."
 msgstr "WARNUNG: Sollte eine externe Datei oder Programm eine Referenz auf den alten \"Namen\" haben, dann muss diese manuell angepasst werden."
 
-#: ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
 msgid "Activity assignment settings"
 msgstr "Aktivitätszuordnung Einstellungen"
 
-#: ang/crmCaseType/caseTypeDetails.html ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Restrict to Groups"
 msgstr "Auf Gruppe(n) beschränken"
 
-#: ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
 msgid "Restrict to Website Users"
 msgstr "Auf Websitenutzer beschränken"
 
-#: ang/crmCaseType/edit.html ang/crmCaseType/list.html
+#: ext/civi_case/ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/list.html
 msgid "New Case Type"
 msgstr "Neuer Falltyp"
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid ""
 "Use this screen to define or update the Case Roles, Activity Types, and "
 "Timelines for a case type."
 msgstr "Benutze diese Ansicht zum Festlegen oder Anpassen der Fallrollen, Aktivitätsarten und der Timeline für den Falltyp."
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Learn more..."
 msgstr "Erfahren Sie mehr..."
 
-#: ang/crmCaseType/edit.html templates/CRM/Case/Audit/Report.tpl
+#: ext/civi_case/ang/crmCaseType/edit.html templates/CRM/Case/Audit/Report.tpl
 msgid "Case Roles"
 msgstr "Rollen im Fall"
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Case Statuses"
 msgstr "Fallstatus"
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Add..."
 msgstr "Hinzufügen..."
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Timeline"
 msgstr "Zeitachse"
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Sequence"
 msgstr "Sequenz"
 
-#: ang/crmCaseType/list.html
+#: ext/civi_case/ang/crmCaseType/list.html
 msgid ""
 "A Case Type describes a group of related tasks, interactions, or processes."
 msgstr "Ein Falltyp beschreibt eine Gruppe von verbundenen Aufgaben, Interaktionen oder Prozessen."
 
-#: ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Display Label"
 msgstr "Rollenbezeichnung"
 
-#: ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Assign to Creator"
 msgstr "an Fall-Ersteller zuweisen"
 
-#: ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Is Manager"
 msgstr "ist Manager"
 
-#: ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Add role"
 msgstr "Rolle hinzufügen"
 
-#: ang/crmCaseType/statusTable.html
+#: ext/civi_case/ang/crmCaseType/statusTable.html
 msgid "New Status"
 msgstr "Neuer Status"
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Reference"
 msgstr "Referenz"
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Offset"
 msgstr "Abweichung"
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Default assignee"
 msgstr "Standard-Beauftragte:r"
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Newest"
 msgstr "Neueste"
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Oldest"
 msgstr "Älteste"
 
-#: ang/crmCaseType.js
+#: ext/civi_case/ang/crmCaseType.js
 msgid "new"
 msgstr "neu"
 
-#: ang/crmCaseType.js
+#: ext/civi_case/ang/crmCaseType.js
 msgid ""
 "The CiviCase XML file for this case-type prohibits editing the definition."
 msgstr "Die CiviCase XML-Datei für diesen Falltyp verhindert die Bearbeitung der Definition."
@@ -1006,10 +1060,6 @@ msgstr "Aktuelles Eröffnungsdatum"
 #: templates/CRM/Case/Form/Activity/ChangeCaseStatus.tpl
 msgid "Update Linked Cases Status?"
 msgstr "Verknüpften Fallstatus aktualisieren?"
-
-#: templates/CRM/Case/Form/Activity/ChangeCaseStatus.tpl
-msgid "Case Client"
-msgstr "Fallklient:in"
 
 #: templates/CRM/Case/Form/Activity/LinkCases.tpl
 msgid "Create link between %1 - %2 (CaseID: %3) and %4 - %5 (CaseID: %6)"
@@ -1176,6 +1226,10 @@ msgid "Clients:"
 msgstr "Klient:in"
 
 #: templates/CRM/Case/Form/CaseView.tpl
+msgid "Remove Client"
+msgstr ""
+
+#: templates/CRM/Case/Form/CaseView.tpl
 msgid "Add Client"
 msgstr "Klient:in hinzufügen"
 
@@ -1202,6 +1256,10 @@ msgstr "Eröffnungsdatum des Falles ändern (legt eine Aktivität an)"
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Export Document"
 msgstr "Dokument exportieren"
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Merge Case"
+msgstr ""
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Roles"
@@ -1254,6 +1312,10 @@ msgstr "Dem Fall sind derzeit keine Tags zugeordnet."
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Add Tags"
 msgstr "Tags hinzufügen"
+
+#: templates/CRM/Case/Form/DeleteClient.tpl
+msgid "Remove Client %1 from case %2"
+msgstr ""
 
 #: templates/CRM/Case/Form/EditClient.tpl
 msgid "This is case is currently assigned to %1."
@@ -1390,7 +1452,3 @@ msgstr "Zusammenfassung der Aktivitäten"
 #: xml/templates/message_templates/case_activity_text.tpl
 msgid "Your Case Role(s)"
 msgstr "Meine Fallrolle(n)"
-
-#: CRM/Case/Page/AJAX.php
-msgid "Client Added To Case"
-msgstr "Klient:in wurde zum Fall hinzugefügt"
