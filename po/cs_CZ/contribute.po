@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2023-06-17 15:56-0400\n"
+"POT-Creation-Date: 2024-02-03 10:37-0500\n"
 "PO-Revision-Date: 2011-03-28 14:19+0000\n"
 "Last-Translator: Karel Hennhofer <khennhofer@kam.cz>, 2021-2024\n"
 "Language-Team: Czech (http://app.transifex.com/civicrm/civicrm/language/cs/)\n"
@@ -23,17 +23,16 @@ msgstr ""
 "Language: cs\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
-#: CRM/Contribute/ActionMapping/ByPage.php
-#: CRM/Contribute/ActionMapping/ByType.php
-msgid "Thank You Date"
-msgstr ""
-
 #: CRM/Contribute/ActionMapping/ByType.php
 msgid "Contribution Type"
 msgstr ""
 
 #: CRM/Contribute/ActionMapping/ByType.php
 msgid "Soft Credit Role"
+msgstr ""
+
+#: CRM/Contribute/ActionMapping.php
+msgid "Thank You Date"
 msgstr ""
 
 #: CRM/Contribute/BAO/Contribution.php
@@ -68,13 +67,6 @@ msgid "Soft Credit Contact ID"
 msgstr ""
 
 #: CRM/Contribute/BAO/Contribution.php
-#: CRM/Contribute/Form/Contribution/Confirm.php
-#: CRM/Contribute/Form/Contribution/Main.php
-#: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
-msgid "Online Contribution"
-msgstr ""
-
-#: CRM/Contribute/BAO/Contribution.php
 #: CRM/Contribute/BAO/ContributionRecur.php
 msgid "Recurring contribution"
 msgstr ""
@@ -88,6 +80,10 @@ msgid ""
 "One or more line items have a different financial type than the "
 "contribution. Editing the financial type is not yet supported in this "
 "situation."
+msgstr ""
+
+#: CRM/Contribute/BAO/Contribution.php
+msgid "Status changed from %1 to %2"
 msgstr ""
 
 #: CRM/Contribute/BAO/Contribution.php
@@ -147,7 +143,7 @@ msgstr ""
 msgid "View related contribution"
 msgstr "Zobrazit napojené příspěvky"
 
-#: CRM/Contribute/BAO/Premium.php
+#: CRM/Contribute/BAO/Premium.php CRM/Contribute/Form/ContributionBase.php
 msgid "Selected Option"
 msgstr "Vybraná možnost"
 
@@ -339,12 +335,6 @@ msgstr ""
 
 #: CRM/Contribute/DAO/Contribution.php
 msgid ""
-"Date contribution was received - not necessarily the creation date of the "
-"record"
-msgstr ""
-
-#: CRM/Contribute/DAO/Contribution.php
-msgid ""
 "Portion of total amount which is NOT tax deductible. Equal to total_amount "
 "for non-deductible financial types."
 msgstr ""
@@ -444,7 +434,23 @@ msgid "Shows this is a template for recurring contributions."
 msgstr ""
 
 #: CRM/Contribute/DAO/ContributionPage.php
+msgid "Page Name"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionPage.php
 msgid "Contribution Page title. For top of page display"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionPage.php
+msgid "Contribution Page Public title"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionPage.php
+msgid "Unique Name"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionPage.php
+msgid "Unique name for identifying contribution page"
 msgstr ""
 
 #: CRM/Contribute/DAO/ContributionPage.php
@@ -724,10 +730,6 @@ msgstr ""
 msgid "if true - billing block is required for online contribution page"
 msgstr ""
 
-#: CRM/Contribute/DAO/ContributionPage.php
-msgid "Contribution Page Public title"
-msgstr ""
-
 #: CRM/Contribute/DAO/ContributionProduct.php
 msgid "Contribution Products"
 msgstr ""
@@ -895,6 +897,12 @@ msgstr ""
 
 #: CRM/Contribute/DAO/ContributionRecur.php
 msgid "unique transaction id (deprecated - use processor_id)"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+#: CRM/Contribute/Form/AdditionalInfo.php
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "Invoice ID"
 msgstr ""
 
 #: CRM/Contribute/DAO/ContributionRecur.php
@@ -1330,23 +1338,6 @@ msgid ""
 " you can submit a credit card transactions."
 msgstr ""
 
-#: CRM/Contribute/Form/AbstractEditPayment.php
-msgid "Pledge payment status should be 'Pending' or  'Overdue'."
-msgstr "Status pro závazek platby musí být \"Váhající\" nebo \"Zpožděný\""
-
-#: CRM/Contribute/Form/AbstractEditPayment.php
-msgid ""
-"This contact has pending or overdue pledge payments. <a href=\"%1\">Click "
-"here to view their Pledges tab</a> and verify whether this contribution "
-"should be applied as a pledge payment."
-msgstr "Tento kontakt má závazky k platbě se statusem \"váhající\" nebo \"zpožděný\". <a href=\"%1\">Klikněte zde pro zobrazení tabulky závazků</a> a ověřte si, zda má být tento příspěvek označen jako závazek k platbě."
-
-#: CRM/Contribute/Form/AbstractEditPayment.php
-msgid ""
-"This contact has a pending or overdue pledge payment of %2 which is "
-"scheduled for %3. <a href=\"%1\">Click here to enter a pledge payment</a>."
-msgstr "Tento kontakt má závazek k platbě %2 se statusem \"očekávaný\" nebo \"zpožděný\", který je naplánován na %3. <a href=\"%1\">Klikněte zde pro zadání platby závazku</a>."
-
 #: CRM/Contribute/Form/AdditionalInfo.php
 msgid "-select product-"
 msgstr "-vyber produkt-"
@@ -1378,29 +1369,12 @@ msgstr "Toto ID faktury již v databázi existuje."
 msgid "This Credit Note ID already exists in the database."
 msgstr ""
 
-#: CRM/Contribute/Form/AdditionalInfo.php
-msgid "Send Initial Reminder"
-msgstr "Poslat první upozornění"
-
-#: CRM/Contribute/Form/AdditionalInfo.php
-msgid "Please enter a valid reminder day."
-msgstr "Zadejte prosím platné datum připomenutí."
-
-#: CRM/Contribute/Form/AdditionalInfo.php
-#: CRM/Contribute/Form/ContributionPage/Amount.php
-msgid "Send up to"
-msgstr "Odeslat až"
-
-#: CRM/Contribute/Form/AdditionalInfo.php
-msgid "Please enter a valid No. of reminders."
-msgstr "Zadejte prosím platné číslo připomenutí."
-
-#: CRM/Contribute/Form/AdditionalInfo.php
-msgid "Please enter a valid additional reminder day."
-msgstr "Zadejte prosím další datum připomínky."
-
 #: CRM/Contribute/Form/AdditionalPayment.php
 msgid "Credit card payment is not for Refund payments use"
+msgstr ""
+
+#: CRM/Contribute/Form/AdditionalPayment.php
+msgid "Refund"
 msgstr ""
 
 #: CRM/Contribute/Form/AdditionalPayment.php
@@ -1417,6 +1391,10 @@ msgid "Refund Date"
 msgstr ""
 
 #: CRM/Contribute/Form/AdditionalPayment.php
+msgid "Submit Payment"
+msgstr ""
+
+#: CRM/Contribute/Form/AdditionalPayment.php
 msgid "Payment method is a required field"
 msgstr ""
 
@@ -1429,11 +1407,6 @@ msgstr ""
 msgid "A receipt has been emailed to the contributor."
 msgstr "Potvrzení platby bylo přispěvateli odesláno emailem."
 
-#: CRM/Contribute/Form/AdditionalPayment.php
-#: CRM/Contribute/Form/Contribution.php
-msgid "Submit Credit Card Payment by: %1"
-msgstr "Zadejte platby platební kartou pro: %1"
-
 #: CRM/Contribute/Form/CancelSubscription.php
 msgid "The recurring contribution looks to have been cancelled already."
 msgstr "Opakovaný příspěvek byl zřejmě zrušen."
@@ -1441,6 +1414,10 @@ msgstr "Opakovaný příspěvek byl zřejmě zrušen."
 #: CRM/Contribute/Form/CancelSubscription.php
 #: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Required information missing."
+msgstr ""
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Cancel Recurring Contribution"
 msgstr ""
 
 #: CRM/Contribute/Form/CancelSubscription.php
@@ -1475,31 +1452,17 @@ msgid "Recurring contribution could not be cancelled in the database."
 msgstr "Opakovaný příspěvek nemůže být zrušen v databázi."
 
 #: CRM/Contribute/Form/Contribution/Confirm.php
-msgid "Make Contribution"
-msgstr "Přispět"
-
-#: CRM/Contribute/Form/Contribution/Confirm.php
-#: CRM/Contribute/Form/Contribution/Main.php
-#: CRM/Contribute/Form/Contribution/ThankYou.php
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"Oops. The membership you're trying to renew appears to be invalid. Contact "
-"your site administrator if you need assistance. If you continue, you will be"
-" issued a new membership."
-msgstr ""
-
-#: CRM/Contribute/Form/Contribution/Confirm.php
-#: CRM/Contribute/Form/Contribution/Main.php
-#: CRM/Contribute/Form/Contribution/ThankYou.php
-msgid "Invalid Membership"
-msgstr ""
-
-#: CRM/Contribute/Form/Contribution/Confirm.php
 msgid "Anonymous"
 msgstr "Anonymní"
 
 #: CRM/Contribute/Form/Contribution/Confirm.php
 msgid "Online Contribution:"
+msgstr ""
+
+#: CRM/Contribute/Form/Contribution/Confirm.php
+#: CRM/Contribute/Form/Contribution/Main.php
+#: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
+msgid "Online Contribution"
 msgstr ""
 
 #: CRM/Contribute/Form/Contribution/Confirm.php
@@ -1537,7 +1500,9 @@ msgid "Confirm Payment"
 msgstr ""
 
 #: CRM/Contribute/Form/Contribution/Main.php
-msgid "Please select one of the memberships."
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+msgid "Additional Contribution"
 msgstr ""
 
 #: CRM/Contribute/Form/Contribution/Main.php
@@ -1545,22 +1510,27 @@ msgid "Please renew my membership automatically."
 msgstr ""
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "installments"
 msgstr "splátky"
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "Number of installments must be a whole number."
 msgstr "Počet splátek musí být celé číslo."
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "I want to contribute this amount every"
 msgstr ""
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "I want to contribute this amount every %1"
 msgstr ""
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "Frequency must be a whole number (EXAMPLE: Every 3 months)."
 msgstr "Do pole četnosti pravidelného příspěvku musíte zadat celé číslo (Příklad: \"každý 1 měsíc\")."
 
@@ -1677,6 +1647,42 @@ msgstr ""
 msgid "Returning since contribution has already been handled."
 msgstr ""
 
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid ""
+"This contribution page has been configured for contribution on behalf of "
+"honoree and the selected honoree profile is either disabled or not found."
+msgstr ""
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid ""
+"This contribution page has been configured for contribution on behalf of "
+"honoree and the required fields of the selected honoree profile are disabled"
+" or doesn't exist."
+msgstr ""
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid ""
+"This contribution page has been configured for contribution on behalf of an "
+"organization and the selected onbehalf profile is either disabled or not "
+"found."
+msgstr "Tato stránka s příspěvky byla nastavena pro příspěvky v zastoupení organizace a zvolený profil zastoupení je buď zakázán nebo nenalezen."
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Mixed profile not allowed for on behalf of registration/sign up."
+msgstr "Smíšený profil není povolen u registrace nebo přihlášení k odběru."
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Select an existing organization"
+msgstr "Vyberte existující organizaci"
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Enter a new organization"
+msgstr "Zadejte novou organizaci"
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "options"
+msgstr ""
+
 #: CRM/Contribute/Form/Contribution.php
 #: CRM/Contribute/Page/ContributionRecurPayments.php
 #: CRM/Contribute/Selector/Search.php
@@ -1695,6 +1701,23 @@ msgstr "Závazek platby kreditní kartou"
 #: CRM/Contribute/Form/Contribution.php
 msgid "Credit Card Contribution"
 msgstr "Příspěvek kreditní kartou"
+
+#: CRM/Contribute/Form/Contribution.php
+msgid "Pledge payment status should be 'Pending' or  'Overdue'."
+msgstr "Status pro závazek platby musí být \"Váhající\" nebo \"Zpožděný\""
+
+#: CRM/Contribute/Form/Contribution.php
+msgid ""
+"This contact has pending or overdue pledge payments. <a href=\"%1\">Click "
+"here to view their Pledges tab</a> and verify whether this contribution "
+"should be applied as a pledge payment."
+msgstr "Tento kontakt má závazky k platbě se statusem \"váhající\" nebo \"zpožděný\". <a href=\"%1\">Klikněte zde pro zobrazení tabulky závazků</a> a ověřte si, zda má být tento příspěvek označen jako závazek k platbě."
+
+#: CRM/Contribute/Form/Contribution.php
+msgid ""
+"This contact has a pending or overdue pledge payment of %2 which is "
+"scheduled for %3. <a href=\"%1\">Click here to enter a pledge payment</a>."
+msgstr "Tento kontakt má závazek k platbě %2 se statusem \"očekávaný\" nebo \"zpožděný\", který je naplánován na %3. <a href=\"%1\">Klikněte zde pro zadání platby závazku</a>."
 
 #: CRM/Contribute/Form/Contribution.php
 msgid "Additional Details"
@@ -1723,6 +1746,10 @@ msgid "Payment Processor Error"
 msgstr ""
 
 #: CRM/Contribute/Form/Contribution.php
+msgid "Submit Credit Card Payment by: %1"
+msgstr "Zadejte platby platební kartou pro: %1"
+
+#: CRM/Contribute/Form/Contribution.php
 msgid ""
 "Contribution submitted by a staff person using contributor's credit card"
 msgstr ""
@@ -1731,9 +1758,17 @@ msgstr ""
 msgid "The contribution record has been saved."
 msgstr "Záznam o příspěvku byl uložen."
 
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "Membership Invalid"
-msgstr "Členství je chybné"
+#: CRM/Contribute/Form/Contribution.php
+msgid ""
+"You've changed the financial type for this %1 contribution from non-tax "
+"deductible to tax deductible, but the non-deductible amount of %2 has not "
+"been changed. This could prevent a tax receipt from being issued correctly. "
+"You may want to edit the non-deductible amount."
+msgstr ""
+
+#: CRM/Contribute/Form/Contribution.php
+msgid "Non-deductible amount"
+msgstr ""
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid "The page you requested has past its end date on %1"
@@ -1745,52 +1780,10 @@ msgstr ""
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid ""
-"This page includes a Profile with Membership fields - but the Membership "
-"Block is NOT enabled. Please notify the site administrator."
-msgstr "Tato stránka zahrnuje profil s poli členství - ale blok členství není povolen. Prosím upozorněte na toto administrátora."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
 "The requested online contribution page is missing a required Contribution "
 "Amount section or Membership section or Price Set. Please check with the "
 "site administrator for assistance."
 msgstr "Požadovaná stránka online příspěvků postrádá potřebnou sekci Množství příspěvků nebo sekci Členství nebo sekci Sada cen. Požádejte administrátora o spolupráci."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"This contribution page has been configured for contribution on behalf of "
-"honoree and the selected honoree profile is either disabled or not found."
-msgstr ""
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"This contribution page has been configured for contribution on behalf of "
-"honoree and the required fields of the selected honoree profile are disabled"
-" or doesn't exist."
-msgstr ""
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"This contribution page has been configured for contribution on behalf of an "
-"organization and the selected onbehalf profile is either disabled or not "
-"found."
-msgstr "Tato stránka s příspěvky byla nastavena pro příspěvky v zastoupení organizace a zvolený profil zastoupení je buď zakázán nebo nenalezen."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "Mixed profile not allowed for on behalf of registration/sign up."
-msgstr "Smíšený profil není povolen u registrace nebo přihlášení k odběru."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "Select an existing organization"
-msgstr "Vyberte existující organizaci"
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "Enter a new organization"
-msgstr "Zadejte novou organizaci"
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "options"
-msgstr ""
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid ""
@@ -1802,6 +1795,23 @@ msgstr "Ouha. Zdá se, že máte nesprávný nebo neúplný odkaz  (URL). Ujist�
 #: CRM/Contribute/Form/ContributionBase.php
 msgid "Oops. You cannot make a payment for this pledge - pledge status is %1."
 msgstr "Chybička se vloudila. Nemůžete provést platbu pro tento závazek - status závazku je % 1."
+
+#: CRM/Contribute/Form/ContributionBase.php
+msgid ""
+"This page includes a Profile with Membership fields - but the Membership "
+"Block is NOT enabled. Please notify the site administrator."
+msgstr "Tato stránka zahrnuje profil s poli členství - ale blok členství není povolen. Prosím upozorněte na toto administrátora."
+
+#: CRM/Contribute/Form/ContributionBase.php
+msgid ""
+"Oops. The membership you're trying to renew appears to be invalid. Contact "
+"your site administrator if you need assistance. If you continue, you will be"
+" issued a new membership."
+msgstr ""
+
+#: CRM/Contribute/Form/ContributionBase.php
+msgid "Membership Invalid"
+msgstr "Členství je chybné"
 
 #: CRM/Contribute/Form/ContributionCharts.php
 msgid "Chart Style"
@@ -1844,6 +1854,7 @@ msgid "Add Premium to Contribution Page"
 msgstr "Přidat Prémii na stránku příspěvku."
 
 #: CRM/Contribute/Form/ContributionPage/Amount.php
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
 msgid "Allow other amounts"
 msgstr "Povolit jiné částky"
 
@@ -1856,6 +1867,7 @@ msgid "Contribution Amounts section enabled"
 msgstr "Sekce částky příspěvků povolena"
 
 #: CRM/Contribute/Form/ContributionPage/Amount.php
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
 msgid "Execute real-time monetary transactions"
 msgstr "Provézt peněžní transakci v reálném čase"
 
@@ -1964,12 +1976,6 @@ msgid ""
 "payment option has been selected. Please select at least one payment "
 "processor and/or enable the pay later option."
 msgstr ""
-
-#: CRM/Contribute/Form/ContributionPage/Amount.php
-msgid ""
-"You cannot enable both a Contribution Price Set and Membership Signup on the"
-" same online contribution page."
-msgstr "Nemůžete povolit současně Sadu cen příspěvků a přihlášení se ke členství na stejné online stránce s příspěvky. "
 
 #: CRM/Contribute/Form/ContributionPage/Amount.php
 msgid "At least one recurring frequency option needs to be checked."
@@ -2091,6 +2097,7 @@ msgid "Organization Profile"
 msgstr "Profil organizace"
 
 #: CRM/Contribute/Form/ContributionPage/Settings.php
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid "On behalf of Label"
 msgstr "Pole v zastoupení"
 
@@ -2111,6 +2118,7 @@ msgid "Honoree Section Title"
 msgstr "Nadpis sekce oslavenců"
 
 #: CRM/Contribute/Form/ContributionPage/Settings.php
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid "Honoree Introductory Message"
 msgstr "Úvodní zpráva oslavenců"
 
@@ -2129,10 +2137,6 @@ msgstr ""
 #: CRM/Contribute/Form/ContributionPage/Settings.php
 msgid "Please select a profile used for honoree"
 msgstr ""
-
-#: CRM/Contribute/Form/ContributionPage/Settings.php
-msgid "Please do not use '/' in Title"
-msgstr "Prosím nepoužívejte \"/\" v nadpisu"
 
 #: CRM/Contribute/Form/ContributionPage/Settings.php
 msgid ""
@@ -2519,10 +2523,11 @@ msgid "From Email Address is required"
 msgstr ""
 
 #: CRM/Contribute/Form/Task/Invoice.php
-msgid ""
-"If you would like to add personal message to email please add it here. (If "
-"sending to more then one receipient the same message will be sent to each "
-"contact.)"
+msgid "Replace Subject"
+msgstr ""
+
+#: CRM/Contribute/Form/Task/Invoice.php
+msgid "Additional Message"
 msgstr ""
 
 #: CRM/Contribute/Form/Task/Invoice.php
@@ -2566,6 +2571,10 @@ msgstr ""
 #: CRM/Contribute/Form/Task/PDF.php
 msgid "Process Receipt(s)"
 msgstr "Průběh potvrzení"
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "From Email Address"
+msgstr ""
 
 #: CRM/Contribute/Form/Task/PDFLetter.php
 msgid "Thank-you Letter Options"
@@ -2756,6 +2765,10 @@ msgid "Update Error"
 msgstr "Chyba aktualizace"
 
 #: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Update Recurring Contribution"
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Recurring Contribution Amount"
 msgstr "Částka opakovaného příspěvku"
 
@@ -2804,10 +2817,6 @@ msgstr "Vložit nové příspěvky"
 #: CRM/Contribute/Import/Form/DataSource.php
 msgid "Update existing contributions"
 msgstr "Aktualizovat existující příspěvky"
-
-#: CRM/Contribute/Import/Form/DataSource.php
-msgid "Load Mapping"
-msgstr "Nahrát mapování"
 
 #: CRM/Contribute/Import/Form/MapField.php
 msgid "(match to contribution record)"
@@ -3146,8 +3155,21 @@ msgstr ""
 msgid "Invoices - print or email"
 msgstr ""
 
+#: CRM/Contribute/Tokens.php
+msgid "Billing Address Name"
+msgstr ""
+
+#: CRM/Contribute/Tokens.php templates/CRM/Contribute/Form/Contribution.tpl
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+msgid "Billing Address"
+msgstr "Fakturační adresa"
+
 #: CRM/Contribute/WorkflowMessage/Contribution/BasicContribution.php
 msgid "Completed Contribution"
+msgstr ""
+
+#: CRM/Contribute/WorkflowMessage/Contribution/BasicContribution.php
+msgid "Partially Paid Contribution"
 msgstr ""
 
 #: CRM/Contribute/WorkflowMessage/Contribution/BasicContribution.php
@@ -3160,6 +3182,18 @@ msgstr ""
 
 #: CRM/Contribute/WorkflowMessage/RecurringEdit/BarbPending.php
 msgid "Recurring Edit: Barbara, Pending"
+msgstr ""
+
+#: ext/civi_contribute/Civi/Api4/Service/Spec/Provider/ContributionGetSpecProvider.php
+msgid "Amount paid"
+msgstr ""
+
+#: ext/civi_contribute/Civi/Api4/Service/Spec/Provider/ContributionGetSpecProvider.php
+msgid "Tax Exclusive Amount"
+msgstr ""
+
+#: ext/civi_contribute/Civi/Api4/Service/Spec/Provider/FinancialTrxnCreationSpecProvider.php
+msgid "Related entity (eg. contribution) id"
 msgstr ""
 
 #: templates/CRM/Contribute/Form/AcceptCreditCard.tpl
@@ -3191,27 +3225,6 @@ msgid ""
 "The name for this credit card type as it is displayed to contributors. This "
 "may be the same value as the Name above, or a localised title."
 msgstr "Název typu karty, jak se bude zobrazovat vašim přispěvatelům. Může to být stejné jméno jako uvedené výše, nebo jiné."
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-msgid "Non-deductible portion of this contribution."
-msgstr "Část příspěvku, která není odečitatelná od daňového základu"
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-#: templates/CRM/Contribute/Form/AdditionalPayment.tpl
-msgid "Processing fee for this transaction (if applicable)."
-msgstr "Poplatek za zpracování této transakce (pokud je)."
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-msgid "Unique internal reference ID for this contribution."
-msgstr "Unikátní interní ID tohoto příspěvku."
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-msgid "Unique internal Credit Note ID for this contribution."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-msgid "Date that a thank-you message was sent to the contributor."
-msgstr "Datum, kdy byla přispěvateli poslána zpráva s poděkováním."
 
 #: templates/CRM/Contribute/Form/AdditionalInfo/PaymentReminders.tpl
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
@@ -3269,7 +3282,6 @@ msgstr ""
 
 #: templates/CRM/Contribute/Form/AdditionalPayment.tpl
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Refund Details"
 msgstr ""
 
@@ -3277,13 +3289,8 @@ msgstr ""
 #: templates/CRM/Contribute/Form/Contribution.tpl
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Payment Details"
 msgstr "Detaily platby"
-
-#: templates/CRM/Contribute/Form/AdditionalPayment.tpl
-msgid "The date this payment was received."
-msgstr ""
 
 #: templates/CRM/Contribute/Form/AdditionalPayment.tpl
 msgid ""
@@ -3384,18 +3391,6 @@ msgid ""
 "time by logging in to your account or contacting us at %1."
 msgstr "Příslib Vaší první platby bude zpracován po klepnutí na tlačítko \"%2\" níže. Pro změnu nebo zrušení svého závazku se přihlašte do svého účtu nebo nás kontaktujte na adrese %1."
 
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Your transaction will not be completed until you click the "
-"<strong>%1</strong> button. Please click the button one time only."
-msgstr "Vaše transakce bude odeslána až po klepnutí na tlačítko <strong>%1</strong>. Prosím, klikněte na tlačítko pouze jednou."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Your contribution will not be completed until you click the "
-"<strong>%1</strong> button. Please click the button one time only."
-msgstr "Váš příspěvek bude dokončen jakmile kliknete na tlačítko <strong>%1</strong>. Prosím klikněte na toto tlačítko pouze jednou."
-
 #: templates/CRM/Contribute/Form/Contribution/Main.tpl
 msgid "Configure Contribution Page"
 msgstr ""
@@ -3418,7 +3413,6 @@ msgstr "Momentálně máte doživotní členství, které nepotřebuje být obno
 #: xml/templates/message_templates/contribution_offline_receipt_html.tpl
 #: xml/templates/message_templates/contribution_offline_receipt_text.tpl
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
 msgid "Contribution Information"
 msgstr "Informace o příspěvku"
 
@@ -3439,19 +3433,23 @@ msgstr "Zvolte možnost zobrazení polí informací o oceněných."
 msgid "Regular Amount"
 msgstr ""
 
-#: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
+#: templates/CRM/Contribute/Form/Contribution/MainMembershipBlock.tpl
 msgid "Your <strong>%2</strong> membership expired on %1."
 msgstr "Vaše <strong>%2</strong> členství vypršelo %1."
 
-#: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
+#: templates/CRM/Contribute/Form/Contribution/MainMembershipBlock.tpl
 msgid "Your <strong>%2</strong> membership expires on %1."
 msgstr "Vaše <strong>%2</strong> členství vyprší %1."
 
-#: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
+#: templates/CRM/Contribute/Form/Contribution/MainMembershipBlock.tpl
 msgid ""
 "Your <strong>%1</strong> membership does not expire (you do not need to "
 "renew that membership)."
 msgstr "Vaše  <strong>%1</strong> členství ještě nevypršelo (nepotřebujete ho tudíž obnovovat)."
+
+#: templates/CRM/Contribute/Form/Contribution/MainMembershipBlock.tpl
+msgid "(contribute at least %1 to be eligible for this membership)"
+msgstr "(pro toto členství jsou vhodné příspěvky ve výši minimálně %1)"
 
 #: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
 msgid "Select a Membership Renewal Level"
@@ -3460,10 +3458,6 @@ msgstr "Zvolte úroveň obnovení členství"
 #: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
 msgid "Select a Membership Level"
 msgstr "Zvolte úroveň členství"
-
-#: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
-msgid "(contribute at least %1 to be eligible for this membership)"
-msgstr "(pro toto členství jsou vhodné příspěvky ve výši minimálně %1)"
 
 #: templates/CRM/Contribute/Form/Contribution/PremiumBlock.tpl
 msgid "Your Premium Selection"
@@ -3503,6 +3497,20 @@ msgid ""
 "card number, security code, postal code, etc."
 msgstr "Tato stránka momentálně běží v <strong>testovacím režimu</strong>. Transakce budou posílány na testovací server vašeho poskytovatele plateb. <strong>Žádné aktuální finanční transakce neproběhnou. Nicméně záznam o kontaktu se vytvoří nebo se aktualizuje a záznam o testovacím příspěvku se uloží do databáze. Použijte evidentně testovací jména kontaktu, abyste je později snadno našli a smazali. Testovací příspěvky se nezobrazují v tabulce příspěvků, můžete je najít jen při prohledávání \"Testovacích příspěvků\" pomocí hledacího formuláře CiviPříspěvky.</strong> Prohlédněte si dokumentaci vašeho poskytovatele plateb pro informace o hodnotách použitých na testování kreditních karet, bezpečnostního módu, poštovního směrovacího čísla, atd."
 
+#: templates/CRM/Contribute/Form/Contribution/PreviewHeader.tpl
+msgid "Test payment processor on Your Contribution Page"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution/PreviewHeader.tpl
+msgid ""
+"This page is currently configured to use the <strong>%1 payment "
+"processor</strong>. <strong>No live financial transactions will be submitted"
+" if %1 payment processor is selected. However, a contact record will be "
+"created or updated and a live contribution record will be saved to the "
+"database with no actual financial transaction. Remove %1 payment processor "
+"before going live.</strong>"
+msgstr ""
+
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
 "An email confirmation with these payment instructions has been sent to %1 "
@@ -3541,6 +3549,10 @@ msgstr "Emailové potvrzení bylo posláno také %1 a %2."
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid "An email receipt has also been sent to %1"
 msgstr "Emailové potvrzení bylo posláno také %1."
+
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+msgid "Membership Transaction #"
+msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid "This membership will be renewed automatically every %1."
@@ -3703,10 +3715,6 @@ msgid ""
 msgstr "Zadejte datum zrušení nebo datum vrácení, nebo můžete přeskočit toto pole a datum zrušení bude automaticky nastaveno na dnešek."
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
-msgid "The date this contribution was received."
-msgstr "Datum, kdy byl obdržen příspěvek."
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
 msgid "Automatically email a receipt for this payment to %1?"
 msgstr "Automatický email s potvrzením tohoto příspěvku %1?"
 
@@ -3715,30 +3723,10 @@ msgid "Automatically email a receipt for this payment to "
 msgstr "Automatický email s potvrzením tohoto příspěvku pro"
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
-msgid "Date that a receipt was sent to the contributor."
-msgstr "Datum, kdy bylo posláno přispěvateli potvrzení příspěvku."
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
 msgid ""
 "Search for the Personal Campaign Page by the fund-raiser's last name or "
 "email address."
 msgstr "Hledat osobní stránku kampaně podle příjmení fundraisera nebo emailové adresy."
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-msgid ""
-"Name or nickname contributor wants to be displayed in the Honor Roll. Enter "
-"\"Anonymous\" for anonymous contributions."
-msgstr "Jméno nebo přezdívka, kterou si přispěvatel přeje mít v síni slávy. Zadejte \"Anonymní\" pro anonymní příspěvky. "
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-msgid ""
-"Personal message submitted by contributor for display in the Honor Roll."
-msgstr "Osobní zpráva navržená přispěvatelem pro zobrazení v hale slávy. "
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "Billing Address"
-msgstr "Fakturační adresa"
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
 msgid ""
@@ -3826,6 +3814,53 @@ msgid ""
 "Page."
 msgstr "Nastavení pořadí, ve kterém jsou prémie nabízeny na stránkách s příspěvky."
 
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Uncheck this box if you are using this contribution page for free membership"
+" signup ONLY, or to solicit in-kind / non-monetary donations such as "
+"furniture, equipment.. etc."
+msgstr "Odškrtněte toto pole, pokud používáte tuto stránku s příspěvky POUZE pro bezplatné přihlášení členství nebo pro naturální / nepeněžní příspěvky jako nábytek, vybavení atd."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Instructions added to Confirmation and Thank-you pages, as well as the "
+"confirmation email, when the user selects the 'pay later' option (e.g. 'Mail"
+" your check to ... within 3 business days.')."
+msgstr "Instrukce přidávané ke stránkám s potvrzením a poděkováním a také do potvrzovacího mailu, když uživatel zvolí možnost \"Zaplatit později\" (např. \"Odešlete mailem vaše potvrzení na... do 3 pracovních dnů.\")."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Uncheck this box if you are using this contribution page for membership "
+"signup and renewal only &ndash; and you do NOT want users to select or enter"
+" any additional contribution amounts."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Check this box if you want to give users the option to make recurring "
+"contributions. This feature requires that you use a payment processor which "
+"supports recurring billing / subscriptions functionality."
+msgstr "Zaškrtněte tento box, pokud chcete uživatelům umožnit opakované příspěvky. Tento doplněk vyžaduje použití poskytovatele plateb, který podporuje funkci opakovaných plateb / předplatného."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Check this box if you want to give users the option to make a Pledge (a "
+"commitment to contribute a fixed amount on a recurring basis)."
+msgstr "Zaškrtněte tento box, pokud chcete dát uživatelům možnost učinit závazek (přislíbení příspěvku fixní částkou nebo na opakující se bázi)."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Check this box if you want to give users the option to enter their own "
+"contribution amount. Your page will then include a text field labeled "
+"<strong>Other Amount</strong>."
+msgstr "Zaškrtněte tento box v případě, že chcete umožnit uživatelům zadat vlastní výši příspěvku. Vaše stránka bude poté obsahovat textové pole označené <strong>Jiná částka</strong>."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"You can also set minimum and maximum amounts that users are allowed to "
+"enter."
+msgstr ""
+
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 #: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
 msgid ""
@@ -3849,64 +3884,9 @@ msgstr "Nemáte nastaveného/povoleného na stránce žádného poskytovatele pl
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid ""
-"Uncheck this box if you are using this contribution page for free membership"
-" signup ONLY, or to solicit in-kind / non-monetary donations such as "
-"furniture, equipment.. etc."
-msgstr "Odškrtněte toto pole, pokud používáte tuto stránku s příspěvky POUZE pro bezplatné přihlášení členství nebo pro naturální / nepeněžní příspěvky jako nábytek, vybavení atd."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Select the currency to be used for contributions submitted from this "
-"contribution page."
-msgstr "Zvolte měnu, která bude používána pro příspěvky získávané prostřednictvím této stránky."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Select the payment processor to be used for contributions submitted from "
-"this contribution page (unless you are soliciting non-monetary / in-kind "
-"contributions only)."
-msgstr "Vyberte poskytovatele plateb, který bude nabízen pro zpracování příspěvků poskytnutých přes tuto stránku s příspěvky (pokud nepoužíváte tuto stránku pouze pro příjem nepeněžních příspěvků)."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Instructions added to Confirmation and Thank-you pages, as well as the "
-"confirmation email, when the user selects the 'pay later' option (e.g. 'Mail"
-" your check to ... within 3 business days.')."
-msgstr "Instrukce přidávané ke stránkám s potvrzením a poděkováním a také do potvrzovacího mailu, když uživatel zvolí možnost \"Zaplatit později\" (např. \"Odešlete mailem vaše potvrzení na... do 3 pracovních dnů.\")."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Uncheck this box if you are using this contribution page for membership "
-"signup and renewal only &ndash; and you do NOT want users to select or enter"
-" any additional contribution amounts."
+"Select a Price Set to offer more complex amount options. Otherwise, leave "
+"this empty and enter fixed contribution options below."
 msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Select a pre-configured Price Set to offer multiple individually priced "
-"options for contributions. Otherwise, select &quot;-none-&quot; and enter "
-"one or more fixed contribution options in the table below. Create or edit "
-"Price Sets <a href='%1'>here</a>."
-msgstr "Vyberte přednastavený cenový set pro nabídnutí individuálních možností cen vašim přispěvatelům. Nebo vyberte  &quot;-none-&quot; a zadejte jedno nebo více pevných možností příspěvků z tabulky níže. Vytvořte nebo upravte cenové sety <a href='%1'>zde</a>."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"No Contribution Price Sets have been configured / enabled for your site. "
-"Price sets allow you to configure more complex contribution options (e.g. "
-"\"Contribute $25 more to receive our monthly magazine.\"). Click <a "
-"href='%1'>here</a> if you want to configure price sets for your site."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Check this box if you want to give users the option to make recurring "
-"contributions. This feature requires that you use a payment processor which "
-"supports recurring billing / subscriptions functionality."
-msgstr "Zaškrtněte tento box, pokud chcete uživatelům umožnit opakované příspěvky. Tento doplněk vyžaduje použití poskytovatele plateb, který podporuje funkci opakovaných plateb / předplatného."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid "Select recurring units supported for recurring payments."
-msgstr "Vyberte jednotlivé platby použité pro splátky."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid "Can users also set an interval (e.g. every '3' months)?"
@@ -3919,40 +3899,8 @@ msgid ""
 msgstr "Dát uživatelům možnost splátek (např. darovat každý měsíc po dobu 6 měsíců)? Pokud ne, pravidelné příspěvky budou pokračovat donekonečna."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Recurring payment will be processed this day of the month following "
-"submission of this contribution page."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Check this box if you want to give users the option to make a Pledge (a "
-"commitment to contribute a fixed amount on a recurring basis)."
-msgstr "Zaškrtněte tento box, pokud chcete dát uživatelům možnost učinit závazek (přislíbení příspěvku fixní částkou nebo na opakující se bázi)."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Which frequencies can the user pick from (e.g. every 'week', every 'month', "
-"every 'year')?"
-msgstr "Ze kterých frekvencí si může uživatel vybírat (např. každý \"týden\", každý \"měsíc\", každý \"rok)?"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid "Can they also set an interval (e.g. every '3' months)?"
 msgstr "Mohou nastavit také interval (např. každé \"3\" měsíce)?"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Check this box if you want to give users the option to enter their own "
-"contribution amount. Your page will then include a text field labeled "
-"<strong>Other Amount</strong>."
-msgstr "Zaškrtněte tento box v případě, že chcete umožnit uživatelům zadat vlastní výši příspěvku. Vaše stránka bude poté obsahovat textové pole označené <strong>Jiná částka</strong>."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"If you have chosen to <strong>Allow Other Amounts</strong>, you can use the "
-"fields above to control minimum and/or maximum acceptable values (e.g. don't"
-" allow contribution amounts less than %1)."
-msgstr "Pokud jste zapnuli možnost <strong>Povolit jiné částky</strong>, můžete použít pole výše pro nastavení minimální nebo maximální přijímané částky (např. nepovolovat příspěvky v hodnotě nižší než %1)."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid "Fixed Contribution Options"
@@ -4055,10 +4003,6 @@ msgid ""
 "introductory message, amounts, and honoree section)."
 msgstr ""
 
-#: templates/CRM/Contribute/Form/ContributionPage/Custom.tpl
-msgid "Profile to be included at the bottom of the page."
-msgstr ""
-
 #: templates/CRM/Contribute/Form/ContributionPage/Delete.tpl
 msgid ""
 "You cannot delete this Contribution Page because it has already been used to"
@@ -4108,10 +4052,6 @@ msgid ""
 "Then select and review the premiums that you want to offer on this "
 "contribution page."
 msgstr "Poté vyberte a prohlédněte si prémie, které chcete nabízet na této stránce s příspěvky."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
-msgid "Is the Premiums section enabled for this Online Contributions page?"
-msgstr "Je sekce prémií povolena pro tuto online stránku s příspěvky?"
 
 #: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
 msgid "Premiums Settings"
@@ -4179,6 +4119,10 @@ msgid ""
 msgstr "POZNÁMKA: Pokud používáte tuto stránku s příspěvky pro přihlášení ke členství a jeho obnově, bude při zpracování platby za členství použit typ financí nastavený v nastavení typů členství. Typ financí nastavený zde bude použit pouze v případě získání dalších příspěvků nad rámec poplatku za členství (záleží na Nastavení členství)."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid "Text displayed next to the checkbox on the contribution form."
+msgstr "Text, který se bude zobrazovat vedle zaškrtávacího pole ve formuláři příspěvku. "
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid "Intro Content"
 msgstr "Obsah úvodu"
 
@@ -4232,6 +4176,22 @@ msgid ""
 "included in the form. Honoree information is automatically saved and linked "
 "with the contribution record."
 msgstr "Pokud chcete povolit přispěvatelům specifikovat osobu, které chtějí svým darem přispět, zaškrtněte toto pole. Volitelná sekce Oceněných může být přidána do tohoto formuláře. Informace o ocenění je automaticky uložena a svázána se záznamem o příspěvku."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid ""
+"Optional explanatory text for the Honoree section (displayed above the "
+"Honoree fields)."
+msgstr "Volitelný vysvětlující text sekce oceněných (zobrazený nad poli s oceněnými)."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid "Use a Confirmation Page?"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid ""
+"If you disable this contributions will be processed immediately after "
+"submitting the contribution form."
+msgstr "Pokud toto zakážete, příspěvky budou zpracovány okamžitě po vyplnění formuláře příspěvku."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid ""
@@ -4293,59 +4253,9 @@ msgstr "Použijte tento formulář pro úpravu nadpisu stránky, typu příspěv
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
-"This title will be displayed at the top of the page unless the frontend "
-"title field is filled out.<br />Please use only alphanumeric, spaces, "
-"hyphens and dashes for Title."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"This title will be displayed at the top of the page.<br />Please use only "
-"alphanumeric, spaces, hyphens and dashes for Title."
-msgstr "Tento nadpis bude zobrazen na vrchu stránky. <br />Prosím používejte pouze čísla a písmena, mezery, pomlčky a čárky."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"Select the corresponding financial type for contributions made using this "
-"page."
-msgstr "Zvolte příslušný finanční typ pro příspěvky činěné prostřednictvím této stránky."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"To change the organization data collected use the \"On Behalf Of "
-"Organization\" profile (<a href=\"%1\">Administer > Customize Data and "
-"Screens > Profiles</a>)."
-msgstr "Pro změnu dat organizace použijte profil \"V zastoupení organizace\" (<a href=\"%1\">Administrace > Vlastní data a stránky > Profily</a>)."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid "Text displayed next to the checkbox on the contribution form."
-msgstr "Text, který se bude zobrazovat vedle zaškrtávacího pole ve formuláři příspěvku. "
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
 "Check 'Required' to force ALL users to contribute/signup on behalf of an "
 "organization."
 msgstr "Zaškrtněte \"Vyžadované\" pro přinucení VŠECH uživatelů přispívajících nebo se přihlašujících k odběru, činiti toto v zastoupení organizace."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid "Title for the Honoree section (e.g. &quot;Honoree Information&quot;)."
-msgstr "Nadpis sekce oceněných (např. &quot;Informace o oceněných&quot;)."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"Optional explanatory text for the Honoree section (displayed above the "
-"Honoree fields)."
-msgstr "Volitelný vysvětlující text sekce oceněných (zobrazený nad poli s oceněnými)."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid "Profile to be included in the honoree section"
-msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"If you disable this contributions will be processed immediately after "
-"submitting the contribution form."
-msgstr "Pokud toto zakážete, příspěvky budou zpracovány okamžitě po vyplnění formuláře příspěvku."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
@@ -4638,13 +4548,6 @@ msgid ""
 msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Widget.tpl
-msgid ""
-"Enter content for the about message. You may include HTML formatting tags. "
-"You can also include images, as long as they are already uploaded to a "
-"server&mdash;reference them using complete URLs."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionPage/Widget.tpl
 msgid "Preview Widget and Get Code"
 msgstr "Náhled Widgetu a získat kód"
 
@@ -4868,24 +4771,6 @@ msgstr "Pokud je tato možnost zaškrtnuta, \"síň slávy\" se zobrazí se jmé
 msgid "No payments found for this %1 record"
 msgstr ""
 
-#: templates/CRM/Contribute/Form/PaymentInstrument.tpl
-msgid "New Payment Method"
-msgstr ""
-
-#: templates/CRM/Contribute/Form/PaymentInstrument.tpl
-msgid "Edit Payment Method"
-msgstr ""
-
-#: templates/CRM/Contribute/Form/PaymentInstrument.tpl
-msgid "Delete Payment Method"
-msgstr ""
-
-#: templates/CRM/Contribute/Form/PaymentInstrument.tpl
-msgid ""
-"WARNING: Deleting this option will result in the loss of all contribution "
-"records which use this option."
-msgstr "POZOR: Smazání této možnosti povede ke ztrátě všech záznamů o příspěvcích, které tuto možnost využívají."
-
 #: templates/CRM/Contribute/Form/Search/EmptyResults.tpl
 msgid "if you are searching by contributor name, check your spelling"
 msgstr "pokud hledáte podle jména přispěvatele, zkontrolujte si, zda jste neudělali překlep"
@@ -4893,10 +4778,6 @@ msgstr "pokud hledáte podle jména přispěvatele, zkontrolujte si, zda jste ne
 #: templates/CRM/Contribute/Form/SearchContribution.tpl
 msgid "Find Contribution Pages"
 msgstr "Hledat stránky s příspěvky"
-
-#: templates/CRM/Contribute/Form/SearchContribution.tpl
-msgid "Complete OR partial Contribution Page title."
-msgstr "Konečný NEBO částečný nadpis stránky s příspěvky"
 
 #: templates/CRM/Contribute/Form/Selector.tpl
 msgid "(Recurring Template)"
@@ -4957,6 +4838,12 @@ msgid ""
 "different email programs may interpret HTML formats differently, so use this"
 " option cautiously unless you have a template format that has been tested "
 "with different web and desktop email programs."
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Task/Invoice.hlp
+msgid ""
+"You can add a message that will appear at the top of the invoice email. This"
+" message will be the same for all recipients."
 msgstr ""
 
 #: templates/CRM/Contribute/Form/Task/Invoice.tpl
@@ -5036,6 +4923,10 @@ msgid ""
 "unchecked when you don't want to send an e-mail."
 msgstr ""
 
+#: templates/CRM/Contribute/Form/Task/Status.tpl
+msgid "Check"
+msgstr ""
+
 #: templates/CRM/Contribute/Form/Task.tpl
 msgid "Number of selected contributions: %1"
 msgstr "Počet zvolených příspěvků: %1"
@@ -5057,51 +4948,7 @@ msgid ""
 msgstr ""
 
 #: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid "Contact Records for Contributors"
-msgstr "Kontaktní záznamy pro přispěvatele"
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"Contribution import requires that the Contributors already exist as contact "
-"records in your CiviCRM database. If you need to import contributions for "
-"contributors who haven't been added to CiviCRM yet, you will do this in 2 "
-"steps. First, use <strong>Import Contacts</strong> to add the contact "
-"records. If possible, include a unique 'External ID' for each new contact "
-"which you can then use to match contributions to contributors. Then return "
-"to this screen and import the contribution records."
-msgstr ""
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid "Matching Contributions to Contributors"
-msgstr "Příspěvky odpovídající přispěvatelům"
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"Contribution import files must contain data needed to <strong>match the "
-"contribution to the contributor</strong>. This 'matching' can be handled in "
-"several different ways:"
-msgstr "Soubory pro import příspěvků musí obsahovat data potřebná pro <strong>spárování příspěvků s přispěvatelem</strong>. Tohoto spárování můžete dosáhnout různými způsoby:"
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"If you've stored a unique <strong>External Identifier</strong> for each "
-"contact in CiviCRM, you can include that value as a column in your import "
-"file. Contributions will then be matched to contributors using their "
-"External ID."
-msgstr "Pokud si ukládáte unikátní <strong>Externí Identifikátor</strong> pro každý kontakt v CiviCRM, můžete tuto hodnotu zahrnout jako sloupec ve vašem importovaném souboru. Příspěvky budou poté spárovány s přispěvateli za pomocí tohoto Externího ID."
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"You can include a column with each contributor's <strong>Internal Contact "
-"ID</strong>. This is the unique ID assigned by CiviCRM which is displayed at"
-" the bottom of the Contact Summary screen and can be exported."
-msgstr ""
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"Save the CSV file with your contributions and 'contact matching' data to "
-"your local hard drive (or an accessible drive on your network).  Now you are"
-" ready for step 1 (Upload Data)."
+msgid "Matching to Contributions for Inserts and Updates"
 msgstr ""
 
 #: templates/CRM/Contribute/Import/Form/DataSource.hlp
@@ -5130,17 +4977,12 @@ msgid ""
 msgstr ""
 
 #: templates/CRM/Contribute/Import/Form/Preview.tpl
-msgid ""
-"CiviCRM has detected invalid data or formatting errors in %1 records. If you"
-" continue, these records will be skipped.  You can download a file with just"
-" these problem records: <a href='%2'>Download Errors</a>.  If you wish, you "
-"can then correct them in the original import file, cancel this import, and "
-"begin again at step 1."
-msgstr ""
-
-#: templates/CRM/Contribute/Import/Form/Preview.tpl
 msgid "Total rows (contribution records) in uploaded file."
 msgstr "Celkem řádků (záznamů příspěvků) v nahrávaném souboru."
+
+#: templates/CRM/Contribute/Import/Form/Preview.tpl
+msgid "See rows"
+msgstr ""
 
 #: templates/CRM/Contribute/Page/ContributionPage.hlp
 #: templates/CRM/Contribute/Page/ContributionPage.tpl
@@ -5222,6 +5064,14 @@ msgstr ""
 
 #: templates/CRM/Contribute/Page/ContributionRecurPayments.tpl
 msgid "No contributions have been recorded for this recurring contribution."
+msgstr ""
+
+#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
+msgid "Next Scheduled Date"
+msgstr ""
+
+#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
+msgid "End or Modified Date"
 msgstr ""
 
 #: templates/CRM/Contribute/Page/ContributionSoft.tpl
@@ -5517,10 +5367,6 @@ msgid "Inactive Recurring Contributions"
 msgstr ""
 
 #: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Received date"
-msgstr "Datum obdržení"
-
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
 msgid "(Recurring Contribution)"
 msgstr "(Opakovaný příspěvek)"
 
@@ -5719,12 +5565,15 @@ msgstr ""
 msgid "Contribution Receipt"
 msgstr "Potvrzení příspěvku"
 
+#: xml/templates/message_templates/contribution_offline_receipt_text.tpl
+msgid "Amount before Tax"
+msgstr ""
+
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
 msgid "Total Tax"
 msgstr ""
 
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
 msgid "This is a recurring contribution."
 msgstr ""
 
@@ -5749,20 +5598,6 @@ msgid ""
 "installments for this recurring contribution by <a href=\"%1\">visiting this"
 " web page</a>."
 msgstr "Můžete aktualizovat částku pravidelného příspěvku nebo změnit počet splátek u tohoto pravidelného příspěvku <a href=\"%1\">na této webové stránce</a>."
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid "You can cancel future contributions at:"
-msgstr ""
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid "You can update billing details for this recurring contribution at:"
-msgstr "Můžete aktualizovat účetní detaily tohoto opakujícího se příspěvku na:"
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid ""
-"You can update recurring contribution amount or change the number of "
-"installments for this recurring contribution at:"
-msgstr "Můžete aktualizovat částku pravidelného příspěvku nebo změnit počet splátek u tohoto pravidelného příspěvku na:"
 
 #: xml/templates/message_templates/contribution_recurring_billing_html.tpl
 #: xml/templates/message_templates/contribution_recurring_billing_text.tpl
@@ -5888,13 +5723,11 @@ msgid ""
 msgstr "Můžete zrušit tento pravidelný příspěvek na <a href=\"%1\">této stránce</a>."
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid ""
 "A refund has been issued based on changes in your registration selections."
 msgstr ""
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Below you will find a receipt for this payment."
 msgstr ""
 
@@ -5903,27 +5736,19 @@ msgid "Thank you for completing this contribution."
 msgstr ""
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "This Refund Amount"
 msgstr ""
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "This Payment Amount"
 msgstr ""
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Contribution Details"
 msgstr ""
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Total Fee"
-msgstr ""
-
-#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-msgid "Expires:"
 msgstr ""
 
 #: xml/templates/message_templates/payment_or_refund_notification_subject.tpl
@@ -5932,10 +5757,6 @@ msgstr ""
 
 #: xml/templates/message_templates/payment_or_refund_notification_subject.tpl
 msgid "Payment Receipt"
-msgstr ""
-
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
-msgid "Thank you for completing this payment."
 msgstr ""
 
 #: xml/templates/message_templates/test_preview_html.tpl
@@ -5949,76 +5770,9 @@ msgid ""
 "This is a test-drive email. No live financial transaction has occurred."
 msgstr "Toto je testovací email. Žádná skutečná finanční transakce neproběhla."
 
-#: CRM/Contribute/DAO/ContributionPage.php
-msgid "Page Name"
-msgstr ""
-
-#: CRM/Contribute/DAO/ContributionPage.php
-msgid "Unique Name"
-msgstr ""
-
-#: CRM/Contribute/DAO/ContributionPage.php
-msgid "Unique name for identifying contribution page"
-msgstr ""
-
-#: CRM/Contribute/Form/AdditionalPayment.php
-msgid "Submit Payment"
-msgstr ""
-
-#: CRM/Contribute/Form/Contribution.php
+#: templates/CRM/Contribute/Form/Task/PDFLetter.hlp
 msgid ""
-"You've changed the financial type for this %1 contribution from non-tax "
-"deductible to tax deductible, but the non-deductible amount of %2 has not "
-"been changed. This could prevent a tax receipt from being issued correctly. "
-"You may want to edit the non-deductible amount."
-msgstr ""
-
-#: CRM/Contribute/Form/Contribution.php
-msgid "Non-deductible amount"
-msgstr ""
-
-#: templates/CRM/Contribute/Form/Contribution/PreviewHeader.tpl
-msgid "Test payment processor on Your Contribution Page"
-msgstr ""
-
-#: templates/CRM/Contribute/Form/Contribution/PreviewHeader.tpl
-msgid ""
-"This page is currently configured to use the <strong>%1 payment "
-"processor</strong>. <strong>No live financial transactions will be submitted"
-" if %1 payment processor is selected. However, a contact record will be "
-"created or updated and a live contribution record will be saved to the "
-"database with no actual financial transaction. Remove %1 payment processor "
-"before going live.</strong>"
-msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
-msgid ""
-"You can also set minimum and maximum amounts that users are allowed to "
-"enter."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Select a Price Set to offer more complex amount options. Otherwise, leave "
-"this empty and enter fixed contribution options below."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
-msgid "Use a Confirmation Page?"
-msgstr ""
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid "Matching to Contributions for Inserts and Updates"
-msgstr ""
-
-#: templates/CRM/Contribute/Import/Form/Preview.tpl
-msgid "See rows"
-msgstr ""
-
-#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
-msgid "Next Scheduled Date"
-msgstr ""
-
-#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
-msgid "End or Modified Date"
+"You can choose to send thank-you letters as emails to contacts who are able "
+"to receive email. If you choose to do this, you can also decide whether to "
+"only print PDFs for the remaining contacts OR generate PDFs for all."
 msgstr ""
