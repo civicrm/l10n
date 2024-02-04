@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2023-06-17 15:56-0400\n"
+"POT-Creation-Date: 2024-02-03 10:37-0500\n"
 "PO-Revision-Date: 2011-03-28 14:20+0000\n"
 "Last-Translator: 鈴木 豊和 <toyokazu80088@gmail.com>, 2023\n"
 "Language-Team: Japanese (http://app.transifex.com/civicrm/civicrm/language/ja/)\n"
@@ -61,11 +61,11 @@ msgid "Resubscribe URL (Action)"
 msgstr "Resubscribe URL (Action)"
 
 #: CRM/Mailing/ActionTokens.php CRM/Mailing/Event/DAO/MailingEventBounce.php
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
 #: CRM/Mailing/Event/DAO/MailingEventDelivered.php
 #: CRM/Mailing/Event/DAO/MailingEventForward.php
 #: CRM/Mailing/Event/DAO/MailingEventOpened.php
 #: CRM/Mailing/Event/DAO/MailingEventReply.php
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
 #: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "Event Queue ID"
 msgstr "Event Queue ID"
@@ -101,8 +101,8 @@ msgstr "このメッセージには必須トークンがありません - {%1}: 
 msgid "Opt-Out"
 msgstr "拒否の選択"
 
-#: CRM/Mailing/BAO/Mailing.php ang/crmMailing/BlockReview.html
-#: ang/crmMailingAB/EditCtrl/report.html
+#: CRM/Mailing/BAO/Mailing.php ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 #: templates/CRM/Mailing/Page/Resubscribe.tpl
 msgid "Resubscribe"
 msgstr "再加入"
@@ -194,7 +194,8 @@ msgid "Unsubscribe Requests"
 msgstr "購読解除のリクエスト"
 
 #: CRM/Mailing/BAO/Query.php CRM/Mailing/Selector/Event.php
-#: ang/crmMailing/services.js templates/CRM/Mailing/Page/Report.tpl
+#: ext/civi_mail/ang/crmMailing/services.js
+#: templates/CRM/Mailing/Page/Report.tpl
 msgid "Forwards"
 msgstr "転送数"
 
@@ -218,7 +219,7 @@ msgstr "バウンスタイプ"
 msgid "Trackable Opens"
 msgstr "開封の追跡可能"
 
-#: CRM/Mailing/BAO/Query.php CRM/Mailing/DAO/TrackableURL.php
+#: CRM/Mailing/BAO/Query.php
 msgid "Trackable URLs"
 msgstr "追跡可能なURL"
 
@@ -408,8 +409,10 @@ msgstr "URL追跡"
 msgid "Should we track URL click-throughs for this mailing?"
 msgstr "Should we track URL click-throughs for this mailing?"
 
-#: CRM/Mailing/DAO/Mailing.php ang/crmMailing/BlockResponses.html
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: CRM/Mailing/DAO/Mailing.php
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Forward Replies"
 msgstr "返信を転送"
 
@@ -539,7 +542,8 @@ msgstr "アーカイブされたメーリングですか？"
 msgid "Is this mailing archived?"
 msgstr "Is this mailing archived?"
 
-#: CRM/Mailing/DAO/Mailing.php ang/crmMailing/BlockPublication.html
+#: CRM/Mailing/DAO/Mailing.php
+#: ext/civi_mail/ang/crmMailing/BlockPublication.html
 msgid "Mailing Visibility"
 msgstr "メーリングの閲覧範囲"
 
@@ -821,6 +825,10 @@ msgid "Is this job for a test mail?"
 msgstr "Is this job for a test mail?"
 
 #: CRM/Mailing/DAO/MailingJob.php
+msgid "Test Mailing"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingJob.php
 msgid "Mailing Job Type"
 msgstr "メーリングのジョブタイプ"
 
@@ -877,6 +885,27 @@ msgstr "FK to Email"
 msgid "FK to Phone"
 msgstr "FK to Phone"
 
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+msgid "Mailing Links"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Mailing Link"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+msgid "Trackable URL ID"
+msgstr "追跡可能なURL ID"
+
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+msgid "The URL to be tracked."
+msgstr "The URL to be tracked."
+
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+msgid "FK to the mailing"
+msgstr "FK to the mailing"
+
 #: CRM/Mailing/DAO/Spool.php
 msgid "Spools"
 msgstr "Spools"
@@ -925,22 +954,6 @@ msgstr "date on which this job was added."
 msgid "date on which this job was removed."
 msgstr "date on which this job was removed."
 
-#: CRM/Mailing/DAO/TrackableURL.php
-msgid "Trackable URL"
-msgstr "Trackable URL"
-
-#: CRM/Mailing/DAO/TrackableURL.php
-msgid "Trackable URL ID"
-msgstr "追跡可能なURL ID"
-
-#: CRM/Mailing/DAO/TrackableURL.php
-msgid "The URL to be tracked."
-msgstr "The URL to be tracked."
-
-#: CRM/Mailing/DAO/TrackableURL.php
-msgid "FK to the mailing"
-msgstr "FK to the mailing"
-
 #: CRM/Mailing/Event/BAO/MailingEventBounce.php
 msgid "Unknown bounce type: Could not parse bounce email"
 msgstr "不明なバウンスタイプ : バウンスメールの解析ができません"
@@ -980,11 +993,11 @@ msgid "Bounce ID"
 msgstr "バウンス ID"
 
 #: CRM/Mailing/Event/DAO/MailingEventBounce.php
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
 #: CRM/Mailing/Event/DAO/MailingEventDelivered.php
 #: CRM/Mailing/Event/DAO/MailingEventForward.php
 #: CRM/Mailing/Event/DAO/MailingEventOpened.php
 #: CRM/Mailing/Event/DAO/MailingEventReply.php
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
 #: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "FK to EventQueue"
 msgstr "FK to EventQueue"
@@ -1000,34 +1013,6 @@ msgstr "The reason the email bounced."
 #: CRM/Mailing/Event/DAO/MailingEventBounce.php
 msgid "When this bounce event occurred."
 msgstr "When this bounce event occurred."
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Mailing Event Click Throughs"
-msgstr "Mailing Event Click Throughs"
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Mailing Event Click Through"
-msgstr "Mailing Event Click Through"
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Trackable URL Open ID"
-msgstr "追跡可能なURL の開封 ID"
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Trackable Url ID"
-msgstr "Trackable Url ID"
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "FK to TrackableURL"
-msgstr "FK to TrackableURL"
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Trackable Url"
-msgstr "追跡可能なURL"
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "When this trackable URL open occurred."
-msgstr "When this trackable URL open occurred."
 
 #: CRM/Mailing/Event/DAO/MailingEventConfirm.php
 msgid "Mailing Opt-In Confirmations"
@@ -1132,6 +1117,10 @@ msgid "Mailing Job"
 msgstr "メーリングジョブ"
 
 #: CRM/Mailing/Event/DAO/MailingEventQueue.php
+msgid "Related mailing. Used for reporting on mailing success, if present."
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
 msgid "Security Hash"
 msgstr "セキュリティハッシュ"
 
@@ -1175,6 +1164,30 @@ msgstr "メーリングの購読タイムスタンプ"
 #: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
 msgid "When this subscription event occurred."
 msgstr "When this subscription event occurred."
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Mailing Link Clickthroughs"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Mailing Link Clickthrough"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Trackable URL Open ID"
+msgstr "追跡可能なURL の開封 ID"
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Trackable Url ID"
+msgstr "Trackable Url ID"
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "FK to TrackableURL"
+msgstr "FK to TrackableURL"
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "When this trackable URL open occurred."
+msgstr "When this trackable URL open occurred."
 
 #: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "Mailing Unsubscribes"
@@ -1276,9 +1289,13 @@ msgid_plural "Mailing is forwarded successfully to %count email addresses."
 msgstr[0] "%count 件のアドレスにメールを転送しました。"
 
 #: CRM/Mailing/Form/Optout.php CRM/Mailing/Form/Unsubscribe.php
-#: CRM/Mailing/Page/Common.php
-msgid "There was an error in your request"
-msgstr "リクエスト中にエラーが発生しました"
+msgid "Invalid request: missing parameters"
+msgstr ""
+
+#: CRM/Mailing/Form/Optout.php CRM/Mailing/Form/Unsubscribe.php
+#: CRM/Mailing/Page/Unsubscribe.php
+msgid "Invalid request: bad parameters"
+msgstr ""
 
 #: CRM/Mailing/Form/Optout.php
 msgid "Opt Out Confirmation"
@@ -1333,10 +1350,6 @@ msgid "Print Mailing Recipients"
 msgstr "メーリング受信者の印刷"
 
 #: CRM/Mailing/Form/Unsubscribe.php
-msgid "Missing Parameters"
-msgstr "パラメータがありません"
-
-#: CRM/Mailing/Form/Unsubscribe.php
 msgid "%1 has already been unsubscribed."
 msgstr "%1 has already been unsubscribed."
 
@@ -1389,6 +1402,10 @@ msgstr "予定されたメーリング"
 msgid "approve mailings"
 msgstr "承認されたメーリング"
 
+#: CRM/Mailing/MailStore/Localdir.php
+msgid "%1 could not be parsed"
+msgstr ""
+
 #: CRM/Mailing/Page/Browse.php
 msgid "You do not have permission to send SMS"
 msgstr "You do not have permission to send SMS"
@@ -1427,17 +1444,9 @@ msgstr "一斉SMSの検索"
 msgid "Search Mailings"
 msgstr "メーリングの検索"
 
-#: CRM/Mailing/Page/Component.php templates/CRM/Mailing/Form/Component.tpl
-msgid "Edit Mailing Component"
-msgstr "メーリングコンポーネントを編集"
-
-#: CRM/Mailing/Page/Component.php
-msgid "Disable Mailing Component"
-msgstr "メーリングコンポーネントを無効"
-
-#: CRM/Mailing/Page/Component.php
-msgid "Enable Mailing Component"
-msgstr "メーリングコンポーネントを有効"
+#: CRM/Mailing/Page/Common.php
+msgid "There was an error in your request"
+msgstr "リクエスト中にエラーが発生しました"
 
 #: CRM/Mailing/Page/Event.php CRM/Mailing/Page/Report.php
 msgid "Back to Activities"
@@ -1467,24 +1476,26 @@ msgstr "CiviMail レポート : %1"
 msgid "Mailings sent to %1"
 msgstr "メーリングを %1 に送信しました"
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Testing"
 msgstr "テスト"
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/EditCtrl/report.html
-#: ang/crmMailingAB/ReportCtrl.js ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/ReportCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Final"
 msgstr "最終"
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Test different \"Subject\" lines"
 msgstr "別の「Subject」行をテスト"
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Test different \"From\" lines"
 msgstr "別の「差出人」行をテスト"
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Test entirely different emails"
 msgstr "別のメールをテスト"
 
@@ -1612,12 +1623,12 @@ msgstr "Internal Contact ID"
 msgid "Forwarded Email"
 msgstr "転送されたメール"
 
-#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: CRM/Mailing/Selector/Event.php ext/civi_mail/ang/crmMailing/services.js
 #: templates/CRM/Mailing/Page/Report.tpl
 msgid "Successful Deliveries"
 msgstr "成功した配信の数"
 
-#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: CRM/Mailing/Selector/Event.php ext/civi_mail/ang/crmMailing/services.js
 #: templates/CRM/Mailing/Page/Report.tpl
 msgid "Bounces"
 msgstr "バウンス数"
@@ -1626,7 +1637,7 @@ msgstr "バウンス数"
 msgid "Unique Replies"
 msgstr "固有の返信数"
 
-#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: CRM/Mailing/Selector/Event.php ext/civi_mail/ang/crmMailing/services.js
 #: templates/CRM/Mailing/Page/Report.tpl
 msgid "Replies"
 msgstr "返信数"
@@ -1654,6 +1665,18 @@ msgstr "完全な年月日"
 #: CRM/Mailing/Selector/Search.php
 msgid "CiviCRM Mailing Search"
 msgstr "CiviCRM メーリングの検索"
+
+#: CRM/Mailing/Service/ListUnsubscribe.php
+msgid "Mailto"
+msgstr ""
+
+#: CRM/Mailing/Service/ListUnsubscribe.php
+msgid "HTTP(S) Web-Form"
+msgstr ""
+
+#: CRM/Mailing/Service/ListUnsubscribe.php
+msgid "HTTP(S) One-Click"
+msgstr ""
 
 #: CRM/Mailing/Tokens.php
 msgid "Mailing Key"
@@ -1699,643 +1722,725 @@ msgstr "Mailing Creator (Name)"
 msgid "Mailing Creator (Email)"
 msgstr "Mailing Creator (Email)"
 
-#: ang/crmMailing/BlockApprove.html
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "Failed to connect"
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "(See log for more details.)"
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "The mail service was not instantiated."
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "Failed to read test message"
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "Connection succeeded."
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "No new messages found."
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "Found at least %1 new messages."
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/BlockApprove.html
 msgid "Unreviewed"
 msgstr "未レビュー"
 
-#: ang/crmMailing/BlockMailing.html ang/crmMailing/EmailAddrCtrl.js
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/BlockHeaderFooter.html
+msgid "Mailing Header"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/BlockHeaderFooter.html
+msgid "Mailing Footer"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/EmailAddrCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Reply-To"
 msgstr "返信先"
 
-#: ang/crmMailing/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/BlockMailing.html
 msgid "Unsubscribe Group"
 msgstr "未購読グループ"
 
-#: ang/crmMailing/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/BlockMailing.html
 msgid "- choose language -"
 msgstr "- choose language -"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "No content to preview"
 msgstr "プレビューするコンテンツはありません"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Preview as HTML"
 msgstr "HTMLとしてプレビュー"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Preview as Plain Text"
 msgstr "プレーンテキストとしてプレビュー"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test email to:"
 msgstr "次へテストメールを送信 : "
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Test Email"
 msgstr "テストメール"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test message to %1"
 msgstr "%1 にテキストメッセージを送信"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test"
 msgstr "送信テスト"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test email to group:"
 msgstr "テストメールを次のグループに送信 :"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test message to group"
 msgstr "グループにテキストメッセージを送信"
 
-#: ang/crmMailing/BlockPreview.js
+#: ext/civi_mail/ang/crmMailing/BlockPreview.js
 msgid "Send to %1"
 msgstr "%1 にメールを送信"
 
-#: ang/crmMailing/BlockPreview.js
+#: ext/civi_mail/ang/crmMailing/BlockPreview.js
 msgid "A test message will be sent to %1 people:"
 msgstr "%1 人にテストメッセージを送ります :"
 
-#: ang/crmMailing/BlockPreview.js
+#: ext/civi_mail/ang/crmMailing/BlockPreview.js
 msgid "None of the contacts in this group have an email address."
 msgstr "このグループ内の連絡先は、いずれもメールアドレスを持っていません。"
 
-#: ang/crmMailing/BlockPreview.js
+#: ext/civi_mail/ang/crmMailing/BlockPreview.js
 msgid "Group is empty."
 msgstr "グループが空です。"
 
-#: ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipientsMultiline.html
 msgid "Edit Recipient Options"
 msgstr "受信者オプションを編集"
 
-#: ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipientsMultiline.html
 msgid "Click to refresh recipient count"
 msgstr "Click to refresh recipient count"
 
-#: ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipientsMultiline.html
 msgid "Preview a List of Recipients"
 msgstr "受信者リストをプレビュー"
 
-#: ang/crmMailing/BlockResponses.html ang/crmMailing/BlockReview.html
-#: ang/crmMailing/EmailAddrCtrl.js ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EmailAddrCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Track Replies"
 msgstr "返信を追跡"
 
-#: ang/crmMailing/BlockResponses.html
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
 msgid "Auto-Respond to Replies"
 msgstr "返信に自動応答"
 
-#: ang/crmMailing/BlockResponses.html
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
 msgid "Auto-Respond Message"
 msgstr "自動応答メッセージ"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Include:"
 msgstr "含める : "
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Exclude:"
 msgstr "除外 :"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
+#: templates/CRM/Mailing/Page/Report.tpl
 msgid "Content"
 msgstr "Content"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailing/PreviewComponentDialogCtrl.html
-#: ang/crmMailing/PreviewMgr/full.html ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailing/PreviewComponentDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewMgr/full.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Plain Text"
 msgstr "プレーンテキスト"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Tracking"
 msgstr "Tracking"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Click-Throughs"
 msgstr "クリック数"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Opens"
 msgstr "オープン"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Responding"
 msgstr "応答"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Auto-Respond"
 msgstr "自動返信"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Publication"
 msgstr "公開"
 
-#: ang/crmMailing/BlockSummary.html ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailing/BlockSummary.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Select Campaign"
 msgstr "キャンペーンの選択"
 
-#: ang/crmMailing/BlockTemplates.html ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/BlockTemplates.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Save As"
 msgstr "名前をつけて保存"
 
-#: ang/crmMailing/BlockTracking.html
+#: ext/civi_mail/ang/crmMailing/BlockTracking.html
 msgid "Track Click-Throughs"
 msgstr "トラックのクリックを追跡"
 
-#: ang/crmMailing/BlockTracking.html
+#: ext/civi_mail/ang/crmMailing/BlockTracking.html
 msgid "Track Opens"
 msgstr "開封回数"
 
-#: ang/crmMailing/BodyHtml.html ang/crmMailing/BodyText.html
+#: ext/civi_mail/ang/crmMailing/BodyHtml.html
+#: ext/civi_mail/ang/crmMailing/BodyText.html
 msgid "Required tokens are missing."
 msgstr "トークンがありません。"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
 msgid "Define Mailing"
 msgstr "メーリングの定義"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Header and Footer"
 msgstr "ヘッダとフッタ"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Responses"
 msgstr "応答"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
 msgid "Review and Schedule"
 msgstr "レビューと予定"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Submit Mailing"
 msgstr "メーリングの送信"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Delete Draft"
 msgstr "下書を削除"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Are you sure you want to permanently delete this mailing?"
 msgstr "このメーリングを完全に削除してもよろしいですか？"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Save Draft"
 msgstr "下書を保存"
 
-#: ang/crmMailing/EditMailingCtrl/base.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/base.html
 msgid "This mailing has been submitted."
 msgstr "メーリングが送信されました。"
 
-#: ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
 msgid "Submit and Approve Mailing"
 msgstr "メーリングを承認して送信"
 
-#: ang/crmMailing/EditMailingCtrl.js ang/crmMailingAB/EditCtrl.js
-#: ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Submitting..."
 msgstr "送信中…"
 
-#: ang/crmMailing/EditMailingCtrl.js ang/crmMailingAB/EditCtrl.js
-#: ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Submitted"
 msgstr "Submitted"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "Estimating..."
 msgstr "Estimating..."
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "Estimate recipient count"
 msgstr "Estimate recipient count"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "Refresh recipient count"
 msgstr "Refresh recipient count"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "No Recipients"
 msgstr "No Recipients"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "~%1 recipients"
 msgstr "~%1 の宛先"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "(unknown)"
 msgstr "(unknown)"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "Preview (%1)"
 msgstr "プレビュー (%1)"
 
-#: ang/crmMailing/EditRecipCtrl.js ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Previewing..."
 msgstr "プレビューしています…"
 
-#: ang/crmMailing/EditRecipOptionsDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/EditRecipOptionsDialogCtrl.html
 msgid "Dedupe by email"
 msgstr "メール別に重複排除"
 
-#: ang/crmMailing/EditRecipOptionsDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/EditRecipOptionsDialogCtrl.html
 msgid "Selection Method"
 msgstr "選択方法"
 
-#: ang/crmMailing/EmailAddrCtrl.js
+#: ext/civi_mail/ang/crmMailing/EmailAddrCtrl.js
 msgid "Conflict"
 msgstr "競合"
 
-#: ang/crmMailing/EmailAddrCtrl.js
+#: ext/civi_mail/ang/crmMailing/EmailAddrCtrl.js
 msgid ""
 "The \"%1\" option conflicts with the \"%2\" option. The \"%2\" option has "
 "been disabled."
 msgstr "「%2」オプションと「%1」オプションの競合です。「%2」オプションが無効になっています。"
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid ""
 "The mailing must include the street address of the organization. Please "
 "insert the %1 token."
 msgstr "メーリングには、団体の住所を含める必要があります。%1 のトークンを挿入してください。"
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid ""
 "The mailing must allow recipients to (a) unsubscribe from the mailing-list "
 "or (b) completely opt-out from all mailings. Please insert an unsubscribe or"
 " opt-out token."
 msgstr "メーリングは、受信者がメーリングリストからの (a) 購読解除または (b) 完全に拒否すべてのメーリングから可能にする必要があります。購読解除または拒否トークンを挿入してください。"
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid "Via Web"
 msgstr "ウェブ経由"
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid "Via Email"
 msgstr "メール経由"
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid ""
 "Alternatively, you may select a header or footer which includes the required"
 " tokens."
 msgstr "あるいは、必要なトークンを含むヘッダやフッタ選択することができます。"
 
-#: ang/crmMailing/EmailBodyCtrl.js
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl.js
 msgid "Required tokens"
 msgstr "必須トークン"
 
-#: ang/crmMailing/MsgTemplateCtrl.js
+#: ext/civi_mail/ang/crmMailing/MsgTemplateCtrl.js
 msgid "Save Template"
 msgstr "テンプレート保存"
 
-#: ang/crmMailing/PreviewComponentCtrl.js
+#: ext/civi_mail/ang/crmMailing/PreviewComponentCtrl.js
 msgid "Invalid component ID (%1)"
 msgstr "不正なコンポーネントID (%1)"
 
-#: ang/crmMailing/PreviewRecipCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewRecipCtrl.html
 msgid ""
 "Based on current data, approximately %1 contacts will receive a copy of the "
 "mailing."
 msgstr "現在のデータに基づいて、およそ %1 連絡先がメーリングのコピーを受信します。"
 
-#: ang/crmMailing/PreviewRecipCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewRecipCtrl.html
 msgid "Below is a sample of the first %1 recipients."
 msgstr "以下は、最初の %1 受信者のサンプルです。"
 
-#: ang/crmMailing/PreviewRecipCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewRecipCtrl.html
 msgid ""
 "If individual contacts are separately modified, added, or removed, then the "
 "final list may change."
 msgstr "個人の連絡先を別々に変更、追加、または削除した場合、最終的なリストが変更される可能性があります。"
 
-#: ang/crmMailing/PreviewRecipCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewRecipCtrl.html
 msgid "No recipients"
 msgstr "宛先なし"
 
-#: ang/crmMailing/RadioDate.js
+#: ext/civi_mail/ang/crmMailing/RadioDate.js
 msgid "The scheduled date and time is in the past"
 msgstr "予定された日付と過去の時間"
 
-#: ang/crmMailing/Recipients.js
-msgid ""
-"This mailing was generated based on search results. The search results "
-"cannot be removed."
-msgstr "このメーリングは、検索結果に基づいて生成れました。検索結果を削除することはできません。"
-
-#: ang/crmMailing/SaveMsgTemplateDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/SaveMsgTemplateDialogCtrl.html
 msgid "Save the current mailing as a template."
 msgstr "テンプレートとして現在のメーリングを保存する。"
 
-#: ang/crmMailing/SaveMsgTemplateDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/SaveMsgTemplateDialogCtrl.html
 msgid "Update \"%1\""
 msgstr "「%1」の更新"
 
-#: ang/crmMailing/SaveMsgTemplateDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/SaveMsgTemplateDialogCtrl.html
 msgid "Save as:"
 msgstr "名前を付けて保存 :"
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/crmMailingRecipientsAutocomplete.component.js
+msgid "Include Groups & Mailings"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/crmMailingRecipientsAutocomplete.component.js
+msgid "Exclude Groups & Mailings"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/crmMailingRecipientsAutocomplete.component.js
+msgid "Include recipents from groups and past mailings."
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/crmMailingRecipientsAutocomplete.component.js
+msgid "Exclude recipents from groups and past mailings."
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Subject: %1"
 msgstr "件名 : %1"
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid ""
 "Could not identify any recipients. Perhaps your test group is empty, or you "
 "tried sending to contacts that do not exist and you have no permission to "
 "add contacts."
 msgstr "Could not identify any recipients. Perhaps your test group is empty, or you tried sending to contacts that do not exist and you have no permission to add contacts."
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Sending..."
 msgstr "送信中…"
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Unsubscribes & Opt-outs"
 msgstr "Unsubscribes & Opt-outs"
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Opt-Outs"
 msgstr "拒否"
 
-#: ang/crmMailing.js ang/crmMailingAB.js
+#: ext/civi_mail/ang/crmMailing.js ext/civi_mail/ang/crmMailingAB.js
 msgid "Initializing..."
 msgstr "初期化中…"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Template (A)"
 msgstr "テンプレート (A)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Template (B)"
 msgstr "テンプレート (B)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "From (A)"
 msgstr "差出人 (A)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "From (B)"
 msgstr "差出人 (B)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Reply-To (A)"
 msgstr "返信先 (A)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Reply-To (B)"
 msgstr "返信先 (B)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Subject (A)"
 msgstr "題名 (A)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Subject (B)"
 msgstr "題名 (B)"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid ""
 "A/B testing allows you to send two test mailings to a random subset of your "
 "recipients. After collecting and comparing metrics, the more successful "
 "mailing will be sent to the remaining recipients."
 msgstr "A / Bテストは、受信者のランダムなサブセットに 2 つのテストメールを送信することができます。収集とメトリックを比較した後に、より多く成功したメーリングが、残りの受信者に送信されます。"
 
-#: ang/crmMailingAB/BlockSetup.html ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "Test Type"
 msgstr "テストタイプ"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Distribution"
 msgstr "配信"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Send"
 msgstr "送信"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Send A/B test immediately"
 msgstr "すぐに A / B テストを送信"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Send A/B test at:"
 msgstr "A / B テストを送信 : "
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Assess"
 msgstr "評価"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Assess A/B results on an on-going basis"
 msgstr "継続的に A / B の結果を評価します"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Assess A/B test at:"
 msgstr "A / B テストを評価 : "
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Setup"
 msgstr "セットアップ"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Target"
 msgstr "ターゲット"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Compose"
 msgstr "構成"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Preview (A)"
 msgstr "プレビュー (A)"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Preview (B)"
 msgstr "プレビュー (B)"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Compose (A)"
 msgstr "構成 (A)"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Compose (B)"
 msgstr "構成 (B)"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "A/B Test Results"
 msgstr "A / B テスト結果"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid ""
 "This report displays the current results for your A/B test. You can return "
 "to this page to view the latest statistics by navigating to \"Manage A/B "
 "Tests\" and clicking \"Results\"."
 msgstr "このレポートには、現在使用している A / B テストの結果が表示されます。「結果」をクリック、および「A / Bテストの結果」に移動して最新の統計を表示する場合は、このページに戻ることができます。"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Select as Final"
 msgstr "最終として選択"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Delivery"
 msgstr "配信"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Not selected"
 msgstr "選択なし"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Started at"
 msgstr "開始"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Not started"
 msgstr "開始なし"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Completed at"
 msgstr "完了"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Not completed"
 msgstr "完了なし"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
+msgid "Performance"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Search for contacts using '%1'"
 msgstr "「%1」で連絡先を検索"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Browse events of type '%1'"
 msgstr "「%1」のタイプのイベントを表示"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Reports for '%1'"
 msgstr "「%1」のレポート"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Opens (WIP)"
 msgstr "開封 (WIP)"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Total Clicks (WIP)"
 msgstr "クリック合計 (WIP)"
 
-#: ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
 msgid "Test A (%1)"
 msgstr "テストA (%1)"
 
-#: ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
 msgid "Test B (%1)"
 msgstr "テスト B (%1)"
 
-#: ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
 msgid "Final (%1)"
 msgstr "最終 (%1)"
 
-#: ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
 msgid "Select Final Mailing (Test %1)"
 msgstr "最終メーリングを選択 (テスト %1)"
 
-#: ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "- Status -"
 msgstr "- ステータス -"
 
-#: ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "- Test Type -"
 msgstr "- テストタイプ -"
 
-#: ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "You have no A/B mailings"
 msgstr "A / B メーリングはありません"
 
-#: ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "New A/B Test"
 msgstr "新しい A / B テスト"
 
-#: ang/crmMailingAB/ReportCtrl.js ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/ReportCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Mailing A"
 msgstr "メーリング A"
 
-#: ang/crmMailingAB/ReportCtrl.js ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/ReportCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Mailing B"
 msgstr "メーリング B"
 
-#: ang/crmMailingAB/Slider.html
+#: ext/civi_mail/ang/crmMailingAB/Slider.html
 msgid "Test Mailing A"
 msgstr "テストメーリング A"
 
-#: ang/crmMailingAB/Slider.html
+#: ext/civi_mail/ang/crmMailingAB/Slider.html
 msgid "Test Mailing B"
 msgstr "テストメーリング B"
 
-#: ang/crmMailingAB/Slider.html
+#: ext/civi_mail/ang/crmMailingAB/Slider.html
 msgid "Final Mailing"
 msgstr "最終メーリング"
 
-#: ang/crmMailingAB/WinnerDialogCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.html
 msgid ""
 "After selecting %1 as the winner, one must schedule the delivery for the "
 "final mailing."
 msgstr "勝者として %1 を選択した後、最終的なメーリングの配信を予定する必要があります。"
 
-#: ang/crmMailingAB/WinnerDialogCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.html
 msgid "Send final mailing immediately"
 msgstr "すぐに最終メーリングを送信"
 
-#: ang/crmMailingAB/WinnerDialogCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.html
 msgid "Send final mailing at:"
 msgstr "最終メーリングを送信 : "
 
-#: ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Submit final mailing"
 msgstr "最終メーリングを送信"
+
+#: ext/civi_mail/managed/SavedSearch_Email_Bounce_History.mgd.php
+msgid "Email_Bounce_History"
+msgstr ""
 
 #: templates/CRM/Mailing/Form/Approve.tpl
 msgid "Preview Mailing"
@@ -2361,6 +2466,10 @@ msgstr "テキストメーリング : "
 msgid "New Mailing Component"
 msgstr "新しいメーリングコンポーネント"
 
+#: templates/CRM/Mailing/Form/Component.tpl
+msgid "Edit Mailing Component"
+msgstr "メーリングコンポーネントを編集"
+
 #: templates/CRM/Mailing/Form/Count.tpl
 msgid "Total Recipients:"
 msgstr "受信者数 :"
@@ -2374,6 +2483,10 @@ msgid "Please enter up to 5 email addresses to receive the mailing."
 msgstr "メーリングを受信するアドレスを 5 つまで入力できます。"
 
 #: templates/CRM/Mailing/Form/ForwardMailing.tpl
+msgid "Add Comment"
+msgstr ""
+
+#: templates/CRM/Mailing/Form/ForwardMailing.tpl
 msgid "close section"
 msgstr "close section"
 
@@ -2381,13 +2494,6 @@ msgstr "close section"
 msgid ""
 "You are requesting to opt out this email address from all mailing lists:"
 msgstr "すべてのメーリングリストからこのメールアドレスを拒否しようとしています :"
-
-#: templates/CRM/Mailing/Form/Optout.tpl
-#: templates/CRM/Mailing/Form/Unsubscribe.tpl
-msgid ""
-"If this is not your email address, there is no need to do anything. You have"
-" <strong>not</strong> been added to any mailing lists."
-msgstr "If this is not your email address, there is no need to do anything. You have <strong>not</strong> been added to any mailing lists."
 
 #: templates/CRM/Mailing/Form/Optout.tpl
 msgid ""
@@ -2421,12 +2527,14 @@ msgstr "選択したメーリングの受信者数 : %1"
 
 #: templates/CRM/Mailing/Form/Unsubscribe.tpl
 msgid ""
-"Are you sure you want to be removed from the mailing list(s) shown below:"
-msgstr "以下のメーリングリストを解除します :"
+"Are you sure you want to remove %1 from the mailing list(s) shown below:"
+msgstr ""
 
 #: templates/CRM/Mailing/Form/Unsubscribe.tpl
-msgid "You are requesting to unsubscribe this email address:"
-msgstr "このメールアドレスの購読解除をしようとしています :"
+msgid ""
+"You are requesting to unsubscribe <strong>all email addresses for "
+"%1</strong> from the above mailing list."
+msgstr ""
 
 #: templates/CRM/Mailing/Form/Unsubscribe.tpl
 msgid ""
@@ -2465,6 +2573,23 @@ msgid ""
 "Contact your site administrator if you need to use a \"FROM\" Email Address "
 "which is not in the dropdown list."
 msgstr "Contact your site administrator if you need to use a \"FROM\" Email Address which is not in the dropdown list."
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"You can send your email as a simple text-only message, as an HTML formatted "
+"message, or both. Text-only messages are sufficient for most email "
+"communication - and some recipients may prefer not to receive HTML formatted"
+" messages."
+msgstr ""
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"HTML messages have more visual impact, allow you to include images, and may "
+"be more readable if you are including links to website pages. However, "
+"different email programs may interpret HTML formats differently - so use "
+"this option cautiously unless you have a template format that has been "
+"tested with different web and desktop email programs."
+msgstr ""
 
 #: templates/CRM/Mailing/MailingUI.hlp
 msgid ""
@@ -2743,20 +2868,3 @@ msgstr "再購読 : %1 (%2)"
 #: templates/CRM/Mailing/Page/Tab.tpl
 msgid "Opens/ Clicks"
 msgstr "開封 / クリック数"
-
-#: CRM/Mailing/DAO/MailingTrackableURL.php
-msgid "Mailing Links"
-msgstr ""
-
-#: CRM/Mailing/DAO/MailingTrackableURL.php
-#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
-msgid "Mailing Link"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
-msgid "Mailing Link Clickthroughs"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
-msgid "Mailing Link Clickthrough"
-msgstr ""
