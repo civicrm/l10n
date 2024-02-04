@@ -33,7 +33,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2023-06-17 15:56-0400\n"
+"POT-Creation-Date: 2024-02-03 10:37-0500\n"
 "PO-Revision-Date: 2011-03-28 14:20+0000\n"
 "Last-Translator: Melisa Olavarria, 2023\n"
 "Language-Team: Spanish (http://app.transifex.com/civicrm/civicrm/language/es/)\n"
@@ -80,11 +80,11 @@ msgid "Resubscribe URL (Action)"
 msgstr "URL para volver a suscribirse (Acción)"
 
 #: CRM/Mailing/ActionTokens.php CRM/Mailing/Event/DAO/MailingEventBounce.php
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
 #: CRM/Mailing/Event/DAO/MailingEventDelivered.php
 #: CRM/Mailing/Event/DAO/MailingEventForward.php
 #: CRM/Mailing/Event/DAO/MailingEventOpened.php
 #: CRM/Mailing/Event/DAO/MailingEventReply.php
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
 #: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "Event Queue ID"
 msgstr "ID de cola del Evento"
@@ -120,8 +120,8 @@ msgstr "Este mensaje no tiene un código (token) requerido - {%1}: %2"
 msgid "Opt-Out"
 msgstr "Darse de baja"
 
-#: CRM/Mailing/BAO/Mailing.php ang/crmMailing/BlockReview.html
-#: ang/crmMailingAB/EditCtrl/report.html
+#: CRM/Mailing/BAO/Mailing.php ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 #: templates/CRM/Mailing/Page/Resubscribe.tpl
 msgid "Resubscribe"
 msgstr "Volver a Suscribirse"
@@ -213,7 +213,8 @@ msgid "Unsubscribe Requests"
 msgstr "Cancelar suscripciones pedidas"
 
 #: CRM/Mailing/BAO/Query.php CRM/Mailing/Selector/Event.php
-#: ang/crmMailing/services.js templates/CRM/Mailing/Page/Report.tpl
+#: ext/civi_mail/ang/crmMailing/services.js
+#: templates/CRM/Mailing/Page/Report.tpl
 msgid "Forwards"
 msgstr "Reenvíos"
 
@@ -237,7 +238,7 @@ msgstr "Tipos de rebote"
 msgid "Trackable Opens"
 msgstr "Abiertos rastreables"
 
-#: CRM/Mailing/BAO/Query.php CRM/Mailing/DAO/TrackableURL.php
+#: CRM/Mailing/BAO/Query.php
 msgid "Trackable URLs"
 msgstr "URLs rastreables"
 
@@ -427,8 +428,10 @@ msgstr "Seguimiento de Url"
 msgid "Should we track URL click-throughs for this mailing?"
 msgstr "¿Es necesario registrar las URL de click-through para este mailing?"
 
-#: CRM/Mailing/DAO/Mailing.php ang/crmMailing/BlockResponses.html
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: CRM/Mailing/DAO/Mailing.php
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Forward Replies"
 msgstr "Reenviar respuestas"
 
@@ -558,7 +561,8 @@ msgstr "Esta archivado el envío?"
 msgid "Is this mailing archived?"
 msgstr "¿Está archivado el envío de correo?"
 
-#: CRM/Mailing/DAO/Mailing.php ang/crmMailing/BlockPublication.html
+#: CRM/Mailing/DAO/Mailing.php
+#: ext/civi_mail/ang/crmMailing/BlockPublication.html
 msgid "Mailing Visibility"
 msgstr "Visibilidad del envío"
 
@@ -840,6 +844,10 @@ msgid "Is this job for a test mail?"
 msgstr "¿Es esta tarea para un envío de prueba?"
 
 #: CRM/Mailing/DAO/MailingJob.php
+msgid "Test Mailing"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingJob.php
 msgid "Mailing Job Type"
 msgstr "Tipo de tarea de envío"
 
@@ -896,6 +904,27 @@ msgstr "FK a Email"
 msgid "FK to Phone"
 msgstr "FK a Teléfono"
 
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+msgid "Mailing Links"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Mailing Link"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+msgid "Trackable URL ID"
+msgstr "ID de URL de seguimiento"
+
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+msgid "The URL to be tracked."
+msgstr "URL para rastrear."
+
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+msgid "FK to the mailing"
+msgstr "FK al envío de correo"
+
 #: CRM/Mailing/DAO/Spool.php
 msgid "Spools"
 msgstr "Spools"
@@ -944,22 +973,6 @@ msgstr "fecha en que esta tarea ha añadido."
 msgid "date on which this job was removed."
 msgstr "fecha en que esta tarea ha eliminado."
 
-#: CRM/Mailing/DAO/TrackableURL.php
-msgid "Trackable URL"
-msgstr "URL rastreable"
-
-#: CRM/Mailing/DAO/TrackableURL.php
-msgid "Trackable URL ID"
-msgstr "ID de URL de seguimiento"
-
-#: CRM/Mailing/DAO/TrackableURL.php
-msgid "The URL to be tracked."
-msgstr "URL para rastrear."
-
-#: CRM/Mailing/DAO/TrackableURL.php
-msgid "FK to the mailing"
-msgstr "FK al envío de correo"
-
 #: CRM/Mailing/Event/BAO/MailingEventBounce.php
 msgid "Unknown bounce type: Could not parse bounce email"
 msgstr "Tipo de rechazo desconocido: No se pudo analizar el correo electrónico del rechazo"
@@ -999,11 +1012,11 @@ msgid "Bounce ID"
 msgstr "ID de rebote"
 
 #: CRM/Mailing/Event/DAO/MailingEventBounce.php
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
 #: CRM/Mailing/Event/DAO/MailingEventDelivered.php
 #: CRM/Mailing/Event/DAO/MailingEventForward.php
 #: CRM/Mailing/Event/DAO/MailingEventOpened.php
 #: CRM/Mailing/Event/DAO/MailingEventReply.php
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
 #: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "FK to EventQueue"
 msgstr "FK a EventQueue"
@@ -1019,34 +1032,6 @@ msgstr "Motivo del correo electrónico rechazado"
 #: CRM/Mailing/Event/DAO/MailingEventBounce.php
 msgid "When this bounce event occurred."
 msgstr "Cuando ha ocurrido este rechazo."
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Mailing Event Click Throughs"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Mailing Event Click Through"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Trackable URL Open ID"
-msgstr "ID de URL monitoreada abierta"
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Trackable Url ID"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "FK to TrackableURL"
-msgstr "FK a TrackableURL"
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Trackable Url"
-msgstr "Url rastreable"
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "When this trackable URL open occurred."
-msgstr "Cuando ha ocurrido la apertura de esta URL"
 
 #: CRM/Mailing/Event/DAO/MailingEventConfirm.php
 msgid "Mailing Opt-In Confirmations"
@@ -1151,6 +1136,10 @@ msgid "Mailing Job"
 msgstr "Tarea de envío de correo"
 
 #: CRM/Mailing/Event/DAO/MailingEventQueue.php
+msgid "Related mailing. Used for reporting on mailing success, if present."
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
 msgid "Security Hash"
 msgstr "Hash de seguridad"
 
@@ -1194,6 +1183,30 @@ msgstr "Marca horaria de la suscripción del envío de correo"
 #: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
 msgid "When this subscription event occurred."
 msgstr "Cuando ha ocurrido esta suscripción."
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Mailing Link Clickthroughs"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Mailing Link Clickthrough"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Trackable URL Open ID"
+msgstr "ID de URL monitoreada abierta"
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Trackable Url ID"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "FK to TrackableURL"
+msgstr "FK a TrackableURL"
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "When this trackable URL open occurred."
+msgstr "Cuando ha ocurrido la apertura de esta URL"
 
 #: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "Mailing Unsubscribes"
@@ -1299,9 +1312,13 @@ msgstr[1] "El correo es reenviado exitosamente a %count direcciones de correo el
 msgstr[2] "El correo es reenviado exitosamente a %count direcciones de correo electrónico."
 
 #: CRM/Mailing/Form/Optout.php CRM/Mailing/Form/Unsubscribe.php
-#: CRM/Mailing/Page/Common.php
-msgid "There was an error in your request"
-msgstr "Ha habido un error en su pedido"
+msgid "Invalid request: missing parameters"
+msgstr ""
+
+#: CRM/Mailing/Form/Optout.php CRM/Mailing/Form/Unsubscribe.php
+#: CRM/Mailing/Page/Unsubscribe.php
+msgid "Invalid request: bad parameters"
+msgstr ""
 
 #: CRM/Mailing/Form/Optout.php
 msgid "Opt Out Confirmation"
@@ -1356,10 +1373,6 @@ msgid "Print Mailing Recipients"
 msgstr "Imprimir receptores del envío de correos"
 
 #: CRM/Mailing/Form/Unsubscribe.php
-msgid "Missing Parameters"
-msgstr "Parámetros perdidos"
-
-#: CRM/Mailing/Form/Unsubscribe.php
 msgid "%1 has already been unsubscribed."
 msgstr ""
 
@@ -1412,6 +1425,10 @@ msgstr "programar envío de correos"
 msgid "approve mailings"
 msgstr "aprobar envío de correos"
 
+#: CRM/Mailing/MailStore/Localdir.php
+msgid "%1 could not be parsed"
+msgstr ""
+
 #: CRM/Mailing/Page/Browse.php
 msgid "You do not have permission to send SMS"
 msgstr "No tiene permiso para enviar SMS"
@@ -1450,17 +1467,9 @@ msgstr "Encontrar SMS masivos"
 msgid "Search Mailings"
 msgstr "Buscar envíos"
 
-#: CRM/Mailing/Page/Component.php templates/CRM/Mailing/Form/Component.tpl
-msgid "Edit Mailing Component"
-msgstr "Editar componente de envío "
-
-#: CRM/Mailing/Page/Component.php
-msgid "Disable Mailing Component"
-msgstr "Deshabilitar componente de envío "
-
-#: CRM/Mailing/Page/Component.php
-msgid "Enable Mailing Component"
-msgstr "Habilitar componente de envío "
+#: CRM/Mailing/Page/Common.php
+msgid "There was an error in your request"
+msgstr "Ha habido un error en su pedido"
 
 #: CRM/Mailing/Page/Event.php CRM/Mailing/Page/Report.php
 msgid "Back to Activities"
@@ -1490,24 +1499,26 @@ msgstr "Informe de CiviCRM: %1"
 msgid "Mailings sent to %1"
 msgstr "Envíos de correo enviados a %1"
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Testing"
 msgstr "Pruebas"
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/EditCtrl/report.html
-#: ang/crmMailingAB/ReportCtrl.js ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/ReportCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Final"
 msgstr "Final"
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Test different \"Subject\" lines"
 msgstr "Probar diferentes instancias de \"Tema\""
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Test different \"From\" lines"
 msgstr "Probar diferentes instancias de \"De\""
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Test entirely different emails"
 msgstr "Probar completamente diferentes mensajes de correo electrónico"
 
@@ -1635,12 +1646,12 @@ msgstr ""
 msgid "Forwarded Email"
 msgstr "Correo electrónico reenviado"
 
-#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: CRM/Mailing/Selector/Event.php ext/civi_mail/ang/crmMailing/services.js
 #: templates/CRM/Mailing/Page/Report.tpl
 msgid "Successful Deliveries"
 msgstr "Envíos exitosos"
 
-#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: CRM/Mailing/Selector/Event.php ext/civi_mail/ang/crmMailing/services.js
 #: templates/CRM/Mailing/Page/Report.tpl
 msgid "Bounces"
 msgstr "Rechazos"
@@ -1649,7 +1660,7 @@ msgstr "Rechazos"
 msgid "Unique Replies"
 msgstr "Respuestas únicas"
 
-#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: CRM/Mailing/Selector/Event.php ext/civi_mail/ang/crmMailing/services.js
 #: templates/CRM/Mailing/Page/Report.tpl
 msgid "Replies"
 msgstr "Respuestas"
@@ -1677,6 +1688,18 @@ msgstr "Fecha de finalización"
 #: CRM/Mailing/Selector/Search.php
 msgid "CiviCRM Mailing Search"
 msgstr "Búsqueda de envíos de correos de CiviCRM"
+
+#: CRM/Mailing/Service/ListUnsubscribe.php
+msgid "Mailto"
+msgstr ""
+
+#: CRM/Mailing/Service/ListUnsubscribe.php
+msgid "HTTP(S) Web-Form"
+msgstr ""
+
+#: CRM/Mailing/Service/ListUnsubscribe.php
+msgid "HTTP(S) One-Click"
+msgstr ""
 
 #: CRM/Mailing/Tokens.php
 msgid "Mailing Key"
@@ -1722,643 +1745,725 @@ msgstr "Creador de Envío de correos (Nombre)"
 msgid "Mailing Creator (Email)"
 msgstr "Creador de Envío de correos (Email)"
 
-#: ang/crmMailing/BlockApprove.html
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "Failed to connect"
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "(See log for more details.)"
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "The mail service was not instantiated."
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "Failed to read test message"
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "Connection succeeded."
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "No new messages found."
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "Found at least %1 new messages."
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/BlockApprove.html
 msgid "Unreviewed"
 msgstr "Sin revisar"
 
-#: ang/crmMailing/BlockMailing.html ang/crmMailing/EmailAddrCtrl.js
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/BlockHeaderFooter.html
+msgid "Mailing Header"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/BlockHeaderFooter.html
+msgid "Mailing Footer"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/EmailAddrCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Reply-To"
 msgstr "Responder a"
 
-#: ang/crmMailing/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/BlockMailing.html
 msgid "Unsubscribe Group"
 msgstr "Cancelar la suscripción del Grupo"
 
-#: ang/crmMailing/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/BlockMailing.html
 msgid "- choose language -"
 msgstr "- elija un idioma -"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "No content to preview"
 msgstr "Sin contenido para previsualizar"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Preview as HTML"
 msgstr "Previsualizar como HTML"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Preview as Plain Text"
 msgstr "Previsualizar como texto sin formato"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test email to:"
 msgstr "Enviar correo electrónico de prueba a:"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Test Email"
 msgstr "Probar correo electrónico"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test message to %1"
 msgstr "Enviar mensaje de prueba a %1"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test"
 msgstr "Enviar prueba"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test email to group:"
 msgstr "Enviar correo electrónico de prueba al grupo:"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test message to group"
 msgstr "Enviar mensaje de prueba al grupo"
 
-#: ang/crmMailing/BlockPreview.js
+#: ext/civi_mail/ang/crmMailing/BlockPreview.js
 msgid "Send to %1"
 msgstr "Enviar a %1"
 
-#: ang/crmMailing/BlockPreview.js
+#: ext/civi_mail/ang/crmMailing/BlockPreview.js
 msgid "A test message will be sent to %1 people:"
 msgstr "Un mensaje de texto será enviado a %1 personas:"
 
-#: ang/crmMailing/BlockPreview.js
+#: ext/civi_mail/ang/crmMailing/BlockPreview.js
 msgid "None of the contacts in this group have an email address."
 msgstr "Ninguno de los contactos en este grupo posee una dirección de correo electrónico"
 
-#: ang/crmMailing/BlockPreview.js
+#: ext/civi_mail/ang/crmMailing/BlockPreview.js
 msgid "Group is empty."
 msgstr "Grupo está vacío"
 
-#: ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipientsMultiline.html
 msgid "Edit Recipient Options"
 msgstr "Editar opciones de destinatario"
 
-#: ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipientsMultiline.html
 msgid "Click to refresh recipient count"
 msgstr "Haga clic para refrescar el recuento de destinatarios"
 
-#: ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipientsMultiline.html
 msgid "Preview a List of Recipients"
 msgstr "Previsualizar un listado de destinatarios"
 
-#: ang/crmMailing/BlockResponses.html ang/crmMailing/BlockReview.html
-#: ang/crmMailing/EmailAddrCtrl.js ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EmailAddrCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Track Replies"
 msgstr "Monitorear respuestas"
 
-#: ang/crmMailing/BlockResponses.html
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
 msgid "Auto-Respond to Replies"
 msgstr "Auto-responder a respuestas"
 
-#: ang/crmMailing/BlockResponses.html
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
 msgid "Auto-Respond Message"
 msgstr "Mensaje de auto-responder"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Include:"
 msgstr "Incluye:"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Exclude:"
 msgstr "Excluye:"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
+#: templates/CRM/Mailing/Page/Report.tpl
 msgid "Content"
 msgstr "Contenido"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailing/PreviewComponentDialogCtrl.html
-#: ang/crmMailing/PreviewMgr/full.html ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailing/PreviewComponentDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewMgr/full.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Plain Text"
 msgstr "Texto sin formato"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Tracking"
 msgstr "Seguimiento"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Click-Throughs"
 msgstr "Clics directos"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Opens"
 msgstr "Aperturas"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Responding"
 msgstr "Respondiendo"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Auto-Respond"
 msgstr "Auto-responder"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Publication"
 msgstr "Publicación"
 
-#: ang/crmMailing/BlockSummary.html ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailing/BlockSummary.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Select Campaign"
 msgstr "Seleccionar campaña"
 
-#: ang/crmMailing/BlockTemplates.html ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/BlockTemplates.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Save As"
 msgstr "Guardar como"
 
-#: ang/crmMailing/BlockTracking.html
+#: ext/civi_mail/ang/crmMailing/BlockTracking.html
 msgid "Track Click-Throughs"
 msgstr "Monitorear clics directos"
 
-#: ang/crmMailing/BlockTracking.html
+#: ext/civi_mail/ang/crmMailing/BlockTracking.html
 msgid "Track Opens"
 msgstr "Monitorear aperturas"
 
-#: ang/crmMailing/BodyHtml.html ang/crmMailing/BodyText.html
+#: ext/civi_mail/ang/crmMailing/BodyHtml.html
+#: ext/civi_mail/ang/crmMailing/BodyText.html
 msgid "Required tokens are missing."
 msgstr "Fichas necesarias están ausentes."
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
 msgid "Define Mailing"
 msgstr "Definir envío de correo"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Header and Footer"
 msgstr "Encabezado y pie de página"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Responses"
 msgstr "Respuestas"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
 msgid "Review and Schedule"
 msgstr "Revisar y programar horarios"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Submit Mailing"
 msgstr "Enviar correo"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Delete Draft"
 msgstr "Eliminar borrador"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Are you sure you want to permanently delete this mailing?"
 msgstr "¿Está seguro que desea permanentemente eliminar este envío de correo?"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Save Draft"
 msgstr "Guardar Borrador"
 
-#: ang/crmMailing/EditMailingCtrl/base.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/base.html
 msgid "This mailing has been submitted."
 msgstr "Este envío de correos electrónicos ha sido enviado."
 
-#: ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
 msgid "Submit and Approve Mailing"
 msgstr "Enviar y aprobar envío de correo electrónico"
 
-#: ang/crmMailing/EditMailingCtrl.js ang/crmMailingAB/EditCtrl.js
-#: ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Submitting..."
 msgstr "Enviando...."
 
-#: ang/crmMailing/EditMailingCtrl.js ang/crmMailingAB/EditCtrl.js
-#: ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Submitted"
 msgstr ""
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "Estimating..."
 msgstr "Calculando..."
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "Estimate recipient count"
 msgstr "Calculando recuento de destinatarios"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "Refresh recipient count"
 msgstr "Refrescar recuento de destinatarios"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "No Recipients"
 msgstr "No hay destinatarios"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "~%1 recipients"
 msgstr "~%1 destinatarios"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "(unknown)"
 msgstr "(desconocido)"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "Preview (%1)"
 msgstr "Previsualizar (%1)"
 
-#: ang/crmMailing/EditRecipCtrl.js ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Previewing..."
 msgstr "Previsualizando..."
 
-#: ang/crmMailing/EditRecipOptionsDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/EditRecipOptionsDialogCtrl.html
 msgid "Dedupe by email"
 msgstr "Deduplicar por correo electrónico"
 
-#: ang/crmMailing/EditRecipOptionsDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/EditRecipOptionsDialogCtrl.html
 msgid "Selection Method"
 msgstr "Método de selección"
 
-#: ang/crmMailing/EmailAddrCtrl.js
+#: ext/civi_mail/ang/crmMailing/EmailAddrCtrl.js
 msgid "Conflict"
 msgstr "Conflicto"
 
-#: ang/crmMailing/EmailAddrCtrl.js
+#: ext/civi_mail/ang/crmMailing/EmailAddrCtrl.js
 msgid ""
 "The \"%1\" option conflicts with the \"%2\" option. The \"%2\" option has "
 "been disabled."
 msgstr "La opción \"%1\" genera conflicto con la opción \"%2\". La opción \"%2\" ha sido deshabilitado."
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid ""
 "The mailing must include the street address of the organization. Please "
 "insert the %1 token."
 msgstr "El envío de correo debe incluir la dirección de la organización. Por favor ingrese el identificador %1."
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid ""
 "The mailing must allow recipients to (a) unsubscribe from the mailing-list "
 "or (b) completely opt-out from all mailings. Please insert an unsubscribe or"
 " opt-out token."
 msgstr "El envío de correo debe permitirle a los destinatarios a (a) desuscribirse de la lista de correo o (b) renunciar a todo envío de correos. Por favor ingrese un token de cancelación de suscripción o darse de baja (opt out)."
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid "Via Web"
 msgstr "Vía internet"
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid "Via Email"
 msgstr "Vía correo electrónico"
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid ""
 "Alternatively, you may select a header or footer which includes the required"
 " tokens."
 msgstr "Alternativamente, puede seleccionar el encabezado y pie de página que incluya los siguientes identificadores."
 
-#: ang/crmMailing/EmailBodyCtrl.js
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl.js
 msgid "Required tokens"
 msgstr "Identificadores necesarios"
 
-#: ang/crmMailing/MsgTemplateCtrl.js
+#: ext/civi_mail/ang/crmMailing/MsgTemplateCtrl.js
 msgid "Save Template"
 msgstr "Guardar plantilla"
 
-#: ang/crmMailing/PreviewComponentCtrl.js
+#: ext/civi_mail/ang/crmMailing/PreviewComponentCtrl.js
 msgid "Invalid component ID (%1)"
 msgstr "ID de elemento no válido (%1)"
 
-#: ang/crmMailing/PreviewRecipCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewRecipCtrl.html
 msgid ""
 "Based on current data, approximately %1 contacts will receive a copy of the "
 "mailing."
 msgstr "Basado en los actuales datos, aproximadamente %1 de los contactos recibirán una copia del envío de correos. "
 
-#: ang/crmMailing/PreviewRecipCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewRecipCtrl.html
 msgid "Below is a sample of the first %1 recipients."
 msgstr "Debajo hay una muestra de los primeros destinatarios %1."
 
-#: ang/crmMailing/PreviewRecipCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewRecipCtrl.html
 msgid ""
 "If individual contacts are separately modified, added, or removed, then the "
 "final list may change."
 msgstr "Si los contactos individuales son modificados, agregados o quitados de manera separada, entonces el listado final probablemente cambiará."
 
-#: ang/crmMailing/PreviewRecipCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewRecipCtrl.html
 msgid "No recipients"
 msgstr "Sin destinatarios"
 
-#: ang/crmMailing/RadioDate.js
+#: ext/civi_mail/ang/crmMailing/RadioDate.js
 msgid "The scheduled date and time is in the past"
 msgstr "La fecha y horario programado está en el pasado."
 
-#: ang/crmMailing/Recipients.js
-msgid ""
-"This mailing was generated based on search results. The search results "
-"cannot be removed."
-msgstr "Este envío de correos fue generado basado en los resultados de búsquedas. La misma no puede ser quitada."
-
-#: ang/crmMailing/SaveMsgTemplateDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/SaveMsgTemplateDialogCtrl.html
 msgid "Save the current mailing as a template."
 msgstr "Guardar el actual envío de correos como una plantilla."
 
-#: ang/crmMailing/SaveMsgTemplateDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/SaveMsgTemplateDialogCtrl.html
 msgid "Update \"%1\""
 msgstr "Actualizar \"%1\""
 
-#: ang/crmMailing/SaveMsgTemplateDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/SaveMsgTemplateDialogCtrl.html
 msgid "Save as:"
 msgstr "Guardar como:"
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/crmMailingRecipientsAutocomplete.component.js
+msgid "Include Groups & Mailings"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/crmMailingRecipientsAutocomplete.component.js
+msgid "Exclude Groups & Mailings"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/crmMailingRecipientsAutocomplete.component.js
+msgid "Include recipents from groups and past mailings."
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/crmMailingRecipientsAutocomplete.component.js
+msgid "Exclude recipents from groups and past mailings."
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Subject: %1"
 msgstr "Asunto: %1"
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid ""
 "Could not identify any recipients. Perhaps your test group is empty, or you "
 "tried sending to contacts that do not exist and you have no permission to "
 "add contacts."
 msgstr "No se han podido identificar receptores. Tal vez el grupo de prueba está vacío, o ha intentado enviar a contactos que no existe y no tiene permisos de añadir contactos."
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Sending..."
 msgstr "Enviando..."
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Unsubscribes & Opt-outs"
 msgstr ""
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Opt-Outs"
 msgstr "Darse de baja"
 
-#: ang/crmMailing.js ang/crmMailingAB.js
+#: ext/civi_mail/ang/crmMailing.js ext/civi_mail/ang/crmMailingAB.js
 msgid "Initializing..."
 msgstr "Inicializando..."
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Template (A)"
 msgstr "Plantilla (A)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Template (B)"
 msgstr "Plantilla (B)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "From (A)"
 msgstr "De (A)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "From (B)"
 msgstr "De (B)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Reply-To (A)"
 msgstr "Respuesta-a (A)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Reply-To (B)"
 msgstr "Respuesta-a (B)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Subject (A)"
 msgstr "Asunto (A)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Subject (B)"
 msgstr "Asunto (B)"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid ""
 "A/B testing allows you to send two test mailings to a random subset of your "
 "recipients. After collecting and comparing metrics, the more successful "
 "mailing will be sent to the remaining recipients."
 msgstr "La prueba A/B permite enviar dos envíos de correo de prueba a un subconjunto de números aleatorios de destinatarios. Después de recolectar y comparar las métricas, el envío de correo más satisfactorio será enviado a los destinatarios restantes."
 
-#: ang/crmMailingAB/BlockSetup.html ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "Test Type"
 msgstr "Tipo de prueba"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Distribution"
 msgstr "Distribución"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Send"
 msgstr "Enviar"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Send A/B test immediately"
 msgstr "Enviar prueba A/B inmediatamente"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Send A/B test at:"
 msgstr "Enviar prueba A/B a las:"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Assess"
 msgstr "Evaluar"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Assess A/B results on an on-going basis"
 msgstr "Evaluar los resultados A/B de manera continua"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Assess A/B test at:"
 msgstr "Evaluar prueba A/B a las:"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Setup"
 msgstr "Ajustes"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Target"
 msgstr "Objetivo"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Compose"
 msgstr "Componer"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Preview (A)"
 msgstr "Previsualizar (A)"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Preview (B)"
 msgstr "Previsualizar (B)"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Compose (A)"
 msgstr "Componer (A)"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Compose (B)"
 msgstr "Componer (B)"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "A/B Test Results"
 msgstr "Resultados de las pruebas A/B"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid ""
 "This report displays the current results for your A/B test. You can return "
 "to this page to view the latest statistics by navigating to \"Manage A/B "
 "Tests\" and clicking \"Results\"."
 msgstr "Este informe muestra los actuales resultados de su prueba A/B. Puede volver a esta página para ver las últimas estadísticas simplemente dirigiéndose a \"Gestionar pruebas A/B\" y haciendo clic en \"Resultados\"."
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Select as Final"
 msgstr "Seleccionar como Final"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Delivery"
 msgstr "Entrega"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Not selected"
 msgstr "No seleccionado"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Started at"
 msgstr "Empezó a las"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Not started"
 msgstr "No empezó"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Completed at"
 msgstr "Completado a las"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Not completed"
 msgstr "No completado"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
+msgid "Performance"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Search for contacts using '%1'"
 msgstr "Buscar contactos usando '%1'"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Browse events of type '%1'"
 msgstr "Explorar eventos de tipo '%1'"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Reports for '%1'"
 msgstr "Informes para '%1'"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Opens (WIP)"
 msgstr "Abre (WIP)"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Total Clicks (WIP)"
 msgstr "Clics totales (WIP)"
 
-#: ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
 msgid "Test A (%1)"
 msgstr "Prueba A (%1)"
 
-#: ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
 msgid "Test B (%1)"
 msgstr "Prueba B (%1)"
 
-#: ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
 msgid "Final (%1)"
 msgstr "Final (%1)"
 
-#: ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
 msgid "Select Final Mailing (Test %1)"
 msgstr "Seleccionar Envío de correo Final (Prueba %1)"
 
-#: ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "- Status -"
 msgstr "- Estado -"
 
-#: ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "- Test Type -"
 msgstr "- Tipo de prueba -"
 
-#: ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "You have no A/B mailings"
 msgstr "No posee envío de correos A/B"
 
-#: ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "New A/B Test"
 msgstr "Nuevo A/B Test"
 
-#: ang/crmMailingAB/ReportCtrl.js ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/ReportCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Mailing A"
 msgstr "Envío de correo A"
 
-#: ang/crmMailingAB/ReportCtrl.js ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/ReportCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Mailing B"
 msgstr "Envío de correo B"
 
-#: ang/crmMailingAB/Slider.html
+#: ext/civi_mail/ang/crmMailingAB/Slider.html
 msgid "Test Mailing A"
 msgstr "Probar envío de correo A"
 
-#: ang/crmMailingAB/Slider.html
+#: ext/civi_mail/ang/crmMailingAB/Slider.html
 msgid "Test Mailing B"
 msgstr "Probar envío de correo B"
 
-#: ang/crmMailingAB/Slider.html
+#: ext/civi_mail/ang/crmMailingAB/Slider.html
 msgid "Final Mailing"
 msgstr "Envío de correo final"
 
-#: ang/crmMailingAB/WinnerDialogCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.html
 msgid ""
 "After selecting %1 as the winner, one must schedule the delivery for the "
 "final mailing."
 msgstr "Después de seleccionar %1 como el ganador, debe programar el envío final de correos."
 
-#: ang/crmMailingAB/WinnerDialogCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.html
 msgid "Send final mailing immediately"
 msgstr "Enviar envío de correo final inmediatamente"
 
-#: ang/crmMailingAB/WinnerDialogCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.html
 msgid "Send final mailing at:"
 msgstr "Enviar correos finales a las:javascript:;"
 
-#: ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Submit final mailing"
 msgstr "Enviar correos finales"
+
+#: ext/civi_mail/managed/SavedSearch_Email_Bounce_History.mgd.php
+msgid "Email_Bounce_History"
+msgstr ""
 
 #: templates/CRM/Mailing/Form/Approve.tpl
 msgid "Preview Mailing"
@@ -2384,6 +2489,10 @@ msgstr "Texto del envío:"
 msgid "New Mailing Component"
 msgstr "Componente de envío nuevo"
 
+#: templates/CRM/Mailing/Form/Component.tpl
+msgid "Edit Mailing Component"
+msgstr "Editar componente de envío "
+
 #: templates/CRM/Mailing/Form/Count.tpl
 msgid "Total Recipients:"
 msgstr "Total destinatarios:"
@@ -2397,6 +2506,10 @@ msgid "Please enter up to 5 email addresses to receive the mailing."
 msgstr "Por favor, introduzca hasta un máximo de 5 direcciones de correo electrónico que recibirán el envío."
 
 #: templates/CRM/Mailing/Form/ForwardMailing.tpl
+msgid "Add Comment"
+msgstr ""
+
+#: templates/CRM/Mailing/Form/ForwardMailing.tpl
 msgid "close section"
 msgstr "cerrar sección"
 
@@ -2404,13 +2517,6 @@ msgstr "cerrar sección"
 msgid ""
 "You are requesting to opt out this email address from all mailing lists:"
 msgstr "Está solicitando dar de baja esta dirección de correo electrónico de todas las listas de correos:"
-
-#: templates/CRM/Mailing/Form/Optout.tpl
-#: templates/CRM/Mailing/Form/Unsubscribe.tpl
-msgid ""
-"If this is not your email address, there is no need to do anything. You have"
-" <strong>not</strong> been added to any mailing lists."
-msgstr ""
 
 #: templates/CRM/Mailing/Form/Optout.tpl
 msgid ""
@@ -2444,12 +2550,14 @@ msgstr "Número de receptores del envío: %1"
 
 #: templates/CRM/Mailing/Form/Unsubscribe.tpl
 msgid ""
-"Are you sure you want to be removed from the mailing list(s) shown below:"
-msgstr "¿Estás seguro que quiere ser eliminado de la(s) siguiente(s) lista(s) de correo electrónico?:"
+"Are you sure you want to remove %1 from the mailing list(s) shown below:"
+msgstr ""
 
 #: templates/CRM/Mailing/Form/Unsubscribe.tpl
-msgid "You are requesting to unsubscribe this email address:"
-msgstr "Está solicitando cancelar la suscripción de este correo electrónico:"
+msgid ""
+"You are requesting to unsubscribe <strong>all email addresses for "
+"%1</strong> from the above mailing list."
+msgstr ""
 
 #: templates/CRM/Mailing/Form/Unsubscribe.tpl
 msgid ""
@@ -2487,6 +2595,23 @@ msgstr ""
 msgid ""
 "Contact your site administrator if you need to use a \"FROM\" Email Address "
 "which is not in the dropdown list."
+msgstr ""
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"You can send your email as a simple text-only message, as an HTML formatted "
+"message, or both. Text-only messages are sufficient for most email "
+"communication - and some recipients may prefer not to receive HTML formatted"
+" messages."
+msgstr ""
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"HTML messages have more visual impact, allow you to include images, and may "
+"be more readable if you are including links to website pages. However, "
+"different email programs may interpret HTML formats differently - so use "
+"this option cautiously unless you have a template format that has been "
+"tested with different web and desktop email programs."
 msgstr ""
 
 #: templates/CRM/Mailing/MailingUI.hlp
@@ -2766,20 +2891,3 @@ msgstr "¿Está seguro que quiere volver a suscribirse: %1 (%2)?"
 #: templates/CRM/Mailing/Page/Tab.tpl
 msgid "Opens/ Clicks"
 msgstr "Aperturas / clics"
-
-#: CRM/Mailing/DAO/MailingTrackableURL.php
-msgid "Mailing Links"
-msgstr ""
-
-#: CRM/Mailing/DAO/MailingTrackableURL.php
-#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
-msgid "Mailing Link"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
-msgid "Mailing Link Clickthroughs"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
-msgid "Mailing Link Clickthrough"
-msgstr ""
