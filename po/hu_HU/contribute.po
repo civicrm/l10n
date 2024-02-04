@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2023-06-17 15:56-0400\n"
+"POT-Creation-Date: 2024-02-03 10:37-0500\n"
 "PO-Revision-Date: 2011-03-28 14:19+0000\n"
 "Last-Translator: Zoltán Reizinger <zreizinger@hdsnet.hu>, 2013-2016,2018-2021,2023\n"
 "Language-Team: Hungarian (http://app.transifex.com/civicrm/civicrm/language/hu/)\n"
@@ -21,11 +21,6 @@ msgstr ""
 "Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: CRM/Contribute/ActionMapping/ByPage.php
-#: CRM/Contribute/ActionMapping/ByType.php
-msgid "Thank You Date"
-msgstr "Köszönet dátuma"
-
 #: CRM/Contribute/ActionMapping/ByType.php
 msgid "Contribution Type"
 msgstr "Adomány típus"
@@ -33,6 +28,10 @@ msgstr "Adomány típus"
 #: CRM/Contribute/ActionMapping/ByType.php
 msgid "Soft Credit Role"
 msgstr "Lágy jóváírás szerepkör"
+
+#: CRM/Contribute/ActionMapping.php
+msgid "Thank You Date"
+msgstr "Köszönet dátuma"
 
 #: CRM/Contribute/BAO/Contribution.php
 msgid ""
@@ -66,13 +65,6 @@ msgid "Soft Credit Contact ID"
 msgstr "Lágy jóváírás kapcsolat azonosító"
 
 #: CRM/Contribute/BAO/Contribution.php
-#: CRM/Contribute/Form/Contribution/Confirm.php
-#: CRM/Contribute/Form/Contribution/Main.php
-#: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
-msgid "Online Contribution"
-msgstr "Online adomány"
-
-#: CRM/Contribute/BAO/Contribution.php
 #: CRM/Contribute/BAO/ContributionRecur.php
 msgid "Recurring contribution"
 msgstr "Ismétlődő adományozás"
@@ -87,6 +79,10 @@ msgid ""
 "contribution. Editing the financial type is not yet supported in this "
 "situation."
 msgstr "Egy vagy több tétel különböző pénzügyi típussal rendelkezik mint az adomány. Ebben a helyzetben még nem támogatott a pénzügyi típus szerkesztése."
+
+#: CRM/Contribute/BAO/Contribution.php
+msgid "Status changed from %1 to %2"
+msgstr ""
 
 #: CRM/Contribute/BAO/Contribution.php
 msgid "day(s)"
@@ -145,7 +141,7 @@ msgstr "Ismétlődő adományozás legalább egy befizetéssel"
 msgid "View related contribution"
 msgstr "A kapcsolódó adomány megtekintése"
 
-#: CRM/Contribute/BAO/Premium.php
+#: CRM/Contribute/BAO/Premium.php CRM/Contribute/Form/ContributionBase.php
 msgid "Selected Option"
 msgstr "Kiválasztott opció"
 
@@ -337,12 +333,6 @@ msgstr "FK fizetési eszközhöz"
 
 #: CRM/Contribute/DAO/Contribution.php
 msgid ""
-"Date contribution was received - not necessarily the creation date of the "
-"record"
-msgstr "Adomány beérkezési dátuma - nem szükségszerűen a rögzítés dátuma"
-
-#: CRM/Contribute/DAO/Contribution.php
-msgid ""
 "Portion of total amount which is NOT tax deductible. Equal to total_amount "
 "for non-deductible financial types."
 msgstr "Teljes összegből az adóból NEM levonható rész. Egyenlő a  total_amount -al a nem levonható pénzügyi típusoknál."
@@ -442,8 +432,24 @@ msgid "Shows this is a template for recurring contributions."
 msgstr "Mutassa ezt a sablont az ismétlődő adományoknál."
 
 #: CRM/Contribute/DAO/ContributionPage.php
+msgid "Page Name"
+msgstr "Oldal neve"
+
+#: CRM/Contribute/DAO/ContributionPage.php
 msgid "Contribution Page title. For top of page display"
 msgstr "Adományoldal címe. Az oldal tetején kerül kijelzésre"
+
+#: CRM/Contribute/DAO/ContributionPage.php
+msgid "Contribution Page Public title"
+msgstr "Adomány oldal nyilvános címe"
+
+#: CRM/Contribute/DAO/ContributionPage.php
+msgid "Unique Name"
+msgstr "Egyedi név"
+
+#: CRM/Contribute/DAO/ContributionPage.php
+msgid "Unique name for identifying contribution page"
+msgstr "Adomány oldalt azonosító egyedi név"
 
 #: CRM/Contribute/DAO/ContributionPage.php
 msgid "Contribution Page Introduction Text"
@@ -722,10 +728,6 @@ msgstr "Az emberek megoszthatják ezt az adomány oldalt a közösségi médiáb
 msgid "if true - billing block is required for online contribution page"
 msgstr "ha igaz - a számlázási blokk szükséges ehhez az online adomány oldalhoz."
 
-#: CRM/Contribute/DAO/ContributionPage.php
-msgid "Contribution Page Public title"
-msgstr "Adomány oldal nyilvános címe"
-
 #: CRM/Contribute/DAO/ContributionProduct.php
 msgid "Contribution Products"
 msgstr "Adomány termékek"
@@ -894,6 +896,12 @@ msgstr "Opcionálisan ehhez az ismétlődő adományhoz tartozó  befizetés tok
 #: CRM/Contribute/DAO/ContributionRecur.php
 msgid "unique transaction id (deprecated - use processor_id)"
 msgstr "egyedi tranzakcióazonosító (elavult – használja a processor_id -t)"
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+#: CRM/Contribute/Form/AdditionalInfo.php
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "Invoice ID"
+msgstr ""
 
 #: CRM/Contribute/DAO/ContributionRecur.php
 #: templates/CRM/Contribute/Page/ContributionRecur.tpl
@@ -1328,23 +1336,6 @@ msgid ""
 " you can submit a credit card transactions."
 msgstr "Meg kell adni  a %1 beállításait a fizetés feldolgozóhoz, mielőtt bankkártya tranzakciókat kezdeményez."
 
-#: CRM/Contribute/Form/AbstractEditPayment.php
-msgid "Pledge payment status should be 'Pending' or  'Overdue'."
-msgstr "Felajánlás fizetési állapota 'Függőben' vagy 'Lejárt' lehet csak."
-
-#: CRM/Contribute/Form/AbstractEditPayment.php
-msgid ""
-"This contact has pending or overdue pledge payments. <a href=\"%1\">Click "
-"here to view their Pledges tab</a> and verify whether this contribution "
-"should be applied as a pledge payment."
-msgstr "Ez a kapcsolatnak függő vagy lejárt felajánlott fizetési vannak. <a href=\"%1\">Kattintson ide a felajánlásainak megtekintésére</a> és ellenőrizze, hogy ezt az adományt mint felajánlás befizetést kell-e kezelni. "
-
-#: CRM/Contribute/Form/AbstractEditPayment.php
-msgid ""
-"This contact has a pending or overdue pledge payment of %2 which is "
-"scheduled for %3. <a href=\"%1\">Click here to enter a pledge payment</a>."
-msgstr "Ennek a kapcsolatnak függő vagy lejárt felajánlott fizetései vannak %2 ami %3 esedékes. <a href=\"%1\">Kattintson ide a felajánlásai befizetésére</a>."
-
 #: CRM/Contribute/Form/AdditionalInfo.php
 msgid "-select product-"
 msgstr "-termék kiválasztása-"
@@ -1376,30 +1367,13 @@ msgstr "A számla azonosító már létezik az adatbázisban."
 msgid "This Credit Note ID already exists in the database."
 msgstr "A jóváíró számla azonosító már létezik az adatbázisban."
 
-#: CRM/Contribute/Form/AdditionalInfo.php
-msgid "Send Initial Reminder"
-msgstr "Kezdeti emlékeztető küldése"
-
-#: CRM/Contribute/Form/AdditionalInfo.php
-msgid "Please enter a valid reminder day."
-msgstr "Kérem érvényes emlékeztető napot adjon meg."
-
-#: CRM/Contribute/Form/AdditionalInfo.php
-#: CRM/Contribute/Form/ContributionPage/Amount.php
-msgid "Send up to"
-msgstr "Felküldés"
-
-#: CRM/Contribute/Form/AdditionalInfo.php
-msgid "Please enter a valid No. of reminders."
-msgstr "Kérem adjon meg érvényes emlékeztető darabszámot."
-
-#: CRM/Contribute/Form/AdditionalInfo.php
-msgid "Please enter a valid additional reminder day."
-msgstr "Kérem adjon meg egy érvényes további emlékeztető napot."
-
 #: CRM/Contribute/Form/AdditionalPayment.php
 msgid "Credit card payment is not for Refund payments use"
 msgstr "A bankkártyás fizetés nem használható a visszatérítés fizetésére  "
+
+#: CRM/Contribute/Form/AdditionalPayment.php
+msgid "Refund"
+msgstr ""
 
 #: CRM/Contribute/Form/AdditionalPayment.php
 msgid "Refund Amount"
@@ -1415,6 +1389,10 @@ msgid "Refund Date"
 msgstr "Visszatérítés dátuma"
 
 #: CRM/Contribute/Form/AdditionalPayment.php
+msgid "Submit Payment"
+msgstr "Befizetés beküldése"
+
+#: CRM/Contribute/Form/AdditionalPayment.php
 msgid "Payment method is a required field"
 msgstr "A befizetési mód szükséges mező"
 
@@ -1427,11 +1405,6 @@ msgstr "A befizetési rekord feldolgozva."
 msgid "A receipt has been emailed to the contributor."
 msgstr "A nyugta e-mailen elküldve az adományozónak."
 
-#: CRM/Contribute/Form/AdditionalPayment.php
-#: CRM/Contribute/Form/Contribution.php
-msgid "Submit Credit Card Payment by: %1"
-msgstr "Bankkártyás fizetést beküldte: %1"
-
 #: CRM/Contribute/Form/CancelSubscription.php
 msgid "The recurring contribution looks to have been cancelled already."
 msgstr "Ezen ismétlődő adományozás automatikus megújítási opciója, úgy tűnik már korábban törlésre került."
@@ -1440,6 +1413,10 @@ msgstr "Ezen ismétlődő adományozás automatikus megújítási opciója, úgy
 #: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Required information missing."
 msgstr "Szükséges  információ hiányzik."
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Cancel Recurring Contribution"
+msgstr ""
 
 #: CRM/Contribute/Form/CancelSubscription.php
 msgid "Send cancellation request?"
@@ -1473,32 +1450,18 @@ msgid "Recurring contribution could not be cancelled in the database."
 msgstr "Ismétlődő adományozás nem lett az adatbázisban törölve."
 
 #: CRM/Contribute/Form/Contribution/Confirm.php
-msgid "Make Contribution"
-msgstr "Adományozás"
-
-#: CRM/Contribute/Form/Contribution/Confirm.php
-#: CRM/Contribute/Form/Contribution/Main.php
-#: CRM/Contribute/Form/Contribution/ThankYou.php
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"Oops. The membership you're trying to renew appears to be invalid. Contact "
-"your site administrator if you need assistance. If you continue, you will be"
-" issued a new membership."
-msgstr "Hoppá! A megújítani kívánt tagság érvénytelen. Lépjen kapcsolatba az oldal adminisztrátorával, ha szüksége van segítségre. Ha folytatja, új tagság kerül beállításra."
-
-#: CRM/Contribute/Form/Contribution/Confirm.php
-#: CRM/Contribute/Form/Contribution/Main.php
-#: CRM/Contribute/Form/Contribution/ThankYou.php
-msgid "Invalid Membership"
-msgstr "Érvénytelen tagság"
-
-#: CRM/Contribute/Form/Contribution/Confirm.php
 msgid "Anonymous"
 msgstr "Névtelen"
 
 #: CRM/Contribute/Form/Contribution/Confirm.php
 msgid "Online Contribution:"
 msgstr "Online adományozás:"
+
+#: CRM/Contribute/Form/Contribution/Confirm.php
+#: CRM/Contribute/Form/Contribution/Main.php
+#: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
+msgid "Online Contribution"
+msgstr "Online adomány"
 
 #: CRM/Contribute/Form/Contribution/Confirm.php
 msgid "Payment Processor Error message :"
@@ -1535,30 +1498,37 @@ msgid "Confirm Payment"
 msgstr "Befizetés megerősítése"
 
 #: CRM/Contribute/Form/Contribution/Main.php
-msgid "Please select one of the memberships."
-msgstr "Kérem válasszon egy tagságot."
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+msgid "Additional Contribution"
+msgstr ""
 
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid "Please renew my membership automatically."
 msgstr "Kérem automatikusan hosszabbítsa meg a tagságomat."
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "installments"
 msgstr "Részletek"
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "Number of installments must be a whole number."
 msgstr "A részlet száma csak egész szám lehet."
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "I want to contribute this amount every"
 msgstr " gyakorisággal szeretnék adományozni ezzel az összeggel"
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "I want to contribute this amount every %1"
 msgstr "%1 gyakorisággal szeretnék adományozni ezzel az összeggel"
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "Frequency must be a whole number (EXAMPLE: Every 3 months)."
 msgstr "Az ismétlődés egész szám legyen (PÉLDA: Minden 3. hónapban)."
 
@@ -1675,6 +1645,42 @@ msgstr "Ehhez az adomány azonosítóhoz nem adott meg kapcsolatot ezért vissza
 msgid "Returning since contribution has already been handled."
 msgstr "Ismétlődő az adomány kezelésének megtöténtetől."
 
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid ""
+"This contribution page has been configured for contribution on behalf of "
+"honoree and the selected honoree profile is either disabled or not found."
+msgstr "Ez az adomány oldal egy megtisztelt nevében történő adományozáshoz lett beállítva, a kiválasztott megtisztelt profil letiltva vagy nem található."
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid ""
+"This contribution page has been configured for contribution on behalf of "
+"honoree and the required fields of the selected honoree profile are disabled"
+" or doesn't exist."
+msgstr "Ez az adomány oldal egy megtisztelt nevében történő adományozáshoz lett beállítva, és a szükséges mezők a kiválasztott megtisztelt profilon le vannak tiltva vagy nem léteznek."
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid ""
+"This contribution page has been configured for contribution on behalf of an "
+"organization and the selected onbehalf profile is either disabled or not "
+"found."
+msgstr "Ez az adomány oldal egy szervezet nevében történő adományozáshoz lett beállítva, a kiválasztott nevében profil letiltva vagy nem található."
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Mixed profile not allowed for on behalf of registration/sign up."
+msgstr "Kevert profil nem engedélyezett a regisztráció 6 feliratkozás nevében."
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Select an existing organization"
+msgstr "Meglévő szervezet kiválasztása"
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Enter a new organization"
+msgstr "Új szervezet megadása"
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "options"
+msgstr "Opciók"
+
 #: CRM/Contribute/Form/Contribution.php
 #: CRM/Contribute/Page/ContributionRecurPayments.php
 #: CRM/Contribute/Selector/Search.php
@@ -1693,6 +1699,23 @@ msgstr "Felajánlás bankkártyás befizetés"
 #: CRM/Contribute/Form/Contribution.php
 msgid "Credit Card Contribution"
 msgstr "Bankkártyás adományozás"
+
+#: CRM/Contribute/Form/Contribution.php
+msgid "Pledge payment status should be 'Pending' or  'Overdue'."
+msgstr "Felajánlás fizetési állapota 'Függőben' vagy 'Lejárt' lehet csak."
+
+#: CRM/Contribute/Form/Contribution.php
+msgid ""
+"This contact has pending or overdue pledge payments. <a href=\"%1\">Click "
+"here to view their Pledges tab</a> and verify whether this contribution "
+"should be applied as a pledge payment."
+msgstr "Ez a kapcsolatnak függő vagy lejárt felajánlott fizetési vannak. <a href=\"%1\">Kattintson ide a felajánlásainak megtekintésére</a> és ellenőrizze, hogy ezt az adományt mint felajánlás befizetést kell-e kezelni. "
+
+#: CRM/Contribute/Form/Contribution.php
+msgid ""
+"This contact has a pending or overdue pledge payment of %2 which is "
+"scheduled for %3. <a href=\"%1\">Click here to enter a pledge payment</a>."
+msgstr "Ennek a kapcsolatnak függő vagy lejárt felajánlott fizetései vannak %2 ami %3 esedékes. <a href=\"%1\">Kattintson ide a felajánlásai befizetésére</a>."
 
 #: CRM/Contribute/Form/Contribution.php
 msgid "Additional Details"
@@ -1721,6 +1744,10 @@ msgid "Payment Processor Error"
 msgstr "Fizetés feldolgozó hiba"
 
 #: CRM/Contribute/Form/Contribution.php
+msgid "Submit Credit Card Payment by: %1"
+msgstr "Bankkártyás fizetést beküldte: %1"
+
+#: CRM/Contribute/Form/Contribution.php
 msgid ""
 "Contribution submitted by a staff person using contributor's credit card"
 msgstr "A szervezet munkatársa által az adományozó bankkártyája segítségével benyújtott adomány "
@@ -1729,9 +1756,17 @@ msgstr "A szervezet munkatársa által az adományozó bankkártyája segítség
 msgid "The contribution record has been saved."
 msgstr "Az adomány rekord elmentve."
 
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "Membership Invalid"
-msgstr "Tagság érvénytelen"
+#: CRM/Contribute/Form/Contribution.php
+msgid ""
+"You've changed the financial type for this %1 contribution from non-tax "
+"deductible to tax deductible, but the non-deductible amount of %2 has not "
+"been changed. This could prevent a tax receipt from being issued correctly. "
+"You may want to edit the non-deductible amount."
+msgstr "Megváltoztatta a %1 adomány pénzügyi típusát adóból nem levonhatóról, adóból levonhatóra, de a nem levonható összeg %2 nem változott. Ez megakadályozhatja az adónyugta helyes kiküldését. Szüksége lehet a nem levonható összeg szerkesztésére is. "
+
+#: CRM/Contribute/Form/Contribution.php
+msgid "Non-deductible amount"
+msgstr "Nem leírható összeg"
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid "The page you requested has past its end date on %1"
@@ -1743,52 +1778,10 @@ msgstr "Az ön által kért oldal %1 naptól lesz aktív"
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid ""
-"This page includes a Profile with Membership fields - but the Membership "
-"Block is NOT enabled. Please notify the site administrator."
-msgstr "Ez az oldal egy profilt tartalmaz tagsági mezőkkel - de a tagság blokk NINCS engedélyezve. Kérem figyelmeztesse a weboldal adminisztrátorát."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
 "The requested online contribution page is missing a required Contribution "
 "Amount section or Membership section or Price Set. Please check with the "
 "site administrator for assistance."
 msgstr "A kért online adomány oldalon nincs meg a keresett adomány összeg szakasz vagy a tagság szakaszon az árlista. Kérem forduljon a weboldal adminisztrátorához segítségért."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"This contribution page has been configured for contribution on behalf of "
-"honoree and the selected honoree profile is either disabled or not found."
-msgstr "Ez az adomány oldal egy megtisztelt nevében történő adományozáshoz lett beállítva, a kiválasztott megtisztelt profil letiltva vagy nem található."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"This contribution page has been configured for contribution on behalf of "
-"honoree and the required fields of the selected honoree profile are disabled"
-" or doesn't exist."
-msgstr "Ez az adomány oldal egy megtisztelt nevében történő adományozáshoz lett beállítva, és a szükséges mezők a kiválasztott megtisztelt profilon le vannak tiltva vagy nem léteznek."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"This contribution page has been configured for contribution on behalf of an "
-"organization and the selected onbehalf profile is either disabled or not "
-"found."
-msgstr "Ez az adomány oldal egy szervezet nevében történő adományozáshoz lett beállítva, a kiválasztott nevében profil letiltva vagy nem található."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "Mixed profile not allowed for on behalf of registration/sign up."
-msgstr "Kevert profil nem engedélyezett a regisztráció 6 feliratkozás nevében."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "Select an existing organization"
-msgstr "Meglévő szervezet kiválasztása"
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "Enter a new organization"
-msgstr "Új szervezet megadása"
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "options"
-msgstr "Opciók"
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid ""
@@ -1800,6 +1793,23 @@ msgstr "Hoppá! Úgy tűnik, hogy hibás vagy hiányos a link (URL). Kérem elle
 #: CRM/Contribute/Form/ContributionBase.php
 msgid "Oops. You cannot make a payment for this pledge - pledge status is %1."
 msgstr "Hoppá! Nem fizethet erre a felajánlásra - felajánlás állapota %1."
+
+#: CRM/Contribute/Form/ContributionBase.php
+msgid ""
+"This page includes a Profile with Membership fields - but the Membership "
+"Block is NOT enabled. Please notify the site administrator."
+msgstr "Ez az oldal egy profilt tartalmaz tagsági mezőkkel - de a tagság blokk NINCS engedélyezve. Kérem figyelmeztesse a weboldal adminisztrátorát."
+
+#: CRM/Contribute/Form/ContributionBase.php
+msgid ""
+"Oops. The membership you're trying to renew appears to be invalid. Contact "
+"your site administrator if you need assistance. If you continue, you will be"
+" issued a new membership."
+msgstr "Hoppá! A megújítani kívánt tagság érvénytelen. Lépjen kapcsolatba az oldal adminisztrátorával, ha szüksége van segítségre. Ha folytatja, új tagság kerül beállításra."
+
+#: CRM/Contribute/Form/ContributionBase.php
+msgid "Membership Invalid"
+msgstr "Tagság érvénytelen"
 
 #: CRM/Contribute/Form/ContributionCharts.php
 msgid "Chart Style"
@@ -1842,6 +1852,7 @@ msgid "Add Premium to Contribution Page"
 msgstr "Jelképes ajándék hozzáadása az adományoldalhoz"
 
 #: CRM/Contribute/Form/ContributionPage/Amount.php
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
 msgid "Allow other amounts"
 msgstr "További összegek engedélyezése"
 
@@ -1854,6 +1865,7 @@ msgid "Contribution Amounts section enabled"
 msgstr "Adományozási összeg szakasz engedélyezve"
 
 #: CRM/Contribute/Form/ContributionPage/Amount.php
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
 msgid "Execute real-time monetary transactions"
 msgstr "Valós idejű pézügyi tranzakció végrehajtása"
 
@@ -1962,12 +1974,6 @@ msgid ""
 "payment option has been selected. Please select at least one payment "
 "processor and/or enable the pay later option."
 msgstr "Rögzített adomány opciókat állított be, vagy árlistát választott ki, de nem állított be fizetési opciókat. Kérem válasszon legalább egy fizetés feldolgozót vagy/és engedélyezze a később fizetést. "
-
-#: CRM/Contribute/Form/ContributionPage/Amount.php
-msgid ""
-"You cannot enable both a Contribution Price Set and Membership Signup on the"
-" same online contribution page."
-msgstr "Nem engedélyezheti egy időben az adomány árlistát és a tagsági feliratkozást egyazon online adományoldalon."
 
 #: CRM/Contribute/Form/ContributionPage/Amount.php
 msgid "At least one recurring frequency option needs to be checked."
@@ -2089,6 +2095,7 @@ msgid "Organization Profile"
 msgstr "Szervezeti profil"
 
 #: CRM/Contribute/Form/ContributionPage/Settings.php
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid "On behalf of Label"
 msgstr "Nevében címke"
 
@@ -2109,6 +2116,7 @@ msgid "Honoree Section Title"
 msgstr "Büszkeségfal szakasz címe"
 
 #: CRM/Contribute/Form/ContributionPage/Settings.php
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid "Honoree Introductory Message"
 msgstr "Kitüntetett bemutatkozó üzenete"
 
@@ -2127,10 +2135,6 @@ msgstr "Legalább egy értéket ki kell választania, ha a Megbecsülés szakasz
 #: CRM/Contribute/Form/ContributionPage/Settings.php
 msgid "Please select a profile used for honoree"
 msgstr "Kérem válassza ki a megtiszteltnél használt profilt"
-
-#: CRM/Contribute/Form/ContributionPage/Settings.php
-msgid "Please do not use '/' in Title"
-msgstr "Kérem ne használjon '/'-t a címben"
 
 #: CRM/Contribute/Form/ContributionPage/Settings.php
 msgid ""
@@ -2511,11 +2515,12 @@ msgid "From Email Address is required"
 msgstr "Feladó e-mail cím szükséges"
 
 #: CRM/Contribute/Form/Task/Invoice.php
-msgid ""
-"If you would like to add personal message to email please add it here. (If "
-"sending to more then one receipient the same message will be sent to each "
-"contact.)"
-msgstr "Ha személyes üzenetet kíván az e-mailhez hozzáadni, itt adja hozzá. (Ha több mint egy címzettnek küldi, mindenki ezt az üzenetet kapja)."
+msgid "Replace Subject"
+msgstr ""
+
+#: CRM/Contribute/Form/Task/Invoice.php
+msgid "Additional Message"
+msgstr ""
 
 #: CRM/Contribute/Form/Task/Invoice.php
 msgid "Process Invoice(s)"
@@ -2558,6 +2563,10 @@ msgstr "Felülírni az adatvédelmi beállításokat? (E-mailt kérek / Nem kér
 #: CRM/Contribute/Form/Task/PDF.php
 msgid "Process Receipt(s)"
 msgstr "Folyamat nyugták "
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "From Email Address"
+msgstr ""
 
 #: CRM/Contribute/Form/Task/PDFLetter.php
 msgid "Thank-you Letter Options"
@@ -2748,6 +2757,10 @@ msgid "Update Error"
 msgstr "Frissítési hiba"
 
 #: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Update Recurring Contribution"
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Recurring Contribution Amount"
 msgstr "Ismétlődő adományozás összege"
 
@@ -2796,10 +2809,6 @@ msgstr "Új adomány beillesztése"
 #: CRM/Contribute/Import/Form/DataSource.php
 msgid "Update existing contributions"
 msgstr "Meglévő adományok frissítése "
-
-#: CRM/Contribute/Import/Form/DataSource.php
-msgid "Load Mapping"
-msgstr "Térkép Betöltés"
 
 #: CRM/Contribute/Import/Form/MapField.php
 msgid "(match to contribution record)"
@@ -3138,9 +3147,22 @@ msgstr "Köszönő levél - nyomtatás vagy e-mail"
 msgid "Invoices - print or email"
 msgstr "Számlák - nyomtatás vagy e-mail"
 
+#: CRM/Contribute/Tokens.php
+msgid "Billing Address Name"
+msgstr ""
+
+#: CRM/Contribute/Tokens.php templates/CRM/Contribute/Form/Contribution.tpl
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+msgid "Billing Address"
+msgstr "Számlázási cím"
+
 #: CRM/Contribute/WorkflowMessage/Contribution/BasicContribution.php
 msgid "Completed Contribution"
 msgstr "Kész adományok"
+
+#: CRM/Contribute/WorkflowMessage/Contribution/BasicContribution.php
+msgid "Partially Paid Contribution"
+msgstr ""
 
 #: CRM/Contribute/WorkflowMessage/Contribution/BasicContribution.php
 msgid "Refunded Contribution"
@@ -3153,6 +3175,18 @@ msgstr "Ismétlődés szerkesztése: Alex, törölve"
 #: CRM/Contribute/WorkflowMessage/RecurringEdit/BarbPending.php
 msgid "Recurring Edit: Barbara, Pending"
 msgstr "Ismétlődés szerkesztése: Barbara, függőben"
+
+#: ext/civi_contribute/Civi/Api4/Service/Spec/Provider/ContributionGetSpecProvider.php
+msgid "Amount paid"
+msgstr ""
+
+#: ext/civi_contribute/Civi/Api4/Service/Spec/Provider/ContributionGetSpecProvider.php
+msgid "Tax Exclusive Amount"
+msgstr ""
+
+#: ext/civi_contribute/Civi/Api4/Service/Spec/Provider/FinancialTrxnCreationSpecProvider.php
+msgid "Related entity (eg. contribution) id"
+msgstr ""
 
 #: templates/CRM/Contribute/Form/AcceptCreditCard.tpl
 msgid "New Credit Card"
@@ -3183,27 +3217,6 @@ msgid ""
 "The name for this credit card type as it is displayed to contributors. This "
 "may be the same value as the Name above, or a localised title."
 msgstr "A bankkártya típus neve, ahogy azt az adományozóknak kijelezzük. Ez lehet a fentebb megadott névvel azonos, vagy egy honosított név. "
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-msgid "Non-deductible portion of this contribution."
-msgstr "Adomány nem levonható része."
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-#: templates/CRM/Contribute/Form/AdditionalPayment.tpl
-msgid "Processing fee for this transaction (if applicable)."
-msgstr "Ennek a tranzakciónak a feldolgozási díja (ha alkalmazható)."
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-msgid "Unique internal reference ID for this contribution."
-msgstr "Ezen adomány egyedi belső hivatkozási azonosítója."
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-msgid "Unique internal Credit Note ID for this contribution."
-msgstr "Egyedi belső Jóváíró számla azonosító ehhez az adományhoz."
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-msgid "Date that a thank-you message was sent to the contributor."
-msgstr "Az adományozónak küldött köszönő üzenet küldési dátuma."
 
 #: templates/CRM/Contribute/Form/AdditionalInfo/PaymentReminders.tpl
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
@@ -3261,7 +3274,6 @@ msgstr "Automatikusan küldje e-mailben a nyugtát ide %1?"
 
 #: templates/CRM/Contribute/Form/AdditionalPayment.tpl
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Refund Details"
 msgstr "Visszatérítés részletei"
 
@@ -3269,13 +3281,8 @@ msgstr "Visszatérítés részletei"
 #: templates/CRM/Contribute/Form/Contribution.tpl
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Payment Details"
 msgstr "Fizetés részletei"
-
-#: templates/CRM/Contribute/Form/AdditionalPayment.tpl
-msgid "The date this payment was received."
-msgstr "A mai napig beérkezett befizetések."
 
 #: templates/CRM/Contribute/Form/AdditionalPayment.tpl
 msgid ""
@@ -3376,18 +3383,6 @@ msgid ""
 "time by logging in to your account or contacting us at %1."
 msgstr "A kezdeti felajánlott befizetése akkor kerül feldolgozásra, amikor alább ide kattint: &quot;%2&quot;. A további adományait módosíthatja vagy törölheti a jövőben bármikor, ha belép a fiókjába, vagy ha kapcsolatba lép velünk %1."
 
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Your transaction will not be completed until you click the "
-"<strong>%1</strong> button. Please click the button one time only."
-msgstr "A tranzakció nem kerül befejezésre addig amíg nem kattint <strong>%1</strong> gombra. Kérem csak egyszer kattintson a gombra."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Your contribution will not be completed until you click the "
-"<strong>%1</strong> button. Please click the button one time only."
-msgstr "Az adománya nem kerül befejezésre addig amíg nem kattint <strong>%1</strong> gombra. Kérem csak egyszer kattintson a gombra."
-
 #: templates/CRM/Contribute/Form/Contribution/Main.tpl
 msgid "Configure Contribution Page"
 msgstr "Adomány oldal beállítása"
@@ -3410,7 +3405,6 @@ msgstr "Jelenleg élethosszig tartó tagsággal rendelkezik, ezt nem kell megúj
 #: xml/templates/message_templates/contribution_offline_receipt_html.tpl
 #: xml/templates/message_templates/contribution_offline_receipt_text.tpl
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
 msgid "Contribution Information"
 msgstr "Adomány információ"
 
@@ -3431,19 +3425,23 @@ msgstr "Kérem válasszon ki egy opciót a megtisztelt információs mező kijel
 msgid "Regular Amount"
 msgstr "Normál összeg"
 
-#: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
+#: templates/CRM/Contribute/Form/Contribution/MainMembershipBlock.tpl
 msgid "Your <strong>%2</strong> membership expired on %1."
 msgstr "Az ön <strong>%2</strong> tagsága lejárt %1 napon."
 
-#: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
+#: templates/CRM/Contribute/Form/Contribution/MainMembershipBlock.tpl
 msgid "Your <strong>%2</strong> membership expires on %1."
 msgstr "Az ön <strong>%2</strong> tagsága lejár %1 napon."
 
-#: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
+#: templates/CRM/Contribute/Form/Contribution/MainMembershipBlock.tpl
 msgid ""
 "Your <strong>%1</strong> membership does not expire (you do not need to "
 "renew that membership)."
 msgstr "Az ön  <strong>%1</strong> tagsága nem jár le (nem kell megújítania ezt a tagságát)."
+
+#: templates/CRM/Contribute/Form/Contribution/MainMembershipBlock.tpl
+msgid "(contribute at least %1 to be eligible for this membership)"
+msgstr "(járuljon hozzá legalább %1, hogy jogosult legyen a tagságra)"
 
 #: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
 msgid "Select a Membership Renewal Level"
@@ -3452,10 +3450,6 @@ msgstr "Válassza ki a tagság megújítási szintjét"
 #: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
 msgid "Select a Membership Level"
 msgstr "Válassza ki a tagsági szintet"
-
-#: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
-msgid "(contribute at least %1 to be eligible for this membership)"
-msgstr "(járuljon hozzá legalább %1, hogy jogosult legyen a tagságra)"
 
 #: templates/CRM/Contribute/Form/Contribution/PremiumBlock.tpl
 msgid "Your Premium Selection"
@@ -3495,6 +3489,20 @@ msgid ""
 "card number, security code, postal code, etc."
 msgstr "Ez az oldal jelenleg <strong>teszt módban</strong> fut. A tranzakciók a fizetésfeldolgozójának tesztszerverére lesz megküldve. <strong>Valós pénzügyi tranzakciók nem készülnek. Ugyanakor, a kapcsolat rekord készül vagy frissítésre kerül és a teszt adomány rekord mentésre kerül az adatbázisba. Használjon Nyilvánvaló teszt neveket, hogy könnyen felülvizsgálható legyen és szükség esetén törölhető legyen. A teszt adományok nem láthatók az adományok lapon, de kereshetők a 'Teszt adományok'-ként a CiviAdomány keresőlapján.</strong> Forduljon a fizetési feldolgozói dokumentációjához a használható  teszt bankkártya szám, biztonsági kód, irányítószám, stb. értékének megtalásáért."
 
+#: templates/CRM/Contribute/Form/Contribution/PreviewHeader.tpl
+msgid "Test payment processor on Your Contribution Page"
+msgstr "Adományoldalának fizetés feldolgozó tesztelése"
+
+#: templates/CRM/Contribute/Form/Contribution/PreviewHeader.tpl
+msgid ""
+"This page is currently configured to use the <strong>%1 payment "
+"processor</strong>. <strong>No live financial transactions will be submitted"
+" if %1 payment processor is selected. However, a contact record will be "
+"created or updated and a live contribution record will be saved to the "
+"database with no actual financial transaction. Remove %1 payment processor "
+"before going live.</strong>"
+msgstr "Ez az oldal jelenleg a <strong>%1 fizetésfeldolgozóhoz</strong> van beállítva.<strong>Valós pénzügyi tranzakció nem kerül beküldésre, ha a %1 fizetésfeldolgozó kerül kiválasztásra. Ugyanakkor, a kapcsolat rekord frissítésre kerül és élő adomány rekord kerül rögzítésre pénzügyi tranzakció nélkül. Távolítsa el a %1 fizetésfeldolgozót mielőtt élővé válik.</strong>"
+
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
 "An email confirmation with these payment instructions has been sent to %1 "
@@ -3533,6 +3541,10 @@ msgstr "E-mail nyugta szintén kiküldésre került a %1 és a %2 címre"
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid "An email receipt has also been sent to %1"
 msgstr "A nyugtát e-mailben szintén elküldve a(z) %1 címre!"
+
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+msgid "Membership Transaction #"
+msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid "This membership will be renewed automatically every %1."
@@ -3695,10 +3707,6 @@ msgid ""
 msgstr "Adja meg a törlési és a visszaküldési dátumot, vagy kihagyhatja ezt a mezőt és a törlési dátumot vagy a visszatérítési dátumot, ekkor a dátum automatikusan a MAI NAP beállítást kap."
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
-msgid "The date this contribution was received."
-msgstr "Adomány beérkezési dátuma."
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
 msgid "Automatically email a receipt for this payment to %1?"
 msgstr "Automatikusan küldjünk nyugtát e-mailben erről befizetésről %1 részére?"
 
@@ -3707,30 +3715,10 @@ msgid "Automatically email a receipt for this payment to "
 msgstr "Automatikusan küldjön nyugtát e-mailben neki"
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
-msgid "Date that a receipt was sent to the contributor."
-msgstr "Az adományozónak küldött nyugta küldési dátuma."
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
 msgid ""
 "Search for the Personal Campaign Page by the fund-raiser's last name or "
 "email address."
 msgstr "Személyes kampányoldal keresése az adománygyűjtő vezetékneve vagy e-mail címe szerint."
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-msgid ""
-"Name or nickname contributor wants to be displayed in the Honor Roll. Enter "
-"\"Anonymous\" for anonymous contributions."
-msgstr "Adja meg a nevét vagy a becenevét, amit a büszkeségfalon szeretne látni. Adja meg az \"Névtelen\"-t a névtelen adományozáshoz."
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-msgid ""
-"Personal message submitted by contributor for display in the Honor Roll."
-msgstr "A hozzájáruló személyes üzenete, amelyet a büszkeségfalon szeretne látni."
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "Billing Address"
-msgstr "Számlázási cím"
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
 msgid ""
@@ -3818,6 +3806,53 @@ msgid ""
 "Page."
 msgstr "A súlyok szabályozzák a Jelképes ajándékok kijelzési sorrendjét az adomány oldalon. "
 
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Uncheck this box if you are using this contribution page for free membership"
+" signup ONLY, or to solicit in-kind / non-monetary donations such as "
+"furniture, equipment.. etc."
+msgstr "Ne válassza ki ezt a jelölőnégyzetet, ha ezt az adomány oldalt, hogy CSAK az ingyenes tagságra jelentkezők feliratkozására, vagy természetbeni adományt gyűjtésre használja, mint bútor, berendezés... stb. "
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Instructions added to Confirmation and Thank-you pages, as well as the "
+"confirmation email, when the user selects the 'pay later' option (e.g. 'Mail"
+" your check to ... within 3 business days.')."
+msgstr "Útmutatások a megerősítő és a megköszönő oldalakhoz hozzáadva, és természetesen a megerősítő e-mailhez is, ha a felhasználó a 'fizetés később' opciót választja (pl. 'Kérem utalja át az összeget... 3 munkanapon belül.')."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Uncheck this box if you are using this contribution page for membership "
+"signup and renewal only &ndash; and you do NOT want users to select or enter"
+" any additional contribution amounts."
+msgstr "Ne válassza ki ezt a jelölőnégyzetet, ha ezt az adományoldalt tagsági feliratkozásra vagy tagság megújítására használja és NEM akarja azt, hogy a felhasználók további adomány összegeket tudjanak kiválasztani vagy megadni."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Check this box if you want to give users the option to make recurring "
+"contributions. This feature requires that you use a payment processor which "
+"supports recurring billing / subscriptions functionality."
+msgstr "Jelölje be ezt, ha azt akarja, hogy a felhasználók ismétlődő adományokat tehessenek. Ehhez az szükséges, hogy a használt fizetés feldolgozó támogassa az ismétlődő számlázás / előfizetés funkciót."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Check this box if you want to give users the option to make a Pledge (a "
+"commitment to contribute a fixed amount on a recurring basis)."
+msgstr "Válassza ki ezt a jelölőnégyzetet, ha azt akarja, hogy a felhasználók felajánlásokat tudjanak tenni (elköteleződés rögzített összeg ismétlődő adományozására)."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Check this box if you want to give users the option to enter their own "
+"contribution amount. Your page will then include a text field labeled "
+"<strong>Other Amount</strong>."
+msgstr "Válassza ki ezt a jelölőnégyzetet, ha meg akarja engedni a felhasználóknak a saját adomány összeg megadását. Az adományoldala tartalmazni fog egy  <strong>Más összeg</strong> címkéjű szövegmezőt."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"You can also set minimum and maximum amounts that users are allowed to "
+"enter."
+msgstr "Beállíthat minimum és maximum összegeket, amit a felhasználók adat beviteléhez engedélyez."
+
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 #: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
 msgid ""
@@ -3841,64 +3876,9 @@ msgstr "Fizetés feldolgozó nincs beállítva / engedélyezve ehhez a weboldalh
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid ""
-"Uncheck this box if you are using this contribution page for free membership"
-" signup ONLY, or to solicit in-kind / non-monetary donations such as "
-"furniture, equipment.. etc."
-msgstr "Ne válassza ki ezt a jelölőnégyzetet, ha ezt az adomány oldalt, hogy CSAK az ingyenes tagságra jelentkezők feliratkozására, vagy természetbeni adományt gyűjtésre használja, mint bútor, berendezés... stb. "
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Select the currency to be used for contributions submitted from this "
-"contribution page."
-msgstr "Kérem válassza ki az ezen az adományoldalon használandó pénznemet."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Select the payment processor to be used for contributions submitted from "
-"this contribution page (unless you are soliciting non-monetary / in-kind "
-"contributions only)."
-msgstr "Válassza ki a fizetés feldolgozót az ezen az adományoldalon történő adományok benyújtására (kivéve ha csak természetbeni adományt gyűjt)."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Instructions added to Confirmation and Thank-you pages, as well as the "
-"confirmation email, when the user selects the 'pay later' option (e.g. 'Mail"
-" your check to ... within 3 business days.')."
-msgstr "Útmutatások a megerősítő és a megköszönő oldalakhoz hozzáadva, és természetesen a megerősítő e-mailhez is, ha a felhasználó a 'fizetés később' opciót választja (pl. 'Kérem utalja át az összeget... 3 munkanapon belül.')."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Uncheck this box if you are using this contribution page for membership "
-"signup and renewal only &ndash; and you do NOT want users to select or enter"
-" any additional contribution amounts."
-msgstr "Ne válassza ki ezt a jelölőnégyzetet, ha ezt az adományoldalt tagsági feliratkozásra vagy tagság megújítására használja és NEM akarja azt, hogy a felhasználók további adomány összegeket tudjanak kiválasztani vagy megadni."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Select a pre-configured Price Set to offer multiple individually priced "
-"options for contributions. Otherwise, select &quot;-none-&quot; and enter "
-"one or more fixed contribution options in the table below. Create or edit "
-"Price Sets <a href='%1'>here</a>."
-msgstr "Válassza ki az előre beállított árlistát, a különbözően árazott adományozási opciók felajánlására. Egyébként válassza &quot;-none-&quot; és adjon meg egy vagy több rögzített adomány opciót az alábbi táblában. Árlistákat hozhat létre vagy szerkeszthet  <a href='%1'>itt</a>."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"No Contribution Price Sets have been configured / enabled for your site. "
-"Price sets allow you to configure more complex contribution options (e.g. "
-"\"Contribute $25 more to receive our monthly magazine.\"). Click <a "
-"href='%1'>here</a> if you want to configure price sets for your site."
-msgstr "Nincsenek adomány árlisták beállítva / engedélyezve a weboldalán. Az árlisták lehetővé teszik bonyolultabb opcióknak a beállítását (ú.m. \"Adományozzon 2500 forinttal többet és megkapja havi folyóiratunkat.\"). Kattintson <a href='%1'>ide</a> ha be kíván állítani a weboldalára árlistákat."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Check this box if you want to give users the option to make recurring "
-"contributions. This feature requires that you use a payment processor which "
-"supports recurring billing / subscriptions functionality."
-msgstr "Jelölje be ezt, ha azt akarja, hogy a felhasználók ismétlődő adományokat tehessenek. Ehhez az szükséges, hogy a használt fizetés feldolgozó támogassa az ismétlődő számlázás / előfizetés funkciót."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid "Select recurring units supported for recurring payments."
-msgstr "Válassza ki a támogatott ismétlődő fizetés egységét."
+"Select a Price Set to offer more complex amount options. Otherwise, leave "
+"this empty and enter fixed contribution options below."
+msgstr "Válasszon ki egy árlistát a bonyolultabb összeg opciókhoz. egyébként, hagyja üresen és adjon meg alább rögzített adomány opciókat."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid "Can users also set an interval (e.g. every '3' months)?"
@@ -3911,40 +3891,8 @@ msgid ""
 msgstr "Részletfizetési lehetőséget biztosít a felhasználónak (pl. adományozzon minden hónapban 6 hónapig)? Ha nem, az ismétlődő adományok végtelen ideig folytatódnak."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Recurring payment will be processed this day of the month following "
-"submission of this contribution page."
-msgstr "A hónap e napján lesz az ismétlődő adomány feldolgozva, ezen adomány oldal beküldése után.  "
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Check this box if you want to give users the option to make a Pledge (a "
-"commitment to contribute a fixed amount on a recurring basis)."
-msgstr "Válassza ki ezt a jelölőnégyzetet, ha azt akarja, hogy a felhasználók felajánlásokat tudjanak tenni (elköteleződés rögzített összeg ismétlődő adományozására)."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Which frequencies can the user pick from (e.g. every 'week', every 'month', "
-"every 'year')?"
-msgstr "Milyen gyakoriságot választhat ki a felhasználó (pl. minden 'héten', minden 'hónapban', minden 'évben')?"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid "Can they also set an interval (e.g. every '3' months)?"
 msgstr "Beállíthat időtartamot is (pl. minden '3.' hónapban)?"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Check this box if you want to give users the option to enter their own "
-"contribution amount. Your page will then include a text field labeled "
-"<strong>Other Amount</strong>."
-msgstr "Válassza ki ezt a jelölőnégyzetet, ha meg akarja engedni a felhasználóknak a saját adomány összeg megadását. Az adományoldala tartalmazni fog egy  <strong>Más összeg</strong> címkéjű szövegmezőt."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"If you have chosen to <strong>Allow Other Amounts</strong>, you can use the "
-"fields above to control minimum and/or maximum acceptable values (e.g. don't"
-" allow contribution amounts less than %1)."
-msgstr "Ha kiválasztotta  <strong>Más összeg engedélyezését</strong>, a fenti mezőket használhatja a minimum és maximum elfogadható értékek beállítására (pl. nem engedélyezett kevesebb mint %1 összeg adományozása)."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid "Fixed Contribution Options"
@@ -4047,10 +3995,6 @@ msgid ""
 "introductory message, amounts, and honoree section)."
 msgstr "A profil a számlázási információ fölé kerül beillesztésre (de a bemutatkozó szöveg, összeg és a tiszteletbeli szakasz után)."
 
-#: templates/CRM/Contribute/Form/ContributionPage/Custom.tpl
-msgid "Profile to be included at the bottom of the page."
-msgstr "Az oldal aljára beilleszthető profil"
-
 #: templates/CRM/Contribute/Form/ContributionPage/Delete.tpl
 msgid ""
 "You cannot delete this Contribution Page because it has already been used to"
@@ -4100,10 +4044,6 @@ msgid ""
 "Then select and review the premiums that you want to offer on this "
 "contribution page."
 msgstr "Majd válassza ki és nézze át az adomány oldalon ajánlani kívánt Jelképes ajándékokat."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
-msgid "Is the Premiums section enabled for this Online Contributions page?"
-msgstr "A Jelképes ajándékok szakasz engedélyezett ezen az adomány oldalon?"
 
 #: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
 msgid "Premiums Settings"
@@ -4171,6 +4111,10 @@ msgid ""
 msgstr "MEGJEGYZÉS: Ha ezt az adományoldalt tagsági feliratkozásra és megújításra használja, a tagsági típus beállításnál megadott pénzügyi típus lesz csak használva, ha mellette adományt is gyűjt (ahogy az beállításra került a Tagsági beállítások oldalon).   "
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid "Text displayed next to the checkbox on the contribution form."
+msgstr "Az adományoldalon a jelölőnégyzet mellett kijelzett szöveg. "
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid "Intro Content"
 msgstr "Bemutatkozás tartalma"
 
@@ -4224,6 +4168,22 @@ msgid ""
 "included in the form. Honoree information is automatically saved and linked "
 "with the contribution record."
 msgstr "Ha az adományozóknak lehetővé kívánja tenni, hogy valakinek a tiszteletére kívánnak köszönetet mondani az adományért, jelölje ki ez a jelölőnégyzetet. A megtisztelt személy információi automatikusan mentésre kerülnek, az adomány rekordhoz kapcsolva."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid ""
+"Optional explanatory text for the Honoree section (displayed above the "
+"Honoree fields)."
+msgstr "A megtiszteltetési szakasz opcionális magyarázó szövege (a megtiszteltek mezők feletti kijelezve)."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid "Use a Confirmation Page?"
+msgstr "Használjunk egy megerősítő oldalt?"
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid ""
+"If you disable this contributions will be processed immediately after "
+"submitting the contribution form."
+msgstr "Ha törli ezeket az adományokat, azonnal feldolgozásra kerülnek az űrlap elküldése után."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid ""
@@ -4285,59 +4245,9 @@ msgstr "Használja ezt az űrlapot ennek az adományoldal címének,  az pénzü
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
-"This title will be displayed at the top of the page unless the frontend "
-"title field is filled out.<br />Please use only alphanumeric, spaces, "
-"hyphens and dashes for Title."
-msgstr "Ez a cím az oldal legtetején kerül kijelzésre, hacsak az előlap címe nincs kitöltve. <br /> Kérem csal alfanumerikus értékeket, szóközt, kötőjelet és aláhúzást használjon a címben."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"This title will be displayed at the top of the page.<br />Please use only "
-"alphanumeric, spaces, hyphens and dashes for Title."
-msgstr "Ez a cím az oldal legtetején kerül kijelzésre. <br /> Kérem csal alfanumerikus értékeket, szóközt, kötőjelet és aláhúzást használjon a címben."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"Select the corresponding financial type for contributions made using this "
-"page."
-msgstr "Kérem válassza ki erre az adományoldalra a megfelelő pénzügyi típust."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"To change the organization data collected use the \"On Behalf Of "
-"Organization\" profile (<a href=\"%1\">Administer > Customize Data and "
-"Screens > Profiles</a>)."
-msgstr "Az összegyűjtött szervezeti adatok módosítására, használja a \"A szervezet nevében\" profilt\n(<a href=\"%1\">Adminisztrálás > Adatok és képernyők testreszabása > Profilok</a>)."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid "Text displayed next to the checkbox on the contribution form."
-msgstr "Az adományoldalon a jelölőnégyzet mellett kijelzett szöveg. "
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
 "Check 'Required' to force ALL users to contribute/signup on behalf of an "
 "organization."
 msgstr "Jelölje \"Szükségesnek\", hogy az ÖSSZES felhasználó, hogy szervezet nevében  adományozzon/iratkozzon fel."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid "Title for the Honoree section (e.g. &quot;Honoree Information&quot;)."
-msgstr "Tiszteletére szakasz címe (&quot;Megtiszteltetési információ&quot;)."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"Optional explanatory text for the Honoree section (displayed above the "
-"Honoree fields)."
-msgstr "A megtiszteltetési szakasz opcionális magyarázó szövege (a megtiszteltek mezők feletti kijelezve)."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid "Profile to be included in the honoree section"
-msgstr "A tiszteletbeli szakaszba illeszthető profil"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"If you disable this contributions will be processed immediately after "
-"submitting the contribution form."
-msgstr "Ha törli ezeket az adományokat, azonnal feldolgozásra kerülnek az űrlap elküldése után."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
@@ -4630,13 +4540,6 @@ msgid ""
 msgstr "A CiviAdomány kisalkalmazások lehetővé teszik azt, hogy ön és az ön támogatói egyszerűen népszerűsítsék az adomány gyűjtő kampányukat. A kisalkalmazás kódja a weboldalakba illeszthető. Valós időben kijelzi az adomány gyűjtés célösszegéhez történő előrehaladást, közvetlen kapcsolatot biztosít ehhez az adományoldalhoz."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Widget.tpl
-msgid ""
-"Enter content for the about message. You may include HTML formatting tags. "
-"You can also include images, as long as they are already uploaded to a "
-"server&mdash;reference them using complete URLs."
-msgstr "Adja meg az ismertető üzenetet. HTML formázási címkéket is használhat. Továbbá beilleszthet képeket, ha azok már a szerveren vannak&mdash;teljes URL-el hivatkozva rájuk."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Widget.tpl
 msgid "Preview Widget and Get Code"
 msgstr "Kisalkalmazás előnézete és a kód megkapása"
 
@@ -4860,24 +4763,6 @@ msgstr "Ha ez a opció kiválasztott, egy \"büszkeségfal\" kerül kijelzésre 
 msgid "No payments found for this %1 record"
 msgstr "Nem találtam befizetést ehhez %1 a rekordhoz"
 
-#: templates/CRM/Contribute/Form/PaymentInstrument.tpl
-msgid "New Payment Method"
-msgstr "Új fizetési módszer"
-
-#: templates/CRM/Contribute/Form/PaymentInstrument.tpl
-msgid "Edit Payment Method"
-msgstr "Fizetési módszer szerkesztése"
-
-#: templates/CRM/Contribute/Form/PaymentInstrument.tpl
-msgid "Delete Payment Method"
-msgstr "Fizetési módszer törlése"
-
-#: templates/CRM/Contribute/Form/PaymentInstrument.tpl
-msgid ""
-"WARNING: Deleting this option will result in the loss of all contribution "
-"records which use this option."
-msgstr "FIGYELMEZTETÉS: Ennek az opciónak a törlése az összes olyan adomány rekord elvesztéséhez vezet, amely ezt az opciót használja."
-
 #: templates/CRM/Contribute/Form/Search/EmptyResults.tpl
 msgid "if you are searching by contributor name, check your spelling"
 msgstr "Ha az adományozó nevére keres, ellenőrizze a helyesírást"
@@ -4885,10 +4770,6 @@ msgstr "Ha az adományozó nevére keres, ellenőrizze a helyesírást"
 #: templates/CRM/Contribute/Form/SearchContribution.tpl
 msgid "Find Contribution Pages"
 msgstr "Adományoldalak keresése"
-
-#: templates/CRM/Contribute/Form/SearchContribution.tpl
-msgid "Complete OR partial Contribution Page title."
-msgstr "Teljes VAGY részleges adományoldal címe."
 
 #: templates/CRM/Contribute/Form/Selector.tpl
 msgid "(Recurring Template)"
@@ -4950,6 +4831,12 @@ msgid ""
 " option cautiously unless you have a template format that has been tested "
 "with different web and desktop email programs."
 msgstr "A HTML üzeneteknek vizuális hatásuk is van, lehetőség van képek beillesztésére, és jobban olvashatók ha tartalmaz linket a weboldal lapjaira. Ugyanakkor, a a különböző e-mail programok a HTML formátumot különbözőképpen értelmezik, ezt csak akkor alkalmazza, ha különböző web és asztali e-mail programokban tesztelt üzenet sablonja van. "
+
+#: templates/CRM/Contribute/Form/Task/Invoice.hlp
+msgid ""
+"You can add a message that will appear at the top of the invoice email. This"
+" message will be the same for all recipients."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/Task/Invoice.tpl
 msgid ""
@@ -5028,6 +4915,10 @@ msgid ""
 "unchecked when you don't want to send an e-mail."
 msgstr "Ha be van jelölve, a CiviCRM e-mailben visszaigazolást küld az adományozónak. Ha nem szeretne e-mailt küldeni, hagyja bejelölés nélkül."
 
+#: templates/CRM/Contribute/Form/Task/Status.tpl
+msgid "Check"
+msgstr ""
+
 #: templates/CRM/Contribute/Form/Task.tpl
 msgid "Number of selected contributions: %1"
 msgstr "A kiválasztott adományok száma: %1"
@@ -5049,52 +4940,8 @@ msgid ""
 msgstr "Az összeg megváltoztatásához szerkesztenie kell az adomány sablont. Kattintson a \"Sablon megtekintése\" majd a \"Szerkesztés\"-re az ismétlődő adományok listájában."
 
 #: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid "Contact Records for Contributors"
-msgstr "Adományozók kapcsolati rekordjai"
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"Contribution import requires that the Contributors already exist as contact "
-"records in your CiviCRM database. If you need to import contributions for "
-"contributors who haven't been added to CiviCRM yet, you will do this in 2 "
-"steps. First, use <strong>Import Contacts</strong> to add the contact "
-"records. If possible, include a unique 'External ID' for each new contact "
-"which you can then use to match contributions to contributors. Then return "
-"to this screen and import the contribution records."
-msgstr "Adomány importáláshoz az szükséges, hogy az adományozó kapcsolati rekordja már létezzen a CiviCRM adatbázisában.  Ha importálnia kell az adományokat olyan kapcsolati rekordokkal melyek még nem kerültek hozzáadásra, 2 lépésben teheti meg. Először, használja <strong>Kapcsolatok importálását</strong>  a kapcsolati rekordok hozzáadására. Ha lehetséges, befoglalva az egyedi 'Külső azonosítót' minden egyes új kapcsolatra, amelyet később felhasznál a kapcsolatok tagságokhoz kapcsolására. Utána térjen vissza ehhez az oldalhoz a tagsági rekordok importálására. "
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid "Matching Contributions to Contributors"
-msgstr "Összeillő adományok és adományozók"
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"Contribution import files must contain data needed to <strong>match the "
-"contribution to the contributor</strong>. This 'matching' can be handled in "
-"several different ways:"
-msgstr "Adomány import fájloknak tartalmazniuk kell a <strong>adomány kapcsolatokhoz rendelését</strong>. Ez a 'hozzárendelést' több módon lehet megtenni:"
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"If you've stored a unique <strong>External Identifier</strong> for each "
-"contact in CiviCRM, you can include that value as a column in your import "
-"file. Contributions will then be matched to contributors using their "
-"External ID."
-msgstr "Ha egyedi <strong>külső azonosítót</strong> tárolt minden egyes kapcsolathoz a CiviCRM-ben, használhatja ezt az értéket mint külön oszlopot a fájl importálás során. Adomány ezen külső azonosítók alapján lesz a kapcsolat rekordhoz rendelve. "
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"You can include a column with each contributor's <strong>Internal Contact "
-"ID</strong>. This is the unique ID assigned by CiviCRM which is displayed at"
-" the bottom of the Contact Summary screen and can be exported."
-msgstr "Hozzáadhatja minden egyes adományozónak a <tstrong>Belső Kapcsolatazonosító</strong>-ját tartalmazó oszlopot. Ez a CiviCRM által generált egyedi azonosító, amely a kapcsolat ablakában alul szerepel - és exportálható.  "
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"Save the CSV file with your contributions and 'contact matching' data to "
-"your local hard drive (or an accessible drive on your network).  Now you are"
-" ready for step 1 (Upload Data)."
-msgstr "Mentse az adományozói adatokat és a 'kapcsolat hozzárendelési' adatokat CSV fájlban a helyi merevlemezére (vagy a hálózatán elérhető meghajtóra). Most már készen áll az 1. lépésre (Adat feltöltés)."
+msgid "Matching to Contributions for Inserts and Updates"
+msgstr "Kapcsolathoz illesztés betétekhez és frissítésekhez"
 
 #: templates/CRM/Contribute/Import/Form/DataSource.hlp
 msgid ""
@@ -5122,17 +4969,12 @@ msgid ""
 msgstr "Ha FRISSÍTI a meglévő adományokat, meg kell adni az egyedi azonosítókat a meglévő adomány rekordok párosításához. Ezek lehetnek a CiviCRM által kijelölt  adomány azonosító, egyedi számla azonosító, vagy egyedi tranzakció azonosító."
 
 #: templates/CRM/Contribute/Import/Form/Preview.tpl
-msgid ""
-"CiviCRM has detected invalid data or formatting errors in %1 records. If you"
-" continue, these records will be skipped.  You can download a file with just"
-" these problem records: <a href='%2'>Download Errors</a>.  If you wish, you "
-"can then correct them in the original import file, cancel this import, and "
-"begin again at step 1."
-msgstr "A CiviCRM érvénytelen adatot vagy formázási hibát észlelet a %1 rekordban. Ha továbbfolytatja, ezek a rekordok ki lesznek hagyva. Letölthet egy fájlt csak ezekkel a problémás rekordokkal: <a href='%2'>Hibák letöltése</a>. Ezek után kijavíthatja őket az eredeti beviteli fájlban, majd törölje ezt az importálást és térjen vissza az első lépéshez."
-
-#: templates/CRM/Contribute/Import/Form/Preview.tpl
 msgid "Total rows (contribution records) in uploaded file."
 msgstr "Összes sor (adomány rekord) a feltöltött fájlban."
+
+#: templates/CRM/Contribute/Import/Form/Preview.tpl
+msgid "See rows"
+msgstr "Sorok megtekintése"
 
 #: templates/CRM/Contribute/Page/ContributionPage.hlp
 #: templates/CRM/Contribute/Page/ContributionPage.tpl
@@ -5215,6 +5057,14 @@ msgstr "Mindegyik adományhoz küldjek nyugtát?"
 #: templates/CRM/Contribute/Page/ContributionRecurPayments.tpl
 msgid "No contributions have been recorded for this recurring contribution."
 msgstr "Ehhez az ismétlődő adományhoz még nem került rögzítésre adomány. "
+
+#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
+msgid "Next Scheduled Date"
+msgstr "Következő ütemezett dátum"
+
+#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
+msgid "End or Modified Date"
+msgstr "Vég vagy módosított dátum"
 
 #: templates/CRM/Contribute/Page/ContributionSoft.tpl
 msgid "Personal Campaign Page?"
@@ -5509,10 +5359,6 @@ msgid "Inactive Recurring Contributions"
 msgstr "Inaktív ismétlődő adomány"
 
 #: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Received date"
-msgstr "Beérkezési dátum"
-
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
 msgid "(Recurring Contribution)"
 msgstr "(Ismétlődő adományozás)"
 
@@ -5711,12 +5557,15 @@ msgstr "Adózás előtti összeg:"
 msgid "Contribution Receipt"
 msgstr "Adomány nyugta"
 
+#: xml/templates/message_templates/contribution_offline_receipt_text.tpl
+msgid "Amount before Tax"
+msgstr ""
+
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
 msgid "Total Tax"
 msgstr "Összes adó"
 
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
 msgid "This is a recurring contribution."
 msgstr "Ez ismétlődő adományozás."
 
@@ -5741,20 +5590,6 @@ msgid ""
 "installments for this recurring contribution by <a href=\"%1\">visiting this"
 " web page</a>."
 msgstr "Módosíthatja az ismétlődő adományozás összegét, részleteinek számát ezen ismétlődő adományozásnál, <a href=\"%1\">ezen weboldal meglátogatásával</a>."
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid "You can cancel future contributions at:"
-msgstr "A jövőbeni hozzájárulásokat visszavonhatja:"
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid "You can update billing details for this recurring contribution at:"
-msgstr "Ezen ismétlődő adomány számlázási adatait módosíthatja:"
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid ""
-"You can update recurring contribution amount or change the number of "
-"installments for this recurring contribution at:"
-msgstr "Ezen ismétlődő adomány összegét és a részletek számát módosíthatja:"
 
 #: xml/templates/message_templates/contribution_recurring_billing_html.tpl
 #: xml/templates/message_templates/contribution_recurring_billing_text.tpl
@@ -5880,13 +5715,11 @@ msgid ""
 msgstr "Törölheti ezen automatikusan ismétlődő adományozás opciót<a href=\"%1\">ezen weboldal meglátogatásával</a>."
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid ""
 "A refund has been issued based on changes in your registration selections."
 msgstr "A regisztrációs beállításainak a módosítása alapján a visszautálás megindításra került. "
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Below you will find a receipt for this payment."
 msgstr "Alább találja meg ezen befizetés nyugtáját."
 
@@ -5895,28 +5728,20 @@ msgid "Thank you for completing this contribution."
 msgstr "Köszönjük az adománya befejezését!"
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "This Refund Amount"
 msgstr "Ezen visszatérítendő összeg"
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "This Payment Amount"
 msgstr "Ezen befizetési összeg"
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Contribution Details"
 msgstr "Adomány részletei"
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Total Fee"
 msgstr "Díj összesen"
-
-#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-msgid "Expires:"
-msgstr "Lejárat:"
 
 #: xml/templates/message_templates/payment_or_refund_notification_subject.tpl
 msgid "Refund Notification"
@@ -5925,10 +5750,6 @@ msgstr "Visszatérítési figyelmeztetés"
 #: xml/templates/message_templates/payment_or_refund_notification_subject.tpl
 msgid "Payment Receipt"
 msgstr "Befizetési nyugta."
-
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
-msgid "Thank you for completing this payment."
-msgstr "Köszönjük a befizetése befejezését!"
 
 #: xml/templates/message_templates/test_preview_html.tpl
 #: xml/templates/message_templates/test_preview_text.tpl
@@ -5941,76 +5762,9 @@ msgid ""
 "This is a test-drive email. No live financial transaction has occurred."
 msgstr "Ez egy teszt e-mail. Nem történt élő pénzügyi tranzakció."
 
-#: CRM/Contribute/DAO/ContributionPage.php
-msgid "Page Name"
-msgstr "Oldal neve"
-
-#: CRM/Contribute/DAO/ContributionPage.php
-msgid "Unique Name"
-msgstr "Egyedi név"
-
-#: CRM/Contribute/DAO/ContributionPage.php
-msgid "Unique name for identifying contribution page"
-msgstr "Adomány oldalt azonosító egyedi név"
-
-#: CRM/Contribute/Form/AdditionalPayment.php
-msgid "Submit Payment"
-msgstr "Befizetés beküldése"
-
-#: CRM/Contribute/Form/Contribution.php
+#: templates/CRM/Contribute/Form/Task/PDFLetter.hlp
 msgid ""
-"You've changed the financial type for this %1 contribution from non-tax "
-"deductible to tax deductible, but the non-deductible amount of %2 has not "
-"been changed. This could prevent a tax receipt from being issued correctly. "
-"You may want to edit the non-deductible amount."
-msgstr "Megváltoztatta a %1 adomány pénzügyi típusát adóból nem levonhatóról, adóból levonhatóra, de a nem levonható összeg %2 nem változott. Ez megakadályozhatja az adónyugta helyes kiküldését. Szüksége lehet a nem levonható összeg szerkesztésére is. "
-
-#: CRM/Contribute/Form/Contribution.php
-msgid "Non-deductible amount"
-msgstr "Nem leírható összeg"
-
-#: templates/CRM/Contribute/Form/Contribution/PreviewHeader.tpl
-msgid "Test payment processor on Your Contribution Page"
-msgstr "Adományoldalának fizetés feldolgozó tesztelése"
-
-#: templates/CRM/Contribute/Form/Contribution/PreviewHeader.tpl
-msgid ""
-"This page is currently configured to use the <strong>%1 payment "
-"processor</strong>. <strong>No live financial transactions will be submitted"
-" if %1 payment processor is selected. However, a contact record will be "
-"created or updated and a live contribution record will be saved to the "
-"database with no actual financial transaction. Remove %1 payment processor "
-"before going live.</strong>"
-msgstr "Ez az oldal jelenleg a <strong>%1 fizetésfeldolgozóhoz</strong> van beállítva.<strong>Valós pénzügyi tranzakció nem kerül beküldésre, ha a %1 fizetésfeldolgozó kerül kiválasztásra. Ugyanakkor, a kapcsolat rekord frissítésre kerül és élő adomány rekord kerül rögzítésre pénzügyi tranzakció nélkül. Távolítsa el a %1 fizetésfeldolgozót mielőtt élővé válik.</strong>"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
-msgid ""
-"You can also set minimum and maximum amounts that users are allowed to "
-"enter."
-msgstr "Beállíthat minimum és maximum összegeket, amit a felhasználók adat beviteléhez engedélyez."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Select a Price Set to offer more complex amount options. Otherwise, leave "
-"this empty and enter fixed contribution options below."
-msgstr "Válasszon ki egy árlistát a bonyolultabb összeg opciókhoz. egyébként, hagyja üresen és adjon meg alább rögzített adomány opciókat."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
-msgid "Use a Confirmation Page?"
-msgstr "Használjunk egy megerősítő oldalt?"
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid "Matching to Contributions for Inserts and Updates"
-msgstr "Kapcsolathoz illesztés betétekhez és frissítésekhez"
-
-#: templates/CRM/Contribute/Import/Form/Preview.tpl
-msgid "See rows"
-msgstr "Sorok megtekintése"
-
-#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
-msgid "Next Scheduled Date"
-msgstr "Következő ütemezett dátum"
-
-#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
-msgid "End or Modified Date"
-msgstr "Vég vagy módosított dátum"
+"You can choose to send thank-you letters as emails to contacts who are able "
+"to receive email. If you choose to do this, you can also decide whether to "
+"only print PDFs for the remaining contacts OR generate PDFs for all."
+msgstr ""
