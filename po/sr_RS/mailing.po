@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2023-06-17 15:56-0400\n"
+"POT-Creation-Date: 2024-02-03 10:37-0500\n"
 "PO-Revision-Date: 2011-03-28 14:20+0000\n"
 "Last-Translator: Đorđe Kolaković <djordje@catalystbalkans.org>, 2016-2019\n"
 "Language-Team: Serbian (Latin) (Serbia) (http://app.transifex.com/civicrm/civicrm/language/sr_RS@latin/)\n"
@@ -57,11 +57,11 @@ msgid "Resubscribe URL (Action)"
 msgstr "URL za ponovnu prijavu (Akcija)"
 
 #: CRM/Mailing/ActionTokens.php CRM/Mailing/Event/DAO/MailingEventBounce.php
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
 #: CRM/Mailing/Event/DAO/MailingEventDelivered.php
 #: CRM/Mailing/Event/DAO/MailingEventForward.php
 #: CRM/Mailing/Event/DAO/MailingEventOpened.php
 #: CRM/Mailing/Event/DAO/MailingEventReply.php
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
 #: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "Event Queue ID"
 msgstr "ID redosleda događaja"
@@ -97,8 +97,8 @@ msgstr "Nema obaveznih tokena u ovoj poruci - {%1}: %2"
 msgid "Opt-Out"
 msgstr "Isključenje"
 
-#: CRM/Mailing/BAO/Mailing.php ang/crmMailing/BlockReview.html
-#: ang/crmMailingAB/EditCtrl/report.html
+#: CRM/Mailing/BAO/Mailing.php ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 #: templates/CRM/Mailing/Page/Resubscribe.tpl
 msgid "Resubscribe"
 msgstr "Ponovna prijava"
@@ -190,7 +190,8 @@ msgid "Unsubscribe Requests"
 msgstr "Zahtevi za odjavu"
 
 #: CRM/Mailing/BAO/Query.php CRM/Mailing/Selector/Event.php
-#: ang/crmMailing/services.js templates/CRM/Mailing/Page/Report.tpl
+#: ext/civi_mail/ang/crmMailing/services.js
+#: templates/CRM/Mailing/Page/Report.tpl
 msgid "Forwards"
 msgstr "Prosleđivanja"
 
@@ -214,7 +215,7 @@ msgstr "Tipovi odbijanja"
 msgid "Trackable Opens"
 msgstr "Ispraćena otvaranja"
 
-#: CRM/Mailing/BAO/Query.php CRM/Mailing/DAO/TrackableURL.php
+#: CRM/Mailing/BAO/Query.php
 msgid "Trackable URLs"
 msgstr "Ispraćeni URLovi"
 
@@ -404,8 +405,10 @@ msgstr "Praćenje URL-a"
 msgid "Should we track URL click-throughs for this mailing?"
 msgstr "Da li se prate URL klikovi za ovaj mailing?"
 
-#: CRM/Mailing/DAO/Mailing.php ang/crmMailing/BlockResponses.html
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: CRM/Mailing/DAO/Mailing.php
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Forward Replies"
 msgstr "Prosledi odgovore"
 
@@ -535,7 +538,8 @@ msgstr "Da li je mailing arhiviran?"
 msgid "Is this mailing archived?"
 msgstr "Da li je ovaj mailing arhiviran?"
 
-#: CRM/Mailing/DAO/Mailing.php ang/crmMailing/BlockPublication.html
+#: CRM/Mailing/DAO/Mailing.php
+#: ext/civi_mail/ang/crmMailing/BlockPublication.html
 msgid "Mailing Visibility"
 msgstr "Vidljivost mailinga"
 
@@ -817,6 +821,10 @@ msgid "Is this job for a test mail?"
 msgstr "Da li je ovaj posao vezan za test mail?"
 
 #: CRM/Mailing/DAO/MailingJob.php
+msgid "Test Mailing"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingJob.php
 msgid "Mailing Job Type"
 msgstr "Tip mailing posla"
 
@@ -873,6 +881,27 @@ msgstr "Strani ključ ka emailu"
 msgid "FK to Phone"
 msgstr "Strani ključ ka telefonu"
 
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+msgid "Mailing Links"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Mailing Link"
+msgstr ""
+
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+msgid "Trackable URL ID"
+msgstr "ID ispraćenih URLova"
+
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+msgid "The URL to be tracked."
+msgstr "URL za praćenje."
+
+#: CRM/Mailing/DAO/MailingTrackableURL.php
+msgid "FK to the mailing"
+msgstr "Strani ključ ka mailingu"
+
 #: CRM/Mailing/DAO/Spool.php
 msgid "Spools"
 msgstr ""
@@ -921,22 +950,6 @@ msgstr "datum kada je ovaj posao dodat."
 msgid "date on which this job was removed."
 msgstr "datum kada je ovaj posao uklonjen."
 
-#: CRM/Mailing/DAO/TrackableURL.php
-msgid "Trackable URL"
-msgstr ""
-
-#: CRM/Mailing/DAO/TrackableURL.php
-msgid "Trackable URL ID"
-msgstr "ID ispraćenih URLova"
-
-#: CRM/Mailing/DAO/TrackableURL.php
-msgid "The URL to be tracked."
-msgstr "URL za praćenje."
-
-#: CRM/Mailing/DAO/TrackableURL.php
-msgid "FK to the mailing"
-msgstr "Strani ključ ka mailingu"
-
 #: CRM/Mailing/Event/BAO/MailingEventBounce.php
 msgid "Unknown bounce type: Could not parse bounce email"
 msgstr "Nepoznat tip odbijanja: Nemoguće je razložiti odbijeni email"
@@ -976,11 +989,11 @@ msgid "Bounce ID"
 msgstr "ID odbijanja"
 
 #: CRM/Mailing/Event/DAO/MailingEventBounce.php
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
 #: CRM/Mailing/Event/DAO/MailingEventDelivered.php
 #: CRM/Mailing/Event/DAO/MailingEventForward.php
 #: CRM/Mailing/Event/DAO/MailingEventOpened.php
 #: CRM/Mailing/Event/DAO/MailingEventReply.php
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
 #: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "FK to EventQueue"
 msgstr "Strani ključ ka EventQueue"
@@ -996,34 +1009,6 @@ msgstr "Razlog odbijanja emaila"
 #: CRM/Mailing/Event/DAO/MailingEventBounce.php
 msgid "When this bounce event occurred."
 msgstr "Kada se odbijanje desilo"
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Mailing Event Click Throughs"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Mailing Event Click Through"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Trackable URL Open ID"
-msgstr "ID otvorenih ispraćenih URLova"
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Trackable Url ID"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "FK to TrackableURL"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "Trackable Url"
-msgstr "Ispraćeni URL"
-
-#: CRM/Mailing/Event/DAO/MailingEventClickThrough.php
-msgid "When this trackable URL open occurred."
-msgstr ""
 
 #: CRM/Mailing/Event/DAO/MailingEventConfirm.php
 msgid "Mailing Opt-In Confirmations"
@@ -1128,6 +1113,10 @@ msgid "Mailing Job"
 msgstr "Mailing posao"
 
 #: CRM/Mailing/Event/DAO/MailingEventQueue.php
+msgid "Related mailing. Used for reporting on mailing success, if present."
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventQueue.php
 msgid "Security Hash"
 msgstr "Bezbednosni heš"
 
@@ -1171,6 +1160,30 @@ msgstr "Vremenska oznaka prijave za mailing listu"
 #: CRM/Mailing/Event/DAO/MailingEventSubscribe.php
 msgid "When this subscription event occurred."
 msgstr "Kada se desila prijava."
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Mailing Link Clickthroughs"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Mailing Link Clickthrough"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Trackable URL Open ID"
+msgstr "ID otvorenih ispraćenih URLova"
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "Trackable Url ID"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "FK to TrackableURL"
+msgstr ""
+
+#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
+msgid "When this trackable URL open occurred."
+msgstr ""
 
 #: CRM/Mailing/Event/DAO/MailingEventUnsubscribe.php
 msgid "Mailing Unsubscribes"
@@ -1276,9 +1289,13 @@ msgstr[1] "Mailing je uspešno prosleđen na %count email adrese."
 msgstr[2] "Mailing je uspešno prosleđen na %count email adresa."
 
 #: CRM/Mailing/Form/Optout.php CRM/Mailing/Form/Unsubscribe.php
-#: CRM/Mailing/Page/Common.php
-msgid "There was an error in your request"
-msgstr "Postoji greška u vašem zahtevu"
+msgid "Invalid request: missing parameters"
+msgstr ""
+
+#: CRM/Mailing/Form/Optout.php CRM/Mailing/Form/Unsubscribe.php
+#: CRM/Mailing/Page/Unsubscribe.php
+msgid "Invalid request: bad parameters"
+msgstr ""
 
 #: CRM/Mailing/Form/Optout.php
 msgid "Opt Out Confirmation"
@@ -1333,10 +1350,6 @@ msgid "Print Mailing Recipients"
 msgstr "Štampanje primalaca mailinga"
 
 #: CRM/Mailing/Form/Unsubscribe.php
-msgid "Missing Parameters"
-msgstr "Nedostaju parametri"
-
-#: CRM/Mailing/Form/Unsubscribe.php
 msgid "%1 has already been unsubscribed."
 msgstr ""
 
@@ -1389,6 +1402,10 @@ msgstr "zakaži mailing"
 msgid "approve mailings"
 msgstr "odobri mailing"
 
+#: CRM/Mailing/MailStore/Localdir.php
+msgid "%1 could not be parsed"
+msgstr ""
+
 #: CRM/Mailing/Page/Browse.php
 msgid "You do not have permission to send SMS"
 msgstr "Nemate dozvolu za slanje SMSa"
@@ -1427,17 +1444,9 @@ msgstr "Pretraga Masovnih SMS-ova"
 msgid "Search Mailings"
 msgstr "Pretraži mailing"
 
-#: CRM/Mailing/Page/Component.php templates/CRM/Mailing/Form/Component.tpl
-msgid "Edit Mailing Component"
-msgstr "Uredi mailing komponentu"
-
-#: CRM/Mailing/Page/Component.php
-msgid "Disable Mailing Component"
-msgstr "Isključi mailing komponentu"
-
-#: CRM/Mailing/Page/Component.php
-msgid "Enable Mailing Component"
-msgstr "Uključi mailing komponentu"
+#: CRM/Mailing/Page/Common.php
+msgid "There was an error in your request"
+msgstr "Postoji greška u vašem zahtevu"
 
 #: CRM/Mailing/Page/Event.php CRM/Mailing/Page/Report.php
 msgid "Back to Activities"
@@ -1467,24 +1476,26 @@ msgstr "CiviMail izveštaj: %1"
 msgid "Mailings sent to %1"
 msgstr "Mailing poslat %1"
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Testing"
 msgstr "Testiranje"
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/EditCtrl/report.html
-#: ang/crmMailingAB/ReportCtrl.js ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/ReportCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Final"
 msgstr "Konačna verzija"
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Test different \"Subject\" lines"
 msgstr "Testiraj različite tekstove za \"predmet\""
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Test different \"From\" lines"
 msgstr "Testiraj različite tekstove za \"OD\""
 
-#: CRM/Mailing/PseudoConstant.php ang/crmMailingAB/services.js
+#: CRM/Mailing/PseudoConstant.php ext/civi_mail/ang/crmMailingAB/services.js
 msgid "Test entirely different emails"
 msgstr "Testiraj različite mailove"
 
@@ -1612,12 +1623,12 @@ msgstr ""
 msgid "Forwarded Email"
 msgstr "Prosleđeni email"
 
-#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: CRM/Mailing/Selector/Event.php ext/civi_mail/ang/crmMailing/services.js
 #: templates/CRM/Mailing/Page/Report.tpl
 msgid "Successful Deliveries"
 msgstr "Uspešne dostave"
 
-#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: CRM/Mailing/Selector/Event.php ext/civi_mail/ang/crmMailing/services.js
 #: templates/CRM/Mailing/Page/Report.tpl
 msgid "Bounces"
 msgstr "Odbijenih"
@@ -1626,7 +1637,7 @@ msgstr "Odbijenih"
 msgid "Unique Replies"
 msgstr "Jedinstveni odgovori"
 
-#: CRM/Mailing/Selector/Event.php ang/crmMailing/services.js
+#: CRM/Mailing/Selector/Event.php ext/civi_mail/ang/crmMailing/services.js
 #: templates/CRM/Mailing/Page/Report.tpl
 msgid "Replies"
 msgstr "Odgovori"
@@ -1654,6 +1665,18 @@ msgstr "Završeno datuma"
 #: CRM/Mailing/Selector/Search.php
 msgid "CiviCRM Mailing Search"
 msgstr "Pretraga CiviCRM mailing-a"
+
+#: CRM/Mailing/Service/ListUnsubscribe.php
+msgid "Mailto"
+msgstr ""
+
+#: CRM/Mailing/Service/ListUnsubscribe.php
+msgid "HTTP(S) Web-Form"
+msgstr ""
+
+#: CRM/Mailing/Service/ListUnsubscribe.php
+msgid "HTTP(S) One-Click"
+msgstr ""
 
 #: CRM/Mailing/Tokens.php
 msgid "Mailing Key"
@@ -1699,643 +1722,725 @@ msgstr "Mailing kreirao/la (Ime)"
 msgid "Mailing Creator (Email)"
 msgstr "Mailing kreirao/la (Email)"
 
-#: ang/crmMailing/BlockApprove.html
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "Failed to connect"
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "(See log for more details.)"
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "The mail service was not instantiated."
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "Failed to read test message"
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "Connection succeeded."
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "No new messages found."
+msgstr ""
+
+#: ext/civi_mail/Civi/Api4/Action/MailSettings/TestConnection.php
+msgid "Found at least %1 new messages."
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/BlockApprove.html
 msgid "Unreviewed"
 msgstr "Nerevidirano"
 
-#: ang/crmMailing/BlockMailing.html ang/crmMailing/EmailAddrCtrl.js
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/BlockHeaderFooter.html
+msgid "Mailing Header"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/BlockHeaderFooter.html
+msgid "Mailing Footer"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/EmailAddrCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Reply-To"
 msgstr "Odgovor na"
 
-#: ang/crmMailing/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/BlockMailing.html
 msgid "Unsubscribe Group"
 msgstr "Odjavi grupu"
 
-#: ang/crmMailing/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/BlockMailing.html
 msgid "- choose language -"
 msgstr "- izaberi jezik -"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "No content to preview"
 msgstr "Nema sadržaja za prikaz"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Preview as HTML"
 msgstr "Pogledaj kao HTML"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Preview as Plain Text"
 msgstr "Pogledaj kao običan tekst"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test email to:"
 msgstr "Pošalji test email ka:"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Test Email"
 msgstr "Test email"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test message to %1"
 msgstr "Pošalji test poruku na %1"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test"
 msgstr "Pošalji test"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test email to group:"
 msgstr "Pošalji test email grupi:"
 
-#: ang/crmMailing/BlockPreview.html
+#: ext/civi_mail/ang/crmMailing/BlockPreview.html
 msgid "Send test message to group"
 msgstr "Pošalji test poruku grupi"
 
-#: ang/crmMailing/BlockPreview.js
+#: ext/civi_mail/ang/crmMailing/BlockPreview.js
 msgid "Send to %1"
 msgstr "Poslato na %1"
 
-#: ang/crmMailing/BlockPreview.js
+#: ext/civi_mail/ang/crmMailing/BlockPreview.js
 msgid "A test message will be sent to %1 people:"
 msgstr "Test poruka će biti poslata ka %1 korisnika:"
 
-#: ang/crmMailing/BlockPreview.js
+#: ext/civi_mail/ang/crmMailing/BlockPreview.js
 msgid "None of the contacts in this group have an email address."
 msgstr "Nijedan kontakt iz ove grupe nema email adresu."
 
-#: ang/crmMailing/BlockPreview.js
+#: ext/civi_mail/ang/crmMailing/BlockPreview.js
 msgid "Group is empty."
 msgstr "Grupa je prazna."
 
-#: ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipientsMultiline.html
 msgid "Edit Recipient Options"
 msgstr "Uredi opcije za primaoce"
 
-#: ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipientsMultiline.html
 msgid "Click to refresh recipient count"
 msgstr "Kliknite da ažurirate broj primalaca"
 
-#: ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipients.html
+#: ext/civi_mail/ang/crmMailing/BlockRecipientsMultiline.html
 msgid "Preview a List of Recipients"
 msgstr "Pregled liste primalaca"
 
-#: ang/crmMailing/BlockResponses.html ang/crmMailing/BlockReview.html
-#: ang/crmMailing/EmailAddrCtrl.js ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EmailAddrCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Track Replies"
 msgstr "Prati odgovore"
 
-#: ang/crmMailing/BlockResponses.html
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
 msgid "Auto-Respond to Replies"
 msgstr "Automatski odgovor na odgovore?"
 
-#: ang/crmMailing/BlockResponses.html
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
 msgid "Auto-Respond Message"
 msgstr "Poruka za automatski odgovor"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Include:"
 msgstr "Uključi:"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Exclude:"
 msgstr "Isključi:"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
+#: templates/CRM/Mailing/Page/Report.tpl
 msgid "Content"
 msgstr "Sadržaj"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailing/PreviewComponentDialogCtrl.html
-#: ang/crmMailing/PreviewMgr/full.html ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailing/PreviewComponentDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewMgr/full.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Plain Text"
 msgstr "Običan tekst"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Tracking"
 msgstr "Praćenje"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Click-Throughs"
 msgstr "Klikova"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Opens"
 msgstr "Otvaranja"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Responding"
 msgstr "Odgovora"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Auto-Respond"
 msgstr "Auto-odgovora"
 
-#: ang/crmMailing/BlockReview.html ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailing/BlockReview.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Publication"
 msgstr "Publikacija"
 
-#: ang/crmMailing/BlockSummary.html ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailing/BlockSummary.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Select Campaign"
 msgstr "Odaberi kampanju"
 
-#: ang/crmMailing/BlockTemplates.html ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailing/BlockTemplates.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Save As"
 msgstr "Snimi kao"
 
-#: ang/crmMailing/BlockTracking.html
+#: ext/civi_mail/ang/crmMailing/BlockTracking.html
 msgid "Track Click-Throughs"
 msgstr "Prati klikove"
 
-#: ang/crmMailing/BlockTracking.html
+#: ext/civi_mail/ang/crmMailing/BlockTracking.html
 msgid "Track Opens"
 msgstr "Prati otvaranja"
 
-#: ang/crmMailing/BodyHtml.html ang/crmMailing/BodyText.html
+#: ext/civi_mail/ang/crmMailing/BodyHtml.html
+#: ext/civi_mail/ang/crmMailing/BodyText.html
 msgid "Required tokens are missing."
 msgstr "Obavezni tokeni nedostaju."
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
 msgid "Define Mailing"
 msgstr "Definiši mailing"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Header and Footer"
 msgstr "Zaglavlje i podnožje"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Responses"
 msgstr "Odgovori"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
 msgid "Review and Schedule"
 msgstr "Revizija i zakazivanje"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Submit Mailing"
 msgstr "Pošalji mailing"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Delete Draft"
 msgstr "Obrisati nacrt"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Are you sure you want to permanently delete this mailing?"
 msgstr "Da li ste sigurni da želite da permanentno obrišete ovaj mailing?"
 
-#: ang/crmMailing/EditMailingCtrl/2step.html
-#: ang/crmMailing/EditMailingCtrl/unified.html
-#: ang/crmMailing/EditMailingCtrl/unified2.html
-#: ang/crmMailing/EditMailingCtrl/wizard.html
-#: ang/crmMailing/EditMailingCtrl/workflow.html
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/2step.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/unified2.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/wizard.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Save Draft"
 msgstr "Sačuvati nacrt"
 
-#: ang/crmMailing/EditMailingCtrl/base.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/base.html
 msgid "This mailing has been submitted."
 msgstr "Ovaj mailing je poslat."
 
-#: ang/crmMailing/EditMailingCtrl/workflow.html
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
 msgid "Submit and Approve Mailing"
 msgstr "Pošalji i odobri mailing"
 
-#: ang/crmMailing/EditMailingCtrl.js ang/crmMailingAB/EditCtrl.js
-#: ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Submitting..."
 msgstr "Šaljem..."
 
-#: ang/crmMailing/EditMailingCtrl.js ang/crmMailingAB/EditCtrl.js
-#: ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Submitted"
 msgstr ""
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "Estimating..."
 msgstr "Procena..."
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "Estimate recipient count"
 msgstr "Procena broja primalaca"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "Refresh recipient count"
 msgstr "Ažuriraj broj primalaca"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "No Recipients"
 msgstr "Nema primalaca"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "~%1 recipients"
 msgstr "~%1 primaoca"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "(unknown)"
 msgstr "(nepoznato)"
 
-#: ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
 msgid "Preview (%1)"
 msgstr "Pregledaj (%1)"
 
-#: ang/crmMailing/EditRecipCtrl.js ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/EditRecipCtrl.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Previewing..."
 msgstr "Pregledaj"
 
-#: ang/crmMailing/EditRecipOptionsDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/EditRecipOptionsDialogCtrl.html
 msgid "Dedupe by email"
 msgstr "Deduplikacija po emailu"
 
-#: ang/crmMailing/EditRecipOptionsDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/EditRecipOptionsDialogCtrl.html
 msgid "Selection Method"
 msgstr "Metod selekcije"
 
-#: ang/crmMailing/EmailAddrCtrl.js
+#: ext/civi_mail/ang/crmMailing/EmailAddrCtrl.js
 msgid "Conflict"
 msgstr "Konflikt"
 
-#: ang/crmMailing/EmailAddrCtrl.js
+#: ext/civi_mail/ang/crmMailing/EmailAddrCtrl.js
 msgid ""
 "The \"%1\" option conflicts with the \"%2\" option. The \"%2\" option has "
 "been disabled."
 msgstr "Opcija \"%1\" je u konfliktu sa opcijom \"%2\". Opcija \"%2\" je isključena."
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid ""
 "The mailing must include the street address of the organization. Please "
 "insert the %1 token."
 msgstr "Mailing mora da sadrži adresu organizacije. Molimo unesite token %1."
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid ""
 "The mailing must allow recipients to (a) unsubscribe from the mailing-list "
 "or (b) completely opt-out from all mailings. Please insert an unsubscribe or"
 " opt-out token."
 msgstr "Mailing mora da omogući primaocima da se (a) odjave sa mailing liste ili (b) u potpunosti isključe iz svih mailinga. Molimo dodajte token za odjavu ili isključenje."
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid "Via Web"
 msgstr "Preko veba"
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid "Via Email"
 msgstr "Preko emaila"
 
-#: ang/crmMailing/EmailBodyCtrl/tokenAlert.html
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl/tokenAlert.html
 msgid ""
 "Alternatively, you may select a header or footer which includes the required"
 " tokens."
 msgstr "Takođe možete izabrati zaglavlje ili podnožje u koje su uključeni neophodni tokeni."
 
-#: ang/crmMailing/EmailBodyCtrl.js
+#: ext/civi_mail/ang/crmMailing/EmailBodyCtrl.js
 msgid "Required tokens"
 msgstr "Obavezni tokeni"
 
-#: ang/crmMailing/MsgTemplateCtrl.js
+#: ext/civi_mail/ang/crmMailing/MsgTemplateCtrl.js
 msgid "Save Template"
 msgstr "Sačuvaj šablon"
 
-#: ang/crmMailing/PreviewComponentCtrl.js
+#: ext/civi_mail/ang/crmMailing/PreviewComponentCtrl.js
 msgid "Invalid component ID (%1)"
 msgstr "ID nevažeće komponente (%1)"
 
-#: ang/crmMailing/PreviewRecipCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewRecipCtrl.html
 msgid ""
 "Based on current data, approximately %1 contacts will receive a copy of the "
 "mailing."
 msgstr "Sudeći po postojećim podacima, približno %1 kontakata će dobiti kopiju mailinga."
 
-#: ang/crmMailing/PreviewRecipCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewRecipCtrl.html
 msgid "Below is a sample of the first %1 recipients."
 msgstr "Ispod je primer prvih %1 primalaca."
 
-#: ang/crmMailing/PreviewRecipCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewRecipCtrl.html
 msgid ""
 "If individual contacts are separately modified, added, or removed, then the "
 "final list may change."
 msgstr "Ukoliko se pojedinačni konkatki menjaju, dodaju ili brišu, konačna lista će se može promeniti."
 
-#: ang/crmMailing/PreviewRecipCtrl.html
+#: ext/civi_mail/ang/crmMailing/PreviewRecipCtrl.html
 msgid "No recipients"
 msgstr "Nema primalaca"
 
-#: ang/crmMailing/RadioDate.js
+#: ext/civi_mail/ang/crmMailing/RadioDate.js
 msgid "The scheduled date and time is in the past"
 msgstr "Zakazani datum i vreme su u prošlosti"
 
-#: ang/crmMailing/Recipients.js
-msgid ""
-"This mailing was generated based on search results. The search results "
-"cannot be removed."
-msgstr "Ovaj mailing je generisan na osnovu rezultata pretrage. Rezultati pretrage ne mogu biti uklonjeni"
-
-#: ang/crmMailing/SaveMsgTemplateDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/SaveMsgTemplateDialogCtrl.html
 msgid "Save the current mailing as a template."
 msgstr "Sačuvaj trenutni mailing kao šablon."
 
-#: ang/crmMailing/SaveMsgTemplateDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/SaveMsgTemplateDialogCtrl.html
 msgid "Update \"%1\""
 msgstr "Ažuriraj \"%1\""
 
-#: ang/crmMailing/SaveMsgTemplateDialogCtrl.html
+#: ext/civi_mail/ang/crmMailing/SaveMsgTemplateDialogCtrl.html
 msgid "Save as:"
 msgstr "Snimi kao"
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/crmMailingRecipientsAutocomplete.component.js
+msgid "Include Groups & Mailings"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/crmMailingRecipientsAutocomplete.component.js
+msgid "Exclude Groups & Mailings"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/crmMailingRecipientsAutocomplete.component.js
+msgid "Include recipents from groups and past mailings."
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/crmMailingRecipientsAutocomplete.component.js
+msgid "Exclude recipents from groups and past mailings."
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Subject: %1"
 msgstr "Predmet: %1"
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid ""
 "Could not identify any recipients. Perhaps your test group is empty, or you "
 "tried sending to contacts that do not exist and you have no permission to "
 "add contacts."
 msgstr ""
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Sending..."
 msgstr "Slanje..."
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Unsubscribes & Opt-outs"
 msgstr ""
 
-#: ang/crmMailing/services.js
+#: ext/civi_mail/ang/crmMailing/services.js
 msgid "Opt-Outs"
 msgstr "Isključenja"
 
-#: ang/crmMailing.js ang/crmMailingAB.js
+#: ext/civi_mail/ang/crmMailing.js ext/civi_mail/ang/crmMailingAB.js
 msgid "Initializing..."
 msgstr "Pokretanje..."
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Template (A)"
 msgstr "Šablon (A)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Template (B)"
 msgstr "Šablon (B)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "From (A)"
 msgstr "Od (A)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "From (B)"
 msgstr "Od (B)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Reply-To (A)"
 msgstr "Odgovori (A)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Reply-To (B)"
 msgstr "Odgovori (B)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Subject (A)"
 msgstr "Predmet (A)"
 
-#: ang/crmMailingAB/BlockMailing.html
+#: ext/civi_mail/ang/crmMailingAB/BlockMailing.html
 msgid "Subject (B)"
 msgstr "Predmet (B)"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid ""
 "A/B testing allows you to send two test mailings to a random subset of your "
 "recipients. After collecting and comparing metrics, the more successful "
 "mailing will be sent to the remaining recipients."
 msgstr "A/B testiranje dozvoljava da pošaljete dva test mailinga nasumično izabranom podsetu vaših primaoca. Nakon što se potrebne metrike prikupe i uporede, mailing koji je bio uspešniji biće poslat ostalim primaocima."
 
-#: ang/crmMailingAB/BlockSetup.html ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "Test Type"
 msgstr "Tip testa"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Distribution"
 msgstr "Distribucija"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Send"
 msgstr "Pošalji"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Send A/B test immediately"
 msgstr "Pošalji A/B test odmah"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Send A/B test at:"
 msgstr "Pošalji A/B test u:"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Assess"
 msgstr "Procena"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Assess A/B results on an on-going basis"
 msgstr "Procena A/B rezultata - konstantna"
 
-#: ang/crmMailingAB/BlockSetup.html
+#: ext/civi_mail/ang/crmMailingAB/BlockSetup.html
 msgid "Assess A/B test at:"
 msgstr "Procena A/B rezultata u:"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Setup"
 msgstr "Podešavanje"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Target"
 msgstr "Cilj"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Compose"
 msgstr "Sastavi"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Preview (A)"
 msgstr "Prikaz (A)"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Preview (B)"
 msgstr "Prikaz (B)"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Compose (A)"
 msgstr "Sastavi (A)"
 
-#: ang/crmMailingAB/EditCtrl/edit.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/edit.html
 msgid "Compose (B)"
 msgstr "Sastavi (B)"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "A/B Test Results"
 msgstr "Rezultati A/B testa"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid ""
 "This report displays the current results for your A/B test. You can return "
 "to this page to view the latest statistics by navigating to \"Manage A/B "
 "Tests\" and clicking \"Results\"."
 msgstr "Ovaj izveštaj prikazuje trenutne rezultate za vaš A / B test. Možete da se vratite na ovu stranicu da vidite najnovije statistike kretanjem ka \"Upravljanje A / B testova\" i kliknite na \"rezultate\"."
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Select as Final"
 msgstr "Izaberi kao finalnu verziju"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Delivery"
 msgstr "Dostava"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Not selected"
 msgstr "Nije izabrano"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Started at"
 msgstr "Započeto"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Not started"
 msgstr "Nije započeto"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Completed at"
 msgstr "Završeno"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Not completed"
 msgstr "Nije završeno"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
+msgid "Performance"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Search for contacts using '%1'"
 msgstr "Pretraži kontakte koristeći '%1'"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Browse events of type '%1'"
 msgstr "Pregledaj događaje tipa '%1'"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Reports for '%1'"
 msgstr "Izveštaji za '%1'"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Opens (WIP)"
 msgstr "Otvaranja (WIP)"
 
-#: ang/crmMailingAB/EditCtrl/report.html
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
 msgid "Total Clicks (WIP)"
 msgstr "Ukupno klikova (WIP)"
 
-#: ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
 msgid "Test A (%1)"
 msgstr "Test A (%1)"
 
-#: ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
 msgid "Test B (%1)"
 msgstr "Test B (%1)"
 
-#: ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
 msgid "Final (%1)"
 msgstr "Konačna verzija (%1)"
 
-#: ang/crmMailingAB/EditCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/EditCtrl.js
 msgid "Select Final Mailing (Test %1)"
 msgstr "Izaberi konačni mailing (Test %1)"
 
-#: ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "- Status -"
 msgstr "- Status -"
 
-#: ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "- Test Type -"
 msgstr "- Tip testa -"
 
-#: ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "You have no A/B mailings"
 msgstr "Nemate A/B mailinga"
 
-#: ang/crmMailingAB/ListCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/ListCtrl.html
 msgid "New A/B Test"
 msgstr "Novi A/B test"
 
-#: ang/crmMailingAB/ReportCtrl.js ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/ReportCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Mailing A"
 msgstr "Mailing A"
 
-#: ang/crmMailingAB/ReportCtrl.js ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/ReportCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Mailing B"
 msgstr "Mailing B"
 
-#: ang/crmMailingAB/Slider.html
+#: ext/civi_mail/ang/crmMailingAB/Slider.html
 msgid "Test Mailing A"
 msgstr "Test mailing A"
 
-#: ang/crmMailingAB/Slider.html
+#: ext/civi_mail/ang/crmMailingAB/Slider.html
 msgid "Test Mailing B"
 msgstr "Test mailing B"
 
-#: ang/crmMailingAB/Slider.html
+#: ext/civi_mail/ang/crmMailingAB/Slider.html
 msgid "Final Mailing"
 msgstr "Konačni mailing"
 
-#: ang/crmMailingAB/WinnerDialogCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.html
 msgid ""
 "After selecting %1 as the winner, one must schedule the delivery for the "
 "final mailing."
 msgstr "Nakon odabira% 1 kao pobednik, pobednik mora zakazati isporuku za konačno slanje."
 
-#: ang/crmMailingAB/WinnerDialogCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.html
 msgid "Send final mailing immediately"
 msgstr "Pošalji konačni mailing odmah"
 
-#: ang/crmMailingAB/WinnerDialogCtrl.html
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.html
 msgid "Send final mailing at:"
 msgstr "Pošalji konačni mailing u:"
 
-#: ang/crmMailingAB/WinnerDialogCtrl.js
+#: ext/civi_mail/ang/crmMailingAB/WinnerDialogCtrl.js
 msgid "Submit final mailing"
 msgstr "Pošalji konačni mailing"
+
+#: ext/civi_mail/managed/SavedSearch_Email_Bounce_History.mgd.php
+msgid "Email_Bounce_History"
+msgstr ""
 
 #: templates/CRM/Mailing/Form/Approve.tpl
 msgid "Preview Mailing"
@@ -2361,6 +2466,10 @@ msgstr "Tekst mailing-a:"
 msgid "New Mailing Component"
 msgstr "Nova mailing komponenta"
 
+#: templates/CRM/Mailing/Form/Component.tpl
+msgid "Edit Mailing Component"
+msgstr "Uredi mailing komponentu"
+
 #: templates/CRM/Mailing/Form/Count.tpl
 msgid "Total Recipients:"
 msgstr "Ukupno primalaca:"
@@ -2374,6 +2483,10 @@ msgid "Please enter up to 5 email addresses to receive the mailing."
 msgstr "Unesite do 5 email adresa koje će primiti mailing."
 
 #: templates/CRM/Mailing/Form/ForwardMailing.tpl
+msgid "Add Comment"
+msgstr ""
+
+#: templates/CRM/Mailing/Form/ForwardMailing.tpl
 msgid "close section"
 msgstr ""
 
@@ -2381,13 +2494,6 @@ msgstr ""
 msgid ""
 "You are requesting to opt out this email address from all mailing lists:"
 msgstr "Tražite isključenje ove email adrese sa svih mailing lista:"
-
-#: templates/CRM/Mailing/Form/Optout.tpl
-#: templates/CRM/Mailing/Form/Unsubscribe.tpl
-msgid ""
-"If this is not your email address, there is no need to do anything. You have"
-" <strong>not</strong> been added to any mailing lists."
-msgstr ""
 
 #: templates/CRM/Mailing/Form/Optout.tpl
 msgid ""
@@ -2421,12 +2527,14 @@ msgstr "Broj izabranih primalaca mailnga: %1"
 
 #: templates/CRM/Mailing/Form/Unsubscribe.tpl
 msgid ""
-"Are you sure you want to be removed from the mailing list(s) shown below:"
-msgstr "Da li ste sigurni da želite da budete uklonjeni sa mailing liste(i) prikazanih ispod:"
+"Are you sure you want to remove %1 from the mailing list(s) shown below:"
+msgstr ""
 
 #: templates/CRM/Mailing/Form/Unsubscribe.tpl
-msgid "You are requesting to unsubscribe this email address:"
-msgstr "Tražite odjavu ove email adrese:"
+msgid ""
+"You are requesting to unsubscribe <strong>all email addresses for "
+"%1</strong> from the above mailing list."
+msgstr ""
 
 #: templates/CRM/Mailing/Form/Unsubscribe.tpl
 msgid ""
@@ -2464,6 +2572,23 @@ msgstr ""
 msgid ""
 "Contact your site administrator if you need to use a \"FROM\" Email Address "
 "which is not in the dropdown list."
+msgstr ""
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"You can send your email as a simple text-only message, as an HTML formatted "
+"message, or both. Text-only messages are sufficient for most email "
+"communication - and some recipients may prefer not to receive HTML formatted"
+" messages."
+msgstr ""
+
+#: templates/CRM/Mailing/MailingUI.hlp
+msgid ""
+"HTML messages have more visual impact, allow you to include images, and may "
+"be more readable if you are including links to website pages. However, "
+"different email programs may interpret HTML formats differently - so use "
+"this option cautiously unless you have a template format that has been "
+"tested with different web and desktop email programs."
 msgstr ""
 
 #: templates/CRM/Mailing/MailingUI.hlp
@@ -2743,20 +2868,3 @@ msgstr "Da li ste sigurni da želite da ponovo prijavite: %1 (%2)"
 #: templates/CRM/Mailing/Page/Tab.tpl
 msgid "Opens/ Clicks"
 msgstr "Otvaranja/ klikovi"
-
-#: CRM/Mailing/DAO/MailingTrackableURL.php
-msgid "Mailing Links"
-msgstr ""
-
-#: CRM/Mailing/DAO/MailingTrackableURL.php
-#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
-msgid "Mailing Link"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
-msgid "Mailing Link Clickthroughs"
-msgstr ""
-
-#: CRM/Mailing/Event/DAO/MailingEventTrackableURLOpen.php
-msgid "Mailing Link Clickthrough"
-msgstr ""
