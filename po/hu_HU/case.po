@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2023-06-17 15:56-0400\n"
+"POT-Creation-Date: 2024-02-03 10:37-0500\n"
 "PO-Revision-Date: 2011-03-28 14:17+0000\n"
 "Last-Translator: Zoltán Reizinger <zreizinger@hdsnet.hu>, 2013-2016,2018-2021,2023\n"
 "Language-Team: Hungarian (http://app.transifex.com/civicrm/civicrm/language/hu/)\n"
@@ -230,7 +230,7 @@ msgstr "Ügy-kapcsolat társítás ügy azonosítója"
 msgid "Contact ID of contact record given case belongs to."
 msgstr "Kapcsolat rekord kapcsolat azonosítója, melyhez az ügy tartozik."
 
-#: CRM/Case/DAO/CaseType.php ang/crmCaseType/list.html
+#: CRM/Case/DAO/CaseType.php ext/civi_case/ang/crmCaseType/list.html
 msgid "Case Types"
 msgstr "Ügy típusok"
 
@@ -356,6 +356,7 @@ msgid "Selected case is already linked."
 msgstr "A kiválasztott ügy már linkelve."
 
 #: CRM/Case/Form/Activity/OpenCase.php
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
 msgid "Activity Duration"
 msgstr "Tevékenység időtartama"
 
@@ -382,10 +383,6 @@ msgstr "Jelentve általa"
 #: CRM/Case/Form/Activity.php CRM/Case/Form/CaseView.php
 msgid "- select activity type -"
 msgstr "- tevékenység típus kiválasztása -"
-
-#: CRM/Case/Form/Activity.php CRM/Case/XMLProcessor/Report.php
-msgid "Medium"
-msgstr "Közepes"
 
 #: CRM/Case/Form/Activity.php
 msgid ""
@@ -441,6 +438,10 @@ msgstr "Kapcsolatt(okk)al"
 #: CRM/Case/Form/ActivityView.php
 msgid "Activity Revision History"
 msgstr "Tevékenység felülvizsgálat történet"
+
+#: CRM/Case/Form/ActivityView.php
+msgid "Home"
+msgstr ""
 
 #: CRM/Case/Form/ActivityView.php CRM/Case/Page/DashBoard.php
 msgid "CiviCase Dashboard"
@@ -540,6 +541,18 @@ msgstr "Válassza ki az egyesítendő ügyet"
 #: CRM/Case/Form/CaseView.php
 msgid "- select case -"
 msgstr "- ügy kiválasztása -"
+
+#: CRM/Case/Form/DeleteClient.php
+msgid "Cannot Remove Client from case as is the only client on the case"
+msgstr ""
+
+#: CRM/Case/Form/DeleteClient.php
+msgid "Remove Client from Case"
+msgstr ""
+
+#: CRM/Case/Form/DeleteClient.php
+msgid "Case Client Removed"
+msgstr ""
 
 #: CRM/Case/Form/EditClient.php
 msgid "Reassign Case"
@@ -674,16 +687,16 @@ msgid "Alphabetical order"
 msgstr "ABC sorrend"
 
 #: CRM/Case/Page/AJAX.php
+msgid "Change Case Tags"
+msgstr ""
+
+#: CRM/Case/Page/AJAX.php
 msgid "Client Added To Case"
 msgstr "Ügyfél az ügyhöz adva"
 
 #: CRM/Case/Page/DashBoard.php
 msgid "You are not authorized to access all cases and activities."
 msgstr "Nincs hozzáférési jogod minden ügyhöz és tevékenységhez."
-
-#: CRM/Case/Page/Tab.php
-msgid "Contact Id is required for view action."
-msgstr "A megtekintési művelethez kapcsolat azonosító szükséges."
 
 #: CRM/Case/Page/Tab.php
 msgid "Are you sure you want to delete this case?"
@@ -759,6 +772,10 @@ msgid ""
 "Activity type %1, found in case configuration file, is not present in the "
 "database %2"
 msgstr "%1 Tevékenység típus, ami megtalálható az ügy konfigurációs fájljában, nem található a %2 adatbázisban"
+
+#: CRM/Case/XMLProcessor/Report.php
+msgid "Medium"
+msgstr "Közepes"
 
 #: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
 msgid "Housing Support"
@@ -836,120 +853,153 @@ msgstr "Ellátások specialista"
 msgid "Case Resources"
 msgstr "Ügy erőforrások"
 
-#: ang/crmCaseType/activityTypesTable.html
+#: ext/civi_case/Civi/Api4/CaseContact.php
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
+msgid "Case Clients"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/CaseContact.php
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
+#: templates/CRM/Case/Form/Activity/ChangeCaseStatus.tpl
+msgid "Case Client"
+msgstr "Ügy kliens"
+
+#: ext/civi_case/Civi/Api4/CaseContact.php
+msgid "Clients"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/CaseContact.php
+msgid "Cases with this contact as a client"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/CaseContact.php
+msgid "Clients for this case"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
+msgid "Case Creator"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
+msgid "Activity Location"
+msgstr ""
+
+#: ext/civi_case/ang/crmCaseType/activityTypesTable.html
 msgid "Max Instances"
 msgstr "Maximális példányszám"
 
-#: ang/crmCaseType/activityTypesTable.html
+#: ext/civi_case/ang/crmCaseType/activityTypesTable.html
 msgid "Add activity type"
 msgstr "Tevékenység típus hozzáadása"
 
-#: ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
 msgid "WARNING: The case type name includes deprecated characters."
 msgstr "FIGYELMEZTETÉS: Az ügy típus név elavult karaktereket tartalmaz."
 
-#: ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
 msgid ""
 "WARNING: If any external files or programs reference the old \"Name\", then "
 "they must be updated manually."
 msgstr "FIGYELMEZTETÉS: Ha bármelyik külső fájl vagy program a régi \"Név\"-re hivatkozik, azokat kézzel kell frissíteni."
 
-#: ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
 msgid "Activity assignment settings"
 msgstr "Tevékenység hozzárendelés beállításai"
 
-#: ang/crmCaseType/caseTypeDetails.html ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Restrict to Groups"
 msgstr "Csoportokhoz korlátozva"
 
-#: ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
 msgid "Restrict to Website Users"
 msgstr "Weboldal felhasználókhoz korlátozva"
 
-#: ang/crmCaseType/edit.html ang/crmCaseType/list.html
+#: ext/civi_case/ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/list.html
 msgid "New Case Type"
 msgstr "Ügy új típusa"
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid ""
 "Use this screen to define or update the Case Roles, Activity Types, and "
 "Timelines for a case type."
 msgstr "Használja ezt a képernyőt az ügy szerepkör, tevékenység típus és idővonal frissítésére az ügy típushoz."
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Learn more..."
 msgstr "Tudjon meg többet..."
 
-#: ang/crmCaseType/edit.html templates/CRM/Case/Audit/Report.tpl
+#: ext/civi_case/ang/crmCaseType/edit.html templates/CRM/Case/Audit/Report.tpl
 msgid "Case Roles"
 msgstr "Ügy szerepkörei"
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Case Statuses"
 msgstr "Ügy állapotok"
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Add..."
 msgstr "Hozzáadás..."
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Timeline"
 msgstr "Idővonal"
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Sequence"
 msgstr "Sorrend"
 
-#: ang/crmCaseType/list.html
+#: ext/civi_case/ang/crmCaseType/list.html
 msgid ""
 "A Case Type describes a group of related tasks, interactions, or processes."
 msgstr "Az ügy típus leírja a  kapcsolódó feladatok csoportjait, kölcsönhatásokat, vagy a olyamatokat. "
 
-#: ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Display Label"
 msgstr "Kijelzett címke "
 
-#: ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Assign to Creator"
 msgstr "Létrehozóhoz rendelése"
 
-#: ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Is Manager"
 msgstr "Menedzser"
 
-#: ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Add role"
 msgstr "Szerepkör hozzáadása:"
 
-#: ang/crmCaseType/statusTable.html
+#: ext/civi_case/ang/crmCaseType/statusTable.html
 msgid "New Status"
 msgstr "Új állapot"
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Reference"
 msgstr "Hivatkozások"
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Offset"
 msgstr "Eltolás"
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Default assignee"
 msgstr "Alapértelmezett megbízott"
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Newest"
 msgstr "Legfrissebb"
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Oldest"
 msgstr "Legrégebbi"
 
-#: ang/crmCaseType.js
+#: ext/civi_case/ang/crmCaseType.js
 msgid "new"
 msgstr "új"
 
-#: ang/crmCaseType.js
+#: ext/civi_case/ang/crmCaseType.js
 msgid ""
 "The CiviCase XML file for this case-type prohibits editing the definition."
 msgstr "A CiviÜgy ehhez az ügytípushoz tartozó XML fájlja nem engedi a definíció szerkesztését."
@@ -990,10 +1040,6 @@ msgstr "Jelenlegi kezdési dátum"
 #: templates/CRM/Case/Form/Activity/ChangeCaseStatus.tpl
 msgid "Update Linked Cases Status?"
 msgstr "A kapcsolódó ügyek állapotát frissítsem?"
-
-#: templates/CRM/Case/Form/Activity/ChangeCaseStatus.tpl
-msgid "Case Client"
-msgstr "Ügy kliens"
 
 #: templates/CRM/Case/Form/Activity/LinkCases.tpl
 msgid "Create link between %1 - %2 (CaseID: %3) and %4 - %5 (CaseID: %6)"
@@ -1160,6 +1206,10 @@ msgid "Clients:"
 msgstr "Ügyfelek:"
 
 #: templates/CRM/Case/Form/CaseView.tpl
+msgid "Remove Client"
+msgstr ""
+
+#: templates/CRM/Case/Form/CaseView.tpl
 msgid "Add Client"
 msgstr "Ügyfél hozzáadása"
 
@@ -1186,6 +1236,10 @@ msgstr "Ügy kezdő dátumának megváltoztatása (tevékenység rekordot hoz l�
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Export Document"
 msgstr "Dokumentum export"
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Merge Case"
+msgstr ""
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Roles"
@@ -1238,6 +1292,10 @@ msgstr "Jelenleg nincsenek cimkék társítva ehhez az ügyhöz."
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Add Tags"
 msgstr "Cimkék hozzáadása"
+
+#: templates/CRM/Case/Form/DeleteClient.tpl
+msgid "Remove Client %1 from case %2"
+msgstr ""
 
 #: templates/CRM/Case/Form/EditClient.tpl
 msgid "This is case is currently assigned to %1."
