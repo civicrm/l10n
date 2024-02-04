@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2023-06-17 15:56-0400\n"
+"POT-Creation-Date: 2024-02-03 10:37-0500\n"
 "PO-Revision-Date: 2011-03-28 14:19+0000\n"
 "Last-Translator: 鈴木 豊和 <toyokazu80088@gmail.com>, 2023\n"
 "Language-Team: Japanese (http://app.transifex.com/civicrm/civicrm/language/ja/)\n"
@@ -22,11 +22,6 @@ msgstr ""
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: CRM/Contribute/ActionMapping/ByPage.php
-#: CRM/Contribute/ActionMapping/ByType.php
-msgid "Thank You Date"
-msgstr "Thank You Date"
-
 #: CRM/Contribute/ActionMapping/ByType.php
 msgid "Contribution Type"
 msgstr "支援タイプ"
@@ -34,6 +29,10 @@ msgstr "支援タイプ"
 #: CRM/Contribute/ActionMapping/ByType.php
 msgid "Soft Credit Role"
 msgstr "Soft Credit Role"
+
+#: CRM/Contribute/ActionMapping.php
+msgid "Thank You Date"
+msgstr "Thank You Date"
 
 #: CRM/Contribute/BAO/Contribution.php
 msgid ""
@@ -67,13 +66,6 @@ msgid "Soft Credit Contact ID"
 msgstr "Soft Credit Contact ID"
 
 #: CRM/Contribute/BAO/Contribution.php
-#: CRM/Contribute/Form/Contribution/Confirm.php
-#: CRM/Contribute/Form/Contribution/Main.php
-#: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
-msgid "Online Contribution"
-msgstr "Online Contribution"
-
-#: CRM/Contribute/BAO/Contribution.php
 #: CRM/Contribute/BAO/ContributionRecur.php
 msgid "Recurring contribution"
 msgstr "Recurring contribution"
@@ -88,6 +80,10 @@ msgid ""
 "contribution. Editing the financial type is not yet supported in this "
 "situation."
 msgstr "1 つ以上の行項目が支援とは異なる金融タイプを持っています。金融タイプの編集は、まだこのような状況ではサポートされません。"
+
+#: CRM/Contribute/BAO/Contribution.php
+msgid "Status changed from %1 to %2"
+msgstr ""
 
 #: CRM/Contribute/BAO/Contribution.php
 msgid "day(s)"
@@ -146,7 +142,7 @@ msgstr "Recurring contributions with at least one payment"
 msgid "View related contribution"
 msgstr "関連する支援を見る"
 
-#: CRM/Contribute/BAO/Premium.php
+#: CRM/Contribute/BAO/Premium.php CRM/Contribute/Form/ContributionBase.php
 msgid "Selected Option"
 msgstr "選択されたオプション"
 
@@ -338,12 +334,6 @@ msgstr "FK to Payment Instrument"
 
 #: CRM/Contribute/DAO/Contribution.php
 msgid ""
-"Date contribution was received - not necessarily the creation date of the "
-"record"
-msgstr "Date contribution was received - not necessarily the creation date of the record"
-
-#: CRM/Contribute/DAO/Contribution.php
-msgid ""
 "Portion of total amount which is NOT tax deductible. Equal to total_amount "
 "for non-deductible financial types."
 msgstr "Portion of total amount which is NOT tax deductible. Equal to total_amount for non-deductible financial types."
@@ -443,8 +433,24 @@ msgid "Shows this is a template for recurring contributions."
 msgstr "Shows this is a template for recurring contributions."
 
 #: CRM/Contribute/DAO/ContributionPage.php
+msgid "Page Name"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionPage.php
 msgid "Contribution Page title. For top of page display"
 msgstr "Contribution Page title. For top of page display"
+
+#: CRM/Contribute/DAO/ContributionPage.php
+msgid "Contribution Page Public title"
+msgstr "Contribution Page Public title"
+
+#: CRM/Contribute/DAO/ContributionPage.php
+msgid "Unique Name"
+msgstr ""
+
+#: CRM/Contribute/DAO/ContributionPage.php
+msgid "Unique name for identifying contribution page"
+msgstr ""
 
 #: CRM/Contribute/DAO/ContributionPage.php
 msgid "Contribution Page Introduction Text"
@@ -723,10 +729,6 @@ msgstr "Can people share the contribution page through social media?"
 msgid "if true - billing block is required for online contribution page"
 msgstr "if true - billing block is required for online contribution page"
 
-#: CRM/Contribute/DAO/ContributionPage.php
-msgid "Contribution Page Public title"
-msgstr "Contribution Page Public title"
-
 #: CRM/Contribute/DAO/ContributionProduct.php
 msgid "Contribution Products"
 msgstr "Contribution Products"
@@ -895,6 +897,12 @@ msgstr "Optionally used to store a link to a payment token used for this recurri
 #: CRM/Contribute/DAO/ContributionRecur.php
 msgid "unique transaction id (deprecated - use processor_id)"
 msgstr "unique transaction id (deprecated - use processor_id)"
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+#: CRM/Contribute/Form/AdditionalInfo.php
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "Invoice ID"
+msgstr ""
 
 #: CRM/Contribute/DAO/ContributionRecur.php
 #: templates/CRM/Contribute/Page/ContributionRecur.tpl
@@ -1329,23 +1337,6 @@ msgid ""
 " you can submit a credit card transactions."
 msgstr "クレジットカードの取引を実行する前に支払いプロセッサ %1 を設定する必要があります。"
 
-#: CRM/Contribute/Form/AbstractEditPayment.php
-msgid "Pledge payment status should be 'Pending' or  'Overdue'."
-msgstr "プレッジ支払いのステータスは「保留」または「期日超過」のいずれかになります。"
-
-#: CRM/Contribute/Form/AbstractEditPayment.php
-msgid ""
-"This contact has pending or overdue pledge payments. <a href=\"%1\">Click "
-"here to view their Pledges tab</a> and verify whether this contribution "
-"should be applied as a pledge payment."
-msgstr "この連絡先には、保留または期限超過のプレッジ支払いがあります。<a href=\"%1\">ここをクリックしてプレッジタブを表示</a>し、この支援がプレッジ支払いの申し込みになっているかどうかを確認してください。"
-
-#: CRM/Contribute/Form/AbstractEditPayment.php
-msgid ""
-"This contact has a pending or overdue pledge payment of %2 which is "
-"scheduled for %3. <a href=\"%1\">Click here to enter a pledge payment</a>."
-msgstr "この連絡先は、%3 に予定されている %2 の保留または期限超過のプレッジ支払があります。<a href=\"%1\">ここをクリックしてプレッジ支払いを入力</a>してください。"
-
 #: CRM/Contribute/Form/AdditionalInfo.php
 msgid "-select product-"
 msgstr "-select product-"
@@ -1377,30 +1368,13 @@ msgstr "請求書ID が既にデータベース存在します。"
 msgid "This Credit Note ID already exists in the database."
 msgstr "クレジットの備考ID が既にデータベース存在します。"
 
-#: CRM/Contribute/Form/AdditionalInfo.php
-msgid "Send Initial Reminder"
-msgstr "最初の事前通知を送信"
-
-#: CRM/Contribute/Form/AdditionalInfo.php
-msgid "Please enter a valid reminder day."
-msgstr "正確な事前通知の日付を入力してください。"
-
-#: CRM/Contribute/Form/AdditionalInfo.php
-#: CRM/Contribute/Form/ContributionPage/Amount.php
-msgid "Send up to"
-msgstr "送信数"
-
-#: CRM/Contribute/Form/AdditionalInfo.php
-msgid "Please enter a valid No. of reminders."
-msgstr "事前通知の数を入力してください。"
-
-#: CRM/Contribute/Form/AdditionalInfo.php
-msgid "Please enter a valid additional reminder day."
-msgstr "追加の備事前通知日を入力してください。"
-
 #: CRM/Contribute/Form/AdditionalPayment.php
 msgid "Credit card payment is not for Refund payments use"
 msgstr "クレジットカード支払いで、払い戻しの支払いは利用できません"
+
+#: CRM/Contribute/Form/AdditionalPayment.php
+msgid "Refund"
+msgstr ""
 
 #: CRM/Contribute/Form/AdditionalPayment.php
 msgid "Refund Amount"
@@ -1416,6 +1390,10 @@ msgid "Refund Date"
 msgstr "払い戻し日"
 
 #: CRM/Contribute/Form/AdditionalPayment.php
+msgid "Submit Payment"
+msgstr ""
+
+#: CRM/Contribute/Form/AdditionalPayment.php
 msgid "Payment method is a required field"
 msgstr "Payment method is a required field"
 
@@ -1428,11 +1406,6 @@ msgstr "支払いレコードを処理しました。"
 msgid "A receipt has been emailed to the contributor."
 msgstr "受領書を支援者にメールしました。"
 
-#: CRM/Contribute/Form/AdditionalPayment.php
-#: CRM/Contribute/Form/Contribution.php
-msgid "Submit Credit Card Payment by: %1"
-msgstr "クレジットカードでの支払いを送信 : %1"
-
 #: CRM/Contribute/Form/CancelSubscription.php
 msgid "The recurring contribution looks to have been cancelled already."
 msgstr "この定期的な支援は既にキャンセルされているようです。"
@@ -1441,6 +1414,10 @@ msgstr "この定期的な支援は既にキャンセルされているようで
 #: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Required information missing."
 msgstr "Required information missing."
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Cancel Recurring Contribution"
+msgstr ""
 
 #: CRM/Contribute/Form/CancelSubscription.php
 msgid "Send cancellation request?"
@@ -1474,32 +1451,18 @@ msgid "Recurring contribution could not be cancelled in the database."
 msgstr "データベース内の定期的な支援のデータをキャンセルできませんでした。"
 
 #: CRM/Contribute/Form/Contribution/Confirm.php
-msgid "Make Contribution"
-msgstr "支援する"
-
-#: CRM/Contribute/Form/Contribution/Confirm.php
-#: CRM/Contribute/Form/Contribution/Main.php
-#: CRM/Contribute/Form/Contribution/ThankYou.php
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"Oops. The membership you're trying to renew appears to be invalid. Contact "
-"your site administrator if you need assistance. If you continue, you will be"
-" issued a new membership."
-msgstr "Oops. The membership you're trying to renew appears to be invalid. Contact your site administrator if you need assistance. If you continue, you will be issued a new membership."
-
-#: CRM/Contribute/Form/Contribution/Confirm.php
-#: CRM/Contribute/Form/Contribution/Main.php
-#: CRM/Contribute/Form/Contribution/ThankYou.php
-msgid "Invalid Membership"
-msgstr "Invalid Membership"
-
-#: CRM/Contribute/Form/Contribution/Confirm.php
 msgid "Anonymous"
 msgstr "匿名"
 
 #: CRM/Contribute/Form/Contribution/Confirm.php
 msgid "Online Contribution:"
 msgstr "Online Contribution:"
+
+#: CRM/Contribute/Form/Contribution/Confirm.php
+#: CRM/Contribute/Form/Contribution/Main.php
+#: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
+msgid "Online Contribution"
+msgstr "Online Contribution"
 
 #: CRM/Contribute/Form/Contribution/Confirm.php
 msgid "Payment Processor Error message :"
@@ -1536,30 +1499,37 @@ msgid "Confirm Payment"
 msgstr "Confirm Payment"
 
 #: CRM/Contribute/Form/Contribution/Main.php
-msgid "Please select one of the memberships."
-msgstr "Please select one of the memberships."
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+msgid "Additional Contribution"
+msgstr ""
 
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid "Please renew my membership automatically."
 msgstr "Please renew my membership automatically."
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "installments"
 msgstr "支払い回数"
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "Number of installments must be a whole number."
 msgstr "支払い回数は整数である必要がります。"
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "I want to contribute this amount every"
 msgstr "I want to contribute this amount every"
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "I want to contribute this amount every %1"
 msgstr "I want to contribute this amount every %1"
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "Frequency must be a whole number (EXAMPLE: Every 3 months)."
 msgstr "頻度は整数でなければなりません (例 : 3ヶ月ごと)"
 
@@ -1676,6 +1646,42 @@ msgstr "Returning since there is no contact attached to this contribution id."
 msgid "Returning since contribution has already been handled."
 msgstr "Returning since contribution has already been handled."
 
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid ""
+"This contribution page has been configured for contribution on behalf of "
+"honoree and the selected honoree profile is either disabled or not found."
+msgstr "This contribution page has been configured for contribution on behalf of honoree and the selected honoree profile is either disabled or not found."
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid ""
+"This contribution page has been configured for contribution on behalf of "
+"honoree and the required fields of the selected honoree profile are disabled"
+" or doesn't exist."
+msgstr "This contribution page has been configured for contribution on behalf of honoree and the required fields of the selected honoree profile are disabled or doesn't exist."
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid ""
+"This contribution page has been configured for contribution on behalf of an "
+"organization and the selected onbehalf profile is either disabled or not "
+"found."
+msgstr "この支援ページは団体代理の支援ページとして設定されましたが、選択された団体代理プロファイルは無効、または存在しません。"
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Mixed profile not allowed for on behalf of registration/sign up."
+msgstr "混成プロファイルは代理での登録 / 加入には使えません。"
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Select an existing organization"
+msgstr "登録済みの団体を選択"
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Enter a new organization"
+msgstr "新しい団体を入力"
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "options"
+msgstr "設定"
+
 #: CRM/Contribute/Form/Contribution.php
 #: CRM/Contribute/Page/ContributionRecurPayments.php
 #: CRM/Contribute/Selector/Search.php
@@ -1694,6 +1700,23 @@ msgstr "クレジットカードによるプレッジ支払い"
 #: CRM/Contribute/Form/Contribution.php
 msgid "Credit Card Contribution"
 msgstr "クレジットカードでの支援"
+
+#: CRM/Contribute/Form/Contribution.php
+msgid "Pledge payment status should be 'Pending' or  'Overdue'."
+msgstr "プレッジ支払いのステータスは「保留」または「期日超過」のいずれかになります。"
+
+#: CRM/Contribute/Form/Contribution.php
+msgid ""
+"This contact has pending or overdue pledge payments. <a href=\"%1\">Click "
+"here to view their Pledges tab</a> and verify whether this contribution "
+"should be applied as a pledge payment."
+msgstr "この連絡先には、保留または期限超過のプレッジ支払いがあります。<a href=\"%1\">ここをクリックしてプレッジタブを表示</a>し、この支援がプレッジ支払いの申し込みになっているかどうかを確認してください。"
+
+#: CRM/Contribute/Form/Contribution.php
+msgid ""
+"This contact has a pending or overdue pledge payment of %2 which is "
+"scheduled for %3. <a href=\"%1\">Click here to enter a pledge payment</a>."
+msgstr "この連絡先は、%3 に予定されている %2 の保留または期限超過のプレッジ支払があります。<a href=\"%1\">ここをクリックしてプレッジ支払いを入力</a>してください。"
 
 #: CRM/Contribute/Form/Contribution.php
 msgid "Additional Details"
@@ -1722,6 +1745,10 @@ msgid "Payment Processor Error"
 msgstr "支払いプロセッサのエラー"
 
 #: CRM/Contribute/Form/Contribution.php
+msgid "Submit Credit Card Payment by: %1"
+msgstr "クレジットカードでの支払いを送信 : %1"
+
+#: CRM/Contribute/Form/Contribution.php
 msgid ""
 "Contribution submitted by a staff person using contributor's credit card"
 msgstr "Contribution submitted by a staff person using contributor's credit card"
@@ -1730,9 +1757,17 @@ msgstr "Contribution submitted by a staff person using contributor's credit card
 msgid "The contribution record has been saved."
 msgstr "支援レコードを保存しました。"
 
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "Membership Invalid"
-msgstr "会員の無効"
+#: CRM/Contribute/Form/Contribution.php
+msgid ""
+"You've changed the financial type for this %1 contribution from non-tax "
+"deductible to tax deductible, but the non-deductible amount of %2 has not "
+"been changed. This could prevent a tax receipt from being issued correctly. "
+"You may want to edit the non-deductible amount."
+msgstr ""
+
+#: CRM/Contribute/Form/Contribution.php
+msgid "Non-deductible amount"
+msgstr ""
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid "The page you requested has past its end date on %1"
@@ -1744,52 +1779,10 @@ msgstr "The page you requested will be active from %1"
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid ""
-"This page includes a Profile with Membership fields - but the Membership "
-"Block is NOT enabled. Please notify the site administrator."
-msgstr "このページには会員フィールドを持つプロファイルが挿入されています。しかし会員ブロックが有効にされていません。サイト管理者にお問い合わせください。"
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
 "The requested online contribution page is missing a required Contribution "
 "Amount section or Membership section or Price Set. Please check with the "
 "site administrator for assistance."
 msgstr "要求されたオンライン支援には、必要な支援金額セクションまたは会員セクションまたは価格セットがありません。サイト管理者に連絡して確認してください。"
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"This contribution page has been configured for contribution on behalf of "
-"honoree and the selected honoree profile is either disabled or not found."
-msgstr "This contribution page has been configured for contribution on behalf of honoree and the selected honoree profile is either disabled or not found."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"This contribution page has been configured for contribution on behalf of "
-"honoree and the required fields of the selected honoree profile are disabled"
-" or doesn't exist."
-msgstr "This contribution page has been configured for contribution on behalf of honoree and the required fields of the selected honoree profile are disabled or doesn't exist."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"This contribution page has been configured for contribution on behalf of an "
-"organization and the selected onbehalf profile is either disabled or not "
-"found."
-msgstr "この支援ページは団体代理の支援ページとして設定されましたが、選択された団体代理プロファイルは無効、または存在しません。"
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "Mixed profile not allowed for on behalf of registration/sign up."
-msgstr "混成プロファイルは代理での登録 / 加入には使えません。"
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "Select an existing organization"
-msgstr "登録済みの団体を選択"
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "Enter a new organization"
-msgstr "新しい団体を入力"
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "options"
-msgstr "設定"
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid ""
@@ -1801,6 +1794,23 @@ msgstr "不正または不完全なリンク (URL) の可能性があります�
 #: CRM/Contribute/Form/ContributionBase.php
 msgid "Oops. You cannot make a payment for this pledge - pledge status is %1."
 msgstr "このプレッジに支払いができません - プレッジのステータスは %1 です。"
+
+#: CRM/Contribute/Form/ContributionBase.php
+msgid ""
+"This page includes a Profile with Membership fields - but the Membership "
+"Block is NOT enabled. Please notify the site administrator."
+msgstr "このページには会員フィールドを持つプロファイルが挿入されています。しかし会員ブロックが有効にされていません。サイト管理者にお問い合わせください。"
+
+#: CRM/Contribute/Form/ContributionBase.php
+msgid ""
+"Oops. The membership you're trying to renew appears to be invalid. Contact "
+"your site administrator if you need assistance. If you continue, you will be"
+" issued a new membership."
+msgstr "Oops. The membership you're trying to renew appears to be invalid. Contact your site administrator if you need assistance. If you continue, you will be issued a new membership."
+
+#: CRM/Contribute/Form/ContributionBase.php
+msgid "Membership Invalid"
+msgstr "会員の無効"
 
 #: CRM/Contribute/Form/ContributionCharts.php
 msgid "Chart Style"
@@ -1843,6 +1853,7 @@ msgid "Add Premium to Contribution Page"
 msgstr "支援ページにプレミアムを追加"
 
 #: CRM/Contribute/Form/ContributionPage/Amount.php
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
 msgid "Allow other amounts"
 msgstr "他の額を認める"
 
@@ -1855,6 +1866,7 @@ msgid "Contribution Amounts section enabled"
 msgstr "支援金額セクションを有効"
 
 #: CRM/Contribute/Form/ContributionPage/Amount.php
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
 msgid "Execute real-time monetary transactions"
 msgstr "リアルタイム送金を実行"
 
@@ -1963,12 +1975,6 @@ msgid ""
 "payment option has been selected. Please select at least one payment "
 "processor and/or enable the pay later option."
 msgstr "You have listed fixed contribution options or selected a price set, but no payment option has been selected. Please select at least one payment processor and/or enable the pay later option."
-
-#: CRM/Contribute/Form/ContributionPage/Amount.php
-msgid ""
-"You cannot enable both a Contribution Price Set and Membership Signup on the"
-" same online contribution page."
-msgstr "同じオンライン支援のページで支援の価格セットと会員登録の両方を有効にすることはできません。"
 
 #: CRM/Contribute/Form/ContributionPage/Amount.php
 msgid "At least one recurring frequency option needs to be checked."
@@ -2090,6 +2096,7 @@ msgid "Organization Profile"
 msgstr "団体プロファイル"
 
 #: CRM/Contribute/Form/ContributionPage/Settings.php
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid "On behalf of Label"
 msgstr "名義ラベル"
 
@@ -2110,6 +2117,7 @@ msgid "Honoree Section Title"
 msgstr "受賞者セクションタイトル"
 
 #: CRM/Contribute/Form/ContributionPage/Settings.php
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid "Honoree Introductory Message"
 msgstr "受賞者紹介メッセージ"
 
@@ -2128,10 +2136,6 @@ msgstr "表情セクションが有効な場合は、少なくとも 1 つの値
 #: CRM/Contribute/Form/ContributionPage/Settings.php
 msgid "Please select a profile used for honoree"
 msgstr "受賞者のために使用するプロファイルを選択してください"
-
-#: CRM/Contribute/Form/ContributionPage/Settings.php
-msgid "Please do not use '/' in Title"
-msgstr "タイトルに '/' は使えません"
 
 #: CRM/Contribute/Form/ContributionPage/Settings.php
 msgid ""
@@ -2509,11 +2513,12 @@ msgid "From Email Address is required"
 msgstr "必要な差出人メールアドレス"
 
 #: CRM/Contribute/Form/Task/Invoice.php
-msgid ""
-"If you would like to add personal message to email please add it here. (If "
-"sending to more then one receipient the same message will be sent to each "
-"contact.)"
-msgstr "メールに個人的なメッセージ (受信者に送信する場合は、同じメッセージが各連絡先に送信されます。) 追加したい場合は、ここに追加してください。"
+msgid "Replace Subject"
+msgstr ""
+
+#: CRM/Contribute/Form/Task/Invoice.php
+msgid "Additional Message"
+msgstr ""
 
 #: CRM/Contribute/Form/Task/Invoice.php
 msgid "Process Invoice(s)"
@@ -2556,6 +2561,10 @@ msgstr "Override privacy setting? (Do not email / Do not mail)"
 #: CRM/Contribute/Form/Task/PDF.php
 msgid "Process Receipt(s)"
 msgstr "受領書の処理"
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "From Email Address"
+msgstr ""
 
 #: CRM/Contribute/Form/Task/PDFLetter.php
 msgid "Thank-you Letter Options"
@@ -2746,6 +2755,10 @@ msgid "Update Error"
 msgstr "更新エラー"
 
 #: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Update Recurring Contribution"
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Recurring Contribution Amount"
 msgstr "定期的な支援の額"
 
@@ -2794,10 +2807,6 @@ msgstr "新しい支援を挿入"
 #: CRM/Contribute/Import/Form/DataSource.php
 msgid "Update existing contributions"
 msgstr "既存の支援を更新"
-
-#: CRM/Contribute/Import/Form/DataSource.php
-msgid "Load Mapping"
-msgstr "マッピングをロード"
 
 #: CRM/Contribute/Import/Form/MapField.php
 msgid "(match to contribution record)"
@@ -3136,9 +3145,22 @@ msgstr "Thank-you letter - print or email"
 msgid "Invoices - print or email"
 msgstr "Invoices - print or email"
 
+#: CRM/Contribute/Tokens.php
+msgid "Billing Address Name"
+msgstr ""
+
+#: CRM/Contribute/Tokens.php templates/CRM/Contribute/Form/Contribution.tpl
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+msgid "Billing Address"
+msgstr "請求先住所"
+
 #: CRM/Contribute/WorkflowMessage/Contribution/BasicContribution.php
 msgid "Completed Contribution"
 msgstr "Completed Contribution"
+
+#: CRM/Contribute/WorkflowMessage/Contribution/BasicContribution.php
+msgid "Partially Paid Contribution"
+msgstr ""
 
 #: CRM/Contribute/WorkflowMessage/Contribution/BasicContribution.php
 msgid "Refunded Contribution"
@@ -3151,6 +3173,18 @@ msgstr "Recurring Edit: Alex, Cancelled"
 #: CRM/Contribute/WorkflowMessage/RecurringEdit/BarbPending.php
 msgid "Recurring Edit: Barbara, Pending"
 msgstr "Recurring Edit: Barbara, Pending"
+
+#: ext/civi_contribute/Civi/Api4/Service/Spec/Provider/ContributionGetSpecProvider.php
+msgid "Amount paid"
+msgstr ""
+
+#: ext/civi_contribute/Civi/Api4/Service/Spec/Provider/ContributionGetSpecProvider.php
+msgid "Tax Exclusive Amount"
+msgstr ""
+
+#: ext/civi_contribute/Civi/Api4/Service/Spec/Provider/FinancialTrxnCreationSpecProvider.php
+msgid "Related entity (eg. contribution) id"
+msgstr ""
 
 #: templates/CRM/Contribute/Form/AcceptCreditCard.tpl
 msgid "New Credit Card"
@@ -3181,27 +3215,6 @@ msgid ""
 "The name for this credit card type as it is displayed to contributors. This "
 "may be the same value as the Name above, or a localised title."
 msgstr "支援者に表示するクレジットカードタイプの名前になります。上の名前、または翻訳したタイトルと同じでもかまいません。"
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-msgid "Non-deductible portion of this contribution."
-msgstr "この支援の非控除部分になります。"
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-#: templates/CRM/Contribute/Form/AdditionalPayment.tpl
-msgid "Processing fee for this transaction (if applicable)."
-msgstr "この取引の処理料金 (該当する場合)"
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-msgid "Unique internal reference ID for this contribution."
-msgstr "この支援に固有の内部的な参照ID"
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-msgid "Unique internal Credit Note ID for this contribution."
-msgstr "この支援での固有な内部クレジットの備考ID。"
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-msgid "Date that a thank-you message was sent to the contributor."
-msgstr "支援者に感謝メッセージを送信した日付"
 
 #: templates/CRM/Contribute/Form/AdditionalInfo/PaymentReminders.tpl
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
@@ -3259,7 +3272,6 @@ msgstr "自動的に %1 の受領書をメールで送信しますか？"
 
 #: templates/CRM/Contribute/Form/AdditionalPayment.tpl
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Refund Details"
 msgstr "払い戻しの詳細"
 
@@ -3267,13 +3279,8 @@ msgstr "払い戻しの詳細"
 #: templates/CRM/Contribute/Form/Contribution.tpl
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Payment Details"
 msgstr "支払いの詳細"
-
-#: templates/CRM/Contribute/Form/AdditionalPayment.tpl
-msgid "The date this payment was received."
-msgstr "この支払いを受信した日付"
 
 #: templates/CRM/Contribute/Form/AdditionalPayment.tpl
 msgid ""
@@ -3374,18 +3381,6 @@ msgid ""
 "time by logging in to your account or contacting us at %1."
 msgstr "下の &quot;%2&quot; をクリックすれば、最初のプレッジ支払いが処理されます。自分のアカウントにログインするか、 %1 に連絡すれば、いつでも将来のプレッジ支払いを修正またはキャンセルできます。"
 
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Your transaction will not be completed until you click the "
-"<strong>%1</strong> button. Please click the button one time only."
-msgstr "<strong>%1</strong>ボタンをクリックするまで、取引処理は完了しません。ボタンは 1 回だけクリックしてください。"
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Your contribution will not be completed until you click the "
-"<strong>%1</strong> button. Please click the button one time only."
-msgstr "<strong>%1</strong>ボタンをクリックするまで、支援は完了しません。ボタンは 1 回だけクリックしてください。"
-
 #: templates/CRM/Contribute/Form/Contribution/Main.tpl
 msgid "Configure Contribution Page"
 msgstr "Configure Contribution Page"
@@ -3408,7 +3403,6 @@ msgstr "あなたは、更新する必要はありません、現在有効な会
 #: xml/templates/message_templates/contribution_offline_receipt_html.tpl
 #: xml/templates/message_templates/contribution_offline_receipt_text.tpl
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
 msgid "Contribution Information"
 msgstr "支援の情報"
 
@@ -3429,19 +3423,23 @@ msgstr "受賞者の情報フィールドを明らかにするためのオプシ
 msgid "Regular Amount"
 msgstr "Regular Amount"
 
-#: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
+#: templates/CRM/Contribute/Form/Contribution/MainMembershipBlock.tpl
 msgid "Your <strong>%2</strong> membership expired on %1."
 msgstr "あなたの <strong>%2</strong> 会員は %1 に期限切れで失効しました。"
 
-#: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
+#: templates/CRM/Contribute/Form/Contribution/MainMembershipBlock.tpl
 msgid "Your <strong>%2</strong> membership expires on %1."
 msgstr "あなたの <strong>%2</strong> 会員は %1 に期限切れで失効します。"
 
-#: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
+#: templates/CRM/Contribute/Form/Contribution/MainMembershipBlock.tpl
 msgid ""
 "Your <strong>%1</strong> membership does not expire (you do not need to "
 "renew that membership)."
 msgstr "<strong>%1</strong>の会員はまだ有効期間内です (この会員を更新する必要はありません)。"
+
+#: templates/CRM/Contribute/Form/Contribution/MainMembershipBlock.tpl
+msgid "(contribute at least %1 to be eligible for this membership)"
+msgstr "(この会員には、最低 %1 の支援が必要です)"
 
 #: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
 msgid "Select a Membership Renewal Level"
@@ -3450,10 +3448,6 @@ msgstr "会員の更新レベルを選択"
 #: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
 msgid "Select a Membership Level"
 msgstr "会員のレベルを選択"
-
-#: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
-msgid "(contribute at least %1 to be eligible for this membership)"
-msgstr "(この会員には、最低 %1 の支援が必要です)"
 
 #: templates/CRM/Contribute/Form/Contribution/PremiumBlock.tpl
 msgid "Your Premium Selection"
@@ -3493,6 +3487,20 @@ msgid ""
 "card number, security code, postal code, etc."
 msgstr "このページは現在<strong>テストドライブモード</strong>で実行しています。取引内容は支払いプロセッサのテストサーバに送られます。<strong>実際の取引は発生しません。ただし、連絡先レコードは作成または更新され、テスト支援のレコードはデータベースに残ります。明らかにテストの支援とわかる名前をつけて、必要があれば削除できるようにしておいてください。テスト支援は支援タブには表示されませんが、CiviContribute 検索フォームから「テスト支援」を検索することで閲覧できます。</strong> テスト用のクレジットカード番号、セキュリティコード、郵便番号などの値については、使用する支払いプロセッサのドキュメントを参照してください。"
 
+#: templates/CRM/Contribute/Form/Contribution/PreviewHeader.tpl
+msgid "Test payment processor on Your Contribution Page"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/Contribution/PreviewHeader.tpl
+msgid ""
+"This page is currently configured to use the <strong>%1 payment "
+"processor</strong>. <strong>No live financial transactions will be submitted"
+" if %1 payment processor is selected. However, a contact record will be "
+"created or updated and a live contribution record will be saved to the "
+"database with no actual financial transaction. Remove %1 payment processor "
+"before going live.</strong>"
+msgstr ""
+
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
 "An email confirmation with these payment instructions has been sent to %1 "
@@ -3531,6 +3539,10 @@ msgstr "受領書メールを %1 と %2 に送信しました。"
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid "An email receipt has also been sent to %1"
 msgstr "受領書メールを %1 にも送信しました。"
+
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+msgid "Membership Transaction #"
+msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid "This membership will be renewed automatically every %1."
@@ -3693,10 +3705,6 @@ msgid ""
 msgstr "キャンセルまたは払い戻しの日付を入力してください。または、このフィールドをスキップすると、このフィールドとキャンセル日または払い戻し日が自動的に今日へ設定されます。"
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
-msgid "The date this contribution was received."
-msgstr "この日に支援を受信しました。"
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
 msgid "Automatically email a receipt for this payment to %1?"
 msgstr "%1 に、この支払いの受領書をメールで自動送信しますか？"
 
@@ -3705,30 +3713,10 @@ msgid "Automatically email a receipt for this payment to "
 msgstr "この支払いの受領書をメールで自動送信"
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
-msgid "Date that a receipt was sent to the contributor."
-msgstr "受領書を支援者に送信した日付"
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
 msgid ""
 "Search for the Personal Campaign Page by the fund-raiser's last name or "
 "email address."
 msgstr "資金を集めている人のラストネームかメールアドレスを使って個人キャンペーンページを検索。"
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-msgid ""
-"Name or nickname contributor wants to be displayed in the Honor Roll. Enter "
-"\"Anonymous\" for anonymous contributions."
-msgstr "表彰ロールに表示する氏名またはニックネーム。匿名の支援には「匿名」を入力してください。"
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-msgid ""
-"Personal message submitted by contributor for display in the Honor Roll."
-msgstr "表彰ロールに表示するため、支援者が送信した個人メッセージになります。"
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "Billing Address"
-msgstr "請求先住所"
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
 msgid ""
@@ -3816,6 +3804,53 @@ msgid ""
 "Page."
 msgstr "支援に表示されるプレミアムの順番を決める優先度になります。"
 
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Uncheck this box if you are using this contribution page for free membership"
+" signup ONLY, or to solicit in-kind / non-monetary donations such as "
+"furniture, equipment.. etc."
+msgstr "無料会員申し込みや、現物支援、非金銭的支援だけにこの支援ページを使う場合、このボックスのチェックをはずしてください。"
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Instructions added to Confirmation and Thank-you pages, as well as the "
+"confirmation email, when the user selects the 'pay later' option (e.g. 'Mail"
+" your check to ... within 3 business days.')."
+msgstr "「後払い」オプションが選択されたときの確認と感謝のページと確認メールに追加される説明 (例 : 小切手を 3 営業日以内に...) になります。"
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Uncheck this box if you are using this contribution page for membership "
+"signup and renewal only &ndash; and you do NOT want users to select or enter"
+" any additional contribution amounts."
+msgstr "Uncheck this box if you are using this contribution page for membership signup and renewal only &ndash; and you do NOT want users to select or enter any additional contribution amounts."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Check this box if you want to give users the option to make recurring "
+"contributions. This feature requires that you use a payment processor which "
+"supports recurring billing / subscriptions functionality."
+msgstr "定期的な支援のオプションを利用させる場合、このボックスをチェックします。この機能は、定期的な課金 / 加入の機能を持つ支払いプロセッサが必要です。"
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Check this box if you want to give users the option to make a Pledge (a "
+"commitment to contribute a fixed amount on a recurring basis)."
+msgstr "プレッジでの支払い (一定の金額を定期的に分割して支援する) を選べるようにしたい場合、このボックスをチェックしてください。"
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Check this box if you want to give users the option to enter their own "
+"contribution amount. Your page will then include a text field labeled "
+"<strong>Other Amount</strong>."
+msgstr "自分で支援金額を決定してもらう場合は、このボックスをチェックしてください。<strong>その他の金額</strong>のラベルのついたテキストフィールドが追加されます。"
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"You can also set minimum and maximum amounts that users are allowed to "
+"enter."
+msgstr ""
+
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 #: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
 msgid ""
@@ -3839,64 +3874,9 @@ msgstr "このサイトでは支払いプロセッサが設定または有効に
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid ""
-"Uncheck this box if you are using this contribution page for free membership"
-" signup ONLY, or to solicit in-kind / non-monetary donations such as "
-"furniture, equipment.. etc."
-msgstr "無料会員申し込みや、現物支援、非金銭的支援だけにこの支援ページを使う場合、このボックスのチェックをはずしてください。"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Select the currency to be used for contributions submitted from this "
-"contribution page."
-msgstr "この支援ページで実行された支援に使用する通貨を選択してください。"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Select the payment processor to be used for contributions submitted from "
-"this contribution page (unless you are soliciting non-monetary / in-kind "
-"contributions only)."
-msgstr "この支援ページから申し込むときに使う支払いプロセッサ (非金銭的支援 / 現物支援以外の支援に限る) を選択してください。"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Instructions added to Confirmation and Thank-you pages, as well as the "
-"confirmation email, when the user selects the 'pay later' option (e.g. 'Mail"
-" your check to ... within 3 business days.')."
-msgstr "「後払い」オプションが選択されたときの確認と感謝のページと確認メールに追加される説明 (例 : 小切手を 3 営業日以内に...) になります。"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Uncheck this box if you are using this contribution page for membership "
-"signup and renewal only &ndash; and you do NOT want users to select or enter"
-" any additional contribution amounts."
-msgstr "Uncheck this box if you are using this contribution page for membership signup and renewal only &ndash; and you do NOT want users to select or enter any additional contribution amounts."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Select a pre-configured Price Set to offer multiple individually priced "
-"options for contributions. Otherwise, select &quot;-none-&quot; and enter "
-"one or more fixed contribution options in the table below. Create or edit "
-"Price Sets <a href='%1'>here</a>."
-msgstr "複数の支援に対して個別に料金が設定された事前に設定済の価格セットまたは&quot;-なし-&quot;を選択してください。続いて以下のテーブルにある固定支援のオプションを選択します。<a href='%1'>価格セットの作成と編集</a>を行うこともできます。"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"No Contribution Price Sets have been configured / enabled for your site. "
-"Price sets allow you to configure more complex contribution options (e.g. "
-"\"Contribute $25 more to receive our monthly magazine.\"). Click <a "
-"href='%1'>here</a> if you want to configure price sets for your site."
-msgstr "支援の価格セットが設定されていないか、有効になっていません。価格セットでは、さらに複雑な支援オプション (例 : 「￥2500 の追加で月刊誌送付」など) を設定することできます。必要であれば、<a href='%1'>価格セットを設定</a>してください。"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Check this box if you want to give users the option to make recurring "
-"contributions. This feature requires that you use a payment processor which "
-"supports recurring billing / subscriptions functionality."
-msgstr "定期的な支援のオプションを利用させる場合、このボックスをチェックします。この機能は、定期的な課金 / 加入の機能を持つ支払いプロセッサが必要です。"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid "Select recurring units supported for recurring payments."
-msgstr "定期的な支払いで利用できる定期の単位を選択してください。"
+"Select a Price Set to offer more complex amount options. Otherwise, leave "
+"this empty and enter fixed contribution options below."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid "Can users also set an interval (e.g. every '3' months)?"
@@ -3909,40 +3889,8 @@ msgid ""
 msgstr "ユーザに分割払い (例 : 6ヶ月間、毎月寄付) の選択を許可しますか？しない場合は、定期的な寄付金は無期限で継続されます。"
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Recurring payment will be processed this day of the month following "
-"submission of this contribution page."
-msgstr "Recurring payment will be processed this day of the month following submission of this contribution page."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Check this box if you want to give users the option to make a Pledge (a "
-"commitment to contribute a fixed amount on a recurring basis)."
-msgstr "プレッジでの支払い (一定の金額を定期的に分割して支援する) を選べるようにしたい場合、このボックスをチェックしてください。"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Which frequencies can the user pick from (e.g. every 'week', every 'month', "
-"every 'year')?"
-msgstr "ユーザが選択可能な頻度 (例 : 週、月、年) はどれにしますか？"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid "Can they also set an interval (e.g. every '3' months)?"
 msgstr "間隔 (例 : 3ヵ月ごと) を設定できるようにしますか？"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Check this box if you want to give users the option to enter their own "
-"contribution amount. Your page will then include a text field labeled "
-"<strong>Other Amount</strong>."
-msgstr "自分で支援金額を決定してもらう場合は、このボックスをチェックしてください。<strong>その他の金額</strong>のラベルのついたテキストフィールドが追加されます。"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"If you have chosen to <strong>Allow Other Amounts</strong>, you can use the "
-"fields above to control minimum and/or maximum acceptable values (e.g. don't"
-" allow contribution amounts less than %1)."
-msgstr "<strong>その他の金額を許可</strong>を選択した場合は、上のフィールドで上限と下限の (例 : %1 より少ない支援は辞退とさせて頂きます) 金額を設定してください。"
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid "Fixed Contribution Options"
@@ -4045,10 +3993,6 @@ msgid ""
 "introductory message, amounts, and honoree section)."
 msgstr "上記の課金情報含まれる (導入メッセージ、金額、および受賞者セクション) プロファイル"
 
-#: templates/CRM/Contribute/Form/ContributionPage/Custom.tpl
-msgid "Profile to be included at the bottom of the page."
-msgstr "プロファイルページの下部に含まれます。"
-
 #: templates/CRM/Contribute/Form/ContributionPage/Delete.tpl
 msgid ""
 "You cannot delete this Contribution Page because it has already been used to"
@@ -4098,10 +4042,6 @@ msgid ""
 "Then select and review the premiums that you want to offer on this "
 "contribution page."
 msgstr "そして、この支援ページで表示させるプレミアムを選び、レビューしてください。"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
-msgid "Is the Premiums section enabled for this Online Contributions page?"
-msgstr "このオンライン支援ページでプレミアムセクションを使用しますか？"
 
 #: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
 msgid "Premiums Settings"
@@ -4169,6 +4109,10 @@ msgid ""
 msgstr "注意 : この支援ページを会員の登録や更新に使用する場合は、会員の支払いレコードには会員タイプの設定で指定した金融タイプが使われます。ここで選択した金融タイプは (会員の設定ページで設定した) 追加の支援を集めたい時にのみ使われます。"
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid "Text displayed next to the checkbox on the contribution form."
+msgstr "支援フォームのチェックボックス横に表示するテキスト。"
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid "Intro Content"
 msgstr "イントロの内容"
 
@@ -4222,6 +4166,22 @@ msgid ""
 "included in the form. Honoree information is automatically saved and linked "
 "with the contribution record."
 msgstr "支援者がギフト付きの受賞者を指定することを許可する場合は、このボックスをチェックしてください。オプションの受賞者セクションがフォームに追加されます。受賞者情報は自動的に保存され、また自動的に支援レコードにリンクされます。"
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid ""
+"Optional explanatory text for the Honoree section (displayed above the "
+"Honoree fields)."
+msgstr "受賞者セクション (受賞者フィールドの先頭に表示) に表示する追加の説明文。"
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid "Use a Confirmation Page?"
+msgstr ""
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid ""
+"If you disable this contributions will be processed immediately after "
+"submitting the contribution form."
+msgstr "この支援を無効にすると、支援フォームが送信されるとすぐに処理されるようになります。"
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid ""
@@ -4283,59 +4243,9 @@ msgstr "このフォームを使ってこのオンライン支援ページのペ
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
-"This title will be displayed at the top of the page unless the frontend "
-"title field is filled out.<br />Please use only alphanumeric, spaces, "
-"hyphens and dashes for Title."
-msgstr "This title will be displayed at the top of the page unless the frontend title field is filled out.<br />Please use only alphanumeric, spaces, hyphens and dashes for Title."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"This title will be displayed at the top of the page.<br />Please use only "
-"alphanumeric, spaces, hyphens and dashes for Title."
-msgstr "このタイトルがページの先頭に表示されます。<br />タイトルには文字、数字、空白、ハイフン、ダッシュ以外の文字は使えません。"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"Select the corresponding financial type for contributions made using this "
-"page."
-msgstr "このページを使用して支援に対応する金融タイプを選択してください。"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"To change the organization data collected use the \"On Behalf Of "
-"Organization\" profile (<a href=\"%1\">Administer > Customize Data and "
-"Screens > Profiles</a>)."
-msgstr "集めた団体データを変更するには、「団体代理」プロファイル (<a href=\"%1\">管理 > カスタムと画面 > プロファイル</a>) を使います。"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid "Text displayed next to the checkbox on the contribution form."
-msgstr "支援フォームのチェックボックス横に表示するテキスト。"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
 "Check 'Required' to force ALL users to contribute/signup on behalf of an "
 "organization."
 msgstr "すべてのユーザを団体名義で支援 / 加入させる場合は「必須」をチェックしてください。"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid "Title for the Honoree section (e.g. &quot;Honoree Information&quot;)."
-msgstr "受賞者セクションのタイトル (例 :  &quot;受賞者情報&quot;)。"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"Optional explanatory text for the Honoree section (displayed above the "
-"Honoree fields)."
-msgstr "受賞者セクション (受賞者フィールドの先頭に表示) に表示する追加の説明文。"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid "Profile to be included in the honoree section"
-msgstr "受賞者セクションに含まれるプロファイル"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"If you disable this contributions will be processed immediately after "
-"submitting the contribution form."
-msgstr "この支援を無効にすると、支援フォームが送信されるとすぐに処理されるようになります。"
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
@@ -4628,13 +4538,6 @@ msgid ""
 msgstr "CiviContribute widgets allow you and your supporters to easily promote this fund-raising campaign. Widget code can be added to any web page.  It will provide a real-time display of current contribution results and a direct link to this contribution page."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Widget.tpl
-msgid ""
-"Enter content for the about message. You may include HTML formatting tags. "
-"You can also include images, as long as they are already uploaded to a "
-"server&mdash;reference them using complete URLs."
-msgstr "Enter content for the about message. You may include HTML formatting tags. You can also include images, as long as they are already uploaded to a server&mdash;reference them using complete URLs."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Widget.tpl
 msgid "Preview Widget and Get Code"
 msgstr "ウィジェットのプレビューとコードの取得"
 
@@ -4858,24 +4761,6 @@ msgstr "このオプションをチェックすると、あなたの募金ペー
 msgid "No payments found for this %1 record"
 msgstr "No payments found for this %1 record"
 
-#: templates/CRM/Contribute/Form/PaymentInstrument.tpl
-msgid "New Payment Method"
-msgstr "新しい支払方法"
-
-#: templates/CRM/Contribute/Form/PaymentInstrument.tpl
-msgid "Edit Payment Method"
-msgstr "支払方法の編集"
-
-#: templates/CRM/Contribute/Form/PaymentInstrument.tpl
-msgid "Delete Payment Method"
-msgstr "Delete Payment Method"
-
-#: templates/CRM/Contribute/Form/PaymentInstrument.tpl
-msgid ""
-"WARNING: Deleting this option will result in the loss of all contribution "
-"records which use this option."
-msgstr "警告: このオプションを削除すると、このオプションを使用している支援レコードがすべて失われます。"
-
 #: templates/CRM/Contribute/Form/Search/EmptyResults.tpl
 msgid "if you are searching by contributor name, check your spelling"
 msgstr "支援者の名前を探しているのであれば、スペルをチェックしてください。"
@@ -4883,10 +4768,6 @@ msgstr "支援者の名前を探しているのであれば、スペルをチェ
 #: templates/CRM/Contribute/Form/SearchContribution.tpl
 msgid "Find Contribution Pages"
 msgstr "支援ページを検索"
-
-#: templates/CRM/Contribute/Form/SearchContribution.tpl
-msgid "Complete OR partial Contribution Page title."
-msgstr "完全または部分的な支援ページのタイトル。"
 
 #: templates/CRM/Contribute/Form/Selector.tpl
 msgid "(Recurring Template)"
@@ -4948,6 +4829,12 @@ msgid ""
 " option cautiously unless you have a template format that has been tested "
 "with different web and desktop email programs."
 msgstr "HTML messages have more visual impact, allow you to include images, and may be more readable if you are including links to website pages. However, different email programs may interpret HTML formats differently, so use this option cautiously unless you have a template format that has been tested with different web and desktop email programs."
+
+#: templates/CRM/Contribute/Form/Task/Invoice.hlp
+msgid ""
+"You can add a message that will appear at the top of the invoice email. This"
+" message will be the same for all recipients."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/Task/Invoice.tpl
 msgid ""
@@ -5026,6 +4913,10 @@ msgid ""
 "unchecked when you don't want to send an e-mail."
 msgstr "When checked CiviCRM will send an e-mail receipt to the donor. Leave unchecked when you don't want to send an e-mail."
 
+#: templates/CRM/Contribute/Form/Task/Status.tpl
+msgid "Check"
+msgstr ""
+
 #: templates/CRM/Contribute/Form/Task.tpl
 msgid "Number of selected contributions: %1"
 msgstr "選択された支援の数 : %1"
@@ -5047,52 +4938,8 @@ msgid ""
 msgstr "To change the amount you need to edit the template contribution. Click on \"View Template\" and then \"Edit\" from the list of recurring contributions"
 
 #: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid "Contact Records for Contributors"
-msgstr "支援者の連絡先レコード"
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"Contribution import requires that the Contributors already exist as contact "
-"records in your CiviCRM database. If you need to import contributions for "
-"contributors who haven't been added to CiviCRM yet, you will do this in 2 "
-"steps. First, use <strong>Import Contacts</strong> to add the contact "
-"records. If possible, include a unique 'External ID' for each new contact "
-"which you can then use to match contributions to contributors. Then return "
-"to this screen and import the contribution records."
-msgstr "Contribution import requires that the Contributors already exist as contact records in your CiviCRM database. If you need to import contributions for contributors who haven't been added to CiviCRM yet, you will do this in 2 steps. First, use <strong>Import Contacts</strong> to add the contact records. If possible, include a unique 'External ID' for each new contact which you can then use to match contributions to contributors. Then return to this screen and import the contribution records."
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid "Matching Contributions to Contributors"
-msgstr "支援を支援者と照合"
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"Contribution import files must contain data needed to <strong>match the "
-"contribution to the contributor</strong>. This 'matching' can be handled in "
-"several different ways:"
-msgstr "支援のインポートファイルには<strong>支援と支援者のマッチ</strong>のデータが必要になります。この「照合」は次のいくつかの方法で行われます :"
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"If you've stored a unique <strong>External Identifier</strong> for each "
-"contact in CiviCRM, you can include that value as a column in your import "
-"file. Contributions will then be matched to contributors using their "
-"External ID."
-msgstr "もし CiviCRM の連絡先に固有の<strong>外部識別子</strong> を保存しているのであれば、その値をインポートファイルのカラムの値にすることができます。この場合、支援はこの外部ID を使って支援者とマッチングします。"
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"You can include a column with each contributor's <strong>Internal Contact "
-"ID</strong>. This is the unique ID assigned by CiviCRM which is displayed at"
-" the bottom of the Contact Summary screen and can be exported."
-msgstr "You can include a column with each contributor's <strong>Internal Contact ID</strong>. This is the unique ID assigned by CiviCRM which is displayed at the bottom of the Contact Summary screen and can be exported."
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"Save the CSV file with your contributions and 'contact matching' data to "
-"your local hard drive (or an accessible drive on your network).  Now you are"
-" ready for step 1 (Upload Data)."
-msgstr "Save the CSV file with your contributions and 'contact matching' data to your local hard drive (or an accessible drive on your network).  Now you are ready for step 1 (Upload Data)."
+msgid "Matching to Contributions for Inserts and Updates"
+msgstr ""
 
 #: templates/CRM/Contribute/Import/Form/DataSource.hlp
 msgid ""
@@ -5120,17 +4967,12 @@ msgid ""
 msgstr "If you are UPDATING existing contributions, you will need to include a unique identifier to match to the existing contribution record. This can be either the CiviCRM-assigned contribution ID, a unique Invoice ID, or a unique Transaction ID."
 
 #: templates/CRM/Contribute/Import/Form/Preview.tpl
-msgid ""
-"CiviCRM has detected invalid data or formatting errors in %1 records. If you"
-" continue, these records will be skipped.  You can download a file with just"
-" these problem records: <a href='%2'>Download Errors</a>.  If you wish, you "
-"can then correct them in the original import file, cancel this import, and "
-"begin again at step 1."
-msgstr "CiviCRM has detected invalid data or formatting errors in %1 records. If you continue, these records will be skipped.  You can download a file with just these problem records: <a href='%2'>Download Errors</a>.  If you wish, you can then correct them in the original import file, cancel this import, and begin again at step 1."
-
-#: templates/CRM/Contribute/Import/Form/Preview.tpl
 msgid "Total rows (contribution records) in uploaded file."
 msgstr "アップロードファイル内の行合計 (支援レコード)"
+
+#: templates/CRM/Contribute/Import/Form/Preview.tpl
+msgid "See rows"
+msgstr ""
 
 #: templates/CRM/Contribute/Page/ContributionPage.hlp
 #: templates/CRM/Contribute/Page/ContributionPage.tpl
@@ -5213,6 +5055,14 @@ msgstr "Send receipt for each contribution?"
 #: templates/CRM/Contribute/Page/ContributionRecurPayments.tpl
 msgid "No contributions have been recorded for this recurring contribution."
 msgstr "No contributions have been recorded for this recurring contribution."
+
+#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
+msgid "Next Scheduled Date"
+msgstr ""
+
+#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
+msgid "End or Modified Date"
+msgstr ""
 
 #: templates/CRM/Contribute/Page/ContributionSoft.tpl
 msgid "Personal Campaign Page?"
@@ -5507,10 +5357,6 @@ msgid "Inactive Recurring Contributions"
 msgstr "Inactive Recurring Contributions"
 
 #: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Received date"
-msgstr "受信日"
-
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
 msgid "(Recurring Contribution)"
 msgstr "(定期的な支援)"
 
@@ -5709,12 +5555,15 @@ msgstr "税引前額 : "
 msgid "Contribution Receipt"
 msgstr "支援の受領書"
 
+#: xml/templates/message_templates/contribution_offline_receipt_text.tpl
+msgid "Amount before Tax"
+msgstr ""
+
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
 msgid "Total Tax"
 msgstr "税合計"
 
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
 msgid "This is a recurring contribution."
 msgstr "This is a recurring contribution."
 
@@ -5739,20 +5588,6 @@ msgid ""
 "installments for this recurring contribution by <a href=\"%1\">visiting this"
 " web page</a>."
 msgstr "定期的な支援の金額や支援回数は<a href=\"%1\">このウェブページ</a>で更新することができます。"
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid "You can cancel future contributions at:"
-msgstr "You can cancel future contributions at:"
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid "You can update billing details for this recurring contribution at:"
-msgstr "定期的な支援についての課金の詳細は次のページで更新することができます :"
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid ""
-"You can update recurring contribution amount or change the number of "
-"installments for this recurring contribution at:"
-msgstr "定期的な支援の金額や支援回数は次のページで更新することができます : "
 
 #: xml/templates/message_templates/contribution_recurring_billing_html.tpl
 #: xml/templates/message_templates/contribution_recurring_billing_text.tpl
@@ -5878,13 +5713,11 @@ msgid ""
 msgstr "定期的な支援オプションは<a href=\"%1\">このウェブページ</a>でキャンセルすることができます。"
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid ""
 "A refund has been issued based on changes in your registration selections."
 msgstr "A refund has been issued based on changes in your registration selections."
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Below you will find a receipt for this payment."
 msgstr "Below you will find a receipt for this payment."
 
@@ -5893,28 +5726,20 @@ msgid "Thank you for completing this contribution."
 msgstr "Thank you for completing this contribution."
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "This Refund Amount"
 msgstr "This Refund Amount"
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "This Payment Amount"
 msgstr "This Payment Amount"
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Contribution Details"
 msgstr "Contribution Details"
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Total Fee"
 msgstr "Total Fee"
-
-#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-msgid "Expires:"
-msgstr "Expires:"
 
 #: xml/templates/message_templates/payment_or_refund_notification_subject.tpl
 msgid "Refund Notification"
@@ -5923,10 +5748,6 @@ msgstr "Refund Notification"
 #: xml/templates/message_templates/payment_or_refund_notification_subject.tpl
 msgid "Payment Receipt"
 msgstr "Payment Receipt"
-
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
-msgid "Thank you for completing this payment."
-msgstr "Thank you for completing this payment."
 
 #: xml/templates/message_templates/test_preview_html.tpl
 #: xml/templates/message_templates/test_preview_text.tpl
@@ -5939,76 +5760,9 @@ msgid ""
 "This is a test-drive email. No live financial transaction has occurred."
 msgstr "これはテスト用のメールです。実際の金銭取引は発生しません。"
 
-#: CRM/Contribute/DAO/ContributionPage.php
-msgid "Page Name"
-msgstr ""
-
-#: CRM/Contribute/DAO/ContributionPage.php
-msgid "Unique Name"
-msgstr ""
-
-#: CRM/Contribute/DAO/ContributionPage.php
-msgid "Unique name for identifying contribution page"
-msgstr ""
-
-#: CRM/Contribute/Form/AdditionalPayment.php
-msgid "Submit Payment"
-msgstr ""
-
-#: CRM/Contribute/Form/Contribution.php
+#: templates/CRM/Contribute/Form/Task/PDFLetter.hlp
 msgid ""
-"You've changed the financial type for this %1 contribution from non-tax "
-"deductible to tax deductible, but the non-deductible amount of %2 has not "
-"been changed. This could prevent a tax receipt from being issued correctly. "
-"You may want to edit the non-deductible amount."
-msgstr ""
-
-#: CRM/Contribute/Form/Contribution.php
-msgid "Non-deductible amount"
-msgstr ""
-
-#: templates/CRM/Contribute/Form/Contribution/PreviewHeader.tpl
-msgid "Test payment processor on Your Contribution Page"
-msgstr ""
-
-#: templates/CRM/Contribute/Form/Contribution/PreviewHeader.tpl
-msgid ""
-"This page is currently configured to use the <strong>%1 payment "
-"processor</strong>. <strong>No live financial transactions will be submitted"
-" if %1 payment processor is selected. However, a contact record will be "
-"created or updated and a live contribution record will be saved to the "
-"database with no actual financial transaction. Remove %1 payment processor "
-"before going live.</strong>"
-msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
-msgid ""
-"You can also set minimum and maximum amounts that users are allowed to "
-"enter."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Select a Price Set to offer more complex amount options. Otherwise, leave "
-"this empty and enter fixed contribution options below."
-msgstr ""
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
-msgid "Use a Confirmation Page?"
-msgstr ""
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid "Matching to Contributions for Inserts and Updates"
-msgstr ""
-
-#: templates/CRM/Contribute/Import/Form/Preview.tpl
-msgid "See rows"
-msgstr ""
-
-#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
-msgid "Next Scheduled Date"
-msgstr ""
-
-#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
-msgid "End or Modified Date"
+"You can choose to send thank-you letters as emails to contacts who are able "
+"to receive email. If you choose to do this, you can also decide whether to "
+"only print PDFs for the remaining contacts OR generate PDFs for all."
 msgstr ""
