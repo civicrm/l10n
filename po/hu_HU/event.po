@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2023-06-17 15:56-0400\n"
+"POT-Creation-Date: 2024-02-03 10:37-0500\n"
 "PO-Revision-Date: 2011-03-28 14:22+0000\n"
 "Last-Translator: Zoltán Reizinger <zreizinger@hdsnet.hu>, 2013-2021,2023\n"
 "Language-Team: Hungarian (http://app.transifex.com/civicrm/civicrm/language/hu/)\n"
@@ -22,12 +22,8 @@ msgstr ""
 "Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: CRM/Event/ActionMapping.php CRM/Event/BAO/Query.php
-#: CRM/Event/Form/SearchEvent.php
-msgid "Event Name"
-msgstr "Esemény neve"
-
-#: CRM/Event/ActionMapping.php
+#: CRM/Event/ActionMapping/ByTemplate.php
+#: ext/civi_event/Civi/Api4/Service/Spec/Provider/EventCreationSpecProvider.php
 msgid "Event Template"
 msgstr "Esemény sablon"
 
@@ -47,6 +43,18 @@ msgstr "Regisztráció kezdete"
 msgid "Registration End"
 msgstr "Regisztráció vége"
 
+#: CRM/Event/BAO/Event.php
+msgid "- all -"
+msgstr "- összes -"
+
+#: CRM/Event/BAO/Event.php
+msgid "after"
+msgstr ""
+
+#: CRM/Event/BAO/Event.php
+msgid "before"
+msgstr ""
+
 #: CRM/Event/BAO/Event.php CRM/Event/Form/Participant.php
 #: CRM/Event/Form/ParticipantFeeSelection.php
 msgid "confirmation"
@@ -58,7 +66,6 @@ msgstr "Nem találom a résztvevő-azonosítót"
 
 #: CRM/Event/BAO/Event.php
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 #: xml/templates/message_templates/participant_confirm_html.tpl
@@ -68,7 +75,6 @@ msgstr "Esemény iCalendar fájl letöltése"
 
 #: CRM/Event/BAO/Event.php
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 #: xml/templates/message_templates/participant_confirm_html.tpl
@@ -124,6 +130,10 @@ msgid ""
 msgstr "Jelenleg %2 fő van ennek az eseménynek a várólistáján. Megnézheti <a href='%1'>a várólistán lévő regisztráltakat itt</a>, vagy folytathatja további résztvevők regisztrációját ezen űrlap felhasználásával."
 
 #: CRM/Event/BAO/Participant.php
+msgid "Registration selections changed for %1"
+msgstr ""
+
+#: CRM/Event/BAO/Participant.php
 msgid ""
 "This event registration can not be transferred or cancelled. Contact the "
 "event organizer if you have questions."
@@ -165,6 +175,10 @@ msgstr "Résztvevő %1"
 #: CRM/Event/BAO/Query.php CRM/Event/DAO/Participant.php
 msgid "Fee level"
 msgstr "Díjmérték"
+
+#: CRM/Event/BAO/Query.php CRM/Event/Form/SearchEvent.php
+msgid "Event Name"
+msgstr "Esemény neve"
 
 #: CRM/Event/BAO/Query.php
 msgid "Include participants from all events in the %1 series"
@@ -687,9 +701,9 @@ msgstr "Alesemény pozíció címke azonosító"
 
 #: CRM/Event/DAO/Event.php
 msgid ""
-"Subevent slot label. Implicit FK to civicrm_option_value where option_group "
-"= conference_slot."
-msgstr "Alesemény hely címke. Hallgatólagos FK a civicrm_option_value ahol option_group = conference_slot."
+"Needs to be moved to Event cart extension. Subevent slot label. Implicit FK "
+"to civicrm_option_value where option_group = conference_slot."
+msgstr ""
 
 #: CRM/Event/DAO/Event.php
 msgid "Rule to use when matching registrations for this event"
@@ -698,6 +712,14 @@ msgstr "Ezen esemény regisztráció során használt illesztési szabály"
 #: CRM/Event/DAO/Event.php
 msgid "if true than billing block is required this event"
 msgstr "Ha igaz, a számlázási blokk szükséges ehhez az eseményhez"
+
+#: CRM/Event/DAO/Event.php
+msgid "Are calendar links shown?"
+msgstr ""
+
+#: CRM/Event/DAO/Event.php
+msgid "If true then calendar links are shown for this event."
+msgstr ""
 
 #: CRM/Event/DAO/Participant.php
 msgid "Records of contacts' attendance and roles in events."
@@ -881,15 +903,6 @@ msgid ""
 " option_value.value related to the `visibility` option_group"
 msgstr "az állapot típus látható-e a nyilvánosságnak, egy hallgatólagos idegen kulcs a option_value.value viszonyítva a 'láthatóság' option_group "
 
-#: CRM/Event/Form/ManageEvent/Conference.php
-msgid "Parent Event"
-msgstr "Szülő esemény"
-
-#: CRM/Event/Form/ManageEvent/Conference.php
-#: CRM/Event/Form/ManageEvent/TabHeader.php CRM/Event/Page/ManageEvent.php
-msgid "Conference Slots"
-msgstr "Konferencia előadások"
-
 #: CRM/Event/Form/ManageEvent/Delete.php CRM/Event/Page/ManageEvent.php
 msgid "Delete Event"
 msgstr "Esemény törlése"
@@ -945,6 +958,10 @@ msgid "Include Map to Event Location"
 msgstr "Esemény helyszíne tartalmazza a térképet"
 
 #: CRM/Event/Form/ManageEvent/EventInfo.php
+msgid "Show Calendar Links"
+msgstr ""
+
+#: CRM/Event/Form/ManageEvent/EventInfo.php
 msgid "Max Number of Participants"
 msgstr "Résztvevők Maximális Száma"
 
@@ -969,10 +986,6 @@ msgid "Is this Event Active?"
 msgstr "Ez az esemény aktív?"
 
 #: CRM/Event/Form/ManageEvent/EventInfo.php
-msgid "Please do not use '/' in Event Title."
-msgstr "Kérem ne használja a '/' az Esemény címében."
-
-#: CRM/Event/Form/ManageEvent/EventInfo.php
 #: templates/CRM/Event/Form/ManageEvent/Tab.hlp
 msgid "Event Information and Settings"
 msgstr "Esemény Információ és Beállítások"
@@ -981,10 +994,6 @@ msgstr "Esemény Információ és Beállítások"
 #: CRM/Event/Form/Registration/Register.php
 msgid "Event Fee(s)"
 msgstr "Részvételi díj(ak)"
-
-#: CRM/Event/Form/ManageEvent/Fee.php
-msgid "Enable Pay Later option?"
-msgstr "Engedélyezi a később fizetés opciót?"
 
 #: CRM/Event/Form/ManageEvent/Fee.php
 msgid "Pay Later Label"
@@ -1179,16 +1188,23 @@ msgid "Use a confirmation screen?"
 msgstr "Használjuk a megerősítő képernyőt?"
 
 #: CRM/Event/Form/ManageEvent/Registration.php
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
 msgid "Send Confirmation Email?"
 msgstr "Megerősítő Email Küldése?"
 
 #: CRM/Event/Form/ManageEvent/Registration.php
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
 msgid "CC Confirmation To"
 msgstr "Megerősítés CC-vel ide:"
 
 #: CRM/Event/Form/ManageEvent/Registration.php
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
 msgid "BCC Confirmation To"
 msgstr "Megerősítés BCC-vel ide:"
+
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid "Please enter Registration Link Text"
+msgstr "Kérem adja meg az esemény regisztráció link szövegét "
 
 #: CRM/Event/Form/ManageEvent/Registration.php
 msgid "Please enter a Title for the registration Confirmation Page"
@@ -1296,80 +1312,66 @@ msgstr "Események kezelése"
 msgid "Manage Event Templates"
 msgstr "Esemény sablonok kezelése"
 
-#: CRM/Event/Form/Participant.php
-msgid "Event Registration for %1"
-msgstr "Esemény regisztráció %1"
+#: CRM/Event/Form/Participant/Delete.php
+msgid "Delete participant record for %1"
+msgstr ""
 
-#: CRM/Event/Form/Participant.php
+#: CRM/Event/Form/Participant/Delete.php
 msgid ""
 "This Participant is linked to a contribution. You must have 'delete in "
 "CiviContribute' permission in order to delete this record."
 msgstr "Ez a résztvevő egy adományhoz kapcsolódik. Először törölnie kell a 'CiviAdományban' az engedélyeit ennek a rekordnak a törléséhez. "
 
-#: CRM/Event/Form/Participant.php CRM/Event/Form/Task/Delete.php
+#: CRM/Event/Form/Participant/Delete.php CRM/Event/Form/Task/Delete.php
 msgid ""
 "Delete this participant record along with associated participant record(s)."
 msgstr "Ennek a résztvevőnek a rekordját a kapcsolódó résztvevők rekordjá(ai)val együtt töröljük."
 
-#: CRM/Event/Form/Participant.php CRM/Event/Form/Task/Delete.php
+#: CRM/Event/Form/Participant/Delete.php CRM/Event/Form/Task/Delete.php
 msgid "Delete only this participant record."
 msgstr "Csak ennek a résztvevőnek a rekordját töröljük."
 
-#: CRM/Event/Form/Participant.php
-msgid "Send Notification"
-msgstr "Értesítés küldése"
-
-#: CRM/Event/Form/Participant.php
-msgid "Please enter the associated Financial Type"
-msgstr "Kérem adja meg a kapcsolódó pénzügyi típust"
-
-#: CRM/Event/Form/Participant.php
-msgid "Please select a valid payment status before updating."
-msgstr "Kérem válasszon érvényes befizetési állapotot a frissítés előtt."
-
-#: CRM/Event/Form/Participant.php
-msgid "This contact has already been assigned to this event."
-msgstr "Ez a kapcsolat már korábban hozzá lett rendelve ehhez az eseményhez."
-
-#: CRM/Event/Form/Participant.php
+#: CRM/Event/Form/Participant/Delete.php
 msgid "Selected participant was deleted successfully."
 msgstr "A kiválasztott résztvevő sikeresen törlésre került."
 
-#: CRM/Event/Form/Participant.php CRM/Event/Form/Task/Delete.php
+#: CRM/Event/Form/Participant/Delete.php CRM/Event/Form/Task/Delete.php
 msgid ""
 "The following participants no longer have an event fee recorded. You can "
 "edit their registration and record a replacement contribution by clicking "
 "the links below:"
 msgstr "A következő résztvevők részére a továbbiakban nincs részvételi díj fizetés rögzítve. Szerkesztheti a regisztrációjukat és rögzítsen helyettesítő fizetést az alábbi linkekre kattintva:"
 
-#: CRM/Event/Form/Participant.php
+#: CRM/Event/Form/Participant/Delete.php
 msgid "Group Payment Deleted"
 msgstr "Csoport fizetés törölve"
 
 #: CRM/Event/Form/Participant.php
-msgid ""
-"%1 contacts have already been assigned to this event. They were not added a "
-"second time."
-msgstr "%1 kapcsolatok már hozzárendeltek ehhez az eseményhez. Még egyszer nem lettek hozzáadva."
+msgid "Event Registration for %1"
+msgstr "Esemény regisztráció %1"
+
+#: CRM/Event/Form/Participant.php CRM/Event/Info.php
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
+msgid "Event Registration"
+msgstr ""
 
 #: CRM/Event/Form/Participant.php
-msgid "No participants were added."
-msgstr "Résztvevő nem lett hozzáadva."
+msgid "Send Notification"
+msgstr "Értesítés küldése"
+
+#: CRM/Event/Form/Participant.php CRM/Event/Form/Task/Register.php
+msgid "Please enter the associated Financial Type"
+msgstr "Kérem adja meg a kapcsolódó pénzügyi típust"
+
+#: CRM/Event/Form/Participant.php
+msgid "This contact has already been assigned to this event."
+msgstr "Ez a kapcsolat már korábban hozzá lett rendelve ehhez az eseményhez."
 
 #: CRM/Event/Form/Participant.php
 msgid "Selected Event is not Paid Event "
 msgstr "Válassza ki az eseményt mint ingyenes esemény "
 
-#: CRM/Event/Form/Participant.php
-msgid "Offline Registration for Event: %2 by: %1"
-msgstr "Offline regisztráció %2 eseményre %1 által"
-
-#: CRM/Event/Form/Participant.php
-msgid "%1 : Offline registration (by %2)"
-msgstr "%1 : Offline regisztrációt (%2 végezte)"
-
 #: CRM/Event/Form/Participant.php CRM/Event/Form/SelfSvcTransfer.php
-#: CRM/Event/Form/SelfSvcUpdate.php
 msgid "Event registration information for %1 has been updated."
 msgstr "%1 esemény regisztrációs információ frissítésre került."
 
@@ -1384,20 +1386,6 @@ msgstr "%1 részére esemény regisztráció hozzáadva."
 #: CRM/Event/Form/Participant.php CRM/Event/Form/SelfSvcTransfer.php
 msgid "A confirmation email has been sent to %1."
 msgstr "Megerősítő e-mail kiküldésre került %1 részére."
-
-#: CRM/Event/Form/Participant.php
-msgid "Total Participant(s) added to event: %1."
-msgstr "Az eseményhez hozzáadott összes résztvevő(k) száma: %1."
-
-#: CRM/Event/Form/Participant.php
-msgid ""
-"Email has NOT been sent to %1 contact(s) - communication preferences specify"
-" DO NOT EMAIL OR valid Email is NOT present. "
-msgstr "E-mail NEM lett elküldve %1 kapcsolat(ok)hoz- az adatvédelmi beállításoknál kiválasztott a NEM KÉREK E-MAILT,  VAGY NINCS érvényes e-mail cím."
-
-#: CRM/Event/Form/Participant.php
-msgid "A confirmation email has been sent to ALL participants"
-msgstr "Megerősítő e-mail kiküldve az ÖSSZES résztvevőnek"
 
 #: CRM/Event/Form/Participant.php templates/CRM/Event/Form/EventFees.tpl
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
@@ -1415,6 +1403,10 @@ msgstr "Megerősítés Küldése?"
 #: CRM/Event/Form/Participant.php
 msgid "CiviEvent Dashboard"
 msgstr "CiviEsemények Kezelőközpont"
+
+#: CRM/Event/Form/Participant.php
+msgid "Offline Registration for Event: %2 by: %1"
+msgstr "Offline regisztráció %2 eseményre %1 által"
 
 #: CRM/Event/Form/ParticipantFeeSelection.php
 msgid "Change selections for %1"
@@ -1612,6 +1604,11 @@ msgid "Sold out:"
 msgstr "Elfogyott:"
 
 #: CRM/Event/Form/Registration/Confirm.php
+#: CRM/Event/Form/Registration/Register.php
+msgid "Please select a Payment Method"
+msgstr "Kérem válasszon egy fizetési módszert"
+
+#: CRM/Event/Form/Registration/Confirm.php
 msgid ""
 "The system did not record payment details for this payment and so could not "
 "process the transaction. Please report this error to the site administrator."
@@ -1656,7 +1653,6 @@ msgid ""
 msgstr "Kattintson a \"Regisztráció megerősítése\" gombra a kezdéshez, vagy kattintson a \"Regisztráció törlése\" gombra ha már nem érdekli az eseményen történő részvétel."
 
 #: CRM/Event/Form/Registration/ParticipantConfirm.php
-#: templates/CRM/Event/Page/UserDashboard.tpl
 msgid "Confirm Registration"
 msgstr "Regisztráció megerősítése"
 
@@ -1720,10 +1716,6 @@ msgid ""
 " can complete the registration process."
 msgstr "Erre az eseményre történő regisztráció jóváhagyást igényel. Ha a regisztráció felülvizsgálata befejeződött, értesítő e-mailt kap a linkkel a weboldalra ahol befejezheti a regisztrációs folyamatot. "
 
-#: CRM/Event/Form/Registration/Register.php templates/CRM/Event/Page/List.tpl
-msgid "Register"
-msgstr "Regisztráció"
-
 #: CRM/Event/Form/Registration/Register.php
 msgid "Fee Level is a required field."
 msgstr "Díjszabás szükséges mező."
@@ -1763,10 +1755,6 @@ msgstr "Az esemény díjszabása nem lehet kevesebb mint nulla. Kérem válasszo
 #: CRM/Event/Form/Registration/Register.php
 msgid "A minimum amount of %1 should be selected from Event Fee(s)."
 msgstr "Egy minimális összeget %1 ki kell választania az Esemény díjai közül."
-
-#: CRM/Event/Form/Registration/Register.php
-msgid "Please select a Payment Method"
-msgstr "Kérem válasszon egy fizetési módszert"
 
 #: CRM/Event/Form/Registration/Register.php CRM/Event/Form/SelfSvcTransfer.php
 msgid ""
@@ -1912,8 +1900,8 @@ msgid "Enter valid email address."
 msgstr "Valós e-mail címet adjon meg."
 
 #: CRM/Event/Form/SelfSvcTransfer.php
-msgid " is already registered for this event"
-msgstr "Már regisztrált erre az eseményre."
+msgid "%1 is already registered for this event"
+msgstr "%1 már regisztrált erre az eseményre"
 
 #: CRM/Event/Form/SelfSvcTransfer.php
 msgid "Contact does not exist."
@@ -1940,12 +1928,24 @@ msgid "Transfer"
 msgstr "Átruházás"
 
 #: CRM/Event/Form/SelfSvcUpdate.php
+msgid "Send confirmation email?"
+msgstr "Megerősítő email kiküldése?"
+
+#: CRM/Event/Form/SelfSvcUpdate.php
 msgid "Please select Transfer OR Cancel action."
 msgstr "Kérem válasszon az átruházás vagy törlés műveletből."
+
+#: CRM/Event/Form/SelfSvcUpdate.php
+msgid "Event registration for %1 has been cancelled."
+msgstr "%1 esemény regisztráció törölve."
 
 #: CRM/Event/Form/Task/Badge.php
 msgid "Make Name Badges"
 msgstr "Kitűzők készítése"
+
+#: CRM/Event/Form/Task/Badge.php
+msgid "Name Badge Format"
+msgstr ""
 
 #: CRM/Event/Form/Task/Batch.php CRM/Event/Form/Task/PickProfile.php
 #: CRM/Event/Task.php
@@ -2007,6 +2007,36 @@ msgstr "A több résztvevő frissítése használatához, a profilt úgy kell ko
 msgid "Print Participant List"
 msgstr "Nyomtatás Résztvevők Listája"
 
+#: CRM/Event/Form/Task/Register.php
+msgid ""
+"%1 contacts were already registered for this event, but have been added a "
+"second time."
+msgstr ""
+
+#: CRM/Event/Form/Task/Register.php
+msgid ""
+"%1 contacts have already been assigned to this event. They were not added a "
+"second time."
+msgstr "%1 kapcsolatok már hozzárendeltek ehhez az eseményhez. Még egyszer nem lettek hozzáadva."
+
+#: CRM/Event/Form/Task/Register.php
+msgid "No participants were added."
+msgstr "Résztvevő nem lett hozzáadva."
+
+#: CRM/Event/Form/Task/Register.php
+msgid "Total Participant(s) added to event: %1."
+msgstr "Az eseményhez hozzáadott összes résztvevő(k) száma: %1."
+
+#: CRM/Event/Form/Task/Register.php
+msgid ""
+"Email has NOT been sent to %1 contact(s) - communication preferences specify"
+" DO NOT EMAIL OR valid Email is NOT present. "
+msgstr "E-mail NEM lett elküldve %1 kapcsolat(ok)hoz- az adatvédelmi beállításoknál kiválasztott a NEM KÉREK E-MAILT,  VAGY NINCS érvényes e-mail cím."
+
+#: CRM/Event/Form/Task/Register.php
+msgid "A confirmation email has been sent to ALL participants"
+msgstr "Megerősítő e-mail kiküldve az ÖSSZES résztvevőnek"
+
 #: CRM/Event/ICalendar.php
 msgid "View %1 Details"
 msgstr "%1 részleteinek megtekintése"
@@ -2038,6 +2068,10 @@ msgstr "A résztvevő azonosító érvénytelen"
 #: CRM/Event/Import/Parser/Participant.php
 msgid "Contact id is not valid"
 msgstr "Kapcsolat azonosító érvénytelen"
+
+#: CRM/Event/Info.php CRM/Event/Page/DashBoard.php
+msgid "CiviEvent"
+msgstr ""
 
 #: CRM/Event/Info.php
 msgid "CiviCRM Event Engine"
@@ -2211,10 +2245,6 @@ msgstr "Résztvevőlista kódfájlja: %1 nem létezik. Kérjük, ellenőrizze eg
 msgid "View Participant"
 msgstr "Résztvevő megtekintése"
 
-#: CRM/Event/Page/Tab.php
-msgid "Delete Participant"
-msgstr "Résztvevő törlése"
-
 #: CRM/Event/ParticipantTokens.php
 msgid "Event Balance"
 msgstr "Esemény mérlege"
@@ -2246,6 +2276,11 @@ msgstr "Részvétel törlése"
 #: CRM/Event/Selector/Search.php templates/CRM/Event/Form/ParticipantView.tpl
 msgid "Transfer or Cancel"
 msgstr "Átruházás vagy törlés"
+
+#: CRM/Event/Selector/Search.php templates/CRM/Event/Form/SelfSvcTransfer.tpl
+#: templates/CRM/Event/Form/SelfSvcUpdate.tpl
+msgid "Registered"
+msgstr ""
 
 #: CRM/Event/Selector/Search.php templates/CRM/Event/Page/UserDashboard.tpl
 msgid "Event Date(s)"
@@ -2292,12 +2327,52 @@ msgid "Event Contact Email"
 msgstr "Esemény kapcsolati email címe"
 
 #: CRM/Event/Tokens.php
+msgid "Event Contact Email 2"
+msgstr "Esemény 2. kapcsolati email címe"
+
+#: CRM/Event/Tokens.php
 msgid "Event Contact Phone"
 msgstr "Esemény kapcsolati telefonszám"
+
+#: CRM/Event/Tokens.php
+msgid "Event Contact Phone Extension"
+msgstr "Esemény kapcsolati telefonszám kiterjesztése"
+
+#: CRM/Event/Tokens.php
+msgid "Event Contact Phone 2"
+msgstr "Esemény kapcsolati telefonszám 2"
+
+#: CRM/Event/Tokens.php
+msgid "Event Contact Phone 2 Extension"
+msgstr "Esemény kapcsolati telefonszám 2 kiterjesztése"
 
 #: CRM/Event/WorkflowMessage/EventExamples.php
 msgid "Completed Registration"
 msgstr "Befejezett regisztráció"
+
+#: CRM/Event/WorkflowMessage/EventExamples.php
+msgid "primary participant"
+msgstr ""
+
+#: CRM/Event/WorkflowMessage/EventExamples.php
+msgid "Partially Paid Registration"
+msgstr ""
+
+#: CRM/Event/WorkflowMessage/EventExamples.php
+msgid "additional participant"
+msgstr ""
+
+#: ext/civi_event/Civi/Api4/Service/Spec/Provider/EventCreationSpecProvider.php
+msgid "Template on which to base this new event"
+msgstr ""
+
+#: ext/civi_event/Civi/Api4/Service/Spec/Provider/EventGetSpecProvider.php
+msgid "Remaining Participants"
+msgstr ""
+
+#: ext/civi_event/Civi/Api4/Service/Spec/Provider/EventGetSpecProvider.php
+msgid "Maximum participants minus registered participants"
+msgstr ""
 
 #: templates/CRM/Event/Form/EventFees.tpl
 #: templates/CRM/Event/Form/ParticipantView.tpl
@@ -2353,8 +2428,8 @@ msgstr "Automatikus megerősítő üzenetet küldjünk a %1 címre?"
 #: templates/CRM/Event/Form/EventFees.tpl
 msgid ""
 "Enter a message you want included at the beginning of the confirmation "
-"email. EXAMPLE: 'Thanks for registering for this event.'"
-msgstr "Adja meg azt az üzenetet amit a megerősítő e-mail elejére kíván beilleszteni. PÉLDA: 'Köszönjük, hogy regisztrált erre az eseményre.'"
+"email."
+msgstr "Adja meg azt az üzenetet amit a megerősítő e-mail elejére kíván betenni."
 
 #: templates/CRM/Event/Form/EventFees.tpl
 msgid ""
@@ -2587,11 +2662,6 @@ msgid ""
 msgstr "A közösségi média linkek beillesztésre kerülnek az esemény információs oldalába, a köszönő oldalba,  az Add tovább oldalba (ha engedélyezett), és az esemény megerősítő e-mailekbe."
 
 #: templates/CRM/Event/Form/ManageEvent/EventInfo.tpl
-msgid ""
-"Please use only alphanumeric, spaces, hyphens and dashes for event names."
-msgstr "Kérem csak betűket, számokat, szóközt, kötőjeleket és aláhúzást használjon esemény névként."
-
-#: templates/CRM/Event/Form/ManageEvent/EventInfo.tpl
 msgid "Edit Participant Status Options"
 msgstr "Résztvevők állapot beállítások szerkesztése"
 
@@ -2608,6 +2678,40 @@ msgid ""
 "enter <strong>%1</strong> for the Event ID."
 msgstr "Amikor ez az esemény aktív, készítsen front-end linkeket az esemény információs oldalára a Menü kezelő segítségével. <strong>Esemény információs oldal</strong> és adja meg <strong>%1</strong> az esemény azonosítóhoz. "
 
+#: templates/CRM/Event/Form/ManageEvent/Fee.hlp
+msgid ""
+"If this is a paid event and you want users to be able to register and pay "
+"online, select a payment processor to use."
+msgstr "Ha ez egy fizetős esemény és azt akarja, hogy a felhasználók online regisztráljanak és fizessenek, válassza ki a fizetés feldolgozót."
+
+#: templates/CRM/Event/Form/ManageEvent/Fee.hlp
+msgid ""
+"NOTE: Alternatively, you can enable the <strong>Pay Later</strong> feature "
+"below without setting up a payment processor. All users will then be asked "
+"to submit payment offline (e.g. mail in a check, call in a credit card, "
+"etc.)."
+msgstr "MEGJEGYZÉS: Alternatív megoldásként, engedélyezheti a <strong>Későbbi fizetés</strong> opciót alul, fizetés feldolgozó beállítása nélkül. Ekkor az összes felhasználót arra kérheti, hogy a fizetést más módon oldják meg. (Pl. készpénzben a helyszínen, vagy átutalással, stb.)."
+
+#: templates/CRM/Event/Form/ManageEvent/Fee.hlp
+msgid ""
+"Text displayed next to the checkbox for the 'pay later' option on the "
+"contribution form. You may include HTML formatting tags."
+msgstr ""
+
+#: templates/CRM/Event/Form/ManageEvent/Fee.hlp
+msgid ""
+"This financial type will be assigned to payments made by participants when "
+"they register online. If using a price set below note that the contribution "
+"record will have this financial type, however line items will be processed "
+"using the actual financial type selected for the price set item."
+msgstr "Ez a pénzügyi típus a résztvevők által végzett befizetésekhez kerül hozzárendelésre amikor azok online regisztrálnak. Ha az alábbi árlistát használja figyeljen oda, hogy az adomány rekord ezzel a pénzügyi típussal rendelkezik, ugyanakkor a tételsorok az árlista elem kiválasztott pénzügyi típusával kerülnek feldolgozásra.  "
+
+#: templates/CRM/Event/Form/ManageEvent/Fee.hlp
+msgid ""
+"Check this box if you want to offer discounted fees based on registration "
+"date (e.g. 'early-registration discounts')."
+msgstr "Jelölőnégyzet kiválasztásával lehetővé teszi regisztrációs dátum szerinti kedvezményeket (pl. 'korai regisztráció kedvezménye')."
+
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid ""
 "No Payment Processor has been configured / enabled for your site. If this is"
@@ -2618,59 +2722,10 @@ msgid ""
 msgstr "Fizetés feldolgozó nincs beállítva / engedélyezve ehhez a weboldalhoz. Ha ez egy <strong>fizetős esemény</strong> ÉS ha azt akarja, hogy a felhasználók képesek legyenek <strong>regisztrálni és online fizetni</strong>, akkor előbb <a href='%1'>be kell állítania a fizetés feldolgozót</a>. Utána térjen vissza ehhez az oldalhoz és rendelje hozzá a fizetés feldolgozót ehhez az eseményhez. "
 
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid "Select the currency to be used for event registration."
-msgstr "Válassza ki az esemény regisztrálásakor használandó pénznemet."
-
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid ""
-"If this is a paid event and you want users to be able to register and pay "
-"online, select a payment processor to use."
-msgstr "Ha ez egy fizetős esemény és azt akarja, hogy a felhasználók online regisztráljanak és fizessenek, válassza ki a fizetés feldolgozót."
-
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid ""
-"NOTE: Alternatively, you can enable the <strong>Pay Later</strong> feature "
-"below without setting up a payment processor. All users will then be asked "
-"to submit payment offline (e.g. mail in a check, call in a credit card, "
-"etc.)."
-msgstr "MEGJEGYZÉS: Alternatív megoldásként, engedélyezheti a <strong>Későbbi fizetés</strong> opciót alul, fizetés feldolgozó beállítása nélkül. Ekkor az összes felhasználót arra kérheti, hogy a fizetést más módon oldják meg. (Pl. készpénzben a helyszínen, vagy átutalással, stb.)."
-
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid ""
-"Instructions added to Confirmation and Thank-you pages when the user selects"
-" the 'pay later' option (e.g. 'Mail your check to ... within 3 business "
-"days.')."
-msgstr "A megerősítő és a köszönő oldalon megjelenő utasítások, ha a felhasználó a 'fizetés később' opciót választja ki (pl. 'Utalja át esemény díját 3 munkanapon belül.')"
-
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid ""
-"This label is displayed with the list of event fees. When using a Price Set,"
-" this label is the title for the section containing the price fields."
-msgstr "Ez a címke az esemény díjakkal együtt lesz kijelezve. Ha árlistát alkalmaz, ez a címke lesz az ármezőt tartalmazó szakasz címe."
-
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid ""
-"This financial type will be assigned to payments made by participants when "
-"they register online. If using a price set below note that the contribution "
-"record will have this financial type, however line items will be processed "
-"using the actual financial type selected for the price set item."
-msgstr "Ez a pénzügyi típus a résztvevők által végzett befizetésekhez kerül hozzárendelésre amikor azok online regisztrálnak. Ha az alábbi árlistát használja figyeljen oda, hogy az adomány rekord ezzel a pénzügyi típussal rendelkezik, ugyanakkor a tételsorok az árlista elem kiválasztott pénzügyi típusával kerülnek feldolgozásra.  "
-
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid ""
-"No Price Set has been configured / enabled for your site. Price sets allow "
-"you to meet the complex demands of your event registration structure.(e.g. "
-"\"Pay $15 more for lunch.\"). Click <a href='%1'>here</a> if you want to "
-"configure price sets for your site."
-msgstr "Árlista nincs beállítva / engedélyezve a weboldalán. Az árlisták lehetővé teszik a bonyolult regisztrációs struktúrák kialakítását. (pl. \"Fizessen 1500 Ft-al többet az ebédért.\"). Kattintson <a href='%1'>ide</a> ha be akarja állítani az árlistákat a weboldlához."
-
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid ""
-"Select a pre-configured Price Set to offer multiple individually priced "
-"options for event registrants. Otherwise, select &quot;-none-&quot; and "
-"enter one or more fee levels in the table below. Create or edit Price Sets "
-"<a href='%1'>here</a>."
-msgstr "Válasszon ki az előre beállított árlistákból egyet, az eseményre regisztrálók részére történő többváltozatú opciók kialakítására. Egyébként, válassza ki  &quot;-egyiksem-&quot; opciót, és adjon meg egy vagy több díjat az alábbi táblában. Az árlisták készítése és szerkesztése <a href='%1'>itt</a>."
+"Select a Price Set to offer multiple individually priced options for event "
+"registrants. Otherwise, leave this empty and enter fixed fee levels below."
+msgstr "Kérem válassza ki az árlistát a a rendezvény regisztrációhoz, hogy bemutassa az egyedileg árazott opciókat. Egyébként, hagyja üresen és adja meg a rögzített árakat alább. "
 
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid "Regular Fees"
@@ -2693,12 +2748,6 @@ msgid ""
 msgstr "Kattintson <a id='quickconfig' href='#'>ide</a> Ha alább, be akarja állítani az alapdíjakat mint egy árlista részét, annak a rugalmasságával és következményként a komplexitással. "
 
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid ""
-"Check this box if you want to offer discounted fees based on registration "
-"date (e.g. 'early-registration discounts')."
-msgstr "Jelölőnégyzet kiválasztásával lehetővé teszi regisztrációs dátum szerinti kedvezményeket (pl. 'korai regisztráció kedvezménye')."
-
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid "remove discount set"
 msgstr "kedvezmény készletet távolítsa el"
 
@@ -2709,13 +2758,6 @@ msgstr "másik kedvezmény csoport"
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid "Discounted Fees"
 msgstr "Kedvezményes díjak"
-
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid ""
-"Use the table below to enter descriptive labels and amounts for up to ten "
-"discounted event fees for each discount set. <strong>Don't forget to click "
-"'Save' when you are finished.</strong>"
-msgstr "Használja az alábbi táblázatot a díjszabás értelmes címeinek és összegének a megadására legfeljebb tíz díjra. <strong>Ne felejtsen el a 'Mentés' gombra kattintani, amikor befejezte.</strong>"
 
 #: templates/CRM/Event/Form/ManageEvent/Fee.tpl
 msgid ""
@@ -2965,6 +3007,28 @@ msgid ""
 " up until the event has started."
 msgstr "Az esemény megkezdési dátuma előtti órák száma, hogy az önkiszolgáló törlést vagy átruházást lehetővé tegyék. Adjon meg 0-t (vagy hagyja üresen) a törlés vagy átruházás közvetlenül az esemény előttig történő engedélyezéséhez. "
 
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
+msgid ""
+"Do you want a registration confirmation email sent automatically to the "
+"user? This email includes event date(s), location and contact information. "
+"For paid events, this email is also a receipt for their payment."
+msgstr "Azt akarja, hogy a regisztrációt megerősítő e-mail automatikusan elküldésre kerüljön a felhasználóhoz? Ez az e-mail tartalmazza az esemény dátumát(ait), helyszínt és a kapcsolati információkat. A fizetős események esetében ez a fizetést igazoló nyugta."
+
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
+msgid ""
+"You can notify event organizers of each online registration by specifying "
+"one or more email addresses to receive a carbon copy (cc). Multiple email "
+"addresses should be separated by a comma (e.g. jane@example.org, "
+"paula@example.org)."
+msgstr "Az esemény szervezőket értesítheti minden egyes online regisztrációról, megadva egy vagy több e-mail címet a másolatoknál. Több e-mail cím esetében a címeket vesszővel kell elválasztani (pl.  jane@example.org, paula@example.org)."
+
+#: templates/CRM/Event/Form/ManageEvent/Registration.hlp
+msgid ""
+"You may specify one or more email addresses to receive a blind carbon copy "
+"(bcc) of the confirmation email. Multiple email addresses should be "
+"separated by a comma (e.g. jane@example.org, paula@example.org)."
+msgstr "Megadhat egy vagy több e-mail címet a megerősítő e-mail titkos másolatoknál. Több e-mail cím esetében a címeket vesszővel kell elválasztani (pl.  jane@example.org, paula@example.org)."
+
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid "remove profile"
 msgstr "profil eltávolítása"
@@ -2975,46 +3039,13 @@ msgstr "adjon meg másik profilt (oldal alján)"
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid ""
-"Change this if you want to use a different profile for additional "
-"participants."
-msgstr "Változtassa meg azt, ha a további résztvevők részére másik profilt kíván használni."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"Include additional fields on this registration form by selecting and "
-"configuring a CiviCRM Profile to be included at the bottom of the page."
-msgstr "További mezőket illeszthet be ebbe a regisztrációs űrlapba CiviCRM profil beállításával és kiválasztásával, az oldal aljára történő elhelyezéssel."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
 "If you want to provide an Online Registration page for this event, check the"
 " first box below and then complete the fields on this form."
 msgstr "Ha online regisztrációs oldalt akar adni ehhez az eseményhez, jelölje ki az első jelölőnégyzetet itt alul, és töltse ki a mezőket ezen az űrlapon."
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid "Online registration enabled?"
-msgstr "Online regisztráció engedélyezve?"
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid "Registration Screen"
 msgstr "Regisztrációs képernyő"
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"Introductory message / instructions for online event registration page (may "
-"include HTML formatting tags)."
-msgstr "Bevezető üzenet / útmutató az esemény online regisztrációs oldalhoz (HTML formázó címkéket tartalmazhat)."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid "Optional footer text for registration screen."
-msgstr "Opcionális regisztrációs képernyő élőláb szöveg. "
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"Include additional fields on this registration form by selecting and "
-"configuring a CiviCRM Profile to be included at the top of the page "
-"(immediately after the introductory message)."
-msgstr "További mezők beillesztése ebbe a regisztrációs űrlapba CiviCRM profil beállításával és kiválasztásával, az oldal tetejére (közvetlenül a bevezető szöveg alatt). "
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid "Confirmation Screen"
@@ -3025,76 +3056,16 @@ msgid "Optionally hide the confirmation screen for free events."
 msgstr "Opcionálisan rejtse el a megerősítő oldalt az ingyenes eseményekre."
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"Page title for screen where user reviews and confirms their registration "
-"information."
-msgstr "Képernyő oldal cím, ahol a felhasználó átnézi és jóváhagyja a regisztrációs információt."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid "Optional instructions / message for Confirmation screen."
-msgstr "Opcionális utasítások / üzenet a Megerősítő képernyőn."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid "Optional page footer text for Confirmation screen."
-msgstr "Opcionális oldal lábléc szöveg a Megerősítő képernyőn."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid "Thank-you Screen"
 msgstr "Köszönő képernyő"
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid "Page title for registration Thank-you screen."
-msgstr "A regisztrációt megköszönő képernyő oldal címe. "
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid "Optional message for Thank-you screen (may include HTML formatting)."
-msgstr "Opcionális üzenet a Megköszönő képernyőn (HTML formázást tartalmazhat)."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"Optional footer text for Thank-you screen (often used to include links to "
-"other pages/activities on your site)."
-msgstr "Opcionális  lábléc szöveg a Megköszönő képernyőn (általában arra használják, hogy a weboldal másik oldalára / tevékenységre mutató linket helyezzenek ide)."
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid "Confirmation Email"
 msgstr "Megerősítő üzenet"
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"Do you want a registration confirmation email sent automatically to the "
-"user? This email includes event date(s), location and contact information. "
-"For paid events, this email is also a receipt for their payment."
-msgstr "Azt akarja, hogy a regisztrációt megerősítő e-mail automatikusan elküldésre kerüljön a felhasználóhoz? Ez az e-mail tartalmazza az esemény dátumát(ait), helyszínt és a kapcsolati információkat. A fizetős események esetében ez a fizetést igazoló nyugta."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid "Additional message or instructions to include in confirmation email."
 msgstr "A megerősítő e-mailben megküldendő kiegészítő üzenet vagy utasítások."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid "FROM name for email."
-msgstr "Feladó (FROM) neve az üzenetben"
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"FROM email address (this must be a valid email account with your SMTP email "
-"service provider)."
-msgstr "Küldő e-mail cím (érvényes e-mail fiók az ön SMTP szolgáltatójánál)."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"You can notify event organizers of each online registration by specifying "
-"one or more email addresses to receive a carbon copy (cc). Multiple email "
-"addresses should be separated by a comma (e.g. jane@example.org, "
-"paula@example.org)."
-msgstr "Az esemény szervezőket értesítheti minden egyes online regisztrációról, megadva egy vagy több e-mail címet a másolatoknál. Több e-mail cím esetében a címeket vesszővel kell elválasztani (pl.  jane@example.org, paula@example.org)."
-
-#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
-msgid ""
-"You may specify one or more email addresses to receive a blind carbon copy "
-"(bcc) of the confirmation email. Multiple email addresses should be "
-"separated by a comma (e.g. jane@example.org, paula@example.org)."
-msgstr "Megadhat egy vagy több e-mail címet a megerősítő e-mail titkos másolatoknál. Több e-mail cím esetében a címeket vesszővel kell elválasztani (pl.  jane@example.org, paula@example.org)."
 
 #: templates/CRM/Event/Form/ManageEvent/Registration.tpl
 msgid "- same as for main contact -"
@@ -3218,6 +3189,16 @@ msgstr "Tekintse át itt az ön testre szabott <strong>ÉLŐ</strong> online reg
 msgid "Public Participant Listing"
 msgstr "Nyilvános résztvevői lista"
 
+#: templates/CRM/Event/Form/Participant/Delete.tpl
+msgid ""
+"WARNING: Deleting this registration will result in the loss of related "
+"payment records (if any)."
+msgstr "FIGYELMEZTETÉS: Ennek a regisztrációnak a törlése a kapcsolódó fizetési rekordot is törli (ha van ilyen)."
+
+#: templates/CRM/Event/Form/Participant/Delete.tpl
+msgid " There are %1 more Participant(s) registered by this participant."
+msgstr "További %1 résztvevő(ke)t regisztrált ez a résztvevő."
+
 #: templates/CRM/Event/Form/Participant.tpl
 msgid "submit credit card event registration"
 msgstr "bankkártyás esemény regisztráció beküldése"
@@ -3227,23 +3208,6 @@ msgid ""
 "Use this form to submit an event registration on behalf of %1. <strong>A %2 "
 "transaction will be submitted</strong> using the selected payment processor."
 msgstr "Használja ezt az űrlapot az esemény regisztrációra %1 nevében.  <strong> Egy %2 tranzakció lesz elindítva</strong> a kiválasztott fizetés feldolgozó felhasználásával."
-
-#: templates/CRM/Event/Form/Participant.tpl
-msgid ""
-"If you are accepting offline payment from this participant, check "
-"<strong>Record Payment</strong>. You will be able to fill in the payment "
-"information, and optionally send a receipt."
-msgstr "Ha offline fizetést is elfogad ettől a résztvevőtől, ellenőrizze <strong>Fizetési rekordot</strong>. Kitöltheti a fizetési információt, és opcionálisan elküldheti a nyugtát."
-
-#: templates/CRM/Event/Form/Participant.tpl
-msgid ""
-"WARNING: Deleting this registration will result in the loss of related "
-"payment records (if any)."
-msgstr "FIGYELMEZTETÉS: Ennek a regisztrációnak a törlése a kapcsolódó fizetési rekordot is törli (ha van ilyen)."
-
-#: templates/CRM/Event/Form/Participant.tpl
-msgid " There are %1 more Participant(s) registered by this participant."
-msgstr "További %1 résztvevő(ke)t regisztrált ez a résztvevő."
 
 #: templates/CRM/Event/Form/Participant.tpl
 #: templates/CRM/Event/Form/ParticipantView.tpl
@@ -3264,10 +3228,6 @@ msgstr "Regisztrálta"
 #: templates/CRM/Event/Form/ParticipantView.tpl
 msgid "view primary participant"
 msgstr "elsődleges résztvevő megtekintése"
-
-#: templates/CRM/Event/Form/Participant.tpl
-msgid "Source for this registration (if applicable)."
-msgstr "Ezen regisztráció forrása (ha alkalmazható)"
 
 #: templates/CRM/Event/Form/ParticipantFeeSelection.tpl
 msgid "Change Registration Selections"
@@ -3301,16 +3261,8 @@ msgid "Configure this event"
 msgstr "Ezen esemény beállítása"
 
 #: templates/CRM/Event/Form/ParticipantView.tpl
-msgid "Registration Date and Time"
-msgstr "Regisztráció napja és órája"
-
-#: templates/CRM/Event/Form/ParticipantView.tpl
 msgid "View this Participant"
 msgstr "Ezen résztvevő megtekintése"
-
-#: templates/CRM/Event/Form/ParticipantView.tpl
-msgid "Event Source"
-msgstr "Esemény forrása"
 
 #: templates/CRM/Event/Form/Registration/AdditionalParticipant.tpl
 msgid "Total Participants : %1"
@@ -3321,46 +3273,32 @@ msgid "Event Availability : %1"
 msgstr "Esemény rendelkezésre állás: %1"
 
 #: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid ""
-"Please verify the information below. <span class=\"bold\">Then click "
-"'Continue' to be added to the WAIT LIST for this event</span>. If space "
-"becomes available you will receive an email with a link to a web page where "
-"you can complete your registration."
-msgstr "Kérem ellenőrizze az alább található információkat. <span class=\"bold\">Utána kattintson a 'Tovább' gombra a VÁRÓLISTÁHOZ történő hozzáadásra</span>. Ha felszabadul egy hely egy értesítő e-mailt kap egy linkkel arra a weboldalra ahol befejezheti a regisztrációját."
+msgid "Please verify your information."
+msgstr "Kérem ellenőrizze az ön információit."
 
 #: templates/CRM/Event/Form/Registration/Confirm.tpl
 msgid ""
-"Please verify the information below. Then click 'Continue' to submit your "
-"registration. <span class=\"bold\">Once approved, you will receive an email "
-"with a link to a web page where you can complete the registration "
-"process.</span>"
-msgstr "Kérem ellenőrizze az alább található információkat. Utána kattintson a 'Tovább' gombra a regisztráció elküldéséhez. <span class=\"bold\">Ha jóváhagyták, egy értesítő e-mailt kap egy linkkel arra a weboldalra ahol befejezheti a regisztrációját.</span>"
+"If space becomes available you will receive an email with a link to complete"
+" your registration."
+msgstr "Ha felszabadulnak helyek egy értesítő e-mailt kap egy linkkel arra a weboldalra ahol befejezheti a regisztrációját."
+
+#: templates/CRM/Event/Form/Registration/Confirm.tpl
+msgid "Click <strong>%1</strong> to be added to the WAIT LIST for this event."
+msgstr "Kattintson <strong>%1</strong>, hogy hozzáadja magát a VÁRAKOZÁSI LISTÁHOZ erre az eseményre. "
 
 #: templates/CRM/Event/Form/Registration/Confirm.tpl
 msgid ""
-"Please verify the information below. Click the <strong>Go Back</strong> "
-"button below if you need to make changes."
-msgstr "Kérem ellenőrizze az alább található információkat. Utána kattintson a <strong>Vissza</strong> gombra ha módosítása szükséges. "
+"Once approved, you will receive an email with a link to complete the "
+"registration process."
+msgstr "Ha elfogadták, egy értesítő e-mailt kap egy linkkel arra a weboldalra ahol befejezheti a regisztrációját."
 
 #: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid ""
-"Click the <strong>Continue</strong> button to checkout to %1, where you will"
-" select your payment method and complete the registration."
-msgstr "Kattintson a <strong>Tovább</strong> gombra a %1 pénztárhoz, ahol kiválaszthatja a fizetési módot és befejezheti a regisztrációt. "
+msgid "Click <strong>%1</strong> to submit your registration for approval."
+msgstr "Kattintson <strong>%1</strong> a regisztrációja jóváhagyásának a beküldéshez "
 
 #: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid ""
-"Otherwise, click the <strong>Continue</strong> button below to complete your"
-" registration."
-msgstr "Egyébként, kattintson a <strong>Tovább</strong> gombra a regisztráció befejezésére. "
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid ""
-"Your registration will not be submitted until you click the "
-"<strong>Continue</strong> button. Please click the button one time only. If "
-"you need to change any details, click the Go Back button below to return to "
-"the previous screen."
-msgstr "A regisztrációja nem folytatódik amíg nem kattint a  <strong>Tovább</strong> gombra. Kérem csak egyszer nyomja meg a gombot. Ha bármely részletet meg kell változtatnia, kattintson a Vissza gombra alul az előző oldalra történő visszatéréshez."
+msgid "Payment details"
+msgstr "Fizetés részletei"
 
 #: templates/CRM/Event/Form/Registration/DisplayProfile.tpl
 msgid "Participant 1"
@@ -3371,8 +3309,6 @@ msgid "Participant Information"
 msgstr "Résztvevő információ"
 
 #: templates/CRM/Event/Form/Registration/DisplayProfile.tpl
-#: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 msgid "Participant %1"
@@ -3427,7 +3363,6 @@ msgstr "Töltse ki az oldalon a regisztrációs információkat. Ha további sze
 
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 msgid "You have been added to the WAIT LIST for this event."
@@ -3435,7 +3370,6 @@ msgstr "Ön az esemény VÁRÓLISTÁJÁHOZ hozzáadásra került."
 
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 msgid ""
@@ -3445,7 +3379,6 @@ msgstr "Ha felszabadulnak helyek egy értesítő e-mailt kap egy linkkel arra a 
 
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 msgid "Your registration has been submitted."
@@ -3453,7 +3386,6 @@ msgstr "A regisztrációja elküldésre került."
 
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 msgid ""
@@ -3464,16 +3396,6 @@ msgstr "Ha a regisztrációjának felülvizsgálata befejeződött, értesítő 
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
 msgid "An email with event details has been sent to %1."
 msgstr "Egy e-mail elküldésre került az esemény adataival %1 részére."
-
-#: templates/CRM/Event/Form/Registration/ThankYou.tpl
-msgid "Your registration payment has been submitted to %1 for processing."
-msgstr "A regisztráció fizetési adatai elküldve %1 részére feldolgozásra. "
-
-#: templates/CRM/Event/Form/Registration/ThankYou.tpl
-msgid ""
-"A registration confirmation email will be sent to %1 once the transaction is"
-" processed successfully."
-msgstr "A regisztrációt megerősítő e-mail a %1 részére elküldésre kerül ha a fizetési tranzakció sikeresen lezárult."
 
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
 msgid "Your registration has been processed successfully."
@@ -3516,10 +3438,6 @@ msgstr "Ez kerül kijelzésre az olyan eseményeknél ahol a árlista mező(ke)t
 #: templates/CRM/Event/Form/SearchEvent.tpl
 msgid "Find Events"
 msgstr "Esemény keresése"
-
-#: templates/CRM/Event/Form/SearchEvent.tpl
-msgid "Complete OR partial Event name."
-msgstr "Teljes VAGY részleges esemény név."
 
 #: templates/CRM/Event/Form/Selector.tpl
 msgid "List participants for this event (all statuses)"
@@ -3608,6 +3526,10 @@ msgid ""
 "associated with these participations."
 msgstr "Biztos abban, hogy a kiválasztott résztvevőket törli? Ez a törlési művelet nem visszavonható és törölni fogja ezen résztvevőkkel kapcsolatos összes tranzakciót és tevékenységet is."
 
+#: templates/CRM/Event/Form/Task/Delete.tpl templates/CRM/Event/Form/Task.tpl
+msgid "Number of selected participants: %1"
+msgstr "Kiválasztott résztvevők száma: %1"
+
 #: templates/CRM/Event/Form/Task/ParticipantStatus.hlp
 msgid "Enabling Waitlisting and Registration Approval"
 msgstr "A várólista és a regisztrációs jóváhagyás engedélyezése"
@@ -3643,81 +3565,6 @@ msgid ""
 "NOTE: Contacts selected on the search results are not relevant here; all "
 "contacts that meet the following criteria will be in the group."
 msgstr "MEGJEGYZÉS: Ezen keresési eredményben kiválasztott kapcsolatok kijelölése nem releváns itt, az összes olyan kapcsolat, amely megfelel a kritériumoknak a csoport része lesz. "
-
-#: templates/CRM/Event/Form/Task.tpl
-msgid "Number of selected participants: %1"
-msgstr "Kiválasztott résztvevők száma: %1"
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid "Required Participant Data"
-msgstr "szükséges résztvevői adat"
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid "Participant import data MUST include the following columns:"
-msgstr "A résztvevő import adatok az alábbi oszlopokat KÖTELEZŐ tartalmazniuk:"
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid ""
-"Event Title OR Event ID (a unique integer assigned by CiviEvent, displayed "
-"in the Manage Events listing)"
-msgstr "Esemény cím VAGY esemény azonosító (CiviEsemény által generált egyedi egész szám, az események kezelése oldalon kijelezve)"
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid "Participant Status (ie. Registered, Attended, Cancelled, etc.)"
-msgstr "Résztvevő állapota (um. regisztrált, megjelent, lemondta, stb.)"
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid ""
-"The event's default Participant Role (usually Attendee) will be assigned if "
-"you do not include a value for role. Valid values for Status and Role can be"
-" found in the CiviEvent section of the Administer CiviCRM screen. You can "
-"also import Fee Level, Registration Date and any other standard or custom "
-"Participant fields."
-msgstr "Az esemény alapértelmezett résztvevői szerepköre (általában résztvevő) kerül hozzárendelésre ha nem ad meg szerepkör értéket. Az érvényes állapotokat és szerepköröket megtalálja a CiviEsemény részben  a CiviCRM Adminisztrációs oldalon. Importálhat díjszabást, regisztrációs dátumot és bármely szabványos és egyedi résztvevő mezőket."
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid "Contact Records for Event Participants"
-msgstr "Az esemény résztvevők kapcsolati rekordjai"
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid ""
-"Participant import requires that each person, household or organization "
-"already exists as a contact record in your CiviCRM database. If you need to "
-"import participant information for contact records which haven't been added "
-"to CiviCRM yet - you will do this in 2 steps. First, use <strong>Import "
-"Contacts</strong> to add the contact records. If possible, include a unique "
-"'External ID' for each new contact which you can then use to match "
-"participant info such as event registration to the corresponding contact "
-"record. Then return to this screen and import the participant records."
-msgstr "A résztvevő importáláshoz az szükséges, hogy minden egyes személy, háztartás, vagy szervezet kapcsolati rekordja már létezzen a CiviCRM adatbázisában.  Ha importálnia kell a résztvevőket olyan kapcsolati rekordokkal melyek még nem kerültek hozzáadásra - 2 lépésben teheti meg. Először, használja <strong>Kapcsolatok importálását</strong>  a kapcsolati rekordok hozzáadására. Ha lehetséges, befoglalva az egyedi 'Külső azonosítót' minden egyes új kapcsolatra, amelyet később felhasznál a kapcsolatok esemény információinál mint például a esemény regisztráció illesztése a kapcsolat rekordhoz. Utána térjen vissza ehhez az oldalhoz a résztvevő rekordok importálására. "
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid "Matching Participant Data to Contacts"
-msgstr "A résztvevők kapcsolatokhoz rendelése"
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid ""
-"Participant import files must contain data needed to <strong>match the "
-"participant to a contact record in your CiviCRM database</strong>. This "
-"'matching' can be handled in several different ways:"
-msgstr "A résztvevő import fájloknak tartalmazniuk kell a <strong>résztvevő kapcsolatokhoz rendelését</strong>. Ez a 'hozzárendelést' több módon lehet megtenni:"
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid ""
-"If you've stored a unique <strong>External Identifier</strong> for each "
-"contact in CiviCRM, you can include that value as a column in your import "
-"file. Participant data will then be matched to contact records using their "
-"External ID. Please note that you must use an \"On Duplicate Entries\" "
-"setting of \"Skip\" or \"No Duplicate Checking\" to be able to upload using "
-"the External ID field."
-msgstr "Ha egyedi <strong>külső azonosítót</strong> tárolt minden egyes kapcsolathoz a CiviCRM-ben, használhatja ezt az értéket mint külön oszlopot a fájl importálás során. A résztvevő adatai ezen külső azonosítók alapján lesz a kapcsolat rekordhoz rendelve. Ne felejtse, hogy a használnia kell a \"Duplikált bejegyzésekkor\" a \"Figyelmen kívül hagyás\" vagy a \"Nincs duplikáció ellenőrzés\" opciókat a feltöltés lehetővé tételére ha külső azonosítót mezőt használ."
-
-#: templates/CRM/Event/Import/Form/DataSource.hlp
-msgid ""
-"Save the CSV file with your participant data and 'contact matching' data to "
-"your local hard drive (or an accessible drive on your network) - and you are"
-" now ready for step 1 (Upload Data)."
-msgstr "Mentse a résztvevői adatokat és a kapcsolat hozzárendelési adatokat CSV fájlban a helyi merevlemezére (vagy a hálózatán elérhető meghajtóra)  - most már kész az 1. lépésre (Adat feltöltés)."
 
 #: templates/CRM/Event/Import/Form/DataSource.hlp
 msgid ""
@@ -4037,10 +3884,9 @@ msgid "You are not registered for any current or upcoming Events."
 msgstr "Ön még nem regisztrálta magát egyetlen jelenlegi vagy jövőbeni eseményre sem!"
 
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
-#: xml/templates/message_templates/event_online_receipt_text.tpl
-msgid "Participant Information - Participant %1"
-msgstr "Résztvevő információ - %1 résztvevő"
+#: xml/templates/message_templates/event_online_receipt_html.tpl
+msgid "Total for %1"
+msgstr ""
 
 #: xml/templates/message_templates/event_offline_receipt_subject.tpl
 msgid "Event Confirmation"
@@ -4054,14 +3900,14 @@ msgstr "Köszönjük a regisztrációját."
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 msgid ""
 "This is a confirmation that your registration has been received and your "
-"status has been updated to <strong> %1</strong>."
-msgstr "Ez a levél a regisztrációjának megérkezéséről és arról szól, hogy az állapota <strong> %1</strong> állapotra, frissítésre került."
+"status has been updated to<strong> %1</strong>."
+msgstr ""
 
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 msgid ""
 "This is a confirmation that your registration has been received and your "
-"status has been updated to <strong>waitlisted</strong>."
-msgstr "Ez a levél a regisztrációjának megérkezéséről és arról szól, hogy az állapota <strong> várólistán</strong> állapotra, frissítésre került."
+"status has been updated to<strong>waitlisted</strong>."
+msgstr ""
 
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 msgid ""
@@ -4070,24 +3916,8 @@ msgid ""
 msgstr "Ez a levél a regisztrációjának megérkezéséről és arról szól, hogy az állapota <strong> regisztrált</strong> állapotra, frissítésre került."
 
 #: xml/templates/message_templates/event_online_receipt_html.tpl
-#: xml/templates/message_templates/event_online_receipt_text.tpl
-#: xml/templates/message_templates/participant_confirm_html.tpl
-#: xml/templates/message_templates/participant_confirm_text.tpl
-msgid "Your schedule:"
-msgstr "Az ön ütemezése:"
-
-#: xml/templates/message_templates/event_online_receipt_html.tpl
 msgid "You were registered by:"
 msgstr "Ön regisztrálva lett általa:"
-
-#: xml/templates/message_templates/event_online_receipt_html.tpl
-#: xml/templates/message_templates/event_online_receipt_text.tpl
-msgid "Participant Total"
-msgstr "Összes résztvevő"
-
-#: xml/templates/message_templates/event_online_receipt_html.tpl
-msgid " Amount Before Tax: "
-msgstr "Adózás előtti összeg:"
 
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_text.tpl
@@ -4128,6 +3958,18 @@ msgid ""
 "This is a confirmation that your registration has been received and your "
 "status has been updated to registered."
 msgstr "Ez a levél a regisztrációjának megérkezéséről és arról szól, hogy az állapota, frissítésre került regsztrált állapotra."
+
+#: xml/templates/message_templates/event_online_receipt_text.tpl
+msgid "Email "
+msgstr "Email "
+
+#: xml/templates/message_templates/event_online_receipt_text.tpl
+msgid "Participant Total"
+msgstr "Összes résztvevő"
+
+#: xml/templates/message_templates/event_online_receipt_text.tpl
+msgid "Participant Information - Participant %1"
+msgstr "Résztvevő információ - %1 résztvevő"
 
 #: xml/templates/message_templates/event_online_receipt_text.tpl
 #: xml/templates/message_templates/participant_confirm_text.tpl
@@ -4189,90 +4031,12 @@ msgstr "Esemény regisztráció átruházva %1."
 msgid "Your Event Registration has been transferred to %1."
 msgstr "Esemény regisztrációja átruházva %1 részére."
 
-#: CRM/Event/BAO/Event.php
-msgid "- all -"
-msgstr "- összes -"
-
-#: CRM/Event/Form/ManageEvent/Registration.php
-msgid "Please enter Registration Link Text"
-msgstr "Kérem adja meg az esemény regisztráció link szövegét "
-
-#: CRM/Event/Form/SelfSvcTransfer.php
-msgid "%1 is already registered for this event"
-msgstr "%1 már regisztrált erre az eseményre"
-
-#: CRM/Event/Form/SelfSvcUpdate.php
-msgid "Send confirmation email?"
-msgstr "Megerősítő email kiküldése?"
-
-#: CRM/Event/Form/SelfSvcUpdate.php
-msgid "Event registration for %1 has been cancelled."
-msgstr "%1 esemény regisztráció törölve."
-
-#: CRM/Event/Tokens.php
-msgid "Event Contact Email 2"
-msgstr "Esemény 2. kapcsolati email címe"
-
-#: CRM/Event/Tokens.php
-msgid "Event Contact Phone Extension"
-msgstr "Esemény kapcsolati telefonszám kiterjesztése"
-
-#: CRM/Event/Tokens.php
-msgid "Event Contact Phone 2"
-msgstr "Esemény kapcsolati telefonszám 2"
-
-#: CRM/Event/Tokens.php
-msgid "Event Contact Phone 2 Extension"
-msgstr "Esemény kapcsolati telefonszám 2 kiterjesztése"
-
-#: templates/CRM/Event/Form/EventFees.tpl
+#: xml/templates/message_templates/event_online_receipt_html.tpl
 msgid ""
-"Enter a message you want included at the beginning of the confirmation "
-"email."
-msgstr "Adja meg azt az üzenetet amit a megerősítő e-mail elejére kíván betenni."
+" 2=$selfservice_preposition}You may transfer your registration to another "
+"participant or cancel your registration up to %1 hours %2 the event."
+msgstr ""
 
-#: templates/CRM/Event/Form/ManageEvent/Fee.tpl
-msgid ""
-"Select a Price Set to offer multiple individually priced options for event "
-"registrants. Otherwise, leave this empty and enter fixed fee levels below."
-msgstr "Kérem válassza ki az árlistát a a rendezvény regisztrációhoz, hogy bemutassa az egyedileg árazott opciókat. Egyébként, hagyja üresen és adja meg a rögzített árakat alább. "
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid "Please verify your information."
-msgstr "Kérem ellenőrizze az ön információit."
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid ""
-"If space becomes available you will receive an email with a link to complete"
-" your registration."
-msgstr "Ha felszabadulnak helyek egy értesítő e-mailt kap egy linkkel arra a weboldalra ahol befejezheti a regisztrációját."
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid "Click <strong>%1</strong> to be added to the WAIT LIST for this event."
-msgstr "Kattintson <strong>%1</strong>, hogy hozzáadja magát a VÁRAKOZÁSI LISTÁHOZ erre az eseményre. "
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid ""
-"Once approved, you will receive an email with a link to complete the "
-"registration process."
-msgstr "Ha elfogadták, egy értesítő e-mailt kap egy linkkel arra a weboldalra ahol befejezheti a regisztrációját."
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid "Click <strong>%1</strong> to submit your registration for approval."
-msgstr "Kattintson <strong>%1</strong> a regisztrációja jóváhagyásának a beküldéshez "
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid "Click <strong>%1</strong> to checkout with %2."
-msgstr "Kattintson <strong>%1</strong>a fizetéshez %2."
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid "Click <strong>%1</strong> to complete your registration."
-msgstr "Kattintson <strong>%1</strong>a regisztrációja befejezéséhez."
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid "Payment details"
-msgstr "Fizetés részletei"
-
-#: xml/templates/message_templates/event_offline_receipt_text.tpl
-msgid "Email "
-msgstr "Email "
+#: xml/templates/message_templates/participant_cancelled_subject.tpl
+msgid "\"}Event Registration Cancelled for %1"
+msgstr ""
