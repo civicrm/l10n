@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2023-06-17 15:56-0400\n"
+"POT-Creation-Date: 2024-02-03 10:37-0500\n"
 "PO-Revision-Date: 2011-03-28 14:20+0000\n"
 "Last-Translator: Piotr Szotkowski <chastell@chastell.net>, 2011\n"
 "Language-Team: English (Canada) (http://app.transifex.com/civicrm/civicrm/language/en_CA/)\n"
@@ -18,7 +18,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: CRM/Member/ActionMapping.php
-msgid "Membership Join Date"
+msgid "Auto Renew Options"
+msgstr ""
+
+#: CRM/Member/BAO/Membership.php
+msgid ""
+"The membership cannot be saved because the status cannot be calculated for "
+"start_date: %1, end_date: %2, join_date: %3. Current time is: %4."
 msgstr ""
 
 #: CRM/Member/BAO/Membership.php CRM/Member/Form/MembershipView.php
@@ -160,6 +166,10 @@ msgstr "Pay Later?"
 
 #: CRM/Member/BAO/Query.php
 msgid "- None -"
+msgstr ""
+
+#: CRM/Member/BAO/Query.php
+msgid "Failed"
 msgstr ""
 
 #: CRM/Member/BAO/Query.php
@@ -665,6 +675,10 @@ msgid ""
 msgstr "This Membership is linked to a contribution. You must have 'delete in CiviContribute' permission in order to delete this record."
 
 #: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
+msgid "Gift"
+msgstr ""
+
+#: CRM/Member/Form/Membership.php CRM/Member/Form/MembershipRenewal.php
 #: CRM/Member/Page/DashBoard.php CRM/Member/Selector/Search.php
 #: templates/CRM/Member/Form/MembershipView.tpl
 #: templates/CRM/Member/Page/MembershipStatus.tpl
@@ -750,8 +764,10 @@ msgstr "Start date must be the same or later than Member since."
 
 #: CRM/Member/Form/Membership.php
 msgid ""
-"Please enter a status that does NOT represent a current membership status."
-msgstr "Please enter a status that does NOT represent a current membership status."
+"A current lifetime membership cannot have an end date. You can either remove"
+" the end date or change the status to a non-current status like Cancelled, "
+"Expired, or Deceased."
+msgstr ""
 
 #: CRM/Member/Form/Membership.php
 msgid ""
@@ -830,16 +846,16 @@ msgid "Membership for %1 has been updated."
 msgstr "Membership for %1 has been updated."
 
 #: CRM/Member/Form/Membership.php
-msgid "The membership End Date is %1."
-msgstr "The membership End Date is %1."
+msgid "The Membership Expiration Date is %1."
+msgstr ""
 
 #: CRM/Member/Form/Membership.php
 msgid "%1 membership for %2 has been added."
 msgstr "%1 membership for %2 has been added."
 
 #: CRM/Member/Form/Membership.php
-msgid "The new membership End Date is %1."
-msgstr "The new membership End Date is %1."
+msgid "The new Membership Expiration Date is %1."
+msgstr ""
 
 #: CRM/Member/Form/Membership.php
 msgid ""
@@ -883,6 +899,7 @@ msgid "Introductory Message - Renewals"
 msgstr "Introductory Message - Renewals"
 
 #: CRM/Member/Form/MembershipBlock.php
+#: templates/CRM/Member/Form/MembershipBlock.hlp
 msgid "Require Membership Signup"
 msgstr "Require Membership Signup"
 
@@ -907,15 +924,13 @@ msgid "Give option"
 msgstr "Give option"
 
 #: CRM/Member/Form/MembershipBlock.php
-#: templates/CRM/Member/Form/MembershipBlock.tpl
-#: templates/CRM/Member/Form/MembershipView.tpl
-#: templates/CRM/Member/Page/Tab.tpl
-msgid "Auto-renew"
-msgstr "Auto-renew"
-
-#: CRM/Member/Form/MembershipBlock.php
 msgid "Membership Types Default"
 msgstr "Membership Types Default"
+
+#: CRM/Member/Form/MembershipBlock.php
+#: templates/CRM/Member/Form/MembershipBlock.hlp
+msgid "Membership Price Set"
+msgstr ""
 
 #: CRM/Member/Form/MembershipBlock.php
 msgid ""
@@ -924,12 +939,6 @@ msgid ""
 "requires submitting multiple processor transactions, and is not supported "
 "for one or more of the payment processors enabled under the Amounts tab."
 msgstr ""
-
-#: CRM/Member/Form/MembershipBlock.php
-msgid ""
-"You cannot enable both Membership Signup and a Contribution Price Set on the"
-" same online contribution page."
-msgstr "You cannot enable both Membership Signup and a Contribution Price Set on the same online contribution page."
 
 #: CRM/Member/Form/MembershipBlock.php
 msgid ""
@@ -966,12 +975,6 @@ msgstr "Can't set default option for an unchecked membership type."
 #: CRM/Member/Form/MembershipBlock.php
 msgid "Please enable the contribution amount section to use this option."
 msgstr "Please enable the contribution amount section to use this option."
-
-#: CRM/Member/Form/MembershipConfig.php CRM/Member/Form.php
-#: CRM/Member/Page/Tab.php CRM/Member/Selector/Search.php
-#: templates/CRM/Member/Page/DashBoard.tpl
-msgid "Renew"
-msgstr "Renew"
 
 #: CRM/Member/Form/MembershipRenewal.php
 msgid "%1 membership for %2 has been renewed."
@@ -1031,7 +1034,7 @@ msgid ""
 msgstr "Oops. It looks like you are trying to change the membership type while renewing the membership. Please click the \"change membership type\" link and select a Membership Type from the list."
 
 #: CRM/Member/Form/MembershipRenewal.php
-msgid "Renewal date must be the same or later than Member since (Join Date)."
+msgid "Renewal date must be the same or later than Member Since."
 msgstr ""
 
 #: CRM/Member/Form/MembershipRenewal.php
@@ -1450,24 +1453,6 @@ msgstr "Your Membership(s)"
 msgid "Invalid date query \"%1\" in URL (valid syntax is yyyymm)."
 msgstr "Invalid date query \"%1\" in URL (valid syntax is yyyymm)."
 
-#: CRM/Member/Page/MembershipStatus.php
-#: templates/CRM/Member/Form/MembershipStatus.tpl
-msgid "Edit Membership Status"
-msgstr "Edit Membership Status"
-
-#: CRM/Member/Page/MembershipStatus.php
-msgid "Disable Membership Status"
-msgstr "Disable Membership Status"
-
-#: CRM/Member/Page/MembershipStatus.php
-msgid "Enable Membership Status"
-msgstr "Enable Membership Status"
-
-#: CRM/Member/Page/MembershipStatus.php
-#: templates/CRM/Member/Form/MembershipStatus.tpl
-msgid "Delete Membership Status"
-msgstr "Delete Membership Status"
-
 #: CRM/Member/Page/MembershipType.php CRM/Member/Page/Tab.php
 msgid "Edit Membership Type"
 msgstr "Edit Membership Type"
@@ -1561,6 +1546,14 @@ msgstr ""
 msgid "Print/merge document for memberships"
 msgstr ""
 
+#: ext/civi_member/Civi/Api4/Service/Spec/Provider/MembershipStatusGetSpecProvider.php
+msgid "Is new membership status"
+msgstr ""
+
+#: ext/civi_member/Civi/Api4/Service/Spec/Provider/MembershipStatusGetSpecProvider.php
+msgid "Is this the status for new members"
+msgstr ""
+
 #: templates/CRM/Member/Form/Membership.hlp
 msgid ""
 "A recurring payment (subscription) request will be submitted to the selected"
@@ -1625,10 +1618,14 @@ msgid "Select Membership Organization and then Membership Type."
 msgstr "Select Membership Organization and then Membership Type."
 
 #: templates/CRM/Member/Form/Membership.tpl
+msgid "Alternatively, you can use a price set."
+msgstr ""
+
+#: templates/CRM/Member/Form/Membership.tpl
 msgid ""
-"Set the membership end date this many membership periods from now. Make sure"
-" the appropriate corresponding fee is entered below."
-msgstr "Set the membership end date this many membership periods from now. Make sure the appropriate corresponding fee is entered below."
+"Set the Membership Expiration Date this many membership periods from now. "
+"Make sure the appropriate corresponding fee is entered below."
+msgstr ""
 
 #: templates/CRM/Member/Form/Membership.tpl
 msgid "Source of this membership. This value is searchable."
@@ -1747,6 +1744,19 @@ msgid "%1 contacts are currently eligible to inherit this relationship."
 msgstr ""
 
 #: templates/CRM/Member/Form/MembershipBlock.hlp
+msgid ""
+"Price sets allow you to configure more complex membership signup and renewal"
+" options, including allowing constituents to sign up for multiple "
+"memberships at the same time."
+msgstr ""
+
+#: templates/CRM/Member/Form/MembershipBlock.hlp
+msgid ""
+"If checked, user must signup for one of the displayed membership options "
+"before continuing."
+msgstr "If checked, user must signup for one of the displayed membership options before continuing."
+
+#: templates/CRM/Member/Form/MembershipBlock.hlp
 msgid "Separate Payment"
 msgstr "Separate Payment"
 
@@ -1821,35 +1831,6 @@ msgid ""
 msgstr "Use this form to enable and configure a Membership Signup and Renewal section for this Online Contribution Page. If you're not using this page for membership signup, leave the <strong>Enabled</strong> box un-checked.."
 
 #: templates/CRM/Member/Form/MembershipBlock.tpl
-msgid "Include a Membership Signup section in this Online Contribution page?"
-msgstr "Include a Membership Signup section in this Online Contribution page?"
-
-#: templates/CRM/Member/Form/MembershipBlock.tpl
-msgid "Membership section title - for new member signups."
-msgstr "Membership section title - for new member signups."
-
-#: templates/CRM/Member/Form/MembershipBlock.tpl
-msgid "Membership section introductory text - for new member signups."
-msgstr "Membership section introductory text - for new member signups."
-
-#: templates/CRM/Member/Form/MembershipBlock.tpl
-msgid "Membership section title - displayed to renewing members."
-msgstr "Membership section title - displayed to renewing members."
-
-#: templates/CRM/Member/Form/MembershipBlock.tpl
-msgid "Membership section introductory text - displayed to renewing members."
-msgstr "Membership section introductory text - displayed to renewing members."
-
-#: templates/CRM/Member/Form/MembershipBlock.tpl
-msgid ""
-"No Membership Price Sets have been configured / enabled for your site. Price"
-" sets allow you to configure more complex membership signup and renewal "
-"options, including allowing constituents to sign up for multiple memberships"
-" at the same time. Click <a href='%1'>here</a> if you want to configure "
-"price sets for your site."
-msgstr "No Membership Price Sets have been configured / enabled for your site. Price sets allow you to configure more complex membership signup and renewal options, including allowing constituents to sign up for multiple memberships at the same time. Click <a href='%1'>here</a> if you want to configure price sets for your site."
-
-#: templates/CRM/Member/Form/MembershipBlock.tpl
 msgid ""
 "Click <a id='memQuickconfig' href='#'>here</a> if you want to configure the "
 "Membership Types below as part of a Price Set, with the added flexibility "
@@ -1866,35 +1847,10 @@ msgstr "(Not Available)"
 
 #: templates/CRM/Member/Form/MembershipBlock.tpl
 msgid ""
-"If checked, user must signup for one of the displayed membership options "
-"before continuing."
-msgstr "If checked, user must signup for one of the displayed membership options before continuing."
-
-#: templates/CRM/Member/Form/MembershipBlock.tpl
-msgid ""
-"Check this box if you are including both Membership Signup/Renewal AND a "
-"Contribution Amount section, AND you want the membership fee to be charged "
-"separately from any additional contribution amount."
-msgstr "Check this box if you are including both Membership Signup/Renewal AND a Contribution Amount section, AND you want the membership fee to be charged separately from any additional contribution amount."
-
-#: templates/CRM/Member/Form/MembershipBlock.tpl
-msgid ""
-"Display the membership fee along with the membership name and description "
-"for each membership option?"
-msgstr "Display the membership fee along with the membership name and description for each membership option?"
-
-#: templates/CRM/Member/Form/MembershipBlock.tpl
-msgid ""
 "You need to have at least one <a href=\"%1\">Membership Type</a> with "
 "'Public' visibility in order to enable self-service Membership Signup and "
 "Renewal."
 msgstr "You need to have at least one <a href=\"%1\">Membership Type</a> with 'Public' visibility in order to enable self-service Membership Signup and Renewal."
-
-#: templates/CRM/Member/Form/MembershipCommon.tpl
-msgid ""
-"Membership payment amount. A contribution record will be created for this "
-"amount."
-msgstr "Membership payment amount. A contribution record will be created for this amount."
 
 #: templates/CRM/Member/Form/MembershipCommon.tpl
 msgid "Membership payment amount."
@@ -1955,12 +1911,8 @@ msgid "change membership type"
 msgstr "change membership type"
 
 #: templates/CRM/Member/Form/MembershipRenewal.tpl
-msgid "Status of this membership."
-msgstr "Status of this membership."
-
-#: templates/CRM/Member/Form/MembershipRenewal.tpl
-msgid "Renewal extends membership end date by one membership period"
-msgstr "Renewal extends membership end date by one membership period"
+msgid "Renewal extends Membership Expiration Date by one membership period"
+msgstr ""
 
 #: templates/CRM/Member/Form/MembershipRenewal.tpl
 msgid "change"
@@ -1969,12 +1921,6 @@ msgstr "change"
 #: templates/CRM/Member/Form/MembershipRenewal.tpl
 msgid "membership periods"
 msgstr "membership periods"
-
-#: templates/CRM/Member/Form/MembershipRenewal.tpl
-msgid ""
-"Extend the membership end date by this many membership periods. Make sure "
-"the appropriate corresponding fee is entered below."
-msgstr "Extend the membership end date by this many membership periods. Make sure the appropriate corresponding fee is entered below."
 
 #: templates/CRM/Member/Form/MembershipRenewal.tpl
 msgid "Renewal Payment and Receipt"
@@ -1986,38 +1932,46 @@ msgstr "Automatically email a membership confirmation and receipt to %1?"
 
 #: templates/CRM/Member/Form/MembershipRenewal.tpl
 msgid ""
-"Enter a message you want included at the beginning of the emailed receipt. "
-"EXAMPLE: 'Thanks for supporting our organization with your membership.'"
-msgstr "Enter a message you want included at the beginning of the emailed receipt. EXAMPLE: 'Thanks for supporting our organization with your membership.'"
+"Enter a message you want included at the beginning of the emailed receipt."
+msgstr ""
 
 #: templates/CRM/Member/Form/MembershipStatus.tpl
 msgid "New Membership Status"
 msgstr "New Membership Status"
 
 #: templates/CRM/Member/Form/MembershipStatus.tpl
+msgid "Edit Membership Status"
+msgstr "Edit Membership Status"
+
+#: templates/CRM/Member/Form/MembershipStatus.tpl
+msgid "Delete Membership Status"
+msgstr "Delete Membership Status"
+
+#: templates/CRM/Member/Form/MembershipStatus.tpl
 msgid ""
 "When does this status begin? EXAMPLE: <strong>New</strong> status begins at "
-"the membership 'join date'."
-msgstr "When does this status begin? EXAMPLE: <strong>New</strong> status begins at the membership 'join date'."
+"the Member Since."
+msgstr ""
 
 #: templates/CRM/Member/Form/MembershipStatus.tpl
 msgid ""
 "Optional adjustment period added or subtracted from the Start Event. "
-"EXAMPLE: <strong>Current</strong> status might begin at 'join date' PLUS 3 "
+"EXAMPLE: <strong>Current</strong> status might begin at Member Since PLUS 3 "
 "months (to distinguish Current from New members)."
-msgstr "Optional adjustment period added or subtracted from the Start Event. EXAMPLE: <strong>Current</strong> status might begin at 'join date' PLUS 3 months (to distinguish Current from New members)."
+msgstr ""
 
 #: templates/CRM/Member/Form/MembershipStatus.tpl
 msgid ""
 "When does this status end? EXAMPLE: <strong>Current</strong> status ends at "
-"the membership 'end date'."
-msgstr "When does this status end? EXAMPLE: <strong>Current</strong> status ends at the membership 'end date'."
+"the Membership Expiration Date."
+msgstr ""
 
 #: templates/CRM/Member/Form/MembershipStatus.tpl
 msgid ""
 "Optional adjustment period added or subtracted from the End Event. EXAMPLE: "
-"<strong>Grace</strong> status might end at 'end date' PLUS 1 month."
-msgstr "Optional adjustment period added or subtracted from the End Event. EXAMPLE: <strong>Grace</strong> status might end at 'end date' PLUS 1 month."
+"<strong>Grace</strong> status might end at the Membership Expiration Date "
+"PLUS 1 month."
+msgstr ""
 
 #: templates/CRM/Member/Form/MembershipStatus.tpl
 msgid ""
@@ -2051,15 +2005,16 @@ msgstr "Membership signups on or after this day of the month cover the rest of t
 
 #: templates/CRM/Member/Form/MembershipType.tpl
 msgid ""
-"You cannot modify relationship type because there are membership records "
-"associated with this membership type."
-msgstr "You cannot modify relationship type because there are membership records associated with this membership type."
-
-#: templates/CRM/Member/Form/MembershipType.tpl
-msgid ""
 "Memberships can be automatically granted to related contacts by selecting a "
 "Relationship Type."
 msgstr "Memberships can be automatically granted to related contacts by selecting a Relationship Type."
+
+#: templates/CRM/Member/Form/MembershipType.tpl
+msgid ""
+"There are membership records associated with this membership type. Changing "
+"this setting will not automatically update existing memberships (and those "
+"that would inherit a membership), which may cause inconsistent results."
+msgstr ""
 
 #: templates/CRM/Member/Form/MembershipType.tpl
 msgid "Renewal Reminders"
@@ -2220,48 +2175,6 @@ msgid "Number of selected memberships: %1"
 msgstr "Number of selected memberships: %1"
 
 #: templates/CRM/Member/Import/Form/DataSource.hlp
-msgid "Contact Records for Members"
-msgstr "Contact Records for Members"
-
-#: templates/CRM/Member/Import/Form/DataSource.hlp
-msgid ""
-"Membership import requires that each person, household or organization "
-"already exists as a contact record in your CiviCRM database. If you need to "
-"import memberships for contact records which haven't been added to CiviCRM "
-"yet - you will do this in 2 steps. First, use <strong>Import "
-"Contacts</strong> to add the contact records. If possible, include a unique "
-"'External ID' for each new contact which you can then use to match "
-"memberships to contacts. Then return to this screen and import the "
-"membership records."
-msgstr "Membership import requires that each person, household or organization already exists as a contact record in your CiviCRM database. If you need to import memberships for contact records which haven't been added to CiviCRM yet - you will do this in 2 steps. First, use <strong>Import Contacts</strong> to add the contact records. If possible, include a unique 'External ID' for each new contact which you can then use to match memberships to contacts. Then return to this screen and import the membership records."
-
-#: templates/CRM/Member/Import/Form/DataSource.hlp
-msgid "Matching Memberships to Contacts"
-msgstr "Matching Memberships to Contacts"
-
-#: templates/CRM/Member/Import/Form/DataSource.hlp
-msgid ""
-"Membership import files must contain data needed to <strong>match the "
-"membership to the contact record</strong>. This 'matching' can be handled in"
-" several different ways:"
-msgstr "Membership import files must contain data needed to <strong>match the membership to the contact record</strong>. This 'matching' can be handled in several different ways:"
-
-#: templates/CRM/Member/Import/Form/DataSource.hlp
-msgid ""
-"If you've stored a unique <strong>External Identifier</strong> for each "
-"contact in CiviCRM, you can include that value as a column in your import "
-"file. Memberships will then be matched to contact records using their "
-"External ID."
-msgstr "If you've stored a unique <strong>External Identifier</strong> for each contact in CiviCRM, you can include that value as a column in your import file. Memberships will then be matched to contact records using their External ID."
-
-#: templates/CRM/Member/Import/Form/DataSource.hlp
-msgid ""
-"Save the CSV file with your membership data and 'contact matching' data to "
-"your local hard drive (or an accessible drive on your network) - and you are"
-" now ready for step 1 (Upload Data)."
-msgstr "Save the CSV file with your membership data and 'contact matching' data to your local hard drive (or an accessible drive on your network) - and you are now ready for step 1 (Upload Data)."
-
-#: templates/CRM/Member/Import/Form/DataSource.hlp
 msgid ""
 "For each import, you can either INSERT new membership records, or UPDATE "
 "existing records. You can not do both types of operations in a single import"
@@ -2353,6 +2266,10 @@ msgid "Members as of %1 %2"
 msgstr "Members as of %1 %2"
 
 #: templates/CRM/Member/Page/DashBoard.tpl
+msgid "New"
+msgstr ""
+
+#: templates/CRM/Member/Page/DashBoard.tpl
 msgid "Totals (all types)"
 msgstr "Totals (all types)"
 
@@ -2417,6 +2334,10 @@ msgid "Membership is automatically granted to:"
 msgstr "Membership is automatically granted to:"
 
 #: templates/CRM/Member/Page/MembershipType.hlp
+msgid "Household Member is"
+msgstr ""
+
+#: templates/CRM/Member/Page/MembershipType.hlp
 msgid "a household"
 msgstr "a household"
 
@@ -2425,12 +2346,20 @@ msgid "'Household Members' of that household"
 msgstr "'Household Members' of that household"
 
 #: templates/CRM/Member/Page/MembershipType.hlp
+msgid "Employer of"
+msgstr ""
+
+#: templates/CRM/Member/Page/MembershipType.hlp
 msgid "an organization"
 msgstr "an organization"
 
 #: templates/CRM/Member/Page/MembershipType.hlp
 msgid "'Employees' of that organization"
 msgstr "'Employees' of that organization"
+
+#: templates/CRM/Member/Page/MembershipType.hlp
+msgid "Parent of"
+msgstr ""
 
 #: templates/CRM/Member/Page/MembershipType.hlp
 msgid "an individual"
@@ -2627,7 +2556,6 @@ msgstr "Membership Autorenewal Billing Updates"
 #: xml/templates/message_templates/membership_offline_receipt_html.tpl
 #: xml/templates/message_templates/membership_offline_receipt_text.tpl
 #: xml/templates/message_templates/membership_online_receipt_html.tpl
-#: xml/templates/message_templates/membership_online_receipt_text.tpl
 msgid "Membership Information"
 msgstr "Membership Information"
 
@@ -2640,6 +2568,11 @@ msgstr "Autorenew Membership Cancellation Notification"
 msgid "Thank you for this contribution."
 msgstr ""
 
+#: xml/templates/message_templates/membership_offline_receipt_html.tpl
+#: xml/templates/message_templates/membership_online_receipt_html.tpl
+msgid "SubTotal"
+msgstr ""
+
 #: xml/templates/message_templates/membership_offline_receipt_subject.tpl
 msgid "Membership Confirmation and Receipt"
 msgstr "Membership Confirmation and Receipt"
@@ -2649,91 +2582,9 @@ msgid "Membership Renewal Confirmation and Receipt"
 msgstr "Membership Renewal Confirmation and Receipt"
 
 #: xml/templates/message_templates/membership_online_receipt_html.tpl
-#: xml/templates/message_templates/membership_online_receipt_text.tpl
-msgid "%1 Membership"
-msgstr "%1 Membership"
-
-#: xml/templates/message_templates/membership_online_receipt_html.tpl
-msgid "NO"
+msgid "\"}%1 Membership"
 msgstr ""
 
 #: xml/templates/message_templates/membership_online_receipt_html.tpl
-#: xml/templates/message_templates/membership_online_receipt_text.tpl
 msgid "This membership will be renewed automatically."
-msgstr ""
-
-#: xml/templates/message_templates/membership_online_receipt_text.tpl
-msgid "You can cancel the auto-renewal option by visiting this web page: %1."
-msgstr ""
-
-#: CRM/Member/Form/Membership.php
-msgid "The Membership Expiration Date is %1."
-msgstr ""
-
-#: CRM/Member/Form/Membership.php
-msgid "The new Membership Expiration Date is %1."
-msgstr ""
-
-#: CRM/Member/Form/MembershipBlock.php
-#: templates/CRM/Member/Form/MembershipBlock.hlp
-msgid "Membership Price Set"
-msgstr ""
-
-#: CRM/Member/Form/MembershipRenewal.php
-msgid "Renewal date must be the same or later than Member Since."
-msgstr ""
-
-#: templates/CRM/Member/Form/Membership.tpl
-msgid ""
-"Set the Membership Expiration Date this many membership periods from now. "
-"Make sure the appropriate corresponding fee is entered below."
-msgstr ""
-
-#: templates/CRM/Member/Form/MembershipBlock.hlp
-msgid ""
-"Price sets allow you to configure more complex membership signup and renewal"
-" options, including allowing constituents to sign up for multiple "
-"memberships at the same time."
-msgstr ""
-
-#: templates/CRM/Member/Form/MembershipRenewal.tpl
-msgid "Renewal extends Membership Expiration Date by one membership period"
-msgstr ""
-
-#: templates/CRM/Member/Form/MembershipRenewal.tpl
-msgid ""
-"Enter a message you want included at the beginning of the emailed receipt."
-msgstr ""
-
-#: templates/CRM/Member/Form/MembershipStatus.tpl
-msgid ""
-"When does this status begin? EXAMPLE: <strong>New</strong> status begins at "
-"the Member Since."
-msgstr ""
-
-#: templates/CRM/Member/Form/MembershipStatus.tpl
-msgid ""
-"Optional adjustment period added or subtracted from the Start Event. "
-"EXAMPLE: <strong>Current</strong> status might begin at Member Since PLUS 3 "
-"months (to distinguish Current from New members)."
-msgstr ""
-
-#: templates/CRM/Member/Form/MembershipStatus.tpl
-msgid ""
-"When does this status end? EXAMPLE: <strong>Current</strong> status ends at "
-"the Membership Expiration Date."
-msgstr ""
-
-#: templates/CRM/Member/Form/MembershipStatus.tpl
-msgid ""
-"Optional adjustment period added or subtracted from the End Event. EXAMPLE: "
-"<strong>Grace</strong> status might end at the Membership Expiration Date "
-"PLUS 1 month."
-msgstr ""
-
-#: templates/CRM/Member/Form/MembershipType.tpl
-msgid ""
-"There are membership records associated with this membership type. Changing "
-"this setting will not automatically update existing memberships (and those "
-"that would inherit a membership), which may cause inconsistent results."
 msgstr ""
