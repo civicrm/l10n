@@ -22,7 +22,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2023-06-17 15:56-0400\n"
+"POT-Creation-Date: 2024-02-03 10:37-0500\n"
 "PO-Revision-Date: 2011-03-28 14:19+0000\n"
 "Last-Translator: HanV <han.velthuis@kpnmail.nl>, 2023\n"
 "Language-Team: Dutch (http://app.transifex.com/civicrm/civicrm/language/nl/)\n"
@@ -32,11 +32,6 @@ msgstr ""
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: CRM/Contribute/ActionMapping/ByPage.php
-#: CRM/Contribute/ActionMapping/ByType.php
-msgid "Thank You Date"
-msgstr "Datum bedanken"
-
 #: CRM/Contribute/ActionMapping/ByType.php
 msgid "Contribution Type"
 msgstr "Bijdragetype"
@@ -44,6 +39,10 @@ msgstr "Bijdragetype"
 #: CRM/Contribute/ActionMapping/ByType.php
 msgid "Soft Credit Role"
 msgstr "Rol zacht krediet"
+
+#: CRM/Contribute/ActionMapping.php
+msgid "Thank You Date"
+msgstr "Datum bedanken"
 
 #: CRM/Contribute/BAO/Contribution.php
 msgid ""
@@ -77,13 +76,6 @@ msgid "Soft Credit Contact ID"
 msgstr "Zacht krediet Contact-id"
 
 #: CRM/Contribute/BAO/Contribution.php
-#: CRM/Contribute/Form/Contribution/Confirm.php
-#: CRM/Contribute/Form/Contribution/Main.php
-#: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
-msgid "Online Contribution"
-msgstr "Online bijdrage"
-
-#: CRM/Contribute/BAO/Contribution.php
 #: CRM/Contribute/BAO/ContributionRecur.php
 msgid "Recurring contribution"
 msgstr "Periodieke bijdrage"
@@ -98,6 +90,10 @@ msgid ""
 "contribution. Editing the financial type is not yet supported in this "
 "situation."
 msgstr "Een of meerdere items hebben een ander financieel type dan de bijdrage. In deze situatie is het wijzigen van het type nog niet mogelijk."
+
+#: CRM/Contribute/BAO/Contribution.php
+msgid "Status changed from %1 to %2"
+msgstr ""
 
 #: CRM/Contribute/BAO/Contribution.php
 msgid "day(s)"
@@ -156,7 +152,7 @@ msgstr "Periodieke bijdragen met tenminste één betaling"
 msgid "View related contribution"
 msgstr "Toon gerelateerde bijdragen"
 
-#: CRM/Contribute/BAO/Premium.php
+#: CRM/Contribute/BAO/Premium.php CRM/Contribute/Form/ContributionBase.php
 msgid "Selected Option"
 msgstr "Geselecteerde optie"
 
@@ -348,12 +344,6 @@ msgstr "FK naar Payment Instrument"
 
 #: CRM/Contribute/DAO/Contribution.php
 msgid ""
-"Date contribution was received - not necessarily the creation date of the "
-"record"
-msgstr "Datum ontvangst bijdrage, dit hoeft niet de datum te zijn waarop dit record is aangemaakt"
-
-#: CRM/Contribute/DAO/Contribution.php
-msgid ""
 "Portion of total amount which is NOT tax deductible. Equal to total_amount "
 "for non-deductible financial types."
 msgstr "Gedeelte van het totaalbedrag dat niet aftrekbaar is voor de belastingen. Gelijk aan het totaalbedrag bij  financieel types waar geen belastingaftrek mogelijk is."
@@ -453,8 +443,24 @@ msgid "Shows this is a template for recurring contributions."
 msgstr "Toont dat het een sjabloon voor periodieke bijdragen is."
 
 #: CRM/Contribute/DAO/ContributionPage.php
+msgid "Page Name"
+msgstr "Paginanaam"
+
+#: CRM/Contribute/DAO/ContributionPage.php
 msgid "Contribution Page title. For top of page display"
 msgstr "Titel bijdragepagina. Wordt bovenaan de pagina getoond"
+
+#: CRM/Contribute/DAO/ContributionPage.php
+msgid "Contribution Page Public title"
+msgstr "Bijdragepagina Openbare titel"
+
+#: CRM/Contribute/DAO/ContributionPage.php
+msgid "Unique Name"
+msgstr "Unieke naam"
+
+#: CRM/Contribute/DAO/ContributionPage.php
+msgid "Unique name for identifying contribution page"
+msgstr "Unieke naam voor identificeren bijdragepagina"
 
 #: CRM/Contribute/DAO/ContributionPage.php
 msgid "Contribution Page Introduction Text"
@@ -733,10 +739,6 @@ msgstr "Mag de bijdragepagina gedeeld worden op de sociale media?"
 msgid "if true - billing block is required for online contribution page"
 msgstr "indien true, het blok met betalingsgegevens is verplicht op een online bijdragepagina"
 
-#: CRM/Contribute/DAO/ContributionPage.php
-msgid "Contribution Page Public title"
-msgstr "Bijdragepagina Openbare titel"
-
 #: CRM/Contribute/DAO/ContributionProduct.php
 msgid "Contribution Products"
 msgstr "Bijdrage producten"
@@ -905,6 +907,12 @@ msgstr "Optioneel gebruikt voor het opslaan van een link naar een token voor een
 #: CRM/Contribute/DAO/ContributionRecur.php
 msgid "unique transaction id (deprecated - use processor_id)"
 msgstr "uniek transactie-id (ontraden, gebruik processor-id)"
+
+#: CRM/Contribute/DAO/ContributionRecur.php
+#: CRM/Contribute/Form/AdditionalInfo.php
+#: templates/CRM/Contribute/Page/ContributionRecur.tpl
+msgid "Invoice ID"
+msgstr ""
 
 #: CRM/Contribute/DAO/ContributionRecur.php
 #: templates/CRM/Contribute/Page/ContributionRecur.tpl
@@ -1339,23 +1347,6 @@ msgid ""
 " you can submit a credit card transactions."
 msgstr "U moet de %1-instellingen voor de betaalmethode configureren voordat u creditcardtransacties kunt doen."
 
-#: CRM/Contribute/Form/AbstractEditPayment.php
-msgid "Pledge payment status should be 'Pending' or  'Overdue'."
-msgstr "De betalingsstatus van de toezegging dient 'In afwachting' of 'Achterstallig' te zijn."
-
-#: CRM/Contribute/Form/AbstractEditPayment.php
-msgid ""
-"This contact has pending or overdue pledge payments. <a href=\"%1\">Click "
-"here to view their Pledges tab</a> and verify whether this contribution "
-"should be applied as a pledge payment."
-msgstr "Betalingen van dit contact zijn in afwachting of achterstallig. <a href=\"%1\">Klik hier om het tabblad Toezeggingen weer te geven</a> en controleer of deze bijdrage als toezeggingsbetaling beschouwd moet worden."
-
-#: CRM/Contribute/Form/AbstractEditPayment.php
-msgid ""
-"This contact has a pending or overdue pledge payment of %2 which is "
-"scheduled for %3. <a href=\"%1\">Click here to enter a pledge payment</a>."
-msgstr "Dit contact heeft %2 in afwachting zijnde of achterstallige betalingen voor toezeggingen en het is ingepland voor %3. <a href=\"%1\">Betaling toezegging toevoegen</a>."
-
 #: CRM/Contribute/Form/AdditionalInfo.php
 msgid "-select product-"
 msgstr "-selecteer product-"
@@ -1387,30 +1378,13 @@ msgstr "Dit factuurnummer bestaat al in de database."
 msgid "This Credit Note ID already exists in the database."
 msgstr "Deze creditnota bestaat al."
 
-#: CRM/Contribute/Form/AdditionalInfo.php
-msgid "Send Initial Reminder"
-msgstr "Eerste herinnering verzenden"
-
-#: CRM/Contribute/Form/AdditionalInfo.php
-msgid "Please enter a valid reminder day."
-msgstr "Voer een geldige herinneringsdag in."
-
-#: CRM/Contribute/Form/AdditionalInfo.php
-#: CRM/Contribute/Form/ContributionPage/Amount.php
-msgid "Send up to"
-msgstr "Verstuur maximaal"
-
-#: CRM/Contribute/Form/AdditionalInfo.php
-msgid "Please enter a valid No. of reminders."
-msgstr "Voer een geldig aantal herinneringen in."
-
-#: CRM/Contribute/Form/AdditionalInfo.php
-msgid "Please enter a valid additional reminder day."
-msgstr "Voer een geldige extra herinneringsdag in."
-
 #: CRM/Contribute/Form/AdditionalPayment.php
 msgid "Credit card payment is not for Refund payments use"
 msgstr "Voor een terugbetaling mag geen creditcard gebruikt worden"
+
+#: CRM/Contribute/Form/AdditionalPayment.php
+msgid "Refund"
+msgstr ""
 
 #: CRM/Contribute/Form/AdditionalPayment.php
 msgid "Refund Amount"
@@ -1426,6 +1400,10 @@ msgid "Refund Date"
 msgstr "Datum terugbetaling"
 
 #: CRM/Contribute/Form/AdditionalPayment.php
+msgid "Submit Payment"
+msgstr "Betaling verzenden"
+
+#: CRM/Contribute/Form/AdditionalPayment.php
 msgid "Payment method is a required field"
 msgstr "Betaalmethode is een verplicht veld"
 
@@ -1438,11 +1416,6 @@ msgstr "De betaling is verwerkt."
 msgid "A receipt has been emailed to the contributor."
 msgstr "Er is een ontvangstbewijs per e-mail naar de gever gestuurd."
 
-#: CRM/Contribute/Form/AdditionalPayment.php
-#: CRM/Contribute/Form/Contribution.php
-msgid "Submit Credit Card Payment by: %1"
-msgstr "Creditcardbetaling indienen door: %1"
-
 #: CRM/Contribute/Form/CancelSubscription.php
 msgid "The recurring contribution looks to have been cancelled already."
 msgstr "Het lijkt erop dat de periodieke bijdrage al is beëindigt."
@@ -1451,6 +1424,10 @@ msgstr "Het lijkt erop dat de periodieke bijdrage al is beëindigt."
 #: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Required information missing."
 msgstr "Er ontbreekt verplichte informatie."
+
+#: CRM/Contribute/Form/CancelSubscription.php
+msgid "Cancel Recurring Contribution"
+msgstr ""
 
 #: CRM/Contribute/Form/CancelSubscription.php
 msgid "Send cancellation request?"
@@ -1484,32 +1461,18 @@ msgid "Recurring contribution could not be cancelled in the database."
 msgstr "Beëindigen periodieke bijdrage is mislukt."
 
 #: CRM/Contribute/Form/Contribution/Confirm.php
-msgid "Make Contribution"
-msgstr "Bijdrage doen"
-
-#: CRM/Contribute/Form/Contribution/Confirm.php
-#: CRM/Contribute/Form/Contribution/Main.php
-#: CRM/Contribute/Form/Contribution/ThankYou.php
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"Oops. The membership you're trying to renew appears to be invalid. Contact "
-"your site administrator if you need assistance. If you continue, you will be"
-" issued a new membership."
-msgstr "Het lidmaatschap dat u probeert te verlengen lijkt ongeldig te zijn. Als u hulp nodig hebt, neem dan contact op met de beheerder. Als u doorgaat wordt er een nieuw lidmaatschap gemaakt."
-
-#: CRM/Contribute/Form/Contribution/Confirm.php
-#: CRM/Contribute/Form/Contribution/Main.php
-#: CRM/Contribute/Form/Contribution/ThankYou.php
-msgid "Invalid Membership"
-msgstr "Ongeldig lidmaatschap"
-
-#: CRM/Contribute/Form/Contribution/Confirm.php
 msgid "Anonymous"
 msgstr "Anoniem"
 
 #: CRM/Contribute/Form/Contribution/Confirm.php
 msgid "Online Contribution:"
 msgstr "Online bijdrage:"
+
+#: CRM/Contribute/Form/Contribution/Confirm.php
+#: CRM/Contribute/Form/Contribution/Main.php
+#: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
+msgid "Online Contribution"
+msgstr "Online bijdrage"
 
 #: CRM/Contribute/Form/Contribution/Confirm.php
 msgid "Payment Processor Error message :"
@@ -1546,30 +1509,37 @@ msgid "Confirm Payment"
 msgstr "Betaling bevestigen"
 
 #: CRM/Contribute/Form/Contribution/Main.php
-msgid "Please select one of the memberships."
-msgstr "Selecteer een van de lidmaatschappen."
+#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+msgid "Additional Contribution"
+msgstr ""
 
 #: CRM/Contribute/Form/Contribution/Main.php
 msgid "Please renew my membership automatically."
 msgstr "Verleng mijn lidmaatschap automatisch."
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "installments"
 msgstr "termijnen"
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "Number of installments must be a whole number."
 msgstr "Aantal termijnen moet een geheel getal zijn."
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "I want to contribute this amount every"
 msgstr "Ik wil dit bedrag bijdragen elke"
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "I want to contribute this amount every %1"
 msgstr "Ik wil dit bedrag elke %1 bijdragen"
 
 #: CRM/Contribute/Form/Contribution/Main.php
+#: CRM/Contribute/Form/Contribution.php
 msgid "Frequency must be a whole number (EXAMPLE: Every 3 months)."
 msgstr "De frequentie moet een geheel getal zijn (bijvoorbeeld: elke 3 maanden)."
 
@@ -1686,6 +1656,42 @@ msgstr "U keert hier terug omdat er geen contact is gevonden bij deze bijdrage."
 msgid "Returning since contribution has already been handled."
 msgstr "Gestopt, omdat de bijdrage al eerder is verwerkt."
 
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid ""
+"This contribution page has been configured for contribution on behalf of "
+"honoree and the selected honoree profile is either disabled or not found."
+msgstr "Deze bijdragepagina is ingesteld ten behoeve van een begunstigde en het profiel van deze begunstigde ontbreekt of is uitgeschakeld."
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid ""
+"This contribution page has been configured for contribution on behalf of "
+"honoree and the required fields of the selected honoree profile are disabled"
+" or doesn't exist."
+msgstr "Deze bijdragepagina is ingesteld ten behoeve van een begunstigde en de verplichte velden van deze begunstigde ontbreken of zijn uitgeschakeld."
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid ""
+"This contribution page has been configured for contribution on behalf of an "
+"organization and the selected onbehalf profile is either disabled or not "
+"found."
+msgstr "Dit is een bijdragepagina voor gebruik door organisaties, het geselecteerde profiel is niet gevonden of het is uitgeschakeld."
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Mixed profile not allowed for on behalf of registration/sign up."
+msgstr "Een gemengd profiel is niet toegestaan bij inschrijven/aanmelden namens."
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Select an existing organization"
+msgstr "Selecteer een bestaande organisatie"
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "Enter a new organization"
+msgstr "Voer een nieuwe organisatie in"
+
+#: CRM/Contribute/Form/Contribution/Main.php
+msgid "options"
+msgstr "opties"
+
 #: CRM/Contribute/Form/Contribution.php
 #: CRM/Contribute/Page/ContributionRecurPayments.php
 #: CRM/Contribute/Selector/Search.php
@@ -1704,6 +1710,23 @@ msgstr "Betaling van toezegging via creditcard"
 #: CRM/Contribute/Form/Contribution.php
 msgid "Credit Card Contribution"
 msgstr "Creditcard-bijdrage"
+
+#: CRM/Contribute/Form/Contribution.php
+msgid "Pledge payment status should be 'Pending' or  'Overdue'."
+msgstr "De betalingsstatus van de toezegging dient 'In afwachting' of 'Achterstallig' te zijn."
+
+#: CRM/Contribute/Form/Contribution.php
+msgid ""
+"This contact has pending or overdue pledge payments. <a href=\"%1\">Click "
+"here to view their Pledges tab</a> and verify whether this contribution "
+"should be applied as a pledge payment."
+msgstr "Betalingen van dit contact zijn in afwachting of achterstallig. <a href=\"%1\">Klik hier om het tabblad Toezeggingen weer te geven</a> en controleer of deze bijdrage als toezeggingsbetaling beschouwd moet worden."
+
+#: CRM/Contribute/Form/Contribution.php
+msgid ""
+"This contact has a pending or overdue pledge payment of %2 which is "
+"scheduled for %3. <a href=\"%1\">Click here to enter a pledge payment</a>."
+msgstr "Dit contact heeft %2 in afwachting zijnde of achterstallige betalingen voor toezeggingen en het is ingepland voor %3. <a href=\"%1\">Betaling toezegging toevoegen</a>."
 
 #: CRM/Contribute/Form/Contribution.php
 msgid "Additional Details"
@@ -1732,6 +1755,10 @@ msgid "Payment Processor Error"
 msgstr "Betaalmethode Fout"
 
 #: CRM/Contribute/Form/Contribution.php
+msgid "Submit Credit Card Payment by: %1"
+msgstr "Creditcardbetaling indienen door: %1"
+
+#: CRM/Contribute/Form/Contribution.php
 msgid ""
 "Contribution submitted by a staff person using contributor's credit card"
 msgstr "Bijdragen gedaan door een staflid met gebruik van de creditcard van de donateur"
@@ -1740,9 +1767,17 @@ msgstr "Bijdragen gedaan door een staflid met gebruik van de creditcard van de d
 msgid "The contribution record has been saved."
 msgstr "De bijdrage is opgeslagen."
 
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "Membership Invalid"
-msgstr "Lidmaatschap ongeldig"
+#: CRM/Contribute/Form/Contribution.php
+msgid ""
+"You've changed the financial type for this %1 contribution from non-tax "
+"deductible to tax deductible, but the non-deductible amount of %2 has not "
+"been changed. This could prevent a tax receipt from being issued correctly. "
+"You may want to edit the non-deductible amount."
+msgstr "U heeft het financiële type voor deze %1-bijdrage gewijzigd van niet-fiscaal aftrekbaar naar fiscaal aftrekbaar, maar het niet-aftrekbare bedrag van %2 is niet gewijzigd. Hierdoor wordt een belastingbewijs mogelijk niet correct uitgegeven. U wilt misschien het niet-aftrekbare bedrag bewerken."
+
+#: CRM/Contribute/Form/Contribution.php
+msgid "Non-deductible amount"
+msgstr "Niet-aftrekbare bedrag"
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid "The page you requested has past its end date on %1"
@@ -1754,52 +1789,10 @@ msgstr "De gevraagde pagina is actief op %1"
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid ""
-"This page includes a Profile with Membership fields - but the Membership "
-"Block is NOT enabled. Please notify the site administrator."
-msgstr "Deze pagina bevat een profiel met lidmaatschapsvelden, maar het lidmaatschapsblok is NIET ingeschakeld. Waarschuw a.u.b. de beheerder."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
 "The requested online contribution page is missing a required Contribution "
 "Amount section or Membership section or Price Set. Please check with the "
 "site administrator for assistance."
 msgstr "De gevraagde online bijdragepagina mist een verplicht onderdeel (sectie bijdragebedrag of lidmaatschap of prijsset). Neem a.u.b. contact op met de beheerder voor assistentie."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"This contribution page has been configured for contribution on behalf of "
-"honoree and the selected honoree profile is either disabled or not found."
-msgstr "Deze bijdragepagina is ingesteld ten behoeve van een begunstigde en het profiel van deze begunstigde ontbreekt of is uitgeschakeld."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"This contribution page has been configured for contribution on behalf of "
-"honoree and the required fields of the selected honoree profile are disabled"
-" or doesn't exist."
-msgstr "Deze bijdragepagina is ingesteld ten behoeve van een begunstigde en de verplichte velden van deze begunstigde ontbreken of zijn uitgeschakeld."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid ""
-"This contribution page has been configured for contribution on behalf of an "
-"organization and the selected onbehalf profile is either disabled or not "
-"found."
-msgstr "Dit is een bijdragepagina voor gebruik door organisaties, het geselecteerde profiel is niet gevonden of het is uitgeschakeld."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "Mixed profile not allowed for on behalf of registration/sign up."
-msgstr "Een gemengd profiel is niet toegestaan bij inschrijven/aanmelden namens."
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "Select an existing organization"
-msgstr "Selecteer een bestaande organisatie"
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "Enter a new organization"
-msgstr "Voer een nieuwe organisatie in"
-
-#: CRM/Contribute/Form/ContributionBase.php
-msgid "options"
-msgstr "opties"
 
 #: CRM/Contribute/Form/ContributionBase.php
 msgid ""
@@ -1811,6 +1804,23 @@ msgstr "Het lijkt erop dat u een onjuiste of onvolledige link (URL) heeft. Verze
 #: CRM/Contribute/Form/ContributionBase.php
 msgid "Oops. You cannot make a payment for this pledge - pledge status is %1."
 msgstr "U kunt geen betaling doen op deze toezegging - toezeggingsstatus is %1."
+
+#: CRM/Contribute/Form/ContributionBase.php
+msgid ""
+"This page includes a Profile with Membership fields - but the Membership "
+"Block is NOT enabled. Please notify the site administrator."
+msgstr "Deze pagina bevat een profiel met lidmaatschapsvelden, maar het lidmaatschapsblok is NIET ingeschakeld. Waarschuw a.u.b. de beheerder."
+
+#: CRM/Contribute/Form/ContributionBase.php
+msgid ""
+"Oops. The membership you're trying to renew appears to be invalid. Contact "
+"your site administrator if you need assistance. If you continue, you will be"
+" issued a new membership."
+msgstr "Het lidmaatschap dat u probeert te verlengen lijkt ongeldig te zijn. Als u hulp nodig hebt, neem dan contact op met de beheerder. Als u doorgaat wordt er een nieuw lidmaatschap gemaakt."
+
+#: CRM/Contribute/Form/ContributionBase.php
+msgid "Membership Invalid"
+msgstr "Lidmaatschap ongeldig"
 
 #: CRM/Contribute/Form/ContributionCharts.php
 msgid "Chart Style"
@@ -1853,6 +1863,7 @@ msgid "Add Premium to Contribution Page"
 msgstr "Relatiegeschenk toevoegen aan bijdragepagina"
 
 #: CRM/Contribute/Form/ContributionPage/Amount.php
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
 msgid "Allow other amounts"
 msgstr "Andere bedragen toestaan"
 
@@ -1865,6 +1876,7 @@ msgid "Contribution Amounts section enabled"
 msgstr "Sectie bijdragebedragen is ingeschakeld"
 
 #: CRM/Contribute/Form/ContributionPage/Amount.php
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
 msgid "Execute real-time monetary transactions"
 msgstr "Geldtransacties onmiddellijk uitvoeren"
 
@@ -1973,12 +1985,6 @@ msgid ""
 "payment option has been selected. Please select at least one payment "
 "processor and/or enable the pay later option."
 msgstr "U heeft een lijst opties met vaste bijdragen of een prijsset gekozen maar er is nog geen betaaloptie ingesteld. Kies een betaalmethode en/of schakel de optie Later betalen in."
-
-#: CRM/Contribute/Form/ContributionPage/Amount.php
-msgid ""
-"You cannot enable both a Contribution Price Set and Membership Signup on the"
-" same online contribution page."
-msgstr "U kunt op een bijdragepagina niet zowel een prijsset als een aanmelding voor lidmaatschap inschakelen."
 
 #: CRM/Contribute/Form/ContributionPage/Amount.php
 msgid "At least one recurring frequency option needs to be checked."
@@ -2100,6 +2106,7 @@ msgid "Organization Profile"
 msgstr "Organisatie profiel"
 
 #: CRM/Contribute/Form/ContributionPage/Settings.php
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid "On behalf of Label"
 msgstr "Label namens"
 
@@ -2120,6 +2127,7 @@ msgid "Honoree Section Title"
 msgstr "Titel sectie begunstigde"
 
 #: CRM/Contribute/Form/ContributionPage/Settings.php
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid "Honoree Introductory Message"
 msgstr "Inleidende tekst begunstigde"
 
@@ -2138,10 +2146,6 @@ msgstr "Als de sectie begunstiger is ingeschakeld moet er minstens één waarde 
 #: CRM/Contribute/Form/ContributionPage/Settings.php
 msgid "Please select a profile used for honoree"
 msgstr "Selecteer a.u.b. een profiel voor begunstiger"
-
-#: CRM/Contribute/Form/ContributionPage/Settings.php
-msgid "Please do not use '/' in Title"
-msgstr "Gebruik a.u.b. geen '/' in de titel"
 
 #: CRM/Contribute/Form/ContributionPage/Settings.php
 msgid ""
@@ -2522,11 +2526,12 @@ msgid "From Email Address is required"
 msgstr "Afzenderadres is verplicht"
 
 #: CRM/Contribute/Form/Task/Invoice.php
-msgid ""
-"If you would like to add personal message to email please add it here. (If "
-"sending to more then one receipient the same message will be sent to each "
-"contact.)"
-msgstr "Als u een persoonlijke boodschap in de e-mail wilt toevoegen, dan kunt u dat hier doen. (Als u het naar meer dan een contact stuurt dan krijgen al deze contacten hetzelfde persoonlijke bericht.)"
+msgid "Replace Subject"
+msgstr ""
+
+#: CRM/Contribute/Form/Task/Invoice.php
+msgid "Additional Message"
+msgstr ""
 
 #: CRM/Contribute/Form/Task/Invoice.php
 msgid "Process Invoice(s)"
@@ -2569,6 +2574,10 @@ msgstr "De privacy-instellingen negeren? (Niet mailen en Geen post)"
 #: CRM/Contribute/Form/Task/PDF.php
 msgid "Process Receipt(s)"
 msgstr "Verwerk Ontvangstbewijzen"
+
+#: CRM/Contribute/Form/Task/PDFLetter.php
+msgid "From Email Address"
+msgstr ""
 
 #: CRM/Contribute/Form/Task/PDFLetter.php
 msgid "Thank-you Letter Options"
@@ -2759,6 +2768,10 @@ msgid "Update Error"
 msgstr "Wijziging fout"
 
 #: CRM/Contribute/Form/UpdateSubscription.php
+msgid "Update Recurring Contribution"
+msgstr ""
+
+#: CRM/Contribute/Form/UpdateSubscription.php
 msgid "Recurring Contribution Amount"
 msgstr "Bedrag periodieke bijdrage"
 
@@ -2807,10 +2820,6 @@ msgstr "Bijdragen toevoegen"
 #: CRM/Contribute/Import/Form/DataSource.php
 msgid "Update existing contributions"
 msgstr "Bestaande bijdragen bijwerken"
-
-#: CRM/Contribute/Import/Form/DataSource.php
-msgid "Load Mapping"
-msgstr "Koppeltabel laden"
 
 #: CRM/Contribute/Import/Form/MapField.php
 msgid "(match to contribution record)"
@@ -3149,9 +3158,22 @@ msgstr "Bedankbrieven - afdrukken of e-mailen"
 msgid "Invoices - print or email"
 msgstr "Facturen - afdrukken of e-mailen"
 
+#: CRM/Contribute/Tokens.php
+msgid "Billing Address Name"
+msgstr ""
+
+#: CRM/Contribute/Tokens.php templates/CRM/Contribute/Form/Contribution.tpl
+#: templates/CRM/Contribute/Form/ContributionView.tpl
+msgid "Billing Address"
+msgstr "Factuuradres"
+
 #: CRM/Contribute/WorkflowMessage/Contribution/BasicContribution.php
 msgid "Completed Contribution"
 msgstr "Bijdrage afgerond"
+
+#: CRM/Contribute/WorkflowMessage/Contribution/BasicContribution.php
+msgid "Partially Paid Contribution"
+msgstr ""
 
 #: CRM/Contribute/WorkflowMessage/Contribution/BasicContribution.php
 msgid "Refunded Contribution"
@@ -3164,6 +3186,18 @@ msgstr "Periodiek Wijzigen: Alex, Beëindigen"
 #: CRM/Contribute/WorkflowMessage/RecurringEdit/BarbPending.php
 msgid "Recurring Edit: Barbara, Pending"
 msgstr "Periodiek Wijzigen: Barbara, In behandeling"
+
+#: ext/civi_contribute/Civi/Api4/Service/Spec/Provider/ContributionGetSpecProvider.php
+msgid "Amount paid"
+msgstr ""
+
+#: ext/civi_contribute/Civi/Api4/Service/Spec/Provider/ContributionGetSpecProvider.php
+msgid "Tax Exclusive Amount"
+msgstr ""
+
+#: ext/civi_contribute/Civi/Api4/Service/Spec/Provider/FinancialTrxnCreationSpecProvider.php
+msgid "Related entity (eg. contribution) id"
+msgstr ""
 
 #: templates/CRM/Contribute/Form/AcceptCreditCard.tpl
 msgid "New Credit Card"
@@ -3194,27 +3228,6 @@ msgid ""
 "The name for this credit card type as it is displayed to contributors. This "
 "may be the same value as the Name above, or a localised title."
 msgstr "De naam van dit type creditcard zoals die getoond wordt aan gevers. Dit mag dezelfde naam zijn als de naam hierboven of een eigen naam."
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-msgid "Non-deductible portion of this contribution."
-msgstr "Niet-aftrekbaar deel van deze bijdrage."
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-#: templates/CRM/Contribute/Form/AdditionalPayment.tpl
-msgid "Processing fee for this transaction (if applicable)."
-msgstr "Verwerkingskosten van deze transactie (indien van toepassing)."
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-msgid "Unique internal reference ID for this contribution."
-msgstr "Uniek intern referentienummer voor deze bijdrage."
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-msgid "Unique internal Credit Note ID for this contribution."
-msgstr "Uniek creditnota ID voor deze bijdrage."
-
-#: templates/CRM/Contribute/Form/AdditionalInfo/AdditionalDetail.tpl
-msgid "Date that a thank-you message was sent to the contributor."
-msgstr "Datum dat er een bedankbericht naar de gever verzonden is."
 
 #: templates/CRM/Contribute/Form/AdditionalInfo/PaymentReminders.tpl
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
@@ -3272,7 +3285,6 @@ msgstr "Automatisch een ontvangstbewijs e-mailen naar %1?"
 
 #: templates/CRM/Contribute/Form/AdditionalPayment.tpl
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Refund Details"
 msgstr "Details terugbetaling"
 
@@ -3280,13 +3292,8 @@ msgstr "Details terugbetaling"
 #: templates/CRM/Contribute/Form/Contribution.tpl
 #: templates/CRM/Contribute/Form/ContributionView.tpl
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Payment Details"
 msgstr "Betalingsgegevens"
-
-#: templates/CRM/Contribute/Form/AdditionalPayment.tpl
-msgid "The date this payment was received."
-msgstr "De ontvangstdatum van de betaling."
 
 #: templates/CRM/Contribute/Form/AdditionalPayment.tpl
 msgid ""
@@ -3387,18 +3394,6 @@ msgid ""
 "time by logging in to your account or contacting us at %1."
 msgstr "Uw eerste bijdrage zal worden verwerkt wanneer u hieronder op &quot;%2&quot; klikt. U kunt toekomstige betalingen op uw toezegging op elk moment wijzigen of stopzetten door in te loggen in uw account of contact met ons op te nemen op %1."
 
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Your transaction will not be completed until you click the "
-"<strong>%1</strong> button. Please click the button one time only."
-msgstr "Uw transactie is pas afgerond als u op de knop <strong>%1</strong> klikt. Klik a.u.b. slechts één keer op de knop."
-
-#: templates/CRM/Contribute/Form/Contribution/Confirm.tpl
-msgid ""
-"Your contribution will not be completed until you click the "
-"<strong>%1</strong> button. Please click the button one time only."
-msgstr "Uw bijdrage is pas afgerond als u op de knop <strong>%1</strong> klikt. Klik a.u.b. slechts één keer op de knop."
-
 #: templates/CRM/Contribute/Form/Contribution/Main.tpl
 msgid "Configure Contribution Page"
 msgstr "Bijdragepagina configureren"
@@ -3421,7 +3416,6 @@ msgstr "U heeft een levenslang lidmaatschap, dat hoeft dus niet te worden verlen
 #: xml/templates/message_templates/contribution_offline_receipt_html.tpl
 #: xml/templates/message_templates/contribution_offline_receipt_text.tpl
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
 msgid "Contribution Information"
 msgstr "Informatie over de bijdrage"
 
@@ -3442,19 +3436,23 @@ msgstr "Kies een optie voor het tonen van de informatie velden van de begunstige
 msgid "Regular Amount"
 msgstr "Regulier bedrag"
 
-#: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
+#: templates/CRM/Contribute/Form/Contribution/MainMembershipBlock.tpl
 msgid "Your <strong>%2</strong> membership expired on %1."
 msgstr "Uw <strong>%2</strong> lidmaatschap is verlopen op %1."
 
-#: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
+#: templates/CRM/Contribute/Form/Contribution/MainMembershipBlock.tpl
 msgid "Your <strong>%2</strong> membership expires on %1."
 msgstr "Uw <strong>%2</strong> lidmaatschap verloopt op %1."
 
-#: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
+#: templates/CRM/Contribute/Form/Contribution/MainMembershipBlock.tpl
 msgid ""
 "Your <strong>%1</strong> membership does not expire (you do not need to "
 "renew that membership)."
 msgstr "Uw <strong>%1</strong> lidmaatschap verloopt niet. (U hoeft het dus ook niet te verlengen)."
+
+#: templates/CRM/Contribute/Form/Contribution/MainMembershipBlock.tpl
+msgid "(contribute at least %1 to be eligible for this membership)"
+msgstr "(minimumbijdrage om in aanmerking te komen voor dit lidmaatschap is %1)"
 
 #: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
 msgid "Select a Membership Renewal Level"
@@ -3463,10 +3461,6 @@ msgstr "Selecteer een lidmaatschapsverlengingsniveau"
 #: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
 msgid "Select a Membership Level"
 msgstr "Selecteer een lidmaatschapsniveau"
-
-#: templates/CRM/Contribute/Form/Contribution/MembershipBlock.tpl
-msgid "(contribute at least %1 to be eligible for this membership)"
-msgstr "(minimumbijdrage om in aanmerking te komen voor dit lidmaatschap is %1)"
 
 #: templates/CRM/Contribute/Form/Contribution/PremiumBlock.tpl
 msgid "Your Premium Selection"
@@ -3506,6 +3500,20 @@ msgid ""
 "card number, security code, postal code, etc."
 msgstr "Deze pagina staat in <strong>teststand</strong>. Transacties worden naar de testserver van uw betaalmethode verzonden. <strong>Er wordt geen daadwerkelijke financiële transactie gedaan. Wel wordt het contactrecord gemaakt of bijgewerkt en wordt er een testbijdragerecord in de database opgeslagen. Gebruik opvallende namen om te testen zodat u deze records zo nodig kunt nalopen en verwijderen. Testbijdragen zijn niet zichtbaar op het tabblad Bijdragen, maar kunnen worden weergegeven door te zoeken naar 'Testbijdragen' in het zoekformulier van CiviContribute.</strong> Kijk in de documentatie van uw betaalmethode voor informatie over waarden die bij testen gebruikt moeten worden voor het creditcardnummer, veiligheidscode, postcode, enz."
 
+#: templates/CRM/Contribute/Form/Contribution/PreviewHeader.tpl
+msgid "Test payment processor on Your Contribution Page"
+msgstr "Test betaalmethode op uw bijdragepagina"
+
+#: templates/CRM/Contribute/Form/Contribution/PreviewHeader.tpl
+msgid ""
+"This page is currently configured to use the <strong>%1 payment "
+"processor</strong>. <strong>No live financial transactions will be submitted"
+" if %1 payment processor is selected. However, a contact record will be "
+"created or updated and a live contribution record will be saved to the "
+"database with no actual financial transaction. Remove %1 payment processor "
+"before going live.</strong>"
+msgstr "Deze pagina is ingesteld om de <strong>%1 betaalmethode</strong> te gebruiken.  <strong>Er worden geen productie financiële transacties verzonden als betaalmethode %1 is geselecteerd. Er wordt wel een contact aangemaakt of bijgewerkt en een productie bijdrage wordt vastgelegd maar zonder actuele financiële transactie. Verwijder betaalmethode %1 voordat u in productie gaat.</strong>"
+
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid ""
 "An email confirmation with these payment instructions has been sent to %1 "
@@ -3544,6 +3552,10 @@ msgstr "Een  ontvangstbewijs is per e-mail ook verstuurd naar %1 en %2"
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid "An email receipt has also been sent to %1"
 msgstr "Een ontvangstbewijs is oer e-mail ook verstuurd naar %1"
+
+#: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
+msgid "Membership Transaction #"
+msgstr ""
 
 #: templates/CRM/Contribute/Form/Contribution/ThankYou.tpl
 msgid "This membership will be renewed automatically every %1."
@@ -3706,10 +3718,6 @@ msgid ""
 msgstr "Vul de datum in van beëindiging / terugbetaling, of laat dit veld leeg (als datum wordt dan de huidige dag vastgelegd)."
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
-msgid "The date this contribution was received."
-msgstr "Datum van ontvangst van deze bijdrage."
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
 msgid "Automatically email a receipt for this payment to %1?"
 msgstr "Automatisch een ontvangstbewijs voor deze betaling e-mailen naar %1?"
 
@@ -3718,30 +3726,10 @@ msgid "Automatically email a receipt for this payment to "
 msgstr "Automatisch een ontvangstbewijs voor deze betaling e-mailen naar "
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
-msgid "Date that a receipt was sent to the contributor."
-msgstr "Datum van versturing ontvangstbewijs naar donateur."
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
 msgid ""
 "Search for the Personal Campaign Page by the fund-raiser's last name or "
 "email address."
 msgstr "Zoek naar de persoonlijke campagnepagina op de achternaam of het e-mailadres van de fondsenwerver."
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-msgid ""
-"Name or nickname contributor wants to be displayed in the Honor Roll. Enter "
-"\"Anonymous\" for anonymous contributions."
-msgstr "Naam of gebruikersnaam van de betaler wil getoond worden in de erelijst. Vul \"anoniem\" in voor een anonieme bijdrage."
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-msgid ""
-"Personal message submitted by contributor for display in the Honor Roll."
-msgstr "Persoonlijk bericht afkomstig van donateur voor weergave in de eerrol."
-
-#: templates/CRM/Contribute/Form/Contribution.tpl
-#: templates/CRM/Contribute/Form/ContributionView.tpl
-msgid "Billing Address"
-msgstr "Factuuradres"
 
 #: templates/CRM/Contribute/Form/Contribution.tpl
 msgid ""
@@ -3829,6 +3817,53 @@ msgid ""
 "Page."
 msgstr "Gewicht bepaalt de volgorde waarin relatiegeschenken op de bijdragepagina worden getoond."
 
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Uncheck this box if you are using this contribution page for free membership"
+" signup ONLY, or to solicit in-kind / non-monetary donations such as "
+"furniture, equipment.. etc."
+msgstr "Vink dit selectievakje uit als u deze bijdragepagina UITSLUITEND gebruikt voor gratis lidmaatschap of om om in natura/niet-geldelijke donaties zoals meubels, apparatuur enz. te vragen."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Instructions added to Confirmation and Thank-you pages, as well as the "
+"confirmation email, when the user selects the 'pay later' option (e.g. 'Mail"
+" your check to ... within 3 business days.')."
+msgstr "Instructies die toegevoegd worden aan de bevestigingspagina's  en bedankpagina's alsmede de e-mail ter bevestiging wanneer de gebruiker de 'later betalen' optie kiest (bijvoorbeeld: 'Graag binnen 3 werkdagen betalen.')."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Uncheck this box if you are using this contribution page for membership "
+"signup and renewal only &ndash; and you do NOT want users to select or enter"
+" any additional contribution amounts."
+msgstr "Vink dit selectievakje uit als u deze bijdragepagina gebruikt voor aanmelding of verlenging van lidmaatschap en het niet u bedoeling is dat er een extra bijdrage wordt gedaan."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Check this box if you want to give users the option to make recurring "
+"contributions. This feature requires that you use a payment processor which "
+"supports recurring billing / subscriptions functionality."
+msgstr "Vink het vakje aan als u gebruikers de mogelijkheid wil geven om automatisch periodieke bijdragen te betalen. Deze mogelijkheid vereist een betaalmethode die dit ondersteund."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Check this box if you want to give users the option to make a Pledge (a "
+"commitment to contribute a fixed amount on a recurring basis)."
+msgstr "Vink dit selectievakje aan als u gebruikers de mogelijkheid wilt geven een toezegging te doen (een verplichting om periodiek een vast bedrag bij te dragen)."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"Check this box if you want to give users the option to enter their own "
+"contribution amount. Your page will then include a text field labeled "
+"<strong>Other Amount</strong>."
+msgstr "Vink dit selectievakje aan als u gebruikers de mogelijkheid wilt geven zelf een bedrag in te voeren. Uw pagina zal dan een tekstveld met het label <strong>Ander bedrag</strong> bevatten."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
+msgid ""
+"You can also set minimum and maximum amounts that users are allowed to "
+"enter."
+msgstr "U kunt ook minimum- en maximumbedragen instellen die gebruikers mogen invoeren."
+
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 #: templates/CRM/Contribute/Form/ContributionPage/Tab.hlp
 msgid ""
@@ -3852,64 +3887,9 @@ msgstr "Er is geen betaalmethode geconfigureerd/ingeschakeld op uw website. Tenz
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid ""
-"Uncheck this box if you are using this contribution page for free membership"
-" signup ONLY, or to solicit in-kind / non-monetary donations such as "
-"furniture, equipment.. etc."
-msgstr "Vink dit selectievakje uit als u deze bijdragepagina UITSLUITEND gebruikt voor gratis lidmaatschap of om om in natura/niet-geldelijke donaties zoals meubels, apparatuur enz. te vragen."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Select the currency to be used for contributions submitted from this "
-"contribution page."
-msgstr "Kies de valuta voor de bijdragen die via deze pagina worden gedaan."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Select the payment processor to be used for contributions submitted from "
-"this contribution page (unless you are soliciting non-monetary / in-kind "
-"contributions only)."
-msgstr "Selecteer de betaalmethode die gebruikt moet worden voor bijdragen die via deze bijdragepagina ingediend worden (tenzij u alleen om niet-geldelijke/in natura bijdragen vraagt)."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Instructions added to Confirmation and Thank-you pages, as well as the "
-"confirmation email, when the user selects the 'pay later' option (e.g. 'Mail"
-" your check to ... within 3 business days.')."
-msgstr "Instructies die toegevoegd worden aan de bevestigingspagina's  en bedankpagina's alsmede de e-mail ter bevestiging wanneer de gebruiker de 'later betalen' optie kiest (bijvoorbeeld: 'Graag binnen 3 werkdagen betalen.')."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Uncheck this box if you are using this contribution page for membership "
-"signup and renewal only &ndash; and you do NOT want users to select or enter"
-" any additional contribution amounts."
-msgstr "Vink dit selectievakje uit als u deze bijdragepagina gebruikt voor aanmelding of verlenging van lidmaatschap en het niet u bedoeling is dat er een extra bijdrage wordt gedaan."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Select a pre-configured Price Set to offer multiple individually priced "
-"options for contributions. Otherwise, select &quot;-none-&quot; and enter "
-"one or more fixed contribution options in the table below. Create or edit "
-"Price Sets <a href='%1'>here</a>."
-msgstr "Kies een geconfigureerde prijsset om meerdere persoonlijke opties voor prijzen voor bijdragen aan te bieden. Of, kies &quot;-geen-&quot; en vul in de onderstaande tabel een of meer vaste opties voor een bijdrage in. <a href='%1'>Aanmaken en wijzigen prijsset</a>."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"No Contribution Price Sets have been configured / enabled for your site. "
-"Price sets allow you to configure more complex contribution options (e.g. "
-"\"Contribute $25 more to receive our monthly magazine.\"). Click <a "
-"href='%1'>here</a> if you want to configure price sets for your site."
-msgstr "Er is geen prijsset voor bijdragen ingesteld / ingeschakeld. Met prijssets kunt u complexe opties instellen (bijvoorbeeld  \"Extra bijdrage van $25 voor ons maandblad.\"). <a href='%1'>Instellen prijsset</a>."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Check this box if you want to give users the option to make recurring "
-"contributions. This feature requires that you use a payment processor which "
-"supports recurring billing / subscriptions functionality."
-msgstr "Vink het vakje aan als u gebruikers de mogelijkheid wil geven om automatisch periodieke bijdragen te betalen. Deze mogelijkheid vereist een betaalmethode die dit ondersteund."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid "Select recurring units supported for recurring payments."
-msgstr "Selecteer de ondersteunde eenheden voor periodieke betalingen."
+"Select a Price Set to offer more complex amount options. Otherwise, leave "
+"this empty and enter fixed contribution options below."
+msgstr "Selecteer een prijsset om complexere opties voor bedragen aan te bieden. Laat dit anders leeg en voer hieronder vaste opties hiervoor in."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid "Can users also set an interval (e.g. every '3' months)?"
@@ -3922,40 +3902,8 @@ msgid ""
 msgstr "De gebruiker het aantal termijnen laten kiezen? Bijvoorbeeld: een bijdrage elke maand gedurende 6 maanden.  Als u de gebruiker niet laat kiezen is het een onbeperkte periodieke donatie."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Recurring payment will be processed this day of the month following "
-"submission of this contribution page."
-msgstr "Een periodieke betaling zal worden verwerkt op deze dag van de maand nadat de bijdragepagina is ingevuld."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Check this box if you want to give users the option to make a Pledge (a "
-"commitment to contribute a fixed amount on a recurring basis)."
-msgstr "Vink dit selectievakje aan als u gebruikers de mogelijkheid wilt geven een toezegging te doen (een verplichting om periodiek een vast bedrag bij te dragen)."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Which frequencies can the user pick from (e.g. every 'week', every 'month', "
-"every 'year')?"
-msgstr "Uit welke frequenties mag de gebruiker kiezen (bijv. elke 'week', elke 'maand', elk 'jaar')?"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid "Can they also set an interval (e.g. every '3' months)?"
 msgstr "Mogen ze ook een interval instellen (bijv. elke '3' maanden)?"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Check this box if you want to give users the option to enter their own "
-"contribution amount. Your page will then include a text field labeled "
-"<strong>Other Amount</strong>."
-msgstr "Vink dit selectievakje aan als u gebruikers de mogelijkheid wilt geven zelf een bedrag in te voeren. Uw pagina zal dan een tekstveld met het label <strong>Ander bedrag</strong> bevatten."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"If you have chosen to <strong>Allow Other Amounts</strong>, you can use the "
-"fields above to control minimum and/or maximum acceptable values (e.g. don't"
-" allow contribution amounts less than %1)."
-msgstr "Als u gekozen heeft voor <strong>Andere bedragen toestaan</strong>, kunt u bovenstaande velden gebruiken om een minimum en maximum voor aanvaardbare waarden op te geven (bijv. geen bijdragen lager dan %1)."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
 msgid "Fixed Contribution Options"
@@ -4058,10 +4006,6 @@ msgid ""
 "introductory message, amounts, and honoree section)."
 msgstr "Profiel dat wordt toegevoegd boven de betaalinformatie (maar na de delen inleidende tekst, bedragen en de sectie begunstiger)."
 
-#: templates/CRM/Contribute/Form/ContributionPage/Custom.tpl
-msgid "Profile to be included at the bottom of the page."
-msgstr "Profiel dat onderaan de pagina moet worden toegevoegd."
-
 #: templates/CRM/Contribute/Form/ContributionPage/Delete.tpl
 msgid ""
 "You cannot delete this Contribution Page because it has already been used to"
@@ -4111,10 +4055,6 @@ msgid ""
 "Then select and review the premiums that you want to offer on this "
 "contribution page."
 msgstr "Selecteer vervolgens de relatiegeschenken die u wilt aanbieden op deze bijdragepagina."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
-msgid "Is the Premiums section enabled for this Online Contributions page?"
-msgstr "Is de sectie Relatiegeschenken ingeschakeld voor deze online bijdragepagina?"
 
 #: templates/CRM/Contribute/Form/ContributionPage/Premium.tpl
 msgid "Premiums Settings"
@@ -4182,6 +4122,10 @@ msgid ""
 msgstr "NB: Als u deze bijdragepagina gebruikt voor het aanmelden en verlengen van lidmaatschap, zal het financieel type ingesteld in het type lidmaatschap worden gebruikt bij het vastleggen van betalingen van lidmaatschap. Het hier geselecteerde financieel type wordt alleen gebruikt als u hier ook aanvullende bijdragen heeft (zoals ingesteld bij de instellingen van het lidmaatschap)."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid "Text displayed next to the checkbox on the contribution form."
+msgstr "Tekst die op het bijdrageformulier naast het selectievakje getoond wordt."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid "Intro Content"
 msgstr "Inleiding inhoud"
 
@@ -4235,6 +4179,22 @@ msgid ""
 "included in the form. Honoree information is automatically saved and linked "
 "with the contribution record."
 msgstr "Vink dit selectievakje aan als u wilt dat gevers iemand aan kunnen wijzen als begunstiger. De optionele sectie Begunstiger wordt dan opgenomen in het formulier. Informatie over de begunstiger wordt automatisch opgeslagen en aan de bijdrage gekoppeld."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid ""
+"Optional explanatory text for the Honoree section (displayed above the "
+"Honoree fields)."
+msgstr "Optionele verklarende tekst voor de sectie Begunstiger (wordt boven de velden getoond)."
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid "Use a Confirmation Page?"
+msgstr "Een bevestigingspagina gebruiken?"
+
+#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
+msgid ""
+"If you disable this contributions will be processed immediately after "
+"submitting the contribution form."
+msgstr "Als u dit uitschakelt, dan worden bijdragen direct verwerkt na het invoeren."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
 msgid ""
@@ -4296,59 +4256,9 @@ msgstr "Gebruik dit formulier om een of meer van de volgende velden te wijzigen:
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
-"This title will be displayed at the top of the page unless the frontend "
-"title field is filled out.<br />Please use only alphanumeric, spaces, "
-"hyphens and dashes for Title."
-msgstr "Deze titel zal bovenaan de pagina worden getoond behalve als de frontend titel wordt gebruikt. <br />Gebruik a.u.b. alleen alfanumerieke tekens, spaties, koppeltekens en streepjes."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"This title will be displayed at the top of the page.<br />Please use only "
-"alphanumeric, spaces, hyphens and dashes for Title."
-msgstr "Deze titel zal bovenaan de pagina getoond worden.<br />Gebruik a.u.b. alleen alfanumerieke tekens, spaties, koppeltekens en streepjes voor de titel."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"Select the corresponding financial type for contributions made using this "
-"page."
-msgstr "Kies het bijbehorende financieel type voor bijdragen gedaan via deze pagina."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"To change the organization data collected use the \"On Behalf Of "
-"Organization\" profile (<a href=\"%1\">Administer > Customize Data and "
-"Screens > Profiles</a>)."
-msgstr "Om de verzamelde organisatiedetails te wijzigen, gebruik de \"in opdracht van organisatie\" profiel (<a href=\"%1\">Beheer > Gegevens en schermen aanpassen > Profielen</a>)."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid "Text displayed next to the checkbox on the contribution form."
-msgstr "Tekst die op het bijdrageformulier naast het selectievakje getoond wordt."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
 "Check 'Required' to force ALL users to contribute/signup on behalf of an "
 "organization."
 msgstr "Vink 'Verplicht' aan om ALLE gebruikers te dwingen een bijdrage te doen/zich aan te melden namens een organisatie."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid "Title for the Honoree section (e.g. &quot;Honoree Information&quot;)."
-msgstr "Titel voor de sectie Begunstiger (bijv. &quot;Gegevens begunstiger&quot;)."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"Optional explanatory text for the Honoree section (displayed above the "
-"Honoree fields)."
-msgstr "Optionele verklarende tekst voor de sectie Begunstiger (wordt boven de velden getoond)."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid "Profile to be included in the honoree section"
-msgstr "Profiel dat in de sectie begunstiger moet worden toegevoegd"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
-msgid ""
-"If you disable this contributions will be processed immediately after "
-"submitting the contribution form."
-msgstr "Als u dit uitschakelt, dan worden bijdragen direct verwerkt na het invoeren."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Settings.tpl
 msgid ""
@@ -4641,13 +4551,6 @@ msgid ""
 msgstr "Met CiviContribute widgets kunnen u en uw ondersteuners gemakkelijk reclame maken voor deze fondsenwervingscampagne. De widgetcode kan aan een webpagina worden toegevoegd. Er wordt dan een actueel beeld van de bijdragen gegeven en een link naar de bijdragepagina."
 
 #: templates/CRM/Contribute/Form/ContributionPage/Widget.tpl
-msgid ""
-"Enter content for the about message. You may include HTML formatting tags. "
-"You can also include images, as long as they are already uploaded to a "
-"server&mdash;reference them using complete URLs."
-msgstr "Vul een infobericht in. U mag gebruik maken van HTML-opmaak. U kunt ook afbeeldingen gebruiken, mits ze al geüpload zijn naar een server, verwijs ernaar door de volledige URL te gebruiken."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Widget.tpl
 msgid "Preview Widget and Get Code"
 msgstr "Voorbeeld widget tonen en code kopiëren"
 
@@ -4871,24 +4774,6 @@ msgstr "Als deze optie is aangevinkt, zal er een  \"eerrol \" worden getoond met
 msgid "No payments found for this %1 record"
 msgstr "Bij dit %1 record zijn er geen betalingen gevonden"
 
-#: templates/CRM/Contribute/Form/PaymentInstrument.tpl
-msgid "New Payment Method"
-msgstr "Nieuwe betaalmethode"
-
-#: templates/CRM/Contribute/Form/PaymentInstrument.tpl
-msgid "Edit Payment Method"
-msgstr "Betaalmethode bewerken"
-
-#: templates/CRM/Contribute/Form/PaymentInstrument.tpl
-msgid "Delete Payment Method"
-msgstr "Betaalmethode verwijderen"
-
-#: templates/CRM/Contribute/Form/PaymentInstrument.tpl
-msgid ""
-"WARNING: Deleting this option will result in the loss of all contribution "
-"records which use this option."
-msgstr "Waarschuwing: Het verwijderen van deze optie resulteert in verlies van alle bijdragen die deze optie gebruiken."
-
 #: templates/CRM/Contribute/Form/Search/EmptyResults.tpl
 msgid "if you are searching by contributor name, check your spelling"
 msgstr "als u zoekt op naam, controleer dan de spelling"
@@ -4896,10 +4781,6 @@ msgstr "als u zoekt op naam, controleer dan de spelling"
 #: templates/CRM/Contribute/Form/SearchContribution.tpl
 msgid "Find Contribution Pages"
 msgstr "Bijdragepagina's zoeken"
-
-#: templates/CRM/Contribute/Form/SearchContribution.tpl
-msgid "Complete OR partial Contribution Page title."
-msgstr "Volledige OF gedeeltelijke titel van bijdragepagina."
 
 #: templates/CRM/Contribute/Form/Selector.tpl
 msgid "(Recurring Template)"
@@ -4961,6 +4842,12 @@ msgid ""
 " option cautiously unless you have a template format that has been tested "
 "with different web and desktop email programs."
 msgstr "HTML-berichten hebben meer visuele impact, u heeft dan de mogelijkheid om afbeeldingen en links te gebruiken. E-mailprogramma's gaan echter soms op verschillende manieren met HTML om, wees daarom terughoudend met het gebruiken van HTML, tenzij u een sjabloon heeft dat met meerdere e-mailprogramma's en online e-maildiensten getest is."
+
+#: templates/CRM/Contribute/Form/Task/Invoice.hlp
+msgid ""
+"You can add a message that will appear at the top of the invoice email. This"
+" message will be the same for all recipients."
+msgstr ""
 
 #: templates/CRM/Contribute/Form/Task/Invoice.tpl
 msgid ""
@@ -5039,6 +4926,10 @@ msgid ""
 "unchecked when you don't want to send an e-mail."
 msgstr "Indien aangevinkt wordt er een bevestiging verzonden naar de donateur. Laat het dus niet aangevinkt als u  geen e-mail wil verzenden."
 
+#: templates/CRM/Contribute/Form/Task/Status.tpl
+msgid "Check"
+msgstr ""
+
 #: templates/CRM/Contribute/Form/Task.tpl
 msgid "Number of selected contributions: %1"
 msgstr "Aantal geselecteerde bijdragen : %1"
@@ -5060,52 +4951,8 @@ msgid ""
 msgstr "Om het bedrag te wijzigen dient het sjabloon bijdrage te wijzigen. Klik in de lijst van periodieke bijdragen  op  \"Sjabloon bekijken\" en daarna op de knop om te bewerken"
 
 #: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid "Contact Records for Contributors"
-msgstr "Contactrecords van gevers"
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"Contribution import requires that the Contributors already exist as contact "
-"records in your CiviCRM database. If you need to import contributions for "
-"contributors who haven't been added to CiviCRM yet, you will do this in 2 "
-"steps. First, use <strong>Import Contacts</strong> to add the contact "
-"records. If possible, include a unique 'External ID' for each new contact "
-"which you can then use to match contributions to contributors. Then return "
-"to this screen and import the contribution records."
-msgstr "Om bijdragen te kunnen importeren dienen de donateurs al als contact bekend te zijn in CiviCRM. Als u bijdragen wilt importeren van onbekende contacten, dan moet dit in 2 stappen gebeuren.<br /> Gebruik eerst <strong>Contacten importeren</strong> om de contacten toe te voegen. Voeg, indien mogelijk, een uniek 'Externe-id' voor elk nieuw contact toe. Dit veld kunt u dan gebruiken om de bijdragen te koppelen aan de donateurs. Keer dan terug naar dit scherm om de bijdragen te importeren."
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid "Matching Contributions to Contributors"
-msgstr "Bijdragen koppelen aan gevers"
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"Contribution import files must contain data needed to <strong>match the "
-"contribution to the contributor</strong>. This 'matching' can be handled in "
-"several different ways:"
-msgstr "Invoerbestanden met bijdragen moeten gegevens bevatten om <strong>de bijdragen te koppelen met de donateurs</strong>. Deze koppeling kan op meerdere manieren gedaan worden:"
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"If you've stored a unique <strong>External Identifier</strong> for each "
-"contact in CiviCRM, you can include that value as a column in your import "
-"file. Contributions will then be matched to contributors using their "
-"External ID."
-msgstr "Als u een unieke <strong>Externe-id</strong> heeft voor elk contact in CiviCRM, dan kunt u deze waarde meenemen in uw invoerbestand. Bijdragen worden dan hiermee gekoppeld met contacten."
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"You can include a column with each contributor's <strong>Internal Contact "
-"ID</strong>. This is the unique ID assigned by CiviCRM which is displayed at"
-" the bottom of the Contact Summary screen and can be exported."
-msgstr "U kunt een kolom met het <strong>Intern contactnummer</strong> van het contact toevoegen. Dit is een uniek ID toegekend door CiviCRM dat onderaan het Contact-overzicht staat, dit veld kan worden geëxporteerd."
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid ""
-"Save the CSV file with your contributions and 'contact matching' data to "
-"your local hard drive (or an accessible drive on your network).  Now you are"
-" ready for step 1 (Upload Data)."
-msgstr "Het CSV-bestand met uw bijdragen en contactgegevens dient opgeslagen te worden op uw computer, waarna u kunt starten met stap 1 (Upload gegevens)."
+msgid "Matching to Contributions for Inserts and Updates"
+msgstr "Matchen met bijdragen die toegevoegd of gewijzigd zijn"
 
 #: templates/CRM/Contribute/Import/Form/DataSource.hlp
 msgid ""
@@ -5133,17 +4980,12 @@ msgid ""
 msgstr "Als u bestaande bijdragen gaat WIJZIGEN, dient u een identificerend veld te gebruiken die overeenkomt met een bestaande bijdrage. Dit kan het door CiviCRM toegekende bijdrage-id zijn, een factuur-id of een unieke transactie-id."
 
 #: templates/CRM/Contribute/Import/Form/Preview.tpl
-msgid ""
-"CiviCRM has detected invalid data or formatting errors in %1 records. If you"
-" continue, these records will be skipped.  You can download a file with just"
-" these problem records: <a href='%2'>Download Errors</a>.  If you wish, you "
-"can then correct them in the original import file, cancel this import, and "
-"begin again at step 1."
-msgstr "Er zijn ongeldige gegevens of met een verkeerd formaat in %1 record(s) gevonden. Als u doorgaat worden deze records overgeslagen. U kunt de foutenlijst <a href='%2'>bekijken</a>. Gebruik dit bestand om uw oorspronkelijke invoerbestand te corrigeren. Stop met importeren en begin weer bij stap 1."
-
-#: templates/CRM/Contribute/Import/Form/Preview.tpl
 msgid "Total rows (contribution records) in uploaded file."
 msgstr "Aantal rijen bijdrage records) in het geïmporteerde bestand."
+
+#: templates/CRM/Contribute/Import/Form/Preview.tpl
+msgid "See rows"
+msgstr "Zie de rijen"
 
 #: templates/CRM/Contribute/Page/ContributionPage.hlp
 #: templates/CRM/Contribute/Page/ContributionPage.tpl
@@ -5226,6 +5068,14 @@ msgstr "Bij elke contributie een ontvangstbewijs verzenden?"
 #: templates/CRM/Contribute/Page/ContributionRecurPayments.tpl
 msgid "No contributions have been recorded for this recurring contribution."
 msgstr "Er zijn geen bijdragen vastgelegd van deze periodieke bijdrage."
+
+#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
+msgid "Next Scheduled Date"
+msgstr "Volgende geplande datum"
+
+#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
+msgid "End or Modified Date"
+msgstr "Einddatum of wijzigingsdatum"
 
 #: templates/CRM/Contribute/Page/ContributionSoft.tpl
 msgid "Personal Campaign Page?"
@@ -5520,10 +5370,6 @@ msgid "Inactive Recurring Contributions"
 msgstr "Inactieve periodieke bijdragen"
 
 #: templates/CRM/Contribute/Page/UserDashboard.tpl
-msgid "Received date"
-msgstr "Ontvangstdatum"
-
-#: templates/CRM/Contribute/Page/UserDashboard.tpl
 msgid "(Recurring Contribution)"
 msgstr "(Periodieke bijdrage)"
 
@@ -5722,12 +5568,15 @@ msgstr " Bedrag voor belastingen: "
 msgid "Contribution Receipt"
 msgstr "Ontvangstbewijs bijdrage"
 
+#: xml/templates/message_templates/contribution_offline_receipt_text.tpl
+msgid "Amount before Tax"
+msgstr ""
+
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
 msgid "Total Tax"
 msgstr "Totaal belastingen"
 
 #: xml/templates/message_templates/contribution_online_receipt_html.tpl
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
 msgid "This is a recurring contribution."
 msgstr "Dit is een periodieke bijdrage."
 
@@ -5752,20 +5601,6 @@ msgid ""
 "installments for this recurring contribution by <a href=\"%1\">visiting this"
 " web page</a>."
 msgstr "U kunt het bedrag en het aantal bijdragen wijzigen op <a href=\\\"%1\\\">deze pagina</a>."
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid "You can cancel future contributions at:"
-msgstr "U kunt toekomstige bijdragen stopzetten op:"
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid "You can update billing details for this recurring contribution at:"
-msgstr "U kunt de betalingsgegevens van deze periodieke bijdrage wijzigen op:"
-
-#: xml/templates/message_templates/contribution_online_receipt_text.tpl
-msgid ""
-"You can update recurring contribution amount or change the number of "
-"installments for this recurring contribution at:"
-msgstr "U kunt het bedrag of het aantal keer van deze periodieke bijdrage wijzigen op:"
 
 #: xml/templates/message_templates/contribution_recurring_billing_html.tpl
 #: xml/templates/message_templates/contribution_recurring_billing_text.tpl
@@ -5891,13 +5726,11 @@ msgid ""
 msgstr "U kunt het periodiek zijn van deze bijdrage stopzetten op <a href=\"%1\">deze pagina</a>."
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid ""
 "A refund has been issued based on changes in your registration selections."
 msgstr "Er zal op grond van uw wijzigingen een terugbetaling worden gedaan."
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Below you will find a receipt for this payment."
 msgstr "Hieronder staat een ontvangstbevestiging voor deze betaling."
 
@@ -5906,28 +5739,20 @@ msgid "Thank you for completing this contribution."
 msgstr "Dank u wel voor het doen van deze bijdrage."
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "This Refund Amount"
 msgstr "Het terug te betalen bedrag"
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "This Payment Amount"
 msgstr "Het bedrag van deze betaling"
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Contribution Details"
 msgstr "Details bijdrage"
 
 #: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
 msgid "Total Fee"
 msgstr "Totale kosten"
-
-#: xml/templates/message_templates/payment_or_refund_notification_html.tpl
-msgid "Expires:"
-msgstr "Vervalt:"
 
 #: xml/templates/message_templates/payment_or_refund_notification_subject.tpl
 msgid "Refund Notification"
@@ -5936,10 +5761,6 @@ msgstr "Notificatie terugbetaling"
 #: xml/templates/message_templates/payment_or_refund_notification_subject.tpl
 msgid "Payment Receipt"
 msgstr "Ontvangstbewijs betaling"
-
-#: xml/templates/message_templates/payment_or_refund_notification_text.tpl
-msgid "Thank you for completing this payment."
-msgstr "Dank u wel voor het doen van deze betaling."
 
 #: xml/templates/message_templates/test_preview_html.tpl
 #: xml/templates/message_templates/test_preview_text.tpl
@@ -5952,76 +5773,9 @@ msgid ""
 "This is a test-drive email. No live financial transaction has occurred."
 msgstr "Dit is een e-mail ten behoeve van een test. Er zijn geen financiële transacties verwerkt."
 
-#: CRM/Contribute/DAO/ContributionPage.php
-msgid "Page Name"
-msgstr "Paginanaam"
-
-#: CRM/Contribute/DAO/ContributionPage.php
-msgid "Unique Name"
-msgstr "Unieke naam"
-
-#: CRM/Contribute/DAO/ContributionPage.php
-msgid "Unique name for identifying contribution page"
-msgstr "Unieke naam voor identificeren bijdragepagina"
-
-#: CRM/Contribute/Form/AdditionalPayment.php
-msgid "Submit Payment"
-msgstr "Betaling verzenden"
-
-#: CRM/Contribute/Form/Contribution.php
+#: templates/CRM/Contribute/Form/Task/PDFLetter.hlp
 msgid ""
-"You've changed the financial type for this %1 contribution from non-tax "
-"deductible to tax deductible, but the non-deductible amount of %2 has not "
-"been changed. This could prevent a tax receipt from being issued correctly. "
-"You may want to edit the non-deductible amount."
-msgstr "U heeft het financiële type voor deze %1-bijdrage gewijzigd van niet-fiscaal aftrekbaar naar fiscaal aftrekbaar, maar het niet-aftrekbare bedrag van %2 is niet gewijzigd. Hierdoor wordt een belastingbewijs mogelijk niet correct uitgegeven. U wilt misschien het niet-aftrekbare bedrag bewerken."
-
-#: CRM/Contribute/Form/Contribution.php
-msgid "Non-deductible amount"
-msgstr "Niet-aftrekbare bedrag"
-
-#: templates/CRM/Contribute/Form/Contribution/PreviewHeader.tpl
-msgid "Test payment processor on Your Contribution Page"
-msgstr "Test betaalmethode op uw bijdragepagina"
-
-#: templates/CRM/Contribute/Form/Contribution/PreviewHeader.tpl
-msgid ""
-"This page is currently configured to use the <strong>%1 payment "
-"processor</strong>. <strong>No live financial transactions will be submitted"
-" if %1 payment processor is selected. However, a contact record will be "
-"created or updated and a live contribution record will be saved to the "
-"database with no actual financial transaction. Remove %1 payment processor "
-"before going live.</strong>"
-msgstr "Deze pagina is ingesteld om de <strong>%1 betaalmethode</strong> te gebruiken.  <strong>Er worden geen productie financiële transacties verzonden als betaalmethode %1 is geselecteerd. Er wordt wel een contact aangemaakt of bijgewerkt en een productie bijdrage wordt vastgelegd maar zonder actuele financiële transactie. Verwijder betaalmethode %1 voordat u in productie gaat.</strong>"
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.hlp
-msgid ""
-"You can also set minimum and maximum amounts that users are allowed to "
-"enter."
-msgstr "U kunt ook minimum- en maximumbedragen instellen die gebruikers mogen invoeren."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Amount.tpl
-msgid ""
-"Select a Price Set to offer more complex amount options. Otherwise, leave "
-"this empty and enter fixed contribution options below."
-msgstr "Selecteer een prijsset om complexere opties voor bedragen aan te bieden. Laat dit anders leeg en voer hieronder vaste opties hiervoor in."
-
-#: templates/CRM/Contribute/Form/ContributionPage/Settings.hlp
-msgid "Use a Confirmation Page?"
-msgstr "Een bevestigingspagina gebruiken?"
-
-#: templates/CRM/Contribute/Import/Form/DataSource.hlp
-msgid "Matching to Contributions for Inserts and Updates"
-msgstr "Matchen met bijdragen die toegevoegd of gewijzigd zijn"
-
-#: templates/CRM/Contribute/Import/Form/Preview.tpl
-msgid "See rows"
-msgstr "Zie de rijen"
-
-#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
-msgid "Next Scheduled Date"
-msgstr "Volgende geplande datum"
-
-#: templates/CRM/Contribute/Page/ContributionRecurSelector.tpl
-msgid "End or Modified Date"
-msgstr "Einddatum of wijzigingsdatum"
+"You can choose to send thank-you letters as emails to contacts who are able "
+"to receive email. If you choose to do this, you can also decide whether to "
+"only print PDFs for the remaining contacts OR generate PDFs for all."
+msgstr ""
