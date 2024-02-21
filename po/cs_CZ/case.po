@@ -3,7 +3,7 @@
 # If you contribute heavily to a translation and deem your work copyrightable,
 # make sure you license it to CiviCRM LLC under Academic Free License 3.0.
 # Translators:
-# Karel Hennhofer <khennhofer@kam.cz>, 2022-2023
+# Karel Hennhofer <khennhofer@kam.cz>, 2022-2024
 # Piotr Szotkowski <chastell@chastell.net>, 2011
 # Tereza Zahradníková <tereza.zahradnikova@centrum.cz>, 2017
 # T. Mich., 2020
@@ -11,9 +11,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2023-06-17 15:56-0400\n"
+"POT-Creation-Date: 2024-02-03 10:37-0500\n"
 "PO-Revision-Date: 2011-03-28 14:17+0000\n"
-"Last-Translator: Karel Hennhofer <khennhofer@kam.cz>, 2022-2023\n"
+"Last-Translator: Karel Hennhofer <khennhofer@kam.cz>, 2022-2024\n"
 "Language-Team: Czech (http://app.transifex.com/civicrm/civicrm/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -232,7 +232,7 @@ msgstr ""
 msgid "Contact ID of contact record given case belongs to."
 msgstr ""
 
-#: CRM/Case/DAO/CaseType.php ang/crmCaseType/list.html
+#: CRM/Case/DAO/CaseType.php ext/civi_case/ang/crmCaseType/list.html
 msgid "Case Types"
 msgstr "Druhy případu"
 
@@ -343,7 +343,7 @@ msgstr "Druh případu změněn úspěšně."
 
 #: CRM/Case/Form/Activity/LinkCases.php
 msgid "Link To Case"
-msgstr "Propojení na případ"
+msgstr "Odkaz na případ"
 
 #: CRM/Case/Form/Activity/LinkCases.php
 msgid "The linked case ID is invalid."
@@ -358,6 +358,7 @@ msgid "Selected case is already linked."
 msgstr "Vybraný případ je již propojen."
 
 #: CRM/Case/Form/Activity/OpenCase.php
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
 msgid "Activity Duration"
 msgstr ""
 
@@ -384,10 +385,6 @@ msgstr "Reportováno kým"
 #: CRM/Case/Form/Activity.php CRM/Case/Form/CaseView.php
 msgid "- select activity type -"
 msgstr "- vybrat druh činnosti -"
-
-#: CRM/Case/Form/Activity.php CRM/Case/XMLProcessor/Report.php
-msgid "Medium"
-msgstr "Prostředí"
 
 #: CRM/Case/Form/Activity.php
 msgid ""
@@ -438,10 +435,14 @@ msgstr ""
 
 #: CRM/Case/Form/ActivityToCase.php CRM/Case/XMLProcessor/Report.php
 msgid "With Contact(s)"
-msgstr ""
+msgstr "S kontakty"
 
 #: CRM/Case/Form/ActivityView.php
 msgid "Activity Revision History"
+msgstr ""
+
+#: CRM/Case/Form/ActivityView.php
+msgid "Home"
 msgstr ""
 
 #: CRM/Case/Form/ActivityView.php CRM/Case/Page/DashBoard.php
@@ -544,6 +545,18 @@ msgstr ""
 #: CRM/Case/Form/CaseView.php
 msgid "- select case -"
 msgstr "- vyber případ -"
+
+#: CRM/Case/Form/DeleteClient.php
+msgid "Cannot Remove Client from case as is the only client on the case"
+msgstr ""
+
+#: CRM/Case/Form/DeleteClient.php
+msgid "Remove Client from Case"
+msgstr ""
+
+#: CRM/Case/Form/DeleteClient.php
+msgid "Case Client Removed"
+msgstr ""
 
 #: CRM/Case/Form/EditClient.php
 msgid "Reassign Case"
@@ -686,6 +699,10 @@ msgid "Alphabetical order"
 msgstr ""
 
 #: CRM/Case/Page/AJAX.php
+msgid "Change Case Tags"
+msgstr ""
+
+#: CRM/Case/Page/AJAX.php
 msgid "Client Added To Case"
 msgstr ""
 
@@ -694,12 +711,8 @@ msgid "You are not authorized to access all cases and activities."
 msgstr ""
 
 #: CRM/Case/Page/Tab.php
-msgid "Contact Id is required for view action."
-msgstr ""
-
-#: CRM/Case/Page/Tab.php
 msgid "Are you sure you want to delete this case?"
-msgstr ""
+msgstr "Opravdu chcete smazat tento případ?"
 
 #: CRM/Case/Page/Tab.php CRM/Case/Selector/Search.php
 msgid "Manage"
@@ -771,6 +784,10 @@ msgid ""
 "Activity type %1, found in case configuration file, is not present in the "
 "database %2"
 msgstr "Druhy činností"
+
+#: CRM/Case/XMLProcessor/Report.php
+msgid "Medium"
+msgstr "Prostředí"
 
 #: CRM/Case/xml/configuration.sample/case_sample.mysql.tpl
 msgid "Housing Support"
@@ -848,120 +865,153 @@ msgstr ""
 msgid "Case Resources"
 msgstr "Zdroje případu"
 
-#: ang/crmCaseType/activityTypesTable.html
+#: ext/civi_case/Civi/Api4/CaseContact.php
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
+msgid "Case Clients"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/CaseContact.php
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
+#: templates/CRM/Case/Form/Activity/ChangeCaseStatus.tpl
+msgid "Case Client"
+msgstr "Klient případu"
+
+#: ext/civi_case/Civi/Api4/CaseContact.php
+msgid "Clients"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/CaseContact.php
+msgid "Cases with this contact as a client"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/CaseContact.php
+msgid "Clients for this case"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
+msgid "Case Creator"
+msgstr ""
+
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
+msgid "Activity Location"
+msgstr ""
+
+#: ext/civi_case/ang/crmCaseType/activityTypesTable.html
 msgid "Max Instances"
 msgstr ""
 
-#: ang/crmCaseType/activityTypesTable.html
+#: ext/civi_case/ang/crmCaseType/activityTypesTable.html
 msgid "Add activity type"
 msgstr "Přidat druh činnosti"
 
-#: ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
 msgid "WARNING: The case type name includes deprecated characters."
 msgstr ""
 
-#: ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
 msgid ""
 "WARNING: If any external files or programs reference the old \"Name\", then "
 "they must be updated manually."
 msgstr ""
 
-#: ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
 msgid "Activity assignment settings"
 msgstr ""
 
-#: ang/crmCaseType/caseTypeDetails.html ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Restrict to Groups"
 msgstr ""
 
-#: ang/crmCaseType/caseTypeDetails.html
+#: ext/civi_case/ang/crmCaseType/caseTypeDetails.html
 msgid "Restrict to Website Users"
 msgstr ""
 
-#: ang/crmCaseType/edit.html ang/crmCaseType/list.html
+#: ext/civi_case/ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/list.html
 msgid "New Case Type"
 msgstr ""
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid ""
 "Use this screen to define or update the Case Roles, Activity Types, and "
 "Timelines for a case type."
 msgstr ""
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Learn more..."
 msgstr ""
 
-#: ang/crmCaseType/edit.html templates/CRM/Case/Audit/Report.tpl
+#: ext/civi_case/ang/crmCaseType/edit.html templates/CRM/Case/Audit/Report.tpl
 msgid "Case Roles"
 msgstr "Role v případu"
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Case Statuses"
 msgstr "Statusy případu"
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Add..."
 msgstr "Přidat ..."
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Timeline"
 msgstr "Časová osa"
 
-#: ang/crmCaseType/edit.html
+#: ext/civi_case/ang/crmCaseType/edit.html
 msgid "Sequence"
 msgstr ""
 
-#: ang/crmCaseType/list.html
+#: ext/civi_case/ang/crmCaseType/list.html
 msgid ""
 "A Case Type describes a group of related tasks, interactions, or processes."
 msgstr ""
 
-#: ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Display Label"
 msgstr ""
 
-#: ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Assign to Creator"
 msgstr ""
 
-#: ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Is Manager"
 msgstr ""
 
-#: ang/crmCaseType/rolesTable.html
+#: ext/civi_case/ang/crmCaseType/rolesTable.html
 msgid "Add role"
 msgstr "Přidat roli"
 
-#: ang/crmCaseType/statusTable.html
+#: ext/civi_case/ang/crmCaseType/statusTable.html
 msgid "New Status"
 msgstr "Nový status"
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Reference"
 msgstr ""
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Offset"
 msgstr ""
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Default assignee"
 msgstr ""
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Newest"
 msgstr ""
 
-#: ang/crmCaseType/timelineTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
 msgid "Oldest"
 msgstr ""
 
-#: ang/crmCaseType.js
+#: ext/civi_case/ang/crmCaseType.js
 msgid "new"
 msgstr ""
 
-#: ang/crmCaseType.js
+#: ext/civi_case/ang/crmCaseType.js
 msgid ""
 "The CiviCase XML file for this case-type prohibits editing the definition."
 msgstr ""
@@ -1003,10 +1053,6 @@ msgstr ""
 msgid "Update Linked Cases Status?"
 msgstr ""
 
-#: templates/CRM/Case/Form/Activity/ChangeCaseStatus.tpl
-msgid "Case Client"
-msgstr "Klient případu"
-
 #: templates/CRM/Case/Form/Activity/LinkCases.tpl
 msgid "Create link between %1 - %2 (CaseID: %3) and %4 - %5 (CaseID: %6)"
 msgstr ""
@@ -1021,7 +1067,7 @@ msgstr ""
 
 #: templates/CRM/Case/Form/Activity.tpl
 msgid "With other contact(s)"
-msgstr ""
+msgstr "S dalšími kontakty"
 
 #: templates/CRM/Case/Form/Activity.tpl
 msgid "With client"
@@ -1172,6 +1218,10 @@ msgid "Clients:"
 msgstr "Klienti:"
 
 #: templates/CRM/Case/Form/CaseView.tpl
+msgid "Remove Client"
+msgstr ""
+
+#: templates/CRM/Case/Form/CaseView.tpl
 msgid "Add Client"
 msgstr "Přidat klienta"
 
@@ -1198,6 +1248,10 @@ msgstr ""
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Export Document"
 msgstr "Exportovat dokument"
+
+#: templates/CRM/Case/Form/CaseView.tpl
+msgid "Merge Case"
+msgstr ""
 
 #: templates/CRM/Case/Form/CaseView.tpl
 msgid "Roles"
@@ -1251,6 +1305,10 @@ msgstr "Případu nejsou aktuálně přiřazeny žádné štítky."
 msgid "Add Tags"
 msgstr "Přidat štítky"
 
+#: templates/CRM/Case/Form/DeleteClient.tpl
+msgid "Remove Client %1 from case %2"
+msgstr ""
+
 #: templates/CRM/Case/Form/EditClient.tpl
 msgid "This is case is currently assigned to %1."
 msgstr ""
@@ -1289,7 +1347,7 @@ msgstr ""
 
 #: templates/CRM/Case/Form/Task.tpl
 msgid "Number of selected cases: %1"
-msgstr ""
+msgstr "Počet vybraných případů: %1"
 
 #: templates/CRM/Case/Page/ConfigureError.tpl
 msgid "CiviCase Setup documentation"
