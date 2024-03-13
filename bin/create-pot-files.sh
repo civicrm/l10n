@@ -137,12 +137,14 @@ function build_raw_pot() {
         ang/crmAttachment* \
         ang/crmDashboard* \
         ang/crmUi* \
+        managed \
         xml/templates/civicrm_acl.tpl \
         xml/templates/civicrm_data.tpl \
         xml/templates/languages.tpl \
         xml/templates/civicrm_msg_template.tpl \
         xml/templates/message_templates/friend_* \
         xml/templates/message_templates/uf_notify_* \
+        sql/civicrm_data/ \
         packages/HTML/QuickForm \
         partials/ \
         js/
