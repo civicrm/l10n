@@ -137,6 +137,8 @@ function build_raw_pot() {
         ang/crmAttachment* \
         ang/crmDashboard* \
         ang/crmUi* \
+        ang/exportui/ \
+        ang/afform/ \
         managed \
         xml/templates/civicrm_acl.tpl \
         xml/templates/civicrm_data.tpl \
@@ -230,8 +232,9 @@ function build_raw_pot() {
     Admin)
       _civistrings -o "$filepath" \
         {CRM,templates/CRM}/$name \
-        ang/crmCxn* \
-        ang/crmStatusPage* \
+        ang/crmCxn/ \
+        ang/crmStatusPage/ \
+        ang/api4Explorer/ \
         settings/
       ;;
 
