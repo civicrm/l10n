@@ -147,6 +147,7 @@ function build_raw_pot() {
         xml/templates/message_templates/friend_* \
         xml/templates/message_templates/uf_notify_* \
         sql/civicrm_data/ \
+        schema/ \
         packages/HTML/QuickForm \
         partials/ \
         js/
