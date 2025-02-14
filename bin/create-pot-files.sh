@@ -14,7 +14,7 @@ POTDIR=
 COMPONENT_POTS="Admin Badge Batch Campaign Case Contribute Event Extension Financial Mailing Member PCP Pledge Project Queue Report"
 
 ## The adhoc *.pot files are based on clear file list (but may have some special/less predictable rules).
-ADHOC_POTS="common-base countries drupal-civicrm wordpress-civicrm install menu provinces grant"
+ADHOC_POTS="common-base countries install menu provinces grant"
 
 ## The magic *.pot files are derived from other *.pot files.
 MAGIC_POTS="common-components"
@@ -173,19 +173,6 @@ function build_raw_pot() {
         done \
         >> "$filepath"
       ## Hmm, if civicrm_country.tpl used {ts}, then we could just call "civistrings --msgctxt=country"
-      ;;
-
-    drupal-civicrm)
-      _civistrings -o "$filepath" \
-        drupal \
-        CRM/Core/Permission.php
-      ;;
-
-    wordpress-civicrm)
-      set -x
-      pwd
-      cp wordpress/languages/civicrm.pot "$filepath"
-      set +x
       ;;
 
     # This is an exception, because it would require moving the existing Transifex resource

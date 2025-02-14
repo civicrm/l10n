@@ -9,17 +9,10 @@ build-unified-pots.sh - builds .pot files for the last 3 versions of CiviCRM.
 
 Usage:
 
-- Prepare a CiviCRM checkout that also has all of the sub-repositories, ex:
-  /path/to/repositories/civicrm/{joomla,wordpress,packages}
-  where the 'civicrm' directory corresponds to civicrm-core.git.
+- Setup buildkit and make sure that civibuild is in your PATH
 
-- Make sure your repository is up to date (git fetch --all).
-
-- Run this script (where 4.7.12 is the latest version of CiviCRM):
-    $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot '4.6 4.7.12' 2>&1 | tee pots.log
-
-  or, for master:
-    $ ./bin/build-unified-pots.sh ~/repositories/civicrm po/pot '4.6 master' 2>&1 | tee pots.log
+- Run this script (where 6.0 is the latest stable version of CiviCRM and 5.75 is the current ESR):
+    $ ./bin/build-unified-pots.sh po/pot '6.0 5.75' 2>&1 | tee pots.log
 
 - Use diff-check.php to see if the changes make sense. Spot-check new strings
   and make sure few strings were removed (strings may be moved to civicrm-common,
@@ -50,100 +43,30 @@ EOT
 }
 
 [ "$1" = "--help" ] && usage
-[ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ] && usage
-[ ! -d "$2" ]                             && echo "ERROR: $2: directory not found." && usage
-[ -n "$4" ]                               && echo 'ERROR: provide releases as one, space-separated string' && usage
+[ -z "$1" ] && usage
 
+if [ ! $(which civibuild) ]; then
+  echo "civibuild not found in your PATH";
+  exit 1;
+fi
 
-root="$1"
-potdir="$2"
-releases=`echo "$3" | tr ' ' '\n'`
+potdir="po/pot"
+releases=`echo "$1" | tr ' ' '\n'`
 
 temp=`mktemp -d`
 
 for rel in $releases; do
   mkdir -p $temp/$rel
   mkdir -p $temp/pot/$rel
+  site="l10n-$rel"
 
-  pushd .
-
-  # Get fresh codebase
-
-  # we use ${rel:1} so that v4.3 => 4.3, except for "master".
-  # r=${rel:1}
-  # if [ "$rel" = "master" ]; then
-  #  r="master"
-  # fi
-
-  echo "Copying $root ($rel) to $temp/$rel ..."
-  cd $root
-  git fetch
-  git checkout $rel
-  git archive $rel | tar -xC $temp/$rel
-
-# Dropped because it is not really used (translations use 't' instead of 'ts')
-# and Drupal7 is heading for EOL (i.e. we're not going to fix it).
-#   echo "Copying $root/drupal (7.x-$rel) to $temp/$rel/drupal ..."
-#   mkdir -p $temp/$rel/drupal
-#   cd $root/drupal
-#   git fetch
-#   git checkout 7.x-$rel
-#   git archive 7.x-$rel | tar -xC $temp/$rel/drupal
-
-  if [ -d $root/joomla ]; then
-    echo "Copying $root/joomla ($rel) to $temp/$rel/joomla ..."
-    mkdir -p $temp/$rel/joomla
-    cd $root/joomla
-    git fetch
-    git checkout $rel
-    git archive $rel | tar -xC $temp/$rel/joomla
-  else
-    echo "Skipping missing $root/joomla."
-    echo "As of CiviCRM 4.6 there aren't any strings in it, but that could change in the future?"
+  # Sometimes the extraction fails midway and it is annoying to rebuild
+  if [ ! -d "$HOME/buildkit/build/$site" ]; then
+    civibuild create $site --type standalone-clean --civi-ver $rel
   fi
 
-  if [ -d $root/wordpress ]; then
-    echo "Copying $root/wordpress ($rel) to $temp/$rel/wordpress ..."
-    mkdir -p $temp/$rel/wordpress
-    cd $root/wordpress
-    git fetch
-    git checkout $rel
-    git archive $rel | tar -xC $temp/$rel/wordpress
-  else
-    echo "Skipping missing $root/wordpress."
-    echo "As of CiviCRM 4.6 there aren't any strings in it, but that could change in the future?"
-  fi
-
-  echo "Copying $root/packages ($rel) to $temp/$rel/packages ..."
-  mkdir -p $temp/$rel/packages
-  cd $root/packages
-  git fetch
-  git checkout $rel
-  git archive $rel | tar -xC $temp/$rel/packages
-
-  mkdir $temp/$rel/xml/default
-  echo '<?php define("CIVICRM_CONFDIR", ".");' > $temp/$rel/settings_location.php
-  echo '<?php define("CIVICRM_UF", "Drupal");' > $temp/$rel/xml/default/civicrm.settings.php
-
-  if [ -f $temp/$rel/composer.json ]; then
-    echo "Running composer install ..."
-    cd $temp/$rel
-    composer install -v
-  fi
-
-  echo "Running GenCode.php ..."
-  cd $temp/$rel/xml
-  php GenCode.php schema/Schema.xml | grep -v Generating
-
-  popd
-
-  if [ -f $temp/tools/bin/scripts/create-pot-files.sh ]; then
-    echo "Executing: $temp/tools/bin/scripts/create-pot-files.sh $temp/$rel $temp/pot/$rel"
-    $temp/tools/bin/scripts/create-pot-files.sh $temp/$rel $temp/pot/$rel
-  else
-    echo "Executing: create-pot-files.sh $temp/$rel $temp/pot/$rel"
-    bin/create-pot-files.sh $temp/$rel $temp/pot/$rel
-  fi
+  echo "Executing: create-pot-files.sh ~/buildkit/build/$site/web/core $temp/pot/$rel"
+  bin/create-pot-files.sh ~/buildkit/build/$site/web/core $temp/pot/$rel
 done
 
 pots=`for pot in $temp/pot/*/*.pot; do basename $pot .pot; done | sort -u | grep -v ^drupal-civicrm$`
@@ -177,6 +100,11 @@ for pot in $pots; do
 done
 
 rm -rf $temp
+
+# Remove the buildkit sites
+for rel in $releases; do
+  echo 'y' | civibuild destroy l10n-$rel
+done
 
 cat <<EOT
 
