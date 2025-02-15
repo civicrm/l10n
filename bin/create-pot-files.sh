@@ -147,7 +147,7 @@ function build_raw_pot() {
         xml/templates/message_templates/friend_* \
         xml/templates/message_templates/uf_notify_* \
         sql/civicrm_data/ \
-        schema/ \
+        schema/{ACL,Activity,Batch,Contact,Core,Dedupe,Friend} \
         packages/HTML/QuickForm \
         partials/ \
         js/
@@ -230,6 +230,7 @@ function build_raw_pot() {
       _civistrings -o "$filepath" \
         {CRM,templates/CRM}/$name \
         ext/civi_campaign \
+        schema/Campaign \
         xml/templates/message_templates/petition_*
       ;;
 
@@ -238,6 +239,7 @@ function build_raw_pot() {
         {CRM,templates/CRM}/$name \
         ang/crmCase* \
         ext/civi_case \
+        schema/Case \
         xml/templates/message_templates/case_*
       ;;
 
@@ -245,6 +247,9 @@ function build_raw_pot() {
       _civistrings -o "$filepath" \
         {CRM,templates/CRM}/$name \
         ext/civi_contribute \
+        schema\Contribute \
+        schema\Financial \
+        schema\Price \
         xml/templates/message_templates/contribution_* \
         xml/templates/message_templates/payment_* \
         xml/templates/message_templates/test_*
@@ -254,6 +259,7 @@ function build_raw_pot() {
       _civistrings -o "$filepath" \
         {CRM,templates/CRM}/$name \
         ext/civi_event \
+        schema/Event \
         xml/templates/message_templates/event_* \
         xml/templates/message_templates/participant_*
       ;;
@@ -262,6 +268,8 @@ function build_raw_pot() {
       _civistrings -o "$filepath" \
         {CRM,templates/CRM}/$name \
         ext/civi_mail \
+        schema/Mailing \
+        schema/SMS \
         ang/crmMailing*
       ;;
 
@@ -269,19 +277,34 @@ function build_raw_pot() {
       _civistrings -o "$filepath" \
         {CRM,templates/CRM}/$name \
         ext/civi_member \
+        schema/Member \
         xml/templates/message_templates/membership_*
       ;;
 
     PCP)
       _civistrings -o "$filepath" \
         {CRM,templates/CRM}/$name \
+        schema/PCP \
         xml/templates/message_templates/pcp_*
       ;;
 
     Pledge)
       _civistrings -o "$filepath" \
         {CRM,templates/CRM}/$name \
+        schema/Pledge \
         xml/templates/message_templates/pledge_*
+      ;;
+
+    Queue)
+      _civistrings -o "$filepath" \
+        {CRM,templates/CRM}/$name \
+        schema/Queue
+      ;;
+
+    Report)
+      _civistrings -o "$filepath" \
+        {CRM,templates/CRM}/$name \
+        schema/Report
       ;;
 
     *)
