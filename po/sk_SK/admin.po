@@ -7,7 +7,9 @@
 # Gabriela Šujanská, 2022
 # Gabriela Šujanská, 2022
 # ixiam <info@ixiam.com>, 2023
+# ixiam <info@ixiam.com>, 2023
 # Jan Madzik <jmadzik@gmail.com>, 2021
+# Ondrej Pelc, 2023
 # Ondrej Pelc, 2023
 # Piotr Szotkowski <chastell@chastell.net>, 2011
 # Radek Hrančík <radek.hrancik@gmail.com>, 2017
@@ -16,7 +18,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2024-02-03 10:37-0500\n"
+"POT-Creation-Date: 2025-02-15 13:48-0500\n"
 "PO-Revision-Date: 2011-10-27 16:38+0000\n"
 "Last-Translator: Tibor Repček <tiborepcek@gmail.com>, 2016\n"
 "Language-Team: Slovak (http://app.transifex.com/civicrm/civicrm/language/sk/)\n"
@@ -25,6 +27,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
+
+#: CRM/Admin/Form/CMSUser.php
+msgid "This framework doesn't allow for syncing CMS users."
+msgstr ""
 
 #: CRM/Admin/Form/CMSUser.php
 msgid "Checked one user record."
@@ -187,7 +193,7 @@ msgid "Scheduled Jobs"
 msgstr "Naplánované úlohy"
 
 #: CRM/Admin/Form/Job.php CRM/Admin/Page/Job.php
-#: templates/CRM/Admin/Page/APIExplorer.tpl
+#: ang/api4Explorer/Explorer.html templates/CRM/Admin/Page/APIExplorer.tpl
 msgid "Execute"
 msgstr "Vykonať"
 
@@ -414,10 +420,6 @@ msgid "Message Subject"
 msgstr "Predmet správy"
 
 #: CRM/Admin/Form/MessageTemplates.php
-msgid "PDF Page Format"
-msgstr ""
-
-#: CRM/Admin/Form/MessageTemplates.php
 msgid "View System Default Message Template"
 msgstr "Zobraziť šablónu správy predvolenú systémom"
 
@@ -479,6 +481,12 @@ msgid ""
 "currently in use. Please update these contacts to use a different format "
 "before deleting this option. %2"
 msgstr "Vybratá možnosť %1 <strong>nebola odstránená</strong>, pretože sa momentálne používa. Pred odstránením tejto možnosti aktualizujte tieto kontakty, aby sa používal odlišný formát. %2"
+
+#: CRM/Admin/Form/Options.php
+msgid ""
+"WARNING: Deleting this option will result in the loss of all %1 related "
+"records which use the option."
+msgstr "UPOZORNENIE: Ak odstránite túto možnosť, stratia sa všetkých súvisiace záznamy v počte %1, ktoré túto možnosť používajú."
 
 #: CRM/Admin/Form/Options.php
 msgid "%1 Option"
@@ -587,9 +595,29 @@ msgid ""
 "rendered inactive."
 msgstr "Po odstránení tohto systému na spracovanie platieb sa môžu niektoré stránky transakcie zobraziť ako neaktívne."
 
+#: CRM/Admin/Form/PaymentProcessor.php
+msgid "Site URL"
+msgstr ""
+
 #: CRM/Admin/Form/PaymentProcessor.php CRM/Admin/Form/PaymentProcessorType.php
 msgid "Enter a valid URL"
 msgstr "Zadajte platnú URL adresu"
+
+#: CRM/Admin/Form/PaymentProcessor.php
+msgid "Recurring Payments URL"
+msgstr ""
+
+#: CRM/Admin/Form/PaymentProcessor.php
+msgid "Button URL"
+msgstr ""
+
+#: CRM/Admin/Form/PaymentProcessor.php
+msgid "API URL"
+msgstr ""
+
+#: CRM/Admin/Form/PaymentProcessor.php
+msgid "Payment Processor Type"
+msgstr ""
 
 #: CRM/Admin/Form/PaymentProcessor.php
 msgid "Is this Payment Processor active?"
@@ -632,6 +660,10 @@ msgstr "Neplatná konfigurácia systému na spracovanie platieb"
 #: CRM/Admin/Form/PaymentProcessor.php
 msgid "Payment processor %1 has been saved."
 msgstr "Systém na spracovanie platieb \"%1\\ bol uložený."
+
+#: CRM/Admin/Form/PaymentProcessorType.php
+msgid "Billing Mode"
+msgstr ""
 
 #: CRM/Admin/Form/PaymentProcessorType.php
 msgid "Enter a positive integer"
@@ -934,6 +966,10 @@ msgid "Available Currencies"
 msgstr "Dostupné meny"
 
 #: CRM/Admin/Form/Setting/Localization.php
+msgid "- default currency only -"
+msgstr ""
+
+#: CRM/Admin/Form/Setting/Localization.php
 msgid "Thousands Separator and Decimal Delimiter can not be the same."
 msgstr "Oddeľovače tisícov a desatinných miest nemôžu byť rovnaké."
 
@@ -1003,7 +1039,6 @@ msgid ""
 msgstr ""
 
 #: CRM/Admin/Form/Setting/Miscellaneous.php
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
 msgid "Misc (Undelete, PDFs, Limits, Logging, etc.)"
 msgstr "Rôzne (zrušenie odstránenia, PDF, limity, protokolovanie atď.)"
 
@@ -1018,8 +1053,8 @@ msgid "Illegal stack size. Use values between 1 and %1."
 msgstr "Nepovolená veľkosť zásobníka. Použite hodnoty medzi 1 a %1."
 
 #: CRM/Admin/Form/Setting/Miscellaneous.php
-msgid "The wkhtmltodfPath does not exist or is not valid"
-msgstr "Položka wkhtmltodfPath neexistuje alebo nie je platná"
+msgid "The path for %1 does not exist or is not valid"
+msgstr ""
 
 #: CRM/Admin/Form/Setting/Path.php
 msgid "Settings - Upload Directories"
@@ -1151,50 +1186,6 @@ msgid ""
 msgstr "Nedá sa odoslať testovací e-mail, pretože váš záznam používateľa nemá platnú e-mailovú adresu."
 
 #: CRM/Admin/Form/Setting/Smtp.php
-msgid "Sending test email"
-msgstr "Odosiela sa testovací e-mail"
-
-#: CRM/Admin/Form/Setting/Smtp.php
-msgid "From: %1"
-msgstr "Od: %1"
-
-#: CRM/Admin/Form/Setting/Smtp.php
-msgid "To: %1"
-msgstr "Komu: %1"
-
-#: CRM/Admin/Form/Setting/Smtp.php
-msgid "You have defined CIVICRM_MAIL_LOG_AND_SEND - mail will be logged."
-msgstr "Zadefinovali ste CIVICRM_MAIL_LOG_AND_SEND – e-mail bude zaznamenaný."
-
-#: CRM/Admin/Form/Setting/Smtp.php
-msgid ""
-"You have defined CIVICRM_MAIL_LOG - no mail will be sent.  Your %1 settings "
-"have not been tested."
-msgstr "Zadefinovali ste CIVICRM_MAIL_LOG – neodošle sa žiaden e-mail. Vaše nastavenia %1 neboli otestované."
-
-#: CRM/Admin/Form/Setting/Smtp.php
-msgid "Mail not sent"
-msgstr "E-mail sa neodoslal"
-
-#: CRM/Admin/Form/Setting/Smtp.php
-msgid ""
-"Your %1 settings are correct. A test email has been sent to your email "
-"address."
-msgstr "Nastavenia %1 sú správne. Na vašu e-mailovú adresu bol odoslaný testovací e-mail."
-
-#: CRM/Admin/Form/Setting/Smtp.php
-msgid "Mail Sent"
-msgstr "E-mail sa odoslal"
-
-#: CRM/Admin/Form/Setting/Smtp.php
-msgid "Oops. Your %1 settings are incorrect. No test mail has been sent."
-msgstr "Ľutujeme, nastavenia %1 nie sú správne. Testovací e-mail sa neodoslal."
-
-#: CRM/Admin/Form/Setting/Smtp.php
-msgid "Mail Not Sent"
-msgstr "E-mail sa neodoslal"
-
-#: CRM/Admin/Form/Setting/Smtp.php
 msgid "SMTP Server name is a required field."
 msgstr "Názov servera SMTP je povinné pole."
 
@@ -1254,14 +1245,6 @@ msgstr "Vyrovnávacia pamäť bola vymazaná a ponuka bola úspešne znovu zosta
 #: CRM/Admin/Form/Setting/Url.php
 msgid "Settings - Resource URLs"
 msgstr "Nastavenia – adresy URL zdrojov"
-
-#: CRM/Admin/Form/Setting/Url.php
-msgid "Force Secure URLs (SSL)"
-msgstr "Vynútiť bezpečné adresy URL (SSL)"
-
-#: CRM/Admin/Form/Setting/Url.php
-msgid "Verify SSL Certs"
-msgstr "Overiť certifikáty SSL"
 
 #: CRM/Admin/Form/Setting/Url.php
 msgid ""
@@ -1424,6 +1407,19 @@ msgstr "Naozaj chcete zakázať túto skupinu?"
 
 #: CRM/Admin/Page/AJAX.php
 msgid ""
+"%1 <a class=\"action-item crm-hover-button\" href=\"%2\" "
+"target=\"_blank\">Edit Smart Group Criteria</a>"
+msgstr ""
+
+#: CRM/Admin/Page/AJAX.php
+msgid ""
+"Disabling this group will cause these groups to no longer restrict members "
+"based on membership in this group. Please edit and remove this group as a "
+"criteria from these smart groups."
+msgstr ""
+
+#: CRM/Admin/Page/AJAX.php
+msgid ""
 "WARNING - Disabling this group will disable all the child groups associated "
 "if any."
 msgstr "UPOZORNENIE – ak zakážete túto skupinu, zakážete aj všetky prípadné súvisiace podriadené skupiny."
@@ -1496,16 +1492,32 @@ msgid "Configuration Checklist"
 msgstr "Kontrolný zoznam konfigurácie"
 
 #: CRM/Admin/Page/Extensions.php
-msgid "CiviCRM Extensions"
-msgstr ""
-
-#: CRM/Admin/Page/Extensions.php
 msgid "Uninstall Extension"
 msgstr "Odinštalovať rozšírenie"
 
 #: CRM/Admin/Page/Extensions.php
-msgid "Download Extension"
-msgstr "Stiahnuť rozšírenie"
+msgid "Install Extension"
+msgstr ""
+
+#: CRM/Admin/Page/Extensions.php
+msgid "Extension download error"
+msgstr ""
+
+#: CRM/Admin/Page/Extensions.php
+msgid "Alpha"
+msgstr ""
+
+#: CRM/Admin/Page/Extensions.php
+msgid "Beta"
+msgstr ""
+
+#: CRM/Admin/Page/Extensions.php
+msgid "Stable"
+msgstr ""
+
+#: CRM/Admin/Page/Extensions.php
+msgid "Reviewed"
+msgstr ""
 
 #: CRM/Admin/Page/ExtensionsUpgrade.php
 msgid "Database Upgrades"
@@ -1535,6 +1547,11 @@ msgstr "Kopírovať naplánovanú úlohu"
 msgid "Settings - Scheduled Jobs"
 msgstr "Nastavenia – naplánované úlohy"
 
+#: CRM/Admin/Page/Job.php CRM/Admin/Page/JobLog.php
+#: CRM/Admin/Page/PaymentProcessor.php
+msgid "Administer"
+msgstr ""
+
 #: CRM/Admin/Page/Job.php
 msgid "Job copied successfully"
 msgstr "Úloha úspešne skopírovaná"
@@ -1547,9 +1564,8 @@ msgstr "Nepodarilo sa skopírovať úlohu"
 msgid ""
 "Execution of scheduled jobs has been turned off by default since this is a "
 "non-production environment. You can override this for particular jobs by "
-"adding runInNonProductionEnvironment=TRUE as a parameter. This will ignore "
-"email settings for this job and will send actual emails if this job is "
-"sending mails!"
+"adding runInNonProductionEnvironment=TRUE as a parameter. Note: this will "
+"send emails if your <a %1>outbound email</a> is enabled."
 msgstr ""
 
 #: CRM/Admin/Page/Job.php
@@ -1674,6 +1690,159 @@ msgstr "Odstrániť formát stránok PDF"
 #: CRM/Admin/Page/PreferencesDate.php
 msgid "Settings - Date Preferences"
 msgstr "Nastavenia – preferencie týkajúce sa dátumu"
+
+#: ang/api4Explorer/Chain.html ang/api4Explorer/Set.html
+msgid "Params"
+msgstr ""
+
+#: ang/api4Explorer/Chain.html ang/api4Explorer/Explorer.html
+msgid "Index"
+msgstr ""
+
+#: ang/api4Explorer/Clause.html
+msgid "%1 group"
+msgstr ""
+
+#: ang/api4Explorer/Clause.html
+msgid "Remove group"
+msgstr ""
+
+#: ang/api4Explorer/Clause.html
+msgid "Drag to reposition"
+msgstr ""
+
+#: ang/api4Explorer/Clause.html
+msgid "Add a subgroup of clauses"
+msgstr ""
+
+#: ang/api4Explorer/Clause.html
+msgid "Add a group of clauses"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.html
+msgid "CiviCRM APIv4"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.html
+msgid "Required:"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.html
+msgid "Using:"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.html
+msgid "To enable REST authentication, the AuthX extension must be installed."
+msgstr ""
+
+#: ang/api4Explorer/Explorer.html
+msgid "Manage Extensions"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.html
+msgid "Configure REST Authentication"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.html
+msgid "REST Documentation"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.html
+msgid "To view debugging output, enable the debug param before executing."
+msgstr ""
+
+#: ang/api4Explorer/Explorer.html
+msgid "Enable backtrace in system settings to see error backtraces."
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid "OOP Style"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid "Traditional"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid "Single Call"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid "Batch Calls"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid "CV (short)"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid "CV (long)"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid "CV (pipe)"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid "Curl"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid "PHP (std)"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid "PHP + Guzzle"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid "View as JSON"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid "View as PHP"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid "FUNCTION"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid "Calculate result of a SQL function"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid ""
+" : '';\n"
+"          var leadingComma = !ret ? '' : (newLine ? "
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid "APIv4 Explorer"
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid "Runs API call on the CiviCRM database."
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid "Results and debugging info will be displayed below."
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid ""
+"This API call will be executed on the real database. Deleting data cannot be"
+" undone."
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid ""
+"This API call will be executed on the real database. It cannot be undone."
+msgstr ""
+
+#: ang/api4Explorer/Explorer.js
+msgid "Not"
+msgstr ""
 
 #: ang/crmCxn/AboutCtrl.html ang/crmCxn/ConfirmConnectCtrl.html
 #: ang/crmCxn/ConfirmReconnectCtrl.html
@@ -2085,6 +2254,27 @@ msgid ""
 "except if the membership is paid for with a recurring contribution."
 msgstr "Povolením tohto nastavenia sa aktualizuje súvisiaci príspevok členstiev s výnimkou členstva, ktoré sa platí opakujúcim sa príspevkom."
 
+#: settings/Core.boot.setting.php
+msgid "System Installed"
+msgstr "Systém bol nainštalovaný"
+
+#: settings/Core.boot.setting.php
+msgid ""
+"A flag indicating whether this system has run a post-installation routine"
+msgstr "Príznak, ktorý uvádza, či sa v systéme vykonal postup po inštalácii"
+
+#: settings/Core.boot.setting.php templates/CRM/Admin/Page/Setting.tpl
+msgid "Enable Components"
+msgstr "Povoliť komponenty"
+
+#: settings/Core.boot.setting.php
+msgid "CiviCRM Domain ID"
+msgstr ""
+
+#: settings/Core.boot.setting.php
+msgid "The current domain if CiviCRM is running multi-site."
+msgstr ""
+
 #: settings/Core.setting.php
 msgid "Viewing Contacts"
 msgstr "Zobrazenie kontaktov"
@@ -2104,7 +2294,7 @@ msgstr "Vyberte, ktoré karty sa majú zobrazovať pri zobrazení záznamu konta
 msgid "Editing Contacts"
 msgstr "Úprava kontaktov"
 
-#: settings/Core.setting.php templates/CRM/Admin/Form/Preferences/Display.tpl
+#: settings/Core.setting.php
 msgid ""
 "Select the sections that should be included when adding or editing a contact"
 " record. EXAMPLE: If your organization does not record Gender and Birth Date"
@@ -2117,7 +2307,7 @@ msgstr "Vyberte sekcie, ktoré sa majú zahrnúť pri pridávaní alebo úprave 
 msgid "Contact Search"
 msgstr "Vyhľadávanie kontaktov"
 
-#: settings/Core.setting.php templates/CRM/Admin/Form/Preferences/Display.tpl
+#: settings/Core.setting.php
 msgid ""
 "Select the sections that should be included in the Basic and Advanced Search"
 " forms. EXAMPLE: If you don't track Relationships - then you do not need "
@@ -2135,10 +2325,6 @@ msgstr "Vyberte sekcie, ktoré sa majú zahrnúť do tabule kontaktu. NAPRÍKLAD
 #: settings/Core.setting.php
 msgid "Address Display Format"
 msgstr "Formát zobrazenia adresy"
-
-#: settings/Core.setting.php
-msgid "Mailing Label Format"
-msgstr ""
 
 #: settings/Core.setting.php
 msgid "Individual Display Name Format"
@@ -2178,8 +2364,13 @@ msgid ""
 msgstr "Ak je táto možnosť zakázaná, CiviCRM nebude po 10 sekundách automaticky odmietať upozornenia."
 
 #: settings/Core.setting.php
-msgid "Wysiwig Editor"
-msgstr "Editor WYSIWYG"
+msgid "Wysiwyg Editor"
+msgstr ""
+
+#: settings/Core.setting.php
+msgid ""
+"Choose which rich-text editor to use for editing HTML content in CiviCRM."
+msgstr ""
 
 #: settings/Core.setting.php
 msgid "Check for Similar Contacts"
@@ -2196,6 +2387,13 @@ msgstr "Pri ukladaní"
 #: settings/Core.setting.php
 msgid "Enable Popup Forms"
 msgstr "Povoliť automaticky otvárané formuláre"
+
+#: settings/Core.setting.php
+msgid ""
+"If you disable this option, the CiviCRM interface will be limited to "
+"traditional browsing. Opening a form will refresh the page rather than "
+"opening a popup dialog."
+msgstr "Ak túto možnosť zakážete, rozhranie CiviCRM sa obmedzí iba na tradičné prehľadávanie. Pri otvorení formulára sa stránka obnoví, neotvorí sa automaticky otvárané dialógové okno."
 
 #: settings/Core.setting.php
 msgid "Background Queues"
@@ -2236,11 +2434,19 @@ msgid "Notify Activity Assignees"
 msgstr "Upozorniť poverené osoby aktivity"
 
 #: settings/Core.setting.php
+msgid ""
+"When enabled, contacts who are assigned activities will automatically "
+"receive an email notification with a copy of the activity."
+msgstr "Ak je táto možnosť povolená, kontakty, ktoré majú priradené aktivity, automaticky dostanú e-mailové oznámenie s kópiou aktivity."
+
+#: settings/Core.setting.php
 msgid "Include ICal Invite to Activity Assignees"
 msgstr "Zahrnúť pozvanie ICal pre poverené osoby aktivity"
 
 #: settings/Core.setting.php
-msgid "Autocomplete Contact Search"
+msgid ""
+"When enabled, activity assignee notification emails will also include an "
+"ical meeting invite."
 msgstr ""
 
 #: settings/Core.setting.php
@@ -2308,15 +2514,6 @@ msgid ""
 " caches if your site uses ACLs; this can improve latency on form-submissions"
 " but requires more setup."
 msgstr "V režime 'Oportunistické vyprázdnenie' sa vyrovnávacie pamäte vyprázdnia v dôsledku akcií používateľa. Tento režim je všeobecne kompatibilný, ale môže počas odosielania formulára prispieť k latencii. V režime 'Vyprázdnenie cron' si musíte naplánovať úlohu cron na vyprázdnenie vyrovnávacej pamäte, ak vaša lokalita používa ACL. To zlepší latenciu pri odosielaní formulára, ale vyžaduje si viac nastavení."
-
-#: settings/Core.setting.php
-msgid "System Installed"
-msgstr "Systém bol nainštalovaný"
-
-#: settings/Core.setting.php
-msgid ""
-"A flag indicating whether this system has run a post-installation routine"
-msgstr "Príznak, ktorý uvádza, či sa v systéme vykonal postup po inštalácii"
 
 #: settings/Core.setting.php
 msgid "Maximum Attachments"
@@ -2447,6 +2644,10 @@ msgid "DOMPDF will log debugging output in this file."
 msgstr "DOMPDF bude v tomto súbore zaznamenávať výstup ladenia."
 
 #: settings/Core.setting.php
+msgid "Path to weasyprint executable"
+msgstr ""
+
+#: settings/Core.setting.php
 msgid "Path to wkhtmltopdf executable"
 msgstr "Cesta k wkhtmltopdf spustiteľná"
 
@@ -2540,10 +2741,6 @@ msgid ""
 "If enabled, contacts with the permission to edit a related contact will "
 "inherit that contact's permission to edit other related contacts"
 msgstr "Ak je táto možnosť povolená, kontakty s povolením upravovať súvisiaci kontakt zdedia povolenie kontaktu na úpravu ďalších súvisiacich kontaktov."
-
-#: settings/Core.setting.php templates/CRM/Admin/Page/Setting.tpl
-msgid "Enable Components"
-msgstr "Povoliť komponenty"
 
 #: settings/Core.setting.php
 msgid "Disable CiviCRM css"
@@ -2701,7 +2898,7 @@ msgstr "Ak je táto možnosť povolená, všetky nastavenia filtrov, ktoré si p
 msgid "Do not notify assignees for"
 msgstr "Neoznamovať povereným osobám položky"
 
-#: settings/Core.setting.php templates/CRM/Admin/Form/Preferences/Display.tpl
+#: settings/Core.setting.php
 msgid ""
 "These activity types will be excluded from automated email notifications to "
 "assignees."
@@ -2756,12 +2953,31 @@ msgid "Theme to use on frontend pages"
 msgstr "Motív na použitie na klientskych stránkach"
 
 #: settings/Core.setting.php templates/CRM/Admin/Form/Preferences/Display.hlp
+msgid ""
+"The theme system allows you to change CiviCRM's appearance by replacing "
+"important CSS files."
+msgstr "Motív, ktorý vám systém umožní na zmenu vzhľadu CiviCRM nahradením dôležitých súborov CSS."
+
+#: settings/Core.setting.php templates/CRM/Admin/Form/Preferences/Display.hlp
+msgid ""
+"On WordPress, Joomla, or a similar CMS, the frontend theme determines the "
+"appearance on user-facing screens, such as the \"Event Registration\" "
+"screen."
+msgstr "Vo WordPress, Joomla alebo podobnom systéme CMS klientsky motív určuje, ako budú vyzerať obrazovky, s ktorými bude pracovať používateľ, napríklad obrazovka 'Registrácia na podujatie'."
+
+#: settings/Core.setting.php templates/CRM/Admin/Form/Preferences/Display.hlp
 msgid "Backend Theme"
 msgstr "Serverový motív"
 
 #: settings/Core.setting.php
 msgid "Theme to use on backend pages"
 msgstr "Motív na použitie na serverových stránkach"
+
+#: settings/Core.setting.php templates/CRM/Admin/Form/Preferences/Display.hlp
+msgid ""
+"The backend theme determines the appearance on administrative screens, such "
+"as the \"Manage Event\" screen."
+msgstr "Serverový motív určuje, ako budú vyzerať obrazovky správy, napríklad obrazovka 'Spravovať podujatie'."
 
 #: settings/Core.setting.php
 msgid "HTTP request timeout"
@@ -2789,6 +3005,54 @@ msgstr ""
 msgid ""
 "This setting will only affect sites that have background queue processing "
 "enabled (eg. coworker)"
+msgstr ""
+
+#: settings/Database.boot.setting.php
+msgid "CiviCRM Database Connection String"
+msgstr ""
+
+#: settings/Database.boot.setting.php
+msgid "The DSN for the CiviCRM Database."
+msgstr ""
+
+#: settings/Database.boot.setting.php
+msgid "CiviCRM Database Name"
+msgstr ""
+
+#: settings/Database.boot.setting.php
+msgid "The database name component of the DSN for the CiviCRM Database."
+msgstr ""
+
+#: settings/Database.boot.setting.php
+msgid "CiviCRM Database User"
+msgstr ""
+
+#: settings/Database.boot.setting.php
+msgid "The database user component of the DSN for the CiviCRM Database."
+msgstr ""
+
+#: settings/Database.boot.setting.php
+msgid "CiviCRM Database Password"
+msgstr ""
+
+#: settings/Database.boot.setting.php
+msgid "The database password component of the DSN for the CiviCRM Database."
+msgstr ""
+
+#: settings/Database.boot.setting.php
+msgid "CiviCRM Database Host"
+msgstr ""
+
+#: settings/Database.boot.setting.php
+msgid "The database host component of the DSN for the CiviCRM Database."
+msgstr ""
+
+#: settings/Database.boot.setting.php
+msgid "CiviCRM Database Port"
+msgstr ""
+
+#: settings/Database.boot.setting.php
+msgid "The database port component of the DSN for the CiviCRM Database."
 msgstr ""
 
 #: settings/Developer.setting.php
@@ -2834,10 +3098,6 @@ msgid ""
 msgstr "Nastavte túto hodnotu na Áno, ak chcete zobraziť zoznam spätného sledovania v prípade závažnej chyby. Táto funkcia sa NEMÁ povoliť pre produkčné lokality."
 
 #: settings/Developer.setting.php
-msgid "Environment"
-msgstr ""
-
-#: settings/Developer.setting.php
 msgid ""
 "Setting to define the environment in which this CiviCRM instance is running."
 msgstr "Nastavenie, ktoré definuje prostredie, v ktorom beží táto inštancia CiviCRM."
@@ -2876,49 +3136,53 @@ msgid ""
 "want to override built-in CiviCRM error handling for your site."
 msgstr "Zadajte cestu a triedu vlastnej funkcie PHP na obsluhu chýb, ak chcete prepísať zabudovanú obsluhu chýb CiviCRM na vašej lokalite."
 
-#: settings/Directory.setting.php
+#: settings/Directory.boot.setting.php
 msgid "Image Directory"
 msgstr "Adresár obrázkov"
 
-#: settings/Directory.setting.php templates/CRM/Admin/Form/Setting/Path.tpl
+#: settings/Directory.boot.setting.php
+#: templates/CRM/Admin/Form/Setting/Path.tpl
 msgid ""
 "File system path where image files are uploaded. Currently, this path is "
 "used for images associated with premiums (CiviContribute thank-you gifts)."
 msgstr "Cesta systémových súborov, kde sa nahrávajú súbory s obrázkami. Momentálne sa táto cesta používa pre obrázky spojené s prémiami (ďakovné darčeky CiviContribute)."
 
-#: settings/Directory.setting.php templates/CRM/Admin/Form/Setting/Path.tpl
+#: settings/Directory.boot.setting.php
+#: templates/CRM/Admin/Form/Setting/Path.tpl
 msgid ""
 "Path where documents and images which are attachments to contact records are"
 " stored (e.g. contact photos, resumes, contracts, etc.). These attachments "
 "are defined using 'file' type custom fields."
 msgstr "Cesta, kde sa ukladajú dokumenty a obrázky, ktoré sú prílohou záznamov kontaktu (napr. fotografie kontaktu, životopisy, zmluvy atď.). Tieto prílohy sa definujú vlastnými poľami typu 'súbor'."
 
-#: settings/Directory.setting.php
+#: settings/Directory.boot.setting.php
 msgid "Custom Template Directory"
 msgstr "Adresár vlastných šablón"
 
-#: settings/Directory.setting.php
+#: settings/Directory.boot.setting.php
 msgid ""
 "Path where site specific templates are stored if any. This directory is "
 "searched first if set. Custom JavaScript code can be added to templates by "
 "creating files named templateFile.extra.tpl. (learn more...)"
 msgstr "Cesta, kde sa ukladajú prípadné šablóny špecifické pre lokalitu. Ak je tento adresár nastavený, prehľadáva sa ako prvý. K šablónam je možné pridať vlastný kód JavaScript vytvorením súborov s názvom templateFile.extra.tpl. (zistiť viac...)"
 
-#: settings/Directory.setting.php
+#: settings/Directory.boot.setting.php
 msgid "Custom PHP Directory"
 msgstr "Vlastný adresár PHP"
 
-#: settings/Directory.setting.php templates/CRM/Admin/Form/Setting/Path.tpl
+#: settings/Directory.boot.setting.php
+#: templates/CRM/Admin/Form/Setting/Path.tpl
 msgid ""
 "Path where site specific PHP code files are stored if any. This directory is"
 " searched first if set."
 msgstr "Cesta, kde sa ukladajú prípadné súbory s kódom PHP špecifické pre lokalitu. Ak je tento adresár nastavený, prehľadáva sa ako prvý."
 
-#: settings/Directory.setting.php
+#: settings/Directory.boot.setting.php
 msgid "Extensions Directory"
 msgstr "Adresár rozšírení"
 
-#: settings/Directory.setting.php templates/CRM/Admin/Form/Setting/Path.tpl
+#: settings/Directory.boot.setting.php
+#: templates/CRM/Admin/Form/Setting/Path.tpl
 msgid "Path where CiviCRM extensions are stored."
 msgstr "Cesta, kde sa ukladajú rozšírenia CiviCRM."
 
@@ -2942,15 +3206,15 @@ msgid ""
 "first page?"
 msgstr ""
 
-#: settings/Extension.setting.php
+#: settings/Extension.boot.setting.php
 msgid "Extension Repo URL"
 msgstr "Adresa URL odkladacieho priestoru rozšírenia"
 
-#: settings/Extension.setting.php
+#: settings/Extension.boot.setting.php
 msgid "Extension Depth"
 msgstr "Hĺbka rozšírenia"
 
-#: settings/Extension.setting.php
+#: settings/Extension.boot.setting.php
 msgid ""
 "Maximum number of sub-directories to search when looking for extensions"
 msgstr "Maximálny počet podpriečinkov, v ktorých sa má vyhľadávať pri hľadaní rozšírení"
@@ -3380,6 +3644,14 @@ msgstr "Frekvencia aktualizácie databázy"
 msgid "The frequency that CiviMail updates its sent mail database."
 msgstr "Ako často CiviMail aktualizuje databázu odoslanej pošty."
 
+#: settings/Mailing.setting.php templates/CRM/Admin/Form/Setting/Mail.hlp
+msgid ""
+"CiviMail records email sent at the frequency you specify. If you set it to "
+"1, it will update the database every time it sends an email. This ensures "
+"that emails are not resent if the batch job fails, but this may cause a "
+"performance hit, particularly for large jobs."
+msgstr "CiviMail zaznamenáva odoslaný e-mail s frekvenciou, ktorú stanovíte. Ak ju stanovíte na 1, bude aktualizovať databázu vždy, keď odošle e-mail. Vďaka tomu sa e-maily opätovne neposielajú, ak zlyhá dávková úloha, ale môže to spôsobiť spomalenie systému, najmä pri väčších úlohách."
+
 #: settings/Mailing.setting.php
 msgid "Use Smarty in scheduled reminders"
 msgstr ""
@@ -3466,6 +3738,14 @@ msgid "Unique Email per Domain?"
 msgstr "Jedinečný e-mail pre doménu?"
 
 #: settings/Search.setting.php
+msgid "See also: <a href=\"%1\">Search Optimization</a>"
+msgstr ""
+
+#: settings/Search.setting.php
+msgid "See also: <a %1>Search Configuration Options</a>"
+msgstr ""
+
+#: settings/Search.setting.php
 msgid "Autocomplete Results"
 msgstr "Výsledky automatického dokončovania"
 
@@ -3542,11 +3822,10 @@ msgstr "Časový limit vyrovnávacej pamäte inteligentnej skupiny"
 
 #: settings/Search.setting.php
 msgid ""
-"The number of minutes to cache smart group contacts. We strongly recommend "
-"that this value be greater than zero, since a value of zero means no caching"
-" at all. If your contact data changes frequently, you should set this value "
-"to at least 5 minutes."
-msgstr "Počet minút na uloženie kontaktov inteligentnej skupiny do vyrovnávacej pamäte. Dôrazne odporúčame, aby bola táto hodnota väčšia ako nula, pretože nula znamená, že sa nič nebude ukladať do vyrovnávacej pamäte. Ak sa vaše údaje kontaktov často menia, mali by ste túto hodnotu nastaviť aspoň na 5 minút."
+"The number of minutes to cache smart group contacts. The best value will "
+"depend on your site and the complexity of the groups and acls you use. A "
+"value of zero means no caching at all. You may need to experiment with this."
+msgstr ""
 
 #: settings/Search.setting.php
 msgid "Default Contact Search Profile"
@@ -3581,10 +3860,8 @@ msgid "Quicksearch options"
 msgstr "Možnosti rýchleho vyhľadávania"
 
 #: settings/Search.setting.php
-msgid ""
-"Which fields can be searched on in the menubar quicksearch box? Don't see "
-"your custom field here? Make sure it is marked as Searchable."
-msgstr "Ktoré polia je možné vyhľadávať v poli rýchleho vyhľadávania na paneli s ponukami? Nevidíte tu vlastné pole? Skontrolujte, či je označené ako Dá sa vyhľadať."
+msgid "Which fields can be searched on in the menubar quicksearch box?"
+msgstr ""
 
 #: settings/Search.setting.php
 msgid "Default Search Pager size"
@@ -3594,29 +3871,37 @@ msgstr "Predvolená veľkosť stránkovania vyhľadávania"
 msgid "What is the default number of records to show on a search"
 msgstr "Aký je predvolený počet záznamov, ktoré sa zobrazia pri vyhľadávaní"
 
-#: settings/Url.setting.php
+#: settings/Url.boot.setting.php
+msgid "User Framework Base URL"
+msgstr ""
+
+#: settings/Url.boot.setting.php
+msgid "The base URL of the user framework or CMS that CiviCRM is running in."
+msgstr ""
+
+#: settings/Url.boot.setting.php
 msgid "CiviCRM Resource URL"
 msgstr "Adresa URL zdroja CiviCRM"
 
-#: settings/Url.setting.php
+#: settings/Url.boot.setting.php
 msgid ""
 "Absolute URL of the location where the civicrm module or component has been "
 "installed."
 msgstr "Absolútna adresa URL miesta, kde bol nainštalovaný modul alebo komponent CiviCRM."
 
-#: settings/Url.setting.php
+#: settings/Url.boot.setting.php
 msgid "Image Upload URL"
 msgstr "Adresa URL pre nahratie obrázka"
 
-#: settings/Url.setting.php templates/CRM/Admin/Form/Setting/Url.hlp
+#: settings/Url.boot.setting.php templates/CRM/Admin/Form/Setting/Url.hlp
 msgid "URL of the location for uploaded image files."
 msgstr "Adresa URL pre nahraté súbory s obrázkami."
 
-#: settings/Url.setting.php
+#: settings/Url.boot.setting.php
 msgid "Custom CSS URL"
 msgstr "Adresa URL pre vlastné CSS"
 
-#: settings/Url.setting.php templates/CRM/Admin/Form/Setting/Url.hlp
+#: settings/Url.boot.setting.php templates/CRM/Admin/Form/Setting/Url.hlp
 msgid ""
 "You can modify the look and feel of CiviCRM by adding your own stylesheet. "
 "For small to medium sized modifications, use your css file to override some "
@@ -3624,15 +3909,15 @@ msgid ""
 "can choose to disable civicrm.css completely."
 msgstr "Vzhľad CiviCRM a používateľský zážitok pri práci s ním môžete upraviť tak, že pridáte vlastnú šablónu so štýlmi. Pre malé a stredné úpravy použite vlastný súbor CSS, ktorým sa prepíšu niektoré štýly v civicrm.css. Alebo, ak chcete urobiť veľké zmeny, môžete sa rozhodnúť civicrm.css úplne zakázať."
 
-#: settings/Url.setting.php
+#: settings/Url.boot.setting.php
 msgid "Extension Resource URL"
 msgstr "Adresa URL zdroja rozšírenia"
 
-#: settings/Url.setting.php
+#: settings/Url.boot.setting.php
 msgid ""
 "Base URL for extension resources (images, stylesheets, etc). This should "
-"match extensionsDir."
-msgstr "Základná adresa URL pre zdroje rozšírenia (obrázky, šablóny so štýlmi atď.). Mala by sa zhodovať s adresárom rozšírení."
+"correspond to the extensionsDir path."
+msgstr ""
 
 #: templates/CRM/Admin/Form/CMSUser.tpl
 msgid "Synchronize Users"
@@ -3974,12 +4259,6 @@ msgid ""
 "WARNING: Deleting this option gruop will result in the loss of all records "
 "which use the option."
 msgstr "UPOZORNENIE: Ak odstránite túto skupinu možností, stratia sa všetky záznamy, ktoré túto možnosť používajú."
-
-#: templates/CRM/Admin/Form/Options.tpl
-msgid ""
-"WARNING: Deleting this option will result in the loss of all %1 related "
-"records which use the option."
-msgstr "UPOZORNENIE: Ak odstránite túto možnosť, stratia sa všetkých súvisiace záznamy v počte %1, ktoré túto možnosť používajú."
 
 #: templates/CRM/Admin/Form/Options.tpl
 msgid "Custom Search Path"
@@ -4383,10 +4662,6 @@ msgid ""
 msgstr "Povolenie riadenia prístupu podľa finančných typov sa vyžaduje iba vtedy, ak potrebujete dať prístup používateľom v jednej role k určitým finančným transakciám, ale nie k tým, ktoré majú určité finančné typy.</p>\n<p>Napríklad odkazy z plánovaného darcovstva môžu byť veľmi dôverné a nie je vhodné, aby ich videl personál organizujúci podujatie, hoci bude spravovať platby za nákup lístkov.</p>\n<p>Po povolení tejto možnosti budete môcť určité povolenia vytvoriť, zobraziť, upraviť a odstrániť pre každý finančný typ samostatne v časti Spravovať > Používatelia a povolenia > Povolenia (riadenie prístupu) a kliknutím na odkaz pre riadenie prístupu pre váš CMS."
 
 #: templates/CRM/Admin/Form/Preferences/Display.hlp
-msgid "WYSIWYG Editor"
-msgstr ""
-
-#: templates/CRM/Admin/Form/Preferences/Display.hlp
 msgid ""
 "A \"WYSIWYG\" (What You See Is What You Get) is a rich-text editor, like a "
 "mini word-processor, for editing HTML content in CiviCRM."
@@ -4411,10 +4686,6 @@ msgid ""
 msgstr "Ďalšie editory WYSIWYG je možné stiahnuť z <a %1>adresára rozšírení CiviCRM</a>."
 
 #: templates/CRM/Admin/Form/Preferences/Display.hlp
-msgid "Invoices / Credit Notes"
-msgstr ""
-
-#: templates/CRM/Admin/Form/Preferences/Display.hlp
 msgid ""
 "In order to enable logged in users to download invoices and credit notes "
 "from the dashboard, please first enable CiviCRM invoicing functionality <a "
@@ -4422,44 +4693,15 @@ msgid ""
 "Settings</a>"
 msgstr "Aby ste mohli povoliť prihláseným používateľom sťahovať faktúry a dobropisy z tabule, povoľte najprv funkciu fakturovania CiviCRM v časti <a href='%1'>Spravovať > CiviContribute > Nastavenia komponentu CiviContribute</a>"
 
-#: templates/CRM/Admin/Form/Preferences/Display.hlp
-msgid ""
-"The theme system allows you to change CiviCRM's appearance by replacing "
-"important CSS files."
-msgstr "Motív, ktorý vám systém umožní na zmenu vzhľadu CiviCRM nahradením dôležitých súborov CSS."
-
-#: templates/CRM/Admin/Form/Preferences/Display.hlp
-msgid ""
-"For more advanced theming options, consult the <a href=\"%1\">theme "
-"documentation</a>."
-msgstr "Rozšírené možnosti motívov nájdete v <a href=\"%1\">dokumentácii k motívom</a>."
-
-#: templates/CRM/Admin/Form/Preferences/Display.hlp
-msgid "Theme"
-msgstr "Motív"
-
-#: templates/CRM/Admin/Form/Preferences/Display.hlp
-msgid ""
-"The backend theme determines the appearance on administrative screens, such "
-"as the \"Manage Event\" screen."
-msgstr "Serverový motív určuje, ako budú vyzerať obrazovky správy, napríklad obrazovka 'Spravovať podujatie'."
-
-#: templates/CRM/Admin/Form/Preferences/Display.hlp
-msgid ""
-"On WordPress, Joomla, or a similar CMS, the frontend theme determines the "
-"appearance on user-facing screens, such as the \"Event Registration\" "
-"screen."
-msgstr "Vo WordPress, Joomla alebo podobnom systéme CMS klientsky motív určuje, ako budú vyzerať obrazovky, s ktorými bude pracovať používateľ, napríklad obrazovka 'Registrácia na podujatie'."
-
 #: templates/CRM/Admin/Form/Preferences/Display.tpl
 msgid ""
 "Select the <strong>tabs</strong>\n"
-"          that should be displayed when viewing a contact record. EXAMPLE: If your organization does not keep track of\n"
-"          'Relationships', then un-check this option to simplify the screen display. Tabs for Contributions, Pledges,\n"
-"          Memberships, Events, Grants and Cases are also hidden if the corresponding component is not enabled. Go to\n"
-"          <a href=\"%1\">Administer > System Settings > Enable Components</a>\n"
-"          to modify the components which are available for your site."
-msgstr "Vyberte, ktoré <strong>karty</strong>\n          sa majú zobrazovať pri zobrazení záznamu kontaktu. PRÍKLAD: Ak vaša organizácia nevedie záznamy o\n          'vzťahoch', potom zrušením začiarknutia tejto možnosti zjednodušte zobrazenie na obrazovke. Aj karty pre Príspevky, Prísľuby,\n          Členstvá, Podujatia, Granty a Prípady budú skryté, ak nebude povolený príslušný komponent. Prejdite do časti\n          <a href=\"%1\">Spravovať > Nastavenia systému > Povoliť komponenty</a>\n          a upravte komponenty, ktoré sú na vašej lokalite k dispozícii."
+"              that should be displayed when viewing a contact record. EXAMPLE: If your organization does not keep track of\n"
+"              'Relationships', then un-check this option to simplify the screen display. Tabs for Contributions, Pledges,\n"
+"              Memberships, Events, Grants and Cases are also hidden if the corresponding component is not enabled. Go to\n"
+"              <a href=\"%1\">Administer > System Settings > Enable Components</a>\n"
+"              to modify the components which are available for your site."
+msgstr ""
 
 #: templates/CRM/Admin/Form/Preferences/Display.tpl
 msgid "Individual Name Fields"
@@ -4474,29 +4716,6 @@ msgid ""
 "When enabled, checks for possible matches on the \"New Contact\" form using "
 "the Supervised <a %1>matching rule specified in your system</a>."
 msgstr "Ak je táto možnosť povolená, hľadajú sa možné zhody vo formulári 'Nový kontakt' použitím možnosti S dohľadom <a %1>pravidla zhôd stanoveného vo vašom systéme</a>."
-
-#: templates/CRM/Admin/Form/Preferences/Display.tpl
-msgid ""
-"When enabled, contacts who are assigned activities will automatically "
-"receive an email notification with a copy of the activity."
-msgstr "Ak je táto možnosť povolená, kontakty, ktoré majú priradené aktivity, automaticky dostanú e-mailové oznámenie s kópiou aktivity."
-
-#: templates/CRM/Admin/Form/Preferences/Display.tpl
-msgid ""
-"When enabled, the assignee notification sent out above will also include an "
-"ical meeting invite."
-msgstr "Ak je táto možnosť povolená, zaslané oznámenie s úlohou uvedené vyššie bude obsahovať aj pozvanie na stretnutie ICal."
-
-#: templates/CRM/Admin/Form/Preferences/Display.tpl
-msgid ""
-"If you disable this option, the CiviCRM interface will be limited to "
-"traditional browsing. Opening a form will refresh the page rather than "
-"opening a popup dialog."
-msgstr "Ak túto možnosť zakážete, rozhranie CiviCRM sa obmedzí iba na tradičné prehľadávanie. Pri otvorení formulára sa stránka obnoví, neotvorí sa automaticky otvárané dialógové okno."
-
-#: templates/CRM/Admin/Form/Preferences/Display.tpl
-msgid "Default position for the CiviCRM menubar."
-msgstr "Predvolená poloha panelu s ponukami CiviCRM."
 
 #: templates/CRM/Admin/Form/Preferences/Mailing.hlp
 msgid "Email From Address for no-reply emails."
@@ -5042,14 +5261,6 @@ msgid ""
 "enabled logging.)"
 msgstr "(Pri inštaláciách s povoleným zapisovaním do denníka momentálne nemožno povoliť viacjazyčnú podporu.)"
 
-#: templates/CRM/Admin/Form/Setting/Mail.hlp
-msgid ""
-"CiviMail records email sent at the frequency you specify. If you set it to "
-"1, it will update the database every time it sends an email. This ensures "
-"that emails are not resent if the batch job fails, but this may cause a "
-"performance hit, particularly for large jobs."
-msgstr "CiviMail zaznamenáva odoslaný e-mail s frekvenciou, ktorú stanovíte. Ak ju stanovíte na 1, bude aktualizovať databázu vždy, keď odošle e-mail. Vďaka tomu sa e-maily opätovne neposielajú, ak zlyhá dávková úloha, ale môže to spôsobiť spomalenie systému, najmä pri väčších úlohách."
-
 #: templates/CRM/Admin/Form/Setting/Mail.tpl
 msgid ""
 "These settings are used to configure mailer properties for the optional "
@@ -5099,12 +5310,19 @@ msgstr "Táto funkcia sa nedá povoliť vo viacjazyčných inštaláciách."
 
 #: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
 msgid ""
-"<a href=\"%1\">wkhtmltopdf is an alternative utility for generating "
-"PDF's</a> which may provide better performance especially if you are "
-"generating a large number of PDF letters or receipts. Your system "
+"<a href=\"%1\">weasyprint is an alternative utility for generating PDFs</a> "
+"which is a successor to the discontinued wkhtmltopdf. Your system "
 "administrator will need to download and install this utility, and enter the "
 "executable path here."
-msgstr "<a href=\"%1\">wkhtmltopdf je alternatívna pomôcka na vytváranie PDF,</a> ktorá môže mať lepší výkon, najmä ak vytvárate veľké množstvo listov alebo potvrdení vo formáte PDF. Váš správca systému bude musieť túto pomôcku stiahnuť a nainštalovať a zadať tu spustiteľnú cestu."
+msgstr ""
+
+#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
+msgid ""
+"<a href=\"%1\">wkhtmltopdf is an alternative utility for generating PDFs</a>"
+" which may provide better performance especially if you are generating a "
+"large number of PDF letters or receipts. Your system administrator will need"
+" to download and install this utility, and enter the executable path here."
+msgstr ""
 
 #: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
 msgid ""
@@ -5770,19 +5988,21 @@ msgstr "Upraviť nastavenia"
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
 msgid ""
-"Use this checklist to review and complete configuration tasks for your site."
-" You will be redirected back to this checklist after saving each setting. "
-"Settings which you have not yet reviewed will be <span class=\"status-"
+"Use this checklist to review configuration tasks for your site. Settings "
+"that you have not yet reviewed will be <span class=\"status-"
 "overdue\">displayed in red</span>. After you have visited a page, the links "
-"will <span class=\"status-pending\">display in green</span>  (although you "
-"may still need to revisit the page to complete or update the settings). You "
-"can access this page again from the <a href=\"%1\">Administer CiviCRM</a> "
-"menu at any time."
-msgstr "Pomocou tohto kontrolného zoznamu posúďte a dokončite konfiguračné úlohy pre svoju lokalitu. Po uložení každého nastavenia vás znova presmerujeme k tomuto kontrolnému zoznamu. Nastavenia, ktoré ste ešte neposúdili, sa budú zobrazovať <span class=\"status-overdue\">v červenej farbe</span>. Po návšteve stránky budú odkazy <span class=\"status-pending\">zelené</span> (hoci možno budete musieť znovu navštíviť túto stránku a dokončiť alebo aktualizovať nastavenia). Na túto stránku sa môžete kedykoľvek dostať znovu cez ponuku <a href=\"%1\">Spravovať CiviCRM</a>."
+"will <span class=\"status-pending\">display in green</span>. You can access "
+"this page again from the <a href=\"%1\">Administer CiviCRM</a> menu at any "
+"time."
+msgstr ""
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid "Site Configuration and Registration"
-msgstr "Konfigurácia stránky a registrácia"
+msgid "Site Configuration"
+msgstr ""
+
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid "Configure your organization name, email address and postal address."
+msgstr ""
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
 #: templates/CRM/Admin/Page/Setting.tpl
@@ -5793,18 +6013,21 @@ msgstr "K nastaveniam lokalizácie patrí používateľský jazyk, predvolená m
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
 msgid ""
-"Organization name, email address for system-generated emails, organization "
-"address"
-msgstr "Názov organizácie, e-mailová adresa pre e-maily generované systémom, adresa organizácie"
-
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid "Enable components"
-msgstr "Povoliť komponenty"
+"Enable or disable Components such as CiviContribute, CiviEvent, CiviCase, "
+"etc."
+msgstr ""
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
 msgid ""
-"Enable the required CiviCRM components.(CiviContribute, CiviEvent etc.)"
-msgstr "Povoľte požadované komponenty CiviCRM. (CiviContribute, CiviEvent atď.)"
+"Extensions are installable packages which give CiviCRM new functionality."
+msgstr ""
+
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid ""
+"Some extenions are shipped with CiviCRM (known as core extensions, such as "
+"SearchKit and FormBuilder), but there are also many extensions developed by "
+"the community."
+msgstr ""
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
 msgid "Register your site at CiviCRM.org. Opens in a new window."
@@ -5816,9 +6039,9 @@ msgstr "Zaregistrujte si lokalitu"
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
 msgid ""
-"Register your site, join the community, and help CiviCRM remain a leading "
-"CRM for organizations worldwide."
-msgstr "Zaregistrujte si lokalitu, pripojte sa ku komunite a pomôžte CiviCRM, aby bol aj naďalej popredným systémom CRM pre organizácie na celom svete."
+"Join the community and help CiviCRM remain a leading CRM for organizations "
+"worldwide."
+msgstr ""
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
 msgid "Viewing and Editing Contacts"
@@ -5836,13 +6059,22 @@ msgid ""
 msgstr "Nakonfigurujte obrazovky a prvky formulárov pre položky Zobrazenie kontaktov, Úprava kontaktov, Rozšírené vyhľadávanie, Tabuľa kontaktu a Editor WYSIWYG."
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
+msgid ""
+"You can also change the theme here, but first it must be installed as an "
+"extension. You can <a %1>explore CiviCRM themes</a> on the extension "
+"directory."
+msgstr ""
+
+#: templates/CRM/Admin/Page/ConfigTaskList.tpl
 #: templates/CRM/Admin/Page/Setting.tpl
 msgid "Address Settings"
 msgstr "Nastavenia adresy"
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid "Format addresses in mailing labels, input forms and screen display."
-msgstr "Formát adries v označeniach pošty, vstupných formulároch a na obrazovkách."
+msgid ""
+"Format addresses in mailing labels, input forms and how they are displayed "
+"on screens."
+msgstr ""
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
 #: templates/CRM/Admin/Page/Setting.tpl
@@ -5863,10 +6095,6 @@ msgid ""
 msgstr "Upravte správanie vyhľadávania vrátane zástupných znakov a údajov, ktoré sa majú zobrazovať vo výsledkoch rýchleho vyhľadávania. Úpravou nastavení vyhľadávania je možné zlepšiť výkon pre väčšie množiny údajov."
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid "Version reporting, alerts and attachments."
-msgstr "Uvádzanie verzie, upozornenia a prílohy."
-
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
 msgid ""
 "You can modify the names of the built-in contact types (Individual, "
 "Household, Organizations), and you can create or modify \"contact subtypes\""
@@ -5875,8 +6103,8 @@ msgstr "Môžete zmeniť názvy zabudovaných typov kontaktov (Jednotlivec, Dom�
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
 msgid ""
-"Sending Emails (includes contribution receipts and event confirmations)"
-msgstr "Odosielanie e-mailov (zahŕňa potvrdenia o príspevkoch a potvrdenia registrácie)"
+"Sending Emails (also used for contribution receipts and event confirmations)"
+msgstr ""
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
 msgid "From Email Addresses"
@@ -6019,11 +6247,6 @@ msgid "Integrated case management for human service providers"
 msgstr "Integrovaná správa prípadov pre poskytovateľov služieb pre ľudí."
 
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid ""
-"Distribute funds to others, for example foundations, grant givers, etc."
-msgstr "Rozdeliť prostriedky druhým, napríklad v prípade nadácií, poskytovateľov grantov atď."
-
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
 msgid "$componentTitles.CiviContribute"
 msgstr "$componentTitles.CiviContribute"
 
@@ -6050,10 +6273,6 @@ msgstr "$componentTitles.CiviCampaign"
 #: templates/CRM/Admin/Page/ConfigTaskList.tpl
 msgid "$componentTitles.CiviCase"
 msgstr "$componentTitles.CiviCase"
-
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid "$componentTitles.CiviGrant"
-msgstr "$componentTitles.CiviGrant"
 
 #: templates/CRM/Admin/Page/ContactType.hlp
 msgid ""
@@ -6088,6 +6307,10 @@ msgid "Add Event Template"
 msgstr "Pridať šablónu podujatia"
 
 #: templates/CRM/Admin/Page/EventTemplate.tpl
+msgid "Public Event"
+msgstr ""
+
+#: templates/CRM/Admin/Page/EventTemplate.tpl
 msgid ""
 "There are no Event Templates present. You can <a href='%1'>add one</a>."
 msgstr "Nie je k dispozícii žiadna šablóna podujatia. Môžete <a href='%1'>jednu pridať</a>."
@@ -6103,24 +6326,63 @@ msgid "Version"
 msgstr "Verzia"
 
 #: templates/CRM/Admin/Page/ExtensionDetails.tpl
+#: templates/CRM/Admin/Page/Extensions/AddNew.tpl
+msgid "This extension has been reviewed by the community."
+msgstr ""
+
+#: templates/CRM/Admin/Page/ExtensionDetails.tpl
+msgid "This extension has not been reviewed by the community."
+msgstr ""
+
+#: templates/CRM/Admin/Page/ExtensionDetails.tpl
+msgid "Please proceed with caution."
+msgstr ""
+
+#: templates/CRM/Admin/Page/ExtensionDetails.tpl
+msgid "Stability"
+msgstr ""
+
+#: templates/CRM/Admin/Page/ExtensionDetails.tpl
+msgid ""
+"This extension has not been reviewed by the community and therefore may "
+"conflict with your configuration."
+msgstr ""
+
+#: templates/CRM/Admin/Page/ExtensionDetails.tpl
+msgid ""
+"Consider evaluating the stated version compatibility, the total number of "
+"active installations and the date of the latest release of the extension as "
+"these may be good indicators of the extension's stability. If a support link"
+" is listed, please consult their issue queue to review any known issues."
+msgstr ""
+
+#: templates/CRM/Admin/Page/ExtensionDetails.tpl
 msgid "Released on"
 msgstr "Vydané dňa"
 
 #: templates/CRM/Admin/Page/ExtensionDetails.tpl
-msgid "License"
-msgstr "Licencia"
-
-#: templates/CRM/Admin/Page/ExtensionDetails.tpl
-msgid "Development stage"
-msgstr "Štádium vývoja"
+msgid "Active Installs"
+msgstr ""
 
 #: templates/CRM/Admin/Page/ExtensionDetails.tpl
 msgid "Requires"
 msgstr "Požaduje sa"
 
 #: templates/CRM/Admin/Page/ExtensionDetails.tpl
-msgid "Compatible with"
-msgstr "Kompatibilné s"
+msgid "Compatible with CiviCRM version"
+msgstr ""
+
+#: templates/CRM/Admin/Page/ExtensionDetails.tpl
+msgid "Compatible with PHP version"
+msgstr ""
+
+#: templates/CRM/Admin/Page/ExtensionDetails.tpl
+msgid "Compatible with Smarty version"
+msgstr ""
+
+#: templates/CRM/Admin/Page/ExtensionDetails.tpl
+msgid "License"
+msgstr "Licencia"
 
 #: templates/CRM/Admin/Page/ExtensionDetails.tpl
 msgid "Local path"
@@ -6133,12 +6395,17 @@ msgstr "Umiestnenie súborov na stiahnutie"
 #: templates/CRM/Admin/Page/Extensions/About.tpl
 msgid ""
 "CiviCRM extensions allow you to install additional features for your site. "
-"This page will automatically list the available \"native\" extensions from "
-"the <a href=\"%2\" target=\"_blank\">CiviCRM.org extensions directory</a> "
-"which are compatible with this version of CiviCRM. If you install Custom "
-"Searches, Reports or Payment Processor extensions - these will automatically"
-" be available on the corresponding menus and screens."
-msgstr "Rozšírenia CiviCRM vám umožňujú nainštalovať pre vašu lokalitu ďalšie funkcie. Táto stránka automaticky uvádza zoznam dostupných 'natívnych' rozšírení z <a href=\"%2\" target=\"_blank\">adresára rozšírení CiviCRM.org</a>, ktoré sú kompatibilné s touto verziou CiviCRM. Ak si nainštalujete rozšírenia Vlastné vyhľadávania, Správy alebo Systém na spracovanie platieb, budú automaticky dostupné v príslušných ponukách a obrazovkách."
+"This page lists the stable and reviewed extensions from the <a href=\"%2\" "
+"target=\"_blank\">CiviCRM.org extensions directory</a> which are compatible "
+"with this version of CiviCRM."
+msgstr ""
+
+#: templates/CRM/Admin/Page/Extensions/About.tpl
+msgid ""
+"Reviewed extensions have gone through a manual review and met certain "
+"criteria in the hope that they are actively maintained and keep working in "
+"the future."
+msgstr ""
 
 #: templates/CRM/Admin/Page/Extensions/About.tpl
 msgid ""
@@ -6148,8 +6415,9 @@ msgid ""
 msgstr "<p>Možno tiež budete chcieť zistiť, aké <a href=\"%2/%1\" target=\"_blank\">natívne moduly %1</a> sa nachádzajú v adresári, ktoré by ste mohli využiť (nie sú tu uvedené moduly špecifické pre CMS)."
 
 #: templates/CRM/Admin/Page/Extensions/AddNew.tpl
-msgid "Extension name (key)"
-msgstr "Názov rozšírenia (kľúč)"
+msgid ""
+"This extension has not been reviewed by the community. Proceed with caution."
+msgstr ""
 
 #: templates/CRM/Admin/Page/Extensions/AddNew.tpl
 msgid ""
@@ -6663,6 +6931,10 @@ msgid ""
 "options in this list."
 msgstr "Táto skupina možností je rezervovaná na použitie systémom. Možnosti v tomto zozname nemôžete odstrániť ani k nim nemôžete pridávať."
 
+#: templates/CRM/Admin/Page/Options.tpl
+msgid "Icons"
+msgstr ""
+
 #: templates/CRM/Admin/Page/ParticipantStatusType.hlp
 msgid "Disabled Statuses"
 msgstr "Zakázané stavy"
@@ -6675,14 +6947,6 @@ msgstr "Stavy v zozname čakateľov"
 msgid ""
 "To enable event waitlist management the following statuses must be enabled:"
 msgstr "Aby ste mohli povoliť správu zoznamu čakateľov podujatia, musia byť povolené nasledujúce stavy:"
-
-#: templates/CRM/Admin/Page/ParticipantStatusType.hlp
-msgid "On waitlist"
-msgstr ""
-
-#: templates/CRM/Admin/Page/ParticipantStatusType.hlp
-msgid "Pending from waitlist"
-msgstr ""
 
 #: templates/CRM/Admin/Page/ParticipantStatusType.hlp
 msgid ""
@@ -6699,18 +6963,6 @@ msgid ""
 "To enable event participation approval the following statuses must be "
 "enabled:"
 msgstr "Aby ste mohli povoliť schválenie účasti na podujatí, musia byť povolené nasledujúce stavy:"
-
-#: templates/CRM/Admin/Page/ParticipantStatusType.hlp
-msgid "Awaiting approval"
-msgstr ""
-
-#: templates/CRM/Admin/Page/ParticipantStatusType.hlp
-msgid "Pending from approval"
-msgstr ""
-
-#: templates/CRM/Admin/Page/ParticipantStatusType.hlp
-msgid "Rejected"
-msgstr ""
 
 #: templates/CRM/Admin/Page/ParticipantStatusType.hlp
 msgid ""
@@ -7281,101 +7533,111 @@ msgid ""
 "backtracing."
 msgstr "Povoľte funkcie ladenia vrátane premenných zobrazenia šablóny a spätného sledovania."
 
-#: CRM/Admin/Form/Setting/Miscellaneous.php
-msgid "The path for %1 does not exist or is not valid"
+#: CRM/Admin/Form/Navigation.php
+msgid "One menu item permanently deleted."
+msgid_plural "%count menu items permanently deleted."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: CRM/Admin/Form/Setting/Debugging.php
+msgid "Settings - Debugging and Error Handling"
 msgstr ""
 
 #: settings/Core.setting.php
-msgid "Path to weasyprint executable"
+msgid "Disable SQL MEMORY Engine"
 msgstr ""
 
-#: settings/Search.setting.php
-msgid "See also: <a href=\"%1\">Search Optimization</a>"
+#: settings/Core.setting.php
+msgid "Some hosting providers do not support this engine."
 msgstr ""
 
-#: settings/Search.setting.php
-msgid "See also: <a %1>Search Configuration Options</a>"
+#: settings/Developer.setting.php
+msgid "Send CiviCRM errors to CMS logs"
 msgstr ""
 
-#: settings/Search.setting.php
+#: settings/Developer.setting.php
 msgid ""
-"The number of minutes to cache smart group contacts. The best value will "
-"depend on your site and the complexity of the groups and acls you use. A "
-"value of zero means no caching at all. You may need to experiment with this."
+"Set this value to Yes if you want CiviCRM error/debugging messages to appear"
+" in your CMS error log."
 msgstr ""
 
-#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
+#: settings/Developer.setting.php
 msgid ""
-"<a href=\"%1\">weasyprint is an alternative utility for generating PDFs</a> "
-"which is a successor to the discontinued wkhtmltopdf. Your system "
-"administrator will need to download and install this utility, and enter the "
-"executable path here."
+"In the case of Drupal, this will cause all CiviCRM error messages to appear "
+"in the Watchdog logs (assuming you have Watchdog enabled)"
 msgstr ""
 
-#: templates/CRM/Admin/Form/Setting/Miscellaneous.tpl
+#: settings/Developer.setting.php
 msgid ""
-"<a href=\"%1\">wkhtmltopdf is an alternative utility for generating PDFs</a>"
-" which may provide better performance especially if you are generating a "
-"large number of PDF letters or receipts. Your system administrator will need"
-" to download and install this utility, and enter the executable path here."
+"Debug output is triggered by adding specific name-value pairs to the CiviCRM"
+" query string."
 msgstr ""
 
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+#: settings/Developer.setting.php
+msgid "For more details, see <a %1>the Developer Docs</a>"
+msgstr ""
+
+#: settings/Mailing.setting.php
+msgid "Treat SMTP Error 450 4.1.2 as permanent"
+msgstr ""
+
+#: settings/Mailing.setting.php
 msgid ""
-"Use this checklist to review configuration tasks for your site. Settings "
-"that you have not yet reviewed will be <span class=\"status-"
-"overdue\">displayed in red</span>. After you have visited a page, the links "
-"will <span class=\"status-pending\">display in green</span>. You can access "
-"this page again from the <a href=\"%1\">Administer CiviCRM</a> menu at any "
-"time."
+"Consider domains that will not resolve (SMTP Error 450 - class 4.1.2 "
+"\"Domain not found\") as permanent failures."
 msgstr ""
 
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid "Site Configuration"
+#: templates/CRM/Admin/Form/Navigation.tpl
+msgid "Menu item \"%1\" will be permanently deleted for all users of this site."
 msgstr ""
 
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid "Configure your organization name, email address and postal address."
+#: templates/CRM/Admin/Form/Navigation.tpl
+msgid "One sub-menu item will also be deleted."
 msgstr ""
 
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+#: templates/CRM/Admin/Form/Preferences/Mailing.hlp
+msgid "Treat SMTP Error 450 4.1.2 as permanent."
+msgstr ""
+
+#: templates/CRM/Admin/Form/Preferences/Mailing.hlp
 msgid ""
-"Enable or disable Components such as CiviContribute, CiviEvent, CiviCase, "
-"etc."
+"Some SMTP servers are configured to not accept an email if the recipient "
+"cannot be reached. Most of the time it means that the domain doesn't exist "
+"at all and the SMTP server returns a 5xx permanent error. But sometimes the "
+"domain name is actually registered but its name servers are not reachable, "
+"or they don't give a meaningful answer. In these cases the SMTP server "
+"returns a 450 temporary delivery error and the mailing job gets stuck in "
+"status Running. Enabling this option will consider them as permanent "
+"failures."
 msgstr ""
 
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+#: templates/CRM/Admin/Form/ScheduleReminders.hlp
 msgid ""
-"Extensions are installable packages which give CiviCRM new functionality."
+"You can set the FROM name and email address for this reminder in these "
+"fields. If you leave these fields blank, the default FROM name and email "
+"address for your site will be used (Administer > Communications > Site Email"
+" Addresses)."
 msgstr ""
 
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+#: templates/CRM/Admin/Form/Setting/Debugging.hlp
 msgid ""
-"Some extenions are shipped with CiviCRM (known as core extensions, such as "
-"SearchKit and FormBuilder), but there are also many extensions developed by "
-"the community."
+"\n"
+"    Debug output is triggered by adding specific name-value pairs to the CiviCRM query string.\n"
+"  "
 msgstr ""
 
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+#: templates/CRM/Admin/Form/Setting/Debugging.hlp
 msgid ""
-"Join the community and help CiviCRM remain a leading CRM for organizations "
-"worldwide."
+"\n"
+"    For more details, see <a %1>the Developer Docs</a>\n"
+"  "
 msgstr ""
 
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
+#: templates/CRM/Admin/Form/Setting/Smtp.hlp
 msgid ""
-"You can also change the theme here, but first it must be installed as an "
-"extension. You can <a %1>explore CiviCRM themes</a> on the extension "
-"directory."
-msgstr ""
-
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid ""
-"Format addresses in mailing labels, input forms and how they are displayed "
-"on screens."
-msgstr ""
-
-#: templates/CRM/Admin/Page/ConfigTaskList.tpl
-msgid ""
-"Sending Emails (also used for contribution receipts and event confirmations)"
+"If this is enabled a logged in user can send email from their own email address as well as the configured\n"
+"  <a href=\"%1\"><strong>Site Email Addresses</strong></a>.  This applies to actions such as \"Send Email\", \"Email Invoice\" and \"Send Receipt\". If this setting\n"
+"  is disabled then only the system configured Site Email addresses will be available for selection."
 msgstr ""
