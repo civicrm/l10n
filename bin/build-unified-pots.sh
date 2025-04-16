@@ -12,7 +12,7 @@ Usage:
 - Setup buildkit and make sure that civibuild is in your PATH
 
 - Run this script (where 6.0 is the latest stable version of CiviCRM and 5.75 is the current ESR):
-    $ ./bin/build-unified-pots.sh po/pot '6.0 5.75' 2>&1 | tee pots.log
+    $ ./bin/build-unified-pots.sh '6.0 5.75' 2>&1 | tee pots.log
 
 - Use diff-check.php to see if the changes make sense. Spot-check new strings
   and make sure few strings were removed (strings may be moved to civicrm-common,
