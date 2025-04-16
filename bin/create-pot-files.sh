@@ -184,7 +184,7 @@ function build_raw_pot() {
 
     install)
       _civistrings -o "$filepath" \
-        install/
+        setup/
       ;;
 
     menu)
