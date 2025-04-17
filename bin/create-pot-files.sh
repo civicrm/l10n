@@ -139,6 +139,7 @@ function build_raw_pot() {
         ang/crmUi* \
         ang/exportui/ \
         ang/afform/ \
+        ext/standaloneusers \
         managed \
         xml/templates/civicrm_acl.tpl \
         xml/templates/civicrm_data.tpl \
