@@ -1,56 +1,24 @@
-Localisation files for CiviCRM: https://civicrm.org/
+# CiviCRM Translation files and Tools
 
-How to localise your CiviCRM installation
-=========================================
+[CiviCRM](https://civicrm.org/) is a constituent relationship management system designed to meet the needs of advocacy, non-profit and non-governmental groups. It is an open source project, licensed under GNU AGPL 3, and coordinated by CiviCRM LLC. The main project code repository is: https://github.com/civicrm/civicrm-core/
 
-aka "using CiviCRM in another language than US-English"
+This project contains an archive of the text-versions of translations files, as well a scripts used mainly by various automations.
 
-CiviCRM Translation:
-* https://lab.civicrm.org/dev/translation/-/wikis/home
+## Contributing
 
-How to participate in a translation team
-========================================
+To translate CiviCRM in another language, please visit our project on Transifex: https://explore.transifex.com/civicrm/civicrm/
 
-Translations are managed on Transifex.com. Please do not open a pull-request on the github l10n project.
+Please do not open a pull-request on this project for translations.
 
-Internationalisation and localisation documentation:  
-https://wiki.civicrm.org/confluence/pages/viewpage.action?pageId=88408149
+We also have various guides on the CiviCRM translation wiki: https://lab.civicrm.org/dev/translation/-/wikis/home
 
-Refreshing the translation strings on Transifex:  
-https://wiki.civicrm.org/confluence/display/CRMDOC/Pushing+new+strings+to+Transifex
-
-Translators resources:  
-https://wiki.civicrm.org/confluence/display/CRMDOC/Resources+for+Translators
-
-Transifex how-to:  
-https://wiki.civicrm.org/confluence/display/CRMDOC/Transifex+howto
-
-Localisation community building how-to:  
-https://wiki.civicrm.org/confluence/display/CRMDOC/Localisation+community+building+howto
-
-Translation guide for Windows:  
-https://forum.civicrm.org/index.php/topic,19068.0.html
-
-
-Forums, help, community
-=======================
+## Forums, help, community
 
 For questions, please post in the `translation` channel at https://chat.civicrm.org or on StackExchange at https://civicrm.stackexchange.com.  
 
 There are also a few language-specific channels at https://chat.civicrm.org, e.g. `francophone`, `nederlandstalig`, etc.
 
-Older, read-only information may be found on the Internationalisation forum:  
-https://forum.civicrm.org/index.php?board=10.0
-
-Or on the language-specific forums:
-* French: http://forum.civicrm.org/index.php?board=58.0
-* German: http://forum.civicrm.org/index.php?board=62.0
-* Spanish: http://forum.civicrm.org/index.php?board=69.0
-* UK: http://forum.civicrm.org/index.php?board=34.0
-
-
-Note about language/country ISO codes
-=====================================
+## Note about language/country ISO codes
 
 CiviCRM uses ISO 3166-1 to determine the language/country codes,
 such as fr_FR, fr_CA, es_ES, etc.
