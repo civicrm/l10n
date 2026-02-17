@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2025-05-10 13:31-0400\n"
+"POT-Creation-Date: 2025-12-01 15:01-0500\n"
 "PO-Revision-Date: 2011-03-28 14:22+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>, 2018,2022-2025\n"
 "Language-Team: English (United Kingdom) (http://app.transifex.com/civicrm/civicrm/language/en_GB/)\n"
@@ -1108,6 +1108,11 @@ msgstr "It looks like this participant is already registered for this event. If 
 msgid "Thank You Page"
 msgstr "Thank You Page"
 
+#: CRM/Event/Form/Registration.php CRM/Event/Page/EventInfo.php
+#: CRM/Event/StateMachine/Registration.php
+msgid "Missing Event ID"
+msgstr "Missing Event ID"
+
 #: CRM/Event/Form/Registration.php
 msgid "You do not have permission to register for this event"
 msgstr "You do not have permission to register for this event"
@@ -1361,17 +1366,21 @@ msgstr "View %1 Details"
 msgid "On Duplicate Entries"
 msgstr "On Duplicate Entries"
 
-#: CRM/Event/Import/Form/MapField.php
-msgid "Missing required field: Provide Participant ID"
-msgstr "Missing required field: Provide Participant ID"
-
-#: CRM/Event/Import/Form/MapField.php
-msgid "Missing required field: Provide %1 or %2"
-msgstr "Missing required field: Provide %1 or %2"
-
 #: CRM/Event/Import/Parser/Participant.php
 msgid "Participant Import"
 msgstr "Participant Import"
+
+#: CRM/Event/Import/Parser/Participant.php
+msgid "Participant Fields"
+msgstr "Participant Fields"
+
+#: CRM/Event/Import/Parser/Participant.php
+msgid "Participant Contact"
+msgstr "Participant Contact"
+
+#: CRM/Event/Import/Parser/Participant.php
+msgid "%1 record found and update not selected"
+msgstr "%1 record found and update not selected"
 
 #: CRM/Event/Import/Parser/Participant.php
 msgid "% record found and update not selected"
@@ -1677,6 +1686,26 @@ msgstr "Remaining Participants"
 #: ext/civi_event/Civi/Api4/Service/Spec/Provider/EventGetSpecProvider.php
 msgid "Maximum participants minus registered participants"
 msgstr "Maximum participants minus registered participants"
+
+#: ext/civi_event/settings/Event.setting.php
+msgid "Dashboard entries"
+msgstr "Dashboard entries"
+
+#: ext/civi_event/settings/Event.setting.php
+msgid ""
+"Configure how many events should be shown on the dashboard. This overrides "
+"the default value of 10 entries."
+msgstr "Configure how many events should be shown on the dashboard. This overrides the default value of 10 entries."
+
+#: ext/civi_event/settings/Event.setting.php
+msgid "Show Event Payment on Confirm?"
+msgstr "Show Event Payment on Confirm?"
+
+#: ext/civi_event/settings/Event.setting.php
+msgid ""
+"Should payment element be shown on the confirmation page instead of the "
+"first page?"
+msgstr "Should payment element be shown on the confirmation page instead of the first page?"
 
 #: schema/Event/Event.entityType.php
 msgid ""
@@ -2379,7 +2408,6 @@ msgid ""
 msgstr "whether the status type is visible to the public, an implicit foreign key to option_value.value related to the `visibility` option_group"
 
 #: templates/CRM/Event/Form/EventFees.tpl
-#: templates/CRM/Event/Form/ParticipantView.tpl
 msgid "Selections"
 msgstr "Selections"
 
@@ -3316,12 +3344,6 @@ msgid "Click <strong>%1</strong> to be added to the WAIT LIST for this event."
 msgstr "Click <strong>%1</strong> to be added to the WAIT LIST for this event."
 
 #: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid ""
-"Once approved, you will receive an email with a link to complete the "
-"registration process."
-msgstr "Once approved, you will receive an email with a link to complete the registration process."
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
 msgid "Click <strong>%1</strong> to submit your registration for approval."
 msgstr "Click <strong>%1</strong> to submit your registration for approval."
 
@@ -3408,14 +3430,6 @@ msgstr "If space becomes available you will receive an email with a link to a we
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 msgid "Your registration has been submitted."
 msgstr "Your registration has been submitted."
-
-#: templates/CRM/Event/Form/Registration/ThankYou.tpl
-#: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_online_receipt_html.tpl
-msgid ""
-"Once your registration has been reviewed, you will receive an email with a "
-"link to a web page where you can complete the registration process."
-msgstr "Once your registration has been reviewed, you will receive an email with a link to a web page where you can complete the registration process."
 
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
 msgid "An email with event details has been sent to %1."
@@ -3696,6 +3710,10 @@ msgid "Recent Registrations"
 msgstr "Recent Registrations"
 
 #: templates/CRM/Event/Page/EventInfo.tpl
+msgid "Registration will open on %1"
+msgstr "Registration will open on %1"
+
+#: templates/CRM/Event/Page/EventInfo.tpl
 msgid "Registration is closed for this event"
 msgstr "Registration is closed for this event"
 
@@ -3902,6 +3920,13 @@ msgstr "You are not registered for any current or upcoming Events."
 
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_html.tpl
+msgid ""
+"Once your registration has been reviewed, you will receive an email with a "
+"link to a web page where you can complete the registration process."
+msgstr "Once your registration has been reviewed, you will receive an email with a link to a web page where you can complete the registration process."
+
+#: xml/templates/message_templates/event_offline_receipt_html.tpl
+#: xml/templates/message_templates/event_online_receipt_html.tpl
 msgid "Total for %1"
 msgstr "Total for %1"
 
@@ -4008,19 +4033,30 @@ msgstr "Your Event Registration has been Transferred to %1."
 msgid "Event Registration Transferred for %1"
 msgstr "Event Registration Transferred for %1"
 
-#: CRM/Event/Form/Registration.php CRM/Event/Page/EventInfo.php
-#: CRM/Event/StateMachine/Registration.php
-msgid "Missing Event ID"
-msgstr "Missing Event ID"
+#: CRM/Event/BAO/Event.php
+msgid "(Location %1)"
+msgstr "(Location %1)"
 
-#: CRM/Event/Import/Parser/Participant.php
-msgid "Participant Fields"
-msgstr "Participant Fields"
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid "Bottom Profile for Additional Participants"
+msgstr "Bottom Profile for Additional Participants"
 
-#: CRM/Event/Import/Parser/Participant.php
-msgid "Participant Contact"
-msgstr "Participant Contact"
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid "Top Profile Fields for Additional Participants"
+msgstr "Top Profile Fields for Additional Participants"
 
-#: CRM/Event/Import/Parser/Participant.php
-msgid "%1 record found and update not selected"
-msgstr "%1 record found and update not selected"
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid "Bottom Profile Fields for Additional Participants"
+msgstr "Bottom Profile Fields for Additional Participants"
+
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid "Send a confirmation email"
+msgstr "Send a confirmation email"
+
+#: CRM/Event/Form/Registration/Confirm.php
+msgid "(multiple participants)"
+msgstr "(multiple participants)"
+
+#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
+msgid "add another profile"
+msgstr "add another profile"

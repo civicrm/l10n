@@ -43,7 +43,7 @@
 # Martin Peth <peth@systopia.de>, 2012
 # Piotr Szotkowski <chastell@chastell.net>, 2011
 # Reinhard Kopp <reinhard@magiclight.de>, 2018
-# Romy Ebert <romy.ebert@civiservice.de>, 2021-2025
+# Romy Ebert <transifex@romy.civiservice.de>, 2021-2025
 # Said Acharkaoui <said.acharkaoui@gmail.com>, 2018
 # Fabian <schuttenberg@systopia.de>, 2013
 # SebastianHuter <account@sebhu.at>, 2019
@@ -60,9 +60,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2025-05-10 13:31-0400\n"
+"POT-Creation-Date: 2025-12-01 15:01-0500\n"
 "PO-Revision-Date: 2011-03-28 14:22+0000\n"
-"Last-Translator: Romy Ebert <romy.ebert@civiservice.de>, 2021-2025\n"
+"Last-Translator: Torben Bertram, 2025\n"
 "Language-Team: German (http://app.transifex.com/civicrm/civicrm/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1156,6 +1156,11 @@ msgstr "Anscheinend ist dieser Teilnehmer bereits für diese Veranstaltung angem
 msgid "Thank You Page"
 msgstr "Dankeschön-Seite"
 
+#: CRM/Event/Form/Registration.php CRM/Event/Page/EventInfo.php
+#: CRM/Event/StateMachine/Registration.php
+msgid "Missing Event ID"
+msgstr "Fehlende Veranstaltungs-ID"
+
 #: CRM/Event/Form/Registration.php
 msgid "You do not have permission to register for this event"
 msgstr "Sie haben nicht die notwendige Berechtigung, um sich zu dieser Veranstaltung anzumelden."
@@ -1409,17 +1414,21 @@ msgstr "Zeige %1 Details"
 msgid "On Duplicate Entries"
 msgstr "Bei doppelten Einträgen"
 
-#: CRM/Event/Import/Form/MapField.php
-msgid "Missing required field: Provide Participant ID"
-msgstr "Fehlendes Pflichtfeld: Teilnehmer-ID angeben"
-
-#: CRM/Event/Import/Form/MapField.php
-msgid "Missing required field: Provide %1 or %2"
-msgstr "Fehlendes Pflichtfeld: %1 oder %2 ausfüllen"
-
 #: CRM/Event/Import/Parser/Participant.php
 msgid "Participant Import"
 msgstr "Import Teilnehmende"
+
+#: CRM/Event/Import/Parser/Participant.php
+msgid "Participant Fields"
+msgstr "Teilnehmer-Felder"
+
+#: CRM/Event/Import/Parser/Participant.php
+msgid "Participant Contact"
+msgstr "Kontakt des Teilnehmenden"
+
+#: CRM/Event/Import/Parser/Participant.php
+msgid "%1 record found and update not selected"
+msgstr "%1 Datensatz gefunden und Aktualisierung nicht gewählt"
 
 #: CRM/Event/Import/Parser/Participant.php
 msgid "% record found and update not selected"
@@ -1725,6 +1734,26 @@ msgstr "Verbleibende Teilnehmende"
 #: ext/civi_event/Civi/Api4/Service/Spec/Provider/EventGetSpecProvider.php
 msgid "Maximum participants minus registered participants"
 msgstr "Maximale Teilnehmende minus angemeldete Teilnehmende"
+
+#: ext/civi_event/settings/Event.setting.php
+msgid "Dashboard entries"
+msgstr "Einträge auf der Übersichtsseite"
+
+#: ext/civi_event/settings/Event.setting.php
+msgid ""
+"Configure how many events should be shown on the dashboard. This overrides "
+"the default value of 10 entries."
+msgstr "Konfigurieren Sie, wie viele Veranstaltungen auf dem Dashboard angezeigt werden sollen. Dies überschreibt den Standardwert von 10 Einträgen."
+
+#: ext/civi_event/settings/Event.setting.php
+msgid "Show Event Payment on Confirm?"
+msgstr "Zeige Veranstaltungszahlung beim Bestätigen?"
+
+#: ext/civi_event/settings/Event.setting.php
+msgid ""
+"Should payment element be shown on the confirmation page instead of the "
+"first page?"
+msgstr "Soll die Zahlungselemente auf der Bestätigungsseite statt auf der ersten Seite angezeigt werden?"
 
 #: schema/Event/Event.entityType.php
 msgid ""
@@ -2427,7 +2456,6 @@ msgid ""
 msgstr "ob diese Statuskategorie public, also öffentlich sichtbar ist, ein impliziter Fremdschlüssel auf option_value.value verknüpft zur `visibility` option_group"
 
 #: templates/CRM/Event/Form/EventFees.tpl
-#: templates/CRM/Event/Form/ParticipantView.tpl
 msgid "Selections"
 msgstr "Auswahl"
 
@@ -3364,12 +3392,6 @@ msgid "Click <strong>%1</strong> to be added to the WAIT LIST for this event."
 msgstr "Klicken Sie<strong> %1 </strong>, um auf die Warteliste zu kommen."
 
 #: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid ""
-"Once approved, you will receive an email with a link to complete the "
-"registration process."
-msgstr "Sobald Ihre Teilnahme freigegeben wird, erhalten Sie per E-Mail einen Link, um ihre Anmeldung abschließend zu bestätigen."
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
 msgid "Click <strong>%1</strong> to submit your registration for approval."
 msgstr "Stimmt alles? Dann klicken Sie auf <strong>%1</strong>."
 
@@ -3456,14 +3478,6 @@ msgstr "Wenn ein Platz frei wird, erhalten Sie per E-Mail einen Link, um Ihre Te
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 msgid "Your registration has been submitted."
 msgstr "Ihre Anmeldung wurde übermittelt."
-
-#: templates/CRM/Event/Form/Registration/ThankYou.tpl
-#: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_online_receipt_html.tpl
-msgid ""
-"Once your registration has been reviewed, you will receive an email with a "
-"link to a web page where you can complete the registration process."
-msgstr "Nachdem Ihre Anmeldung überprüft wurde, erhalten Sie eine E-Mail mit einem Webseiten-Link, wo Sie die Anmeldung abschließen können."
 
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
 msgid "An email with event details has been sent to %1."
@@ -3744,6 +3758,10 @@ msgid "Recent Registrations"
 msgstr "Kürzlich getätigte Anmeldungen"
 
 #: templates/CRM/Event/Page/EventInfo.tpl
+msgid "Registration will open on %1"
+msgstr "Die Anmeldung ist ab %1 möglich."
+
+#: templates/CRM/Event/Page/EventInfo.tpl
 msgid "Registration is closed for this event"
 msgstr "Die Anmeldung zu dieser Veranstaltung ist abgeschlossen"
 
@@ -3950,6 +3968,13 @@ msgstr "Sie sind zu keiner aktuellen oder zukünftigen Veranstaltung angemeldet.
 
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_html.tpl
+msgid ""
+"Once your registration has been reviewed, you will receive an email with a "
+"link to a web page where you can complete the registration process."
+msgstr "Nachdem Ihre Anmeldung überprüft wurde, erhalten Sie eine E-Mail mit einem Webseiten-Link, wo Sie die Anmeldung abschließen können."
+
+#: xml/templates/message_templates/event_offline_receipt_html.tpl
+#: xml/templates/message_templates/event_online_receipt_html.tpl
 msgid "Total for %1"
 msgstr "Gesamt für %1"
 
@@ -4056,19 +4081,30 @@ msgstr "Ihre Veranstaltungsanmeldung wurde zu %1 umgebucht."
 msgid "Event Registration Transferred for %1"
 msgstr "Veranstaltungsanmeldung von %1 umgebucht"
 
-#: CRM/Event/Form/Registration.php CRM/Event/Page/EventInfo.php
-#: CRM/Event/StateMachine/Registration.php
-msgid "Missing Event ID"
-msgstr "Fehlende Veranstaltungs-ID"
+#: CRM/Event/BAO/Event.php
+msgid "(Location %1)"
+msgstr "(Ort %1)"
 
-#: CRM/Event/Import/Parser/Participant.php
-msgid "Participant Fields"
-msgstr "Teilnehmer-Felder"
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid "Bottom Profile for Additional Participants"
+msgstr "Unten: Profile für zusätzliche Teilnehmer"
 
-#: CRM/Event/Import/Parser/Participant.php
-msgid "Participant Contact"
-msgstr "Kontakt des Teilnehmenden"
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid "Top Profile Fields for Additional Participants"
+msgstr "Oben: Profilfelder für zusätzliche Teilnehmer"
 
-#: CRM/Event/Import/Parser/Participant.php
-msgid "%1 record found and update not selected"
-msgstr "%1 Datensatz gefunden und Aktualisierung nicht gewählt"
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid "Bottom Profile Fields for Additional Participants"
+msgstr "Unten: Profilfelder für zusätzliche Teilnehmer"
+
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid "Send a confirmation email"
+msgstr "Bestätigungs-E-Mail versenden"
+
+#: CRM/Event/Form/Registration/Confirm.php
+msgid "(multiple participants)"
+msgstr " (mehrere Teilnehmende)"
+
+#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
+msgid "add another profile"
+msgstr "Weiteres Profil hinzufügen"

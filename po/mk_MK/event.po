@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2025-04-16 12:58-0400\n"
+"POT-Creation-Date: 2025-12-01 15:01-0500\n"
 "PO-Revision-Date: 2011-03-28 14:22+0000\n"
 "Last-Translator: Branko Dokuzovski <branko@horus.mk>, 2018\n"
 "Language-Team: Macedonian (http://app.transifex.com/civicrm/civicrm/language/mk/)\n"
@@ -1103,6 +1103,11 @@ msgstr "Изгледа дека овој учесник веќе е регист
 msgid "Thank You Page"
 msgstr "Благодарница - страница"
 
+#: CRM/Event/Form/Registration.php CRM/Event/Page/EventInfo.php
+#: CRM/Event/StateMachine/Registration.php
+msgid "Missing Event ID"
+msgstr ""
+
 #: CRM/Event/Form/Registration.php
 msgid "You do not have permission to register for this event"
 msgstr "Немате дозвола да се регистрирате за овој настан"
@@ -1356,16 +1361,20 @@ msgstr ""
 msgid "On Duplicate Entries"
 msgstr "За дуплирани внесови"
 
-#: CRM/Event/Import/Form/MapField.php
-msgid "Missing required field: Provide Participant ID"
-msgstr "Недостасува задолжително поле: Внесете ID на учесник"
-
-#: CRM/Event/Import/Form/MapField.php
-msgid "Missing required field: Provide %1 or %2"
+#: CRM/Event/Import/Parser/Participant.php
+msgid "Participant Import"
 msgstr ""
 
 #: CRM/Event/Import/Parser/Participant.php
-msgid "Participant Import"
+msgid "Participant Fields"
+msgstr ""
+
+#: CRM/Event/Import/Parser/Participant.php
+msgid "Participant Contact"
+msgstr ""
+
+#: CRM/Event/Import/Parser/Participant.php
+msgid "%1 record found and update not selected"
 msgstr ""
 
 #: CRM/Event/Import/Parser/Participant.php
@@ -1671,6 +1680,26 @@ msgstr ""
 
 #: ext/civi_event/Civi/Api4/Service/Spec/Provider/EventGetSpecProvider.php
 msgid "Maximum participants minus registered participants"
+msgstr ""
+
+#: ext/civi_event/settings/Event.setting.php
+msgid "Dashboard entries"
+msgstr ""
+
+#: ext/civi_event/settings/Event.setting.php
+msgid ""
+"Configure how many events should be shown on the dashboard. This overrides "
+"the default value of 10 entries."
+msgstr ""
+
+#: ext/civi_event/settings/Event.setting.php
+msgid "Show Event Payment on Confirm?"
+msgstr ""
+
+#: ext/civi_event/settings/Event.setting.php
+msgid ""
+"Should payment element be shown on the confirmation page instead of the "
+"first page?"
 msgstr ""
 
 #: schema/Event/Event.entityType.php
@@ -2374,7 +2403,6 @@ msgid ""
 msgstr ""
 
 #: templates/CRM/Event/Form/EventFees.tpl
-#: templates/CRM/Event/Form/ParticipantView.tpl
 msgid "Selections"
 msgstr "Селекции"
 
@@ -3311,12 +3339,6 @@ msgid "Click <strong>%1</strong> to be added to the WAIT LIST for this event."
 msgstr ""
 
 #: templates/CRM/Event/Form/Registration/Confirm.tpl
-msgid ""
-"Once approved, you will receive an email with a link to complete the "
-"registration process."
-msgstr ""
-
-#: templates/CRM/Event/Form/Registration/Confirm.tpl
 msgid "Click <strong>%1</strong> to submit your registration for approval."
 msgstr ""
 
@@ -3403,14 +3425,6 @@ msgstr " Доколку се ослободи место, ќе добиете е
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 msgid "Your registration has been submitted."
 msgstr "Вашата регистрација е поднесена."
-
-#: templates/CRM/Event/Form/Registration/ThankYou.tpl
-#: xml/templates/message_templates/event_offline_receipt_html.tpl
-#: xml/templates/message_templates/event_online_receipt_html.tpl
-msgid ""
-"Once your registration has been reviewed, you will receive an email with a "
-"link to a web page where you can complete the registration process."
-msgstr "Кога вашата регистрација ќе биде прегледана, ќе добиете е-пошта со линк за веб страната на која можете да го завршите процесот на регистрирање."
 
 #: templates/CRM/Event/Form/Registration/ThankYou.tpl
 msgid "An email with event details has been sent to %1."
@@ -3691,6 +3705,10 @@ msgid "Recent Registrations"
 msgstr "Скорешни регистрации"
 
 #: templates/CRM/Event/Page/EventInfo.tpl
+msgid "Registration will open on %1"
+msgstr ""
+
+#: templates/CRM/Event/Page/EventInfo.tpl
 msgid "Registration is closed for this event"
 msgstr "Регистрацијата е затворена за овој настан"
 
@@ -3897,6 +3915,13 @@ msgstr "Не сте регистрирани за ниту еден текове
 
 #: xml/templates/message_templates/event_offline_receipt_html.tpl
 #: xml/templates/message_templates/event_online_receipt_html.tpl
+msgid ""
+"Once your registration has been reviewed, you will receive an email with a "
+"link to a web page where you can complete the registration process."
+msgstr "Кога вашата регистрација ќе биде прегледана, ќе добиете е-пошта со линк за веб страната на која можете да го завршите процесот на регистрирање."
+
+#: xml/templates/message_templates/event_offline_receipt_html.tpl
+#: xml/templates/message_templates/event_online_receipt_html.tpl
 msgid "Total for %1"
 msgstr ""
 
@@ -4003,15 +4028,30 @@ msgstr " Вашата регистрација за настан е трансф
 msgid "Event Registration Transferred for %1"
 msgstr "Регистрацијата за настан е трансферирана за %1"
 
-#: CRM/Event/Form/Registration.php CRM/Event/Page/EventInfo.php
-#: CRM/Event/StateMachine/Registration.php
-msgid "Missing Event ID"
+#: CRM/Event/BAO/Event.php
+msgid "(Location %1)"
 msgstr ""
 
-#: CRM/Event/Import/Parser/Participant.php
-msgid "Participant Fields"
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid "Bottom Profile for Additional Participants"
 msgstr ""
 
-#: CRM/Event/Import/Parser/Participant.php
-msgid "Participant Contact"
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid "Top Profile Fields for Additional Participants"
+msgstr ""
+
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid "Bottom Profile Fields for Additional Participants"
+msgstr ""
+
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid "Send a confirmation email"
+msgstr ""
+
+#: CRM/Event/Form/Registration/Confirm.php
+msgid "(multiple participants)"
+msgstr ""
+
+#: templates/CRM/Event/Form/ManageEvent/Registration.tpl
+msgid "add another profile"
 msgstr ""

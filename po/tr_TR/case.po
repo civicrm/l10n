@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2025-05-10 13:31-0400\n"
+"POT-Creation-Date: 2025-12-01 15:01-0500\n"
 "PO-Revision-Date: 2011-03-28 14:17+0000\n"
 "Last-Translator: Kaya Zeren <kayazeren@gmail.com>, 2015-2016,2018-2019,2021-2025\n"
 "Language-Team: Turkish (http://app.transifex.com/civicrm/civicrm/language/tr/)\n"
@@ -389,6 +389,10 @@ msgstr "Birleştirilecek olayı seçin"
 msgid "- select case -"
 msgstr "- Olay seçin -"
 
+#: CRM/Case/Form/CustomData.php
+msgid "No file"
+msgstr "Herhangi bir dosya yok"
+
 #: CRM/Case/Form/DeleteClient.php
 msgid "Cannot Remove Client from case as is the only client on the case"
 msgstr "Bu müşteri olaydaki tek müşteri olduğundan olaydan kaldırılamaz"
@@ -540,10 +544,6 @@ msgstr "Müşteri olaya eklendi"
 #: CRM/Case/Page/DashBoard.php
 msgid "You are not authorized to access all cases and activities."
 msgstr "Tüm olay ve işlemlere erişme izniniz yok."
-
-#: CRM/Case/Page/Tab.php
-msgid "Are you sure you want to delete this case?"
-msgstr "Bu olayı silmek istediğinize emin misiniz?"
 
 #: CRM/Case/Page/Tab.php CRM/Case/Selector/Search.php
 msgid "Manage"
@@ -773,10 +773,6 @@ msgid ""
 "Timelines for a case type."
 msgstr "Bir olay türü için olay rolleri, işlem türleri ve zaman akışları bu bölümden ayarlanabilir."
 
-#: ext/civi_case/ang/crmCaseType/edit.html
-msgid "Learn more..."
-msgstr "Ayrıntılı bilgi alın..."
-
 #: ext/civi_case/ang/crmCaseType/edit.html templates/CRM/Case/Audit/Report.tpl
 msgid "Case Roles"
 msgstr "Olay rolleri"
@@ -858,6 +854,51 @@ msgstr "civi_case"
 msgid ""
 "The CiviCase XML file for this case-type prohibits editing the definition."
 msgstr "Bu olay türü için CiviCase XML dosyası açıklamanın düzenlenmesini engelliyor."
+
+#: ext/civi_case/settings/Case.setting.php
+msgid "Redact Activity Email"
+msgstr "İşlem e-postası düzeltilsin"
+
+#: ext/civi_case/settings/Case.setting.php
+msgid ""
+"Should activity emails be redacted? (Set \"Default\" to load setting from "
+"the legacy \"Settings.xml\" file.)"
+msgstr "Etkinleştirildiğinde, işlem e-postaları düzeltilir (ayarların eski \"settings.xml\" dosyasından yüklenmesi için \"Varsayılan\" olarak ayarlayın)."
+
+#: ext/civi_case/settings/Case.setting.php
+msgid "Allow Multiple Case Clients"
+msgstr "Olaylarda birden çok müşteri bulunabilsin"
+
+#: ext/civi_case/settings/Case.setting.php
+msgid ""
+"How many clients may be associated with a given case? (Set \"Default\" to "
+"load setting from the legacy \"Settings.xml\" file.)"
+msgstr "Belirli bir olay ile ilişkilendirilebilecek müşteri sayısı (ayarların eski \"settings.xml\" dosyasından yüklenmesi için \"Varsayılan\" olarak ayarlayın)."
+
+#: ext/civi_case/settings/Case.setting.php
+msgid "Activity Type Sorting"
+msgstr "İşlem türü sıralaması"
+
+#: ext/civi_case/settings/Case.setting.php
+msgid ""
+"How to sort activity-types on the \"Manage Case\" screen? (Set \"Default\" "
+"to load setting from the legacy \"Settings.xml\" file.)"
+msgstr "\"Olay yönetimi\" bölümündeki işlem türlerinin sıralaması (ayarların eski \"settings.xml\" dosyasından yüklenmesi için \"Varsayılan\" olarak ayarlayın)."
+
+#: ext/civi_case/settings/Case.setting.php
+msgid "Include case activities in general activity views."
+msgstr "Genel işlem görüntülerine olay işlemleri katılsın."
+
+#: ext/civi_case/settings/Case.setting.php
+msgid ""
+"e.g. the Contact form's Activity tab listing. Without this ticked, "
+"activities that belong to a case are hidden (default behavior). Warning: "
+"enabling this option means that all case activities relating to a contact "
+"will be listed which could result in users without \"access all cases and "
+"activities\" permission being able to see see the summarized details (date, "
+"subject, assignees, status etc.). Such users will still be prevented from "
+"managing the case and viewing/editing the activity."
+msgstr "Örnek: İletişim formunun işlem sekmesi listesi. Etkinleştirilmediğinde, bir olayın işlemleri gizlenir (varsayılan davranış). Uyarı: Etkinleştirildiğinde, \"tüm olay ve işlemlere erişme\" izni olmayan kullanıcılar da özet bilgileri (tarih, konu, atananlar, durum gibi) bir kişiyle ilgili tüm olay işlemlerini görebilir. Bu kullanıcılar olayı yönetemez ve işlemi görüntüleyemez ya da düzenleyemez."
 
 #: schema/Case/Case.entityType.php
 msgid "Collections of activities and relationships for a given purpose."
@@ -1354,7 +1395,7 @@ msgstr "CiviCase bileşenini kullanmadan önce \"Olay\" ve \"İşlem\" yapıland
 
 #: templates/CRM/Case/Page/ConfigureError.tpl
 msgid "Refer to the %1 to learn about this process."
-msgstr "Bu işlem hakkında bilgi almak için %1 kaynağına başvurun."
+msgstr "Bu işlem ile ilgili bilgi almak için %1 kaynağına başvurun."
 
 #: templates/CRM/Case/Page/DashBoard.tpl
 msgid "Find My Cases"
@@ -1435,3 +1476,106 @@ msgstr "İşlem özeti"
 #: xml/templates/message_templates/case_activity_html.tpl
 msgid "Your Case Role(s)"
 msgstr "Olay rolleriniz"
+
+#: CRM/Case/Form/CaseView.php
+msgid "- any reporter -"
+msgstr "- Tüm bildirenler -"
+
+#: CRM/Case/Form/CaseView.php
+msgid "- any status -"
+msgstr "- Tüm durumlar -"
+
+#: ext/civi_case/Civi/Afform/Behavior/CaseAutofill.php
+msgid "Autofill"
+msgstr "Otomatik doldur"
+
+#: ext/civi_case/Civi/Afform/Behavior/CaseAutofill.php
+msgid ""
+"Automatically identify this case based on the case being viewed when this "
+"form is placed on the case summary screen or when email with the link to the"
+" form is send from the Case."
+msgstr "Bu form olay özeti ekranına yerleştirildiğinde veya olaydan form bağlantısının bulunduğu bir e-posta gönderildiğinde, bu olay otomatik olarak getirilir."
+
+#: ext/civi_case/Civi/Afform/Behavior/CaseAutofill.php
+msgid "Case being Viewed"
+msgstr "Olay görüntülendi"
+
+#: ext/civi_case/Civi/Afform/Behavior/CaseAutofill.php
+msgid "For use on the case summary page"
+msgstr "Olay özeti sayfasında kullanmak için"
+
+#: ext/civi_case/Civi/Afform/Behavior/ContactAutofillBasedOnCase.php
+msgid "Is client of case"
+msgstr "Olayın müşterisi"
+
+#: ext/civi_case/Civi/Afform/Behavior/ContactAutofillBasedOnCase.php
+msgid "Contact is client on the case"
+msgstr "Kişi olayın müşterisi olduğunda"
+
+#: ext/civi_case/Civi/Afform/Behavior/ContactAutofillBasedOnCase.php
+msgid "Case Role is: %1"
+msgstr "Olay rolü: %1"
+
+#: ext/civi_case/Civi/Afform/Behavior/ContactAutofillBasedOnCase.php
+msgid "In use for the following case types: %1"
+msgstr "Şu olay türleri ile kullanmak için: %1"
+
+#: ext/civi_case/Civi/Afform/Behavior/ContactAutofillBasedOnCase.php
+msgid "Case role is: any"
+msgstr "Olay rolü: Herhangi biri"
+
+#: ext/civi_case/Civi/Afform/Behavior/ContactAutofillBasedOnCase.php
+msgid "Contact has any role on the case"
+msgstr "Kişinin olayda herhangi bir rolü var mı"
+
+#: ext/civi_case/Civi/Api4/Service/CaseTasksProvider.php
+msgid "Case - Assign Role"
+msgstr "Olay - Rol ata"
+
+#: ext/civi_case/ang/afCaseGuiEditor/behaviors/autofillCaseBehaviorForm.component.js
+msgid "Select %1"
+msgstr "%1 seçin"
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.ctrl.js
+msgid "org.civicrm.search_kit"
+msgstr "org.civicrm.search_kit"
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.ctrl.js
+msgid "1 case role added."
+msgstr "1 olay rolü eklendi."
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.ctrl.js
+msgid "%1 case roles added."
+msgstr "%1 olay rolü eklendi."
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.ctrl.js
+msgid "1 case role already occupied by the selected contact."
+msgstr "Seçilmiş kişiye zaten 1 olay rolü atanmış."
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.ctrl.js
+msgid "%1 case roles already occupied by the selected contact."
+msgstr "Seçilmiş kişiye zaten %1 olay rolü atanmış."
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.html
+msgid "Role Type"
+msgstr "Rol türü"
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.html
+msgid "The selected cases do not yet have this role assigned."
+msgstr "Seçilmiş olaylara henüz bu rol atanmamış."
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.html
+msgid "%1 cases already have this role assigned."
+msgstr "%1 olaya bu rol zaten atanmış."
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.html
+msgid "Add extra roles"
+msgstr "Ek roller ekle"
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.html
+msgid "Replace existing roles"
+msgstr "Var olan rolleri değiştir"
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.html
+msgid "Adding roles..."
+msgstr "Roller ekleniyor..."
