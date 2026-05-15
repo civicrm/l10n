@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2025-12-01 15:01-0500\n"
+"POT-Creation-Date: 2026-05-14 14:44-0400\n"
 "PO-Revision-Date: 2011-03-28 14:20+0000\n"
 "Last-Translator: Piotr Szotkowski <chastell@chastell.net>, 2011\n"
 "Language-Team: Bulgarian (http://app.transifex.com/civicrm/civicrm/language/bg/)\n"
@@ -91,20 +91,16 @@ msgid "You do not have permission to access this mailing report"
 msgstr "Нямате разрешение за достъп до този доклад за изпращане по пощата"
 
 #: CRM/Mailing/BAO/Mailing.php
+msgid "HTML Format"
+msgstr ""
+
+#: CRM/Mailing/BAO/Mailing.php
 msgid "SMS Message"
 msgstr "SMS съобщение"
 
 #: CRM/Mailing/BAO/Mailing.php
 msgid "Document Body"
 msgstr "Тяло на Документа"
-
-#: CRM/Mailing/BAO/Mailing.php
-msgid "Use Template"
-msgstr "Използвайте Шаблон"
-
-#: CRM/Mailing/BAO/Mailing.php
-msgid "Update Template"
-msgstr "Актуализирайте Шаблона"
 
 #: CRM/Mailing/BAO/Mailing.php
 msgid "Save As New Template"
@@ -126,6 +122,10 @@ msgstr "Разгледай Съобщение"
 
 #: CRM/Mailing/BAO/Mailing.php
 msgid "Standard CiviMail interface with wysiwyg editor."
+msgstr ""
+
+#: CRM/Mailing/BAO/Mailing.php
+msgid "The job size must be at least 1000 or set to 0 (unlimited)."
 msgstr ""
 
 #: CRM/Mailing/BAO/MailingJob.php
@@ -299,7 +299,7 @@ msgid "Invalid request: missing parameters"
 msgstr ""
 
 #: CRM/Mailing/Form/Optout.php CRM/Mailing/Form/Unsubscribe.php
-#: CRM/Mailing/Page/Unsubscribe.php
+#: CRM/Mailing/Page/OptOut.php CRM/Mailing/Page/Unsubscribe.php
 msgid "Invalid request: bad parameters"
 msgstr ""
 
@@ -307,7 +307,9 @@ msgstr ""
 msgid "Opt Out Confirmation"
 msgstr "Потвърждение за Отказване"
 
-#: CRM/Mailing/Form/Optout.php schema/Mailing/Mailing.entityType.php
+#: CRM/Mailing/Form/Optout.php CRM/Mailing/Service/ListUnsubscribe.php
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
+#: schema/Mailing/Mailing.entityType.php
 msgid "Opt Out"
 msgstr ""
 
@@ -774,6 +776,10 @@ msgstr ""
 msgid "Found at least %1 new messages."
 msgstr ""
 
+#: ext/civi_mail/Civi/Api4/Action/Mailing/ProcessQueue.php
+msgid "CiviCRM Mailing Events Queue"
+msgstr ""
+
 #: ext/civi_mail/ang/crmMailing/BlockApprove.html
 msgid "Unreviewed"
 msgstr "Непрегледано"
@@ -909,6 +915,10 @@ msgstr "Автоматичен Отговор на Отговорите"
 #: ext/civi_mail/ang/crmMailing/BlockResponses.html
 msgid "Auto-Respond Message"
 msgstr "Съобщение за Автоматичен Отговор"
+
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
+msgid "One-Click Unsubscribe Mode"
+msgstr ""
 
 #: ext/civi_mail/ang/crmMailing/BlockReview.html
 #: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
@@ -1071,6 +1081,10 @@ msgid "This mailing has been submitted."
 msgstr "Това писмо е изпратено."
 
 #: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+msgid "Approval"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
 msgid "Submit and Approve Mailing"
 msgstr "Изпрати и Одобри Писмо"
 
@@ -1168,10 +1182,6 @@ msgstr "Като алтернатива можете да изберете го�
 msgid "Required tokens"
 msgstr "Необходими токени"
 
-#: ext/civi_mail/ang/crmMailing/MsgTemplateCtrl.js
-msgid "Save Template"
-msgstr "Запази Шаблон"
-
 #: ext/civi_mail/ang/crmMailing/PreviewComponentCtrl.js
 msgid "Invalid component ID (%1)"
 msgstr "Идентификатор на Невалиден компонент (%1)"
@@ -1242,6 +1252,11 @@ msgstr ""
 #: ext/civi_mail/ang/crmMailing/services.js
 msgid "Sending..."
 msgstr "Изпращане..."
+
+#: ext/civi_mail/ang/crmMailing/services.js
+#: templates/CRM/Mailing/Page/Report.tpl
+msgid "Mailings Sent"
+msgstr ""
 
 #: ext/civi_mail/ang/crmMailing/services.js
 msgid "Unsubscribes & Opt-outs"
@@ -1491,10 +1506,6 @@ msgid "Email_Bounce_History"
 msgstr ""
 
 #: ext/civi_mail/settings/Mailing.setting.php
-msgid "(<a %1\">Learn more</a>)"
-msgstr ""
-
-#: ext/civi_mail/settings/Mailing.setting.php
 msgid "Enable Double Opt-in for Profile Group(s) field"
 msgstr ""
 
@@ -1507,6 +1518,20 @@ msgstr ""
 
 #: ext/civi_mail/settings/Mailing.setting.php
 msgid "No-Reply Address"
+msgstr ""
+
+#: ext/civi_mail/settings/Mailing.setting.php
+msgid ""
+"Specify an Email From Address to use when the system sends an email but a "
+"reply is not expected, for example when a user is sent an email for a double"
+" opt-in."
+msgstr ""
+
+#: ext/civi_mail/settings/Mailing.setting.php
+msgid ""
+"Leaving this blank will use the default which will be do-not-"
+"reply@default_domain where the default_domain will be the email domain "
+"address of your default mailing account also used for bounce handling."
 msgstr ""
 
 #: ext/civi_mail/settings/Mailing.setting.php
@@ -1698,7 +1723,21 @@ msgid "Database Update Frequency"
 msgstr ""
 
 #: ext/civi_mail/settings/Mailing.setting.php
-msgid "The frequency that CiviMail updates its sent mail database."
+msgid ""
+"CiviMail records email sent at the frequency you specify. If you set it to "
+"1, it will update the database every time it sends an email. This ensures "
+"that emails are not resent if the batch job fails, but this may cause a "
+"performance hit, particularly for large jobs."
+msgstr ""
+
+#: ext/civi_mail/settings/Mailing.setting.php
+msgid "Default One Click Unsubscribe Mode"
+msgstr ""
+
+#: ext/civi_mail/settings/Mailing.setting.php
+msgid ""
+"This sets the default One Click unsubscribe mode for any new mailings "
+"created"
 msgstr ""
 
 #: schema/Mailing/BouncePattern.entityType.php
@@ -2866,8 +2905,8 @@ msgstr ""
 #: templates/CRM/Mailing/MailingUI.hlp
 msgid ""
 "Go to <a href='%1'>Administer CiviCRM &raquo; Communications &raquo; Site "
-"Email Addresses</a> to add or edit email addresses. Make sure these email "
-"addresses are valid email accounts with your email service provider."
+"From Email Addresses</a> to add or edit email addresses. Make sure these "
+"email addresses are valid email accounts with your email service provider."
 msgstr ""
 
 #: templates/CRM/Mailing/MailingUI.hlp
@@ -3016,18 +3055,10 @@ msgid ""
 msgstr "Намерете съобщенията по име на изпращане. Можете да въведете частично или пълно име."
 
 #: templates/CRM/Mailing/Page/Browse.hlp
-msgid "Mailing Sender"
-msgstr "Изпратил Съобщение"
-
-#: templates/CRM/Mailing/Page/Browse.hlp
 msgid ""
 "Find mailings by the name of the person who created or sent them. You can "
 "enter a complete OR partial name (last name, first name format)."
 msgstr "Намерете имейли по името на човека, който ги е създал или изпратил. Можете да въведете пълно ИЛИ частично име (формат на фамилията, собственото име)."
-
-#: templates/CRM/Mailing/Page/Browse.hlp
-msgid "Archived"
-msgstr "Архивирано"
 
 #: templates/CRM/Mailing/Page/Browse.hlp
 msgid "This field is disabled when searching for Draft/Unscheduled mailings."
@@ -3171,50 +3202,22 @@ msgstr "Наистина ли искате да се абонирате отно
 msgid "Opens/ Clicks"
 msgstr "Отваряния/ Кликвания"
 
-#: CRM/Mailing/BAO/Mailing.php
-msgid "The job size must be at least 1000 or set to 0 (unlimited)."
+#: CRM/Mailing/Form/Action.php
+msgid "Pause Mailing"
 msgstr ""
 
-#: ext/civi_mail/Civi/Api4/Action/Mailing/ProcessQueue.php
-msgid "CiviCRM Mailing Events Queue"
+#: CRM/Mailing/Form/Action.php
+msgid "Resume Mailing"
 msgstr ""
 
-#: ext/civi_mail/ang/crmMailing/BlockResponses.html
-msgid "One-Click Unsubscribe Mode"
+#: CRM/Mailing/Form/Action.php
+msgid "Are you sure you want to pause this mailing?"
 msgstr ""
 
-#: ext/civi_mail/ang/crmMailing/services.js
-#: templates/CRM/Mailing/Page/Report.tpl
-msgid "Mailings Sent"
+#: CRM/Mailing/Form/Action.php
+msgid "Are you sure you want to resume this mailing?"
 msgstr ""
 
-#: ext/civi_mail/settings/Mailing.setting.php
-msgid ""
-"Specify an Email From Address to use when the system sends an email but a "
-"reply is not expected, for example when a user is sent an email for a double"
-" opt-in."
-msgstr ""
-
-#: ext/civi_mail/settings/Mailing.setting.php
-msgid ""
-"Leaving this blank will use the default which will be do-not-"
-"reply@default_domain where the default_domain will be the email domain "
-"address of your default mailing account also used for bounce handling."
-msgstr ""
-
-#: ext/civi_mail/settings/Mailing.setting.php
-msgid "Default One Click Unsubscribe Mode"
-msgstr ""
-
-#: ext/civi_mail/settings/Mailing.setting.php
-msgid ""
-"This sets the default One Click unsubscribe mode for any new mailings "
-"created"
-msgstr ""
-
-#: templates/CRM/Mailing/MailingUI.hlp
-msgid ""
-"Go to <a href='%1'>Administer CiviCRM &raquo; Communications &raquo; Site "
-"From Email Addresses</a> to add or edit email addresses. Make sure these "
-"email addresses are valid email accounts with your email service provider."
+#: schema/Mailing/Mailing.entityType.php
+msgid "Archived Mailing"
 msgstr ""
