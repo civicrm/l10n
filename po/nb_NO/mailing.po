@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2025-12-01 15:01-0500\n"
+"POT-Creation-Date: 2026-05-14 14:44-0400\n"
 "PO-Revision-Date: 2011-03-28 14:20+0000\n"
 "Last-Translator: Steinar Sødal <steinar.sodal@gmail.com>, 2012-2013,2015,2026\n"
 "Language-Team: Norwegian Bokmål (http://app.transifex.com/civicrm/civicrm/language/nb/)\n"
@@ -95,20 +95,16 @@ msgid "You do not have permission to access this mailing report"
 msgstr "Du har ikke rettighet til å få tilgang til denne utsendelserapporten"
 
 #: CRM/Mailing/BAO/Mailing.php
+msgid "HTML Format"
+msgstr ""
+
+#: CRM/Mailing/BAO/Mailing.php
 msgid "SMS Message"
 msgstr "SMS-melding"
 
 #: CRM/Mailing/BAO/Mailing.php
 msgid "Document Body"
 msgstr "Dokumentets brødtekst"
-
-#: CRM/Mailing/BAO/Mailing.php
-msgid "Use Template"
-msgstr "Bruk mal"
-
-#: CRM/Mailing/BAO/Mailing.php
-msgid "Update Template"
-msgstr "Oppdater mal"
 
 #: CRM/Mailing/BAO/Mailing.php
 msgid "Save As New Template"
@@ -131,6 +127,10 @@ msgstr "Vis utsendelse"
 #: CRM/Mailing/BAO/Mailing.php
 msgid "Standard CiviMail interface with wysiwyg editor."
 msgstr "Standard CiviMail-grensesnitt med wysiwyg-editor."
+
+#: CRM/Mailing/BAO/Mailing.php
+msgid "The job size must be at least 1000 or set to 0 (unlimited)."
+msgstr "Jobbstørrelsen må være minst 1000 eller satt til 0 (ubegrenset)."
 
 #: CRM/Mailing/BAO/MailingJob.php
 msgid "Not scheduled"
@@ -303,7 +303,7 @@ msgid "Invalid request: missing parameters"
 msgstr "Ugyldig forespørsel: manglende parametere"
 
 #: CRM/Mailing/Form/Optout.php CRM/Mailing/Form/Unsubscribe.php
-#: CRM/Mailing/Page/Unsubscribe.php
+#: CRM/Mailing/Page/OptOut.php CRM/Mailing/Page/Unsubscribe.php
 msgid "Invalid request: bad parameters"
 msgstr "Ugyldig forespørsel: dårlige parametere"
 
@@ -311,7 +311,9 @@ msgstr "Ugyldig forespørsel: dårlige parametere"
 msgid "Opt Out Confirmation"
 msgstr "Avmeldingsbekreftelse"
 
-#: CRM/Mailing/Form/Optout.php schema/Mailing/Mailing.entityType.php
+#: CRM/Mailing/Form/Optout.php CRM/Mailing/Service/ListUnsubscribe.php
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
+#: schema/Mailing/Mailing.entityType.php
 msgid "Opt Out"
 msgstr "Avmelding"
 
@@ -778,6 +780,10 @@ msgstr "Ingen nye meldinger funnet."
 msgid "Found at least %1 new messages."
 msgstr "Fant minst %1 nye meldinger."
 
+#: ext/civi_mail/Civi/Api4/Action/Mailing/ProcessQueue.php
+msgid "CiviCRM Mailing Events Queue"
+msgstr "CiviCRM utsendelse hendelseskø"
+
 #: ext/civi_mail/ang/crmMailing/BlockApprove.html
 msgid "Unreviewed"
 msgstr "Unreviewed"
@@ -913,6 +919,10 @@ msgstr "Autosvar til svar"
 #: ext/civi_mail/ang/crmMailing/BlockResponses.html
 msgid "Auto-Respond Message"
 msgstr "Autosvarmelding"
+
+#: ext/civi_mail/ang/crmMailing/BlockResponses.html
+msgid "One-Click Unsubscribe Mode"
+msgstr "En-klikk avmeldingsmodus"
 
 #: ext/civi_mail/ang/crmMailing/BlockReview.html
 #: ext/civi_mail/ang/crmMailingAB/EditCtrl/report.html
@@ -1075,6 +1085,10 @@ msgid "This mailing has been submitted."
 msgstr "Denne utsendelsen har blitt sendt inn."
 
 #: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
+msgid "Approval"
+msgstr ""
+
+#: ext/civi_mail/ang/crmMailing/EditMailingCtrl/workflow.html
 msgid "Submit and Approve Mailing"
 msgstr "Send inn og godkjenn utsendelse"
 
@@ -1172,10 +1186,6 @@ msgstr "Alternativt kan du velge en topptekst eller bunntekst som inneholder de 
 msgid "Required tokens"
 msgstr "Påkrevd plassholder"
 
-#: ext/civi_mail/ang/crmMailing/MsgTemplateCtrl.js
-msgid "Save Template"
-msgstr "Lagre mal"
-
 #: ext/civi_mail/ang/crmMailing/PreviewComponentCtrl.js
 msgid "Invalid component ID (%1)"
 msgstr "Ugyldig komponentID (%1)"
@@ -1246,6 +1256,11 @@ msgstr "Fant ingen mottakere. Kanskje testgruppen er tom, alle kontakter er mark
 #: ext/civi_mail/ang/crmMailing/services.js
 msgid "Sending..."
 msgstr "Sender..."
+
+#: ext/civi_mail/ang/crmMailing/services.js
+#: templates/CRM/Mailing/Page/Report.tpl
+msgid "Mailings Sent"
+msgstr "Utsendelser sendt"
 
 #: ext/civi_mail/ang/crmMailing/services.js
 msgid "Unsubscribes & Opt-outs"
@@ -1495,10 +1510,6 @@ msgid "Email_Bounce_History"
 msgstr "Email_Bounce_History"
 
 #: ext/civi_mail/settings/Mailing.setting.php
-msgid "(<a %1\">Learn more</a>)"
-msgstr "(<a %1\">Lær mer</a>)"
-
-#: ext/civi_mail/settings/Mailing.setting.php
 msgid "Enable Double Opt-in for Profile Group(s) field"
 msgstr "Aktiver dobbel påmelding for profilgruppen(e) sine felt."
 
@@ -1512,6 +1523,20 @@ msgstr "Når CiviMail er aktivert, vil brukere som \"abonnerer\" på en gruppe f
 #: ext/civi_mail/settings/Mailing.setting.php
 msgid "No-Reply Address"
 msgstr "Ikke-svar adresse"
+
+#: ext/civi_mail/settings/Mailing.setting.php
+msgid ""
+"Specify an Email From Address to use when the system sends an email but a "
+"reply is not expected, for example when a user is sent an email for a double"
+" opt-in."
+msgstr "Angi en Fra-e-postadresse som skal brukes når systemet sender e-post der svar ikke forventes, for eksempel ved utsending av e-post for dobbel opt-in."
+
+#: ext/civi_mail/settings/Mailing.setting.php
+msgid ""
+"Leaving this blank will use the default which will be do-not-"
+"reply@default_domain where the default_domain will be the email domain "
+"address of your default mailing account also used for bounce handling."
+msgstr "Lar du dette stå tomt, brukes standardverdien do-not-reply@default_domain, der default_domain er e-postdomenet til standard utsendelseskontoen din (som også brukes for returhåndtering)."
 
 #: ext/civi_mail/settings/Mailing.setting.php
 msgid "Track replies using VERP in Reply-To header"
@@ -1702,8 +1727,22 @@ msgid "Database Update Frequency"
 msgstr "Frekvens for oppdatering av databasen"
 
 #: ext/civi_mail/settings/Mailing.setting.php
-msgid "The frequency that CiviMail updates its sent mail database."
-msgstr "Frekvensen som CiviMail oppdater databasen over sendte utsendelser."
+msgid ""
+"CiviMail records email sent at the frequency you specify. If you set it to "
+"1, it will update the database every time it sends an email. This ensures "
+"that emails are not resent if the batch job fails, but this may cause a "
+"performance hit, particularly for large jobs."
+msgstr ""
+
+#: ext/civi_mail/settings/Mailing.setting.php
+msgid "Default One Click Unsubscribe Mode"
+msgstr "Standard en-klikk avmeldingsmodus"
+
+#: ext/civi_mail/settings/Mailing.setting.php
+msgid ""
+"This sets the default One Click unsubscribe mode for any new mailings "
+"created"
+msgstr "Dette angir standard «énklikk-avmelding»-modus for alle nye utsendelser som opprettes"
 
 #: schema/Mailing/BouncePattern.entityType.php
 msgid "Bounce Pattern"
@@ -2870,9 +2909,9 @@ msgstr "Velg e-postadressen «FRA» for denne adressen fra rullegardinlisten. Ti
 #: templates/CRM/Mailing/MailingUI.hlp
 msgid ""
 "Go to <a href='%1'>Administer CiviCRM &raquo; Communications &raquo; Site "
-"Email Addresses</a> to add or edit email addresses. Make sure these email "
-"addresses are valid email accounts with your email service provider."
-msgstr "Gå til <a href='%1'>Administrer CiviCRM &raquo; Kommunikasjon &raquo; Nettstedets e-postadresser</a> for å legge til eller redigere e-postadresser. Sørg for at e-postadressene er gyldige e-postkontoer hos e-postleverandøren din."
+"From Email Addresses</a> to add or edit email addresses. Make sure these "
+"email addresses are valid email accounts with your email service provider."
+msgstr "Gå til <a href='%1'>Administrer CiviCRM &raquo; Kommunikasjon &raquo; Nettstedets Fra-e-postadresser</a> for å legge til eller redigere e-postadresser. Sørg for at e-postadressene er gyldige e-postkontoer hos e-postleverandøren din."
 
 #: templates/CRM/Mailing/MailingUI.hlp
 msgid ""
@@ -3020,18 +3059,10 @@ msgid ""
 msgstr "Finn e-postutsendelser etter e-postutsendelsens navn. Du kan skrive inn et delvis eller fullstendig navn."
 
 #: templates/CRM/Mailing/Page/Browse.hlp
-msgid "Mailing Sender"
-msgstr "E-postutsender"
-
-#: templates/CRM/Mailing/Page/Browse.hlp
 msgid ""
 "Find mailings by the name of the person who created or sent them. You can "
 "enter a complete OR partial name (last name, first name format)."
 msgstr "Finn e-postutsendelser etter navnet på personen som opprettet eller sendte den. Du kan skrive inn et fullstendig ELLER delvis navn (etternavn, fornavn)."
-
-#: templates/CRM/Mailing/Page/Browse.hlp
-msgid "Archived"
-msgstr "Arkivert"
 
 #: templates/CRM/Mailing/Page/Browse.hlp
 msgid "This field is disabled when searching for Draft/Unscheduled mailings."
@@ -3175,50 +3206,22 @@ msgstr "Er du sikker på at du vil melde deg på igjen: %1 (%2)"
 msgid "Opens/ Clicks"
 msgstr "Åpninger/ Klikk"
 
-#: CRM/Mailing/BAO/Mailing.php
-msgid "The job size must be at least 1000 or set to 0 (unlimited)."
-msgstr "Jobbstørrelsen må være minst 1000 eller satt til 0 (ubegrenset)."
+#: CRM/Mailing/Form/Action.php
+msgid "Pause Mailing"
+msgstr ""
 
-#: ext/civi_mail/Civi/Api4/Action/Mailing/ProcessQueue.php
-msgid "CiviCRM Mailing Events Queue"
-msgstr "CiviCRM utsendelse hendelseskø"
+#: CRM/Mailing/Form/Action.php
+msgid "Resume Mailing"
+msgstr ""
 
-#: ext/civi_mail/ang/crmMailing/BlockResponses.html
-msgid "One-Click Unsubscribe Mode"
-msgstr "En-klikk avmeldingsmodus"
+#: CRM/Mailing/Form/Action.php
+msgid "Are you sure you want to pause this mailing?"
+msgstr ""
 
-#: ext/civi_mail/ang/crmMailing/services.js
-#: templates/CRM/Mailing/Page/Report.tpl
-msgid "Mailings Sent"
-msgstr "Utsendelser sendt"
+#: CRM/Mailing/Form/Action.php
+msgid "Are you sure you want to resume this mailing?"
+msgstr ""
 
-#: ext/civi_mail/settings/Mailing.setting.php
-msgid ""
-"Specify an Email From Address to use when the system sends an email but a "
-"reply is not expected, for example when a user is sent an email for a double"
-" opt-in."
-msgstr "Angi en Fra-e-postadresse som skal brukes når systemet sender e-post der svar ikke forventes, for eksempel ved utsending av e-post for dobbel opt-in."
-
-#: ext/civi_mail/settings/Mailing.setting.php
-msgid ""
-"Leaving this blank will use the default which will be do-not-"
-"reply@default_domain where the default_domain will be the email domain "
-"address of your default mailing account also used for bounce handling."
-msgstr "Lar du dette stå tomt, brukes standardverdien do-not-reply@default_domain, der default_domain er e-postdomenet til standard utsendelseskontoen din (som også brukes for returhåndtering)."
-
-#: ext/civi_mail/settings/Mailing.setting.php
-msgid "Default One Click Unsubscribe Mode"
-msgstr "Standard en-klikk avmeldingsmodus"
-
-#: ext/civi_mail/settings/Mailing.setting.php
-msgid ""
-"This sets the default One Click unsubscribe mode for any new mailings "
-"created"
-msgstr "Dette angir standard «énklikk-avmelding»-modus for alle nye utsendelser som opprettes"
-
-#: templates/CRM/Mailing/MailingUI.hlp
-msgid ""
-"Go to <a href='%1'>Administer CiviCRM &raquo; Communications &raquo; Site "
-"From Email Addresses</a> to add or edit email addresses. Make sure these "
-"email addresses are valid email accounts with your email service provider."
-msgstr "Gå til <a href='%1'>Administrer CiviCRM &raquo; Kommunikasjon &raquo; Nettstedets Fra-e-postadresser</a> for å legge til eller redigere e-postadresser. Sørg for at e-postadressene er gyldige e-postkontoer hos e-postleverandøren din."
+#: schema/Mailing/Mailing.entityType.php
+msgid "Archived Mailing"
+msgstr ""
