@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2026-05-14 14:44-0400\n"
+"POT-Creation-Date: 2026-10-08 11:27-0400\n"
 "PO-Revision-Date: 2011-03-28 14:17+0000\n"
 "Last-Translator: Piotr Szotkowski <chastell@chastell.net>, 2011\n"
 "Language-Team: Swedish (http://app.transifex.com/civicrm/civicrm/language/sv/)\n"
@@ -256,10 +256,6 @@ msgid "A copy of the activity has also been sent to selected contact(s)."
 msgstr "En kopia av åtgärden har skickats till valda kontakt(er)."
 
 #: CRM/Case/Form/Activity.php
-msgid "A copy of the activity has also been sent to assignee contact(s)."
-msgstr "En kopia på åtgärden har också skickats till den ansvariga kontakter(na)."
-
-#: CRM/Case/Form/Activity.php
 msgid "%1 Saved"
 msgstr "%1 sparad"
 
@@ -286,10 +282,6 @@ msgstr "Kopiera till annat ärende"
 #: CRM/Case/Form/ActivityToCase.php CRM/Case/XMLProcessor/Report.php
 msgid "With Contact(s)"
 msgstr "Med kontakt(er)"
-
-#: CRM/Case/Form/ActivityView.php
-msgid "Activity Revision History"
-msgstr "Åtgärdsrevisionshistorik"
 
 #: CRM/Case/Form/ActivityView.php
 msgid "Home"
@@ -600,6 +592,14 @@ msgstr "Återställ ärenden"
 msgid "Update multiple cases"
 msgstr "Uppdatera flera ärende"
 
+#: CRM/Case/Task.php
+msgid "Tag - add to cases"
+msgstr ""
+
+#: CRM/Case/Task.php
+msgid "Tag - remove from cases"
+msgstr ""
+
 #: CRM/Case/WorkflowMessage/ActivityExamples.php
 msgid "Sample case"
 msgstr "Provfall"
@@ -772,8 +772,20 @@ msgid "Clients for this case"
 msgstr "Kunder för detta ärende"
 
 #: ext/civi_case/Civi/Api4/Service/CaseTasksProvider.php
+msgid "Case - Open New Case"
+msgstr "Ärende - Öppet nytt ärende"
+
+#: ext/civi_case/Civi/Api4/Service/CaseTasksProvider.php
 msgid "Case - Assign Role"
 msgstr "Ärende - Tilldela roll"
+
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/ActivityCaseSpecProvider.php
+msgid "Filed on Case"
+msgstr "Registrerat i ärende"
+
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/ActivityCaseSpecProvider.php
+msgid "CiviCase this activity belongs to."
+msgstr "CiviCase denna åtgärd tillhör."
 
 #: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
 msgid "Case Creator"
@@ -784,6 +796,8 @@ msgid "Activity Location"
 msgstr "Aktivitetsplats"
 
 #: ext/civi_case/ang/afCaseGuiEditor/behaviors/autofillCaseBehaviorForm.component.js
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.ctrl.js
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.ctrl.js
 #: ext/civi_case/ang/crmCaseType.js
 msgid "civi_case"
 msgstr "civi_case"
@@ -793,24 +807,16 @@ msgid "Select %1"
 msgstr "Välj %1"
 
 #: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.ctrl.js
-msgid "org.civicrm.search_kit"
-msgstr "org.civicrm.search_kit"
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.ctrl.js
 msgid "1 case role added."
-msgstr "1 ärende roll tillagd."
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.ctrl.js
-msgid "%1 case roles added."
-msgstr "%1 fallroller läggs till."
+msgid_plural "%count case roles added."
+msgstr[0] ""
+msgstr[1] ""
 
 #: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.ctrl.js
 msgid "1 case role already occupied by the selected contact."
-msgstr "1 fallroll som redan är upptagen av den valda kontakten."
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.ctrl.js
-msgid "%1 case roles already occupied by the selected contact."
-msgstr "%1 fallroller som redan är upptagna av den valda kontakten."
+msgid_plural "%count case roles already occupied by the selected contact."
+msgstr[0] ""
+msgstr[1] ""
 
 #: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.html
 msgid "Role Type"
@@ -835,6 +841,62 @@ msgstr "Ersätt befintliga roller"
 #: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.html
 msgid "Adding roles..."
 msgstr "Lägga till roller..."
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.ctrl.js
+msgid "No cases to open."
+msgstr "Inga ärende att öppna."
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.ctrl.js
+msgid "All contacts skipped"
+msgstr "Alla kontakter hoppade över"
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.ctrl.js
+msgid "Successfully opened 1 case."
+msgid_plural "Successfully opened %count cases."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.ctrl.js
+msgid "View case"
+msgstr "Visa ärende"
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
+msgid "Multiple contacts selected..."
+msgstr "Flera kontakter valda..."
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
+msgid "Open new cases for each contact"
+msgstr "Öppna nya ärende för varje kontakt"
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
+msgid "Open a single case with all contacts jointly"
+msgstr "Öppna ett enda ärende med alla kontakter gemensamt"
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
+msgid "Add Value"
+msgstr "Lägga till värde"
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
+msgid "1 contact already has an open case."
+msgid_plural "%count contacts already have an open case."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
+msgid "Skip contact with open case"
+msgid_plural "Skip contacts with open cases"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
+msgid "Create new case anyway"
+msgid_plural "Create new cases anyway"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
+msgid "Opening case..."
+msgstr "Öppet ärende..."
 
 #: ext/civi_case/ang/crmCaseType/activityTypesTable.html
 msgid "Max Instances"
@@ -1026,10 +1088,6 @@ msgid "Short name of the case."
 msgstr "Kort namn på ärendet."
 
 #: schema/Case/Case.entityType.php
-msgid "Date on which given case starts."
-msgstr "Datum då ärendet startar."
-
-#: schema/Case/Case.entityType.php
 msgid "Date on which given case ends."
 msgstr "Datum då ärendet slutar."
 
@@ -1163,7 +1221,7 @@ msgstr "Ärendetypens definition"
 msgid "xml definition of case type"
 msgstr "xml definition av falltyp"
 
-#: templates/CRM/Case/Audit/Report.tpl
+#: templates/CRM/Case/Audit/Report.tpl templates/CRM/Case/Page/DashBoard.tpl
 msgid "Case Summary"
 msgstr "Ärendesummering"
 
@@ -1261,34 +1319,6 @@ msgstr "Det gick inte att lägga till till ärendet."
 #: templates/CRM/Case/Form/ActivityToCase.tpl
 msgid "Activity has been filed to %1 case."
 msgstr "Åtgärden har lagt till ärendet %1."
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "Created On"
-msgstr "Skapat den"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "View this revision of the activity record."
-msgstr "Visa denna version av åtgärdsposten."
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "View (Current Revision)"
-msgstr "Visa (nuvarande revidering)"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "List all revisions"
-msgstr "Lista alla revisioner"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "(this is the current revision)"
-msgstr "(detta är den aktuella revisionen)"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "View current revision"
-msgstr "Visa aktuell revision"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "(this is not the current revision)"
-msgstr "(detta är inte den aktuella revisionen)"
 
 #: templates/CRM/Case/Form/ActivityView.tpl
 msgid "Prompted by"
@@ -1440,10 +1470,6 @@ msgstr "Ärendeetiketter"
 msgid "There are no tags currently assigned to this case."
 msgstr "Det finns för närvarande inte någon etikett på ärendet."
 
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Add Tags"
-msgstr "Lägg till etiketter"
-
 #: templates/CRM/Case/Form/DeleteClient.tpl
 msgid "Remove Client %1 from case %2"
 msgstr "Ta bort klienten %1 från ärende %2"
@@ -1503,24 +1529,12 @@ msgid "Refer to the %1 to learn about this process."
 msgstr "Konsultera %1 för att läsa mer om denna process."
 
 #: templates/CRM/Case/Page/DashBoard.tpl
+msgid "Show Only My Cases"
+msgstr ""
+
+#: templates/CRM/Case/Page/DashBoard.tpl
 msgid "Find My Cases"
 msgstr "Hitta mina ärenden"
-
-#: templates/CRM/Case/Page/DashBoard.tpl
-msgid "All Cases"
-msgstr "Alla ärenden"
-
-#: templates/CRM/Case/Page/DashBoard.tpl
-msgid "All Cases with Upcoming Activities"
-msgstr "Alla ärenden med planerade åtgärder."
-
-#: templates/CRM/Case/Page/DashBoard.tpl
-msgid "My Cases with Upcoming Activities"
-msgstr "Mina ärenden med planerade åtgärder."
-
-#: templates/CRM/Case/Page/DashBoard.tpl
-msgid "Summary of All Cases"
-msgstr "Sammanfattning av samtliga ärenden"
 
 #: templates/CRM/Case/Page/DashBoard.tpl
 msgid "My Cases With Upcoming Activities"
@@ -1582,62 +1596,33 @@ msgstr "Åtgärdssammanställning"
 msgid "Your Case Role(s)"
 msgstr "Din(a) roll(er) i ärendet"
 
-#: ext/civi_case/Civi/Api4/Service/CaseTasksProvider.php
-msgid "Case - Open New Case"
-msgstr "Ärende - Öppet nytt ärende"
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseManagerSpecProvider.php
+msgid "Contact currently holding the case-type's manager role for this case."
+msgstr ""
 
-#: ext/civi_case/Civi/Api4/Service/Spec/Provider/ActivityCaseSpecProvider.php
-msgid "Filed on Case"
-msgstr "Registrerat i ärende"
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseRoleSpecProvider.php
+msgid "The relationship role(s) the logged-in user holds on this case."
+msgstr ""
 
-#: ext/civi_case/Civi/Api4/Service/Spec/Provider/ActivityCaseSpecProvider.php
-msgid "CiviCase this activity belongs to."
-msgstr "CiviCase denna åtgärd tillhör."
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseRoleSpecProvider.php
+msgid "Is My Case"
+msgstr ""
 
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.ctrl.js
-msgid "No cases to open."
-msgstr "Inga ärende att öppna."
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseRoleSpecProvider.php
+msgid ""
+"Whether the logged-in user holds any active relationship role on this case."
+msgstr ""
 
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.ctrl.js
-msgid "All contacts skipped"
-msgstr "Alla kontakter hoppade över"
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseRoleSpecProvider.php
+msgid "I Am Case Manager"
+msgstr ""
 
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.ctrl.js
-msgid "Successfully opened 1 case."
-msgstr "Framgångsrikt öppnade 1 ärende."
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseRoleSpecProvider.php
+msgid ""
+"Whether the logged-in user is the configured case manager for this case."
+msgstr ""
 
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.ctrl.js
-msgid "View case"
-msgstr "Visa ärende"
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
-msgid "Multiple contacts selected..."
-msgstr "Flera kontakter valda..."
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
-msgid "Open new cases for each contact"
-msgstr "Öppna nya ärende för varje kontakt"
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
-msgid "Open a single case with all contacts jointly"
-msgstr "Öppna ett enda ärende med alla kontakter gemensamt"
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
-msgid "Add Value"
-msgstr "Lägga till värde"
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
-msgid "1 contact already has an open case."
-msgstr "1 kontakt har redan ett öppet ärende."
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
-msgid "Skip contact with open case"
-msgstr "Hoppa kontakt med öppet ärende"
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
-msgid "Create new case anyway"
-msgstr "Skapa nytt ärende ändå"
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
-msgid "Opening case..."
-msgstr "Öppet ärende..."
+#: ext/civi_case/ang/crmCaseType/sequenceTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
+msgid "Default subject"
+msgstr ""
