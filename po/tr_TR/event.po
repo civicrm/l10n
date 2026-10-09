@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2026-05-14 14:44-0400\n"
+"POT-Creation-Date: 2026-10-08 11:27-0400\n"
 "PO-Revision-Date: 2011-03-28 14:22+0000\n"
 "Last-Translator: Kaya Zeren <kayazeren@gmail.com>, 2015-2016,2018-2019,2021-2026\n"
 "Language-Team: Turkish (http://app.transifex.com/civicrm/civicrm/language/tr/)\n"
@@ -49,7 +49,7 @@ msgstr "- Tümü -"
 msgid "- All multi-participant events -"
 msgstr "- Tüm çoklu katılımcı etkinlikleri -"
 
-#: CRM/Event/BAO/Event.php
+#: CRM/Event/BAO/Event.php CRM/Event/BAO/Participant.php
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 msgid "after"
 msgstr "sonra"
@@ -97,6 +97,14 @@ msgstr "Bu etkinlik dolmuş."
 #: CRM/Event/BAO/Participant.php
 msgid "- Participant Fields -"
 msgstr "- Katılımcı alanları -"
+
+#: CRM/Event/BAO/Participant.php CRM/Event/BAO/Query.php
+msgid "Participant Status Id"
+msgstr ""
+
+#: CRM/Event/BAO/Participant.php CRM/Event/BAO/Query.php
+msgid "Participant Role Id"
+msgstr ""
 
 #: CRM/Event/BAO/Participant.php
 msgid "Participant Status (label)"
@@ -195,6 +203,14 @@ msgid ""
 msgstr "Şu anda bu etkinliğe kayıtlı olmadığınız için %1 için kaydınızı aktaramaz ya da iptal edemezsiniz."
 
 #: CRM/Event/BAO/Participant.php
+msgid "prior to"
+msgstr ""
+
+#: CRM/Event/BAO/Participant.php
+msgid "fewer"
+msgstr ""
+
+#: CRM/Event/BAO/Participant.php
 msgid ""
 "Registration for this event cannot be cancelled or transferred %1 than %2 "
 "hours %3 the event's start time. Contact the event organizer if you have "
@@ -224,6 +240,11 @@ msgstr "Katılımcı %1"
 #: CRM/Event/BAO/Query.php schema/Event/Participant.entityType.php
 msgid "Fee level"
 msgstr "Ücret düzeyi"
+
+#: CRM/Event/BAO/Query.php CRM/Event/Form/SearchEvent.php
+#: ext/civi_event/managed/OptionValues_custom_data_type.mgd.php
+msgid "Event Name"
+msgstr ""
 
 #: CRM/Event/BAO/Query.php
 msgid "Include participants from all events in the %1 series"
@@ -288,16 +309,12 @@ msgid "Complete Description"
 msgstr "Tam açıklama"
 
 #: CRM/Event/Form/ManageEvent/EventInfo.php
-msgid "Display the event in public listings"
-msgstr "Etkinlik herkese açık listelerde görüntülensin"
+msgid "Include in Upcoming Events"
+msgstr "Yaklaşan etkinliklere katılsın"
 
 #: CRM/Event/Form/ManageEvent/EventInfo.php
 msgid "Social media sharing links"
 msgstr "Sosyal ağ paylaşımı bağlantıları"
-
-#: CRM/Event/Form/ManageEvent/EventInfo.php
-msgid "Map to the event location"
-msgstr "Etkinlik konumunun haritası"
 
 #: CRM/Event/Form/ManageEvent/EventInfo.php
 msgid "Calendar links"
@@ -312,7 +329,7 @@ msgid "Max participants should be a positive number"
 msgstr "En fazla katılımcı sayısı artı bir değer olmalıdır"
 
 #: CRM/Event/Form/ManageEvent/EventInfo.php
-msgid "Offer a Waitlist?"
+msgid "Offer a Waitlist"
 msgstr "Bekleme listesi önerilsin"
 
 #: CRM/Event/Form/ManageEvent/EventInfo.php
@@ -426,6 +443,10 @@ msgid "Event Fees"
 msgstr "Etkinlik ücretleri"
 
 #: CRM/Event/Form/ManageEvent/Location.php
+msgid "Show a Map"
+msgstr "Haritayı görüntüle"
+
+#: CRM/Event/Form/ManageEvent/Location.php
 msgid "Create new location"
 msgstr "Konum ekle"
 
@@ -441,12 +462,11 @@ msgstr "Konum seçin"
 msgid "Use Location"
 msgstr "Konum kullanılsın"
 
-#: CRM/Event/Form/ManageEvent/Location.php
-msgid "Show Location?"
+#: CRM/Event/Form/ManageEvent/Location.php schema/Event/Event.entityType.php
+msgid "Show Location"
 msgstr "Konum görüntülensin"
 
-#: CRM/Event/Form/ManageEvent/Location.php
-#: CRM/Event/Form/ManageEvent/TabHeader.php CRM/Event/Form/ManageEvent.php
+#: CRM/Event/Form/ManageEvent/Location.php CRM/Event/Form/ManageEvent.php
 #: CRM/Event/Tokens.php
 msgid "Event Location"
 msgstr "Etkinlik konumu"
@@ -651,8 +671,7 @@ msgid ""
 "required.  This may result in duplicate contacts."
 msgstr "Seçilmiş profillerde var olan kişiler ile ek katılımcıları eşleştirmek için gerekli bilgiler bulunmakla birlikte gerekli tüm ilişki alanları yok. Bunun sonucunda tüm ek katılımcılar çift kişi kayıtlarının oluşmasına neden olabilir."
 
-#: CRM/Event/Form/ManageEvent/Registration.php
-#: CRM/Event/Form/ManageEvent/TabHeader.php CRM/Event/Form/ManageEvent.php
+#: CRM/Event/Form/ManageEvent/Registration.php CRM/Event/Form/ManageEvent.php
 #: CRM/Event/Page/ManageEvent.php schema/Event/Event.entityType.php
 #: templates/CRM/Event/Form/ManageEvent/Tab.hlp
 msgid "Online Registration"
@@ -661,16 +680,6 @@ msgstr "Çevrim içi kayıt"
 #: CRM/Event/Form/ManageEvent/Repeat.php
 msgid "Could not find Event ID"
 msgstr "Etkinlik kimliği bulunamadı."
-
-#: CRM/Event/Form/ManageEvent/TabHeader.php CRM/Event/Form/ManageEvent.php
-#: CRM/Event/Page/ManageEvent.php
-msgid "Info and Settings"
-msgstr "Bilgiler ve ayarlar"
-
-#: CRM/Event/Form/ManageEvent/TabHeader.php CRM/Event/Form/ManageEvent.php
-#: CRM/Event/Page/ManageEvent.php
-msgid "Schedule Reminders"
-msgstr "Anımsatıcı zamanları"
 
 #: CRM/Event/Form/ManageEvent.php
 msgid "Configure Repeating Event"
@@ -697,6 +706,14 @@ msgstr "Etkinlik yönetimi"
 #: CRM/Event/Form/ManageEvent.php
 msgid "Manage Event Templates"
 msgstr "Etkinlik kalıpları yönetimi"
+
+#: CRM/Event/Form/ManageEvent.php CRM/Event/Page/ManageEvent.php
+msgid "Info and Settings"
+msgstr "Bilgiler ve ayarlar"
+
+#: CRM/Event/Form/ManageEvent.php CRM/Event/Page/ManageEvent.php
+msgid "Schedule Reminders"
+msgstr "Anımsatıcı zamanları"
 
 #: CRM/Event/Form/Participant/Delete.php
 msgid "Delete participant record for %1"
@@ -1138,10 +1155,6 @@ msgstr "%1 katılımcısının bilgileri kaydedildi."
 msgid "You can also <a href=\"%1\">register another participant</a>."
 msgstr "Ayrıca <a href='%1'>buraya tıklayarak yeni bir katılımcı ekleyebilirsiniz</a>."
 
-#: CRM/Event/Form/Registration/ThankYou.php
-msgid "Thank You Page"
-msgstr "Teşekkürler sayfası"
-
 #: CRM/Event/Form/Registration.php CRM/Event/Page/EventInfo.php
 #: CRM/Event/StateMachine/Registration.php
 msgid "Missing Event ID"
@@ -1162,8 +1175,8 @@ msgid "No Fee Level(s) or Price Set is configured for this event."
 msgstr "Bu etkinlik için yapılandırılmış bir ücret düzeyi ya da fiyat paketi bulunamadı."
 
 #: CRM/Event/Form/Registration.php
-msgid "SELECT at least one OPTION FROM EVENT Fee(s)."
-msgstr "Etkinlik ücretlerinden en az BİRİNİ seçin."
+msgid "Select at least one option."
+msgstr ""
 
 #: CRM/Event/Form/Registration.php
 msgid "Sorry, currently only a single space is available for this option."
@@ -1206,8 +1219,8 @@ msgid "Search All or by Date Range"
 msgstr "Tümünde ya da tarih aralığında arama"
 
 #: CRM/Event/Form/SearchEvent.php
-msgid "Events by Dates"
-msgstr "Tarihe göre etkinlikler"
+msgid "Show Past Events"
+msgstr ""
 
 #: CRM/Event/Form/SelfSvcTransfer.php CRM/Event/Form/SelfSvcUpdate.php
 msgid ""
@@ -1644,19 +1657,19 @@ msgstr "Etkinlik ilgilisinin 2. telefonu"
 msgid "Event Contact Phone 2 Extension"
 msgstr "Etkinlik ilgilisinin 2. dahili telefonu"
 
-#: CRM/Event/WorkflowMessage/EventExamples.php
+#: ext/civi_event/CRM/Event/WorkflowMessage/EventExamples.php
 msgid "Completed Registration"
 msgstr "Tamamlanmış kayıt"
 
-#: CRM/Event/WorkflowMessage/EventExamples.php
+#: ext/civi_event/CRM/Event/WorkflowMessage/EventExamples.php
 msgid "primary participant"
 msgstr "birincil katılımcı"
 
-#: CRM/Event/WorkflowMessage/EventExamples.php
+#: ext/civi_event/CRM/Event/WorkflowMessage/EventExamples.php
 msgid "Partially Paid Registration"
 msgstr "Parçalı ödenmiş kayıt"
 
-#: CRM/Event/WorkflowMessage/EventExamples.php
+#: ext/civi_event/CRM/Event/WorkflowMessage/EventExamples.php
 msgid "additional participant"
 msgstr "ek katılımcı"
 
@@ -1686,6 +1699,19 @@ msgid ""
 "Configure how many events should be shown on the dashboard. This overrides "
 "the default value of 10 entries."
 msgstr "Panoda görüntülenecek etkinlik sayısını yapılandırın. Bu seçenek varsayılan \"10 kayıt\" değerini değiştirir."
+
+#: ext/civi_event/settings/Event.setting.php
+msgid "Show Price-Fields during Initial Registrations to be Approved?"
+msgstr ""
+
+#: ext/civi_event/settings/Event.setting.php
+msgid ""
+"For events with registration that have `require approval´ and `pay-later´ "
+"enabled: If enabled, price fields will be displayed and selectable during "
+"initial registration so participants can select their price option before "
+"approval. If disabled, price fields are displayed only after approval when "
+"participants complete their registration."
+msgstr ""
 
 #: ext/civi_event/settings/Event.setting.php
 msgid "Show Event Payment on Confirm?"
@@ -1837,10 +1863,6 @@ msgstr "Coğrafi konum bilgisi kullanılabildiğinde ve bir harita hizmeti sağl
 #: schema/Event/Event.entityType.php
 msgid "Is this Event enabled or disabled/cancelled?"
 msgstr "Bu etkinlik etkinleştirilmiş ya da etkisizleştirilmiş/iptal edilmiş durumda mı? "
-
-#: schema/Event/Event.entityType.php
-msgid "Show Location"
-msgstr "Konum görüntülensin"
 
 #: schema/Event/Event.entityType.php
 msgid "If TRUE, show event location."
@@ -2606,7 +2628,7 @@ msgid ""
 "this feature you must first enable the Participant Statuses used by the "
 "waitlist work-flow (click the wrench icon, or navigate to Administer » "
 "CiviEvent » Participant Statuses). Then reload this form and check 'Offer a "
-"Waitlist?'."
+"Waitlist'."
 msgstr "Etkinlik dolduğunda kullanıcıların bekleme listesine alınmasını sağlayabilirsiniz. Bu özelliği kullanabilmek için önce bekleme listesi iş akışındaki Katılımcı Durumlarını etkinleştirin (anahtar simgesine tıklayın ya da Yönetim » CiviEvent » Katılımcı durumları bölümüne bakın). Ardından bu formu yeniden yükleyip \"Bekleme listesi önerilsin\" seçeneğini işaretleyin."
 
 #: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
@@ -2638,13 +2660,6 @@ msgid ""
 "This message is displayed on the event information and event registration "
 "pages when the event is full AND the waitlist feature is enabled."
 msgstr "Etkinlik dolduğunda ve bekleme listesi özelliği etkinleştirildiğinde, etkinlik bilgileri ve etkinlik kaydı sayfalarında bu ileti görüntülenir."
-
-#: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
-msgid ""
-"Include map presenting event location on event information page? (A map "
-"provider must be configured under <a href='%1'>Administer > System Settings "
-"> Mapping and Geocoding</a>)"
-msgstr "Etkinlik bilgileri sayfasında etkinlik konumunu görüntüleyen bir harita eklenebilmesini sağlar (<a href='%1'>\"Yönetim\" > \"Sistem ayarları\" > \"Haritalama ve coğrafi konum\"</a> bölümünden bir harita hizmeti sağlayıcısı yapılandırılmalıdır)."
 
 #: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
 msgid ""
@@ -2808,6 +2823,13 @@ msgid ""
 "Note that if 'Show Location' is not set a map will not be shown, regardless "
 "of the setting of 'Include Map to Event Location'."
 msgstr "\"Konum görüntülensin\" seçeneği işaretlenmediğinde, \"Etkinlik konumu haritası görüntülensin\" seçeneğinin durumu ne olursa olsun haritanın görüntülenmeyeceğini unutmayın."
+
+#: templates/CRM/Event/Form/ManageEvent/Location.hlp
+msgid ""
+"Include map presenting event location on event information page? (A map "
+"provider must be configured under <a href='%1'>Administer > System Settings "
+"> Mapping and Geocoding</a>)"
+msgstr "Etkinlik bilgileri sayfasında etkinlik konumunu görüntüleyen bir harita eklenebilmesini sağlar (<a href='%1'>\"Yönetim\" > \"Sistem ayarları\" > \"Haritalama ve coğrafi konum\"</a> bölümünden bir harita hizmeti sağlayıcısı yapılandırılmalıdır)."
 
 #: templates/CRM/Event/Form/ManageEvent/Location.tpl
 msgid ""
@@ -3921,23 +3943,26 @@ msgstr "Etkinlik kaydınız %1 üzerine aktarıldı"
 msgid "Event Registration Transferred for %1"
 msgstr "%1 etkinlik kaydı aktarıldı"
 
-#: CRM/Event/Form/ManageEvent/EventInfo.php
-msgid "Include in Upcoming Events"
-msgstr "Yaklaşan etkinliklere katılsın"
+#: CRM/Event/BAO/Query.php
+msgid "Event Active On between \"%1\" and \"%2\""
+msgstr ""
 
-#: CRM/Event/Form/ManageEvent/EventInfo.php
-msgid "Offer a Waitlist"
-msgstr "Bekleme listesi önerilsin"
+#: CRM/Event/BAO/Query.php
+msgid "Event Active on or after \"%1\""
+msgstr ""
 
-#: CRM/Event/Form/ManageEvent/Location.php
-msgid "Show a Map"
-msgstr "Haritayı görüntüle"
+#: CRM/Event/BAO/Query.php
+msgid "Event Active on or before \"%1\""
+msgstr ""
 
-#: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
-msgid ""
-"You may allow users to join a waitlist when the event is full. To enable "
-"this feature you must first enable the Participant Statuses used by the "
-"waitlist work-flow (click the wrench icon, or navigate to Administer » "
-"CiviEvent » Participant Statuses). Then reload this form and check 'Offer a "
-"Waitlist'."
-msgstr "Etkinlik dolduğunda kullanıcıların bekleme listesine alınmasını sağlayabilirsiniz. Bu özelliği kullanabilmek için önce bekleme listesi iş akışındaki Katılımcı Durumlarını etkinleştirin (anahtar simgesine tıklayın ya da Yönetim » CiviEvent » Katılımcı durumları bölümüne bakın). Ardından bu formu yeniden yükleyip \"Bekleme listesi önerilsin\" seçeneğini işaretleyin."
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid "Same as primary participant"
+msgstr ""
+
+#: CRM/Event/Info.php
+msgid "View list of event participants"
+msgstr ""
+
+#: templates/CRM/Event/Form/EventFees.tpl
+msgid "Add Payment"
+msgstr ""
