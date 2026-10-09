@@ -62,7 +62,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2026-05-14 14:44-0400\n"
+"POT-Creation-Date: 2026-10-08 11:27-0400\n"
 "PO-Revision-Date: 2011-03-28 14:22+0000\n"
 "Last-Translator: lbl_knts <git@rlkd.de>, 2020-2021,2024,2026\n"
 "Language-Team: German (http://app.transifex.com/civicrm/civicrm/language/de/)\n"
@@ -101,7 +101,7 @@ msgstr "- alle -"
 msgid "- All multi-participant events -"
 msgstr "- Alle Mehrfach-Teilnehmer Veranstaltungen -"
 
-#: CRM/Event/BAO/Event.php
+#: CRM/Event/BAO/Event.php CRM/Event/BAO/Participant.php
 #: xml/templates/message_templates/event_online_receipt_html.tpl
 msgid "after"
 msgstr "nach"
@@ -149,6 +149,14 @@ msgstr "Die Veranstaltung ist ausgebucht."
 #: CRM/Event/BAO/Participant.php
 msgid "- Participant Fields -"
 msgstr "- Teilnehmer-Felder -"
+
+#: CRM/Event/BAO/Participant.php CRM/Event/BAO/Query.php
+msgid "Participant Status Id"
+msgstr ""
+
+#: CRM/Event/BAO/Participant.php CRM/Event/BAO/Query.php
+msgid "Participant Role Id"
+msgstr ""
 
 #: CRM/Event/BAO/Participant.php
 msgid "Participant Status (label)"
@@ -247,6 +255,14 @@ msgid ""
 msgstr "Eine Umbuchung oder Stornierung ist nicht möglich, da keine Anmeldung für %1 vorliegt."
 
 #: CRM/Event/BAO/Participant.php
+msgid "prior to"
+msgstr ""
+
+#: CRM/Event/BAO/Participant.php
+msgid "fewer"
+msgstr ""
+
+#: CRM/Event/BAO/Participant.php
 msgid ""
 "Registration for this event cannot be cancelled or transferred %1 than %2 "
 "hours %3 the event's start time. Contact the event organizer if you have "
@@ -276,6 +292,11 @@ msgstr "Teilnehmer ist %1"
 #: CRM/Event/BAO/Query.php schema/Event/Participant.entityType.php
 msgid "Fee level"
 msgstr "Beitragshöhe"
+
+#: CRM/Event/BAO/Query.php CRM/Event/Form/SearchEvent.php
+#: ext/civi_event/managed/OptionValues_custom_data_type.mgd.php
+msgid "Event Name"
+msgstr ""
 
 #: CRM/Event/BAO/Query.php
 msgid "Include participants from all events in the %1 series"
@@ -340,16 +361,12 @@ msgid "Complete Description"
 msgstr "Ausführliche Beschreibung"
 
 #: CRM/Event/Form/ManageEvent/EventInfo.php
-msgid "Display the event in public listings"
-msgstr "Zeige die Veranstaltung in öffentlichen Listen"
+msgid "Include in Upcoming Events"
+msgstr "In (öffentliche) Übersicht „aktuelle Veranstaltungen“ einbeziehen"
 
 #: CRM/Event/Form/ManageEvent/EventInfo.php
 msgid "Social media sharing links"
 msgstr "Links zum Teilen in Social Media"
-
-#: CRM/Event/Form/ManageEvent/EventInfo.php
-msgid "Map to the event location"
-msgstr "Karte für Veranstaltungsort"
 
 #: CRM/Event/Form/ManageEvent/EventInfo.php
 msgid "Calendar links"
@@ -364,8 +381,8 @@ msgid "Max participants should be a positive number"
 msgstr "Maximale Teilnehmerzahl muss eine positive Zahl sein"
 
 #: CRM/Event/Form/ManageEvent/EventInfo.php
-msgid "Offer a Waitlist?"
-msgstr "Eine Warteliste anbieten?"
+msgid "Offer a Waitlist"
+msgstr "Warteliste anbieten"
 
 #: CRM/Event/Form/ManageEvent/EventInfo.php
 msgid "Waitlist Message"
@@ -478,6 +495,10 @@ msgid "Event Fees"
 msgstr "Teilnahmegebühren"
 
 #: CRM/Event/Form/ManageEvent/Location.php
+msgid "Show a Map"
+msgstr "Zeige eine Karte"
+
+#: CRM/Event/Form/ManageEvent/Location.php
 msgid "Create new location"
 msgstr "Neuen Standort erstellen"
 
@@ -493,12 +514,11 @@ msgstr "Standort wählen"
 msgid "Use Location"
 msgstr "Standort verwenden"
 
-#: CRM/Event/Form/ManageEvent/Location.php
-msgid "Show Location?"
-msgstr "Soll der Veranstaltungsort angezeigt werden?"
+#: CRM/Event/Form/ManageEvent/Location.php schema/Event/Event.entityType.php
+msgid "Show Location"
+msgstr "Standort anzeigen"
 
-#: CRM/Event/Form/ManageEvent/Location.php
-#: CRM/Event/Form/ManageEvent/TabHeader.php CRM/Event/Form/ManageEvent.php
+#: CRM/Event/Form/ManageEvent/Location.php CRM/Event/Form/ManageEvent.php
 #: CRM/Event/Tokens.php
 msgid "Event Location"
 msgstr "Veranstaltungsort"
@@ -703,8 +723,7 @@ msgid ""
 "required.  This may result in duplicate contacts."
 msgstr "Das ausgewählte Profil sammelt genug Informationen, um Registrierungen mit existierenden Kontakten abzugleichen, aber nicht alle relevanten Felder sind Pflichtfelder. Anonyme Registrierungen können zu doppelten Kontakten führen."
 
-#: CRM/Event/Form/ManageEvent/Registration.php
-#: CRM/Event/Form/ManageEvent/TabHeader.php CRM/Event/Form/ManageEvent.php
+#: CRM/Event/Form/ManageEvent/Registration.php CRM/Event/Form/ManageEvent.php
 #: CRM/Event/Page/ManageEvent.php schema/Event/Event.entityType.php
 #: templates/CRM/Event/Form/ManageEvent/Tab.hlp
 msgid "Online Registration"
@@ -713,16 +732,6 @@ msgstr "Online-Anmeldung"
 #: CRM/Event/Form/ManageEvent/Repeat.php
 msgid "Could not find Event ID"
 msgstr "Konnte die Event ID nicht finden"
-
-#: CRM/Event/Form/ManageEvent/TabHeader.php CRM/Event/Form/ManageEvent.php
-#: CRM/Event/Page/ManageEvent.php
-msgid "Info and Settings"
-msgstr "Informationen und Einstellungen"
-
-#: CRM/Event/Form/ManageEvent/TabHeader.php CRM/Event/Form/ManageEvent.php
-#: CRM/Event/Page/ManageEvent.php
-msgid "Schedule Reminders"
-msgstr "Erinnerungen planen"
 
 #: CRM/Event/Form/ManageEvent.php
 msgid "Configure Repeating Event"
@@ -749,6 +758,14 @@ msgstr "Veranstaltungen verwalten"
 #: CRM/Event/Form/ManageEvent.php
 msgid "Manage Event Templates"
 msgstr "Veranstaltungsvorlagen verwalten"
+
+#: CRM/Event/Form/ManageEvent.php CRM/Event/Page/ManageEvent.php
+msgid "Info and Settings"
+msgstr "Informationen und Einstellungen"
+
+#: CRM/Event/Form/ManageEvent.php CRM/Event/Page/ManageEvent.php
+msgid "Schedule Reminders"
+msgstr "Erinnerungen planen"
 
 #: CRM/Event/Form/Participant/Delete.php
 msgid "Delete participant record for %1"
@@ -1190,10 +1207,6 @@ msgstr "Anmeldeinformationen für Teilnehmer/in 1 wurden gespeichert."
 msgid "You can also <a href=\"%1\">register another participant</a>."
 msgstr "Sie können auch <a href=\"%1\">eine/n zusätzliche/n Teilnehmer/in anmelden</a> ."
 
-#: CRM/Event/Form/Registration/ThankYou.php
-msgid "Thank You Page"
-msgstr "Dankeschön-Seite"
-
 #: CRM/Event/Form/Registration.php CRM/Event/Page/EventInfo.php
 #: CRM/Event/StateMachine/Registration.php
 msgid "Missing Event ID"
@@ -1214,8 +1227,8 @@ msgid "No Fee Level(s) or Price Set is configured for this event."
 msgstr "Keine aktiven Preisfelder oder Preisschema für diese Veranstaltung gefunden."
 
 #: CRM/Event/Form/Registration.php
-msgid "SELECT at least one OPTION FROM EVENT Fee(s)."
-msgstr "Wähle mindesten eine Option von Teilnahmegebühr(en)."
+msgid "Select at least one option."
+msgstr ""
 
 #: CRM/Event/Form/Registration.php
 msgid "Sorry, currently only a single space is available for this option."
@@ -1258,8 +1271,8 @@ msgid "Search All or by Date Range"
 msgstr "Suche alle oder nach Zeitraum"
 
 #: CRM/Event/Form/SearchEvent.php
-msgid "Events by Dates"
-msgstr "Veranstaltungen nach Datum"
+msgid "Show Past Events"
+msgstr ""
 
 #: CRM/Event/Form/SelfSvcTransfer.php CRM/Event/Form/SelfSvcUpdate.php
 msgid ""
@@ -1696,19 +1709,19 @@ msgstr "Kontakt Telefon der Veranstaltung 2"
 msgid "Event Contact Phone 2 Extension"
 msgstr "Kontakt Telefon der Veranstaltung 2 Durchwahl"
 
-#: CRM/Event/WorkflowMessage/EventExamples.php
+#: ext/civi_event/CRM/Event/WorkflowMessage/EventExamples.php
 msgid "Completed Registration"
 msgstr "Abgeschlossene Anmeldungen"
 
-#: CRM/Event/WorkflowMessage/EventExamples.php
+#: ext/civi_event/CRM/Event/WorkflowMessage/EventExamples.php
 msgid "primary participant"
 msgstr "Haupt-Teilnehmende"
 
-#: CRM/Event/WorkflowMessage/EventExamples.php
+#: ext/civi_event/CRM/Event/WorkflowMessage/EventExamples.php
 msgid "Partially Paid Registration"
 msgstr "Teilweise bezahlte Anmeldung"
 
-#: CRM/Event/WorkflowMessage/EventExamples.php
+#: ext/civi_event/CRM/Event/WorkflowMessage/EventExamples.php
 msgid "additional participant"
 msgstr "zusätzliche Teilnehmende"
 
@@ -1738,6 +1751,19 @@ msgid ""
 "Configure how many events should be shown on the dashboard. This overrides "
 "the default value of 10 entries."
 msgstr "Konfigurieren Sie, wie viele Veranstaltungen auf dem Dashboard angezeigt werden sollen. Dies überschreibt den Standardwert von 10 Einträgen."
+
+#: ext/civi_event/settings/Event.setting.php
+msgid "Show Price-Fields during Initial Registrations to be Approved?"
+msgstr ""
+
+#: ext/civi_event/settings/Event.setting.php
+msgid ""
+"For events with registration that have `require approval´ and `pay-later´ "
+"enabled: If enabled, price fields will be displayed and selectable during "
+"initial registration so participants can select their price option before "
+"approval. If disabled, price fields are displayed only after approval when "
+"participants complete their registration."
+msgstr ""
 
 #: ext/civi_event/settings/Event.setting.php
 msgid "Show Event Payment on Confirm?"
@@ -1889,10 +1915,6 @@ msgstr "Füge einen Kartenblock auf der Veranstaltungsseite ein, wenn Geocodieru
 #: schema/Event/Event.entityType.php
 msgid "Is this Event enabled or disabled/cancelled?"
 msgstr "Ist die Veranstaltung aktiv oder inaktiv/abgebrochen?"
-
-#: schema/Event/Event.entityType.php
-msgid "Show Location"
-msgstr "Standort anzeigen"
 
 #: schema/Event/Event.entityType.php
 msgid "If TRUE, show event location."
@@ -2658,8 +2680,8 @@ msgid ""
 "this feature you must first enable the Participant Statuses used by the "
 "waitlist work-flow (click the wrench icon, or navigate to Administer » "
 "CiviEvent » Participant Statuses). Then reload this form and check 'Offer a "
-"Waitlist?'."
-msgstr "Sie können Benutzern erlauben, sich auf eine Warteliste setzen zu lassen, sobald die maximale Teilnehmerzahl erreicht ist. Um diese Funktion zu aktivieren, müssen zunächst die entsprechenden Teilnehmerstatus aktiviert werden, welche vom Wartelisten-Workflow verwendet werden (Administration » CiviEvent » Teilnehmerstatus). Laden Sie dann das Formular erneut und aktivieren Sie 'Eine Warteliste anbieten?'."
+"Waitlist'."
+msgstr "Sie können Benutzern erlauben, sich auf eine Warteliste setzen zu lassen, sobald die maximale Teilnehmerzahl erreicht ist. Um diese Funktion zu aktivieren, müssen zunächst die entsprechenden Teilnehmerstatus aktiviert werden, welche vom Wartelisten-Workflow verwendet werden (Administration » CiviEvent » Teilnehmerstatus). Laden Sie dann das Formular erneut und aktivieren Sie 'Warteliste anbieten?'."
 
 #: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
 msgid ""
@@ -2690,13 +2712,6 @@ msgid ""
 "This message is displayed on the event information and event registration "
 "pages when the event is full AND the waitlist feature is enabled."
 msgstr "Diese Nachricht wird auf der Veranstaltungsseite und auf der Anmeldeseite angezeigt, wenn die Veranstaltung voll und die Wartelistenfunktion aktiviert ist."
-
-#: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
-msgid ""
-"Include map presenting event location on event information page? (A map "
-"provider must be configured under <a href='%1'>Administer > System Settings "
-"> Mapping and Geocoding</a>)"
-msgstr "Soll auf der Informationsseite zur Veranstaltung eine Karte des Veranstaltungsorts eingebunden werden? (Dafür muss unter <a href=\"%1\">Systemeinstellungen &raquo; Karten und Geocodes</a> ein Karten-Provider konfiguriert sein."
 
 #: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
 msgid ""
@@ -2860,6 +2875,13 @@ msgid ""
 "Note that if 'Show Location' is not set a map will not be shown, regardless "
 "of the setting of 'Include Map to Event Location'."
 msgstr "Beachten Sie, dass eine Karte nicht angezeigt wird, wenn 'Standort anzeigen' nicht eingestellt ist, unabhängig von der Einstellung von 'Karte zum Veranstaltungsort einbinden'."
+
+#: templates/CRM/Event/Form/ManageEvent/Location.hlp
+msgid ""
+"Include map presenting event location on event information page? (A map "
+"provider must be configured under <a href='%1'>Administer > System Settings "
+"> Mapping and Geocoding</a>)"
+msgstr "Soll auf der Informationsseite zur Veranstaltung eine Karte des Veranstaltungsorts eingebunden werden? (Dafür muss unter <a href=\"%1\">Systemeinstellungen &raquo; Karten und Geocodes</a> ein Karten-Provider konfiguriert sein."
 
 #: templates/CRM/Event/Form/ManageEvent/Location.tpl
 msgid ""
@@ -3973,23 +3995,26 @@ msgstr "Ihre Veranstaltungsanmeldung wurde zu %1 umgebucht."
 msgid "Event Registration Transferred for %1"
 msgstr "Veranstaltungsanmeldung von %1 umgebucht"
 
-#: CRM/Event/Form/ManageEvent/EventInfo.php
-msgid "Include in Upcoming Events"
-msgstr "In (öffentliche) Übersicht „aktuelle Veranstaltungen“ einbeziehen"
+#: CRM/Event/BAO/Query.php
+msgid "Event Active On between \"%1\" and \"%2\""
+msgstr ""
 
-#: CRM/Event/Form/ManageEvent/EventInfo.php
-msgid "Offer a Waitlist"
-msgstr "Warteliste anbieten"
+#: CRM/Event/BAO/Query.php
+msgid "Event Active on or after \"%1\""
+msgstr ""
 
-#: CRM/Event/Form/ManageEvent/Location.php
-msgid "Show a Map"
-msgstr "Zeige eine Karte"
+#: CRM/Event/BAO/Query.php
+msgid "Event Active on or before \"%1\""
+msgstr ""
 
-#: templates/CRM/Event/Form/ManageEvent/EventInfo.hlp
-msgid ""
-"You may allow users to join a waitlist when the event is full. To enable "
-"this feature you must first enable the Participant Statuses used by the "
-"waitlist work-flow (click the wrench icon, or navigate to Administer » "
-"CiviEvent » Participant Statuses). Then reload this form and check 'Offer a "
-"Waitlist'."
-msgstr "Sie können Benutzern erlauben, sich auf eine Warteliste setzen zu lassen, sobald die maximale Teilnehmerzahl erreicht ist. Um diese Funktion zu aktivieren, müssen zunächst die entsprechenden Teilnehmerstatus aktiviert werden, welche vom Wartelisten-Workflow verwendet werden (Administration » CiviEvent » Teilnehmerstatus). Laden Sie dann das Formular erneut und aktivieren Sie 'Warteliste anbieten?'."
+#: CRM/Event/Form/ManageEvent/Registration.php
+msgid "Same as primary participant"
+msgstr ""
+
+#: CRM/Event/Info.php
+msgid "View list of event participants"
+msgstr ""
+
+#: templates/CRM/Event/Form/EventFees.tpl
+msgid "Add Payment"
+msgstr ""
