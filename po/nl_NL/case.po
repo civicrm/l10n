@@ -19,7 +19,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CiviCRM\n"
-"POT-Creation-Date: 2026-05-14 14:44-0400\n"
+"POT-Creation-Date: 2026-10-08 11:27-0400\n"
 "PO-Revision-Date: 2011-03-28 14:17+0000\n"
 "Last-Translator: Betty Dolfing <betty.dolfing@civicoop.org>, 2019,2026\n"
 "Language-Team: Dutch (http://app.transifex.com/civicrm/civicrm/language/nl/)\n"
@@ -262,10 +262,6 @@ msgid "A copy of the activity has also been sent to selected contact(s)."
 msgstr "Een kopie van deze activiteit is verzonden naar de geselecteerde contacten."
 
 #: CRM/Case/Form/Activity.php
-msgid "A copy of the activity has also been sent to assignee contact(s)."
-msgstr "Een kopie van deze activiteit is verzonden naar de contactpersonen."
-
-#: CRM/Case/Form/Activity.php
 msgid "%1 Saved"
 msgstr "%1 Bewaard"
 
@@ -292,10 +288,6 @@ msgstr "Kopieer naar dossier"
 #: CRM/Case/Form/ActivityToCase.php CRM/Case/XMLProcessor/Report.php
 msgid "With Contact(s)"
 msgstr "Met contact(en)"
-
-#: CRM/Case/Form/ActivityView.php
-msgid "Activity Revision History"
-msgstr "Overzicht wijzigingen activiteiten"
 
 #: CRM/Case/Form/ActivityView.php
 msgid "Home"
@@ -606,6 +598,14 @@ msgstr "Dossiers herstellen"
 msgid "Update multiple cases"
 msgstr "Bewerk meerdere dossiers"
 
+#: CRM/Case/Task.php
+msgid "Tag - add to cases"
+msgstr ""
+
+#: CRM/Case/Task.php
+msgid "Tag - remove from cases"
+msgstr ""
+
 #: CRM/Case/WorkflowMessage/ActivityExamples.php
 msgid "Sample case"
 msgstr "Voorbeeld dossier"
@@ -778,8 +778,20 @@ msgid "Clients for this case"
 msgstr "Cliënten voor dit dossier"
 
 #: ext/civi_case/Civi/Api4/Service/CaseTasksProvider.php
+msgid "Case - Open New Case"
+msgstr "Dossier - Open nieuw Dossier"
+
+#: ext/civi_case/Civi/Api4/Service/CaseTasksProvider.php
 msgid "Case - Assign Role"
 msgstr "Dossier - Rol toekennen"
+
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/ActivityCaseSpecProvider.php
+msgid "Filed on Case"
+msgstr "Toevoegen aan dossier"
+
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/ActivityCaseSpecProvider.php
+msgid "CiviCase this activity belongs to."
+msgstr "CiviCase waartoe de activiteit behoort."
 
 #: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseCreationSpecProvider.php
 msgid "Case Creator"
@@ -790,6 +802,8 @@ msgid "Activity Location"
 msgstr "Locatie activiteit"
 
 #: ext/civi_case/ang/afCaseGuiEditor/behaviors/autofillCaseBehaviorForm.component.js
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.ctrl.js
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.ctrl.js
 #: ext/civi_case/ang/crmCaseType.js
 msgid "civi_case"
 msgstr "civi_case"
@@ -799,24 +813,16 @@ msgid "Select %1"
 msgstr "Selecteer %1"
 
 #: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.ctrl.js
-msgid "org.civicrm.search_kit"
-msgstr "org.civicrm.search_kit"
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.ctrl.js
 msgid "1 case role added."
-msgstr "1 dossierrol toegevoegd."
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.ctrl.js
-msgid "%1 case roles added."
-msgstr "%1 dossierrollen toegevoegd."
+msgid_plural "%count case roles added."
+msgstr[0] ""
+msgstr[1] ""
 
 #: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.ctrl.js
 msgid "1 case role already occupied by the selected contact."
-msgstr "1 dossierrol wordt al bekleed door het geselecteerde contact."
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.ctrl.js
-msgid "%1 case roles already occupied by the selected contact."
-msgstr "%1 dossierrollen worden al bekleed door het geselecteerde contact."
+msgid_plural "%count case roles already occupied by the selected contact."
+msgstr[0] ""
+msgstr[1] ""
 
 #: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.html
 msgid "Role Type"
@@ -841,6 +847,62 @@ msgstr "Bestaande rollen vervangen"
 #: ext/civi_case/ang/civiCaseTasks/civiCaseTaskCaseRole.html
 msgid "Adding roles..."
 msgstr "Rollen toevoegen..."
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.ctrl.js
+msgid "No cases to open."
+msgstr "Geen dossiers om te openen."
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.ctrl.js
+msgid "All contacts skipped"
+msgstr "Alle contacten overslaan"
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.ctrl.js
+msgid "Successfully opened 1 case."
+msgid_plural "Successfully opened %count cases."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.ctrl.js
+msgid "View case"
+msgstr "Dossier weergeven"
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
+msgid "Multiple contacts selected..."
+msgstr "Meerdere contacten geselecteerd..."
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
+msgid "Open new cases for each contact"
+msgstr "Open nieuwe dossiers voor elk contact"
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
+msgid "Open a single case with all contacts jointly"
+msgstr "Open een enkel dossier voor alle gezamenlijke contacten"
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
+msgid "Add Value"
+msgstr "Waarde toevoegen"
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
+msgid "1 contact already has an open case."
+msgid_plural "%count contacts already have an open case."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
+msgid "Skip contact with open case"
+msgid_plural "Skip contacts with open cases"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
+msgid "Create new case anyway"
+msgid_plural "Create new cases anyway"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
+msgid "Opening case..."
+msgstr "Bezig met dossier openen..."
 
 #: ext/civi_case/ang/crmCaseType/activityTypesTable.html
 msgid "Max Instances"
@@ -1032,10 +1094,6 @@ msgid "Short name of the case."
 msgstr "Korte naam van het dossier."
 
 #: schema/Case/Case.entityType.php
-msgid "Date on which given case starts."
-msgstr "Datum waarop het dossier begint."
-
-#: schema/Case/Case.entityType.php
 msgid "Date on which given case ends."
 msgstr "Datum waarop dossier eindigt."
 
@@ -1169,7 +1227,7 @@ msgstr "Definitie dossiertype"
 msgid "xml definition of case type"
 msgstr "xml-definitie van dossiertype"
 
-#: templates/CRM/Case/Audit/Report.tpl
+#: templates/CRM/Case/Audit/Report.tpl templates/CRM/Case/Page/DashBoard.tpl
 msgid "Case Summary"
 msgstr "Dossier-overzicht"
 
@@ -1267,34 +1325,6 @@ msgstr "Koppelen aan dossier is niet mogelijk."
 #: templates/CRM/Case/Form/ActivityToCase.tpl
 msgid "Activity has been filed to %1 case."
 msgstr "Activiteit is gekoppeld aan %1 dossier."
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "Created On"
-msgstr "Gemaakt op"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "View this revision of the activity record."
-msgstr "Deze revisie van het activiteitenregister weergeven."
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "View (Current Revision)"
-msgstr "Bekijken (huidige revisie)"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "List all revisions"
-msgstr "Alle revisies tonen"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "(this is the current revision)"
-msgstr "(dit is de huidige revisie)"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "View current revision"
-msgstr "Huidige revisie weergeven"
-
-#: templates/CRM/Case/Form/ActivityView.tpl
-msgid "(this is not the current revision)"
-msgstr "(dit is niet de huidige revisie)"
 
 #: templates/CRM/Case/Form/ActivityView.tpl
 msgid "Prompted by"
@@ -1446,10 +1476,6 @@ msgstr "Dossierkenmerken"
 msgid "There are no tags currently assigned to this case."
 msgstr "Er zijn momenteel geen kenmerken aan dit dossier toegewezen."
 
-#: templates/CRM/Case/Form/CaseView.tpl
-msgid "Add Tags"
-msgstr "Kenmerken toevoegen"
-
 #: templates/CRM/Case/Form/DeleteClient.tpl
 msgid "Remove Client %1 from case %2"
 msgstr "Cliënt %1 uit dossier %2 verwijderd"
@@ -1509,24 +1535,12 @@ msgid "Refer to the %1 to learn about this process."
 msgstr "Raadpleeg de %1 voor uitleg over dit proces."
 
 #: templates/CRM/Case/Page/DashBoard.tpl
+msgid "Show Only My Cases"
+msgstr ""
+
+#: templates/CRM/Case/Page/DashBoard.tpl
 msgid "Find My Cases"
 msgstr "Zoek dossiers"
-
-#: templates/CRM/Case/Page/DashBoard.tpl
-msgid "All Cases"
-msgstr "Alle dossiers"
-
-#: templates/CRM/Case/Page/DashBoard.tpl
-msgid "All Cases with Upcoming Activities"
-msgstr "Alle dossiers met aanstaande activiteiten"
-
-#: templates/CRM/Case/Page/DashBoard.tpl
-msgid "My Cases with Upcoming Activities"
-msgstr "Mijn dossiers met aanstaande activiteiten"
-
-#: templates/CRM/Case/Page/DashBoard.tpl
-msgid "Summary of All Cases"
-msgstr "Overzicht van alle dossiers"
 
 #: templates/CRM/Case/Page/DashBoard.tpl
 msgid "My Cases With Upcoming Activities"
@@ -1588,62 +1602,33 @@ msgstr "Activiteitenoverzicht"
 msgid "Your Case Role(s)"
 msgstr "Mijn dossierrol(len)"
 
-#: ext/civi_case/Civi/Api4/Service/CaseTasksProvider.php
-msgid "Case - Open New Case"
-msgstr "Dossier - Open nieuw Dossier"
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseManagerSpecProvider.php
+msgid "Contact currently holding the case-type's manager role for this case."
+msgstr ""
 
-#: ext/civi_case/Civi/Api4/Service/Spec/Provider/ActivityCaseSpecProvider.php
-msgid "Filed on Case"
-msgstr "Toevoegen aan dossier"
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseRoleSpecProvider.php
+msgid "The relationship role(s) the logged-in user holds on this case."
+msgstr ""
 
-#: ext/civi_case/Civi/Api4/Service/Spec/Provider/ActivityCaseSpecProvider.php
-msgid "CiviCase this activity belongs to."
-msgstr "CiviCase waartoe de activiteit behoort."
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseRoleSpecProvider.php
+msgid "Is My Case"
+msgstr ""
 
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.ctrl.js
-msgid "No cases to open."
-msgstr "Geen dossiers om te openen."
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseRoleSpecProvider.php
+msgid ""
+"Whether the logged-in user holds any active relationship role on this case."
+msgstr ""
 
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.ctrl.js
-msgid "All contacts skipped"
-msgstr "Alle contacten overslaan"
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseRoleSpecProvider.php
+msgid "I Am Case Manager"
+msgstr ""
 
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.ctrl.js
-msgid "Successfully opened 1 case."
-msgstr "Succesvol 1 dossier geopend."
+#: ext/civi_case/Civi/Api4/Service/Spec/Provider/CaseRoleSpecProvider.php
+msgid ""
+"Whether the logged-in user is the configured case manager for this case."
+msgstr ""
 
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.ctrl.js
-msgid "View case"
-msgstr "Dossier weergeven"
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
-msgid "Multiple contacts selected..."
-msgstr "Meerdere contacten geselecteerd..."
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
-msgid "Open new cases for each contact"
-msgstr "Open nieuwe dossiers voor elk contact"
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
-msgid "Open a single case with all contacts jointly"
-msgstr "Open een enkel dossier voor alle gezamenlijke contacten"
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
-msgid "Add Value"
-msgstr "Waarde toevoegen"
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
-msgid "1 contact already has an open case."
-msgstr "1 contact heeft al een open dossier"
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
-msgid "Skip contact with open case"
-msgstr "Sla het contact over met een open dossier"
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
-msgid "Create new case anyway"
-msgstr "Voeg hoe dan ook een nieuw dossier toe"
-
-#: ext/civi_case/ang/civiCaseTasks/civiCaseTaskOpenCase.html
-msgid "Opening case..."
-msgstr "Bezig met dossier openen..."
+#: ext/civi_case/ang/crmCaseType/sequenceTable.html
+#: ext/civi_case/ang/crmCaseType/timelineTable.html
+msgid "Default subject"
+msgstr ""
