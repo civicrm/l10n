@@ -133,6 +133,10 @@ function build_raw_pot() {
         {CRM,templates/CRM}/{Custom,Dashlet,Dedupe,Export,Form,Friend} \
         {CRM,templates/CRM}/{Group,Import,Logging,Note,Price,Profile} \
         {CRM,templates/CRM}/{Relationship,SMS,Standalone,Tag,UF,Utils} \
+        CRM/Api4 \
+        Civi/ \
+        templates/Civi/ \
+        mixin/*/mixin.php \
         ang/crmApp* \
         ang/crmAttachment* \
         ang/crmDashboard* \
